@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="calc">
+    <div class="btn-row">
+        <button class="btn btn-del" onclick="clickbtn('c')">c</button>
+        <input id="number" type="text" class="numinput" disabled>
+    </div>
+    <div class="btns">
+        <div class="btn-row">
+            <button class="btn btn-num" onclick="clickbtn('7')">7</button>
+            <button class="btn btn-num" onclick="clickbtn('8')">8</button>
+            <button class="btn btn-num" onclick="clickbtn('9')">9</button>
+            <button class="btn btn-act" onclick="clickbtn('+')">+</button>
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-num" onclick="clickbtn('4')">4</button>
+            <button class="btn btn-num" onclick="clickbtn('5')">5</button>
+            <button class="btn btn-num" onclick="clickbtn('6')">6</button>
+            <button class="btn btn-act" onclick="clickbtn('-')">-</button>
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-num" onclick="clickbtn('1')">1</button>
+            <button class="btn btn-num" onclick="clickbtn('2')">2</button>
+            <button class="btn btn-num" onclick="clickbtn('3')">3</button>
+            <button class="btn btn-act" onclick="clickbtn('÷')">÷</button>
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-num" onclick="clickbtn('0')">0</button>
+            <button class="btn btn-num" onclick="clickbtn('.')">.</button>
+            <button class="btn btn-tol" onclick="clickbtn('=')">=</button>
+            <button class="btn btn-act" onclick="clickbtn('×')">×</button>
+        </div>
+    </div>
+</div>
+<script>
+    const numinput = document.getElementById("number");
+    function clickbtn(num) {
+        if(num == 'c'){
+            numinput.value = ""
+        }else if(["+","-","÷","×","."].includes(numinput.value.slice(-1)) && num == '=') {
+            numinput.value = "ERROR"
+        } else if (num == '=') {
+            let ans = eval(numinput.value.replace(/÷/g, '/').replace(/×/g, '*'))
+            numinput.value = numinput.value.indexOf("÷") != -1 ? +(Math.round(ans + "e+2")  + "e-2") : ans
+        } else {
+            if (["+","-","÷","×","."].includes(numinput.value.slice(-1)) && ["+","-","÷","×","."].includes(num)) {
+                numinput.value = numinput.value
+            }else if(isNaN(numinput.value.slice(-1) == '' ? NaN : Number(numinput.value.slice(-1))) && num == "."){
+                numinput.value = numinput.value
+            } else {
+                numinput.value += num
+            }
+        }
+    }
+</script>
+</body>
+</html>

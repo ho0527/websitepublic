@@ -1,0 +1,205 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    padding: 0px;
+    margin: 0px;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+    border: 5px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 85%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.xcenter{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 100%;
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+    width: 100%;
+}
+
+.checkboxdiv{
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.box{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox{
+    display: none;
+}
+
+.checkboxdivdiv{
+    display: flex;
+}
+
+.checkboxdiv{
+    margin: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkboxdiv1:has(.checkbox1:checked){
+    background-color: gold;
+    border: 5px;
+    transition: all 0.3s ease;
+}
+
+.checkboxdiv2:has(.checkbox2:checked){
+    background-color: gold;
+    border: 5px;
+    transition: all 0.3s ease;
+}
+
+.checkboxdiv3:has(.checkbox3:checked){
+    background-color: gold;
+    border: 5px;
+    transition: all 0.3s ease;
+}
+
+.checkboxdiv4:has(.checkbox4:checked){
+    background-color: gold;
+    border: 5px;
+    transition: all 0.3s ease;
+}
+
+.totaldiv{
+    display: flex;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.total{
+    display: none;
+    margin-left: 5px;
+}
+
+.main:not(:has(.checkbox1:checked)):not(:has(.checkbox2:checked)):not(:has(.checkbox3:checked)):not(:has(.checkbox4:checked))>.totaldiv>.total0 {
+    display: block; 
+}
+
+.main:has(.checkbox1:checked):not(:has(.checkbox2:checked)):not(:has(.checkbox3:checked)):not(:has(.checkbox4:checked))>.totaldiv>.total10 {
+    display: block; 
+}
+
+.main:not(:has(.checkbox1:checked)):has(.checkbox2:checked):not(:has(.checkbox3:checked)):not(:has(.checkbox4:checked))>.totaldiv>.total32{
+    display: block;
+}
+
+.main:not(:has(.checkbox1:checked)):not(:has(.checkbox2:checked)):has(.checkbox3:checked):not(:has(.checkbox4:checked))>.totaldiv>.total64{
+    display: block;
+}
+
+.main:not(:has(.checkbox1:checked)):not(:has(.checkbox2:checked)):not(:has(.checkbox3:checked)):has(.checkbox4:checked)>.totaldiv>.total-15{
+    display: block;
+}
+
+.main:has(.checkbox1:checked):has(.checkbox2:checked):not(:has(.checkbox3:checked)):not(:has(.checkbox4:checked))>.totaldiv>.total42{
+    display: block;
+}
+
+.main:has(.checkbox1:checked):not(:has(.checkbox2:checked)):has(.checkbox3:checked):not(:has(.checkbox4:checked))>.totaldiv>.total74{
+    display: block;
+}
+
+.main:has(.checkbox1:checked):not(:has(.checkbox2:checked)):not(:has(.checkbox3:checked)):has(.checkbox4:checked)>.totaldiv>.total-5{
+    display: block;
+}
+
+.main:not(:has(.checkbox1:checked)):has(.checkbox2:checked):has(.checkbox3:checked):not(:has(.checkbox4:checked))>.totaldiv>.total96{
+    display: block;
+}
+
+.main:not(:has(.checkbox1:checked)):has(.checkbox2:checked):not(:has(.checkbox3:checked)):has(.checkbox4:checked)>.totaldiv>.total17{
+    display: block;
+}
+
+.main:not(:has(.checkbox1:checked)):not(:has(.checkbox2:checked)):has(.checkbox3:checked):has(.checkbox4:checked)>.totaldiv>.total49{
+    display: block;
+}
+
+.main:has(.checkbox1:checked):has(.checkbox2:checked):has(.checkbox3:checked):not(:has(.checkbox4:checked))>.totaldiv>.total106{
+    display: block;
+}
+
+.main:has(.checkbox1:checked):has(.checkbox2:checked):not(:has(.checkbox3:checked)):has(.checkbox4:checked)>.totaldiv>.total27{
+    display: block;
+}
+
+.main:not(:has(.checkbox1:checked)):has(.checkbox2:checked):has(.checkbox3:checked):has(.checkbox4:checked)>.totaldiv>.total81{
+    display: block;
+}
+
+.main:has(.checkbox1:checked):has(.checkbox2:checked):has(.checkbox3:checked):has(.checkbox4:checked)>.totaldiv>.total91{
+    display: block;
+}
+
+.text{
+    color: white;
+    text-align: center;
+}

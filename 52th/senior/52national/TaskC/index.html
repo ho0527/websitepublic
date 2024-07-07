@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>高美濕地旅遊網站首頁</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div><img src="image/background.jpg" class="headerpng"></div>
+        <div class="navigationbar">
+            <img src="logo.png" class="logo">
+            <div class="navigationbarbuttondiv">
+                <input type="button" class="navigationbarbutton" id="nbarmain" value="首頁">
+                <input type="button" class="navigationbarbutton" id="nbarnew" value="最新旅遊消息">
+                <input type="button" class="navigationbarbutton" id="nbarhot" value="熱門旅遊景點">
+                <input type="button" class="navigationbarbutton" id="nbarmap" value="交通資訊">
+                <input type="button" class="navigationbarbutton" id="nbarconnection" value="聯絡我們">
+                <input type="button" class="navigationbarbutton" id="nbardetail" value="詳細旅遊資訊頁面">
+            </div>
+        </div>
+        <div class="slogan">標語標語標語標語標語標語</div>
+        <div class="title">標題標題濕地標題標題高美濕地高美標題標題標題標題</div>
+        <form>
+            <input type="text" name="search" placeholder="景點搜索表單">
+            <input type="submit" name="submit" value="搜尋">
+        </form>
+        <div class="post" id="new">
+            <div class="title">最新旅遊消息區</div>
+            <div class="box">
+                <div class="posttitle">HIHI</div>
+                <img src="image/image1.jpg" class="postimg">
+                <div class="posttime">2023-02-07 21:35:39</div>
+            </div>
+            <div class="box">
+                <div class="posttitle">TITLE</div>
+                <img src="image/image2.jpg" class="postimg">
+                <div class="posttime">2024-03-08 08:07:14</div>
+            </div>
+            <div class="box">
+                <div class="posttitle">CHRIS</div>
+                <img src="image/image3.jpg" class="postimg">
+                <div class="posttime">2025-04-09 08:13:16</div>
+            </div>
+        </div>
+        <div class="hot" id="hot">
+            <div class="title">熱門旅遊景點</div>
+            <div class="box">
+                <div class="hottitle">MOW</div>
+                <img src="image/image4.jpg" class="hotimg">
+                <div class="hotstar">
+                    <form>
+                        <input type="text" placeholder="評價1~5顆星" class="starinput">
+                        <input type="submit" value="送出">
+                    </form>
+                </div>
+            </div>
+            <div class="box">
+                <div class="hottitle">ININ</div>
+                <img src="image/image5.jpg" class="hotimg">
+                <div class="hotstar">
+                    <form>
+                        <input type="text" placeholder="評價1~5顆星" class="starinput">
+                        <input type="submit" value="送出">
+                    </form>
+                </div>
+            </div>
+            <div class="box">
+                <div class="hottitle">WOW</div>
+                <img src="image/image6.jpg" class="hotimg">
+                <div>
+                    <input type="text" placeholder="評價1~5顆星" class="starinput">
+                    <input type="submit" value="送出">
+                </div>
+            </div>
+        </div>
+        <div class="map" id="map">
+            <div class="title">交通資訊</div>
+            <div class="mapbox">
+                <img src="map.png" class="mapimage">
+                <div class="mapdepiction">文字說明mapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmapmap</div>
+            </div>
+        </div>
+        <div class="main2" id="connection">
+            <div class="title">聯絡表單</div>
+            <form>
+                姓名: <input type="text" class="input" id="username" name="username"><br><br>
+                電話: <input type="text" class="input" id="username" name="username"><br><br>
+                Email: <input type="text" class="input" id="username" name="username"><br><br>
+                <div class="text">
+                    <textarea type="text" name="code" id="code" rows="5" cols="30" placeholder="內文"></textarea><br>
+                </div>
+                <input type="submit" class="button" name="clear" value="清除">
+                <input type="button" class="button" id="login" onclick="loginclick()" value="登入">
+            </form>
+        </div>
+        <div class="footer">
+            Copyright &copy GWTN 2022 - All rights reserved<br>
+            <div id="link">
+                <button id="fb" class="button"><img src="fb.png" class="footericon">Facebook</button>
+                <button id="twitter" class="button"><img src="twitter.jpg" class="footericon">Twitter</button>
+                <button id="youtube" class="button"><img src="yt.jpg" class="footericon">Youtube</button>
+            </div>
+            <input type="button" id="onoff" value="關閉footer">
+        </div>
+        <script src="index.js"></script>
+        <script src="footer.js"></script>
+    </body>
+</html>

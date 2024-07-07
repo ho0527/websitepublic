@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>小畫家</title>
+        <link rel="stylesheet" href="edit.css">
+        <link rel="stylesheet" href="plugin/css/sort.css">
+        <link rel="stylesheet" href="plugin/css/macossection.css">
+        <link rel="stylesheet" href="plugin/css/chrisplugin.css">
+        <script src="plugin/js/sort.js"></script>
+        <script src="plugin/js/macossection.js"></script>
+        <script src="plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="navigationbar">
+                <input type="button" class="navigationbarbutton" id="new" value="新增專案">
+                <input type="button" class="navigationbarbutton" id="open" value="開啟檔案">
+                <input type="button" class="navigationbarbutton" id="undo" value="復原">
+                <input type="button" class="navigationbarbutton" id="redo" value="重做">
+                <input type="button" class="navigationbarbutton" id="save" value="儲存為圖片">
+                <input type="button" class="navigationbarbutton savesample" value="儲存為樣章">
+                <input type="button" class="navigationbarbutton" id="savecanedit" value="儲存為可編輯檔">
+                <input type="button" class="navigationbarbutton" id="uploadpicture" value="上傳圖片">
+                <input type="file" class="file" id="file" accept="image/*">
+            </div>
+            <div class="setting" id="setting">
+                <input type="button" class="button" id="select" value="選取">
+                <input type="button" class="button" id="paint" value="筆刷">
+                <input type="button" class="button" id="bucket" value="油漆桶">
+                <input type="button" class="button" id="sample" value="樣章">
+                <input type="button" class="button" id="setcanva" value="調整畫布">
+            </div>
+            <div class="maindiv macossectiondiv" id="main">
+                <canvas class="maincanva" id="canva1"></canvas>
+            </div>
+            <div class="left" id="left">
+                <div class="maincolor">
+                    <div class="color" id="black"></div>
+                    <div class="color" id="lightgray"></div>
+                    <div class="color" id="gray"></div>
+                    <div class="color" id="pink"></div>
+                    <div class="color" id="red"></div>
+                    <div class="color" id="yellow"></div>
+                    <div class="color" id="orange"></div>
+                    <div class="color" id="orangered"></div>
+                    <div class="color" id="green"></div>
+                    <div class="color" id="lightblue"></div>
+                    <div class="color" id="blue"></div>
+                    <div class="color" id="purple"></div>
+                    <div class="color" id="white"></div>
+                    <input type="color" class="rainbow" id="rainbow">
+                </div>
+                <div class="leftmid">
+                    線條 <input type="range" class="range" id="thick" min="1" max="100" value="0.1">
+                </div>
+                <div class="layerdiv macossectiondiv" id="layer">
+                    <div class="layergrid" id="layer1" data-id="1">
+                        <div class="layername">
+                            圖層1
+                        </div>
+                        <div class="layerdef">
+                            <input type="button" class="layerdel" data-id="1" value="刪除">
+                        </div>
+                    </div>
+                </div>
+                <input type="button" class="newlayer" id="newlayer" value="+">
+            </div>
+        </div>
+        <div class="lightbox" id="samplelightbox">
+            <div class="mask"></div>
+            <div class="body">
+                <input type="button" class="close" id="close" value="X">
+                <div class="lightboxtop">
+                    <h2>請選擇樣張</h2>
+                    <div class="lightboxtopmain macossectiondiv" id="choosesample"></div>
+                </div>
+                <div class="lightboxbottom">
+                    或<input type="button" class="lightboxbutton" id="uplaodsample" value="上傳圖片">
+                    或<input type="button" class="lightboxbutton savesample" value="儲存目前圖案"><br>
+                    <input type="file" class="file" id="samplefile">
+                    <input type="button" class="button" id="samplesubmit" value="確定">
+                </div>
+            </div>
+        </div>
+        <script src="edit.js"></script>
+    </body>
+</html>

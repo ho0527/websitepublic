@@ -1,0 +1,43 @@
+body{
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    word-break: break-all;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.main{
+    border: 1px white solid;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    width: 50%;
+    height: 30vh;
+    padding: 20px;
+}
+
+.box{
+    position: absolute;
+    top: 20px;
+    width: 25%;
+    height: 90%;
+    background: red;
+    animation:5s box infinite;
+}
+
+@keyframes box{
+    0%{
+        left: 20px;
+        background: #FF0000;
+    }
+    50%{
+        left: 70%;
+        background: #0000FF;
+    }
+    100%{
+        left: 20px;
+        background: #FF0000;
+    }
+}

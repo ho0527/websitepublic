@@ -1,0 +1,612 @@
+{
+	"data": [
+		{
+			"title": "50national",
+			"link": "50th/senior/50national/",
+			"statu": "FAILED",
+			"ps": "list",
+			"createdate": "2023/07/01",
+			"updatedate": "2024/02/19",
+			"data": [
+				{
+					"title": "ModuleA-FONTEND",
+					"link": "TaskA/",
+					"statu": "FAILED",
+					"ps": "list",
+					"createdate": "2023/06/22",
+					"updatedate": "2023/11/07",
+					"data": [
+						{
+							"list": "task1",
+							"description": "FONTEND",
+							"statu": "FAILED",
+							"data": [
+								{
+									"no": "01",
+									"description": "搜尋是不分大小寫的",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "02",
+									"description": "有呈現搜尋結果數量",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "03",
+									"description": "僅在輸入 3 個字(含)以上才顯示搜尋結果，找到的關鍵字被高亮顯示",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "04",
+									"description": "可以透過題目指定的關鍵字指定搜尋欄位，並可正確處理引號內容，找到的關鍵字被高亮顯示",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "05",
+									"description": "可以處理多個搜尋條件，找到的關鍵字被高亮顯示",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "06",
+									"description": "能夠將歌曲添加到播放列表中，並且只能添加一次，重複時有錯誤訊息提示",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "07",
+									"description": "專輯中 (含專輯歌曲頁面) 經由互動後有顯示題目中的所有元素，少一個扣 0.25 分",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "08",
+									"description": "專輯有依照字典排序呈現",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "09",
+									"description": "專輯可以呈現專輯中的所有歌曲，播放清單設計與搜尋頁面相同",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "10",
+									"description": "可以從專輯的歌曲頁面返回專輯頁面",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "11",
+									"description": "點擊專輯播放按鈕，將以當前專輯中的所有歌曲替換為播放清單，並且可以顯示訊息詢問使用者是否要替換",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "12",
+									"description": "播放器有所有題目中的元素",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "13",
+									"description": "播放器不會因為執行其他功能而中斷或隱藏",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "14",
+									"description": "使用同一個按鈕播放/暫停當前歌曲，圖示切換正確，且可使用空格鍵切換狀態",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "15",
+									"description": "點擊“上一首”和“下一首”按鈕，可切到播放清單中的上一首歌或下一首歌，按鈕會依據播放清單的狀態啟用/停用。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "16",
+									"description": "播放進度可以使用左鍵倒退 5s 與右鍵快轉 5s",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "17",
+									"description": "播放器的進度條與時間資訊更新正確",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "18",
+									"description": "可以使用音量控制區調節歌曲音量",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "19",
+									"description": "播放器可以於 CHROME 的媒體播放器整合，並且呈現歌曲資訊，且控制鍵運作正常",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "20",
+									"description": "若歌曲有提供歌詞，可以顯示歌曲歌詞",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "21",
+									"description": "有依照目前時間顯示歌詞",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "22",
+									"description": "處理歌曲讀取錯誤的情況，並提供友善的訊息提示",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "23",
+									"description": "播放清單有題目上的所有元素，",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "24",
+									"description": "當前播放中歌曲會高亮顯示",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "25",
+									"description": "點選非當前歌曲的音樂會切換到該歌曲並自動播放",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "26",
+									"description": "可以從播放清單中移除非當前播放歌曲",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "27",
+									"description": "設定的播放順序有正常運作 (下一首、單曲循環、隨機播放)",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "28",
+									"description": "播放清單在重新讀取頁面後顯示相同的資訊",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "29",
+									"description": "可以透過連結分享播放清單給不同瀏覽器的使用者",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "30",
+									"description": "專輯瀏覽功能與詳情的設計感與互動效果",
+									"statu": "subjective",
+									"data": []
+								},
+								{
+									"no": "31",
+									"description": "播放清單的設計感與互動效果",
+									"statu": "subjective",
+									"data": []
+								},
+								{
+									"no": "32",
+									"description": "播放器的設計感與互動效果",
+									"statu": "subjective",
+									"data": []
+								}
+							]
+						},
+						{
+							"list": "task1",
+							"description": "self",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"no": "01",
+									"description": "播放器介面可以使用拖拉更新",
+									"statu": "SUCCESS",
+									"data": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"title": "ModuleB-DESIGN",
+					"statu": "N/A",
+					"ps": "list",
+					"createdate": "N/A",
+					"updatedate": "N/A",
+					"data": []
+				},
+				{
+					"title": "ModuleC-API",
+					"link": "https://hiiamchris.ddns.net:444/website/50th/senior/50national/TaskC/",
+					"statu": "SUCCESS",
+					"ps": "list",
+					"createdate": "2023/06/22",
+					"updatedate": "2023/11/17",
+					"data": []
+				},
+				{
+					"title": "ModuleD-GAME",
+					"link": "TaskD/",
+					"statu": "FAILED",
+					"ps": "list",
+					"createdate": "2023/06/22",
+					"updatedate": "2023/10/31",
+					"data": [
+						{
+							"list": "task",
+							"description": "game",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"no": "01",
+									"description": "起始頁至少包含題目描述元素，包含:開始遊戲按鈕，教學按鈕，字體大小按鈕和難易度（簡單，正常和困難）",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "02",
+									"description": "遊戲畫面至少包含題目描述元素，包含:暫停/繼續按鈕，遊戲區域，鬼的重生區域，字體大小按鈕，計時器，難易度，吃豆人，鬼，豆子，星星，玩家姓名，最高分，分數和統計數據",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "03",
+									"description": "排名表對話框至少包含題目描述元素，包含:遊戲畫面，重新啟動遊戲按鈕，難易度，得分，排名表與列：排名，玩家姓名，得分和時間，排名值，前三名和當前位置必須出現在表中。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "04",
+									"description": "遊戲在正確的解析度上開發: 768x1024",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "05",
+									"description": "按鈕具有 active 和 hover 的效果，包含: 開始遊戲、教學、退出教學、暫停/繼續、字體大小。每個按鈕每個狀態錯誤扣 0.25",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "06",
+									"description": "在遊戲畫面，字體可以放大或縮小字體",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "07",
+									"description": "難易度與起始頁設定的一致",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "08",
+									"description": "按下開始按鈕後，生成遊戲區域，所有牆壁佔 1 格寬，豆子及星星佔 1格寬。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "09",
+									"description": " map.txt 相同",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "10",
+									"description": "遊戲區域使用 ajax 讀取 map.txt",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "11",
+									"description": "吃豆人吃到豆子時，畫面上的分數會同時更新。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "12",
+									"description": "吃豆人吃到星星時，畫面上的分數會同時更新。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "13",
+									"description": "鬼的數量及星星的數量依照選取的遊戲難易度生成。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "14",
+									"description": "按下「上、下、左、右」鍵，可正確移動。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "15",
+									"description": "吃豆人本身需有動畫效果，移動時也需要有移動方向(上/下/左/右)的動畫效果。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "16",
+									"description": "鬼本身需有動畫效果，移動時也需要有移動方向(上/下/左/右)的動畫效果。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "17",
+									"description": "在吃豆人移動的道路上需鋪滿豆子或星星。豆子、星星不能重疊，也不能顯示在牆壁上。吃豆人吃到豆子後不會再產生新豆子，豆子被吃掉後會消失。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "18",
+									"description": "持續按同個按鍵 250ms 後可以重複執行該按鍵的動作直到按鍵放開",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "19",
+									"description": "不可以將吃豆人移動到遊戲區外，也不可穿越牆壁。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "20",
+									"description": "當吃豆人被鬼碰到時，扣除一條生命值。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "21",
+									"description": "當生命值歸零時，遊戲結束。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "22",
+									"description": "點暫停按鈕，遊戲暫停，計時器也暫停計時，任何按鍵皆無法操作吃豆人，文字變為【繼續】；點選【繼續】後繼續遊戲",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "23",
+									"description": "分數可以透過 AJAX 送到伺服器上，並將分數儲存到指定的資料庫的資料表內",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "24",
+									"description": "可以顯示排行榜對話框，向玩家顯示排名，其中“重啟遊戲”按鈕允許重新開始遊戲。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "25",
+									"description": "排名資料顯示正確，且可以標記出目前玩家的排名排名需要按分數降冪排列。如果多個玩家具有相同的分數，同分部分以時間升冪排列，且排名若相同，會占用後續的名次",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "26",
+									"description": "遊玩中，蘋果/鳳梨/草莓會在沒有豆子或星星的乾淨的道路上隨機生成。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "27",
+									"description": "吃到蘋果時可增加一條生命值。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "28",
+									"description": "吃到鳳梨時可增加吃豆人的速度增加兩倍。",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "29",
+									"description": "吃到草莓時吃豆人可以擁有 15 秒的無敵時間，在無敵時間的狀態下碰到鬼時，鬼會被送至重生區，而吃豆人可以獲得 100 分的積分。",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "30",
+									"description": "吃豆人在靠近鬼的五個格子內時，鬼會朝著吃豆人移動",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "31",
+									"description": "整體遊戲畫面設計具有一致性",
+									"statu": "subjective",
+									"data": []
+								},
+								{
+									"no": "32",
+									"description": "CSS/HTML/JS 是否容易維護",
+									"statu": "subjective",
+									"data": []
+								},
+								{
+									"no": "33",
+									"description": "遊戲主畫面按鈕容易操作",
+									"statu": "subjective",
+									"data": []
+								},
+								{
+									"no": "34",
+									"description": "遊戲排行榜畫面易於閱讀。",
+									"statu": "subjective",
+									"data": []
+								},
+								{
+									"no": "35",
+									"description": "遊戲中所使用的動畫流暢。",
+									"statu": "subjective",
+									"data": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"title": "ModuleE-SPEEDTEST",
+					"link": "TaskE",
+					"statu": "FAILED",
+					"ps": "list",
+					"createdate": "2023/06/22",
+					"updatedate": "2024/02/19",
+					"data": [
+						{
+							"list": 1,
+							"description": "Task",
+							"statu": "FAILED",
+							"data": [
+								{
+									"no": "01",
+									"description": "A01",
+									"link": "TaskE/01",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "02",
+									"description": "A02",
+									"link": "TaskE/02",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "03",
+									"description": "A03",
+									"link": "TaskE/03",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "04",
+									"description": "A04",
+									"link": "TaskE/04",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "05",
+									"description": "A05",
+									"link": "TaskE/05",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "06",
+									"description": "A06",
+									"link": "TaskE/06",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "07",
+									"description": "A07",
+									"link": "TaskE/07",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "08",
+									"description": "A08",
+									"link": "TaskE/08",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "09",
+									"description": "A09",
+									"link": "TaskE/09",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "10",
+									"description": "A10",
+									"link": "TaskE/10",
+									"statu": "SUCCESS",
+									"data": []
+								}
+							]
+						}]
+				},
+				{
+					"title": "ModuleF-ALGORITHM",
+					"statu": "FAILED",
+					"ps": "question",
+					"createdate": "2023/06/22",
+					"updatedate": "2023/07/18",
+					"data": [
+						{
+							"list": "task",
+							"description": "ALGORITHM",
+							"statu": "FAILED",
+							"data": [
+								{
+									"no": "01",
+									"description": "<a href='TaskF/p01.php' download='p01.php' class='a'>Luhn演算法</a>",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "02",
+									"description": "<a href='TaskF/p02.php' download='p02.php' class='a'>資料陣列輸出</a>",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "03",
+									"description": "<a href='TaskF/p03.php' download='p03.php' class='a'>路徑製作</a>",
+									"statu": "FAILED",
+									"data": []
+								},
+								{
+									"no": "04",
+									"description": "<a href='TaskF/p04.php' download='p04.php' class='a'>括號判別</a>",
+									"statu": "SUCCESS",
+									"data": []
+								},
+								{
+									"no": "05",
+									"description": "<a href='TaskF/p05.php' download='p05.php' class='a'>矩陣相乘</a>",
+									"statu": "SUCCESS",
+									"data": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

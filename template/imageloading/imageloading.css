@@ -1,0 +1,57 @@
+/*
+    標題: 圖片讀取等待畫面
+    參考: this.web(IG)
+    作者: 小賀chris
+    製作及log:
+    2023/05/26 19:14:12 BATA 1.0.0
+
+        |-------    -----    -                     -     -----  -----  -----   -------|
+       |-------    -        -            - - -          -                     -------|
+      |-------    -        -------    -          -     -----    --       --  -------|
+     |-------    -        -     -    -          -         -      --     --  -------|
+    |-------    -----    -     -    -          -     -----         -----  -------|
+*/
+
+.card{
+    width: 172px;
+    height: 280px;
+    padding: 16px;
+    background: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardimage{
+    width: 172px;
+    height: 172px;
+}
+
+.cardtitle{
+    width: 172px;
+    height: 32px;
+    border-radius: 999px;
+    margin-top: 24px;
+}
+
+.cardtext{
+    width: 144px;
+    height: 28px;
+    border-radius: 999px;
+    margin-top: 16px;
+}
+
+.card>*{
+    background-image: linear-gradient(90deg,rgba(255, 255, 255, 0.15) 0%,rgba(255, 255, 255, 0.25) 20%,rgba(255, 255, 255, 0.15) 40%);
+    background-size: 200%;
+    animation: 2s loading infinite ease-in-out;
+}
+
+@keyframes loading{
+    from{
+        background-position: 100%;
+    }
+
+    to{
+        background-position: -100%;
+    }
+}

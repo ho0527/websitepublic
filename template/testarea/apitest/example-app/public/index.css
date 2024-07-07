@@ -1,0 +1,179 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(33, 42, 54);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main{
+    border: 1px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.logo{
+    height: 75px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.navigationbarleft{
+    height: 75px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    width: 125px;
+    height: 50px;
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.input{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}

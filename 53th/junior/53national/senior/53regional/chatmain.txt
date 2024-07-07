@@ -1,0 +1,62 @@
+這段程式碼主要是在生成一個 HTML 表格，其中包含來自一個名為 product 的數據庫的數據，並根據其中的條件判斷來呈現不同的內容。這是一個相對複雜的程式碼，這種情況下進行簡化可能會導致可讀性降低。但是，我們可以嘗試用更有效率的方式來改寫這段程式碼，例如將重複的程式碼抽取出來，並且使用迴圈來生成表格，而不是手動寫出每一行。
+
+以下是我嘗試優化的版本：
+
+php
+Copy code
+<table class="producttable">
+<?php
+function data($p){
+    $data = ["name" => "商品名稱", "link" => "相關連結", "cost" => "費用", "date" => "發佈日期", "default" => "商品簡介"];
+    echo $data[$p] ?? $data["default"];
+}
+
+$products = fetchall(query($db,"SELECT * FROM `product`"));
+
+foreach ($products as $product) {
+    $picturePosition = array_search("picture", $product);
+    $rows = [1, 2, 3, 4, 5, 6, 7, 8];
+    unset($rows[$picturePosition]);
+    ?>
+    <tr>
+        <td class="producttd">
+            版型<?= $product[0] ?>
+            <table class="coffeetable mag" id="<?= $product[0] ?>">
+                <?php
+                foreach ($rows as $i) {
+                    ?>
+                    <tr>
+                        <?php
+                        if ($i === $picturePosition + 1) {
+                            ?><td class="coffee" rowspan="3">圖片</td><?php
+                        }
+                        ?>
+                        <td class="coffee"><?php data($product[$i]); ?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </table>
+        </td>
+    </tr>
+    <?php
+}
+
+$val = $_GET["val"] ?? null;
+if ($val === "no" && !isset($_SESSION["val"])) {
+    $_SESSION["val"] = "1";
+} elseif ($val) {
+    $_SESSION["val"] = $val;
+}
+
+if ($val || !isset($_SESSION["val"])) {
+    ?><script>location.href="productindex.php"</script><?php
+}
+
+if (isset($_GET["clearall"])) {
+    unset($_SESSION["name"], $_SESSION["picture"], $_SESSION["cost"], $_SESSION["link"], $_SESSION["intr"], $_SESSION["val"]);
+    ?><script>location.href="main.php"</script><?php
+}
+?>
+</table>
+請注意，這種優化可能需要測試以確保其行為與原始程式碼完全相同。此外，這也假定產品資料中的 "picture" 欄位只會出現一次。如果這不是情況，這個解決

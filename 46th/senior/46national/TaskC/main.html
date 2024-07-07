@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>俄羅斯方塊</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="plugin/css/chrisplugin.css">
+        <script src="plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="main grid" id="main">
+            <div class="left">
+                <div class="shownextdiv" id="shownext"></div>
+                <input type="button" class="bigbutton" id="share" value="畫面分享(s)"><br>
+                <input type="button" class="bigbutton" id="stop" value="暫停遊戲(p)"><br>
+                <input type="button" class="bigbutton" id="cancel" value="放棄遊戲(esc)"><br>
+            </div>
+
+            <!-- 主程式 -->
+            <div class="app macossectiondiv" id="app"></div>
+
+            <!-- 下方區塊 -->
+            <div class="bottom grid">
+                <div class="time" id="time">時間: 00:00</div> <!-- 顯示時間 -->
+                <div class="difficulty" id="difficulty"></div> <!-- 顯示難易度   -->
+                <div class="line" id="line"></div> <!-- 顯示行數 -->
+            </div>
+        </div>
+
+        <!-- js -->
+        <script src="main.js"></script>
+    </body>
+</html> 

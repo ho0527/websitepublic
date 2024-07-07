@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js"></script>
+</head>
+
+<body>
+    <div class="p-3 d-flex border-bottom">
+        <img style="height: 60px;cursor: pointer;" onclick="location='index.php'" src="./picture/123456.png" alt="">
+        <h1 class="mx-3 m-1 strong">南港展覽館接駁專車系統</h1>
+        <h3 onclick="location='./login.html'" class="m-3 btn btn-outline-primary" style="position: absolute;right: 0%;">
+            系統管理</h3>
+    </div>
+    <div class="text-center" style="position: relative;top: 100px;">
+        <h1 style="font-weight: 1000;">網站管理-登入</h1>
+        <div style="width: 1000px;position: absolute;left: 20%;">
+            <div class="input">
+                <label style="font-size: 30px;" class="w-25" for="username">帳號</label>
+                <input type="text" class="w-75 form-control" name="username" id="username">
+            </div>
+            <div class="input">
+                <label style="font-size: 30px;" class="w-25" for="password">密碼</label>
+                <input type="password" class="w-75 form-control" name="password" id="password">
+            </div>
+            <div class="input">
+                <label style="font-size: 30px;" class="w-25" for="verification">驗證碼</label>
+                <input type="text" class="w-75 form-control" name="verification" id="verification">
+            </div>
+            <div class="input nav justify-content-end">
+                <input type="text" class="m-2 text-center w-25 form-control bg-white" name="change" id="change"
+                    readonly>
+                <input type="button" class="m-2 w-25 btn btn-primary" value="重新產生驗證碼" id="changeagain" >
+            </div>
+            <input type="button" class="btn-success w-75 btn" style="position: absolute;left: 17%;" onclick="aaa()" value="登入">
+        </div>
+    </div>
+</body>
+<script>
+    location="./user.php"
+    let code = parseInt(Math.random() * 9999)
+    document.getElementById("change").value = String(code)
+    document.getElementById("changeagain").onclick = function () {
+        let code = parseInt(Math.random() * 9999)
+        document.getElementById("change").value = String(code)
+    }
+    function aaa(){
+        if(document.getElementById("username").value=="admin"){
+            if(document.getElementById("password").value=="1234"){
+                if(document.getElementById("verification").value==document.getElementById("change").value){
+                    alert("登入成功")
+                    location="./user.php"
+                }else{
+                    alert("驗證碼錯誤")
+                }
+            }else{
+                alert("密碼錯誤")
+            }
+        }else{
+            alert("帳號錯誤")
+        }
+    }
+</script>
+
+</html>

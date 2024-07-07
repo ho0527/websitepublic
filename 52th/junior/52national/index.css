@@ -1,0 +1,721 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(33, 42, 54);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main{
+    border: 1px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -20%);
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    text-align: left;
+    background: rgb(33, 42, 54);
+}
+
+.banner{
+    width: 100%;
+    height: 350px;
+}
+
+.logo{
+    height: 75px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.navigationbar{
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.navigationbarbuttondiv{
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    margin-bottom: 10px;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.head{
+    height: 60px;
+    width: 101%;
+    display: flex;
+    justify-content: right;
+    background-color: rgba(245, 245, 245, 0.6);
+    position: relative;
+    bottom: 410px;
+    left: 0px;
+}
+
+.indextitle{
+    color: white;
+    font-size: 40px;
+    font-weight:bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: relative;
+    top: 2px;
+}
+
+.signupdiv{
+    position: relative;
+    left:10px;
+}
+
+.indexdiv{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform:  translate(-50%, -100%) scale(2.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 180px;
+    width: 280px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.loginhead{
+    border: 1px black solid;
+    width: 1200px;
+    height: 75px;
+    position: relative;
+    top: 30px;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,0%);
+}
+
+.posthead{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.pinchattitle{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.newstitle{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.pinpostmessage{
+    border: 1px black solid;
+    width: 1200px;
+    height: 175px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+    overflow-y: auto;
+}
+
+.newsmessage{
+    border: 1px black solid;
+    width: 1200px;
+    max-height: 250px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+    overflow-y: auto;
+}
+
+.postbody{
+    border: 1px black solid;
+    width: 1200px;
+    height: 405px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+    overflow-y: auto;
+}
+
+.adminpost{
+    position: relative;
+    top: 40px;
+}
+
+.button2{
+    color: black;
+    width: 400px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+    border-radius: 10px;
+    left: 50%;
+    transform: translate(-100%,0%);
+}
+
+.indexbutton{
+    cursor: pointer;
+    border-radius: 25px;
+    background-color: white;
+    border: 0.5px black solid;
+    height: 45px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 200px;
+    position: relative;
+    top: 7px;
+    margin-right: 7px;
+}
+
+.indexbutton:hover{
+    background-color: rgba(186, 186, 186, 0.363);
+}
+
+.select{
+    width:70px;
+}
+
+.verifybox{
+    border: 1px black solid;
+    height: 40px;
+    width: 65%;
+    font-size: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: white;
+    color: black;
+}
+
+.posttitle{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    margin: 5px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.block2{
+    border: 1px black solid;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.drag-over{
+    border: dashed 1px rgb(42, 42, 42);
+}
+
+.main-table{
+    border: 1px black solid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/*admin table*/
+.newchatdiv{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform:  translate(-50%, -80%) scale(2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 200px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.indexinput{
+    border-radius: 25px;
+    width: 175px;
+    height: 20px;
+    border: 1px black solid;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.right{
+    float: right;
+}
+
+.useradd{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 350px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+
+}
+
+.buttoncof{
+    border-radius: 25px;
+    width: 55px;
+    height: 20px;
+    border: 1px black solid;
+    background-color: white;
+}
+
+.table4but{
+    width: 150px;
+    text-align: center;
+}
+
+.div{
+    position: absolute;/* 絕對定位 */
+    top: 0px;/* 定位 */
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 999;
+}
+
+.mask{
+    position: absolute;/* 絕對定位 */
+    top: 0px;/* 定位 */
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: rgba(100, 100, 100, 0.25);/* 背景顏色 */
+}
+
+.buttoncel{
+    font-size: 30px;/* 字體大小 */
+    width: 125px;/* 寬度 */
+}
+
+.buttonent{
+    font-size: 30px;/* 字體大小 */
+    width: 125px;/* 寬度 */
+}
+
+.body{
+    position: absolute;
+    left: calc((100% - 700px)/2);
+    top: calc((100% - 250px)/2);
+    display: block;
+    text-align: center;
+    width: 350px;
+    height: 125px;
+    border: 1px blue solid;
+    background-color: rgba(100, 100, 100, 0.5);
+    border-radius: 15px;
+}
+
+.loginbody {
+    position: absolute;/* 絕對定位 */
+    left: 50%;/* 定位 */
+    top: 50%;
+    display: block;/* display */
+    text-align: center;/* 文字置中 */
+    width: 285px;/* 寬度 */
+    height: 125px;/* 高度 */
+    transform: translate(-50%,-50%) scale(4);
+    border: 1px blue solid;/* 邊框 */
+    background-color: rgba(100, 100, 100, 0.5);/* 背景顏色 */
+    border-radius: 15px;/* 圓弧邊框 */
+}
+
+.signupbody{
+    position: absolute;/* 絕對定位 */
+    left: 50%;/* 定位 */
+    top: 50%;
+    display: block;/* display */
+    text-align: center;/* 文字置中 */
+    width: 350px;/* 寬度 */
+    height: 125px;/* 高度 */
+    transform: translate(-50%,-50%) scale(1);
+    border: 1px blue solid;/* 邊框 */
+    background-color: rgba(100, 100, 100, 0.5);/* 背景顏色 */
+    border-radius: 15px;/* 圓弧邊框 */
+}
+
+.stu{
+    font-size: 45px;/* 字體大小 */
+    text-align: center;/* 文字置中 */
+}
+
+.stutext{
+    width: 450px;/* 寬度 */
+    height: 75px;/* 高度 */
+    font-size: 50px;/* 字體大小 */
+    resize: none;/* 禁止移動大小 */
+}
+
+
+.post{
+    position: relative;
+    top: 20px;
+    width: 100%;
+}
+
+.button3{
+    cursor: pointer;
+    float:right;
+    position: relative;
+    bottom: 40px;
+    margin-right: 10px;
+}
+
+.title{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:25px;
+    font-weight:bold;
+    text-align: center;
+}
+
+.username{
+    border: 1px black solid;
+    width: 27.5%;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+    left: 10px;
+    top: 5px;
+}
+
+.message{
+    border-top: 1px black solid;
+    width: 99.5%;
+    height: 94%;
+    font-size: 15px;
+    float: right;
+    position: relative;
+    bottom: 1px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.postmessage{
+    width: 95%;
+    margin-top: 15px;
+    height: 100px;
+    position: relative;
+    left: 10px;
+}
+
+.postdate{
+    border: 1px black solid;
+    width: 85%;
+    height: 25px;
+    position: relative;
+    left: 10px;
+    text-align: left
+}
+
+.postemail{
+    border: 1px black solid;
+    width: 85%;
+    height: 25px;
+    position: relative;
+    left: 10px;
+    text-align: left;
+}
+
+.adminmessage{
+    border: 1px black solid;
+    width: 100%;
+    height: 25px;
+    position: relative;
+    /* top: 5px; */
+    left: 10px;
+    text-align: left;
+}
+
+.pictre{
+    border: 1px black solid;
+    width: 70px;
+    height: 100px;
+}
+
+.edit{
+    border: 1px black solid;
+    width: 50px;
+    height: 100px;
+}
+
+.newpostdiv{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform:  translate(-50%, -80%) scale(2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 200px;
+    width: 280px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.adminresp{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform:  translate(-50%, -80%) scale(2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 100px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.compdiv{
+    border: 1px black solid;
+    width: 1200px;
+    height: 350px;
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    overflow-y: auto;
+}
+
+.random{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 150px;
+    height: 35px;
+    font-size: 20px;
+    z-index: 100;
+}
+
+.compplayerhead{
+    border: 1px black solid;
+    width: 100px;
+    height: 75px;
+}
+
+.compusername{
+    border: 1px black solid;
+    width: 150px;
+}
+
+.compemail{
+    border: 1px black solid;
+    width: 275px;
+}
+
+.compphone{
+    border: 1px black solid;
+    width: 275px;
+}
+
+.vs{
+    border: 1px black solid;
+    width: 125px;
+}
+
+.disabled{
+    border: 1px black solid;
+}
+
+.compmaintable{
+    text-align: center;
+    font-size: 25px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.input{
+    border: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.input2{
+    border: none;
+    width: 65%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.inputfile{
+    display: none;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.loginbutton{
+    width: 45%;
+}
+
+.postbutton{
+    width: 30%;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(220, 173, 78);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}

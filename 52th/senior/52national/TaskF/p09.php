@@ -1,0 +1,41 @@
+<?php
+    $memoryBefore=memory_get_usage();
+    echo("p09\n");
+    $m=trim(fgets(STDIN));
+    $data=[];
+    $ans=[];
+    for($i=0;$i<$m;$i++){
+        $line=explode(" ",trim(fgets(STDIN)));
+        $data[$line[0]]=array("cash_buy"=>$line[1],"cash_sell"=>$line[2],"spot_buy"=>$line[3],"spot_sell"=>$line[4]);
+    }
+    $n=trim(fgets(STDIN));
+    for($i=0;$i<$n;$i++){
+        $line=explode(" ",trim(fgets(STDIN)));
+        $method=$line[0];
+        $from=$line[1];
+        $to=$line[2];
+        $amount=$line[3];
+        if($from=="TWD"){
+            if($method=="A"){
+                $ans[]=$amount/$data[$to]["spot_sell"];
+            }else{
+                $ans[]=$amount/$data[$to]["cash_sell"];
+            }
+        }elseif($to=="TWD"){
+            if($method=="A"){
+                $ans[]=$amount*$data[$from]["spot_buy"];
+            }else{
+                $ans[]=$amount*$data[$from]["cash_buy"];
+            }
+        }else{
+            $ans[]="至少要有個是TWD";
+        }
+    }
+    for($i=0;$i<count($ans);$i=$i+1){
+        echo(sprintf("%.5f",$ans[$i])."\n");
+    }
+    echo("\n");
+    $memoryAfter=memory_get_usage();
+    $memoryDifference=$memoryAfter-$memoryBefore;
+    echo("memory used: ".($memoryDifference/1048576)."MB");
+?>

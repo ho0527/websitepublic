@@ -1,0 +1,9 @@
+#testrun-results {
+    font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#test-comparision {
+    color: green;
+}
+#test-comparision[data-value~="NOT"] {
+    color: deeppink;
+}

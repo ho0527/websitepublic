@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #23232b;
+    display: grid;
+    overflow-x: hidden;
+}
+
+p{
+    line-height: 1.3rem;
+}
+
+.container{
+    margin: 64px;
+    margin-top: 220px;
+    margin-bottom: 525px;
+    height: max-content;
+}
+
+.card{
+    width: 300px;
+    aspect-ratio: 1 / 1;
+    padding: 16px;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    border-radius: 0.2rem;
+    position: sticky;
+    box-shadow: 0px 0px 10px #23232b44;
+    display: grid;
+    transition: 0.5s;
+}
+
+.card>p{
+    padding: auto;
+}
+
+.card:hover{
+    transform: rotate(-10deg);
+}
+
+.card:hover~.card{
+    transform: translateX(200px);
+}

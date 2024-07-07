@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>音樂播放器</title>
+		<link rel="stylesheet" href="/website/index.css">
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+		<script src="/chrisplugin/js/chrisplugin.js"></script>
+	</head>
+	<body>
+		<div class="navigationbar">
+			<div class="navigationbarright">
+				<input type="button" class="navigationbarbutton" onclick="location.href='index.html'" value="首頁">
+				<input type="button" class="navigationbarbutton navigationbarselect" onclick="location.reload()" value="登入後台">
+			</div>
+		</div>
+
+		<div class="main center signinmain" id="main">
+			<div class="margin-10px_0px">
+				<div class="label">帳號</div>
+				<div class="input endicon underline">
+					<input type="text" id="username">
+					<div class="icon"><img src="/website/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
+				</div>
+			</div>
+			<div class="margin-10px_0px">
+				<div class="label">密碼</div>
+				<div class="input endicon underline">
+					<input type="text" id="password">
+					<div class="icon"><img src="/website/material/icon/eyeclose.svg" class="iconinputicon cursor_pointer" id="passwordicon" draggable="false"></div>
+				</div>
+			</div>
+			<div class="text error big bold textcenter margin-10px_0px" id="error"></div>
+			<div class="textcenter margin-10px_0px">
+				<input type="button" class="button outline inputbutton" id="signup" value="註冊">
+				<input type="button" class="button outline inputbutton" id="signin" value="登入">
+			</div>
+		</div>
+
+		<script src="initialize.js"></script>
+		<script src="signin.js"></script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./main.css">
+        <title>Electronic Lock</title>
+    </head>
+    <body>
+        <div class="container mx-auto">
+            <div class="flex pt-5">
+                <div class="w-1/2 px-8">
+                    <h1 class="text-3xl mb-4">Expected Code : 6789</h1>
+                </div>
+                <div class="w-1/2 px-8">
+                    <div class="bg-gray-100 py-8 px-4 rounded-xl grid grid-cols-3 gap-y-4 justify-items-center items-center">
+                        <button class="digicode-button">1</button>
+                        <button class="digicode-button">2</button>
+                        <button class="digicode-button">3</button>
+                        <button class="digicode-button">4</button>
+                        <button class="digicode-button">5</button>
+                        <button class="digicode-button">6</button>
+                        <button class="digicode-button">7</button>
+                        <button class="digicode-button">8</button>
+                        <button class="digicode-button">9</button>
+                        <!-- Led switched on/off : Toggle "on" class -->
+                        <!-- <button class="digicode-button led on"></button> -->
+                        <div class="digicode-button led"></div>
+                        <button class="digicode-button">0</button>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <audio class="audio" id="audio"></audio>
+        <script src="index.js"></script>
+    </body>
+</html>

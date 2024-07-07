@@ -1,0 +1,89 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(15, 15, 17);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    padding: 0px;
+    margin: 0px;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+    border: 5px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 85%;
+    height: 75%;
+    border-radius: 10px;
+}
+
+.text{
+    grid-column: 2/100;
+    grid-row: 2/15;
+    line-height: 50px;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.textarea{
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    resize: none;
+}
+
+.input{
+    grid-column: 2/100;
+    grid-row: 16;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.xcenter{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 100%;
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+    width: 100%;
+}
+
+.line{
+    height: 75%;
+    width: 0px;
+    background: red;
+}

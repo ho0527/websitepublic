@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 Images</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        article {
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 100px auto;
+            padding: 1rem;
+        }
+
+        .photos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2px;
+            position: relative;
+        }
+
+        .photo-item {
+            overflow: hidden;
+            border-radius: 5px;
+            background: #EEE;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<article>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis fugit magni ad cum beatae vero deleniti,
+        sequi repellat qui saepe dolore, perferendis illum, dolorem quisquam repellendus. Consequuntur ab architecto
+        amet?</p>
+
+    <div class="photos">
+        <div class="photo-item"><img src="imgs/img-1.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-2.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-3.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-4.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-5.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-6.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-7.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-8.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-9.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-10.jpg" alt="image"></div>
+        <div class="photo-item"><img src="imgs/img-11.jpg" alt="image"></div>
+    </div>
+
+    <br>
+    <button onclick="remove()">Remove First Image</button>
+</article>
+
+<script>
+    function remove() {
+        document.querySelectorAll(".photo-item")[0].remove();
+    }
+</script>
+</body>
+</html>

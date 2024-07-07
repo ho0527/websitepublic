@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>高美濕地旅遊網站首頁</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div><img src="image/background.jpg" class="headerpng"></div>
+        <div class="navigationbar">
+            <img src="logo.png" class="logo">
+            <div class="navigationbarbuttondiv">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index.html'" value="首頁">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index#new'" value="最新旅遊消息">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index#hot'" value="熱門旅遊景點">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index#map'" value="交通資訊">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index#connection'" value="聯絡我們">
+                <input type="button" class="navigationbarbutton selectbutton" onclick="location.href='detail.html'" value="詳細旅遊資訊頁面">
+            </div>
+        </div>
+        <div class="slogan">標語標語標語標語標語標語</div>
+        <div class="title">標題標題濕地標題標題高美濕地高美標題標題標題標題</div>
+        <div class="breadcrumbs"><a href="index.html">首頁</a> > <a>詳細旅遊資訊內頁</a></div>
+        <form>
+            <input type="text" name="search" placeholder="景點搜索表單">
+            <input type="submit" name="submit" value="搜尋">
+        </form>
+        <div class="hot">
+            <div class="box">
+                <div class="hottitle">HIHI</div>
+                <img src="image/image7.jpg" class="hotimg">
+                <div class="hotstar">
+                    <div class="phone">電話: 0912345678</div>
+                    <div class="addres">地址: 新北市hihihihi</div>
+                    <div class="website">官網: <a href="http://index.html" class="a">http://index.html</a></div>
+                    <input type="text" class="starinput" value="2" readonly>
+                </div>
+            </div>
+            <div class="box">
+                <div class="hottitle">12345</div>
+                <img src="image/image8.jpg" class="hotimg">
+                <div class="hotstar">
+                    <div class="phone">電話: 0912345678</div>
+                    <div class="addres">地址: 台北市hihihihihihihihi</div>
+                    <div class="website">官網: <a href="https://hi.html" class="a">https://hi.html</a></div>
+                    <input type="text" class="starinput" value="2" readonly>
+                </div>
+            </div>
+            <div class="box">
+                <div class="hottitle">67890</div>
+                <img src="image/image9.jpg" class="hotimg">
+                <div class="hotstar">
+                    <div class="phone">電話: 0912345678</div>
+                    <div class="addres">地址: 高雄市hihihihi</div>
+                    <div class="website">官網: <a href="http://idk.html" class="a">http://idk.html</a></div>
+                    <input type="text" class="starinput" value="2" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="carouselmain">
+            <div class="carousel">
+                <div class="item">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.lGJg3SfGbQx-TWPC4WbrCQHaEK&pid=Api&P=0" class="carouselimage">
+                    <h3 class="carouseltitle">Image 1</h3>
+                    <p class="carouseldepiction">This is the first image</p>
+                </div>
+                <div class="item">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.b0G4bdyTbj7ww1wEFHTg7AHaFB&pid=Api&P=0" class="carouselimage">
+                    <h3 class="carouseltitle">Image 2</h3>
+                    <p class="carouseldepiction">This is the second image</p>
+                </div>
+                <div class="item">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.ljOx7hBfoqXlmjcfcsjM_QHaEK&pid=Api&P=0" class="carouselimage">
+                    <h3 class="carouseltitle">Image 3</h3>
+                    <p class="carouseldepiction">This is the third image</p>
+                </div>
+            </div>
+            <input type="button" class="carouselbutton prevnext" id="prev" value="prev">
+            <input type="button" class="carouselbutton prevnext" id="next" value="next">
+        </div><br><br>
+        <div class="footer">
+            Copyright &copy GWTN 2022 - All rights reserved<br>
+            <div id="link">
+                <button id="fb" class="button"><img src="fb.png" class="footericon">Facebook</button>
+                <button id="twitter" class="button"><img src="twitter.jpg" class="footericon">Twitter</button>
+                <button id="youtube" class="button"><img src="yt.jpg" class="footericon">Youtube</button>
+            </div>
+            <input type="button" id="onoff" value="關閉footer">
+        </div>
+        <script src="detail.js"></script>
+        <script src="footer.js"></script>
+    </body>
+</html>

@@ -1,0 +1,1373 @@
+{
+    "data": [
+        {
+            "title": "53national",
+            "statu": "FAILED",
+            "ps": "list",
+            "createdate": "2023/07/01",
+            "updatedate": "2023/11/02",
+            "data": [
+                {
+                    "title": "ModuleA-SPEEDTEST",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "2023/05/21",
+                    "updatedate": "2023/07/16",
+                    "data": [
+                        {
+                            "list": 1,
+                            "description": "Task",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "A01-Resize and Grayscale Multiple Images",
+                                    "link": "../../../worldskill/2022/TaskA/A05/index.txt",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "競賽中提供的“images”文件夾中有許多圖片。這些圖片是大小為 640 x N 的彩色圖片。請對所有這些圖片進行編輯",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "A02-Add a filter",
+                                    "link": "../../../worldskill/2022/TaskA/A08/index.txt",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "在圖片 plane.jpg 上添加一個噪點濾鏡，並將其提交為 result.jpg。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "A03-TODO List",
+                                    "link": "../../../worldskill/2022/TaskA/B02",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "使用 HTML 和 CSS 進行網頁上TODO List開發。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "A04-製作網頁的日出日落動畫",
+                                    "link": "../../../worldskill/2022/TaskA/B11",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "請製作出一個日出和日落效果",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "A05-Responsive grid layout",
+                                    "link": "../../../worldskill/2022/TaskA/B15",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "創建響應式佈局",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "A06-Keyword Highlighter",
+                                    "link": "../../../worldskill/2022/TaskA/C01",
+                                    "statu": "FAILED",
+                                    "data": [
+                                        {
+                                            "description": "在素材文件中，提供了一段文字給您。您需要將這段文字複製到您的 HTML 頁面中，並實現搜尋關鍵字功能",
+                                            "statu": "FAILED"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "A07-Color Transform",
+                                    "link": "../../../worldskill/2022/TaskA/C05",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "開發一個顏色轉換應用程式，當您輸HEX或RGB格式的顏色值時，結果區域將顯示顏色格式和轉換後的值。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "A08-Native JavaScript Routing",
+                                    "link": "../../../worldskill/2022/TaskA/C12",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "您需要完成 myScript.js，以便在點擊連結時，頁面不會刷新，",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "A09-Markdown 預覽",
+                                    "link": "../../../worldskill/2022/TaskA/C13",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "在左側區域輸入 Markdown 腳本應導致在右側區域中即時預覽結果。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 10,
+                                    "description": "A10-圖像顏色偵測器",
+                                    "link": "../../../worldskill/2022/TaskA/C14",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "當滑鼠指向圖片時，在圖片下方的區域顯示滑鼠指向位置的顏色代碼和顏色。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 11,
+                                    "description": "A11-夜間模式",
+                                    "link": "../../../worldskill/2022/TaskA/C15",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "當使用者滑鼠點擊網頁上的任何圖片時，應該會彈出一個燈箱，顯示圖片的預覽，覆蓋原本的網頁。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 12,
+                                    "description": "A12-建立圖片預覽視窗套件",
+                                    "link": "../../../worldskill/2022/TaskA/C18",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "當使用者滑鼠點擊網頁上的任何圖片時，應該會彈出一個燈箱，顯示圖片的預覽，覆蓋原本的網頁。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 13,
+                                    "description": "A13-Kanban Board Sortable",
+                                    "link": "../../../worldskill/2022/TaskA/C22",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "在提供的看板布局中實作可排序功能。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 14,
+                                    "description": "A14-像素編輯器",
+                                    "link": "../../../worldskill/2022/TaskA/C28",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "創建一個像下面這樣的像素編輯器。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 15,
+                                    "description": "A15-答案檢查器",
+                                    "link": "../../../worldskill/2022/TaskA/D01",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "你需要開發一個網頁，顯示一個表格，顯示問題編號、實際答案和提交的答案。在表格底部，顯示此次提交的分數。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 16,
+                                    "description": "A16-操作 Array",
+                                    "link": "../../../worldskill/2022/TaskA/D02",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "禁止使用 PHP 迴圈（例如 while、do while、for、foreach）。在您的 index.php 程序中，建立一個包含數字 1 到 40 的陣列。並指示哪些數字是 n 的倍數。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 17,
+                                    "description": "A17-Tic-Tac-Toe",
+                                    "link": "../../../worldskill/2022/TaskA/D03",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "製作OOXX",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 18,
+                                    "description": "A18-Live chat",
+                                    "link": "../../../worldskill/2022/TaskA/D06",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "您需要開發一個即時聊天室。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 19,
+                                    "description": "A19-Generate image with Base64",
+                                    "link": "../../../worldskill/2022/TaskA/D13",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "使用文字區域必須插入一張 Base64 格式的圖片，當傳送該代碼時，您必須創建一個文件夾，然後將圖片插入其中以 PNG 格式儲存。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": 20,
+                                    "description": "A20-Write a Secure Login",
+                                    "link": "../../../worldskill/2022/TaskA/D15",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "您的任務是修復現有系統中突出的問題，使其更安全。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "list": 2,
+                            "description": "自己做好玩的",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "A06copy",
+                                    "link": "TaskA/06",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "A09copy",
+                                    "link": "TaskA/09",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "A13copy",
+                                    "link": "TaskA/11",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "A17smart",
+                                    "link": "TaskA/A17smart",
+                                    "statu": "FAILED",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleB-FONTEND",
+                    "link": "TaskB/",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "2023/05/25",
+                    "updatedate": "2023/08/24",
+                    "data": [
+                        {
+                            "list": 1,
+                            "description": "首頁",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "有設定新專案的畫布的視窗。該視窗內所需包含的內容有：",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "輸入畫布寬度的文字輸入框、輸入畫布高度的文字輸入框、'確認'按鈕。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "起始頁面可以讓使用者設定所需的畫布尺寸及背景顏色",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "設定完成後，按下' 確<b><i>認</i></b> '按鈕，使用者將會進入到編輯頁面開始編輯。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "預設值",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "畫布大小的預設值為 1280x720，單位為像素。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "畫布底色的預設值為白色(#FFFFFF)。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "網站背景(body)的底色為灰色(#565656)。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "list": 2,
+                            "description": "編輯頁面",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "04",
+                                    "description": "有'新增專案'按鈕，且當使用者按下按鈕後，會提示使用者是否離開編輯頁面。",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "當使用者確認離開編輯頁面後，將回到「新增專案頁面」。",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "選取物件功能正常運作",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "可於當前的圖層，選取圖層上的物件。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "筆刷功能正常運作",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "可以畫線在當前選擇的圖層上。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "能選用不同的顏色來畫線。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "能選用不同的線條粗細來畫線。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "且當按下滑鼠左鍵後按著 Shift 按鍵，可以依照移動方向畫出垂直及水平的線。",
+                                            "statu": "FAILED"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "油漆桶能正常運作",
+                                    "statu": "FAILED",
+                                    "data": [
+                                        {
+                                            "description": "可以設定油漆的顏色。",
+                                            "statu": "FAILED"
+                                        },
+                                        {
+                                            "description": "可以於所選擇的圖層進行填色。",
+                                            "statu": "FAILED"
+                                        },
+                                        {
+                                            "description": "可以當前點下去的座標為中心，將目前圖層與中心相同顏色的區域圖上油漆的顏色。",
+                                            "statu": "FAILED"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "調色盤能正常運作",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "透過調色盤來自定義筆刷及油漆桶的顏色。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "使用者在挑選筆刷及油漆桶顏色時，需要提供檢色器，讓使用者選擇顏色。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "樣章能正常運作：",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "可以在當前選擇的圖層上蓋上樣章。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "可以在樣章列表標示出當前選定的樣章。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "能選用不同的圖案當做樣章。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "可以透過復原按鈕來復原上一步的動作。",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "可以透過重做按鈕來重做下一步的動作。",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "使用者可以透過'上傳圖片'按鈕來上傳圖片，上傳後的圖片會直接視為新圖層。",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "14",
+                                    "description": "圖層物件列表功能正常：",
+                                    "statu": "FAILED",
+                                    "data": [
+                                        {
+                                            "description": "提供建立和刪除圖層(物件將一併刪除)的功能，新的圖層為透明色，在上面的圖層非透明區域會蓋掉下面圖層的內容。",
+                                            "statu": "FAILED"
+                                        },
+                                        {
+                                            "description": "每個所繪製的線條及上傳的圖片，於單一圖層中，將視為各別不同的物件。",
+                                            "statu": "FAILED"
+                                        },
+                                        {
+                                            "description": "於當前選定的圖層中，物件將可透過滑鼠操作進行移動可以改變物件的旋轉及縮放。",
+                                            "statu": "FAILED"
+                                        },
+                                        {
+                                            "description": "選定物件的編輯控制頂點(移動、旋轉、縮放)，每個頂點的大小至少 10px*10px。",
+                                            "statu": "FAILED"
+                                        },
+                                        {
+                                            "description": "拖曳編輯控制頂點大小(非等比)；拖曳物件頂點時，同時按著 Shift 可以等比改變物件的大小。拖曳改變物件大小時，可以即時預覽物件的內容變化。",
+                                            "statu": "FAILED"
+                                        },
+                                        {
+                                            "description": "在圖層物件列表區，可以更換圖層的順序。",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "圖層內的物件，可以變換順序。",
+                                            "statu": "FAILED"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "list": 3,
+                            "description": "儲存功能及畫面美觀",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "15",
+                                    "description": "按下'儲存圖片'按鈕後，能將在所有圖層合併後的結果存成圖片檔(jpg)",
+                                    "statu": "FAILED",
+                                    "data": [
+                                        {
+                                            "description": "檔名須符合「YYYYmmdd_HHiiss.jpg」的格式。",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "16",
+                                    "description": "能儲存成可編輯檔，並且可以透過'開啟專案'按鈕匯入以下功能：",
+                                    "statu": "FAILED",
+                                    "data": [
+                                        {
+                                            "description": "圖層、筆刷。",
+                                            "statu": "FAILED"
+                                        },
+                                        {
+                                            "description": "油漆桶、樣章、圖片。",
+                                            "statu": "FAILED"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "17",
+                                    "description": "頁面設計適當留白，使設計更為簡潔。",
+                                    "statu": "subjective",
+                                    "data": []
+                                },
+                                {
+                                    "no": "18",
+                                    "description": "頁面設計具有良好的使用者體驗且互動效果良好。",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleC-LAYOUT",
+                    "link": "TaskC2/",
+                    "statu": "SUCCESS",
+                    "ps": "list",
+                    "createdate": "2023/05/25",
+                    "updatedate": "2023/07/08",
+                    "data": []
+                },
+                {
+                    "title": "ModuleD-API",
+                    "link": "https://hiiamchris.ddns.net:444/website/53th/senior/53national/TaskD/",
+                    "statu": "SUCCESS",
+                    "ps": "list",
+                    "createdate": "2023/05/21",
+                    "updatedate": "2023/11/17",
+                    "data": [
+                        {
+                            "list": 1,
+                            "description": "API",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "使用者登入",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/auth/login",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;password: <i>[password]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access_token: <i>[token]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(login failed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_LOGIN\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "使用者註冊",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/auth/register",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: formdata{<br>&nbsp;&nbsp;&nbsp;&nbsp;email=<i>[email]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;nickname=<i>[nickname]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;password=<i>[password]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;profile_image=<i>[profile_image]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_EXISTS\"<br>}, 409_CONFLICT",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(password length error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PASSWORD_NOT_SECURE\"<br>}, 409_CONFLICT",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(image type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_FILE_FORMAT\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "使用者登出",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/auth/logout",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "搜索圖片",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/search",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_by: *created_at | like_count<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_type: asc | *desc<br>&nbsp;&nbsp;&nbsp;&nbsp;?content: <i>[content]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?tag: <i>[tag]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?page: {int>=1} *1<br>&nbsp;&nbsp;&nbsp;&nbsp;?page_size: {100>=int>=1} *10<br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_count: <i>[post_all_accord_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posts: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n-+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "查看熱門圖片",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/popular",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_count: <i>[post_all_accord_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posts: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comments: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[commentid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[comment_content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "查看使用者的圖片",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/{userid}/image",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_count: <i>[post_all_accord_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posts: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comments: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[commentid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[comment_content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "新增圖片",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/upload",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: formdata{<br>&nbsp;&nbsp;&nbsp;&nbsp;images=<i>[file array[]]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;type=public | only_follow | only_self<br>&nbsp;&nbsp;&nbsp;&nbsp;?tags=<i>[tag]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;content=<i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;location_name=<i>[location_name]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(image type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_IMAGE_CAN_NOT_PROCESS\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "修改圖片",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/{imageid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: PUT",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: formdata{<br>&nbsp;&nbsp;&nbsp;&nbsp;type=public | only_follow | only_self<br>&nbsp;&nbsp;&nbsp;&nbsp;?tags=<i>[tag]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;content=<i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;location_name=<i>[location_name]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "刪除貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/{imageid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: DELETE",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "取得圖片資訊",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/{imageid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;favorite: true<br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "查看評論",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/{imageid}/comment",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[commentid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[comment_content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                    },
+                                {
+                                    "no": "12",
+                                    "description": "發布評論",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/{imageid}/comment",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[commentid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[comment_content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "回復評論",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/image/{imageid}/comment/{commentid}/reply",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[commentid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[comment_content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(comment not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_COMMENT_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "14",
+                                    "description": "刪除評論",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/{postid}/comment/{commentid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: DELETE",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(comment not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_COMMENT_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "15",
+                                    "description": "熱門圖片發布者",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/popular",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_by: *created_at | like_count<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_type: asc | *desc<br>&nbsp;&nbsp;&nbsp;&nbsp;?content: <i>[content]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?tag: <i>[tag]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?page: {int>=1} *1<br>&nbsp;&nbsp;&nbsp;&nbsp;?page_size: {100>=int>=1} *10<br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_count: <i>[post_all_accord_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posts: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_NOT_EXISTS\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleE-ALGORITHM",
+                    "statu": "SUCCESS",
+                    "ps": "list",
+                    "createdate": "2023/05/18",
+                    "updatedate": "2023/08/22",
+                    "data": [
+                        {
+                            "list": "task",
+                            "description": "ALGORITHM",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "<a href='TaskE/p01.php' download='p01.php' class='a'>圈圈叉叉</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "<a href='TaskE/p02.php' download='p02.php' class='a'>計算費波那契數</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "<a href='TaskE/p03.php' download='p03.php' class='a'>質因數分解</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "<a href='TaskE/p04.php' download='p04.php' class='a'>相似度比對</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "<a href='TaskE/p05.php' download='p05.php' class='a'>找零錢v1</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "<a href='TaskE/p06.php' download='p06.php' class='a'>中缀轉後缀計算機</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "<a href='TaskE/p07.php' download='p07.php' class='a'>單字梯</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "AN01",
+                                    "description": "<a href='TaskE/AN-p01.php' download='AN-p01.php' class='a'>五子棋</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "AN02",
+                                    "description": "<a href='TaskE/AN-p02.php' download='AN-p02.php' class='a'>階梯計算</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "AN04",
+                                    "description": "<a href='TaskE/AN-p04.php' download='AN-p04.php' class='a'>字串相似度比對</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "AN05",
+                                    "description": "<a href='TaskE/AN-p05.php' download='AN-p05.php' class='a'>找零錢v2</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "AN06",
+                                    "description": "<a href='TaskE/AN-p10.php' download='AN-p10.php' class='a'>中缀轉前缀計算機</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

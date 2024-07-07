@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="maindark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>快樂旅遊網</title>
+        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div id="navigationbar"></div>
+        <div class="navigationbar2">
+            <div class="navigationbartitle navigationbartitle2 textcenter">
+                訪客訂房
+            </div>
+        </div>
+
+        <div class="bookroommaindiv macossectiondiv">
+            <div class="calendardiv">
+                <div class="calendarselecter">
+                    <input type="button" class="button outline" id="prevmonth" value="< 前一個月">
+                    <div class="yearmonth" id="yearmonth"></div>
+                    <input type="button" class="button outline" id="nextmonth" value="下一個月 >">
+                </div>
+                <div class="calendarmain">
+                    <table class="table outborder textcenter" id="calendar">
+                    </table>
+                </div>
+            </div>
+            <div class="bookroommain">
+                <div class="flex inputmargin">
+                    <div class="width50">
+                        <div class="text">訂房間數</div>
+                        <select class="select outline big textcenter fill" id="roomcount">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <div class="width50">
+                        <div class="text">入住天數</div>
+                        <div class="input">
+                            <input type="text" id="datecount" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputmargin">
+                    <div class="text">入住日期</div>
+                    <div class="input">
+                        <input type="text" id="startdate" readonly>
+                        ~
+                        <input type="text" id="enddate" readonly>
+                    </div>
+                </div>
+                <div class="inputmargin">
+                    <div class="text">房間號碼</div>
+                    <div class="input">
+                        <input type="text" id="roomno" readonly>
+                    </div>
+                </div>
+                <div class="inputmargin textcenter">
+                    <input type="button" class="button outline" id="autoselect" value="自動產生房號">
+                    <input type="button" class="button outline" id="selectroom" value="手動選擇房號">
+                    <input type="button" class="button outline" id="clear" value="取消選擇日期">
+                    <input type="button" class="button outline" id="submit" value="確定訂房">
+                </div>
+            </div>
+        </div>
+
+        <div id="lightbox"></div>
+
+        <script src="initialize.js"></script>
+        <script src="bookroom.js"></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<?php
+    include("../link.php");
+    if(isset($_POST["submit"])){
+        if($_POST["edit"]=="true"){
+            $date=$_POST["date"];
+            $description=$_POST["description"];
+            $link=$_POST["link"];
+            $signupbutton=$_POST["signupbutton"];
+            $name=$_POST["name"];
+            $file=$_POST["file"];
+            $version=$_POST["version"];
+            $id=$_POST["id"];
+            $visibility=$_POST["visibility"];
+            query($db,"UPDATE `game` SET `date`=?,`description`=?,`link`=?,`signupbutton`=?,`name`=?,`picture`=?,`version`=?,`visibility`=? WHERE `id`=?",[$date,$description,$link,$signupbutton,$name,$file,$version,$visibility,$id]);
+            echo(json_encode([
+                "success"=>true,
+                "data"=>"修改成功"
+            ]));
+        }else{
+            $date=$_POST["date"];
+            $description=$_POST["description"];
+            $link=$_POST["link"];
+            $signupbutton=$_POST["signupbutton"];
+            $name=$_POST["name"];
+            $file=$_POST["file"];
+            $version=$_POST["version"];
+            $visibility=$_POST["visibility"];
+            query($db,"INSERT INTO `game`(`date`,`description`,`link`,`signupbutton`,`name`,`picture`,`version`,`visibility`)VALUES(?,?,?,?,?,?,?,?)",[$date,$description,$link,$signupbutton,$name,$file,$version,$visibility]);
+            echo(json_encode([
+                "success"=>true,
+                "data"=>"新增成功"
+            ]));
+        }
+    }
+?>

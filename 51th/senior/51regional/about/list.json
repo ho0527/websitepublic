@@ -1,0 +1,492 @@
+{
+	"data": [
+		{
+			"title": "51regional",
+			"link": "../",
+			"statu": "FAILED",
+			"ps": "question",
+			"createdate": "2023/07/08",
+			"updatedate": "2023/12/23",
+			"data": [
+				{
+					"list": 1,
+					"description": "LOGO 設計",
+					"statu": "FAILED",
+					"data": [
+						{
+							"no": "01",
+							"description": "是否繳交正確的文件格式，且有提交文件和原始檔案。",
+							"statu": "FAILED",
+							"data": [
+								{
+									"description": "文件版面是否為 A4 直式",
+									"statu": "FAILED"
+								},
+								{
+									"description": "上方內容為 LOGO",
+									"statu": "FAILED"
+								},
+								{
+									"description": "下方為設計理念說明",
+									"statu": "FAILED"
+								}
+							]
+						},
+						{
+							"no": "02",
+							"description": "建立 1 個目錄，命名為 01，將作答成果檔存在 01 目錄下，存檔為「ans1_工作崗位號碼.docx」(Word 格式)，並將 LOGO 之原始設計可編輯檔存在 01/source 目錄下。",
+							"statu": "SUCCESS",
+							"data": []
+						},
+						{
+							"no": "03",
+							"description": "LOGO 圖形設計 LOGO 標誌設計圖是由參考圖的內容所延伸發展出來。",
+							"statu": "subjective",
+							"data": [
+								{
+									"description": "LOGO 中需有隱喻 2021 年的意念(是字、圖，或意函等等皆可，需在設計理念說明中表達出來)",
+									"statu": "subjective"
+								}
+							]
+						},
+						{
+							"no": "04",
+							"description": "造型設計及配色觀念 LOGO 需以圓形/橢圖形為主。造型表現及色彩運用上使否符合上海及旅遊展的氣氛",
+							"statu": "subjective",
+							"data": []
+						},
+						{
+							"no": "05",
+							"description": "整體理念傳達 LOGO 下方版面請寫至少 30 字之設計理念說明文字設計理念說明切合主題。 LOGO 整體表現",
+							"statu": "subjective",
+							"data": []
+						}
+					]
+				},
+				{
+					"list": 2,
+					"description": "後台問卷管理系統",
+					"statu": "SUCCESS",
+					"data": [
+						{
+							"no": "07",
+							"description": "在本模組首頁上，輸入管理者帳號及密碼可進入手機問卷管理系統",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "管理者帳號：admin,密碼: 1234",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "08",
+							"description": "有 3 個圖框(命名為 A，B，C)，排成一列，大小自訂，每一圖框皆可以顯示1個圖案，共可顯示 3 個不同的圖案(圖案內容為 x,y,z 字母之其中一張圖)。圖案 x,y,z，請自行製作。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "開始時，A，B，C 圖框每一圖框會亂數來呈現圖案(x,y,z 圖之其中一張)",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "每按一次該圖型框，則該圖型框的圖案會依序來改變(…x->y->z->x->y…)",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "登入者需將 A，B，C 圖型框的內容改變為相同的圖案才可登入",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "開始時，A，B，C 圖框每一圖框會亂數來呈現圖案(x,y,z 圖之其中一張)",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "09",
+							"description": "增加一個「更新」的按鈕，按下「更新」按鈕時，A，B，C 圖框每一圖框會重新亂數來呈現新圖案(x,y,z 其中一張圖)。",
+							"statu": "SUCCESS",
+							"data": []
+						},
+						{
+							"no": "10",
+							"description": "進入手機問卷管理系統後，在問卷管理的頁面上，有「新增問卷」的按鈕，點選「新增問卷」按鈕後，可新增一份問卷。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "在新增時，要填寫問卷名稱及題數",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "按確定鈕後，可進入編輯該問卷的內容。",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "11",
+							"description": "在編輯問卷的內容頁面時，可設定每一題的「問卷題型」、「題目說明」的內容、及「題目選項」的內容。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "勾選「是非題」時，「題目選項」會自動出現「是」及「否」的選項。",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "不允許填寫「題目選項」內容。",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "12",
+							"description": "勾選「是非題」時，「題目選項」會自動出現「是」及「否」的選項。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "包含可新增及修改的功能",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "不允許填寫「題目選項」內容。",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "13",
+							"description": "勾選「單選題」時，可以填寫「題目選項」內容。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "包含可新增及修改的功能",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "單選題至多 6 項，不包含其他選項。",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "14",
+							"description": "編輯題目「單選題」及「多選題」時，在填寫「題目選項」內容時，空白的「題目選項」不會出現在前台問卷中。",
+							"statu": "SUCCESS",
+							"data": []
+						},
+						{
+							"no": "15",
+							"description": "可新增多選題，且填寫問卷時，正確顯示及操作。(包含可新增及修改的功能) (多選題至多 7 項，包含「其他」選項)",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "包含可新增及修改的功能",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "多選題至多 7 項，包含「其他」選項",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "16",
+							"description": "可新增問答題，且填寫問卷時，正確顯示及操作。(包含可新增及修改的功能)",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "包含可新增及修改的功能",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "17",
+							"description": "在編輯問卷的畫面中，可調整題目呈現順序的功能。",
+							"statu": "SUCCESS",
+							"data": []
+						},
+						{
+							"no": "18",
+							"description": "新增問卷時，可設定問卷邀請碼，所有填答者需有問卷邀請碼才能進行填寫。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "同一問卷的所有填答人共用同一個問卷邀請碼",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "包含可新增及修改問卷邀請碼的功能。",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "前台能依據問卷邀請碼才能進行填寫。",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "同一份問卷可以設定成每一個人有不同的問卷邀請碼。",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "19",
+							"description": "提供問卷鎖定功能，在問卷鎖定之後，不可編輯、修改及刪除題目的功能。",
+							"statu": "SUCCESS",
+							"data": []
+						}
+					]
+				},
+				{
+					"list": 3,
+					"description": "前台問卷調查系統",
+					"statu": "SUCCESS",
+					"data": [
+						{
+							"no": "20",
+							"description": "可設定問卷所需份數，份數足夠後就不能再填寫了，並出現提示訊息。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "包含可設定及修改的功能",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "21",
+							"description": "可設定問卷題目是否必填，若為必填題目，使用者在填寫問卷時，必須填寫該題目才能送出，預設為非必填。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "包含可設定及修改的功能",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "必填的題目在題號前方加上紅色*",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "22",
+							"description": "可設定問卷分頁，可設定每 N 題一個頁面，使用上一頁、下一頁來進行切換。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "包含可設定及修改的功能",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "N 為設定值，在新增問卷時有一個欄位可以設定 N 的值",
+									"statu": "SUCCESS"
+								}
+							]
+						},
+						{
+							"no": "23",
+							"description": "當填寫分頁的問卷時，會在每頁上方顯示目前的填寫完成度，例如一份問卷有 20 題、每頁 4 題，共 5 頁，則在第 2 頁時，會顯示已完成 20%題目。",
+							"statu": "SUCCESS",
+							"data": []
+						},
+						{
+							"no": "24",
+							"description": "整體系統的版面設計及操作流暢度之整體分數(不包含手機端)。",
+							"statu": "subjective",
+							"data": []
+						}
+					]
+				},
+				{
+					"list": 4,
+					"description": "前台手機意見調查系統操作介面設計",
+					"statu": "FAILED",
+					"data": [
+						{
+							"no": "26",
+							"description": "Chrome的手機模式下",
+							"statu": "FAILED",
+							"data": [
+								{
+									"description": "填寫問卷時，每一頁呈現一題。",
+									"statu": "FAILED"
+								},
+								{
+									"description": "填寫問卷時，「是非題」可正確顯示題目類型及相關的內容，及可正確的操作該題型。",
+									"statu": "FAILED"
+								},
+								{
+									"description": "填寫問卷時，「多選題」可正確顯示題目類型及相關的內容，及可正確的操作該題型。",
+									"statu": "FAILED"
+								},
+								{
+									"description": "可正常填寫問卷中「單選題」及「多選題」題型，並繳交完畢，並正確儲存在資料庫中。管理者透過管理介面，可看到正確的填答資料。",
+									"statu": "FAILED"
+								},
+								{
+									"description": "針對手機特別設計互動式操作，介面設計，及整體的操作流暢度。讓填寫問卷的版面設計是美觀、吸引使用者的，且的各項操作是簡單易懂的，運用各項互動操作的功能提升了使用者體驗。",
+									"statu": "subjective"
+								}
+							]
+						}
+					]
+				},
+				{
+					"list": 5,
+					"description": "後台問卷統計系統",
+					"statu": "FAILED",
+					"data": [
+						{
+							"no": "32",
+							"description": "在管理系統中，有問卷統計子系統，點擊後可進入問卷清單畫面(詳細答案呈現方式可使用填寫問卷的畫面)。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "可以得知每份問卷已填寫的份數",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "並且查看每份問卷實際填寫答案",
+									"statu": "FAILED"
+								}
+							]
+						},
+						{
+							"no": "33",
+							"description": "同一份問卷，可以設定成每一個人，有不同的問卷邀請碼。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "可以依據該「問卷邀請碼」查尋該問卷實際填答內容",
+									"statu": "FAILED"
+								}
+							]
+						},
+						{
+							"no": "34",
+							"description": "在問卷清單畫面中。",
+							"statu": "SUCCESS",
+							"data": [
+								{
+									"description": "可刪除問卷",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "可複製問卷",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "可選擇只複製問卷或包含填寫答案",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "可刪除單一已填寫人的問卷的結果，該問卷已填寫的份數會跟著改變。",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "每一個問卷名稱後有一個「統計結果」的按鈕，點選後可進入統計結果頁面，在頁面中上以圖表及文字呈現該問卷所有題目的統計結果。",
+									"statu": "FAILED"
+								}
+							]
+						},
+						{
+							"no": "39",
+							"description": "問卷中的所有的",
+							"statu": "FAILED",
+							"data": [
+								{
+									"description": "是非題以圓餅圖呈現統計結果，並顯示每題所有答案、百分比。",
+									"statu": "FAILED"
+								},
+								{
+									"description": "單選題以圓餅圖呈現統計結果，並顯示每題所有答案、百分比。",
+									"statu": "FAILED"
+								},
+								{
+									"description": "多選題以橫條圖呈現統計結果，並顯示每題所有答案、百分比。",
+									"statu": "FAILED"
+								},
+								{
+									"description": "觀看問卷統計結果圖表時，可以更改該題目呈現的統計圖表種類。以圓餅圖或橫條圖來呈現。",
+									"statu": "FAILED"
+								}
+							]
+						},
+						{
+							"no": "40",
+							"description": "「問卷輸出」在問卷清單畫面中(不考慮「其他」的選項)(「自由填寫」題型若無填寫則存空白，填寫的內容不包含空白及英文的逗號)",
+							"statu": "FAILED",
+							"data": [
+								{
+									"description": "每一個問卷名稱後新增一個「問卷輸出」的按鈕",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "可將該問卷的標題、題目及所有人的填答結果輸出成.csv格式",
+									"statu": "FAILED"
+								},
+								{
+									"description": "每一個人的填答結果輸出成題目要求格式",
+									"statu": "FAILED"
+								},
+								{
+									"description": ".csv檔採用 UTF-8 編碼",
+									"statu": "FAILED"
+								}
+							]
+						},
+						{
+							"no": "41",
+							"description": "「問卷輸入」在問卷清單畫面中的上方。(不考慮「其他」的選項) (「自由填寫」題型若無填寫則存空白，填寫的內容不包含空白及英文的逗號)",
+							"statu": "FAILED",
+							"data": [
+								{
+									"description": "每一個問卷名稱後新增一個「問卷輸入」的按鈕",
+									"statu": "SUCCESS"
+								},
+								{
+									"description": "可藉由一個輸入檔.csv，將該問卷的標題、題目及所有人的填答結果輸入到資料庫中",
+									"statu": "FAILED"
+								},
+								{
+									"description": ".csv檔採用 UTF-8 編碼",
+									"statu": "FAILED"
+								}
+							]
+						}
+					]
+				},
+				{
+					"list": 6,
+					"description": "自行新增",
+					"statu": "FAILED",
+					"data": [
+						{
+							"no": "43",
+							"description": "當使用者(有登入)定要填寫以填寫之問卷需使用上次之問卷",
+							"statu": "FAILED",
+							"data": []
+						},
+						{
+							"no": "44",
+							"description": "當使用者在填寫問卷時可以不受重整影響記憶內容",
+							"statu": "FAILED",
+							"data": [
+								{
+									"description": "使用儲存按鈕或自動儲存",
+									"statu": "FAILED"
+								}
+							]
+						},
+						{
+							"no": "45",
+							"description": "在進行填寫題目分頁切換時畫面不得重整",
+							"statu": "SUCCESS",
+							"data": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

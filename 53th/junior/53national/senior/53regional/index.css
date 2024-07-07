@@ -1,0 +1,150 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    user-select: none;
+    word-break: break-all;
+    text-align: center;
+    padding: 0px 40px;
+}
+
+table{
+    border-collapse:collapse;
+    vertical-align:top;
+}
+
+h1{
+    margin: 0px;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px rgb(255, 255, 255) solid;
+    width: calc(100% + 80px);
+    position: relative;
+    right: 40px;
+    margin-bottom: 20px;
+}
+
+.indextitle{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:25px;
+    font-weight:bold;
+    text-align: center;
+}
+
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+}
+
+.main{
+    border: 2px rgb(255, 255, 255) solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%);
+    border-radius: 25px;
+    padding: 40px;
+    color: white;
+    font-size: 35px;
+    font-weight:bold;
+}
+
+.input{
+    border: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px rgb(255, 255, 255) solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.dragbox{
+    border: 1px black solid;
+    height: 80px;
+    width: 80px;
+    display: inline-block;
+    background-color: white;
+}
+
+.dropbox{
+    border: 1px black solid;
+    height: 80px;
+    width: 320px;
+    display: inline-block;
+    background-color: white;
+    text-align: left;
+}
+
+.dragimg{
+    cursor: grab;
+}
+
+.block{
+    border: none;
+    height: 80px;
+    width: 320px;
+    display: inline-block;
+    position: absolute;
+    left: 160px;
+}
+
+.drag-over{
+    border-top: dashed 1px rgb(42, 42, 42);
+}
+
+.main-table{
+    border: 1px black solid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.verifytable{
+    width: 180px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.verifytd{
+    border: 1px rgb(163, 163, 163) solid;
+    width: 60px;
+    height: 60px;
+    background: white;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.logout{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.selectbutton{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}

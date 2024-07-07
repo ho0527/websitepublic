@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>咖啡商品展示系統</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
+        <script src="../../../plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div id="navigationbar"></div>
+
+        <div class="main productinputmain">
+            商品名稱: <input type="text" class="input" id="name"><br><br>
+            費&nbsp;&nbsp;&nbsp;&nbsp;用: <input type="number" class="input" id="cost"><br><br>
+            相關連結: <input type="text" class="input" id="link"><br><br>
+            <textarea id="description" cols="70" rows="8" placeholder="商品簡介"></textarea><br><br>
+            <input type="button" class="button" id="picture" value="上傳圖片">
+            <input type="button" class="button" id="cancle" value="取消">
+            <input type="button" class="button" id="productsubmit" value="送出">
+            <input type="file" class="hidden" id="file" accept="image/*">
+        </div>
+
+        <script src="product.js"></script>
+        <script src="productinput.js"></script>
+        <script src="logincheck.js"></script>
+    </body>
+</html>

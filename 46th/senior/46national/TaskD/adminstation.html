@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>列車訂票系統</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <img src="material/icon/mainicon.png" class="logo">
+                <div class="maintitle">列車訂票系統</div>
+            </div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index.html'" value="首頁">
+                <input type="button" class="navigationbarbutton" onclick="location.href='admintype.html'" value="車種管理">
+                <input type="button" class="navigationbarbutton" onclick="location.href='admintrain.html'" value="列車管理">
+                <input type="button" class="navigationbarbutton navigationbarselect" onclick="location.href='adminstation.html'" value="路線管理">
+                <input type="button" class="navigationbarbutton" onclick="location.href='adminticket.html'" value="訂票紀錄">
+                <input type="button" class="navigationbarbutton" onclick="location.href='api.php?logout='" value="登出">
+            </div>
+        </div>
+        <div class="main">
+            <div class="admintitle">
+                路線管理
+                <input type="button" class="button" id="new" value="新增">
+            </div>
+            <hr>
+            <div class="tablediv macossectiondivy">
+                <table class="table" id="table">
+                    <tr>
+                        <td class="admintd">id</td>
+                        <td class="admintd">路線名稱</td>
+                        <td class="admintd">function</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="lightboxmask" id="lightbox"></div>
+        <script src="adminstation.js"></script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>列車訂票系統</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <img src="material/icon/mainicon.png" class="logo">
+                <div class="maintitle">列車訂票系統</div>
+            </div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index.html'" value="首頁">
+                <input type="button" class="navigationbarbutton" onclick="location.href='admintype.html'" value="車種管理">
+                <input type="button" class="navigationbarbutton" onclick="location.href='admintrain.html'" value="列車管理">
+                <input type="button" class="navigationbarbutton" onclick="location.href='adminstation.html'" value="路線管理">
+                <input type="button" class="navigationbarbutton navigationbarselect" onclick="location.href='adminticket.html'" value="訂票紀錄">
+                <input type="button" class="navigationbarbutton" onclick="location.href='api.php?logout='" value="登出">
+            </div>
+        </div>
+        <div class="indexmain searchmain">
+            <div class="indexmainbody macossectiondivy searchmain" id="maindiv">
+                <div class="inputdiv">
+                    <input type="text" id="code" placeholder="訂票編號">或
+                    <input type="text" id="phone" placeholder="手機號碼">
+                    <input type="button" id="submit" value="查詢">
+                </div>
+                <div class="tablediv searchtablediv macossectiondivy" id="tablediv">
+                    <table class="table" id="table"></table>
+                </div>
+                <div class="pagediv">
+                    <input type="button" class="searchinput" id="prev" value="<">
+                    <input type="text" class="searchinput pageinput" id="page" value="頁數: 1" disabled>
+                    <input type="button" class="searchinput" id="next" value=">">
+                </div>
+            </div>
+        </div>
+        <div class="lightboxmask" id="lightbox"></div>
+        <script src="adminticket.js"></script>
+    </body>
+</html>

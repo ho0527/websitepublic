@@ -1,0 +1,346 @@
+body{
+    width: 1875px;
+    height: 900px;
+    background-color:rgba(244, 236, 236, 0.37);
+    user-select: none;
+}
+
+table{
+    border-collapse:collapse;
+    vertical-align:top;
+}
+
+.indextitle{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:25px;
+    font-weight:bold;
+    text-align: center;
+}
+
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+}
+
+.indexdiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 280px;
+    width: 275px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.input{
+    border-radius: 25px;
+    width: 175px;
+    height: 20px;
+    border: 1px black solid;
+    background-color: white;
+}
+
+.button{
+    border-radius: 25px;
+    background-color: white;
+    border: 0.5px black solid;
+    height: 25px;
+    width: 75px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: rgba(186, 186, 186, 0.363);
+}
+
+.select{
+    width:70px;
+}
+
+.dragbox{
+    border: 1px black solid;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-color: white;
+}
+
+.dropbox{
+    border: 1px black solid;
+    height: 40px;
+    width: 130px;
+    display: inline-block;
+    background-color: white;
+}
+
+.dragimg{
+    cursor: grab;
+}
+
+.block2{
+    border: 1px black solid;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.drag-over{
+    border-top: dashed 1px rgb(42, 42, 42);
+}
+
+.main-table{
+    border: 1px black solid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/*admin table*/
+.signupdiv{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(3.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 200px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.admin-title{
+    font-size:50px;
+}
+
+.admin-find{
+    text-align: right;
+}
+
+.admin-table-num{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:250px;
+    height:30px;
+    text-align: center;
+}
+
+.admin-table{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:250px;
+    height:30px;
+    text-align: center;
+}
+
+/*user table*/
+.title{
+    border: 0.5px black solid;
+    width:225px;
+    height:25px;
+    font-size:30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.date{
+    border: 0.5px black solid;
+    width:985px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.user-table4{
+    border: 0.5px black solid;
+    height:785px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.todo{
+    border: 0.5px black solid;
+    height: 785px;
+    text-align: center;
+}
+
+.usertable{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:100px;
+    height:30px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.all{
+    vertical-align: top;
+    border: 0.5px black solid;
+    width: 620px;
+}
+
+.newtodo{
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.todo-title-time{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:155px;
+    height:30px;
+    text-align: center;
+}
+
+.todo-title-work{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:800px;
+    height:30px;
+    text-align: center;
+}
+
+.todo-title-main1{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:155px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-main1{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:800px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-title-main2{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:155px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-main2{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:800px;
+    height:57px;
+    text-align: center;
+}
+
+.work-box{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border: 0.5px rgb(0, 0, 0) solid;
+    text-align: center;
+    line-height: 1.1;
+    width: 150px;
+    font-size: 12px;
+    position:absolute;
+    /* user-select: all; */
+}
+
+#button3{
+    width:30px;
+    height:20px;
+    position: absolute;
+    top:0px;
+    right:1px;
+    font-size: 1px;
+    cursor: pointer;
+}
+
+#button4{
+    width:40px;
+    height:20px;
+    position: absolute;
+    bottom:0px;
+    right:1px;
+    font-size: 1px;
+    cursor: pointer;
+}
+
+.right{
+    float: right;
+}
+
+.div{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:15px;
+    font-weight:bold;
+    background-color: rgb(125, 125, 125);
+    border: 0.5px rgb(0, 0, 0) solid;
+    width: 175px;
+    height: 125px;
+    position: relative;
+    top: 450px;
+    left:15px;
+    word-wrap:break-word;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.useradd{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 350px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.table4but{
+    width: 150px;
+    text-align: center;
+}
+
+.upusertablediv{
+    width: 100%;
+    height: 12px;
+    position: relative;
+    bottom: 2px;
+    margin: 1px;
+}
+
+.userhalf{
+    border-top: 1px black solid;
+}
+
+.downusertablediv{
+    width: 100%;
+    height: 12px;
+    position: relative;
+    top: 2px;
+    margin: 1px;
+}

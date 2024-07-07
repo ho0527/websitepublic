@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PAC MAN</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="main" id="main">
+            <!-- 上方區塊 -->
+            <div class="top grid">
+                <div class="scorediv hintdiv" data-id="0" data-body="這裡是分數及最高分及統計數據">SCORE: <div class="score" id="score">0</div></div> <!-- 分數 -->
+                <div class="highscorediv">
+                    最高分: <div class="score" id="highscore">0</div>
+                    <div class="statisticaldata" id="statisticaldata">統計數據</div> <!-- 統計數據 -->
+                </div> <!-- 最高分 -->
+                <div class="timer hintdiv" id="timer" data-id="1" data-body="這是目前經過的時間">00:00</div> <!-- 計時器 -->
+                <div class="pausecontinue hintdiv" id="pausecontinue" data-id="2" data-body="點擊(或按'p')可以暫停在按一次會繼續">暫停</div> <!-- 暫停 -->
+            </div>
+
+            <!-- 主程式 -->
+            <div class="app macossectiondiv" id="app"></div>
+
+            <!-- 下方區塊 -->
+            <div class="bottom grid">
+                <div class="name hintdiv" id="name" data-id="3" data-body="此為用戶名(您剛剛寫的暱稱)"></div> <!-- 顯示名稱 -->
+                <div class="difficulty hintdiv" id="difficulty" data-id="4" data-body="此為難度"></div> <!-- 顯示難易度 -->
+                <div class="livediv hintdiv" data-id="5" data-body="此為生命數">生命值: <div class="life" id="life">3</div></div> <!-- 生命值 -->
+                <!-- 字體大小 START -->
+                <div class="fontsize hintdiv" data-id="6" data-body="此處可以調整字型大小">
+                    <input type="button" class="fontsizebutton" id="sizelow" value="-">
+                    字體大小
+                    <input type="button" class="fontsizebutton" id="sizeup" value="+">
+                </div>
+                <!-- 字體大小 END -->
+            </div>
+        </div>
+
+        <!-- 記分板 -->
+        <div id="lightbox"></div>
+
+        <!-- js -->
+        <script src="tutorial.js"></script>
+        <script src="fontsize.js"></script>
+    </body>
+</html>

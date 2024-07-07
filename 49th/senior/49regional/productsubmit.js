@@ -1,0 +1,36 @@
+docgetid("cancel").onclick=function(){
+    location.href="main.php"
+}
+
+console.log(weblsget("49regionalproductvisibility"))
+docgetid("submit").onclick=function(){
+    oldajax("POST","api/product.php",formdata([
+        ["submit",true],
+        ["date",weblsget("49regionalproductdate")],
+        ["description",weblsget("49regionalproductdescription")],
+        ["link",weblsget("49regionalproductlink")],
+        ["signupbutton",weblsget("49regionalproductsignupbutton")],
+        ["name",weblsget("49regionalproductname")],
+        ["file",weblsget("49regionalproductfile")],
+        ["version",weblsget("49regionalproductid")],
+        ["edit",weblsget("49regionalproductedit")],
+        ["id",weblsget("49regionalgameid")],
+        ["visibility",weblsget("49regionalproductvisibility")]
+    ])).onload=function(){
+        let data=JSON.parse(this.responseText)
+        if(data["success"]){
+            alert(data["data"])
+            weblsset("49regionalproductdate",null)
+            weblsset("49regionalproductdescription",null)
+            weblsset("49regionalproductlink",null)
+            weblsset("49regionalproductsignupbutton",null)
+            weblsset("49regionalproductname",null)
+            weblsset("49regionalproductfile",null)
+            weblsset("49regionalproductid",null)
+            weblsset("49regionalproductedit",null)
+            weblsset("49regionalgameid",null)
+            weblsset("49regionalproductvisibility",null)
+            location.href="main.html"
+        }
+    }
+}

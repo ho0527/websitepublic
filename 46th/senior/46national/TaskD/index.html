@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>列車訂票系統</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <img src="material/icon/mainicon.png" class="logo">
+                <div class="maintitle">列車訂票系統</div>
+            </div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton navigationbarselect" onclick="location.href='index.html'" value="首頁">
+                <input type="button" class="navigationbarbutton" onclick="location.href='ticket.html'" value="預定車票">
+                <input type="button" class="navigationbarbutton" onclick="location.href='search.html'" value="訂票查詢">
+                <input type="button" class="navigationbarbutton" onclick="location.href='train.html'" value="列車資訊">
+                <input type="button" class="navigationbarbutton" onclick="location.href='login.html'" value="登入後台">
+            </div>
+        </div>
+        <div class="main maindiv">
+            <div class="maintop">
+                起程站: <select class="indexselect" id="start"></select>
+                到達站: <select class="indexselect" id="end"></select>
+                車種: <select class="indexselect" id="traintype"></select>
+                搭乘日期: <input type="date" class="date" id="date">
+                <input type="button" class="button" id="submit" value="查詢">
+            </div>
+            <div class="indextablediv macossectiondivy">
+                <div class="warning">查無相關車輛，請重新搜尋</div>
+                <table class="table" id="table">
+                    <tr>
+                        <td class="td">車種</td>
+                        <td class="td">列車編號</td>
+                        <td class="td">發車站</td>
+                        <td class="td">終點站</td>
+                        <td class="td">預計發車時間</td>
+                        <td class="td">預計到達時間</td>
+                        <td class="td">行駛時間</td>
+                        <td class="td">票價</td>
+                        <td class="td">訂票</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

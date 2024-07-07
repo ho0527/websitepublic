@@ -1,0 +1,149 @@
+.particle-btn {
+    position: relative;
+    padding: 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    overflow: hidden; /* 防止泡泡超出按鈕範圍 */
+  }
+  
+  /* 定義泡泡出現和消失的動畫 */
+  @keyframes bubble-move {
+    0% {
+      opacity: 1;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2) translate(0, -20px);
+    }
+  }
+  
+  @keyframes bubble-move-opposite {
+    0% {
+      opacity: 1;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2) translate(0, 20px);
+    }
+  }
+  
+  .particle-btn::before, .particle-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+  
+  .particle-btn:active::before {
+    animation: bubble-move 0.5s forwards;
+  }
+  
+  .particle-btn:active::after {
+    animation: bubble-move-opposite 0.5s forwards;
+  }
+
+
+
+
+
+
+
+
+
+
+/* .particle-btn {
+    position: relative;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.particle-btn::before,
+.particle-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: bubble-up 2s ease-out infinite;
+}
+
+@keyframes bubble-up {
+    0% {
+        bottom: 10px;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+.particle-btn::before {
+    animation-delay: 0s;
+}
+
+.particle-btn::after {
+    animation-delay: 1s;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+/* .particle-btn{
+    position: relative;
+}
+
+.particle-btn:active::before, .particle-btn:active::after{
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    background: #ff598c;
+    border-radius: 50%;
+    transform: translate(-50%,-0%);
+    animation: bubble 0.5s ease-out forwards;
+}
+
+.particle-btn:active::after{
+    animation-delay: 0.2s;
+}
+
+@keyframes bubble{
+    0%{
+        bottom: 20px;
+        opacity: 1;
+    }
+    100%{
+        bottom: 200px;
+        opacity: 0;
+    }
+} */

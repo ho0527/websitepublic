@@ -1,0 +1,143 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    padding: 0px;
+    margin: 0px;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.xcenter{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 100%;
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+    width: 100%;
+}
+
+.line{
+    width: 15%;
+    height: 150px;
+    background: white;
+    margin: 0px 10px;
+    display: inline-block;
+}
+
+.line1{
+    height: 150px;
+    animation: 0.75s line1 infinite linear;
+}
+
+.line2{
+    height: 200px;
+    animation: 0.75s line2 infinite linear;
+}
+
+.line3{
+    height: 250px;
+    animation: 0.75s line3 infinite linear;
+}
+
+.line4{
+    height: 300px;
+    animation: 0.75s line4 infinite linear;
+}
+
+@keyframes line1{
+    0%{
+        height: 150px;
+    }
+    50%{
+        height: 300px;
+    }
+    100%{
+        height: 150px;
+    }
+}
+
+@keyframes line2{
+    0%{
+        height: 200px;
+    }
+    30%{
+        height: 300px;
+    }
+    80%{
+        height: 150px;
+    }
+    100%{
+        height: 200px;
+    }
+}
+
+@keyframes line3{
+    0%{
+        height: 250px;
+    }
+    15%{
+        height: 300px;
+    }
+    70%{
+        height: 150px;
+    }
+    100%{
+        height: 250px;
+    }
+}
+
+@keyframes line4{
+    0%{
+        height: 300px;
+    }
+    50%{
+        height: 150px;
+    }
+    100%{
+        height: 300px;
+    }
+}

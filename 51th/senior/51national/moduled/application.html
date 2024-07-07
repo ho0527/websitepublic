@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>房屋交易平台</title>
+		<link rel="stylesheet" href="/website/index.css">
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+		<script src="/chrisplugin/js/chrisplugin.js"></script>
+	</head>
+	<body>
+		<div class="navigationbar" id="navigationbar"></div>
+
+		<div class="top-75px">
+			<!-- 搜尋表單 START -->
+			<div class="box searchform">
+				<div class="flex alignitems-center justifycontent-space_between columngap-10px">
+					<div class="input">
+						<input type="text" id="keyword" placeholder="關鍵字">
+					</div>
+					<input type="button" class="button light" id="submit" value="送出">
+				</div>
+				<div class="margin-10px_0px">
+					<div class="textlabel">價格區間</div>
+					<div class="input flexcenter">
+						<input type="number" class="margin-0px_5px_0px_0px" id="minprice"> ~ <input type="number" class="margin-0px_0px_0px_5px" id="maxprice">
+					</div>
+				</div>
+				<div class="margin-10px_0px">
+					<div class="flexcenter columngap-10px">
+						<select class="select fill textcenter" id="room">
+							<option value="">房數</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+						<select class="select fill textcenter" id="age">
+							<option value="">屋齡</option>
+							<option value="0~5">0~5</option>
+							<option value="5~10">5~10</option>
+							<option value="10~15">10~15</option>
+							<option value="15~20">15~20</option>
+							<option value="20~25">20~25</option>
+							<option value="25~30">25~30</option>
+							<option value="30~35">30~35</option>
+							<option value="35~40">35~40</option>
+							<option value="40~">40~</option>
+						</select>
+					</div>
+				</div>
+				<div class="margin-10px_0px">
+					<div class="flexcenter columngap-10px">
+						<div class="div fill">
+							<div class="textlabel">排序參照</div>
+							<select class="select fill textcenter" id="sortby">
+								<option value="published_at">刊登時間</option>
+								<option value="price">價格</option>
+								<option value="square">坪數</option>
+							</select>
+						</div>
+						<div class="div fill">
+							<div class="textlabel">排序方式</div>
+							<select class="select fill textcenter" id="order">
+								<option value="asc">升冪</option>
+								<option value="desc">降冪</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 搜尋表單 END -->
+
+			<div class="houselist macossectiondivy" id="houselist"></div>
+
+			<div class="pagediv flexcenter" id="page"></div>
+		</div>
+
+		<script src="initialize.js"></script>
+		<script src="application.js"></script>
+	</body>
+</html>

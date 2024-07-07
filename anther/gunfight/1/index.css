@@ -1,0 +1,345 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: gray;
+    text-align: center;
+    word-break: break-all;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0px;
+    color: white;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+
+.main{
+    border: 1px white solid;
+    position: absolute;
+    top: calc(50% + 50px);
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+}
+
+.logo{
+    height: 75px;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgba(250, 250, 250, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 5px;
+    z-index: 900;
+}
+
+.navigationbarleft{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbartitle{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    background: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    padding: 10px;
+    margin: 0px 10px;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.navigationbarselect{
+    background: black;
+    color: white;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.input{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 75%;
+    height: 40px;
+    outline: none;
+    font-size: 30px;
+    color: white;
+}
+
+.middleinput{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 35%;
+    height: 40px;
+    outline: none;
+    margin: 0px 5%;
+    font-size: 30px;
+    color: white;
+}
+
+.inputhint{
+    width: 23%;
+    display: inline-block;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+.inputdiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:focus{
+    background: gray;
+    color: white;
+}
+
+.bluebutton{
+	box-shadow: inset 1px -3px 7px 0px #29bbff;
+	background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	background-color: #2dabf9;
+	border-radius: 5px;
+	border: 1px solid #0b0e07;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: bold;
+    margin: 5px 0px;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+}
+
+.bluebutton:hover{
+	background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	background-color: #0688fa;
+}
+
+.bluebutton:active{
+	position: relative;
+	top: 1px;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+
+.disabled:hover{
+    background: revert;
+    color: revert;
+}
+/* END */
+
+
+/* program START */
+
+.main{
+    top: 50%;
+    width: 80vw;
+    height: 70vh;
+}
+
+.timer{
+    border: 1px white solid;
+    width: 80%;
+    height: 40%;
+    color: white;
+    font-size: 50px;
+    margin: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer2{
+    border: 1px white solid;
+    width: 80%;
+    height: 10%;
+    color: white;
+    font-size: 40px;
+    margin: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game{
+    width: 95%;
+    height: 30%;
+}
+
+.stop{
+    width: 95%;
+}
+
+.audio{
+    display: none;
+}
+
+.right{
+    border: 1px white solid;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left{
+    border: 1px white solid;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pass{
+    background: green;
+}

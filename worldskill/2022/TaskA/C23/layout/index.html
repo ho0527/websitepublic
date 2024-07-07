@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Range Slider</title>
+        <link rel="stylesheet" href="fontawesome-free-6.1.2-web/css/all.css">
+        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+        <script src="/chrisplugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1 class="textcenter">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="fw-bold">Price</span> Range
+            </h1><br>
+
+            <div>
+                <input type="range" id="slider">
+            </div>
+
+            <div id="display">
+                <div class="cost cost-left">
+                    $<span id="left">400</span>
+                </div>
+                <div class="cost cost-right">
+                    $<span id="right">600</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script -->
+        <script src="js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="indexindex.css">
+        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+        <script src="/chrisplugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+		<div class="navigationbar">
+			<div class="navigationbarleft">
+				<img src="material/icon/mainicon.png" class="logo">
+			</div>
+			<div class="navigationbarright">
+				<input type="button" class="navigationbarbutton" onclick="location.href='skill.html'" value="返回">
+			</div>
+		</div>
+		<div class="indexmain macossectiondivy">
+			<div class="flex columngap-10px">
+				<div class="box bordertop warn fill indexbox" data-link="54th/">
+					<img src="/website/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">54屆</div>
+						<div class="text tiny">lastupdate: 20231213</div>
+					</div>
+				</div>
+				<div class="box bordertop warn fill indexbox" data-link="53th/">
+					<img src="/website/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">53屆</div>
+						<div class="text tiny">lastupdate: 20240318</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex columngap-10px">
+				<div class="box bordertop warn fill indexbox" data-link="52th/">
+					<img src="/website/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">52屆</div>
+						<div class="text tiny">lastupdate: 20231213</div>
+					</div>
+				</div>
+				<div class="box bordertop warn fill indexbox" data-link="51th/">
+					<img src="/website/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">51屆</div>
+						<div class="text tiny">lastupdate: 20240318</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex columngap-10px">
+				<div class="box bordertop warn fill indexbox" data-link="50th/">
+					<img src="/website/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">50屆</div>
+						<div class="text tiny">lastupdate: 20231213</div>
+					</div>
+				</div>
+				<div class="box bordertop success fill indexbox" data-link="49th/">
+					<img src="/website/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">49屆</div>
+						<div class="text tiny">lastupdate: 20240318</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex columngap-10px">
+				<div class="box bordertop warn fill indexbox" data-link="46th/">
+					<img src="/website/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">46屆</div>
+						<div class="text tiny">lastupdate: 20231213</div>
+					</div>
+				</div>
+				<div class="box bordertop success fill indexbox" data-link="45th/">
+					<img src="/website/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">45屆</div>
+						<div class="text tiny">lastupdate: 20240318</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="footer">
+            如果有遇到程式有問題請用DC找 chris0527 或 <a href="anther/respond" class="a">填寫此表單</a> 回報
+        </div>
+
+		<script>
+			onclick(".indexbox",function(element,event){
+                setTimeout(function(){
+                    href(element.dataset.link)
+                },100)
+			})
+
+			startmacossection()
+		</script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function getType(value){
+                console.log("value=",value)
+                if(typeof value=="boolean"){
+                    return "boolean"
+                }
+                if(typeof value=="string"){
+                    return "string"
+                }
+                if(typeof value=="bigint"){
+                    return "bigint"
+                }
+                if(Number(value)){
+                    return "number"
+                }
+                if(Array.isArray(value)){
+                    return "array"
+                }
+                if(/^\{.+\}$/.test(JSON.stringify(value))){
+                    return "object"
+                }
+                if(/^\/.+\/$/.test(value)){
+                    return "regexp"
+                }
+                if(value===null){
+                    return "null"
+                }
+                if(value===undefined){
+                    return "undefined"
+                }
+            }
+        </script>
+        <script src="test.js"></script>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+body{
+    background: rgb(35, 35, 35);
+    color: rgb(255,255,255);
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    word-wrap: break-word;
+}
+
+h1{
+    text-align: center;
+    margin: 5px;
+}
+
+h2{
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+}
+
+.main{
+    border: 1px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40%;
+    height: 85%;
+    border-radius: 10px;
+}
+
+.inputfile{
+    width: 175px;
+}
+
+.area{
+    padding: 20px;
+}
+
+.imagearea{
+    height: 45%;
+    position: relative;
+}
+
+.image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.color{
+    margin-top: 10px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 100px;
+    user-select: text;
+}
+
+.colorbox{
+    width: 30%;
+    height: 100px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.colorname{
+    text-align: center;
+    font-size: 20px;
+    line-height: 200px;
+    color : white;
+    mix-blend-mode: difference;
+}
+
+.reflashbutton{
+    position: relative;
+    padding: 5px;
+    background-color: rgb(220, 173, 78);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}

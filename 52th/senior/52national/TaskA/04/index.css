@@ -1,0 +1,118 @@
+body {
+    background: #f8f8f8;
+    padding: 2rem;
+    user-select: none;
+}
+
+.container {
+	width: 825px;
+	margin: 0 auto;
+}
+
+.canva{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.col-md-9 {
+	flex: 0 0 75%;
+}
+
+.col-md-3 {
+	flex: 0 0 25%;
+}
+
+.img-container {
+	width: 825px;
+	height: 500px;
+	background: #eee;
+	border: 1px solid #ddd;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 36px;
+	font-weight: bold;
+	color: #999;
+	margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.img-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.img-container canvas {
+	display: none;
+}
+
+.img-container.is-drop canvas {
+	display: block;
+}
+
+.img-container.is-drop span {
+	display: none;
+}
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-group>.btn-group:not(:first-child)>.btn, .btn-group>.btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    cursor: pointer;
+}
+
+#image-container{
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+}
+
+#image-canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

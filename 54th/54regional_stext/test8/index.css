@@ -1,0 +1,282 @@
+body{
+    background: slateblue;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    user-select: none;
+}
+
+input[type="text"],input[type="number"]{
+    border: 1px black solid;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.nav{
+    width: 80vw;
+    height: 75px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav2{
+    width: 80vw;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title{
+    font-size: 35px;
+    color: white;
+    font-weight: bold;
+}
+
+.title2{
+    font-size: 30px;
+    color: white;
+    margin: 0px 5px;
+}
+
+.main{
+    background: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+}
+
+.div{
+    margin: 10px 0px;
+}
+
+input[type="text"]:read-only{
+    border: none;
+    background: none;
+}
+
+input[type="text"]:read-only:focus{
+    border: none;
+    background: none;
+}
+
+.maindiv{
+    border: 1px white solid;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    width: 80vw;
+    height: calc(100vh - 150px);
+    padding: 10px 5px;
+    margin: 0px auto;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.commentmain{
+    height: calc(100vh - 150px);
+    overflow: hidden auto;
+}
+
+.commentdiv{
+    width: 80vw;
+    height: 30vh;
+    background: white;
+    border-radius: 10px;
+    margin: 0px auto 30px auto;
+    display: flex;
+}
+
+.commentdivname{
+    width: 30%;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commentdivmid{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.commentdivcontent{
+    width: 100%;
+    height: 55%;
+}
+
+.commentdivreply{
+    width: 100%;
+    height: 15%;
+}
+
+.commentdivtime{
+    width: 100%;
+    height: 15%;
+}
+
+.commentdivconnent{
+    width: 100%;
+    height: 15%;
+}
+
+.commentdivfunction{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div{
+    margin: 10px 0px;
+}
+
+.dropbox{
+    border: 1px black solid;
+    height: 55px;
+}
+
+.width-init{
+    width: initial !important;
+}
+
+.margin-0px_10px{
+    margin: 0px 10px;
+}
+
+.image{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pin{
+    border-left: 5px orange solid;
+}
+
+.table{
+    width: 100%;
+}
+
+.orderfodright{
+    width: 25%;
+}
+
+.fill{
+    width: 100%;
+}
+
+.bookroomleft{
+    width: 75%;
+    margin: 0px 5px;
+}
+
+.bookroomright{
+    width: 25%;
+    margin: 0px 5px;
+}
+
+.c{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cdiv{
+    border: 1px black solid;
+    height: 100px;
+}
+
+.cdatediv{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s linear;
+    cursor: pointer;
+}
+
+.select{
+    background: orange;
+    color: black;
+}
+
+.adminbookroomdiv{
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.verify{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.verify div{
+    border: 1px black solid;
+    width: 75px;
+    height: 75px;
+    font-size: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.adminbookroomtable{
+    table-layout: fixed;
+}
+
+.position-sticky{
+    position: sticky;
+    top: -2px;
+    background: white;
+    z-index: 100;
+}
+
+.imagediv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height: 80%;
+    background-size: cover;
+    animation: 5s imagediv infinite;
+}
+
+@keyframes map{
+    0%,100%{
+        top: 0px;
+        scale: 1;
+    }
+    50%{
+        top: 100px;
+        scale: 1.25;
+    }
+}
+
+@keyframes imagediv{
+    0%{ background: white url("media/picture/01.jpg") no-repeat 50% 50% / 80% 80%; }
+    20%{ background: white url("media/picture/02.jpg") no-repeat 50% 50% / 80% 80%; }
+    40%{ background: white url("media/picture/03.jpg") no-repeat 50% 50% / 80% 80%; }
+    60%{ background: white url("media/picture/04.jpg") no-repeat 50% 50% / 80% 80%; }
+    80%{ background: white url("media/picture/05.jpg") no-repeat 50% 50% / 80% 80%; }
+    100%{ background: white url("media/picture/06.jpg") no-repeat 50% 50% / 80% 80%; }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>新增版型</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
+        <script src="../../../plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="maintitle">電子競技網站管理-新增版型</div>
+            <div class="navigationbarbuttondiv">
+                <input type="button" class="navigationbarbutton" onclick="location.href='main.html'" value="首頁">
+                <input type="button" class="navigationbarbutton selectbutton" onclick="location.href='productindex.html'" value="電競活動管理精靈">
+                <input type="button" class="navigationbarbutton" onclick="location.href='admin.php'" value="會員管理">
+                <input type="button" class="navigationbarbutton" onclick="location.href='api.php?logout='" value="登出">
+            </div>
+        </div>
+        <div class="productbar">
+            <div class="center">
+                <input type="button" class="navigationbarbutton" onclick="location.href='productindex.html'" value="選擇版型">
+                <input type="button" class="navigationbarbutton" onclick="location.href='productinput.html'" value="填寫資料">
+                <input type="button" class="navigationbarbutton" onclick="location.href='productpreview.html'" value="預覽">
+                <input type="button" class="navigationbarbutton" onclick="location.href='productsubmit.html'" value="確定送出">
+                <input type="button" class="navigationbarbutton selectbutton" onclick="location.reload()" value="新增版型">
+            </div>
+        </div>
+        <div class="main newproductmain">
+            <div class="grid newproductgrid">
+                <div class="newproductleft newproduct">
+                    <div class="list small date" id="date">競賽日期</div>
+                    <div class="list mid description" id="description">電競活動 簡介</div>
+                    <div class="list small link" id="link">活動新聞連結</div>
+                    <div class="list small signupbutton" id="button">報名(按鈕)</div>
+                </div>
+                <div class="newproductright newproduct">
+                    <div class="list small name" id="name">電競名稱</div>
+                    <div class="list large picture" id="picture">圖片</div>
+                </div>
+            </div>
+            <input type="button" class="button" onclick="location.href='productindex.html'" value="返回">
+            <input type="button" class="button" id="submit" value="送出">
+        </div>
+        <script src="newproduct.js"></script>
+        <script src="logincheck.js"></script>
+    </body>
+</html>

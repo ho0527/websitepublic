@@ -1,0 +1,361 @@
+body{
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main2{
+    border: 1px white solid;
+    position: relative;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 250px;
+    padding: 20px;
+    width: 20%;
+}
+
+.logo{
+    height: 75px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.navigationbar{
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.navigationbarbuttondiv{
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    margin-bottom: 10px;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.input{
+    border: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+.headerpng{
+    width: 100%;
+    height: 400px;
+}
+
+.title{
+    background: none;
+}
+
+.post{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    margin-top: 25px;
+}
+
+.hot{
+    width: 100%;
+    margin-top: 25px;
+}
+
+.box{
+    border: 1px white solid;
+    padding: 10px;
+    width: 23%;
+    height: 425px;
+    display: inline-block;
+    margin-left: 105px;
+}
+
+.posttitle{
+    font-size: 20px;
+}
+
+.postimg{
+    width: 95%;
+    height: 90%;
+}
+
+.posttime{
+    position: relative;
+    bottom: 0px;
+}
+
+.hottitle{
+    font-size: 20px;
+}
+
+.hotimg{
+    width: 95%;
+    height: 65%;
+    margin: 20px 0px;
+}
+
+.starinput{
+    width: 100px;
+}
+
+.map{
+    margin-top: 20px;
+}
+
+.mapbox{
+    border: 1px white solid;
+    width: 80%;
+    height: 700px;
+    display: inline-block;
+    padding: 20px;
+    position: relative;
+    top: 30px;
+}
+
+.mapimage{
+    width: 70%;
+    height: 90%;
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.mapdepiction{
+    width: 10%;
+    display: inline-block;
+    word-wrap: break-word;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+
+.footericon{
+    width: 30px;
+    height: 30px;
+}
+
+.footer{
+    font-size: 25px;
+    padding: 20px;
+    background: black;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.select{
+    background-color: rgb(145, 145, 145);
+}
+
+.carouselmain{
+    position: relative;
+    top: 50px;
+    margin-bottom: 20px;
+}
+
+.carousel{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.item{
+    position: relative;
+    left: 500px;
+    display: none;
+    width: 100px;
+}
+
+.carouselimage{
+    width: 1000px;
+    height: 500px;
+}
+
+.carouselbutton{
+    border: 1px black solid;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.carouselbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.carouseltitle{
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width: 1000px;
+    height: 30px;
+    text-align: center;
+    background-color: rgba(39, 39, 39, 0.464);
+}
+
+.carouseldepiction{
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    height: 30px;
+    width: 1000px;
+    text-align: center;
+    background-color: rgba(39, 39, 39, 0.464);
+}
+
+.breadcrumbs{
+    position: absolute;
+    top:425px;
+    right: 125px;
+    transform: scale(1.5);
+}
+
+.a{
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+
+/* 電腦版排版 */
+/* @media only screen and (min-width: 1920px){
+    body{
+        width: 1920px;
+        height: 1080px;
+    }
+
+    .logo{
+        width: 175px;
+        height: 175px;
+    }
+} */
+
+/* 平板電腦版排版 */
+/* @media only screen and (min-width: 768px) and (max-width: 1919px){
+    body{
+        width: 768px;
+        height: 1024px;
+    }
+
+    .logo{
+        width: 175px;
+        height: 175px;
+    }
+} */
+
+/* 智慧型手機版排版 */
+/* @media only screen and (max-width: 767px){
+    body{
+        width: 360px;
+        height: 640px;
+    }
+
+    .logo{
+        width: 175px;
+        height: 175px;
+    }
+} */

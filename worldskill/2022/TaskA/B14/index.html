@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Green Light</title>
+        <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        .signal{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            background-color: rgb(34, 34, 34);
+            height: 200px;
+            width: 90px;
+            border-radius: 75px;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+        }
+
+        .light{
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            animation-iteration-count: infinite;
+            animation-duration: 8s;
+        }
+
+        .red{
+            background-color: rgb(255, 0, 0);
+            opacity: 0.2;
+            animation: 8s redlight infinite;
+        }
+
+        .orange{
+            background-color: rgb(240, 174, 33);
+            opacity: 0.2;
+            animation: 8s orangelight infinite;
+        }
+
+        .green{
+            background-color: rgb(80, 214, 26);
+            opacity: 1;
+            animation: 8s greenlight infinite;
+        }
+
+        .pillar{
+            width: 15px;
+            height: 300px;
+            background-color: rgb(34, 34, 34);
+            position: relative;
+            top: -3px;
+        }
+
+        @keyframes greenlight{
+            0%{
+                background-color: rgb(80, 214, 26);
+                opacity: 1;
+            }
+            50%{
+                background-color: rgb(80, 214, 26);
+                opacity: 1;
+            }
+            51%{
+                background-color: rgb(80, 214, 26);
+                opacity: 0.2;
+            }
+            100%{
+                background-color: rgb(80, 214, 26);
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes orangelight{
+            0%{
+                background-color: rgb(240, 174, 33);
+                opacity: 0.2;
+            }
+            49%{
+                background-color: rgb(240, 174, 33);
+                opacity: 0.2;
+            }
+            50%{
+                background-color: rgb(240, 174, 33);
+                opacity: 1;
+            }
+            62.5%{
+                background-color: rgb(240, 174, 33);
+                opacity: 1;
+            }
+            63%{
+                background-color: rgb(240, 174, 33);
+                opacity: 0.2;
+            }
+            100%{
+                background-color: rgb(240, 174, 33);
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes redlight{
+            0%{
+                background-color: rgb(255, 0, 0);
+                opacity: 0.2;
+            }
+            61%{
+                background-color: rgb(255, 0, 0);
+                opacity: 0.2;
+            }
+            62.5%{
+                background-color: rgb(255, 0, 0);
+                opacity: 1;
+            }
+            100%{
+                background-color: rgb(255, 0, 0);
+                opacity: 1;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="signal">
+        <div class="container">
+            <div class="light red"></div>
+            <div class="light orange"></div>
+            <div class="light green"></div>
+        </div>
+
+        <div class="pillar"></div>
+        </div>
+    </body>
+</html>

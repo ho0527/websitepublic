@@ -1,0 +1,391 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    word-break: break-all;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 30px;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main{
+    border: 1px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+}
+
+
+.logo{
+    height: 75px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.navigationbarleft{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbartitle{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    width: 125px;
+    height: 50px;
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.navigationbarselect{
+    background: gray;
+    color: white;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.mainimage{
+    /* height: 350px; */
+    width: 100%;
+    margin: 50px 0px 150px 0px;
+}
+
+.input{
+    border: none;
+    border: 1px black solid;
+    background: white;
+    width: 90%;
+    height: 40px;
+    outline: none;
+    font-size: 30px;
+}
+
+.inputhint{
+    width: 23%;
+    display: inline-block;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+.inputdiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+/* END */
+
+
+/* program START */
+
+.bottom{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.time{
+    grid-column: 1/40;
+    grid-row: 1/17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.difficulty{
+    grid-column: 40/70;
+    grid-row: 1/17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line{
+    grid-column: 70/100;
+    grid-row: 1/17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fontsizebutton{
+    border: none;
+    background: none;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+.fontsizebutton:active{
+    background: lightblue;
+}
+
+.top{
+    border: 1px white solid;
+    position: relative;
+    height: 50px;
+    width: 100%;
+}
+
+.app{
+    grid-column: 1/65;
+    grid-row: 1/17;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left{
+    grid-column: 70/100;
+    grid-row: 1/17;
+}
+
+.shownextdiv{
+    border: 1px white solid;
+    width: 90%;
+    height: 30%;
+    margin: 30px 0px;
+}
+
+.bigbutton{
+    width: 90%;
+    height: 50px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apptd{
+    border: 1px white solid;
+}
+
+.typea1, .typea2, .typea3, .typea4{
+    background: none;
+}
+
+.typea5, .typea6, .typea7, .typea8{
+    background: lightblue;
+}
+
+.typeb1, .typeb3, .typeb4, .typeb5{
+    background: none;
+}
+
+.typeb2, .typeb6, .typeb7, .typeb8{
+    background: blue;
+}
+
+.typec1, .typec2, .typec3, .typec5{
+    background: none;
+}
+
+.typec4, .typec6, .typec7, .typec8{
+    background: orange;
+}
+
+.typed1, .typed4, .typed5, .typed8{
+    background: none;
+}
+
+.typed2, .typed3, .typed6, .typed7{
+    background: yellow;
+}
+
+.typee1, .typee2, .typee5, .typee8{
+    background: none;
+}
+
+.typee3, .typee4, .typee6, .typee7{
+    background: green;
+}
+
+.typef1, .typef2, .typef4, .typef5{
+    background: none;
+}
+
+.typef3, .typef6, .typef7, .typef8{
+    background: purple;
+}
+
+.typeg1, .typeg4, .typeg5, .typeg6{
+    background: none;
+}
+
+.typeg2, .typeg3, .typeg7, .typeg8{
+    background: red;
+}
+
+.mask{
+    background: rgb(100, 100, 100);
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}

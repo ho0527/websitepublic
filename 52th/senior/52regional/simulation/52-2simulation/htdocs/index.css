@@ -1,0 +1,27 @@
+.dragbox{
+    border: 1px black solid;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.dropbox{
+    border: 1px black solid;
+    display: inline-block;
+    width: 130px;
+    height: 40px;
+}
+
+.adminnum{
+    border: 1px black solid;
+    width: 90px;
+}
+
+.admin{
+    border: 1px black solid;
+    width: 150px;
+}
+
+.right{
+    float: right;
+}

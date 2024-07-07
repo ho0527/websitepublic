@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>快樂旅遊網</title>
+        <link rel="stylesheet" href="bootstrap.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <?php include("link.php"); ?>
+        <div class="nav" id="nav">
+            <div class="title">快樂旅遊網</div>
+        </div>
+
+        <div class="maincard">
+            <table class="table orderfoodright text-center">
+                <tr>
+                    <th>#</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>function</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>name</td>
+                    <td>1</td>
+                    <td><input type="number" class="text-center" id="data" min="0" step="1" value="0"></td>
+                </tr>
+            </table>
+            <div class="orderfoodleft">
+                總價格: $<span id="totalprice">0</span>
+                <input type="button" class="btn btn-warning fill" onclick="location.reload()" value="確認">
+            </div>
+        </div>
+
+        <script src="init.js"></script>
+        <script src="orderfood.js"></script>
+    </body>
+</html>

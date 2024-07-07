@@ -1,0 +1,751 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(33, 42, 54);
+    user-select: none;
+    word-break: break-all;
+    text-align: center;
+    color: white;
+}
+
+table{
+    border-collapse:collapse;
+    vertical-align:top;
+}
+
+h1{
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px rgb(255, 255, 255) solid;
+    margin-bottom: 20px;
+}
+
+.indextitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgba(250, 250, 250, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 5px;
+    z-index: 900;
+}
+
+.indexdiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 280px;
+    width: 275px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+body{
+    font-family: "Consolas";
+    background: rgb(25, 25, 25);
+    color: lightgray;
+    text-align: center;
+    word-break: break-all;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0px;
+    color: white;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+
+.main{
+    border: 2px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+}
+
+.logo{
+    height: 75px;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px rgb(49, 53, 53) solid;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgba(40, 40, 40, 0.95);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 8px 32px 0 rgba(70, 70, 70, 0.1);
+    z-index: 900;
+}
+
+.navigationbar2{
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgba(50, 50, 50, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(185, 185, 185, 0.1);
+    z-index: 900;
+}
+
+.navigationbarleft{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbartitle{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.navigationbarbutton{
+    border: 1px white solid;
+    background: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    margin: 0px 10px;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: black;
+}
+
+.navigationbarbutton:active{
+    box-shadow: 0px 10px 30px 0 rgba(77, 77, 77, 0.68);
+}
+
+.navigationbarselect{
+    background: black;
+    color: white;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.input{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 75%;
+    height: 40px;
+    outline: none;
+    font-size: 30px;
+    color: white;
+}
+
+.middleinput{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 35%;
+    height: 40px;
+    outline: none;
+    margin: 0px 5%;
+    font-size: 30px;
+    color: white;
+}
+
+.inputhint{
+    width: 23%;
+    display: inline-block;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+.inputdiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.button:active{
+	position: relative;
+	top: 1px;
+}
+
+.bluebutton{
+	box-shadow: inset 1px -3px 7px 0px #29bbff;
+	background: #2dabf9 linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	border-radius: 5px;
+	border: 1px solid #0b0e07;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: bold;
+    margin: 5px 0px;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+}
+
+.bluebutton:hover{
+	background: #0688fa linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+}
+
+.bluebutton:active{
+	position: relative;
+	top: 1px;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background: rgb(25, 25, 25);
+    text-align: center;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+
+.disabled:hover{
+    background: revert;
+    color: revert;
+}
+
+.primarytext{
+    font-size: 40px;
+    color: transparent;
+    font-weight: bold;
+}
+
+.secondarytext{
+    font-size: 30px;
+    color: white;
+}
+
+.text{
+    font-size: 20px;
+}
+
+.highlight{
+    font-weight: bold;
+    color: yellow;
+    display: inline-block;
+}
+/* END */
+
+
+/* program START */
+
+
+
+.input{
+    border: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.input{
+    border: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 25px;
+    height: 25px;
+}
+
+.select{
+    width:70px;
+}
+
+.dragbox{
+    border: 1px black solid;
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    background-color: white;
+}
+
+.dropbox{
+    border: 1px black solid;
+    height: 60px;
+    width: 180px;
+    display: inline-block;
+    background-color: white;
+    text-align: left;
+}
+
+.dragimg{
+    cursor: grab;
+}
+
+.block2{
+    border: 1px black solid;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.drag-over{
+    border-top: dashed 1px rgb(42, 42, 42);
+}
+
+.main-table{
+    border: 1px black solid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/*admin table*/
+.signupdiv{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(3.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 200px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.admin-title{
+    font-size:50px;
+}
+
+.admin-find{
+    text-align: right;
+}
+
+.admin-table-num{
+    border-bottom: 0.5px black solid;
+    width: 300px;
+    height: 30px;
+    color: white;
+    text-align: center;
+}
+
+.admin{
+    border: 1px white solid;
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translate(-45%,0%);
+    height: 600px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.admin-table{
+    border-bottom: 0.5px black solid;
+    width: 350px;
+    height: 30px;
+    color: white;
+    font-size: 18px;
+}
+
+/*user table*/
+.title{
+    border: 0.5px black solid;
+    width:225px;
+    height:25px;
+    font-size:30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.date{
+    border: 0.5px black solid;
+    width:985px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.user-table4{
+    border: 0.5px black solid;
+    height:785px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.todo{
+    border: 0.5px black solid;
+    height: 785px;
+    text-align: center;
+}
+
+.usertable{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:100px;
+    height:30px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.all{
+    vertical-align: top;
+    border: 0.5px black solid;
+    width: 620px;
+}
+
+.newtodo{
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.todo-title-time{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:155px;
+    height:30px;
+    text-align: center;
+}
+
+.todo-title-work{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:800px;
+    height:30px;
+    text-align: center;
+}
+
+.todo-title-main1{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:155px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-main1{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:800px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-title-main2{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:155px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-main2{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:800px;
+    height:57px;
+    text-align: center;
+}
+
+.work-box{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border: 0.5px rgb(0, 0, 0) solid;
+    text-align: center;
+    line-height: 1.1;
+    width: 150px;
+    font-size: 12px;
+    position:absolute;
+    /* user-select: all; */
+}
+
+#button3{
+    width:30px;
+    height:20px;
+    position: absolute;
+    top:0px;
+    right:1px;
+    font-size: 1px;
+    cursor: pointer;
+}
+
+#button4{
+    width:40px;
+    height:20px;
+    position: absolute;
+    bottom:0px;
+    right:1px;
+    font-size: 1px;
+    cursor: pointer;
+}
+
+.right{
+    float: right;
+}
+
+.div{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:15px;
+    font-weight:bold;
+    background-color: rgb(125, 125, 125);
+    border: 0.5px rgb(0, 0, 0) solid;
+    width: 175px;
+    height: 125px;
+    position: relative;
+    top: 450px;
+    left:15px;
+    word-wrap:break-word;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.useradd{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 350px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.table4but{
+    width: 150px;
+    text-align: center;
+}
+
+.upusertablediv{
+    width: 100%;
+    height: 12px;
+    position: relative;
+    bottom: 2px;
+    margin: 1px;
+}
+
+.userhalf{
+    border-top: 1px black solid;
+}
+
+.downusertablediv{
+    width: 100%;
+    height: 12px;
+    position: relative;
+    top: 2px;
+    margin: 1px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 25px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}

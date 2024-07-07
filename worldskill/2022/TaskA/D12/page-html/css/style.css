@@ -1,0 +1,22 @@
+body {
+    min-height: 100vh;
+    background: #ffb300;
+}
+
+.icon {
+    display: inline-block;
+    aspect-ratio:  1/1;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.icon-eye {
+    background-image:  url("../svg/eye.svg");
+    width: 18px;
+}
+
+.icon-clock {
+    background-image:  url("../svg/clock.svg");
+    width: 16px;
+}

@@ -1,0 +1,45 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    word-wrap: break-word;
+}
+
+.ripple{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background: rgba(0,149,255,0.75);
+    border-radius: 55%;
+    transform: scale(0);
+    pointer-events: none;
+    animation: .75s ripple ease-out;
+}
+
+.button{
+    border: 1px black solid;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: rgba(255,255,255,.75);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@keyframes ripple{
+    to{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,24 @@
+<?php
+include("link.php");
+if(isset($_POST['acount'])){
+    $acount=$_POST['acount'];
+    $password=$_POST['password'];
+    if(!preg_match("/[\\\,\`,\~,\!,\@,\#,\$,\%,\^,\&,\*,\(,\),\_,\-,\+,\=,\[,\],\{,\},\:,\;,\?,\.,\>,\<,\/,\|,\,]/",$acount.$password)){
+        if($_POST["verification"]==$_POST['ver']){
+            if($row=($db->query("SELECT*FROM `admin` WHERE `acount`='$acount'"))->fetch()){
+                if($row["password"]==$password){
+                    ?><script>alert("正確.");location.href="madmin.php"</script><?php
+                }else{
+                    ?><script>alert("密碼錯誤.");location.href="m.php"</script><?php
+                }
+            }else{
+                ?><script>alert("帳號錯誤.");location.href="m.php"</script><?php
+            }
+        }else{
+            ?><script>alert("驗證碼錯誤.");location.href="m.php"</script><?php
+        }
+    }else{
+        ?><script>alert("不能有特殊字元.");location.href="m.php"</script><?php
+    }
+}
+?>

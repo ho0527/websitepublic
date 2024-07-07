@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "poppins", "Noto Sans TC", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  min-height: 100vh;
+  background: #23232b;
+  display: grid;
+  place-content: center;
+  color: #fff;
+}
+
+.container {
+  width: 500px;
+}
+
+/* 
+      提示框是一種常見的圖形用戶界面元素，例如當滑鼠懸停在超鏈接等其他網頁組件上時，頁面上會顯示有關該組件的信息，例如這個按鈕有什麼功能，組件上的縮寫是什麼意思。
+      */
+
+:root {
+  --tooltip-color: #fcd3bd;
+}
+
+/* 
+在加 tooltip 時有個小問題
+如果多用一個 div 來做 tooltip 會很不方便
+因為可能很多地方都需要
+這樣位置的調整很麻煩
+所以我們可以用 ::after 或 ::before 來解決
+好處是只要多加一個 tooltip 的 class 就可以簡單做出提示框
+就是每個提示框的內容都不同
+
+但第二個問題會是提示框的內容要寫在哪呢？
+這個問題可以用 data-* 屬性輕鬆解決解決
+       */
+
+/* 
+想好製作的思路就可以動手來了
+先看看 HTML 的架構
+       */
+
+/* 
+因為我們要用偽元素
+所以記得加上 position: relative
+       */
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  width: max-content;
+  background-color: var(--tooltip-color);
+  color: #23232b;
+  text-align: center;
+  padding: 15px;
+  border-radius: 0.25rem;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+}
+
+/* 
+data-* 屬性可以直接用在 content 的地方，
+這樣就可以解決每個提示框內容不同的問題
+偽元素的部分，width 記得設置成 max-content
+才可以讓寬度自動配合文字長度
+      */
+
+/* 
+接著只要設定 hover 時顯示就搞定了
+用上 visibility: hidden 就可以讓元素不被點擊到
+      */
+
+.tooltip::before {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.tooltip:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 
+最後可以加個三角形做裝飾
+在 CSS 中可以利用 border 來製作三角形
+這裡偷偷教你
+      */
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: calc(125% - 10px);
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--tooltip-color) transparent transparent;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  background: hsl(110, 36%, 36%);
+  color: #e3e3e3;
+  border-radius: 999px;
+  padding: 8px 32px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.05);
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background: hsl(110, 36%, 45%);
+}

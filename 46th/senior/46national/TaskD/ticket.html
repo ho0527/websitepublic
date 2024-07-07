@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>列車訂票系統</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <img src="material/icon/mainicon.png" class="logo">
+                <div class="maintitle">列車訂票系統</div>
+            </div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index.html'" value="首頁">
+                <input type="button" class="navigationbarbutton navigationbarselect" onclick="location.href='ticket.html'" value="預定車票">
+                <input type="button" class="navigationbarbutton" onclick="location.href='search.html'" value="訂票查詢">
+                <input type="button" class="navigationbarbutton" onclick="location.href='train.html'" value="列車資訊">
+                <input type="button" class="navigationbarbutton" onclick="location.href='login.html'" value="登入後台">
+            </div>
+        </div>
+        <div class="main trainmain">
+            手機號碼: <input type="text" class="input" id="phone"><br><br>
+            乘車日期: <input type="date" class="input" id="date"><br><br>
+            <select class="ticketselect" id="traincode">
+                <option value="na">車次代碼</option>
+            </select>
+            <select class="ticketselect" id="start">
+                <option value="na">起程站</option>
+            </select>
+            <select class="ticketselect" id="end">
+                <option value="na">終點站</option>
+            </select><br><br>
+            車票張數: <input type="number" class="input" id="count"><br>
+            <input type="button" class="button" id="check" value="回答驗證碼"><br>
+            <div class="ticketwarning warning" id="error"></div>
+            <input type="reset" class="button" value="清除">
+            <input type="button" class="button" id="submit" value="送出">
+        </div>
+        <div id="lightbox"></div>
+        <script src="ticket.js"></script>
+    </body>
+</html>

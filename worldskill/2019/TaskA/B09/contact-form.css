@@ -1,0 +1,89 @@
+body {
+    font-family: "Arial";
+    color: #333333;
+}
+
+.form__fieldwrap--input{
+    margin-bottom: 40px;
+    display: inline-block;
+    width: 45%;
+    margin: 20px 20px;
+}
+
+.form__input {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #4a4a4a;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5em;
+    border-radius: 0;
+    padding-top: .7em;
+    padding-bottom: .7em;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: inherit;
+    outline: none;
+}
+
+.form__input:focus {
+    outline: 3px solid #000000;
+}
+
+.form__input:active{
+    background: rgb(20,20,20);
+}
+
+.form__fieldset{
+    border: 1px black dotted;
+}
+
+.button--submit{
+    border: none;
+    width: 100%;
+    height: 50px;
+    background: rgba(188, 188, 188, 0.509);
+    cursor: pointer;
+}
+
+.form__fieldwrap--radio{
+    border-radius: 10px;
+    background: rgb(190, 190, 190);
+    font-size: 20px;
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 5px 30% 5px 5%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.radio{
+    display: none;
+}
+
+.formfieldsetgeneral{
+    display: none;
+}
+
+.formfieldsetsupportrequest{
+    display: none;
+}
+
+.general:has(.generalradio:checked){
+    background: black;
+    color: white;
+}
+
+.supportrequest:has(.supportrequestradio:checked){
+    background: black;
+    color: white;
+}
+
+.form__section:has(.generalradio:checked)>.formfieldsetgeneral{
+    display: block;
+}
+
+.form__section:has(.supportrequestradio:checked)>.formfieldsetsupportrequest{
+    display: block;
+}

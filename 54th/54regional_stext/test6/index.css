@@ -1,0 +1,212 @@
+body{
+    background: slateblue;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+
+input[type="text"],input[type="number"]{
+    border: 1px black solid;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.nav{
+    width: 80vw;
+    height: 75px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav2{
+    width: 80vw;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.title2{
+    color: white;
+    font-size: 30px;
+    margin: 0px 10px;
+}
+
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.maindiv{
+    position: relative;
+    width: 80vw;
+    background: white;
+    border-radius: 10px;
+    margin: 0px auto;
+    height: calc(100vh - 150px);
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.div{
+    margin: 10px 0px;
+}
+
+.dropbox{
+    border: 1px black solid;
+    height: 55px;
+}
+
+.commentmain{
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+.commentdiv{
+    background: white;
+    width: 80vw;
+    height: 30vh;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0px auto 20px auto;
+    display: flex;
+}
+
+.commentdivname{
+    font-size: 30px;
+    font-weight: bold;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commentdivmid{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.commentdivcontent{
+    width: 100%;
+    height: 55%;
+    margin: 5px 0px;
+}
+
+
+.commentdivreply{
+    width: 100%;
+    height: 10%;
+    margin: 5px;
+}
+
+.commentdivtime{
+    width: 100%;
+    height: 10%;
+    margin: 5px;
+}
+
+.commentdivconntent{
+    width: 100%;
+    height: 10%;
+    margin: 5px;
+}
+
+.commentdivfunction{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pin{
+    border-left: 5px orange solid;
+}
+
+.orderfoodtable{
+    width: 100%;
+}
+
+.orderfoodfunction{
+    width: 25%;
+}
+
+.fill{
+    width: 100%;
+}
+
+.map:hover{
+    position: absolute;
+    animation: 1s map infinite;
+}
+
+.bookroomleft{
+    width: 75%;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.c{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.bookroomright{
+    width: 25%;
+}
+
+.cdiv{
+    border: 1px whitesmoke solid;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.datediv{
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.select{
+    color: black;
+    background: orange;
+}
+
+@keyframes map{
+    0%,100%{
+        top: 5px;
+    }
+    50%{
+        top: 150px;
+    }
+}

@@ -1,0 +1,679 @@
+{
+    "data": [
+        {
+            "title": "53regional",
+            "link": "../",
+            "statu": "SUCCESS",
+            "ps": "question",
+            "createdate": "2023/02/05",
+            "updatedate": "2023/10/19",
+            "data": [
+                {
+                    "list": 1,
+                    "description": "LOGO 設計",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "01",
+                            "description": "是否繳交正確的文件格式，且有提交文件和原始檔案。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "文件版面是否為 A4 直式",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "上方內容為 LOGO",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "下方為設計理念說明",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "並將 LOGO 之原始設計可編輯檔存放在 01/source 目錄下。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "02",
+                            "description": "LOGO 標誌設計圖須包含 C、S 之元素及「coffee」(大小寫不拘)。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "03",
+                            "description": "LOGO 標誌圖造型及線條之專業表現，以及創新性，設計理念說明切合主題。",
+                            "statu": "subjective",
+                            "data": []
+                        },
+                        {
+                            "no": "04",
+                            "description": "LOGO 標誌之色彩配色及運用上符合主題的氣氛。",
+                            "statu": "subjective",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 2,
+                    "description": "會員登入模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "06",
+                            "description": "網站前台登入頁面，以圖 2 所包含的元素為參考版形，頁面內至少有 13 個元素",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "頁面標題",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "「帳號」、「密碼」的文字及輸入欄位；",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": ") 驗證碼「重新產生」按鈕；「重設」按鈕；「送出」按鈕等。 ",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "Logo於上方頁面標題左側。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "07",
+                            "description": "預設管理者帳號是:admin，密碼是:1234，可以執行帳號及密碼的驗證，驗證成功就顯示成功登入的訊息，否則顯示錯誤的訊息。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "08",
+                            "description": "圖形驗證是以圖片顯示，圖片驗證碼必須是由 SERVER端產生的。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "圖片包含四個大小寫英文字母及數字的圖片",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "09",
+                            "description": "能夠成功進行圖形驗證。圖形驗證的方式使用 \"以輸入文字方式來回答。\" 或 \"使用互動拖拉的方式來回答，依訊息指示拖拉到另外一區。\"(依 ASCII code 來比較)",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "10",
+                            "description": "錯誤訊息的內容能分別指出錯誤的類型，包含帳號有誤、密碼有誤、或圖形驗證碼有誤",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "11",
+                            "description": "登入若連續錯誤 3 次，則自動切換到「登入失敗」的頁面，頁面內容顯示\"連續錯誤3次\"的訊息。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "12",
+                            "description": "點擊「重新產生」按鈕時，會更換新驗證碼圖片。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "13",
+                            "description": "「一般使用者」登入成功後，則進入咖啡商品展示系統的展示頁面。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "14",
+                            "description": "「管理者」登入成功後，則進入咖啡商品展示系統的管理者頁面，會多出「上架商品」「會員管理」2個按鈕，才可認定是管理者頁面。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 3,
+                    "description": "登入時第二層驗證模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "15",
+                            "description": "進行登入驗證時，若能再加入第二層的驗證功能，功能如下",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "設計 3x3 的空白九宮格及操作指示文字",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "點選任一格子，則格子變顏色或是填入一可識別之圖案",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "同一格子再按一次，則恢復空白",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "依操作指示，有4種選擇，可連成 3 格「水平線、垂直線、左上右下斜線或是右上左下斜線」時，按確定按鈕則可登入。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "16",
+                            "description": "提供一按鈕，每按一次，可以依序切換 4 種操作選擇。 ",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 4,
+                    "description": "會員管理後台管理模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "18",
+                            "description": "以管理者帳號登入系統後，會進入管理者介面。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "能新增使用者帳號，包含帳號、密碼、姓名、及權限，並能在前台成功登入。使用者權限分「一般使用者」及「管理者」。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "19",
+                            "description": "新增使用者帳號時，系統會自動產生一個「使用者編號」，使用者編號是唯一編號，每一使用者皆不一樣。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "是以流水號的方式產生，共5碼從 00001 開始的數字，例如00001",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "每新增一個使用者，使用者編號為前一個新增個使用者再加1",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "管理者帳號 admin 的「使用者編號」為00000，姓名為「管理者」。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "20",
+                            "description": "以管理者帳號登入系統後，能進入後台管理畫面，畫面標題需 為「管理者專區」的文字出現。 以一般使用者帳號登入系統後，能進入會員的畫面頁面，畫面標題需為「會員專區」的文字出現。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "21",
+                            "description": "以管理者帳號登入系統後：能修改使用者帳號資料。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "包含密碼、及姓名，並能在前台成功登入，但不能修改使用者帳號及編號。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "22",
+                            "description": "以管理者帳號登入系統後：能修改使用者權限。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "包含「一般使用者」及「管理者」，並能在前台成功登入。但不能修改使用者編號。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "23",
+                            "description": "「管理者」的使用者，不能修改及刪除特別管理者「admin」管理者帳號的資料。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "24",
+                            "description": "以管理者帳號登入系統後：能以關鍵字查詢所有使用者帳號資料，並能以「使用者編號」升冪的排序方式呈現。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "每一筆資料包含使用者編號、帳號、密碼、姓名、及權限。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "25",
+                            "description": "以管理者帳號登入系統後：能以關鍵字查詢所有使用者帳號資料，並能選擇以帳號、姓名或使用者編號及「升冪或降冪」的排序方式呈現。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "26",
+                            "description": "以管理者帳號登入系統後：能刪除使用者帳號資料，包含「一般使用者」及「管理者」。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "27",
+                            "description": "但不能刪除特別管理者「admin」管理者的帳號。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "28",
+                            "description": "刪除一位使用者後，「使用者編號」不可再重複使用。若再新增一位使用者時，不可再重複使用前先已刪除使用者的「使用者編號」。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "29",
+                            "description": "系統具有登入登出紀錄功能，管理者身份的使用者可以檢視紀錄資料。登入登出紀錄資料每一筆至少包含，「使用者，時間，動作(登入/登出)，成功/失敗」。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "30",
+                            "description": "若是以管理者帳號登入系統成功時，能有一倒數計時器，預設以 30 秒為開始倒數計時，倒數到 0 秒時，則出現對話，詢問是否繼續操作，若按 Yes 則繼續操作，若按否或是大約 5 秒內無回答，則系統會登出。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "31",
+                            "description": "倒數計時器的倒數時間長度可以人工調整，並有一「重新計時」按鈕，可以重新開始計時的功能。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 5,
+                    "description": "咖啡商品展示系統",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "32",
+                            "description": "一般使用者登入時，可進到咖啡商品展示系統首頁，在「商品展示區」可瀏覽所有已上架公佈的商品，依公告的時間之順序排列，時間後面公告的排在前面。(排列先後順序為由上到下，同一列由左到右)",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "首頁包含「標題」及「查詢」按鈕",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "33",
+                            "description": "「商品展示區」有分頁的功能，每一分頁有 4 個商品。至少包含「上一頁」，「下一頁」，「到最前一頁，「到最後一頁」4 個按鈕。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "34",
+                            "description": "按「查詢」按鈕，可以依價格範圍來查詢所需要的商品",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "有提供至少 3 個預先指定範圍的按鈕來快速查詢。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "35",
+                            "description": "按「查詢」按鈕，可以依關鍵字來查詢所需要的商品",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "36",
+                            "description": "「管理者」登入時，按「上架商品」按鈕，進入製作電競活動精靈的頁面，此精靈頁面包含「選擇版型」、「填寫資料」、「預覽」、「確定送出」子功能頁面。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "按各子功能連結，會切換到各子功能頁面，每一子功能頁面至少需包含各子功能標題文字。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "37",
+                            "description": "「選擇版型」子功能頁面，需至少提供 3 種基本版型來套用。每一版型，至少包含: 圖片、商品名稱、商品簡介、發佈日期、費用、及相關連結 等元素。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "3 種基本版型需不一樣",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "38",
+                            "description": "「填寫資料」子功能頁面，可填寫及上傳所需要的資料，至少包含: 圖片、商品名稱、商品簡介、費用、及相關連結 等元素的資料。其中競賽日期，格式不拘。圖片是選擇客戶端的圖片，然後上傳到伺服器端。未發佈前，在子功能頁面間切換時，資料仍可修改，包含更改套用不同的版型。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "39",
+                            "description": "「預覽」子功能頁面，可預覽商品電競活動內容。當更改套用不同的版型時，仍可正確顯示。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "40",
+                            "description": "「確定送出」子功能頁面，請編輯者再確認是否送出。確認送出後，可在首頁正確瀏覽。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "41",
+                            "description": "提供電競活動發佈後，可再修改的功能。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "42",
+                            "description": "提供商品發佈後，可再切換更改不同的版型套用的功能，並在「商品展示區」正確呈現。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "43",
+                            "description": "提供增加新版型的功能",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "新增的「新版型」可以被套用成功，並可以切換套用成功，並在「商品展示區」正確呈現。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "list": 6,
+                    "description": "API list",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "01",
+                            "description": "使用者登入 | method: POST, url: /backend/53regional/login",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "resquest body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;username: <i>[username]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;password: <i>[password]</i><br>}",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspid: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsppermission: <i>[userpermission]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(fail username): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspmessage: 帳號有誤,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspid: <i>[userid]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 403_FORBIDDEN",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(fail password): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspmessage: 密碼有誤,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspid: <i>[userid]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 403_FORBIDDEN",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(fail verifycode): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspmessage: 驗證碼有誤,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspid: <i>[userid]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 403_FORBIDDEN",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "02",
+                            "description": "使用者登入成功/失敗寫入資料庫 | method: GET, url: /backend/53regional/logindatatodb?key=success|error&id=<i>[userid]</i>",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "03",
+                            "description": "使用者登出 | method: POST, url: /backend/53regional/logout/<i>[userid]</i>",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "04",
+                            "description": "取得使用者列表 | method: GET, url: /backend/53regional/getuserlist?keyword=<b>{string}</b>&sortby=number|username|name&sorttype=ASC|DESC",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: <i>[userlist]</i><br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sorttype is not ASC or DESC): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"Invalid ordertype value. It should be either 'ASC' or 'DESC'.\"<br>}, 400_BAD_REQUEST",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "05",
+                            "description": "取得登出登入紀錄 | method: GET, url: /backend/53regional/getlog",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: <i>[loglist]</i><br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "06",
+                            "description": "取得特定使用者 | method: GET, url: /backend/53regional/getuser/<i>[userid]</i>",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(user not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;data: \"使用者不存在.\"<br>}, 400_BAD_REQUEST",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "07",
+                            "description": "使用者新增 | method: POST, url: /backend/53regional/newuser",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "resquest body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;username: <i>[username]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;password: <i>[password]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;name: <i>[name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;permission: <b>{boolean}</b><br>}",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"新增成功\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(no username): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"請輸入帳號\"<br>}, 400_BAD_REQUEST",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(username duplicate): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"使用者以存在\"<br>}, 400_BAD_REQUEST",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "08",
+                            "description": "使用者修改 | method: PUT, url: /backend/53regional/editdeluser/<i>[userid]</i>",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "resquest body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;password: <i>[password]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;name: <i>[name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;permission: <b>{boolean}</b><br>}",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"修改成功\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(id==1): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"禁止修改管理者帳號!\"<br>}, 400_BAD_REQUEST",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "09",
+                            "description": "使用者刪除 | method: DELETE, url: /backend/53regional/editdeluser/<i>[userid]</i>",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"刪除成功\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(id==1): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"禁止刪除管理者帳號!\"<br>}, 400_BAD_REQUEST",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "10",
+                            "description": "獲取商品 | method: GET, url: /backend/53regional/getproduct?[id=<i>[coffeeid]</i>]|[page=<i>[pagenumber]</i>&keyword=<b>{string}</b>&start=<b>{number}</b>&end=<b>{number}</b>]",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "response body(success(get id)): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: <i>[coffeelist]</i><br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(success(get all)): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxcount: <i>[coffeelistlen](all)</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: <i>[coffeelist]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;product: <i>[templatelist]</i><br>}}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "11",
+                            "description": "獲取版型 | method: GET, url: /backend/53regional/gettemplate?*id=<i>[coffeeid]</i>",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;data: <i>[templatelist]</i><br>}}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "14",
+                            "description": "增改商品 | method: POST, url: /backend/53regional/newproduct",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "resquest body(new): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;file: <i>[coffeeimage]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;name: <i>[coffeename]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;description: <i>[coffeedescription]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;cost: <i>[coffeecost]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;link: <i>[coffeelink]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;version: <i>[coffeeversion]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;*edit: \"false\"<br>}",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "resquest body(edit): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;file: <i>[coffeeimage]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;name: <i>[coffeename]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;description: <i>[coffeedescription]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;cost: <i>[coffeecost]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;link: <i>[coffeelink]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;version: <i>[coffeeversion]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;edit: \"true\",<br>&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[coffeeid]</i><br>}",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(success(new)): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"新增成功\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(success(edit)): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"修改成功\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "13",
+                            "description": "新增版型 | method: POST, url: /backend/53regional/newtemplate",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "resquest body(new): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;file: <i>[image_gridcode]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;name: <i>[name_gridcode]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;description: <i>[description_gridcode]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;cost: <i>[cost_gridcode]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;link: <i>[link_gridcode]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;version: <i>[version_gridcode]</i><br>}",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"新增成功\"<br>}, 200_OK",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "response body(sever fail): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [ERROR] unknow error pls tell the admin error:\\n <i>[error]</i><br>}, 500_INTERNAL_SERVER_ERROR",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

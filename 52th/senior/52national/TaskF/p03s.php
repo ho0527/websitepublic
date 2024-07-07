@@ -1,0 +1,29 @@
+<?php
+    $memoryBefore=memory_get_usage();
+    echo("p03s\n");
+    $k=(int)(fgets(STDIN));
+    $text=trim(fgets(STDIN));
+    $plaintext="";
+    for($i=0;$i<strlen($text);$i=$i+1){
+        if(preg_match("/[A-Z]/",$text[$i])){
+            $ord=ord($text[$i])+$k;
+            if(ord($text[$i])+$k>90){
+                $ord=ord($text[$i])+$k-26;
+            }
+            $plaintext=$plaintext.chr($ord);
+        }elseif(preg_match("/[a-z]/",$text[$i])){
+            $ord=ord($text[$i])+$k;
+            if(ord($text[$i])+$k>122){
+                $ord=ord($text[$i])+$k-26;
+            }
+            $plaintext=$plaintext.chr($ord);
+        }else{
+            $plaintext="N/A";
+            break;
+        }
+    }
+    echo($plaintext.PHP_EOL);
+    $memoryAfter=memory_get_usage();
+    $memoryDifference=$memoryAfter-$memoryBefore;
+    echo("memory used: ".($memoryDifference/1048576)."MB");
+?>

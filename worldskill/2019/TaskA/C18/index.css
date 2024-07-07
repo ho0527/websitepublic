@@ -1,0 +1,46 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    word-break: break-all;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 30px;
+}
+
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.text{
+    font-weight: bold;
+    font-size: 200px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-dasharray: 100% 100%;
+    text-anchor: middle;
+    animation: 3s text infinite ease-in-out alternate;
+}
+
+@keyframes text{
+  0%{
+    fill: transparent;
+    stroke-dasharray: 0 100%;
+  }
+  70%{
+    stroke-dasharray: 100% 100%;
+    stroke-opacity: 1;
+    fill: transparent;
+  }
+  100%{
+    stroke-opacity: 0;
+    fill: #fff;
+  }
+}

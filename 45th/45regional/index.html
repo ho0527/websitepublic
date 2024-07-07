@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>網站前台登入介面</title>
+        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <img src="/website/material/icon/mainicon.png" class="logo" draggable="false">
+            </div>
+            <div class="navigationbartitle textcenter">TODO工作管理系統</div>
+        </div>
+        <div class="main center loginmain">
+            <div class="inputmargin">
+                <div class="sttext">帳號</div>
+                <div class="stinput underline endicon">
+                    <input type="text" id="username">
+                    <div class="icon"><img src="/website/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
+                </div>
+            </div>
+            <div class="inputmargin">
+                <div class="sttext">密碼</div>
+                <div class="stinput underline endicon">
+                    <input type="text" id="password">
+                    <div class="icon"><img src="/website/material/icon/lock.svg" class="iconinputicon cursor_pointer" id="passwordicon" draggable="false"></div>
+                </div>
+            </div>
+            驗證碼:<br>
+            <div class="verifycodediv" id="verifycodediv"></div>
+            <div id="key"></div>
+            <div class="dropbox" id="dropbox"></div>
+            <div class="textcenter">
+                <input type="button" class="stbutton outline" id="reflashverifycode" value="重新產生">
+                <input type="button" class="stbutton outline" id="clear" value="清除">
+                <input type="button" class="stbutton outline" id="submit" value="登入">
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

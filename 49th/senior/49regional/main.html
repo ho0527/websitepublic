@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>電子競技系統首頁</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
+        <script src="../../../plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar" id="navigationbar"></div>
+        <div class="search">
+            <div class="datediv">
+                日期查詢:
+                start: <input type="date" class="searchinput" id="start">
+                end: <input type="date" class="searchinput" id="end">
+            </div>
+            <div class="keyworddiv">
+                關鍵字查詢: <input type="text" class="searchinput" id="keyword">
+            </div>
+            <input type="button" id="submit" value="查尋">
+        </div>
+
+        <div class="mainbody macossectiondivy" id="main"></div>
+
+        <!-- script -->
+        <script src="main.js"></script>
+        <script src="logincheck.js"></script>
+    </body>
+</html>

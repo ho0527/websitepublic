@@ -1,0 +1,348 @@
+/* ========================================================================== https://flagicons.lipis.dev/ ========================================================================== */
+
+/* ========================================================================== Variables ========================================================================== */
+
+/* ========================================================================== Base ========================================================================== */
+
+.flag{
+	display: inline-block;
+
+	background-size: contain;
+	background-position: 50%;
+	background-repeat: no-repeat;
+
+	vertical-align: middle;
+	text-decoration: inherit;
+	backface-visibility: hidden;
+	text-decoration: none;
+
+	background-size: cover;
+	box-sizing: border-box;
+
+	width: calc(4 / 3 * 1.05rem);
+	height: 1.05rem;
+
+    /* ========================================================================== Structure ========================================================================== */
+
+    /* Section header */
+
+    /* ========================================================================== Variations ========================================================================== */
+
+    /* Sizes */
+
+    &.small{
+        width: calc(4 / 3 * 0.95rem);
+        height: 0.95rem;
+
+        &:is(.squared,round){
+            width: 0.95rem;
+            height: 0.95rem;
+        }
+    }
+
+    &.big{
+        width: calc(4 / 3 * 1.2rem);
+        height: 1.2rem;
+
+        &:is(.squared,round){
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+    }
+
+    &:is(.squared,round){
+        width: 1.05rem;
+        height: 1.05rem;
+    }
+
+    /* Rounded */
+    &.radius{
+        border-radius: 0.2rem;
+    }
+
+    /* Bordered */
+    &.border{
+        box-shadow: 0 0 0 1px rgb(0 0 0 / 12%);
+        /*var(--stgray-300)*/
+    }
+
+    /* Disabled */
+    &.disabled{
+        opacity: 0.5;
+        user-select: none;
+    }
+
+    /* Spaced */
+    &.space{
+        margin-left: 0.45rem;
+        margin-right: 0.45rem;
+    }
+
+    &.startspace{
+        margin-left: 0.45rem;
+    }
+
+    &.endspace{
+        margin-right: 0.45rem;
+    }
+
+    /* ========================================================================== Countires ========================================================================== */
+
+    &:is(.ad,.andorra){ background-image: url("material/icon/flag/4x3/ad.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ad.svg"); } }
+    &:is(.ae,.uae,.united-arab-emirates){ background-image: url("material/icon/flag/4x3/ae.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ae.svg"); } }
+    &:is(.af,.afghanistan){ background-image: url("material/icon/flag/4x3/af.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/af.svg"); } }
+    &:is(.ag,.antigua){ background-image: url("material/icon/flag/4x3/ag.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ag.svg"); } }
+    &:is(.ai,.anguilla){ background-image: url("material/icon/flag/4x3/ai.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ai.svg"); } }
+    &:is(.al,.albania){ background-image: url("material/icon/flag/4x3/al.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/al.svg"); } }
+    &:is(.am,.armenia){ background-image: url("material/icon/flag/4x3/am.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/am.svg"); } }
+    &:is(.ao,.angola){ background-image: url("material/icon/flag/4x3/ao.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ao.svg"); } }
+    &:is(.aq,.antarctica){ background-image: url("material/icon/flag/4x3/aq.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/aq.svg"); } }
+    &:is(.ar,.argentina){ background-image: url("material/icon/flag/4x3/ar.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ar.svg"); } }
+    &:is(.as,.american-samoa){ background-image: url("material/icon/flag/4x3/as.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/as.svg"); } }
+    &:is(.at,.austria){ background-image: url("material/icon/flag/4x3/at.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/at.svg"); } }
+    &:is(.au,.australia){ background-image: url("material/icon/flag/4x3/au.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/au.svg"); } }
+    &:is(.aw,.aruba){ background-image: url("material/icon/flag/4x3/aw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/aw.svg"); } }
+    &:is(.ax,.aland-islands){ background-image: url("material/icon/flag/4x3/ax.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ax.svg"); } }
+    &:is(.az,.azerbaijan){ background-image: url("material/icon/flag/4x3/az.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/az.svg"); } }
+    &:is(.ba,.bosnia){ background-image: url("material/icon/flag/4x3/ba.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ba.svg"); } }
+    &:is(.bb,.barbados){ background-image: url("material/icon/flag/4x3/bb.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bb.svg"); } }
+    &:is(.bd,.bangladesh){ background-image: url("material/icon/flag/4x3/bd.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bd.svg"); } }
+    &:is(.be,.belgium){ background-image: url("material/icon/flag/4x3/be.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/be.svg"); } }
+    &:is(.bf,.burkina-faso){ background-image: url("material/icon/flag/4x3/bf.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bf.svg"); } }
+    &:is(.bg,.bulgaria){ background-image: url("material/icon/flag/4x3/bg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bg.svg"); } }
+    &:is(.bh,.bahrain){ background-image: url("material/icon/flag/4x3/bh.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bh.svg"); } }
+    &:is(.bi,.burundi){ background-image: url("material/icon/flag/4x3/bi.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bi.svg"); } }
+    &:is(.bj,.benin){ background-image: url("material/icon/flag/4x3/bj.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bj.svg"); } }
+    &:is(.bl,.saint-barthélemy,.saint-barthelemy){ background-image: url("material/icon/flag/4x3/bl.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bl.svg"); } }
+    &:is(.bm,.bermuda){ background-image: url("material/icon/flag/4x3/bm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bm.svg"); } }
+    &:is(.bn,.brunei){ background-image: url("material/icon/flag/4x3/bn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bn.svg"); } }
+    &:is(.bo,.bolivia){ background-image: url("material/icon/flag/4x3/bo.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bo.svg"); } }
+    &:is(.bq,.caribbean-netherlands){ background-image: url("material/icon/flag/4x3/bq.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bq.svg"); } }
+    &:is(.br,.brazil){ background-image: url("material/icon/flag/4x3/br.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/br.svg"); } }
+    &:is(.bs,.bahamas){ background-image: url("material/icon/flag/4x3/bs.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bs.svg"); } }
+    &:is(.bt,.bhutan){ background-image: url("material/icon/flag/4x3/bt.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bt.svg"); } }
+    &:is(.bv,.bouvet-island){ background-image: url("material/icon/flag/4x3/bv.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bv.svg"); } }
+    &:is(.bw,.botswana){ background-image: url("material/icon/flag/4x3/bw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bw.svg"); } }
+    &:is(.by,.belarus){ background-image: url("material/icon/flag/4x3/by.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/by.svg"); } }
+    &:is(.bz,.belize){ background-image: url("material/icon/flag/4x3/bz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/bz.svg"); } }
+    &:is(.ca,.canada){ background-image: url("material/icon/flag/4x3/ca.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ca.svg"); } }
+    &:is(.cc,.cocos-islands){ background-image: url("material/icon/flag/4x3/cc.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cc.svg"); } }
+    &:is(.cd,.congo){ background-image: url("material/icon/flag/4x3/cd.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cd.svg"); } }
+    &:is(.cf,.central-african-republic){ background-image: url("material/icon/flag/4x3/cf.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cf.svg"); } }
+    &:is(.cg,.congo-brazzaville){ background-image: url("material/icon/flag/4x3/cg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cg.svg"); } }
+    &:is(.ch,.switzerland){ background-image: url("material/icon/flag/4x3/ch.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ch.svg"); } }
+    &:is(.ci,.cote-divoire){ background-image: url("material/icon/flag/4x3/ci.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ci.svg"); } }
+    &:is(.ck,.cook-islands){ background-image: url("material/icon/flag/4x3/ck.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ck.svg"); } }
+    &:is(.cl,.chile){ background-image: url("material/icon/flag/4x3/cl.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cl.svg"); } }
+    &:is(.cm,.cameroon){ background-image: url("material/icon/flag/4x3/cm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cm.svg"); } }
+    &:is(.cn,.china,.peoples-republic-of-china){ background-image: url("material/icon/flag/4x3/cn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cn.svg"); } }
+    &:is(.co,.colombia){ background-image: url("material/icon/flag/4x3/co.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/co.svg"); } }
+    &:is(.cr,.costa-rica){ background-image: url("material/icon/flag/4x3/cr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cr.svg"); } }
+    &:is(.cu,.cuba){ background-image: url("material/icon/flag/4x3/cu.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cu.svg"); } }
+    &:is(.cv,.cape-verde){ background-image: url("material/icon/flag/4x3/cv.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cv.svg"); } }
+    &:is(.cw,.curaçao,.curacao){ background-image: url("material/icon/flag/4x3/cw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cw.svg"); } }
+    &:is(.cx,.christmas-island){ background-image: url("material/icon/flag/4x3/cx.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cx.svg"); } }
+    &:is(.cy,.cyprus){ background-image: url("material/icon/flag/4x3/cy.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cy.svg"); } }
+    &:is(.cz,.czech-republic){ background-image: url("material/icon/flag/4x3/cz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/cz.svg"); } }
+    &:is(.de,.germany){ background-image: url("material/icon/flag/4x3/de.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/de.svg"); } }
+    &:is(.dj,.djibouti){ background-image: url("material/icon/flag/4x3/dj.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/dj.svg"); } }
+    &:is(.dk,.denmark){ background-image: url("material/icon/flag/4x3/dk.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/dk.svg"); } }
+    &:is(.dm,.dominica){ background-image: url("material/icon/flag/4x3/dm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/dm.svg"); } }
+    &:is(.do,.dominican-republic){ background-image: url("material/icon/flag/4x3/do.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/do.svg"); } }
+    &:is(.dz,.algeria){ background-image: url("material/icon/flag/4x3/dz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/dz.svg"); } }
+    &:is(.ec,.ecuador){ background-image: url("material/icon/flag/4x3/ec.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ec.svg"); } }
+    &:is(.ee,.estonia){ background-image: url("material/icon/flag/4x3/ee.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ee.svg"); } }
+    &:is(.eg,.egypt){ background-image: url("material/icon/flag/4x3/eg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/eg.svg"); } }
+    &:is(.eh,.western-sahara){ background-image: url("material/icon/flag/4x3/eh.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/eh.svg"); } }
+    &:is(.er,.eritrea){ background-image: url("material/icon/flag/4x3/er.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/er.svg"); } }
+    &:is(.es,.spain){ background-image: url("material/icon/flag/4x3/es.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/es.svg"); } }
+    &:is(.esct,.scotland){ background-image: url("material/icon/flag/4x3/es-ct.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/es-ct.svg"); } }
+    &:is(.et,.ethiopia){ background-image: url("material/icon/flag/4x3/et.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/et.svg"); } }
+    &:is(.eu,.european-union){ background-image: url("material/icon/flag/4x3/eu.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/eu.svg"); } }
+    &:is(.fi,.finland){ background-image: url("material/icon/flag/4x3/fi.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/fi.svg"); } }
+    &:is(.fj,.fiji){ background-image: url("material/icon/flag/4x3/fj.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/fj.svg"); } }
+    &:is(.fk,.falkland-islands){ background-image: url("material/icon/flag/4x3/fk.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/fk.svg"); } }
+    &:is(.fm,.micronesia){ background-image: url("material/icon/flag/4x3/fm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/fm.svg"); } }
+    &:is(.fo,.faroe-islands){ background-image: url("material/icon/flag/4x3/fo.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/fo.svg"); } }
+    &:is(.fr,.france){ background-image: url("material/icon/flag/4x3/fr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/fr.svg"); } }
+    &:is(.ga,.gabon){ background-image: url("material/icon/flag/4x3/ga.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ga.svg"); } }
+    &:is(.gb,.united-kingdom){ background-image: url("material/icon/flag/4x3/gb.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gb.svg"); } }
+    &:is(.gbeng,.england){ background-image: url("material/icon/flag/4x3/gb-eng.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gb-eng.svg"); } }
+    &:is(.gbnir,.northern-ireland){ background-image: url("material/icon/flag/4x3/gb-nir.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gb-nir.svg"); } }
+    &:is(.gbsct,.scotland){ background-image: url("material/icon/flag/4x3/gb-sct.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gb-sct.svg"); } }
+    &:is(.gbwls,.wales){ background-image: url("material/icon/flag/4x3/gb-wls.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gb-wls.svg"); } }
+    &:is(.gd,.grenada){ background-image: url("material/icon/flag/4x3/gd.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gd.svg"); } }
+    &:is(.ge,.georgia){ background-image: url("material/icon/flag/4x3/ge.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ge.svg"); } }
+    &:is(.gf,.french-guiana){ background-image: url("material/icon/flag/4x3/gf.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gf.svg"); } }
+    &:is(.gg,.guernsey){ background-image: url("material/icon/flag/4x3/gg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gg.svg"); } }
+    &:is(.gh,.ghana){ background-image: url("material/icon/flag/4x3/gh.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gh.svg"); } }
+    &:is(.gi,.gibraltar){ background-image: url("material/icon/flag/4x3/gi.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gi.svg"); } }
+    &:is(.gl,.greenland){ background-image: url("material/icon/flag/4x3/gl.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gl.svg"); } }
+    &:is(.gm,.gambia){ background-image: url("material/icon/flag/4x3/gm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gm.svg"); } }
+    &:is(.gn,.guinea){ background-image: url("material/icon/flag/4x3/gn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gn.svg"); } }
+    &:is(.gp,.guadeloupe){ background-image: url("material/icon/flag/4x3/gp.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gp.svg"); } }
+    &:is(.gq,.equatorial-guinea){ background-image: url("material/icon/flag/4x3/gq.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gq.svg"); } }
+    &:is(.gr,.greece){ background-image: url("material/icon/flag/4x3/gr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gr.svg"); } }
+    &:is(.gs,.sandwich-islands){ background-image: url("material/icon/flag/4x3/gs.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gs.svg"); } }
+    &:is(.gt,.guatemala){ background-image: url("material/icon/flag/4x3/gt.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gt.svg"); } }
+    &:is(.gu,.guam){ background-image: url("material/icon/flag/4x3/gu.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gu.svg"); } }
+    &:is(.gw,.guinea-bissau){ background-image: url("material/icon/flag/4x3/gw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gw.svg"); } }
+    &:is(.gy,.guyana){ background-image: url("material/icon/flag/4x3/gy.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/gy.svg"); } }
+    &:is(.hk,.hong-kong){ background-image: url("material/icon/flag/4x3/hk.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/hk.svg"); } }
+    &:is(.hm,.heard-island){ background-image: url("material/icon/flag/4x3/hm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/hm.svg"); } }
+    &:is(.hn,.honduras){ background-image: url("material/icon/flag/4x3/hn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/hn.svg"); } }
+    &:is(.hr,.croatia){ background-image: url("material/icon/flag/4x3/hr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/hr.svg"); } }
+    &:is(.ht,.haiti){ background-image: url("material/icon/flag/4x3/ht.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ht.svg"); } }
+    &:is(.hu,.hungary){ background-image: url("material/icon/flag/4x3/hu.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/hu.svg"); } }
+    &:is(.id,.indonesia){ background-image: url("material/icon/flag/4x3/id.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/id.svg"); } }
+    &:is(.ie,.ireland){ background-image: url("material/icon/flag/4x3/ie.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ie.svg"); } }
+    &:is(.il,.israel){ background-image: url("material/icon/flag/4x3/il.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/il.svg"); } }
+    &:is(.im,.isle-of-man){ background-image: url("material/icon/flag/4x3/im.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/im.svg"); } }
+    &:is(.in,.india){ background-image: url("material/icon/flag/4x3/in.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/in.svg"); } }
+    &:is(.io,.indian-ocean-territory){ background-image: url("material/icon/flag/4x3/io.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/io.svg"); } }
+    &:is(.iq,.iraq){ background-image: url("material/icon/flag/4x3/iq.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/iq.svg"); } }
+    &:is(.ir,.iran){ background-image: url("material/icon/flag/4x3/ir.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ir.svg"); } }
+    &:is(.is,.iceland){ background-image: url("material/icon/flag/4x3/is.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/is.svg"); } }
+    &:is(.it,.italy){ background-image: url("material/icon/flag/4x3/it.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/it.svg"); } }
+    &:is(.je,.jersey){ background-image: url("material/icon/flag/4x3/je.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/je.svg"); } }
+    &:is(.jm,.jamaica){ background-image: url("material/icon/flag/4x3/jm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/jm.svg"); } }
+    &:is(.jo,.jordan){ background-image: url("material/icon/flag/4x3/jo.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/jo.svg"); } }
+    &:is(.jp,.japan){ background-image: url("material/icon/flag/4x3/jp.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/jp.svg"); } }
+    &:is(.ke,.kenya){ background-image: url("material/icon/flag/4x3/ke.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ke.svg"); } }
+    &:is(.kg,.kyrgyzstan){ background-image: url("material/icon/flag/4x3/kg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/kg.svg"); } }
+    &:is(.kh,.cambodia){ background-image: url("material/icon/flag/4x3/kh.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/kh.svg"); } }
+    &:is(.ki,.kiribati){ background-image: url("material/icon/flag/4x3/ki.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ki.svg"); } }
+    &:is(.km,.comoros){ background-image: url("material/icon/flag/4x3/km.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/km.svg"); } }
+    &:is(.kn,.saint-kitstand-nevflag,.saint-kitstflag,.nevflag){ background-image: url("material/icon/flag/4x3/kn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/kn.svg"); } }
+    &:is(.kp,.north-korea){ background-image: url("material/icon/flag/4x3/kp.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/kp.svg"); } }
+    &:is(.kr,.south-korea,.korea){ background-image: url("material/icon/flag/4x3/kr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/kr.svg"); } }
+    &:is(.kw,.kuwait){ background-image: url("material/icon/flag/4x3/kw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/kw.svg"); } }
+    &:is(.ky,.cayman-islands){ background-image: url("material/icon/flag/4x3/ky.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ky.svg"); } }
+    &:is(.kz,.kazakhstan){ background-image: url("material/icon/flag/4x3/kz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/kz.svg"); } }
+    &:is(.la,.laos){ background-image: url("material/icon/flag/4x3/la.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/la.svg"); } }
+    &:is(.lb,.lebanon){ background-image: url("material/icon/flag/4x3/lb.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/lb.svg"); } }
+    &:is(.lc,.saint-lucia){ background-image: url("material/icon/flag/4x3/lc.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/lc.svg"); } }
+    &:is(.li,.liechtenstein){ background-image: url("material/icon/flag/4x3/li.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/li.svg"); } }
+    &:is(.lk,.sri-lanka){ background-image: url("material/icon/flag/4x3/lk.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/lk.svg"); } }
+    &:is(.lr,.liberia){ background-image: url("material/icon/flag/4x3/lr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/lr.svg"); } }
+    &:is(.ls,.lesotho){ background-image: url("material/icon/flag/4x3/ls.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ls.svg"); } }
+    &:is(.lt,.lithuania){ background-image: url("material/icon/flag/4x3/lt.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/lt.svg"); } }
+    &:is(.lu,.luxembourg){ background-image: url("material/icon/flag/4x3/lu.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/lu.svg"); } }
+    &:is(.lv,.latvia){ background-image: url("material/icon/flag/4x3/lv.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/lv.svg"); } }
+    &:is(.ly,.libya){ background-image: url("material/icon/flag/4x3/ly.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ly.svg"); } }
+    &:is(.ma,.morocco){ background-image: url("material/icon/flag/4x3/ma.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ma.svg"); } }
+    &:is(.mc,.monaco){ background-image: url("material/icon/flag/4x3/mc.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mc.svg"); } }
+    &:is(.md,.moldova){ background-image: url("material/icon/flag/4x3/md.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/md.svg"); } }
+    &:is(.me,.montenegro){ background-image: url("material/icon/flag/4x3/me.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/me.svg"); } }
+    &:is(.mf,.saint-martin){ background-image: url("material/icon/flag/4x3/mf.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mf.svg"); } }
+    &:is(.mg,.madagascar){ background-image: url("material/icon/flag/4x3/mg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mg.svg"); } }
+    &:is(.mh,.marshall-islands){ background-image: url("material/icon/flag/4x3/mh.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mh.svg"); } }
+    &:is(.mk,.macedonia){ background-image: url("material/icon/flag/4x3/mk.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mk.svg"); } }
+    &:is(.ml,.mali){ background-image: url("material/icon/flag/4x3/ml.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ml.svg"); } }
+    &:is(.mm,.burma,.myanmar){ background-image: url("material/icon/flag/4x3/mm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mm.svg"); } }
+    &:is(.mn,.mongolia){ background-image: url("material/icon/flag/4x3/mn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mn.svg"); } }
+    &:is(.mo,.macau){ background-image: url("material/icon/flag/4x3/mo.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mo.svg"); } }
+    &:is(.mp,.northern-mariana-islands){ background-image: url("material/icon/flag/4x3/mp.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mp.svg"); } }
+    &:is(.mq,.martinique){ background-image: url("material/icon/flag/4x3/mq.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mq.svg"); } }
+    &:is(.mr,.mauritania){ background-image: url("material/icon/flag/4x3/mr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mr.svg"); } }
+    &:is(.ms,.montserrat){ background-image: url("material/icon/flag/4x3/ms.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ms.svg"); } }
+    &:is(.mt,.malta){ background-image: url("material/icon/flag/4x3/mt.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mt.svg"); } }
+    &:is(.mu,.mauritius){ background-image: url("material/icon/flag/4x3/mu.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mu.svg"); } }
+    &:is(.mv,.maldives){ background-image: url("material/icon/flag/4x3/mv.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mv.svg"); } }
+    &:is(.mw,.malawi){ background-image: url("material/icon/flag/4x3/mw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mw.svg"); } }
+    &:is(.mx,.mexico){ background-image: url("material/icon/flag/4x3/mx.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mx.svg"); } }
+    &:is(.my,.malaysia){ background-image: url("material/icon/flag/4x3/my.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/my.svg"); } }
+    &:is(.mz,.mozambique){ background-image: url("material/icon/flag/4x3/mz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/mz.svg"); } }
+    &:is(.na,.namibia){ background-image: url("material/icon/flag/4x3/na.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/na.svg"); } }
+    &:is(.nc,.new-caledonia){ background-image: url("material/icon/flag/4x3/nc.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/nc.svg"); } }
+    &:is(.ne,.niger){ background-image: url("material/icon/flag/4x3/ne.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ne.svg"); } }
+    &:is(.nf,.norfolk-island){ background-image: url("material/icon/flag/4x3/nf.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/nf.svg"); } }
+    &:is(.ng,.nigeria){ background-image: url("material/icon/flag/4x3/ng.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ng.svg"); } }
+    &:is(.ni,.nicaragua){ background-image: url("material/icon/flag/4x3/ni.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ni.svg"); } }
+    &:is(.nl,.netherlands){ background-image: url("material/icon/flag/4x3/nl.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/nl.svg"); } }
+    &:is(.no,.norway){ background-image: url("material/icon/flag/4x3/no.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/no.svg"); } }
+    &:is(.np,.nepal){ background-image: url("material/icon/flag/4x3/np.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/np.svg"); } }
+    &:is(.nr,.nauru){ background-image: url("material/icon/flag/4x3/nr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/nr.svg"); } }
+    &:is(.nu,.niue){ background-image: url("material/icon/flag/4x3/nu.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/nu.svg"); } }
+    &:is(.nz,.new-zealand){ background-image: url("material/icon/flag/4x3/nz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/nz.svg"); } }
+    &:is(.om,.oman){ background-image: url("material/icon/flag/4x3/om.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/om.svg"); } }
+    &:is(.pa,.panama){ background-image: url("material/icon/flag/4x3/pa.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pa.svg"); } }
+    &:is(.pe,.peru){ background-image: url("material/icon/flag/4x3/pe.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pe.svg"); } }
+    &:is(.pf,.french-polynesia){ background-image: url("material/icon/flag/4x3/pf.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pf.svg"); } }
+    &:is(.pg,.new-guinea){ background-image: url("material/icon/flag/4x3/pg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pg.svg"); } }
+    &:is(.ph,.philippines){ background-image: url("material/icon/flag/4x3/ph.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ph.svg"); } }
+    &:is(.pk,.pakistan){ background-image: url("material/icon/flag/4x3/pk.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pk.svg"); } }
+    &:is(.pl,.poland){ background-image: url("material/icon/flag/4x3/pl.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pl.svg"); } }
+    &:is(.pm,.saint-pierre){ background-image: url("material/icon/flag/4x3/pm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pm.svg"); } }
+    &:is(.pn,.pitcairn-islands){ background-image: url("material/icon/flag/4x3/pn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pn.svg"); } }
+    &:is(.pr,.puerto-rico){ background-image: url("material/icon/flag/4x3/pr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pr.svg"); } }
+    &:is(.ps,.palestine){ background-image: url("material/icon/flag/4x3/ps.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ps.svg"); } }
+    &:is(.pt,.portugal){ background-image: url("material/icon/flag/4x3/pt.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pt.svg"); } }
+    &:is(.pw,.palau){ background-image: url("material/icon/flag/4x3/pw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/pw.svg"); } }
+    &:is(.py,.paraguay){ background-image: url("material/icon/flag/4x3/py.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/py.svg"); } }
+    &:is(.qa,.qatar){ background-image: url("material/icon/flag/4x3/qa.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/qa.svg"); } }
+    &:is(.re,.reunion){ background-image: url("material/icon/flag/4x3/re.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/re.svg"); } }
+    &:is(.ro,.romania){ background-image: url("material/icon/flag/4x3/ro.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ro.svg"); } }
+    &:is(.rs,.serbia){ background-image: url("material/icon/flag/4x3/rs.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/rs.svg"); } }
+    &:is(.ru,.russia){ background-image: url("material/icon/flag/4x3/ru.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ru.svg"); } }
+    &:is(.rw,.rwanda){ background-image: url("material/icon/flag/4x3/rw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/rw.svg"); } }
+    &:is(.sa,.saudi-arabia){ background-image: url("material/icon/flag/4x3/sa.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sa.svg"); } }
+    &:is(.sb,.solomon-islands){ background-image: url("material/icon/flag/4x3/sb.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sb.svg"); } }
+    &:is(.sc,.seychelles){ background-image: url("material/icon/flag/4x3/sc.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sc.svg"); } }
+    &:is(.sd,.sudan){ background-image: url("material/icon/flag/4x3/sd.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sd.svg"); } }
+    &:is(.se,.sweden){ background-image: url("material/icon/flag/4x3/se.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/se.svg"); } }
+    &:is(.sg,.singapore){ background-image: url("material/icon/flag/4x3/sg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sg.svg"); } }
+    &:is(.sh,.saint-helena){ background-image: url("material/icon/flag/4x3/sh.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sh.svg"); } }
+    &:is(.si,.slovenia){ background-image: url("material/icon/flag/4x3/si.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/si.svg"); } }
+    &:is(.sj,.jan-mayen-and-svalbard,.svalbard,.jan-mayen){ background-image: url("material/icon/flag/4x3/sj.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sj.svg"); } }
+    &:is(.sk,.slovakia){ background-image: url("material/icon/flag/4x3/sk.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sk.svg"); } }
+    &:is(.sl,.sierra-leone){ background-image: url("material/icon/flag/4x3/sl.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sl.svg"); } }
+    &:is(.sm,.san-marino){ background-image: url("material/icon/flag/4x3/sm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sm.svg"); } }
+    &:is(.sn,.senegal){ background-image: url("material/icon/flag/4x3/sn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sn.svg"); } }
+    &:is(.so,.somalia){ background-image: url("material/icon/flag/4x3/so.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/so.svg"); } }
+    &:is(.sr,.suriname){ background-image: url("material/icon/flag/4x3/sr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sr.svg"); } }
+    &:is(.ss,.south-sudan){ background-image: url("material/icon/flag/4x3/ss.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ss.svg"); } }
+    &:is(.st,.sao-tome){ background-image: url("material/icon/flag/4x3/st.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/st.svg"); } }
+    &:is(.sv,.el-salvador){ background-image: url("material/icon/flag/4x3/sv.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sv.svg"); } }
+    &:is(.sx,.sint-maarten){ background-image: url("material/icon/flag/4x3/sx.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sx.svg"); } }
+    &:is(.sy,.syria){ background-image: url("material/icon/flag/4x3/sy.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sy.svg"); } }
+    &:is(.sz,.swaziland){ background-image: url("material/icon/flag/4x3/sz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/sz.svg"); } }
+    &:is(.tc,.caicos-islands){ background-image: url("material/icon/flag/4x3/tc.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tc.svg"); } }
+    &:is(.td,.chad){ background-image: url("material/icon/flag/4x3/td.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/td.svg"); } }
+    &:is(.tf,.french-territories){ background-image: url("material/icon/flag/4x3/tf.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tf.svg"); } }
+    &:is(.tg,.togo){ background-image: url("material/icon/flag/4x3/tg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tg.svg"); } }
+    &:is(.th,.thailand){ background-image: url("material/icon/flag/4x3/th.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/th.svg"); } }
+    &:is(.tj,.tajikistan){ background-image: url("material/icon/flag/4x3/tj.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tj.svg"); } }
+    &:is(.tk,.tokelau){ background-image: url("material/icon/flag/4x3/tk.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tk.svg"); } }
+    &:is(.tl,.timorleste){ background-image: url("material/icon/flag/4x3/tl.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tl.svg"); } }
+    &:is(.tm,.turkmenistan){ background-image: url("material/icon/flag/4x3/tm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tm.svg"); } }
+    &:is(.tn,.tunisia){ background-image: url("material/icon/flag/4x3/tn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tn.svg"); } }
+    &:is(.to,.tonga){ background-image: url("material/icon/flag/4x3/to.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/to.svg"); } }
+    &:is(.tr,.turkey){ background-image: url("material/icon/flag/4x3/tr.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tr.svg"); } }
+    &:is(.tt,.trinidad){ background-image: url("material/icon/flag/4x3/tt.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tt.svg"); } }
+    &:is(.tv,.tuvalu){ background-image: url("material/icon/flag/4x3/tv.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tv.svg"); } }
+    &:is(.tw,.taiwan,.republic-of-china){ background-image: url("material/icon/flag/4x3/tw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tw.svg"); } }
+    &:is(.tz,.tanzania){ background-image: url("material/icon/flag/4x3/tz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/tz.svg"); } }
+    &:is(.ua,.ukraine){ background-image: url("material/icon/flag/4x3/ua.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ua.svg"); } }
+    &:is(.ug,.uganda){ background-image: url("material/icon/flag/4x3/ug.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ug.svg"); } }
+    &:is(.um,.us-minor-islands){ background-image: url("material/icon/flag/4x3/um.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/um.svg"); } }
+    &:is(.un,.united-nations){ background-image: url("material/icon/flag/4x3/un.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/un.svg"); } }
+    &:is(.us,.united-states,.america,.usa){ background-image: url("material/icon/flag/4x3/us.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/us.svg"); } }
+    &:is(.uy,.uruguay){ background-image: url("material/icon/flag/4x3/uy.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/uy.svg"); } }
+    &:is(.uz,.uzbekistan){ background-image: url("material/icon/flag/4x3/uz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/uz.svg"); } }
+    &:is(.va,.vatican-city){ background-image: url("material/icon/flag/4x3/va.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/va.svg"); } }
+    &:is(.vc,.saint-vincent){ background-image: url("material/icon/flag/4x3/vc.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/vc.svg"); } }
+    &:is(.ve,.venezuela){ background-image: url("material/icon/flag/4x3/ve.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ve.svg"); } }
+    &:is(.vg,.british-virgin-islands){ background-image: url("material/icon/flag/4x3/vg.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/vg.svg"); } }
+    &:is(.vi,.us-virgin-islands){ background-image: url("material/icon/flag/4x3/vi.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/vi.svg"); } }
+    &:is(.vn,.vietnam){ background-image: url("material/icon/flag/4x3/vn.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/vn.svg"); } }
+    &:is(.vu,.vanuatu){ background-image: url("material/icon/flag/4x3/vu.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/vu.svg"); } }
+    &:is(.wf,.walland-futuna,.wallflag,.futuna){ background-image: url("material/icon/flag/4x3/wf.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/wf.svg"); } }
+    &:is(.ws,.samoa){ background-image: url("material/icon/flag/4x3/ws.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ws.svg"); } }
+    &:is(.ye,.yemen){ background-image: url("material/icon/flag/4x3/ye.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/ye.svg"); } }
+    &:is(.yt,.mayotte){ background-image: url("material/icon/flag/4x3/yt.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/yt.svg"); } }
+    &:is(.za,.south-africa){ background-image: url("material/icon/flag/4x3/za.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/za.svg"); } }
+    &:is(.zm,.zambia){ background-image: url("material/icon/flag/4x3/zm.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/zm.svg"); } }
+    &:is(.zw,.zimbabwe){ background-image: url("material/icon/flag/4x3/zw.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/zw.svg"); } }
+    &:is(.zz,.unknown){ background-image: url("material/icon/flag/4x3/zz.svg"); &:is(.squared,round){ background-image: url("material/icon/flag/1x1/zz.svg"); } }
+}

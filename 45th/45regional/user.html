@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>一般會員專區</title>
+        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="textcenter" rowspan="2">
+                    <div class="sttext todotitle">
+                        日工作計畫表
+                        <div class="todobuttondiv">
+                            <input type="button" class="stbutton outline disabled" id="edit" value="修改" disabled>
+                            <input type="button" class="stbutton outline disabled" id="view" value="查看" disabled>
+                        </div>
+                    </div>
+                    <div class="todomaintable">
+                        <table class="sttable stripe allborder" id="maintable"></table>
+                    </div>
+                </td>
+                <td class="title">一般會員專區</td>
+            </tr>
+            <tr>
+                <td class="positionrelative">
+                    <div class="top">
+                        開始時間: <input type="button" class="table4but" id="updownbutton"><br>
+                        處理情形:
+                        <select class="table4but" id="dealselect">
+                            <option value="all">篩選器</option>
+                            <option value="未處理">未處理</option>
+                            <option value="處理中">處理中</option>
+                            <option value="已完成">已完成</option>
+                        </select><br>
+                        優先情形:
+                        <select class="table4but" id="priorityselect">
+                            <option value="all">篩選器</option>
+                            <option value="普通">普通</option>
+                            <option value="速件">速件</option>
+                            <option value="最速件">最速件</option>
+                        </select><br>
+                        <div class="userfunctionbutton">
+                            <input type="button" class="stbutton outline fill" id="newtodo" value="新增todo"><br>
+                            <input type="button" class="stbutton outline fill" id="logout" value="登出">
+                        </div>
+                    </div>
+                    <div class="todoviewdiv" id="viewdiv"></div>
+                </td>
+            </tr>
+        </table>
+
+        <div id="lightbox"></div>
+
+        <script src="user.js"></script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+body{
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.dragbox{
+    border: 1px black solid;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+#dropbox{
+    border: 1px black solid;
+    width: 130px;
+    height: 40px;
+}
+
+td{
+    
+    border: 1px black solid;
+}
+
+.date{
+    width: 1000px;
+    height: 90px;
+}
+
+.user1{
+    background-color: rgb(255, 255, 255);
+    width: 900px;
+}
+.user2{
+    background-color: rgb(156, 156, 156);
+    width: 900px;
+}
+
+.useruptablediv{
+    border: 0px black solid;
+    
+}
+
+.usernum1{
+    background-color: rgb(255, 255, 255);
+    width: 100px;
+    height: 57px;
+} 
+.usernum2{
+    background-color: rgb(156, 156, 156);
+    width: 100px;
+    height: 57px;
+} 
+
+.userhelf{
+    border-top: 1px black solid;
+}
+
+.title{
+    width: 250px;
+}
+
+.todobox{
+    position: absolute;
+    background-color: rgb(182, 182, 182);
+}
+
+.div{
+    background-color: azure;
+}
+
+.dragover{
+    border-top: 1px black soild;
+}
+
+.adminmiantable{
+    width: 100%;
+}

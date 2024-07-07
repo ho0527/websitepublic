@@ -1,0 +1,509 @@
+.input{
+    border: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 25px;
+    height: 25px;
+}
+
+.select{
+    width:70px;
+}
+
+.dragbox{
+    border: 1px black solid;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    background-color: white;
+}
+
+.dropbox{
+    border: 1px black solid;
+    height: 60px;
+    width: 240px;
+    display: inline-block;
+    background-color: white;
+    text-align: left;
+}
+
+.dragimg{
+    cursor: grab;
+}
+
+.block2{
+    border: 1px black solid;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.drag-over{
+    border-top: dashed 1px rgb(42, 42, 42);
+}
+
+.main-table{
+    border: 1px black solid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/*admin table*/
+.signupdiv{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(3.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 200px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.admin-title{
+    font-size:50px;
+}
+
+.admin-find{
+    text-align: right;
+}
+
+.admin-table-num{
+    border-bottom: 0.5px black solid;
+    width: 300px;
+    height: 30px;
+    color: white;
+    text-align: center;
+}
+
+.admin{
+    border: 1px white solid;
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translate(-45%,0%);
+    height: 600px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.admin-table{
+    border-bottom: 0.5px black solid;
+    width: 350px;
+    height: 30px;
+    color: white;
+    font-size: 18px;
+}
+
+/*user table*/
+.title{
+    width:225px;
+    height:25px;
+    font-size:30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.date{
+    border: 0.5px black solid;
+    width:985px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.verticalaligntop{
+    vertical-align: top;
+}
+
+.todo{
+    border: 0.5px black solid;
+    height: 785px;
+    text-align: center;
+    padding: 0px 10px;
+}
+
+.usertable{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:100px;
+    height:30px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.all{
+    vertical-align: top;
+    border: 0.5px black solid;
+    width: 620px;
+}
+
+.newtodo{
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.todo-title-time{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:155px;
+    height:30px;
+    text-align: center;
+}
+
+.todo-title-work{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:800px;
+    height:30px;
+    text-align: center;
+}
+
+.todo-title-main1{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:155px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-main1{
+    border: 0.5px black solid;
+    background-color: gray;
+    width:800px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-title-main2{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:155px;
+    height:57px;
+    text-align: center;
+}
+
+.todo-main2{
+    border: 0.5px black solid;
+    background-color: rgb(203, 203, 203);
+    width:800px;
+    height:57px;
+    text-align: center;
+}
+
+.work-box{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border: 0.5px rgb(0, 0, 0) solid;
+    text-align: center;
+    line-height: 1.1;
+    width: 150px;
+    font-size: 12px;
+    position:absolute;
+    /* user-select: all; */
+}
+
+#button3{
+    width:30px;
+    height:20px;
+    position: absolute;
+    top:0px;
+    right:1px;
+    font-size: 1px;
+    cursor: pointer;
+}
+
+#button4{
+    width:40px;
+    height:20px;
+    position: absolute;
+    bottom:0px;
+    right:1px;
+    font-size: 1px;
+    cursor: pointer;
+}
+
+.right{
+    float: right;
+}
+
+.div{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:15px;
+    font-weight:bold;
+    background-color: rgb(125, 125, 125);
+    border: 0.5px rgb(0, 0, 0) solid;
+    width: 175px;
+    height: 125px;
+    position: relative;
+    top: 450px;
+    left:15px;
+    word-wrap:break-word;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.useradd{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%) scale(2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 350px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.table4but{
+    width: 150px;
+    text-align: center;
+}
+
+.upusertablediv{
+    width: 100%;
+    height: 12px;
+    position: relative;
+    bottom: 2px;
+    margin: 1px;
+}
+
+.userhalf{
+    border-top: 1px black solid;
+}
+
+.downusertablediv{
+    width: 100%;
+    height: 12px;
+    position: relative;
+    top: 2px;
+    margin: 1px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 25px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.main{
+    top: calc(50% + 50px);
+}
+
+.loginmain{
+    width: 300px;
+}
+
+.search{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.displayflexcenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admintable{
+    width: 75vw;
+    height: 60vh;
+}
+
+.admintd{
+    width: 10000px;
+    height: 60px;
+    border-bottom: 1px white solid;
+}
+
+.inputmargin{
+    margin: 5px 0px;
+}
+
+.top3px{
+    position: relative;
+    top: 3px;
+}
+
+.todotitle{
+    position: relative;
+    color: white;
+    font-size: 25px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todobuttondiv{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.todotabletime{
+    width: 100px;
+}
+
+.todotablecontent{
+    height: 60px;
+}
+
+.userbody{
+    overflow: hidden;
+}
+
+.userfunctionbutton{
+    width: 95%;
+}
+
+.userlightbox{
+    width: 30vw;
+}
+
+.colorwhite{
+    color: white;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.todotextarea{
+    height: 20vh;
+}
+
+.inputmargin{
+    margin: 5px 0px;
+}
+
+.newtodotitle{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.todomaintable{
+    position: relative;
+}
+
+.todoblockdiv{
+    border: 1px var(--stgray-200) solid;
+    background: var(--stgray-300);
+    border-radius: 10px;
+    width: 185px;
+    text-align: left;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.todoblock{
+    width: 175px;
+    text-align: left;
+    padding: 5px;
+    cursor: inherit;
+}
+
+.tododeleteicon{
+    position: absolute;
+    top: 1px;
+    right: 5px;
+    width: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.dragable{
+    border-bottom: 1px rgb(102, 102, 102) dotted;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: min(50%,50px);
+    cursor: grab;
+    z-index: 900;
+}
+
+.top{
+    position: absolute;
+    top: 5px;
+}
+
+.positionrelative{
+    position: relative;
+}
+
+.todoviewdiv{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    height: 150px;
+    width: 95%;
+    border-radius: 5px;
+    background: var(--stgray-400);
+    font-size: 20px;
+    padding: 5px 10px;
+}

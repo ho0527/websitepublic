@@ -1,0 +1,25 @@
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(5);
+}
+
+.ios{
+    outline: none;
+    appearance: none;
+    width: 50px;
+    height: 30px;
+    background: lightskyblue;
+    border: solid 8px darkblue;
+    border-radius: 50px;
+    box-shadow: inset -20px 0 0 0 darkblue;
+    transition: all 0.25s ease;
+}
+
+.ios:checked{
+    background: darkblue;
+    border: solid 8px lightskyblue;
+    box-shadow: inset 20px 0 0 0 lightskyblue;
+    transition: all 0.25s ease;
+}

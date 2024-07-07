@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Contact Form">
+
+        <link href="vendor-css/normalize.min.css" rel="stylesheet">
+        <link href="contact-form.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Task 2 - Contact Form with conditional form elements</h1>
+        <form enctype="multipart/form-data" name="field" class="form" method="post">
+            <section class="form__section">
+                <h2 class="form__heading">E mail form</h2>
+                <fieldset class="form__fieldset">
+                    <legend class="form__legend">User data</legend>
+                    <div class="form__fieldwrap form__fieldwrap--input">
+                        <label for="field_firstname" class="form__label">First name</label><br>
+                        <input class="form__input" id="field_firstname" type="text" name="firstname">
+                    </div>
+                    <div class="form__fieldwrap form__fieldwrap--input">
+                        <label for="field_lastname" class="form__label">Last name</label><br>
+                        <input required class="form__input" id="field_lastname" type="text" name="lastname">
+                    </div>
+                    <div class="form__fieldwrap form__fieldwrap--input">
+                        <label for="field_telephone" class="form__label">Telephone</label><br>
+                        <input pattern="^(\+\d{1,4}|0+\d{1,5}|\(\d{1,5})[\d\s\/\(\)-]*\d+$" class="form__input" id="field_telephone" type="tel" name="telephone">
+                    </div>
+                    <div class="form__fieldwrap form__fieldwrap--input">
+                        <label for="field_e_mail" class="form__label">E mail</label><br>
+                        <input required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" class="form__input" id="field_e_mail" type="email" name="e_mail">
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__fieldset">
+                    <legend class="form__legend">Subject</legend>
+                    <div class="form__fieldwrap form__fieldwrap--radio general">
+                        <label for="field_general" class="form__label">General</label>
+                        <input class="form__input radio generalradio" id="field_general" type="radio" name="subject" value="General" checked>
+                    </div>
+                    <div class="form__fieldwrap form__fieldwrap--radio supportrequest">
+                        <label for="field_support_request" class="form__label">Support request</label>
+                        <input class="form__input radio supportrequestradio" id="field_support_request" type="radio" name="subject" value="Support request" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__fieldset formfieldsetgeneral">
+                    <legend class="form__legend">Additional informations according to subject <strong>general</strong></legend>
+                    <div class="form__fieldwrap">
+                        <label for="field_website" class="form__label">Website URL</label>
+                        <input class="form__input" id="field_website" type="url" name="lastname" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__fieldset formfieldsetsupportrequest">
+                    <legend class="form__legend">Additional informations according to subject <strong>support request</strong></legend>
+                    <div class="form__fieldwrap form__fieldwrap--multiselect">
+                        <label for="field_support_subject" class="form__label">Support subjects</label>
+                        <select class="form__input form__input--multiselect" id="field_support_subject" multiple="multiple" name="support_subject">
+                            <option value="nocoffee">I ran out of coffee</option>
+                            <option value="toomuchcoffee">I had too much coffee</option>
+                            <option value="brokencoffeemachine">Coffee machine is broken</option>
+                            <option value="cofferedbull">I poured Red Bull in my coffe this morning. I can see sounds.</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__fieldset">
+                    <legend class="form__legend visuallyhidden">Message</legend>
+                    <div class="form__fieldwrap form__fieldwrap--textarea">
+                        <label for="field_message" class="form__label">Text</label>
+                        <textarea required rows="5" cols="20" class="form__input form__input--textarea" id="field_message" name="text"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__fieldset">
+                    <legend class="form__legend">Send</legend>
+                    <div class="form__fieldwrap form__fieldwrap--submit">
+                        <button class="button button--submit" type="submit" name="submit">Send</button>
+                    </div>
+                </fieldset>
+            </section>
+        </form>
+    </body>
+</html>

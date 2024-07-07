@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>查看問卷</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="error.js"></script>
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft"><div class="navigationbartitle">網路問卷管理系統</div></div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" id="seeall" value="查看所有回應">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index.php'" value="首頁">
+                <input type="button" class="navigationbarbutton" onclick="location.href='api.php?logout='" value="登出">
+            </div>
+        </div>
+
+        <div class="main center responselistdiv macossectiondivy" id="responselist"></div>
+
+        <script src="responselist.js"></script>
+    </body>
+</html>

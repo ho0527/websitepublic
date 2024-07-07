@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>模組E-學生資料管理系統</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <header class="header" id="header">
+            <h1 id="logo"></h1>
+            <form class="searchform" id="searchForm">
+                <input type="text" class="search" name="search" placeholder="搜尋">
+            </form>
+        </header><br>
+        <aside class="aside">
+            <button class="addsut" id="addStudent">
+                <img src="icon/newstudents.png" class="icon">
+                新增學生
+            </button>
+            <ul class="list" id="studentList">
+                <li class="item" id="allstu">所有學生<span class="num"></span></li>
+            </ul>
+            <hr>
+            <ul class="list" id="classList">
+                <li class="item" id="allclass"><img src="">班級(顯示更少)</li><br>
+                <div id="class"></div>
+                <li id="addClass" class="item">建立班級</li>
+            </ul>
+            <hr>
+            <ul class="list" id="trash">
+                <li class="item" id="trashcan">垃圾桶</li>
+            </ul>
+            <button id="export_data">匯出資料</button>
+            <button id="import_data">匯入資料</button>
+        </aside>
+        <main class="main" id="main">
+        </main>
+        <div id="dialog">
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

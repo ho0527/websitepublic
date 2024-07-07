@@ -1,0 +1,97 @@
+body{
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    word-wrap: break-word;
+}
+
+h2{
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+}
+
+.main{
+    border: 1px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border-radius: 10px;
+}
+
+.input{
+    margin-bottom: 10px;
+}
+
+.inputfile{
+    width: 175px;
+}
+
+.area{
+    padding: 20px;
+}
+
+.filelist{
+    height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 0px;
+}
+
+.filelistli{
+    list-style-type: none;
+}
+
+.filelistli::before{
+    content: "📄";
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(220, 173, 78);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 45%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.downloadbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(29, 145, 29);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 45%;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+}
+
+.downloadbutton:hover{
+    background-color: rgb(102, 220, 102);
+    color: black;
+}

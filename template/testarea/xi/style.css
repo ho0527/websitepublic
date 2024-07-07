@@ -1,0 +1,71 @@
+.bg-primary{
+    background-color: rgba(0,0,0,0.5) !important;
+}
+.line{
+    transform: translate(100%,-65%) scale(2);
+    color: green;
+}
+#nonec{
+    color: rgba(0,0,0,0);
+}
+/* 置中 */
+.t-c{
+    text-align: center;
+}
+/* --- */
+.bg-card-g{
+    background-color: green;
+}
+.bg-card-b{
+    background-color: black;
+}
+.cw{
+    color: aliceblue;
+}
+.bg-img{
+    width: 1920px;
+}
+
+
+#updateimg{
+    display: none;
+}
+
+.martop-10{
+    margin-top: 100px;
+}
+.nav-link{
+    color: white !important;
+}
+
+#hbroad{
+    transform: scale(1.2);
+    margin-top:100px;
+}
+#verifi{
+    transform: scale(1.75);
+}
+.sbd{
+    border: 1px solid black;
+}
+.dbd{
+    border: 1px dashed black;
+}
+.bg-b{
+    background-color: black;
+}
+#inpblock{
+    transform: scale(1.25);
+}
+#inpblocks{
+    transform: scale(1.25);
+    width: 900px;
+}
+#inpblockss{
+    transform: scale(1.25);
+    width: 600px;
+}
+
+.active{
+    color: green !important;
+}

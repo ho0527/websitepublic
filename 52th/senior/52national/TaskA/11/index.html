@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>資料視覺化</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="grid">
+            <div class="h1">
+                <div class="center">資料視覺化</div>
+            </div>
+            <div class="inputdiv">
+                選擇檔案 <input type="file" id="inputfile" accept=".csv">
+            </div>
+            <div class="show">
+                <table id="table" class="table">
+                </table>
+            </div>
+            <input type="button" class="reflashbutton" id="reflashbutton" value="重整">
+            <input type="button" class="submit" id="submit" value="生成">
+        </div>
+        <div id="log" class="log"></div>
+        <script src="index.js"></script>
+    </body>
+</html>

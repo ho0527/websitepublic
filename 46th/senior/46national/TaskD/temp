@@ -1,0 +1,28 @@
+# JS使用模糊搜尋的方式
+
+在JavaScript中進行JSON數據的模糊搜尋，我們可以使用 `.filter()` 和 `RegExp` 兩種方式來實現。假設我們有如下的JSON資料：
+
+```js
+let data = [
+  {"name":"John", "city":"New York"},
+  {"name":"Jane", "city":"Chicago"},
+  {"name":"Bob", "city":"Los Angeles"},
+  {"name":"Alice", "city":"San Francisco"}
+];
+
+// 我們想要搜尋名稱中包含"jo"的項目，我們可以創建一個正則表達式來匹配"jo"，並用 `.filter()` 將所有匹配的項目留下
+
+let searchTerm = "jo";
+let regex = new RegExp(searchTerm, "i");  // "i" 代表不區分大小寫
+
+let result = data.filter(item => regex.test(item.name));
+
+console.log(result);
+// 結果將會顯示包含 "jo","jO","Jo","JO" 的項目
+```
+
+在以上的例子中，`RegExp` 是 JavaScript 的一種內建對象，被用來進行正則表達式匹配。這裡的 `"i"` 是一個"不區分大小寫"的標誌。`.filter()` 是一種 Array 的方法，它將會遍歷整個數組並返回所有使得給定函數返回 `true` 的項目。
+
+注意，這個例子只對 `name` 字段進行了搜尋。如果你需要對多個字段進行搜尋，你需要對每個字段進行 `regex.test()`。
+
+最後，我們只是進行了一個非常基本的模糊搜尋。對於更複雜的模糊搜尋需求（例如搜尋多個詞語，或者對搜索結果進行排序），你可能需要引入一個專門的搜尋庫。有許多現成的JavaScript庫可以做到這一點，例如 [Fuse.js ↗](http://fusejs.io/) 和 [Lunr.js ↗](https://lunrjs.com/)。

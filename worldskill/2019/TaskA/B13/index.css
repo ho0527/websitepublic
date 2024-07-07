@@ -1,0 +1,17 @@
+body{
+    background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 255, 0));
+    background-size: 200%;
+    animation: gradientShift 5s infinite linear;
+}
+
+@keyframes gradientShift{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}

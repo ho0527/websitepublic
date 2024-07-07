@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>管理者專區</title>
+        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <div class="navigationbartitle">管理者專區</div>
+            </div>
+            <div class="navigationbarright">
+                <div class="search">
+                    <div class="stinput circular">
+                        <input type="text" id="search" placeholder="查詢">
+                    </div>
+                </div>
+                <input type="button" class="navigationbarbutton" id="newuser" value="新增使用者">
+                <input type="button" class="navigationbarbutton navigationbarselect" id="user" value="使用者列表">
+                <input type="button" class="navigationbarbutton" id="log" value="伺服器紀錄">
+                <input type="button" class="navigationbarbutton" id="logout" value="登出">
+            </div>
+        </div>
+
+        <div class="main center admintable macossectiondivy">
+            <table class="sttable textcenter" id="main">
+            </table>
+        </div>
+
+        <div id="lightbox"></div>
+
+        <script src="admin.js"></script>
+    </body>
+</html>

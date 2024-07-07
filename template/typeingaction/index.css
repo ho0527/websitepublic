@@ -1,0 +1,56 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    word-break: break-all;
+    user-select: none;
+    place-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.typingtext{
+    position: relative;
+    width: 100%;
+    font-size: 64px;
+    color: white;
+    letter-spacing: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: 4s typeingword infinite steps(8);
+}
+
+.typingtext::after{
+    content: "";
+    position: absolute;
+    right: 0px;
+    width: 2px;
+    height: 100%;
+    background: white;
+    animation: 0.8s typeingline infinite steps(2);
+}
+
+@keyframes typeingword{
+    0%{
+        width: 0%;
+    }
+    50%{
+        width: 100%;
+    }
+    90%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+@keyframes typeingline{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

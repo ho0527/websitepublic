@@ -1,0 +1,50 @@
+Example Ltd.
+
+Example ltd is a training center.
+
+Menu
+Home
+Products
+Blog
+Contact Us
+
+Example Ltd. has been creating on web for 15 years. We have a great team that teach web design and development with books and classes. Our latest course is HTML5. Our latest product is "Super Great Example Product".
+
+Latest Course
+
+- HTML5 Introduction
+- Ruby on Rails 5 Getting Started
+- Git Version Control
+- jQuery inside out
+
+Gallery
+
+Here is a gallery of our products.
+
+[Fake Image 1]
+Product A, released at 2015-01-01
+
+[Fake Image 2]
+Product B, released at 2016-02-04
+
+[Fake Image 3]
+Product G, released at 2016-05-06
+
+[Fake Image 4]
+Product D, released at 2016-09-08
+
+Contact Us
+
+You can reach us via tim@example.com. Or visit us at 54 Roosevelt Ave, West Orange, NJ, 07052.
+
+Stay in Contact
+
+If you are interested in our latest news, please subscribe to our monthly newsletter:
+
+Email:
+[Input for the email address]
+[Subscribe button]
+
+We promise we won’t send you any spam mails.
+
+Copyright 2016. All right reserved.

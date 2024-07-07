@@ -1,0 +1,90 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.face{
+    background: #EED16B;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: solid 20px #DAA656;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s ease;
+    position: relative;
+    left: 25px;
+}
+
+.maineye{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    margin-bottom: 50px;
+    transition: all 0.5s ease;
+}
+
+.eye{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #DAA656;
+    transition: all 0.5s ease;
+}
+
+.mouth{
+    transition: all 0.5s ease;
+}
+
+.happy{
+    width: 200px;
+    height: 60px;
+    background: #83B458;
+    border-radius: 50% / 0 0 100% 100%;
+}
+
+.normal{
+    width: 200px;
+    height: 50px;
+    background: #DAA656;
+    border-radius: 50vh;
+}
+
+.sad{
+    width: 200px;
+    height: 60px;
+    background: #DE5D63;
+    border-radius: 50% / 100% 100% 0 0;
+}
+
+.buttondiv{
+    margin: 15px;
+}
+
+.mainbutton{
+    width: 100px;
+    height: 50px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.mainbutton:hover{
+    background: rgba(175, 175, 175, 0.70);
+    color: white;
+}

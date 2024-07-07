@@ -1,0 +1,444 @@
+{
+    "data": [
+        {
+            "title": "49regional",
+            "link": "../",
+            "statu": "SUCCESS",
+            "ps": "question",
+            "createdate": "2023/03/13",
+            "updatedate": "2024/02/28",
+            "data": [
+                {
+                    "list": 1,
+                    "description": "LOGO 設計",
+                    "statu": "FAILED",
+                    "data": [
+                        {
+                            "no": "01",
+                            "description": "是否繳交正確的文件格式，且有提交文件和原始檔案。",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "description": "文件版面是否為 A4 直式",
+                                    "statu": "FAILED"
+                                },
+                                {
+                                    "description": "上方內容為 LOGO",
+                                    "statu": "FAILED"
+                                },
+                                {
+                                    "description": "下方為設計理念說明",
+                                    "statu": "FAILED"
+                                },
+                                {
+                                    "description": "並將 LOGO 之原始設計可編輯檔存放在 ANS1/source 目錄下。",
+                                    "statu": "FAILED"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "02",
+                            "description": "LOGO 標誌圖須包含文字「電子競技(eSports)」在LOGO 內，中文(「電子競技」或「電競」)，或英文(eSports)，或中英文皆可",
+                            "statu": "FAILED",
+                            "data": []
+                        },
+                        {
+                            "no": "03",
+                            "description": "整體表現是否具有「利用電子設備（電腦、遊戲主機、街機、手機）作為運動器械進行的、但是操作上強調人與人之間的智力與反應對抗運動」的特質。",
+                            "statu": "subjective",
+                            "data": []
+                        },
+                        {
+                            "no": "04",
+                            "description": "LOGO 標誌圖造型之色彩及線條之專業表現，以及創新性，設計理念說明切合主題。",
+                            "statu": "subjective",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 2,
+                    "description": "前台登入頁面",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "05",
+                            "description": "建立一個網頁包含幾個連結，分別連到其他模組的首頁頁面",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "06",
+                            "description": "網站前台登入頁面，以圖 2 所包含的元素為參考版形，頁面內至少有 14 個元素",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "頁面標題",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "「帳號」、「密碼」的文字及輸入欄位；",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "「圖形驗證碼」的文字及輸入框",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "「圖形圖片 0~9」、2 組 2 個數字圖片(0~9)及中間有一個運算符號「+」或「-」圖片。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "送出按鈕；重設按鈕；驗證碼重新產生按鈕等。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "07",
+                            "description": "預設管理者帳號是:admin，密碼是:1234，可以執行帳號及密碼的驗證，驗證成功就顯示成功登入的訊息，否則顯示錯誤的訊息。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "08",
+                            "description": "錯誤訊息的內容能分別指出錯誤的類型，包含帳號有誤、密碼有誤、或圖形驗證碼有誤",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "09",
+                            "description": "圖形驗證是以圖片顯示，圖片驗證碼必須是由 SERVER端產生的。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "圖片包含「圖形圖片0~9」、2 組 2 個數字圖片(0~9)及中間有一個運算符號「+」或「-」圖片",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "10",
+                            "description": "能夠成功進行圖形驗證。圖形驗證的方式使用 \"以輸入文字方式來回答。\" 或 \"使用互動拖拉的方式來回答，將運算正確答案，拖拉「圖形圖片 0~9」到輸入框頁面顯示。\"",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "11",
+                            "description": "登入若連續錯誤 3 次，則自動切換到「登入失敗」的頁面，頁面內容顯示連續錯誤3次的訊息。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "12",
+                            "description": "點擊「驗證碼重新產生」按鈕時，會更換新驗證碼圖片。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 3,
+                    "description": "翻牌驗證模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "13",
+                            "description": "翻牌配對驗證功能，功能如下",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "設計 4x2 的 8 方格翻牌配對",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "8 方格的內容為英文字母大寫，共 4 組相同的英文字母大寫，不可重複",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "並有一按鈕「全部翻牌」，按此按鈕時，可以全部翻牌看到所有的內容，再按一次可以再全部蓋牌。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "14",
+                            "description": "開始時，每一格子是蓋牌(看不到英文字)，點選任一格子，則格子會翻牌並顯示英文字，再選另一格子，則會再翻牌，",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "15",
+                            "description": "會檢查與前一張牌是否相同",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "若是與本次翻的牌一樣，則配對成功，並保留翻牌，可再繼續翻其他牌",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "若是與本次翻的牌不一樣，則配對不成功，前一張牌及本次翻的牌會再蓋牌，可再繼續翻其他牌。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "16",
+                            "description": "若所有牌皆翻牌成功，出現成功訊息，並自動登入或按確定按鈕則可登入。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "17",
+                            "description": "增加快速登入功能的牌。若牌的內容8張牌的內容固定會有2張E，則翻牌配對E牌成功，則可快速登入系統",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 4,
+                    "description": "電子競技會員網站後台管理模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "18",
+                            "description": "以管理者帳號登入系統後，會進入管理者介面。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "能新增使用者帳號，包含帳號、密碼、姓名、及權限，並能在前台成功登入。使用者權限分「一般使用者」及「管理者」。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "19",
+                            "description": "新增使用者帳號時，系統會自動產生一個「使用者編號」，使用者編號是唯一編號，每一使用者皆不一樣。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "是以流水號的方式產生，共 5 碼，1 位英文字小寫 u或a, 及 4 碼從 0001 開始的數字，例如u0001",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "每新增一個使用者，使用者編號 為前一個新增個使用者再加1",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "「一般使用者」u 開頭, 「管理者」a 開頭。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "管理者帳號 admin 的「使用者編號」為a0000，姓名為「管理者」。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "20",
+                            "description": "以管理者帳號登入系統後，能進入後台管理畫面，畫面標題需 為「管理者專區」的文字出現。 以一般使用者帳號登入系統後，能進入會員的畫面頁面，畫面標題需為「會員專區」的文字出現。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "21",
+                            "description": "以管理者帳號登入系統後：能修改使用者帳號資料。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "包含帳號、密碼、及姓名，並能在前台成功登入，但不能修改使用者編號。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "22",
+                            "description": "以管理者帳號登入系統後：能修改使用者權限。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "包含「一般使用者」及「管理者」，並能在前台成功登入。但不能修改使用者編號。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "23",
+                            "description": "「管理者」的使用者，不能修改及刪除特別管理者「admin」管理者帳號的資料。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "24",
+                            "description": "以管理者帳號登入系統後：能以關鍵字查尋所有使用者帳號資料，並能以「使用者編號」升冪的排序方式呈現。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "每一筆資料包含使用者編號、帳號、密碼、姓名、及權限。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "25",
+                            "description": "以管理者帳號登入系統後：能以關鍵字查尋所有使用者帳號資料，並能選擇以帳號、姓名 或使用者編號」及「升冪或降冪」的排序方式呈現。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "26",
+                            "description": "以管理者帳號登入系統後：能刪除使用者帳號資料，包含「一般使用者」及「管理者」。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "27",
+                            "description": "但不能刪除特別管理者「admin」管理者的帳號。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "28",
+                            "description": "刪除一位使用者後，「使用者編號」不可再重複使用。若再新增一位使用者時，不可再重複使用前先已刪除使用者的「使用者編號」。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "29",
+                            "description": "系統具有登入登出紀錄功能，管理者身份的使用者可以檢視紀錄資料。登入登出紀錄資料每一筆至少包含，「使用者，時間，動作(登入/登出)，成功/失敗」。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "30",
+                            "description": "若是以管理者帳號登入系統成功時，能有一倒數計時器，預設以 60 秒為開始倒數計時，倒數到 0 秒時，則出現對話，詢問是否繼續操作，若按 Yes 則繼續操作，若按否或是 5 秒內無回答，則系統會登出。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "31",
+                            "description": "倒數計時器的倒數時間長度可以人工調整，並有一「重新計時」按鈕，可以重新開始計時的功能。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 5,
+                    "description": "電競活動報名系統",
+                    "statu": "FAILED",
+                    "data": [
+                        {
+                            "no": "32",
+                            "description": "製作電競活動首頁，可瀏覽所有已公佈的電競活動，依競賽的時間之順序排列，競賽的時間最近的排在前面。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "首頁包含「電競活動管理精靈」及「查尋」按鈕",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "33",
+                            "description": "每一電競活動，之「電競活動簡介」內容中，若簡介文字超過可顯示的區域時，會有一「more…」的連結，按下後可以連結或擴大「電競活動簡介」區域，而能顯示簡介的全文。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "34",
+                            "description": "按下電競活動之「報名」按鈕時，可連結呈現另外一頁報名表單，報名表單之內容及功能不拘，但需包含有該電競活動之名稱之報名表單之標題",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "35",
+                            "description": "有包含置頂之「電競活動」(由「電競活動管理精靈」指定，並置頂於最上方)。",
+                            "statu": "SUCCESS",
+                            "data": [
+                            ]
+                        },
+                        {
+                            "no": "36",
+                            "description": "按「查尋」按鈕，可以依日期範圍來查尋所需要的電競活動",
+                            "statu": "SUCCESS",
+                            "data": [
+                            ]
+                        },
+                        {
+                            "no": "37",
+                            "description": "按「查尋」按鈕，可以依關鍵字來查尋「電競名稱」、「電競活動簡介」、及「活動新聞連結」中的內容尋找，尋找所需要的內容。(「活動新聞連結」只尋找該欄位的內容，不查尋連結出去的內容)",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "38",
+                            "description": "按「電競活動管理精靈」按鈕，進入製作電競活動精靈的頁面，此精靈頁面包含「選擇版型」、「填寫資料」、「預覽」、「確定送出」子功能頁面。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "按各子功能連結，會切換到各子功能頁面，每一子功能頁面至少需包含各子功能標題文字。",
+                                    "statu":"SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "39",
+                            "description": "「選擇版型」子功能頁面，需至少提供 3 種基本版型來套用。每一版型，至少包含: 「圖片」、「電競名稱」、「電競活動簡介」、「競賽日期」、「報名」、及「活動新聞連結」等元素。",
+                            "statu": "SUCCESS",
+                            "data": [{
+                                "description": "3 種基本版型需不一樣",
+                                "statu": "SUCCESS"
+                            }]
+                        },
+                        {
+                            "no": "40",
+                            "description": "「填寫資料」子功能頁面，可填寫及上傳所需要的資料，至少包含: 「圖片」、「電競名稱」、「電競活動簡介」、「競賽日期」、「報名」、及「活動新聞連結」等元素的資料。其中競賽日期，格式不拘。圖片是選擇客戶端的圖片，然後上傳到伺服器端。未發佈前，在子功能頁面間切換時，資料仍可修改，包含更改套用不同的版型。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "41",
+                            "description": "「預覽」子功能頁面，可預覽商品電競活動內容。當更改套用不同的版型時，仍可正確顯示。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "42",
+                            "description": "「確定送出」子功能頁面，請編輯者再確認是否送出。確認送出後，可在首頁正確瀏覽。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "43",
+                            "description": "提供電競活動發佈後，可再修改的功能。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "44",
+                            "description": "提供「電競活動」設定某一活動置頂的功能，只能設定一活動置頂。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                        ,
+                        {
+                            "no": "45",
+                            "description": "提供「電競活動」設定顯示及隱藏的功能。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                        ,
+                        {
+                            "no": "46",
+                            "description": "提供增加新版型的功能",
+                            "statu": "SUCCESS",
+                            "data": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

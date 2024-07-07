@@ -1,0 +1,20 @@
+document.querySelectorAll(".editbutton").forEach(function(event){
+    event.onclick=function(){
+        if(event.dataset.code==document.getElementById(event.dataset.id).value){
+            location.href="editcomment.php?id="+event.dataset.id
+        }else{
+            alert("序號有誤")
+        }
+    }
+})
+document.querySelectorAll(".deletebutton").forEach(function(event){
+    event.onclick=function(){
+        if(event.dataset.code==document.getElementById(event.dataset.id).value){
+            if(confirm("confirm?")){
+                location.href="api.php?deletecomment="+event.dataset.id
+            }
+        }else{
+            alert("序號有誤")
+        }
+    }
+})

@@ -1,0 +1,702 @@
+{
+    "data": [
+        {
+            "title": "53grandmaster2stage",
+            "statu": "FAILED",
+            "ps": "list",
+            "createdate": "2023/09/27",
+            "updatedate": "2023/12/26",
+            "data": [
+                {
+                    "title": "ModuleA/ModuleB-API(GraphQL)/單元測試",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "2023/12/25",
+                    "updatedate": "2023/12/26",
+                    "data": [
+                        {
+                            "list": "modulea",
+                            "description": "API",
+                            "statu": "FAILED",
+                            "createdate": "2023/12/25",
+                            "updatedate": "2023/12/26",
+                            "data": [
+                                {
+                                    "list": 1,
+                                    "description": "task",
+                                    "statu": "FAILED",
+                                    "data": [
+                                        {
+                                            "no": "01",
+                                            "description": "訪客登入功能正常",
+                                            "statu": "SUCCESS",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "02",
+                                            "description": "訪客登出功能正常",
+                                            "statu": "SUCCESS",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "03",
+                                            "description": "訪客註冊功能正常",
+                                            "statu": "SUCCESS",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "04",
+                                            "description": "取得會員資料功能正常",
+                                            "statu": "SUCCESS",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "05",
+                                            "description": "取得書籍列表功能正常",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "06",
+                                            "description": "新增書本功能正常",
+                                            "statu": "SUCCESS",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "07",
+                                            "description": "刪除書本功能正常",
+                                            "statu": "SUCCESS",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "08",
+                                            "description": "取得會員當前租借列表功能正常",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "09",
+                                            "description": "租借書本功能正常",
+                                            "statu": "SUCCESS",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "10",
+                                            "description": "歸還書本功能正常",
+                                            "statu": "SUCCESS",
+                                            "data": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "list": "moduleb",
+                            "description": "單元測試",
+                            "statu": "subjective",
+                            "createdate": "N/A",
+                            "updatedate": "N/A",
+                            "data": [
+                                {
+                                    "list": 1,
+                                    "description": "task",
+                                    "statu": "FAILED",
+                                    "data": [
+                                        {
+                                            "no": "11",
+                                            "description": "訪客登入之 PHPUnit 撰寫良好 (Coverage、Test Cases)",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "12",
+                                            "description": "訪客登出之 PHPUnit 撰寫良好 (Coverage、Test Cases)",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "13",
+                                            "description": "訪客註冊之 PHPUnit 撰寫良好 (Coverage、Test Cases)",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "14",
+                                            "description": "取得會員本身資料之 PHPUnit 撰寫良好 (Coverage、Test Cases)",
+                                            "statu": "subjective",
+                                            "data": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleC-Frontend Module",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "2023/09/27",
+                    "updatedate": "2023/12/04",
+                    "data": [
+                        {
+                            "list": "C",
+                            "description": "1",
+                            "link": "modulec/1",
+                            "statu": "FAILED",
+                            "createdate": "N/A",
+                            "updatedate": "N/A",
+                            "data": [
+                                {
+                                    "list": 1,
+                                    "description": "task",
+                                    "statu": "FAILED",
+                                    "data": [
+                                        {
+                                            "no": "01",
+                                            "description": "Was delivered the game instructions, game board and the ranking table layout in the scheduled time Deduct 0,20 per file missing",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "02",
+                                            "description": "Game board design present the 15 requirements elements described in the test project deduct 0,10 per item missing",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "03",
+                                            "description": "Game Instructions present the instructions of the media files and \"Start Game\" button In the Game Instructions Design",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "04",
+                                            "description": "There are at least 5 planets in the background of Game Board Design",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "05",
+                                            "description": "Hover Effects on the \"Start Game\" button use #f19e0d background background: #f19e0d In the rule :hove",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "06",
+                                            "description": "Active Effects on the \"Start Game\" button present the ripple effect presented in the media files in rule :active",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "07",
+                                            "description": "Game is centered on the screen",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "08",
+                                            "description": "Quality of the created spaceship (controlled by user)",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "09",
+                                            "description": "Visual identity is consistent in all the design game",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "10",
+                                            "description": "Quality of the created icons and buttons in the gameboard design",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "11",
+                                            "description": "Game instructions is shown with animation 0.30",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "12",
+                                            "description": "Quality of instructions animation",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "13",
+                                            "description": "Contrast among background and objects",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "14",
+                                            "description": "There should not be CSS syntax error in W3C validator report Deduct 0.25 per syntax error found",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "15",
+                                            "description": "Create easy-to-maintain CSS codes 0. CSS unorganized without indentation",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "16",
+                                            "description": "HTML code validated for HTML5 in W3C validator Deduct 0,25 per type of error found 1.00",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "17",
+                                            "description": "Create easy-to-maintain HTML codes",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "18",
+                                            "description": "Game instructions present the elements created in the design deduct 0,10 per missing element - Compare with the design delivered",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "19",
+                                            "description": "Game instructions elements follow the design created deduct 0,10 per for wrong format or wrong position - Compare with the design delivered",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "20",
+                                            "description": "Consistent use of Typography - (Contrast, readability, and family choice)",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "21",
+                                            "description": "Correct align of the fixed elements (icons, buttons and counters)",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "22",
+                                            "description": "Ranking page design present the requirements described in the test project deduct 0,10 per item missing (table with the following columns: position (0.10), name (0.10), score (0.10) and time (0.10) in this order (0,10), “Start Game” button (0,10) and logo(0.10))",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "23",
+                                            "description": "Design was developed to the correct resolutions Three designs 960x600px (deduct 0,25 per wrong resolution)",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "24",
+                                            "description": "The fuel icon moves from top to down",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "25",
+                                            "description": "During the flight, the main spaceship needs to collect fuel icons dropping (from the top of the screen) in the space randomly",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "26",
+                                            "description": "For each fuel icon collected, the fuel counter is increased in 15 points",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "27",
+                                            "description": "The user can increase/decrease the size of font in screen Timer and score counter",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "28",
+                                            "description": "Fuels animation",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "29",
+                                            "description": "Game can be accessed directly using the address: http:\/\/<IP>/YY_Client_Side yy = workstation number the game is presented to the user with the “How to Play” instructions animated and Start Button, <IP> is your remote server IP address",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "30",
+                                            "description": "Pressing the “Start Game” button, the game starts and the Spaceship (controlled by user) starts to fly in the space Game Instruction Hide and Game Board presented",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "31",
+                                            "description": "The timer is started from zero and present the time in seconds that the Spaceship (controlled by user) is in movement",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "32",
+                                            "description": "The fuel counter, start to decrease, one point per second. The fuel counter starts with 15 points The graphical element must be animated when the fuel is decreasing and when the user gets more fuel.",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "33",
+                                            "description": "The max capacity of fuel is 30 points",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "34",
+                                            "description": "The left sensible area moves the Spaceship (controlled by user) to left Activate in mouse hover and deactivate in mouse leave",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "35",
+                                            "description": "The up sensible area moves the Spaceship (controlled by user) to up Activate in mouse hover and deactivate in mouse leave",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "36",
+                                            "description": "The down sensible area moves the Spaceship (controlled by user) to down Activate in mouse hover and deactivate in mouse leave",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "37",
+                                            "description": "The right sensible area moves the Spaceship (controlled by user) to right Activate in mouse hover and deactivate in mouse leave",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "38",
+                                            "description": "It is not possible fly with the Spaceship (controlled by user) to the outside of game area",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "39",
+                                            "description": "The score starts with zero points",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "40",
+                                            "description": "The user can shoot pressing space bar the user cannot keep pressing the space bar to shoot many times sequentially, that is, and it must be possible shoot once for each space bar pressing",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "41",
+                                            "description": "The shot of main spaceship can destroy just one target. The shot cannot pass through one target and hits other elements.",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "42",
+                                            "description": "If the user's spaceship collides an asteroid or an any spaceship the element is destroyed",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "43",
+                                            "description": "If the spaceship collides an asteroid or an any spaceship the fuel must be decrease in 15 points",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "44",
+                                            "description": "The spaceships and asteroids needs to be presented in random position",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "45",
+                                            "description": "The spaceships and asteroids move from right to left",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "46",
+                                            "description": "The enemy’s ships must shoot (from right to left)",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "47",
+                                            "description": "If the player is hit by the enemy shoots, the fuel counter will be decreased in 15 points",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "48",
+                                            "description": "The ships are destroyed by one shoot",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "49",
+                                            "description": "Each enemy ship destroyed increase the score counter in 5 points",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "50",
+                                            "description": "If the user destroys a friendly ship the score counter is decreased in 10 points",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "51",
+                                            "description": "The game permits a negative score",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "52",
+                                            "description": "The asteroids can be destroyed with two shots",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "53",
+                                            "description": "Destroying each asteroid, the score is increased in 10 points",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "54",
+                                            "description": "Each 5 seconds of flight, the difficult of game must be increased. The spaceships, fuels icons and asteroids must be shown faster and the enemy’s spaceships must shoot more times",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "55",
+                                            "description": "The spaceships are presented in an animated way Include the main spaceship controlled by the user 0.20",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "56",
+                                            "description": "The asteroids are presented in an animated way 0.20",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "57",
+                                            "description": "Fuel icons are presented in an animated way 0.20",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "58",
+                                            "description": "Game Board present the elements created in the design deduct 0,10 per missing element - Compare with the design delivered",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "59",
+                                            "description": "Game Board elements follow the design created deduct 0,10 per for wrong format or wrong position for fixed elements (like icons and counters) - Compare with the design delivered",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "60",
+                                            "description": "Ranking Table present the elements created in the design deduct 0,10 per missing element - Compare with the design delivered",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "61",
+                                            "description": "Ranking Table elements follow the design created deduct 0,10 per for wrong format or wrong position for fixed elements (like icons and counters) - Compare with the design delivered",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "62",
+                                            "description": "When the fuel counter arrives at zero, the game is over When the game is over, the animations, sounds, interactions and the timer counter stops",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "63",
+                                            "description": "When the game is over the game collect the name of the user in a form field Name field is presented to the user with a \"Continue\" button",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "64",
+                                            "description": "The Continue button will be disabled until the user fills the name field",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "65",
+                                            "description": "The user name, the time of flight and the score must to be sent to server through an AJAX request when the user clicks in Continue button To address http:\/\/<IP>/YY_Client_Side/register.php Method: POST variables name, time and score (with this names)",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "66",
+                                            "description": "After click in \"Continue\" button, the game present the game ranking with the following columns: position, name, score and time in this order with the button “Start Game” data provided by the json by register.php",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "67",
+                                            "description": "The ranking is ordered by the score and for time elapsed in decrease order (ordered in front-end).",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "68",
+                                            "description": "If more than one user has the same score and the same time, they receive the same position in the ranking JSON from server get by provided file register.php.",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "69",
+                                            "description": "It is possible restart the game clicking in the \"Start Game\" button in the Ranking Table screen the game instructions are presented to the user again",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "70",
+                                            "description": "During the flight, the user can pause the game clicking the pause button When the game is paused, all interactions and sounds must be stopped",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "71",
+                                            "description": "During the flight, the user can pause the game pressing the letter p in the keyboard When the game is paused, all interactions and sounds must be stopped",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "72",
+                                            "description": "In a pause state If the user clicks the pause button again, the game continues from the moment that it was paused.",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "73",
+                                            "description": "In a pause state If the user presses the letter “p” again, the game continues from the moment that it was paused.",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "74",
+                                            "description": "The game should work without JavaScript errors and messages shown in the browser console",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "75",
+                                            "description": "Spaceship (controlled by user) animation",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "76",
+                                            "description": "The planets in background must move with different speed, the biggest planets must be moved faster than the smallest planets, creating a parallax effect.",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "77",
+                                            "description": "Sound Effects: background.mp3: used during the flight in loop",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "78",
+                                            "description": "Sound Effects: destroyed.mp3: played when one spaceship or asteroid is destroyed",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "79",
+                                            "description": "Sound Effects: shoot.mp3: played when main spaceship shoots",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "80",
+                                            "description": "The user can enable/disable the sounds of game All sounds must be enabled or disabled 0.20",
+                                            "statu": "FAILED",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "81",
+                                            "description": "The JavaScript code is well organized 0. Javascript code is unorganized, without indentation and no comments",
+                                            "statu": "subjective",
+                                            "data": []
+                                        },
+                                        {
+                                            "no": "82",
+                                            "description": "Planets Animation 0. There is no animation",
+                                            "statu": "subjective",
+                                            "data": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "list": "C",
+                            "description": "2",
+                            "link": "../../../worldskill/2022/TaskE",
+                            "statu": "NOT UPDATE HERE",
+                            "data": []
+                        },
+                        {
+                            "list": "C",
+                            "description": "3",
+                            "link": "../../../worldskill/2022/TaskD",
+                            "statu": "NOT UPDATE HERE",
+                            "data": []
+                        },
+                        {
+                            "list": "C",
+                            "description": "4",
+                            "link": "modulec/4",
+                            "statu": "SUCCESS",
+                            "createdate": "2023/09/27",
+                            "updatedate": "2023/12/08",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleD-Marketing Page",
+                    "statu": "NOT UPDATE HERE",
+                    "ps": "question",
+                    "createdate": "N/A",
+                    "updatedate": "N/A",
+                    "data": [
+                        {
+                            "list": "本處不更新",
+                            "description": "(請見2022/modulef)",
+                            "statu": "NOT UPDATE HERE",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleE-",
+                    "statu": "N/A",
+                    "ps": "list",
+                    "createdate": "N/A",
+                    "updatedate": "N/A",
+                    "data": []
+                }
+            ]
+        }
+    ]
+}

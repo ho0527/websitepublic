@@ -1,0 +1,1027 @@
+body{
+    font-family: "Consolas";
+    background: rgb(25, 25, 25);
+    color: lightgray;
+    text-align: center;
+    word-break: break-all;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0px;
+    color: white;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+
+.main{
+    border: 2px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+}
+
+.logo{
+    height: 75px;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px rgb(49, 53, 53) solid;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgba(40, 40, 40, 0.95);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 8px 32px 0 rgba(70, 70, 70, 0.1);
+    z-index: 900;
+}
+
+.navigationbar2{
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgba(50, 50, 50, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(185, 185, 185, 0.1);
+    z-index: 900;
+}
+
+.navigationbarleft{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbartitle{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.navigationbarbutton{
+    border: 1px white solid;
+    background: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    margin: 0px 10px;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: black;
+}
+
+.navigationbarselect{
+    background: black;
+    color: white;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.input{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 75%;
+    height: 40px;
+    outline: none;
+    font-size: 30px;
+    color: white;
+}
+
+.middleinput{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 35%;
+    height: 40px;
+    outline: none;
+    margin: 0px 5%;
+    font-size: 30px;
+    color: white;
+}
+
+.inputhint{
+    width: 23%;
+    display: inline-block;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+.inputdiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.bluebutton{
+	box-shadow: inset 1px -3px 7px 0px #29bbff;
+	background: #2dabf9 linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	border-radius: 5px;
+	border: 1px solid #0b0e07;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: bold;
+    margin: 5px 0px;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+}
+
+.bluebutton:hover{
+	background: #0688fa linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+}
+
+.bluebutton:active{
+	position: relative;
+	top: 1px;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+
+.disabled:hover{
+    background: revert;
+    color: revert;
+}
+
+.primarytext{
+    font-size: 40px;
+    color: transparent;
+    font-weight: bold;
+}
+
+.secondarytext{
+    font-size: 30px;
+    color: white;
+}
+
+.text{
+    font-size: 20px;
+}
+
+.highlight{
+    font-weight: bold;
+    color: yellow;
+    display: inline-block;
+}
+
+/* END */
+
+
+/* program START */
+
+.middleinput{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 35%;
+    height: 40px;
+    outline: none;
+    margin: 0px 5%;
+    font-size: 30px;
+    color: white;
+}
+
+.inputhint{
+    width: 23%;
+    display: inline-block;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+.inputdiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.bluebutton{
+	box-shadow: inset 1px -3px 7px 0px #29bbff;
+	background: #2dabf9 linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	border-radius: 5px;
+	border: 1px solid #0b0e07;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: bold;
+    margin: 5px 0px;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+}
+
+.bluebutton:hover{
+	background: #0688fa linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+}
+
+.bluebutton:active{
+	position: relative;
+	top: 1px;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+
+.disabled:hover{
+    background: revert;
+    color: revert;
+}
+/* END */
+
+
+/* program START */
+
+.admintd{
+    border-bottom: 1px white solid;
+    width: 1000px;
+    padding: 10px;
+}
+
+.head{
+    height: 60px;
+    width: 101%;
+    display: flex;
+    justify-content: right;
+    background-color: rgba(245, 245, 245, 0.6);
+    position: relative;
+    bottom: 410px;
+    left: 0px;
+}
+
+.indextitle{
+    color: white;
+    font-size: 40px;
+    font-weight:bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: relative;
+    top: 2px;
+}
+
+.signupdiv{
+    position: relative;
+    left:10px;
+}
+
+.indexdiv{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform:  translate(-50%, -100%) scale(2.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 180px;
+    width: 280px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.loginhead{
+    border: 1px black solid;
+    width: 1200px;
+    height: 75px;
+    position: relative;
+    top: 150px;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,0%);
+    z-index: 10;
+}
+
+.posthead{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.pinchattitle{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.newstitle{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.newsmessage{
+    border: 1px black solid;
+    width: 1200px;
+    max-height: 250px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+}
+
+.postbody{
+    border: 1px black solid;
+    width: 1200px;
+    height: 100%;
+    position: relative;
+    top: 170px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+}
+
+.adminpost{
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.indexmain{
+    height: 75%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.indexmainbody{
+    border: 1px black solid;
+    width: 1200px;
+    height: 100%;
+    position: relative;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    padding: 30px;
+    text-align: center;
+}
+
+.button2{
+    color: black;
+    width: 400px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+    border-radius: 10px;
+    left: 50%;
+    transform: translate(-100%,0%);
+}
+
+.indexbutton{
+    cursor: pointer;
+    border-radius: 25px;
+    background-color: white;
+    border: 0.5px black solid;
+    height: 45px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 200px;
+    position: relative;
+    top: 7px;
+    margin-right: 7px;
+}
+
+.indexbutton:hover{
+    background-color: rgba(186, 186, 186, 0.363);
+}
+
+.select{
+    width: 70%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.verifybox{
+    border: 1px black solid;
+    height: 40px;
+    width: 65%;
+    font-size: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: white;
+    color: black;
+}
+
+.admintitle{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-weight: bold;
+    font-size: 35px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+.block2{
+    border: 1px black solid;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.drag-over{
+    border: dashed 1px rgb(42, 42, 42);
+}
+
+.main-table{
+    border: 1px black solid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.indexinput{
+    border-radius: 25px;
+    width: 175px;
+    height: 20px;
+    border: 1px black solid;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.postmessage{
+    width: 95%;
+    margin-top: 15px;
+    height: 100px;
+    position: relative;
+    left: 10px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.input{
+    border: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.input2{
+    border: none;
+    width: 55%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.inputfile{
+    display: none;
+}
+
+.buttonlittle{
+    border: 1px black solid;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.loginbutton{
+    width: 45%;
+}
+
+.postbutton{
+    width: 30%;
+}
+
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(220, 173, 78);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.div{
+    width: calc(100% / 10);
+    height: calc(100% / 7);
+    display: inline-block;
+    position: relative;
+}
+
+.divleft{
+    position: absolute;
+    left: 220px;
+}
+
+.divmid{
+    position: absolute;
+    left: 580px;
+}
+
+.divright{
+    position: absolute;
+    right: 200px;
+}
+
+.circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-15px,-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.outcircle{
+    border: 5px rgb(105, 105, 255) solid;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+.incircle{
+    background:rgb(105, 105, 255);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.line{
+    background:rgb(105, 105, 255);
+    width: calc(100% / 3);
+    position: absolute;
+    height: 15px;
+}
+
+.lineleft{
+    left: 20px;
+    width: 165px;
+}
+
+.linemidleft{
+    left: 300px;
+    width: 330px;
+}
+
+.linemidright{
+    left: 660px;
+    width: 330px;
+}
+
+.lineright{
+    right: 20px;
+    width: 165px;
+}
+
+.site{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+}
+
+.lightboxinput{
+    border: none;
+    border-bottom: 1px white solid;
+    background: none;
+    width: 75%;
+    height: 40px;
+    outline: none;
+    font-size: 30px;
+    color: black;
+}
+
+.tablediv{
+    width: 55vw;
+    max-height: 55vh;
+}
+
+.traintablediv{
+    width: 75vw;
+}
+
+.trainleft{
+    grid-column: 1/40;
+    grid-row: 1/16;
+}
+
+.trainright{
+    grid-column: 40/100;
+    grid-row: 1/16;
+}
+
+.trainbutton{
+    grid-column: 1/100;
+    grid-row: 16;
+}
+
+.trainlightboxgrid{
+    height: 55vh;
+    width: 70vw;
+}
+
+.stationdiv{
+    height: 40vh;
+}
+
+.stationgrid{
+    border: 1px white solid;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input2{
+    border: 1px black solid;
+    margin: 0px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.facingname{
+    grid-column: 2/45;
+    grid-row: 2/17;
+    width: 100%;
+}
+
+.facingdesciption{
+    grid-column: 45/90;
+    grid-row: 2/17;
+    width: 100%;
+}
+
+.noborderbutton{
+    border: none;
+    background: none;
+    font-size: 30px;
+    color: white;
+}
+
+.stationdelect{
+    grid-column: 90/100;
+    grid-row: 2/17;
+    cursor: pointer;
+}
+
+.admintraintd{
+    width: 1000px;
+    padding: 10px;
+}
+
+.indexselect{
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+.maindiv{
+    height: 65vh;
+}
+
+.indextablediv{
+    width: 80vw;
+    height: 60vh;
+}
+
+.date{
+    font-size: 20px;
+}
+
+.maintop{
+    border-bottom: 2px white solid;
+}
+
+.warning{
+    color: red;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.td{
+    border-bottom: 1px white solid;
+    width: 1000px;
+    padding: 10px;
+}
+
+.ticketselect{
+    width: 30%;
+    font-size: 30px;
+    margin: 0px 5px;
+    text-align: center;
+}
+
+.ticketwarning{
+    margin: 20px;
+}
+
+.trainmain{
+    min-width: 50%;
+}
+
+.ticketlist{
+    text-align: left;
+    font-size: 20px;
+    width: 30vw;
+}
+
+.pageinput{
+    border: none;
+    background: none;
+    width: 100px;
+    color: white;
+    text-align: center;
+}
+
+.searchtablediv{
+    width: 100%;
+    max-height: 65vh;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.pagediv{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.searchinput{
+    font-size: 20px;
+    margin: 0px 15px;
+}
+
+.searchmain{
+    border: none;
+    height: 50vh;
+}
+
+.cancel{
+    text-align: left;
+    font-style: italic;
+}
+
+.indextrain{
+    width: 100%;
+}

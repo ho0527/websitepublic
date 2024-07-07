@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>房屋交易平台</title>
+		<link rel="stylesheet" href="/website/index.css">
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+		<script src="/chrisplugin/js/chrisplugin.js"></script>
+	</head>
+	<body>
+		<div class="navigationbar" id="navigationbar"></div>
+
+		<div class="housediv grid" id="main">
+			<div class="housedivcarousel" id="carousel"></div>
+			<div class="housedivtitle textleft fontsize-init fontweight-init">
+				<span class="noselect">標題</span>
+				<div class="input">
+					<input type="text" id="title">
+				</div>
+			</div>
+			<div class="housedivdescription padding-0px">
+				<span class="noselect">description</span>
+				<div class="input height-75pre">
+					<textarea></textarea>
+				</div>
+			</div>
+			<div class="housedivprice">
+				<span class="noselect">價格</span>
+				<div class="input">
+					<input type="text" id="price">
+				</div>
+			</div>
+			<div class="housedivsquareroom">
+				<div class="flex">
+					<span class="noselect">坪數</span>
+					<div class="input">
+						<input type="text" id="square">
+					</div>
+					<span class="noselect"> / </span>
+					<span class="noselect">房數</span>
+					<div class="input">
+						<input type="text" id="room">
+					</div>
+				</div>
+			</div>
+			<div class="housedivfloor">
+				<div class="flex">
+					<span class="noselect">樓層</span>
+					<div class="input">
+						<input type="text" id="floor">
+					</div>
+					<span class="noselect"> / </span>
+					<span class="noselect">總樓層</span>
+					<div class="input">
+						<input type="text" id="total_floor">
+					</div>
+				</div>
+				</div>
+			<div class="housedivage">
+				<div class="flex">
+					<span class="noselect">屋齡</span>
+					<div class="input">
+						<input type="text" id="age">
+					</div>
+				</div>
+			</div>
+			<div class="housedivaddress">
+				<div class="flex">
+					<span class="noselect">地址</span>
+					<div class="input">
+						<input type="text" id="address">
+					</div>
+				</div>
+			</div>
+			<div class="housedivpublishdate">
+				<div class="text error bold large textcenter"></div>
+				<input type="button" class="button outline fill" id="submit" value="送出">
+			</div>
+		</div>
+
+		<script src="initialize.js"></script>
+		<script src="newhouse.js"></script>
+	</body>
+</html>

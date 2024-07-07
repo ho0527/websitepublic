@@ -1,0 +1,84 @@
+body{
+    background: rgb(35, 35, 35);
+    user-select: none;
+    font-size: 20px;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(24, 1fr);
+    grid-auto-rows: 75px;
+}
+
+.sitetitle{
+    grid-column: 1/13;
+    grid-row: 1;
+    background: #FFD70E;
+}
+
+.nav1{
+    grid-column: 13/17;
+    grid-row: 1;
+    background: #FFC0CB;
+}
+
+.nav2{
+    grid-column: 17/21;
+    grid-row: 1;
+    background: #FFC0CB;
+}
+
+.nav3{
+    grid-column: 21/25;
+    grid-row: 1;
+    background: #FFC0CB;
+}
+
+.posttitle{
+    grid-column: 1/20;
+    grid-row: 2;
+    background: #A0D8E6;
+}
+
+.sidebar{
+    grid-column: 20/25;
+    grid-row: 2/4;
+    background: #FFAB40;
+}
+
+.postmeta{
+    grid-column: 1/5;
+    grid-row: 3/8;
+    background: #90EE90;
+}
+
+.maincontent{
+    grid-column: 5/20;
+    grid-row: 3/5;
+    background: #D3D3D3;
+}
+
+.ads{
+    grid-column: 20/25;
+    grid-row: 4/6;
+    background: #018000;
+}
+
+.maincontentimage{
+    grid-column: 5/20;
+    grid-row: 5/8;
+    background: #FEFF00;
+}
+
+.otherstuffs{
+    grid-column: 20/25;
+    grid-row: 6/8;
+    background: #E040FB;
+}
+
+.footer{
+    grid-column: 1/25;
+    grid-row: 8;
+    background: #A1887F;
+}

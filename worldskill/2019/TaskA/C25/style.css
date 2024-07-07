@@ -1,0 +1,24 @@
+/*CSS RESET*/
+
+*{
+	margin: 0;
+	padding: 0;
+}	
+
+/* CSS (YOU CAN MODIFY AS YOU WISH) */
+
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#square{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-image: url('image.png');
+	background-size: cover;
+	background-position: center center;
+}

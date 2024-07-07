@@ -1,0 +1,40 @@
+    |-------    -----    -                     -     -----  -----  -----   -------|
+   |-------    -        -            - - -          -                     -------|
+  |-------    -        -------    -          -     -----    --       --  -------|
+ |-------    -        -     -    -          -         -      --     --  -------|
+|-------    -----    -     -    -          -     -----         -----  -------|
+
+
+
+
+
+how to use?
+div.card
+    div.cardimage
+    div.cardtitle
+    div.cardtext
+
+and link the imageloading.css than it will work:)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+miancode:
+<div class="card">
+    <div class="cardimage"></div>
+    <div class="cardtitle"></div>
+    <div class="cardtext"></div>
+</div>

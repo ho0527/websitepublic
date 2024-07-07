@@ -1,0 +1,112 @@
+label:has(.switch){
+    display: flex;
+	align-items: center;
+	user-select: none;
+	cursor: pointer;
+}
+
+.switch{
+	--accent-color: initial;
+	--accent-foreground-color: initial;
+
+	color: inherit;
+    appearance: none;
+    margin: 3px 0.5rem 0px 0px;
+	user-select: none;
+	cursor: pointer;
+
+    -webkit-appearance: none;
+
+    &::after{
+        content: "";
+        height: 22px;
+        width: 38px;
+        background: var(--stgray-300);
+        border-radius: 100rem;
+        display: block;
+        transition: background 0.1s ease;
+    }
+
+    &::before{
+        content: "";
+        position: absolute;
+        top: 3.5px;
+        left: 4px;
+        height: 15px;
+        width: 15px;
+        background: var(--stwhite);
+        border-radius: 100rem;
+        display: block;
+        transition: left 0.1s ease;
+        z-index: 1;
+    }
+
+    &:checked::after{
+        background: var(--accent-color, var(--stprimary-700));
+    }
+
+    &:checked::before{
+        background: var(--accent-foreground-color, var(--stwhite));
+        left: 19px;
+    }
+
+    /* ========================================================================== Variations ========================================================================== */
+    /* Disabled */
+    &.disabled{
+        opacity: 0.5;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    /* Solo */
+    &.solo{
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    /* error */
+    &.error{
+        border-radius: 100rem;
+        border: 2px solid var(--stnegative-600);
+    }
+
+    /* Sizes */
+    &.small{
+        font-size: var(--stfont-size-14px);
+
+        &::after{
+            height: 19px;
+            width: 31px;
+        }
+
+        &::before{
+            top: 3.5px;
+            height: 12px;
+            width: 12px;
+        }
+
+        &:checked::before{
+            left: 15px;
+        }
+    }
+
+
+    &.large{
+        font-size: var(--stfont-size-17px);
+
+        &::after{
+            height: 25px;
+            width: 46px;
+        }
+
+        &::before{
+            top: 3.5px;
+            height: 18px;
+            width: 18px;
+        }
+
+        &:checked::before{
+            left: 24px;
+        }
+    }
+}

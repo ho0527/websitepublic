@@ -1,0 +1,616 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main{
+    border: 1px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.navigationbarleft{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    width: 50%;
+    height: 75px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    width: 125px;
+    height: 50px;
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.input{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+
+.td{
+    width: 1000px;
+}
+
+.banner{
+    width: 100%;
+    height: 350px;
+}
+
+.logo{
+    height: 75px;
+    position: absolute;
+    left: 20px;
+}
+
+.head{
+    height: 60px;
+    width: 101%;
+    display: flex;
+    justify-content: right;
+    background-color: rgba(245, 245, 245, 0.6);
+    position: relative;
+    bottom: 410px;
+    left: 0px;
+}
+
+.indextitle{
+    color: white;
+    font-size: 40px;
+    font-weight:bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size:10px;
+    font-weight:bold;
+    margin:3px;
+    position: relative;
+    top: 2px;
+}
+
+.signupdiv{
+    position: relative;
+    left:10px;
+}
+
+.indexdiv{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform:  translate(-50%, -100%) scale(2.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(125, 125, 125);
+    border-radius: 25px;
+    height: 180px;
+    width: 280px;
+    box-shadow: 5px 5px 5px rgba(110, 110, 110, 0.422);
+}
+
+.loginhead{
+    border: 1px black solid;
+    width: 1200px;
+    height: 75px;
+    position: relative;
+    top: 150px;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,0%);
+    z-index: 10;
+}
+
+.posthead{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.pinchattitle{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.newstitle{
+    border: 1px black solid;
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,0%);
+    text-align: center;
+    background-color: orange;
+}
+
+.newsmessage{
+    border: 1px black solid;
+    width: 1200px;
+    max-height: 250px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+}
+
+.postbody{
+    border: 1px black solid;
+    width: 1200px;
+    height: 100%;
+    position: relative;
+    top: 170px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    text-align: center;
+}
+
+.adminpost{
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.indexmain{
+    height: 75%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.indexmainbody{
+    border: 1px black solid;
+    width: 1200px;
+    height: 100%;
+    position: relative;
+    top: 150px;
+    left: 50%;  
+    transform: translate(-50%,0%);
+    padding: 30px;
+    text-align: center;
+}
+
+.button2{
+    color: black;
+    width: 400px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+    border-radius: 10px;
+    left: 50%;
+    transform: translate(-100%,0%);
+}
+
+.indexbutton{
+    cursor: pointer;
+    border-radius: 25px;
+    background-color: white;
+    border: 0.5px black solid;
+    height: 45px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 200px;
+    position: relative;
+    top: 7px;
+    margin-right: 7px;
+}
+
+.indexbutton:hover{
+    background-color: rgba(186, 186, 186, 0.363);
+}
+
+.select{
+    width:70px;
+}
+
+.verifybox{
+    border: 1px black solid;
+    height: 40px;
+    width: 65%;
+    font-size: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: white;
+    color: black;
+}
+
+.posttitle{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+}
+
+.block2{
+    border: 1px black solid;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.drag-over{
+    border: dashed 1px rgb(42, 42, 42);
+}
+
+.main-table{
+    border: 1px black solid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.indexinput{
+    border-radius: 25px;
+    width: 175px;
+    height: 20px;
+    border: 1px black solid;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.postmessage{
+    width: 95%;
+    margin-top: 15px;
+    height: 100px;
+    position: relative;
+    left: 10px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.input{
+    border: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.input2{
+    border: none;
+    width: 55%;
+    height: 40px;
+    background-color: white;
+    background: none;
+    border-bottom: 1px black solid;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.inputfile{
+    display: none;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.buttonlittle{
+    border: 1px black solid;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.loginbutton{
+    width: 45%;
+}
+
+.postbutton{
+    width: 30%;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(220, 173, 78);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.div{
+    width: calc(100% / 10);
+    height: calc(100% / 7);
+    display: inline-block;
+    position: relative;
+}
+
+.divleft{
+    position: absolute;
+    left: 220px;
+}
+
+.divmid{
+    position: absolute;
+    left: 580px;
+}
+
+.divright{
+    position: absolute;
+    right: 200px;
+}
+
+.circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-15px,-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.outcircle{
+    border: 5px rgb(105, 105, 255) solid;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+.incircle{
+    background:rgb(105, 105, 255);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.line{
+    background:rgb(105, 105, 255);
+    width: calc(100% / 3);
+    position: absolute;
+    height: 15px;
+}
+
+.lineleft{
+    left: 20px;
+    width: 165px;
+}
+
+.linemidleft{
+    left: 300px;
+    width: 330px;
+}
+
+.linemidright{
+    left: 660px;
+    width: 330px;
+}
+
+.lineright{
+    right: 20px;
+    width: 165px;
+}
+
+.site{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+}

@@ -1,0 +1,201 @@
+body{
+    overflow: hidden;
+}
+
+.navigationbarbutton{
+    width: 200px !important;
+}
+
+.indexmain{
+    padding: 0px;
+    height: 100vh
+}
+
+.elementdiv{
+    width: 125px;
+    height: 125px;
+    font-size: 20px;
+}
+
+.elementposition{
+    position: relative;
+    width: 125px;
+    height: 125px;
+}
+
+.elementposition2{
+    position: relative;
+    width: 90px;
+    height: 90px;
+}
+
+.element{
+    border: 2px white solid;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+}
+
+.element1{
+    border: 1px white solid;
+    border-top-left-radius: 100%;
+    position: absolute;
+    top: -10px;
+    left: 19px;
+    width: 45px;
+    height: 45px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.element1text{
+    transform: rotate(-45deg);
+    position: relative;
+    left: 5px;
+}
+
+.element2{
+    border: 1px white solid;
+    border-top-left-radius: 100%;
+    position: absolute;
+    top: 21px;
+    left: 51px;
+    width: 45px;
+    height: 45px;
+    transform: rotate(135deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.element2text{
+    transform: rotate(-135deg);
+    position: relative;
+    left: 5px;
+}
+
+.element3{
+    border: 1px white solid;
+    border-top-left-radius: 100%;
+    position: absolute;
+    top: 52px;
+    left: 19px;
+    width: 45px;
+    height: 45px;
+    transform: rotate(225deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.element3text{
+    transform: rotate(-225deg);
+    position: relative;
+    top: 5px;
+}
+
+.element4{
+    border: 1px white solid;
+    border-top-left-radius: 100%;
+    position: absolute;
+    top: 20px;
+    left: -12px;
+    width: 45px;
+    height: 45px;
+    transform: rotate(315deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.element4text{
+    transform: rotate(-315deg);
+    position: relative;
+    top: 5px;
+}
+
+.elementedit{
+    border: 1px white solid;
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    font-size: 13px;
+    padding: 0px 2px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.elementdelete{
+    border: 1px white solid;
+    position: absolute;
+    top: 30px;
+    left: 95px;
+    font-size: 13px;
+    padding: 0px 2px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.line{
+    position: absolute;
+    width: 4px;
+    background: lightgray;
+}
+
+.close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.edittextarea{
+    width: 45vw !important;
+    height: 20vh !important;
+    margin: 20px 0px !important;
+}
+
+.inputmargin{
+    margin: 5px 0px;
+}
+
+.presentationmain{
+    width: 50vw;
+    height: 390px;
+}
+
+.presentationcontent{
+    height: 275px;
+}
+
+.presentationbuttondiv{
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.presentationbutton{
+    width: 100%;
+}
+
+.modebutton{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 225px;
+    height: 50px;
+    font-size: 20px;
+    z-index: 999;
+}
+
+.main{
+    border-radius: 0px;
+}

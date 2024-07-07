@@ -1,0 +1,39 @@
+@media(prefers-color-scheme:light){
+    body{
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 70px;
+    }
+    .text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-125%);
+        width: 100%;
+        text-align: center;
+    }
+    .text::before{
+        content: "Light Mode Test";
+        height: 400px;
+    }
+}
+
+@media(prefers-color-scheme:dark){
+    body{
+        background-color: #000000;
+        color: #ffffff;
+        font-size: 70px;
+    }
+    .text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-125%);
+        width: 100%;
+        text-align: center;
+    }
+    .text::before{
+        content: "Night Mode Test";
+        height: 400px;
+    }
+}

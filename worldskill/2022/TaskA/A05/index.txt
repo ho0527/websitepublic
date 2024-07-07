@@ -1,0 +1,20 @@
+使用Adobe Photoshop(PS)添加RGMI。
+準備工作：
+1.將原始圖像庫準備好。
+2.開啟Adobe Photoshop
+添加自動化流程:
+1.先按 window > actions (先拖曳一張圖片進來)
+2.新增一個動作並取名
+3.開啟錄製
+4.按image > iamgesize 調整成需要大個小及單位
+5.接者用 iamge > mode > grayscale 新增灰階效果
+6.file > saveas 儲存
+7.以上動作完成後會暫停錄製因該要有3個動作
+8.file > automation > batch 調整動作到新創的動作
+9.選定資料夾及儲存夾
+10.按ok執行
+11.等待
+12.完成:)
+
+
+# see also: https://github.com/ho0527/website/tree/master/worldskill/2022/TaskA/A05

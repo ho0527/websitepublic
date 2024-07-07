@@ -1,0 +1,192 @@
+h1{
+    margin: 5px;
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.logo{
+    width: 100px;
+}
+
+.title{
+    font-size: 50px;
+    display: inline-block;
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    margin: 0px;
+}
+
+.main{
+    border: 1px black solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.box{
+    border: 2px black solid;
+    width: 200px;
+    height: 50px;
+}
+
+.buttondiv{
+    text-align: center;
+}
+
+.verifytd{
+    border: 1px rgb(119, 119, 119) solid;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.verifytext{
+    font-size: 25px;
+    text-align: center;
+}
+
+.nbarbutton{
+    text-align: right;
+}
+
+.admintable{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    width: 90%;
+}
+
+.top{
+    border: 1px black solid;
+    width: 80vw;
+    height: 30vh;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.bottom{
+    border: 1px black solid;
+    width: 80vw;
+    height: 30vh;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.admintd{
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.inline{
+    display: inline-block;
+}
+
+.center{
+    text-align: center;
+}
+
+.admintimer{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+}
+
+.nobackground{
+    background: none;
+    border: none;
+    text-align: center;
+}
+
+.lightbox{
+    display: none;
+}
+
+.lightboxmask{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgb(65, 65, 65);
+    z-index: 900;
+}
+
+.z999{
+    z-index: 999;
+    color: white;
+    text-align: center;
+}
+
+.productmain{
+    position: absolute;
+    top: calc(50% + 75px);
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+    width: 90vw;
+    height: 70vh;
+}
+
+.product{
+    width: 40vw;
+    height: 30vh;
+}
+
+.producttd{
+    position: relative;
+    width: 50%;
+    height: 20%;
+}
+
+.productimg{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.left{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.right{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nbar3{
+    text-align: center;
+}
+
+.sbut{
+    border: 2px rgb(255, 166, 0) solid;
+    border-radius: 3px;
+}
+
+.mr20{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.centerdiv{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    width: 85%;
+}

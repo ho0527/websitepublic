@@ -1,0 +1,630 @@
+.inputmargin{
+    margin: 15px 0px;
+}
+
+.errordiv{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox{
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox>input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+
+.displaynone{
+    display: none;
+}
+
+.navigationbartitle2{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*  comment START */
+.navigationbar2{
+    height: 60px;
+    z-index: 0;
+}
+
+.commenetmain{
+    position: relative;
+    top: 160px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    width: 85vw;
+    padding: 20px 0px;
+    height: calc(100vh - 160px);
+}
+
+.commentdiv{
+    height: 30vh;
+    margin: 10px 0px;
+}
+
+.commentimagediv{
+    grid-column: 1/15;
+    grid-row: 1/7;
+    border: 1px white solid;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commentimage{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.commentusername{
+    grid-column: 15/35;
+    grid-row: 1/7;
+    border: 1px white solid;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.commentcontent{
+    grid-column: 35/80;
+    grid-row: 1/7;
+    border: 1px white solid;
+    padding: 5px;
+    text-align: justify;
+}
+
+.commenttimedata{
+    grid-column: 1/80;
+    grid-row: 7/11;
+    border: 1px white solid;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.commentemailphone{
+    grid-column: 1/80;
+    grid-row: 11/15;
+    border: 1px white solid;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.commentadminresponse{
+    grid-column: 1/80;
+    grid-row: 15/18;
+    border: 1px white solid;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.commentfunction{
+    grid-column: 80/101;
+    grid-row: 1/18;
+    border: 1px white solid;
+    position: relative;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.commentfunctiondelete{
+    grid-column: 80/101;
+    grid-row: 1/11;
+    border: 1px white solid;
+    position: relative;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commentfunctiondeleted{
+    font-size: 50px;
+    font-weight: bold;
+    color: ghostwhite;
+}
+
+.commentbuttondiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commentlightbox{
+    width: 40vw;
+}
+
+.commenttextarea{
+    height: 15vh;
+}
+
+.commentpindiv{
+    height: 0vh;
+    position: relative;
+    z-index: 500;
+    transition: 0.5s linear;
+}
+
+.pintitle{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.pinicon{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 30px;
+    z-index: 500;
+}
+/*  comment END */
+
+/* bookroom START */
+.bookroommaindiv{
+    position: relative;
+    top: 160px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    width: 90vw;
+    height: calc(100vh - 160px);
+    padding: 10px;
+}
+
+.calendarselecter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.yearmonth{
+    font-size: 20px;
+    margin: 0px 20px;
+}
+
+.calendardate{
+    cursor: pointer;
+}
+
+.width50{
+    width: calc(50% - 25px);
+}
+/* bookroom END */
+
+/* orderfood START */
+.orderfoodmain{
+    position: relative;
+    top: 75px;
+    width: 100vw;
+    height: calc(100vh - 75px);
+    padding: 10px 0px;
+    margin: 0px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.orderfoodlist{
+    height: 50vh;
+}
+
+.tabletd{
+    width: 1000px;
+}
+
+.orderfoodlightbox{
+    width: 20vw;
+}
+
+.orderfoodlightboxtable{
+    height: 30vh;
+}
+/* orderfood END */
+
+/* adminorderfood START */
+.adminorderfoodmain{
+    position: relative;
+    top: 160px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    padding: 10px 0px;
+    width: 50vw;
+}
+
+.adminorderfoodlist{
+    height: calc(100vh - 180px);
+}
+
+.tabletd{
+    width: 1000px;
+}
+
+.adminorderfoodlightbox{
+    width: 20vw;
+}
+
+.adminorderfoodlightboxtable{
+    height: 30vh;
+}
+
+.adminorderfoodlightboxmain{
+    margin-top: 5px;
+}
+/* adminorderfood END */
+
+/* admin START */
+.admintable{
+    position: relative;
+    top: 175px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    height: calc(100vh - 175px);
+    width: 95vw;
+}
+
+.adminttabletdps{
+    max-width: 100px;
+}
+
+.foodlightbox{
+    width: 20vw;
+}
+
+.adminfoodtitle{
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.adminfoodlist{
+    width: 50vw;
+}
+
+.adminnavigationbar2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagediv{
+    background: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    margin: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.imagediv2{
+    background: white;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagediv>.image{
+    border-radius: 20px;
+}
+
+.imagediv:hover{
+    scale: 1.2;
+}
+
+.image{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.orderfoodclosebutton{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+}
+
+.position-relative{
+    position: relative;
+}
+/* admin END */
+
+/* ----------------- RWD ----------------- */
+@media screen and (max-width: 1100px){
+    .navigationbar{
+        height: 75px !important;
+    }
+
+    .navigationbarrightphonebar{
+        width: 50px;
+        height: 40px;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: 0.25s linear;
+    }
+
+    .navigationbarrightphonebarline{
+        width: 100%;
+        height: 3px;
+        background: black;
+    }
+
+    .navigationbarrightbuttonlist{
+        position: fixed;
+        right: -5px;
+        top: 55px;
+        width: 180px;
+        height: 375px;
+        margin: 0px 15px;
+        padding: 5px;
+        display: none;
+        background: rgb(92, 92, 92);
+        z-index: 800 !important;
+    }
+
+    .navigationbarrightbuttonlistposition{
+        height: 360px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .navigationbarrightbuttonlist>.navigationbarbutton{
+        width: 95%;
+        margin: 5px 5px;
+    }
+
+    .navigationbar2{
+        top: 75px;
+        height: 60px;
+        z-index: 0;
+    }
+
+    .maincoverdiv{
+        overflow: hidden;
+    }
+
+    .maincover{
+        min-height: 40vh;
+        width: 200% !important;
+    }
+
+    .maincovertextdiv{
+        top: 20px !important;
+        left: 0px !important;
+        transform: translate(-0%,-0%) !important;
+        width: 100% !important;
+    }
+
+    /* .maincovertext{
+        display: none;
+    } */
+
+    .productpost{
+        width: 100% !important;
+    }
+
+    .webknowledgepost{
+        width: 100% !important;
+    }
+/*
+    .productpostimage{
+        max-width: initial !important;
+    } */
+
+    .commenetmain{
+        top: 190px;
+        width: 100vw;
+        height: calc(100vh - 190px);
+        padding: 10px 0px;
+    }
+
+    .commentimagediv{
+        grid-column: 1/45;
+        grid-row: 1/7;
+        border: 1px white solid;
+        font-size: 30px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .commentimage{
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .commentusername{
+        grid-column: 45/101;
+        grid-row: 1/7;
+        border: 1px white solid;
+        font-size: 30px;
+        font-weight: bold;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .commentcontent{
+        grid-column: 1/101;
+        grid-row: 7/12;
+        border: 1px white solid;
+        padding: 5px;
+        text-align: justify;
+    }
+
+    .commenttimedata{
+        grid-column: 1/101;
+        grid-row: 12/16;
+        border: 1px white solid;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .commentemailphone{
+        grid-column: 1/101;
+        grid-row: 16/20;
+        border: 1px white solid;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .commentadminresponse{
+        grid-column: 1/101;
+        grid-row: 20/23;
+        border: 1px white solid;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .commentfunction{
+        grid-column: 1/101;
+        grid-row: 23/37;
+        border: 1px white solid;
+        position: relative;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .commentfunctiondelete{
+        grid-column: 80/101;
+        grid-row: 23/25;
+        border: 1px white solid;
+        position: relative;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .commentpindiv{
+        margin-bottom: 300px;
+    }
+
+    .commentdiv{
+        margin-bottom: 300px;
+    }
+
+    .productmaindiv{
+        top: 75px !important;
+    }
+
+    .webknowledgemaindiv{
+        top: 75px !important;
+    }
+
+    .bookroommaindiv{
+        position: relative;
+        top: 160px;
+        left: 50%;
+        transform: translate(-50%,-0%);
+        width: 100vw;
+        height: calc(100vh - 160px);
+        padding: 0px;
+    }
+
+    .orderfoodmain{
+        position: relative;
+        top: 160px;
+        left: 50%;
+        transform: translate(-50%,-0%);
+        width: 100vw;
+        padding: 10px 0px;
+    }
+
+    .orderfoodlightbox{
+        width: 300px;
+    }
+
+    .loginmain{
+        width: 300px;
+    }
+
+    .commentlightbox{
+        width: 300px;
+    }
+
+    .adminnavigationbar2{
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .adminnavigationbar2>.navigationbarbutton{
+        width: 125px;
+        margin: 0px 5px;
+    }
+
+    .adminorderfoodmain{
+        top: 190px;
+        width: 100vw;
+    }
+
+    .adminorderfoodlist{
+        height: calc(100vh - 210px);
+    }
+
+    .adminfoodlist{
+        top: 190px;
+        width: 100vw;
+        height: calc(100vh - 210px);
+    }
+
+    .adminfoodlightbox{
+        width: 300px;
+    }
+
+    .lightboxmain{
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 1101px){
+    .navigationbarrightphonebar{
+        display: none;
+    }
+}

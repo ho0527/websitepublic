@@ -1,0 +1,36 @@
+/*
+    標題: 文字提示字
+    參考: IG: this.web
+    作者: 小賀chris
+    製作及log:
+    2023/05/12 22:39:13 BATA 1.0.0 die
+
+        |-------    -----    -                     -     -----     -------|
+       |-------    -        -            - - -          -         -------|
+      |-------    -        -------    -          -     -----     -------|
+     |-------    -        -     -    -          -         -     -------|
+    |-------    -----    -     -    -          -     -----     -------|
+*/
+
+.macossectiondiv{
+    overflow: overlay;
+}
+
+::-webkit-scrollbar{
+    width: 20px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 1000px;
+}
+
+.macossectiondiv[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 1000px;
+}

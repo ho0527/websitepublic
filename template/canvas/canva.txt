@@ -1,0 +1,11 @@
+canva([canvasname(id)])
+    通document.getElementById(canvasname)
+
+getcontext(canvasname,mod)
+    以2d為例:通canvasname.getContext("2d)
+
+createcanva(canvasname,width,height)
+    製作出canvas的長寬
+
+drawline(canvasname,startx,starty,endx,endy,width)
+    製作出一條線傳入canvasname,開始座標,結束座標,粗細

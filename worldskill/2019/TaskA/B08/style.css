@@ -1,0 +1,49 @@
+/*CSS RESET*/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*PUT YOUR CODE CSS HERE*/
+
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+#block{
+	width: 600px;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 5px solid green;
+	position: relative;
+	background: skyblue;
+}
+
+.ball{
+	position: absolute;
+	bottom: 300px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: red;
+	animation: 1.5s jumpball infinite;
+}
+
+@keyframes jumpball{
+	0%{
+		bottom: 300px;
+	}
+	40%{
+		bottom: 0px;
+	}
+	100%{
+		bottom: 300px;
+	}
+}

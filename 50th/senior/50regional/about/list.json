@@ -1,0 +1,495 @@
+{
+    "data": [
+        {
+            "title": "50regional",
+            "link": "../",
+            "statu": "SUCCESS",
+            "ps": "question",
+            "createdate": "2023/06/22",
+            "updatedate": "2024/02/28",
+            "data": [
+                {
+                    "list": 1,
+                    "description": "LOGO 設計",
+                    "statu": "FAILED",
+                    "data": [
+                        {
+                            "no": "01",
+                            "description": "是否繳交正確的文件格式，且有提交文件和原始檔案。",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "description": "文件版面是否為 A4 直式",
+                                    "statu": "FAILED"
+                                },
+                                {
+                                    "description": "建立 1 個目錄，命名為 01，將作答成果檔存在 01 目錄下",
+                                    "statu": "FAILED"
+                                },
+                                {
+                                    "description": "存檔為「ans1_工作崗位號碼.docx」(Word 格式)，並將 LOGO 之原始設計可編輯檔存在 01/source 目錄下。",
+                                    "statu": "FAILED"
+                                },
+                                {
+                                    "description": "上方內容為 LOGO",
+                                    "statu": "FAILED"
+                                },
+                                {
+                                    "description": "下方為設計理念說明",
+                                    "statu": "FAILED"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "02",
+                            "description": "LOGO 設計符合要求 LOGO 標誌設計圖須包含 COVID-19 英文字母數字符號",
+                            "statu": "FAILED",
+                            "data": []
+                        },
+                        {
+                            "no": "03",
+                            "description": "圖形設計及配色造型表現主題的感覺。色彩運用上符合主題的氣氛。",
+                            "statu": "subjective",
+                            "data": []
+                        },
+                        {
+                            "no": "04",
+                            "description": "理念傳達",
+                            "statu": "subjective",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 2,
+                    "description": "後台使用者管理模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "05",
+                            "description": "在本模組首頁上，輸入管理者帳號及密碼可進入專案討論管理系統的頁面。管理者帳號: admin 密碼: 1234",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "管理系統的頁面上至少有「使用者管理」、「專案管理」、「組長功能管理」、「統計管理」四個頁籤",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "06",
+                            "description": "進入管理系統後，在管理的頁面上，點選「使用者管理」的頁籤，可操作使用者管理的功能，點選「新增」按鈕後，可新增使用者，在新增時，要填寫使用者名稱，使用者帳號，及密碼，按確定鈕後，可完成功能。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "07",
+                            "description": "建立完成 6 個帳號，其資訊「使用者名稱/使用者帳號/密碼」分別為: ",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "utest1/test1/1234",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "utest2/test2/1234",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "utest3/test3/1234",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "utest4/test4/1234",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "utest5/test5/1234",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "utest6/test6/1234",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "08",
+                            "description": "當檢視所有的使用者時:",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "有一個「排序」按鈕，按該按鈕，可以依「使用者帳號」升羃或降羃排列。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "每一位使用者皆有一個「刪除」按鈕，點選「刪除」按鈕後，可刪除該使用者。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "每一位使用者皆有一個「修改」按鈕，點選「修改」按鈕後，可修改一個使用者的資料，包含可修改使用者名稱，及密碼，使用者帳號不可修改。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "list": 3,
+                    "description": "後台專案管理模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "11",
+                            "description": "新增專案: ",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "進入管理系統後，在管理的頁面上，點選「專案管理」的頁籤，可操作專案管理的功能",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "點選「新增」按鈕後，可新增一個專案，在新增頁面上，包含「專案名稱」，「專案說明」，「面向名稱」，及「面向說明」的欄位。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "其中「面向名稱」及「面向說明」是成雙出現的，「面向名稱」及「面向說明」的欄位可任意增加，但最多不超過 10 個面向",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "按確定鈕後，可完成新增專案的功能。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "12",
+                            "description": "指定專案成員:",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "每一個專案可從系統現有的使用者清單中指定 1 個組長及多位組員",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "每一個專案的組長及組員可從前台登入系統，當登入系統時，只可看到自己所屬的專案及各自角色的功能。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "指定專案成員方式為 \"指定時需先列出使用者清單來指定\" 或 \"從「使用者清單」中，以拖拉方式來指定\"。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "13",
+                            "description": "修改專案成員: ",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "可增刪修改每一個專案組長及組員的名單。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "組長只能1個。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "14",
+                            "description": "修改專案:",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "每一個專案可修改專案的內容，包含「專案名稱」及「專案說明」，「面向名稱」，及「面向說明」的內容，也可增刪「面向名稱」及「面向說明」的數量。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "「面向名稱」及「面向說明」是配對的，刪除「面向名稱」，則相對應的「面向說明」也會刪除",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "15",
+                            "description": "刪除專案: ",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "可刪除每一個專案",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "刪除專案前，需要一個確認的動作。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "16",
+                            "description": "「專案管理」相關功能之操作介面及操作方便性(包含前台及後台)",
+                            "statu": "subjective",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 4,
+                    "description": "前台專案討論模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "17",
+                            "description": "發表意見:",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "專案中的組長及組員可以在每一個面向中去發表意見。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "每一則意見，至少包含「編號」、「發表的時間」、「標題」、「說明」、「發表者的使用者名稱」欄位。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "「編號」是流水號自動產生，共 3 碼，從 001 開始，依序增加 1 號。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "18",
+                            "description": "發表意見: 發表的意見，可以上傳圖檔，聲音檔，視訊檔，並可在前台「檢視意見」時正常呈現或播放。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "19",
+                            "description": "檢視意見: 專案中的成員可檢視每一個面向中的意見",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "每一個意見至少包含「編號」、「發表的時間」、「標題」、「說明」、「發表者的使用者名稱」、「被評價平均分數」、「評價人數」欄位及「評分按鈕」。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "20",
+                            "description": "評分意見: 檢視意見時，按「評分按鈕」，可對該意見評分。",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "預設「評分」分數為 3 分，範圍為 1~5 分。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "同一使用者，評完分後，不可再評分。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "21",
+                            "description": "延伸意見:",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "在「檢視意見」時，專案中的成員可針對一個意見或多個意見，延伸自己的想法，變成「發表新的意見」",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "在「發表新的意見」中，會有一欄位，來註記及連結原始的意見。能延伸一個意見或多個意見",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "之後按「連結原始的意見」的連結或按鈕時，可觀看原始意見。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "23",
+                            "description": "設定專案可否發表意見: 專案的組長及系統管理者可設定該專案是否可以開始發表意見，或停止發表意見。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "24",
+                            "description": "發表意見相關功能之操作介面及操作方便性",
+                            "statu": "subjective",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 5,
+                    "description": "專案組長管理功能",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "25",
+                            "description": "建立評分指標: 專案組長，可對該專案建立多個評分指標。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "26",
+                            "description": "檢視及修改評分指標: 專案組長，可檢視及修改該專案的評分指標。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "27",
+                            "description": "刪除評分指標: 專案組長，可刪除該專案的評分指標",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "28",
+                            "description": "建立執行方案: 專案組長，在組員發表意見一段時間後，依據所有的意見的被評價分數，每一個面向抽取一個意見，匯整成建立一個新執行方案",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "執行方案包含「執行方案編號」、「執行方案名稱」、「執行方案說明」",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "及執行方案所屬的各意見，該執行方案可以檢視所有包含的意見內容。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "29",
+                            "description": "修改執行方案: 專案組長，可對執行方案包含的意見項目增刪。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "30",
+                            "description": "刪除執行方案: 專案組長，可刪除執行方案。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "31",
+                            "description": "檢視執行方案:",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "專案成員，可檢視專案所屬的所有執行方案。但不呈現評分總分數",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "專案成員，檢視某一執行方案時，可檢視該方案所包含的意見列表，並可按意見連結來觀看該意見的內容。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "當所有執行方案皆被所有成員評完分後，由組長設定結束評分，並設定開放檢視評分結果，可依評分平均分數由高到低排列，檢視專案所屬的所有執行方案，包含平均分數。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "33",
+                            "description": "執行方案評分:",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "description": "專案組長，可設定啟動開始評分，及設定結束評分。",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "專案成員，可對執行方案評分，依據每一個評分指標來評分",
+                                    "statu": "SUCCESS"
+                                },
+                                {
+                                    "description": "評分範圍為1~5分。",
+                                    "statu": "SUCCESS"
+                                }
+                            ]
+                        },
+                        {
+                            "no": "36",
+                            "description": "評分提醒: 專案成員登入系統後，對於尚未評分的執行方案，會有不同的標示。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "38",
+                            "description": "「執行方案」相關功能之操作介面及操作方便性(包含前台及後台)",
+                            "statu": "subjective",
+                            "data": []
+                        }
+                    ]
+                },
+                {
+                    "list": 6,
+                    "description": "後台專案統計管理模組",
+                    "statu": "SUCCESS",
+                    "data": [
+                        {
+                            "no": "39",
+                            "description": "專案統計管理: 以系統所有專案的發表意見來統計",
+                            "statu": "SUCCESS",
+                            "data": [{
+                                "description":"點選「使用者意見發表統計」按鈕後，可列出發表意見數量最高的前 3 位使用者。",
+                                "statu":"SUCCESS"
+                            },{
+                                "description":"進入管理系統後，在管理的頁面上，點選「統計管理」的頁籤，可操作統計管理的功能。",
+                                "statu":"SUCCESS"
+                            },{
+                                "description":"使用長條圖來表示，圖表中需有統計的數字。",
+                                "statu":"SUCCESS"
+                            }]
+                        },
+                        {
+                            "no": "40",
+                            "description": "針對發表意見數量最高的前3位使用者，列出每位使用者，評分時各個評分等級(1分~5分)的次數。",
+                            "statu": "SUCCESS",
+                            "data": [{
+                                "description":"使用圓餅圖來表示，圖表中需有統計的數字。",
+                                "statu":"SUCCESS"
+                            }]
+                        },
+                        {
+                            "no": "41",
+                            "description": "點選「各專案意見發表總數量統計」按鈕後，可列出各專案發表意見總數量。",
+                            "statu": "SUCCESS",
+                            "data": [{
+                                "description":"使用長條圖來表示，圖表中需有統計的數字。",
+                                "statu":"SUCCESS"
+                            }]
+                        },
+                        {
+                            "no": "42",
+                            "description": "點選「各專案意見之各面向統計」按鈕後，可列出各專案列表，按每一專案名稱或按鈕後",
+                            "statu": "SUCCESS",
+                            "data": [{
+                                "description":"列出該專案的意見總數量，及各面向之發表意見總數量。",
+                                "statu":"SUCCESS"
+                            },{
+                                "description":"每一專案一個圓餅圖，圖表中需有統計的數字。",
+                                "statu":"SUCCESS"
+                            }]
+                        },
+                        {
+                            "no": "43",
+                            "description": "系統管理者可以操作所有組長及組員的功能。",
+                            "statu": "SUCCESS",
+                            "data": []
+                        },
+                        {
+                            "no": "45",
+                            "description": "前台整體系統的版面設計及操作流暢度之整體分數(使用手機版型檢測)。後台整體系統的版面設計及操作流暢度之整體分數(使用PC端版型檢測)。",
+                            "statu": "subjective",
+                            "data": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

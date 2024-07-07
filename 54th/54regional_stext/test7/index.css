@@ -1,0 +1,240 @@
+body{
+    background: slateblue;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    user-select: none;
+}
+
+input[type="text"],input[type="number"]{
+    border: 1px black solid;
+    border-radius: 5px;
+    width: 100%;
+    resize: none;
+}
+
+.nav{
+    width: 80vw;
+    height: 75px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav2{
+    width: 80vw;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title{
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.title2{
+    color: white;
+    font-size: 30px;
+    margin: 0px 10px 0px 0px;
+}
+
+.main{
+    border: 1px white solid;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.maindiv{
+    border: 1px white solid;
+    background: white;
+    position: relative;
+    width: 80vw;
+    height: calc(100vh - 150px);
+    border-radius: 10px;
+    margin: 0px auto;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.commentmain{
+    height: calc(100vh - 150px);
+    overflow: hidden auto;
+}
+
+.commentdiv{
+    width: 80vw;
+    height: 30vh;
+    background: white;
+    border-radius: 10px;
+    margin: 0px auto 30px auto;
+    display: flex;
+}
+
+.commentdivname{
+    width: 30%;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commentdivmid{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.commentdivcontent{
+    width: 100%;
+    height: 55%;
+}
+
+.commentdivreply{
+    width: 100%;
+    height: 15%;
+}
+
+.commentdivtime{
+    width: 100%;
+    height: 15%;
+}
+
+.commentdivconnent{
+    width: 100%;
+    height: 15%;
+}
+
+.commentdivfunction{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div{
+    margin: 10px 0px;
+}
+
+.dropbox{
+    border: 1px black solid;
+    height: 55px;
+}
+
+.width-init{
+    width: initial !important;
+}
+
+.margin-0px_10px{
+    margin: 0px 10px;
+}
+
+.image{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.map:hover{
+    animation: 1.5s map infinite;
+}
+
+.pin{
+    border-left: 5px orange solid;
+}
+
+.table{
+    width: 100%;
+}
+
+.orderfodright{
+    width: 25%;
+}
+
+.fill{
+    width: 100%;
+}
+
+.bookroomleft{
+    width: 75%;
+}
+
+.bookroomright{
+    width: 25%;
+}
+
+.c{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cdiv{
+    border: 1px black solid;
+    height: 100px;
+}
+
+.cdatediv{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s linear;
+    cursor: pointer;
+}
+
+.select{
+    background: orange;
+    color: black;
+}
+
+.adminbookroomdiv{
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.verify tr td{
+    border: 1px black solid;
+    width: 75px;
+    height: 75px;
+    font-size: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.curoslo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes map{
+    0%,100%{
+        position: absolute;
+        top: 0px;
+    }
+    50%{
+        position: absolute;
+        top: 100px;
+    }
+}

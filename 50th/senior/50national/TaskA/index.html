@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>音樂播放器</title>
+		<link rel="stylesheet" href="/website/index.css">
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+		<script src="/chrisplugin/js/chrisplugin.js"></script>
+	</head>
+	<body>
+		<div class="navigationbar">
+			<div class="navigationbarright">
+				<div class="input round search width-50per">
+					<input type="text" id="search" placeholder="搜尋">
+				</div>
+				<input type="button" class="navigationbarbutton navigationbarselect" onclick="location.reload()" value="首頁">
+				<input type="button" class="navigationbarbutton" onclick="location.href='signin.html'" value="登入後台">
+			</div>
+		</div>
+
+		<div class="indexmain macossectiondivy" id="main"></div>
+
+		<div class="aside grid" id="aside"></div>
+		<input type="button" class="openasidebutton" id="openaside" value=">">
+
+		<audio class="player" id="player" controls></audio>
+
+		<input type="button" class="hidden" id="clearbutton" value="">
+
+		<div class="mask" id="asidemask"></div>
+
+		<!-- script -->
+		<!-- 原生翻譯版 -->
+		<!-- <script src="index_org_translate.js"></script> -->
+
+		<!-- 我用我的外掛寫的 -->
+		<script src="index.js"></script>
+	</body>
+</html>

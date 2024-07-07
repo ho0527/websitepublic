@@ -1,0 +1,191 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 20px;
+    word-break: break-all;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.navigationbar{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.navigationbarleft{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    width: 125px;
+    height: 50px;
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+    border: 5px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 85%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.xcenter{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 100%;
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+    width: 100%;
+}
+
+.main{
+    margin-top: 150px;
+}
+
+.card{
+    border: 2px white solid;
+    width: 20%;
+    padding: 15px;
+    margin: 5px 10px;
+    display: inline-block;
+}
+
+.image{
+    border: 1px white solid;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
+}
+
+.latestcourse{
+    border: 2px white solid;
+    position: relative;
+    height: 150px;
+    padding: 10px;
+    margin: 20px 0px;
+}
+
+.intorduction{
+    position: absolute;
+    left: 5%;
+    width: 40%;
+    display: inline-block;
+}
+
+.title{
+    position: absolute;
+    right: 5%;
+    width: 45%;
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.ul{
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 45%;
+    display: inline-block;
+}
+
+.gallery{
+    margin: 20px 0px;
+}
+
+.contact{
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactright{
+    width: 50%;
+    display: inline-block;
+}
+
+.contactleft{
+    width: 45%;
+    display: inline-block;
+}

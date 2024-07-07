@@ -1,0 +1,1230 @@
+{
+    "data": [
+        {
+            "title": "52national",
+            "statu": "FAILED",
+            "ps": "list",
+            "createdate": "2023/05/05",
+            "updatedate": "2023/11/02",
+            "data": [
+                {
+                    "title": "ModuleA-SPEEDTEST",
+                    "statu": "SUCCESS",
+                    "ps": "list",
+                    "createdate": "2023/02/05",
+                    "updatedate": "2023/06/10",
+                    "data": [
+                        {
+                            "list": 1,
+                            "description": "Task",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "A01",
+                                    "link": "../../../worldskill/2019/TaskA/B02",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "A02",
+                                    "link": "../../../worldskill/2019/TaskA/B03",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "A03",
+                                    "link": "TaskA/03",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "A04",
+                                    "link": "TaskA/04",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "A05",
+                                    "link": "../../../worldskill/2019/TaskA/D10",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "A06",
+                                    "link": "../../../worldskill/2019/TaskA/A01",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "A07",
+                                    "link": "TaskA/07",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "A08",
+                                    "link": "../../../worldskill/2019/TaskA/B04",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "A09",
+                                    "link": "../../../worldskill/2019/TaskA/C16",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": 10,
+                                    "description": "A10",
+                                    "link": "TaskA/10",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": 11,
+                                    "description": "A11",
+                                    "link": "TaskA/11",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": 12,
+                                    "description": "A12",
+                                    "link": "TaskA/12",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": 13,
+                                    "description": "A13",
+                                    "link": "TaskA/13",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": 14,
+                                    "description": "A14",
+                                    "link": "TaskA/14",
+                                    "statu": "N/A",
+                                    "data": []
+                                },
+                                {
+                                    "no": 15,
+                                    "description": "A15",
+                                    "link": "TaskA/15",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": 16,
+                                    "description": "A16",
+                                    "link": "../../../worldskill/2019/TaskA/D04",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": 17,
+                                    "description": "A17",
+                                    "link": "TaskA/17",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": 18,
+                                    "description": "A18",
+                                    "link": "TaskA/18",
+                                    "statu": "N/A",
+                                    "data": []
+                                },
+                                {
+                                    "no": 19,
+                                    "description": "A19",
+                                    "link": "TaskA/19",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": 20,
+                                    "description": "A20",
+                                    "link": "../../../worldskill/2019/TaskA/B15",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "F1",
+                                    "description": "AFM10",
+                                    "link": "../../../worldskill/2022/TaskA/C12/a.html",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "F2",
+                                    "description": "AFM11",
+                                    "link": "../../../worldskill/2022/TaskA/C15",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "F3",
+                                    "description": "AFM12",
+                                    "link": "../../../worldskill/2022/TaskA/C14",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "F4",
+                                    "description": "AFM13",
+                                    "link": "TaskA/FM-13",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "F5",
+                                    "description": "AFM14",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 2,
+                            "description": "self",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "A02",
+                                    "link": "TaskA/02 copy",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "A02",
+                                    "link": "TaskA/02 copy 2",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "A03kj",
+                                    "link": "TaskA/03kj",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "A05copy",
+                                    "link": "TaskA/05 copy",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleB-DESIGN",
+                    "statu": "N/A",
+                    "ps": "list",
+                    "createdate": "2023/02/05",
+                    "updatedate": "2023/04/23",
+                    "data": []
+                },
+                {
+                    "title": "ModuleC-CMS",
+                    "statu": "N/A",
+                    "ps": "list",
+                    "createdate": "2023/02/06",
+                    "updatedate": "2023/06/09",
+                    "data": []
+                },
+                {
+                    "title": "ModuleD-BACKEND",
+                    "link": "https://hiiamchris.ddns.net:444/website/52th/senior/52national/TaskD/",
+                    "statu": "SUCCESS",
+                    "ps": "list",
+                    "createdate": "2023/02/05",
+                    "updatedate": "2023/11/17",
+                    "data": [
+                        {
+                            "list": 1,
+                            "description": "API",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "使用者登入",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/login",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;password: <i>[password]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access_token: <i>[token]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(login failed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_LOGIN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "使用者登出",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/logout",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "使用者註冊",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/register",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: formdata{<br>&nbsp;&nbsp;&nbsp;&nbsp;email=<i>[email]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;nickname=<i>[nickname]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;password=<i>[password]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;profile_image=<i>[profile_image]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 409_CONFLICT",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(password length error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PASSWORD_NOT_SECURE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 409_CONFLICT",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(image type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_IMAGE_CAN_NOT_PROCESS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "查看公開的貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/public",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_by: *created_at | like_count<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_type: asc | *desc<br>&nbsp;&nbsp;&nbsp;&nbsp;?content: <i>[content]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?tag: <i>[tag]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?page: {int>=1} *1<br>&nbsp;&nbsp;&nbsp;&nbsp;?page_size: {100>=int>=1} *10<br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_count: <i>[post_all_accord_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posts: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "查看貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/{postid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_count: <i>[post_all_accord_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posts: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comments: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[commentid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[comment_content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "發布貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: formdata{<br>&nbsp;&nbsp;&nbsp;&nbsp;images=<i>[file array[]]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;type=public | only_follow | only_self<br>&nbsp;&nbsp;&nbsp;&nbsp;?tags=<i>[tag]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;content=<i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;location_name=<i>[location_name]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(image type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_IMAGE_CAN_NOT_PROCESS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "修改貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/{postid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: formdata{<br>&nbsp;&nbsp;&nbsp;&nbsp;type=public | only_follow | only_self<br>&nbsp;&nbsp;&nbsp;&nbsp;?tags=<i>[tag]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;content=<i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;location_name=<i>[location_name]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "刪除貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/{postid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: DELETE",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "收藏/取消收藏貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/{postid}/favorite",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;favorite: true<br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "查看收藏的貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/favorite",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_by: *created_at,<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_type: asc | *desc,<br>&nbsp;&nbsp;&nbsp;&nbsp;?page: {int>=1} *1<br>&nbsp;&nbsp;&nbsp;&nbsp;?page_size: {100>=int>=1} *10<br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "發布留言",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/{postid}/comment",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[commentid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[comment_content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "修改留言",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/{postid}/comment/{commentid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[commentid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[comment_content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(missing filed): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_MISSING_FIELD\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(comment not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_COMMENT_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "刪除留言",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/post/{postid}/comment/{commentid}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: DELETE",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(comment not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_COMMENT_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "14",
+                                    "description": "查看使用者發布的貼文",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/{userid}/post",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_by: *created_at | like_count<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_type: asc | *desc<br>&nbsp;&nbsp;&nbsp;&nbsp;?content: <i>[content]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?tag: <i>[tag]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;?page: {int>=1} *1<br>&nbsp;&nbsp;&nbsp;&nbsp;?page_size: {100>=int>=1} *10<br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_count: <i>[post_all_accord_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posts: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[postid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[imageid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <i>[image_url]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <i>[image_width]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <i>[image_height]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_count: <i>[post_link_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: <i>[content]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: public | only_follow | only_self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tag1\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?location_name: <i>[location_name]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?liked: <i>{bool}</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at: <i>[createtime]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at: <i>[updatetime]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf.)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "post之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "15",
+                                    "description": "取得使用者資訊",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/{userid}/profile",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "16",
+                                    "description": "修改使用者資訊",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/{userid}/profile",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: formdata{<br>&nbsp;&nbsp;&nbsp;&nbsp;nickname=<i>[nickname]</i><br>&nbsp;&nbsp;&nbsp;&nbsp;profile_image=<i>[profile_image]</i><br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(no permission): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_PERMISSION_DENY\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 403_FORBIDDEN",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(post not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_POST_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "17",
+                                    "description": "取得使用者的追蹤名單",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/{userid}/follow",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: GET",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request body: json{<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_by: *created_at,<br>&nbsp;&nbsp;&nbsp;&nbsp;?order_type: asc | *desc,<br>&nbsp;&nbsp;&nbsp;&nbsp;?page: {int>=1} *1<br>&nbsp;&nbsp;&nbsp;&nbsp;?page_size: {100>=int>=1} *10<br>}",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_count: <i>[post_all_accord_count]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;users: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <i>[userid]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: <i>[email]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nickname: <i>[nickname]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile_image: <i>[profile_image]</i>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: ADMIN | USER<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......(inf)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(data type error): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_WORND_DATA_TYPE\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 400_BAD_REQUEST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL為完整網址",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "user之圖片URL導向正確",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "18",
+                                    "description": "追蹤使用者",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/{userid}/follow",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: POST",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "no": "19",
+                                    "description": "取消追蹤使用者",
+                                    "statu": "SUCCESS",
+                                    "data": [
+                                        {
+                                            "description": "link: /api/user/{userid}/follow",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "method: DELETE",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "request header: Authorization Bearer <i>[token]</i>",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(success): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 200_OK",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(token error/token not exist): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_INVALID_ACCESS_TOKEN\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 401_UNAUTHORIZED",
+                                            "statu": "SUCCESS"
+                                        },
+                                        {
+                                            "description": "response body(user not found): json{<br>&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: \"MSG_USER_NOT_EXISTS\",<br>&nbsp;&nbsp;&nbsp;&nbsp;data: \"\"<br>}, 404_NOT_FOUND",
+                                            "statu": "SUCCESS"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleE-SPA",
+                    "link": "TaskE/",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "2023/02/05",
+                    "updatedate": "2023/06/09",
+                    "data": []
+                },
+                {
+                    "title": "ModuleE-SPA(backend type)",
+                    "link": "moduleebackendtype",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "2023/11/14",
+                    "updatedate": "2023/11/14",
+                    "data": []
+                },
+                {
+                    "title": "ModuleF-ALGORITHM",
+                    "statu": "SUCCESS",
+                    "ps": "list",
+                    "createdate": "2023/02/05",
+                    "updatedate": "2023/05/11",
+                    "data": [
+                        {
+                            "list": "task",
+                            "description": "ALGORITHM",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "<a href='TaskF/p01.php' download='p01.php' class='a'>最大最小值相加</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "<a href='TaskF/p02.php' download='p02.php' class='a'>質數判斷</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "<a href='TaskF/p03.php' download='p03.php' class='a'>凱薩密碼</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "<a href='TaskF/p04.php' download='p04.php' class='a'>身分證驗證</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "<a href='TaskF/p05.php' download='p05.php' class='a'>矩陣相加</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "<a href='TaskF/p06.php' download='p06.php' class='a'>計算最大公因數</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "<a href='TaskF/p07.php' download='p07.php' class='a'>找出眾數</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "<a href='TaskF/p08.php' download='p08.php' class='a'>判斷完美數</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "<a href='TaskF/p09.php' download='p09.php' class='a'>匯率換算</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "<a href='TaskF/p10.php' download='p10.php' class='a'>Luhn演算法</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "<a href='TaskF/p11.php' download='p11.php' class='a'>密碼規則檢查</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "<a href='TaskF/p12.php' download='p12.php' class='a'>數字排序</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "<a href='TaskF/p13.php' download='p13.php' class='a'>Hashtable演算法</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "14",
+                                    "description": "<a href='TaskF/p14.php' download='p14.php' class='a'>括號檢查</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "15",
+                                    "description": "<a href='TaskF/p15.php' download='p15.php' class='a'>文章查詢</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "AN10",
+                                    "description": "<a href='TaskF/AN-p10.php' download='AN-p10.php' class='a'>股票計算</a>",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+/*
+    標題: 插件整合
+    參考:
+    作者: 小賀chris
+    製作及log:
+    2023/06/28  20:10:16 Bata 1.0.0 // 新增macosselection 以及 sort 函式
+
+        |-------    -----    -                     -     -----  -----  -----   -------|
+       |-------    -        -            - - -          -                     -------|
+      |-------    -        -------    -          -     -----    --       --  -------|
+     |-------    -        -     -    -          -         -      --     --  -------|
+    |-------    -----    -     -    -          -     -----         -----  -------|
+*/
+
+.macossectiondiv{
+    overflow: hidden auto;
+}
+
+.macossectiondivx{
+    overflow: auto hidden;
+}
+
+.macossectiondivall{
+    overflow: auto;
+}
+
+::-webkit-scrollbar{
+    width: 20px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 1000px;
+}
+
+.macossectiondiv[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 1000px;
+}
+
+.macossectiondivx[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 1000px;
+}
+
+.macossectiondivall[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 1000px;
+}
+
+.divsortdragging{
+    opacity: 0.5;
+}

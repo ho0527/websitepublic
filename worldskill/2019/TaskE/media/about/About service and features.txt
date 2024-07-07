@@ -1,0 +1,19 @@
+Knowledge Explorer - Choose your way to learn Kazan.
+
+Knowledge Explorer - prototype of a web application for one narrow area - tourist company of Kazan, whose goal is to acquaint visitors of the city with the history, culture and atmosphere of the thousand-year-old capital of Tatarstan in an interactive presentation format. The visitor can choose the route of acquaintance and receipt of information in accordance with his contextual choice on each slide.
+
+Features:
+- Two modes of operation: route editor and view presentation;
+- 4 options for choosing a next slide;
+- Text editor for the design of slides;
+- Everyone can create their own interactive presentation without learning programming languages.
+
+知識探索者 - 選擇您學習喀山的方式。
+
+Knowledge Explorer - 喀山旅遊公司的一個狹窄區域的網路應用程式原型，其目標是以互動式演示形式讓城市遊客了解韃靼斯坦千年首都的歷史、文化和氛圍。 訪客可以根據自己在每張投影片上的上下文選擇來選擇結識和接收資訊的途徑。
+
+特徵：
+- 兩種操作模式：路線編輯器和視圖呈現；
+- 4 個選項用於選擇下一張投影片；
+- 用於幻燈片設計的文字編輯器；
+- 每個人都可以創建自己的互動式簡報，而無需學習程式語言。

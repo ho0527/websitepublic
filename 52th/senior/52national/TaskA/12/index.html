@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>檔案壓縮器</title>
+        <script src="jszip/dist/jszip.js"></script>
+        <script src="jszip/dist/jszipmain.js"></script>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="main" id="main">
+            <div class="area" id="operatearea">
+                <h2>操作區</h2>
+                <div class="input">
+                    加入檔案 <input type="file" class="inputfile" id="fileinput" multiple>
+                </div>
+                <div class="input">
+                    加入資料夾 <input type="file" class="inputfile" id="folderinput" webkitdirectory multiple>
+                </div>
+            </div>
+            <hr>
+            <div class="area" id="previewarea">
+                <h2>檔案預覽區</h2>
+                <ul class="filelist" id="filelist"></ul>
+            </div>
+            <hr>
+            <div class="area" id="downloadarea">
+                <h2>下載區</h2>
+                <div>
+                    壓縮檔案名稱 <input type="text" id="filename" placeholder="請輸入檔案名稱">.zip
+                </div> 
+                <input type="button" class="reflashbutton" id="reflashbutton" value="重整">
+                <input type="button" class="downloadbutton" id="downloadbutton" value="下載">
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

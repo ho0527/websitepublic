@@ -1,0 +1,174 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    padding: 0px;
+    margin: 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+    border: 5px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 85%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+.left{
+    grid-column: 2/41;
+    grid-row: 2/17;
+    border: 2px white solid;
+    position: relative;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mid{
+    grid-column: 41/61;
+    grid-row: 2/17;
+    border: 2px white solid;
+    position: relative;
+    padding: 20px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.right{
+    grid-column: 61/100;
+    grid-row: 2/17;
+    border: 2px white solid;
+    position: relative;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: normal;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.textarea{
+    font-size: 25px;
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+
+.h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.chart{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.table{
+    border: 1px white solid;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-0%);
+}
+
+.td{
+    border-right: 1px white solid;
+    border-bottom: 1px white solid;
+}
+
+.tdtitle{
+    width: 5%;
+}
+
+.tdshow{
+    width: 85%;
+}
+
+.tdnumber{
+    width: 10%;
+}
+
+.bar{
+    margin: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.bar:hover{
+    background-color: #ddd;
+}
+
+.bar-name{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bar-population{
+    font-size: 12px;
+}
+
+.chart-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.xcenter{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 100%;
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+    width: 100%;
+}
+
+.line{
+    height: 75%;
+    width: 0px;
+    background: red;
+}

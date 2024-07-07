@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>咖啡商品展示系統</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
+        <script src="../../../plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div id="navigationbar"></div>
+
+        <div class="main">
+            <div class="grid">
+                <div class="newproductleft newproduct">
+                    <div class="list small cost" id="cost">費用</div>
+                    <div class="list mid description" id="description">商品簡介</div>
+                    <div class="list small date" id="date">發布日期</div>
+                    <div class="list small link" id="link">相關連結</div>
+                </div>
+                <div class="newproductright newproduct">
+                    <div class="list small name" id="name">商品名稱</div>
+                    <div class="list large picture" id="picture">圖片</div>
+                </div>
+            </div>
+            <input type="button" class="button" onclick="location.href='productindex.php'" value="返回">
+            <input type="button" class="button" id="newtemplate" value="送出">
+        </div>
+
+        <!-- script -->
+        <script src="product.js"></script>
+        <script src="newproduct.js"></script>
+        <script src="logincheck.js"></script>
+    </body>
+</html>

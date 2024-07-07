@@ -1,0 +1,665 @@
+46n/
+    MD
+    不加外掛怎麼做圖形驗證嗎
+
+50n/
+    MA
+    查詢
+    google媒體播放器
+
+    MD
+    回應值即回傳值(q)
+    FULLTEXT(lq)
+
+
+53n/
+    MA
+    a6 fix
+
+    MB
+    how to let canva make in to an jpg
+    how to add background let we download
+    how to make the bucket
+    how to move the canva
+    how to make the change canva
+    可編輯檔
+    讓canva底色變成要求顏色
+    shift-key直線繪製
+
+
+self/
+    查詢製作方式
+
+footer/
+    lq=>底層的問題(非程式方面技術問題) q=>題目的問題
+
+
+import { FaUserLarge } from "react-icons/fa6" user
+import { FaEyeSlash } from "react-icons/fa6" passclose
+import { IoEyeSharp } from "react-icons/io5" passopen
+import { FiEdit } from "react-icons/fi" edit
+import { IoMdSearch } from "react-icons/io" search
+import { IoMdRefresh } from "react-icons/io" refrash
+
+
+
+---
+
+回應要求
+使用繁體中文進行對話，請盡可能提供簡短且直接的編程回答(不要有太多廢話)。
+在程式碼風格上採用雙引號而非單引號。
+並嚴格遵循以下的coding style必須完全避免在程式碼中
+- 使用無意義的空格和分號。
+1. 此外在變數命名上遵循特定規則：
+- 非常數變數全小寫
+- 常數變數全大寫
+- 不使用複數形式(s)
+- 不使用連接符（如 -、_ 等）
+- 並盡量避免命名常數。
+2. 不得使用以下編程結構:
+- foreach（除了JS中的元素控制可以使用）
+- switch-case
+- 三元運算符
+- do-while迴圈
+- 簡化符號（如箭頭函數）
+- class
+- early return
+3. 在非必要情境下不使用以下結構:
+- while
+- 外掛插件（尤其是在HTML/CSS/JS中，除非有特別要求）
+- function。
+這個GPT的角色是在遵守這些特定指南的情況下提供編程協助，確保清晰和良好的編程實踐，並能適當地使用表情符號。
+
+js程式碼架構
+分三塊
+第一塊為引用外掛(node js專屬)和定義變數
+第二塊為函式
+第三塊為主執行區
+在js中也盡可能不使用new方式
+
+---
+ex1
+
+javascript
+Copy code
+function decryptCaesarCipher(str){
+    for(let shift=1;shift<26;shift++){
+        let decrypted=""
+        for(let i=0;i<str.length;i++){
+            let char=str[i]
+            if(char.match(/[a-z]/i)){
+                let code=str.charCodeAt(i)
+                let lower=char == char.toLowerCase()
+                code = lower ? ((code - 97 + shift) % 26) + 97 : ((code - 65 + shift) % 26) + 65
+                decrypted += String.fromCharCode(code)
+            }else{
+                decrypted += char
+            }
+        }
+        console.log("偏移量 " + shift + "： " + decrypted)
+    }
+}
+
+let encryptedText="bqqmft"
+decryptCaesarCipher(encryptedText)
+
+以上我一次測試的程式碼
+應該是要長這樣
+
+function decryptcaesarcipher(str){
+    for(let shift=1;shift<26;shift=shift+1){
+        let decrypted=""
+        for(let i=0;i<str.length;i=i+1){
+            let char=str[i]
+            if(char.match(/[a-z]/i)){
+                let code=str.charCodeAt(i)
+                if(char==char.toLowerCase()){
+                    code=(code-97+shift)%26)+97+65
+                }else{
+                    code=(code-97+shift)%26)+65
+                }
+                decrypted=decrypted+String.fromCharCode(code)
+            }else{
+                decrypted=decrypted+char
+            }
+        }
+        console.log("偏移量 "+shift+"： "+decrypted)
+    }
+}
+let encryptedtext="bqqmft"
+decryptcaesarcipher(encryptedtext)
+
+---
+ex2
+function findmax(numbers){
+    if(numbers.length==0){
+        return null
+    }
+    let max=numbers[0]
+    for(let i=1;i<numbers.length;i=i+1){
+        if(numbers[i]>max){
+            max=numbers[i]
+        }
+    }
+    return max
+}
+
+let numbers=[3, 5, 2, 8, 1]
+let maxvalue=findmax(numbers)
+console.log("最大值：",maxvalue)
+
+幾乎都對了但應該是要長這樣
+
+function findmax(numbers){
+    if(numbers.length>0){
+        let max=numbers[0]
+        for(let i=1;i<numbers.length;i=i+1){
+            if(numbers[i]>max){
+                max=numbers[i]
+            }
+        }
+        return max
+    }else{
+        return null // 不使用early return
+    }
+}
+
+let number/* 變數不加s */=[3,5,2,8,1] // 有多空白
+let maxvalue=findmax(numbers)
+console.log("最大值：",maxvalue)
+
+19A6
+19D12
+22B5
+22C16
+22C23
+22C29
+19C1(2)
+19C6(2)
+19C19(2)
+19D2(2)
+22C1(2)
+22C24(2)
+
+
+事件	瀏覽器支援	解說
+一般事件
+onclick	IE3、N2	滑鼠點擊時觸發此事件
+ondblclick	IE4、N4	滑鼠雙擊時觸發此事件
+onmousedown	IE4、N4	按下滑鼠時觸發此事件
+onmouseup	IE4、N4	滑鼠按下後放開滑鼠時觸發此事件
+onmouseover	IE3、N2	當滑鼠移動到某個物件範圍的上方時觸發此事件
+onmousemove	IE4、N4	滑鼠移動時觸發此事件
+onmouseout	IE4、N3	當滑鼠離開某個物件範圍時觸發此事件
+onkeypress	IE4、N4	當鍵盤上的某個按鍵被按下並且釋放時觸發此事件.
+onkeydown	IE4、N4	當鍵盤上某個按鍵被按下時觸發此事件
+onkeyup	IE4、N4	當鍵盤上某個按鍵被按放開時觸發此事件
+頁面相關事件
+onabort	IE4、N3	圖片在下載時被使用者中斷
+onbeforeunload	IE4、N	當前頁面的內容將要被改變時觸發此事件
+onerror	IE4、N3	出現錯誤時觸發此事件
+onload	IE3、N2	頁面內容完成時觸發此事件
+onmove	IE、N4	瀏覽器的視窗被移動時觸發此事件
+onresize	IE4、N4	當瀏覽器的視窗大小被改變時觸發此事件
+onscroll	IE4、N	瀏覽器的捲軸位置變更時觸發此事件
+onstop	IE5、N	瀏覽器的停止按鈕被按下時觸發此事件或正在下載的檔案中斷
+onunload	IE3、N2	當前頁面將被改變時觸發此事件
+表單相關事件
+onblur	IE3、N2	當當前元素失去焦點時觸發此事件
+onchange	IE3、N2	當前元素失去焦點並且元素的內容改變而觸發此事件
+onfocus	IE3 、N2	當某個元素獲得焦點時觸發此事件
+onreset	IE4 、N3	當表單中RESET的屬性被激發時觸發此事件
+onsubmit	IE3 、N2	一個表單被提交時觸發此事件
+滾動字幕事件
+onbounce	IE4、N	在Marquee內的內容移動至Marquee顯示範圍之外時觸發此事件
+onfinish	IE4、N	當Marquee元素完成需要顯示的內容後觸發此事件
+onstart	IE4、 N	當Marquee元素開始顯示內容時觸發此事件
+編輯事件
+onbeforecopy	IE5、N	當頁面目前的被選擇內容將要複製到瀏覽者係統的剪貼簿前觸發此事件
+onbeforecut	IE5、 N	當頁面中的一部分或全部的內容將被移離當前頁面[剪貼]並移動到瀏覽者的系統剪貼簿時觸發此事件
+onbeforeeditfocus	IE5、N	當前元素將要進入編輯狀態
+onbeforepaste	IE5、 N	內容將要從瀏覽者的系統剪貼簿傳送[貼上]到頁面中時觸發此事件
+onbeforeupdate	IE5、 N	當瀏覽者貼上系統剪貼簿中的內容時通知目標對象
+oncontextmenu	IE5、N	當瀏覽者按下滑鼠右鍵出現選單或透過鍵盤的按鍵觸發頁面選單時觸發的事件
+oncopy	IE5、N	當頁面目前的被選擇內容被複製後觸發此事件
+oncut	IE5、N	當頁面目前的被選擇內容被剪切時觸發此事件
+ondrag	IE5、N	當某個物件被拖曳時觸發此事件[活動事件]
+ondragdrop	IE、N4	一個外部物件被滑鼠拖進目前視窗或幀
+ondragend	IE5、N	當滑鼠拖曳結束時觸發此事件，即滑鼠的按鈕被釋放了
+ondragenter	IE5、N	當物件被滑鼠拖曳的物件進入其容器範圍內時觸發此事件
+ondragleave	IE5、N	當物件被滑鼠拖曳的物件離開其容器範圍內時觸發此事件
+ondragover	IE5、N	當某被拖曳的物件在另一個物件容器範圍內拖曳時觸發此事件
+ondragstart	IE4、N	當某個物件將被拖曳時觸發此事件
+ondrop	IE5、N	在一個拖曳過程中，釋放滑鼠鍵時觸發此事件
+onlosecapture	IE5、N	當元素失去滑鼠移動所形成的選擇焦點時觸發此事件
+onpaste	IE5、N	當內容被貼上時觸發此事件
+onselect	IE4、N	當文字內容被選擇時的事件
+onselectstart	IE4、N	當文字內容選擇將開始發生時觸發的事件
+資料綁定
+onafterupdate	IE4、N	當資料完成由資料來源到物件的傳送時觸發此事件
+oncellchange	IE5、N	當資料來源發生變化時
+ondataavailable	IE4、N	當資料接收完成時觸發事件
+ondatasetchanged	IE4、N	資料在資料來源發生變化時觸發的事件
+ondatasetcomplete	IE4、N	當來子資料來源的全部有效資料讀取完畢時觸發此事件
+onerrorupdate	IE4、N	當使用onBeforeUpdate事件觸發取消了資料傳送時，代替onAfterUpdate事件
+onrowenter	IE5、N	當前資料來源的資料發生變化並且有新的有效資料時觸發的事件
+onrowexit	IE5、N	當前資料來源的資料將要發生變化時觸發的事件
+onrowsdelete	IE5、N	當前資料記錄將被刪除時觸發此事件
+onrowsinserted	IE5、N	當前資料來源將要插入新資料記錄時觸發此事件
+外部事件
+onafterprint	IE5、N	當文件列印後觸發此事件
+onbeforeprint	IE5、N	當文件即將列印時觸發此事件
+onfilterchange	IE4、N	當某個物件的濾鏡效果改變時觸發的事件
+onhelp	IE4、N	當瀏覽者按下F1或瀏覽器的幫助選擇時觸發此事件
+onpropertychange	IE5、N	當物件的屬性之一發生變化時觸發此事件
+onreadystatechange	IE4、N	當物件的初始化屬性值發生變化時觸發此事件
+
+
+AbortSignal
+    abort
+AudioScheduledSourceNode
+    ended
+AudioTrackList
+    addtrack
+    change
+    removetrack
+BroadcastChannel
+    messageerror
+    message
+DedicatedWorkerGlobalScope
+    messageerror
+    message
+Document
+    animationcancel
+    animationend
+    animationiteration
+    animationstart
+    copy
+    cut
+    DOMContentLoaded
+    dragend
+    dragenter
+    dragleave
+    dragover
+    dragstart
+    drag
+    drop
+    fullscreenchange
+    fullscreenerror
+    gotpointercapture
+    keydown
+    keypress
+    keyup
+    lostpointercapture
+    paste
+    pointercancel
+    pointerdown
+    pointerenter
+    pointerleave
+    pointerlockchange
+    pointerlockerror
+    pointermove
+    pointerout
+    pointerover
+    pointerup
+    readystatechange
+    scroll
+    selectionchange
+    touchcancel
+    touchend
+    touchmove
+    touchstart
+    transitioncancel
+    transitionend
+    transitionrun
+    transitionstart
+    visibilitychange
+    wheel
+Element
+    animationcancel
+    animationend
+    animationiteration
+    animationstart
+    afterscriptexecute
+    auxclick
+    beforescriptexecute
+    blur
+    click
+    compositionend
+    compositionstart
+    compositionupdate
+    contextmenu
+    copy
+    cut
+    dblclick
+    DOMActivate
+    DOMMouseScroll
+    error
+    focusin
+    focusout
+    focus
+    fullscreenchange
+    fullscreenerror
+    gesturechange
+    gestureend
+    gesturestart
+    gotpointercapture
+    keydown
+    keypress
+    keyup
+    lostpointercapture
+    mousedown
+    mouseenter
+    mouseleave
+    mousemove
+    mouseout
+    mouseover
+    mouseup
+    mousewheel
+    msContentZoom
+    MSGestureChange
+    MSGestureEnd
+    MSGestureHold
+    MSGestureStart
+    MSGestureTap
+    MSInertiaStart
+    MSManipulationStateChanged
+    paste
+    pointercancel
+    pointerdown
+    pointerenter
+    pointerleave
+    pointermove
+    pointerout
+    pointerover
+    pointerup
+    scroll
+    select
+    show
+    touchcancel
+    touchend
+    touchmove
+    touchstart
+    transitioncancel
+    transitionend
+    transitionrun
+    transitionstart
+    webkitmouseforcechanged
+    webkitmouseforcedown
+    webkitmouseforceup
+    webkitmouseforcewillbegin
+    wheel
+EventSource
+    error
+    message
+    open
+FileReader
+    abort
+    error
+    loadend
+    loadstart
+    load
+    progress
+HTMLCanvasElement
+    webglcontextcreationerror
+    webglcontextlost
+    webglcontextrestored
+HTMLDetailsElement
+    toggle
+HTMLDialogElement
+    cancel
+    close
+HTMLElement
+    beforeinput
+    change
+    input
+HTMLFormElement
+    formdata
+    reset
+    submit
+HTMLInputElement
+    invalid
+    search
+HTMLMediaElement
+    abort
+    canplaythrough
+    canplay
+    durationchange
+    emptied
+    ended
+    error
+    loadeddata
+    loadedmetadata
+    loadstart
+    pause
+    playing
+    play
+    progress
+    ratechange
+    seeked
+    seeking
+    stalled
+    suspend
+    timeupdate
+    volumechange
+    waiting
+HTMLSlotElement
+    slotchange
+HTMLTrackElement
+    cuechange
+HTMLVideoElement
+    enterpictureinpicture
+    leavepictureinpicture
+IDBDatabase
+    abort
+    close
+    error
+    versionchange
+IDBOpenDBRequest
+    blocked
+    upgradeneeded
+IDBRequest
+    error
+    success
+IDBTransaction
+    abort
+    complete
+    error
+MediaDevices
+    devicechange
+MediaRecorder
+    error
+MediaStream
+    addtrack
+    removetrack
+MediaStreamTrack
+    ended
+    mute
+    unmute
+MessagePort
+    messageerror
+    message
+OfflineAudioContext
+    complete
+PaymentRequest
+    merchantvalidation
+    paymentmethodchange
+    shippingaddresschange
+    shippingoptionchange
+PaymentResponse
+    payerdetailchange
+Performance
+    resourcetimingbufferfull
+PictureInPictureWindow
+    resize
+RTCDataChannel
+    bufferedamountlow
+    close
+    closing
+    error
+    message
+    open
+RTCDtlsTransport
+    error
+RTCDTMFSender
+    tonechange
+RTCIceTransport
+    gatheringstatechange
+    selectedcandidatepairchange
+    statechange
+RTCPeerConnection
+    addstream
+    connectionstatechange
+    datachannel
+    icecandidateerror
+    icecandidate
+    iceconnectionstatechange
+    icegatheringstatechange
+    negotiationneeded
+    removestream
+    signalingstatechange
+    track
+ScriptProcessorNode
+    audioprocess
+ServiceWorkerContainer
+    message
+ServiceWorkerGlobalScope
+    activate
+    contentdelete
+    install
+    message
+    notificationclick
+    pushsubscriptionchange
+    push
+SharedWorkerGlobalScope
+    connect
+SpeechRecognition
+    audioend
+    audiostart
+    end
+    error
+    nomatch
+    result
+    soundend
+    soundstart
+    speechend
+    speechstart
+    start
+SpeechSynthesis
+    voiceschanged
+SpeechSynthesisUtterance
+    boundary
+    end
+    error
+    mark
+    pause
+    resume
+    start
+SVGAnimationElement
+    beginEvent
+    endEvent
+    repeatEvent
+SVGElement
+    abort
+    error
+    load
+    resize
+    scroll
+    unload
+SVGGraphicsElement
+    copy
+    cut
+    paste
+TextTrack
+    cuechange
+TextTrackList
+    addtrack
+    change
+    removeTrack
+VideoTrackList
+    addtrack
+    change
+    removetrack
+VisualViewport
+    resize
+    scroll
+WebSocket
+    close
+    error
+    message
+    open
+Window
+    afterprint
+    animationcancel
+    animationend
+    animationiteration
+    animationstart
+    appinstalled
+    beforeprint
+    beforeunload
+    blur
+    copy
+    cut
+    devicemotion
+    deviceorientation
+    error
+    focus
+    gamepadconnected
+    gamepaddisconnected
+    hashchange
+    languagechange
+    load
+    messageerror
+    message
+    offline
+    online
+    orientationchange
+    pagehide
+    pageshow
+    paste
+    popstate
+    rejectionhandled
+    resize
+    storage
+    transitioncancel
+    transitionend
+    transitionrun
+    transitionstart
+    unhandledrejection
+    unload
+    vrdisplayactivate
+    vrdisplayblur
+    vrdisplayconnect
+    vrdisplaydeactivate
+    vrdisplaydisconnect
+    vrdisplayfocus
+    vrdisplaypointerrestricted
+    vrdisplaypointerunrestricted
+    vrdisplaypresentchange
+Worker
+    messageerror
+    message
+WorkerGlobalScope
+    languagechange
+XMLHttpRequest
+    abort
+    error
+    loadend
+    loadstart
+    load
+    progress
+    timeout
+XRReferenceSpace
+    reset
+XRSession
+    end
+    inputsourceschange
+    selectend
+    selectstart
+    select
+    squeezeend
+    squeezestart
+    squeeze
+    visibilitychange
+XRSystem
+    devicechange

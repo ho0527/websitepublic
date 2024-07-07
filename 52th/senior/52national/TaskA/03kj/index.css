@@ -1,0 +1,78 @@
+*{
+    user-select: none;
+}
+
+body{
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calc{
+    width: 400px;
+    height: 350px;
+    background: #92c8e5;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom: solid 5px #2A8DD3;
+    box-shadow: 5px 5px 10px #ccc;
+}
+
+.numinput{
+    background: #759CB0;
+    box-shadow: inset 0 5px 0px rgba(0, 0, 0, 0.3);
+    border: 0;
+    appearance: none;
+    height: 55px;
+    width: 240px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: whitesmoke;
+    text-align: right;
+    border-radius: 5px;
+    padding: 0 20px;
+    margin: 10px;
+    outline: none;
+}
+
+.btn-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn{
+    width: 75px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    color: gray;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0px 5px 0px #6D9BB2;
+}
+
+.btn-del{
+    color: whitesmoke;
+    background: #F59A9F;
+    box-shadow: 0px 5px 0px #F3797E;
+}
+
+.btn-act{
+    background: #FDEFF3;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.btn-tol{
+    background: #F2FC94;
+    box-shadow: 0px 5px 0px #959C53;
+}

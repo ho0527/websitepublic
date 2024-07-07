@@ -1,0 +1,204 @@
+body {
+    background: rgb(12, 12, 15);
+    color: white;
+    padding: 0px;
+    margin: 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.nav{
+    background: rgb(36, 36, 36);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav2{
+    position: relative;
+    /* top: 50px; */
+    background: rgb(36, 36, 36);
+    height: 50px;
+    text-align: center;
+}
+
+.navdiv{
+    position: relative;
+    /* top: 5px;
+    right: 5px; */
+}
+
+.main{
+    border: 1px white solid;
+    /* width: 400px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.dropbox{
+    border: 1px white solid;
+    height: 55px;
+}
+
+.fill{
+    width: 100%;
+}
+
+.hidden{
+    display: none;
+}
+
+.top100px{
+    position: relative;
+    /* top: 100px; */
+    height: calc(100vh - 100px);
+    padding: 0px 25px;
+    overflow-y: auto;
+}
+
+.commentdiv{
+    border: 1px white solid;
+    padding: 10px;
+    margin: 10px 0px;
+    display: grid;
+    grid-template-columns: repeat(100,1fr);
+    grid-template-rows: repeat(20,1fr);
+    grid-auto-rows: 5%;
+}
+
+.image{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.image{
+    grid-column: 1/30;
+    grid-row: 1/15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name{
+    grid-column: 1/30;
+    grid-row: 15/20;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    grid-column: 30/80;
+    grid-row: 1/14;
+}
+
+.time{
+    grid-column: 30/80;
+    grid-row: 14/16;
+}
+
+.connent{
+    grid-column: 30/80;
+    grid-row: 16/18;
+}
+
+.reply{
+    grid-column: 30/80;
+    grid-row: 18/20;
+}
+
+.function{
+    grid-column: 80/100;
+    grid-row: 1/20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pin::after{
+    content: "已訂選";
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+}
+
+.tc{
+    text-align: center;
+}
+
+.xcenter{
+    margin: 0px auto;
+}
+
+tr>th,tr>td{
+    padding: 5px;
+}
+
+.price{
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    width: 200px;
+}
+
+.bookroomdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bookroomright{
+    width: 50%;
+    height: 70%;
+    user-select: none;
+}
+
+.bookroomleft{
+    width: 45%;
+}
+
+.td{
+    text-align: center;
+    /* border: 1px white solid; */
+}
+
+.date{
+    transition: 0.3s linear;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select{
+    background: lightyellow;
+    color: black;
+}
+
+.noinput{
+    border: none;
+    background: none;
+    color: lightgrey;
+    font-size: 20px;
+}
+
+.selectdivselect{
+    background: lightyellow;
+}

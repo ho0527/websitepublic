@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>列車訂票系統</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <img src="material/icon/mainicon.png" class="logo">
+                <div class="maintitle">列車訂票系統</div>
+            </div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" onclick="location.href='index.html'" value="首頁">
+                <input type="button" class="navigationbarbutton" onclick="location.href='ticket.html'" value="預定車票">
+                <input type="button" class="navigationbarbutton" onclick="location.href='search.html'" value="訂票查詢">
+                <input type="button" class="navigationbarbutton" onclick="location.href='train.html'" value="列車資訊">
+                <input type="button" class="navigationbarbutton navigationbarselect" onclick="location.href='login.html'" value="登入後台">
+            </div>
+        </div>
+        <div class="main">
+            <div class="indextitle">網站管理-登入</div>
+            <hr>
+            帳號: <input type="text" class="input" id="username"><br><br>
+            密碼: <input type="password" class="input" id="password"><br><br>
+            <input type="button" class="button" id="reset" value="清除">
+            <input type="button" class="button" id="submit" value="登入">
+        </div>
+        <script src="login.js"></script>
+    </body>
+</html>

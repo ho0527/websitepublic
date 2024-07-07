@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>calculation: sum of squares of odd numbers</title>
+    </head>
+    <body>
+        The sum of the squares of the odd numbers in the array [1,2,3,4,5,6,9,10,11] is:
+        <div id="output"></div>
+        <script>
+            // calculate the sum of the squares of all odd numbers in the array
+            // example: [3,4,5,6,9] -> 3^2 + 5^2 + 9^2 -> 115
+            function calcOddSquaresSum(array){
+                let result=0// <---- Implement this method here
+                for(let i=0;i<array.length;i=i+1){
+                    if(array[i]%2==1){ result=result+(array[i]**2) }
+                }
+                return result;
+            }
+
+            const oddSquaresSum=calcOddSquaresSum([1,2,3,4,5,6,9,10,11])
+            console.log(oddSquaresSum)
+            document.getElementById("output").innerText=oddSquaresSum
+        </script>
+    </body>
+</html>

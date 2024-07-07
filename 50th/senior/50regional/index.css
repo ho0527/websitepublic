@@ -1,0 +1,323 @@
+.maintd{
+    border-bottom: 1px white solid;
+    width: 60vw;
+    padding: 10px;
+}
+
+.mainmain{
+    height: 65vh;
+    width: 50vw;
+}
+
+.mainmainmain{
+    height: 65vh;
+    width: 70vw;
+}
+
+.projectgrid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+    width: 85vw;
+    height: 75vh;
+    border-radius: 10px;
+}
+
+.projectbutton{
+    grid-column: 2/100;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project{
+    grid-column: 2/100;
+    grid-row: 2/4;
+    border: 1px white solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.projectmember{
+    grid-column: 2/55;
+    grid-row: 5/17;
+    /* border: 1px white solid; */
+    position: relative;
+    font-size: 20px;
+}
+
+.projectfacing{
+    grid-column: 55/100;
+    grid-row: 5/17;
+    border: 1px white solid;
+}
+
+.user{
+    border: 1px white solid;
+    margin-bottom: 10px;
+    cursor: move;
+    color: white;
+}
+
+.leader{
+    grid-column: 50/100;
+    grid-row: 1/6;
+    border: 1px white solid;
+    padding: 10px;
+}
+
+.member{
+    grid-column: 50/100;
+    grid-row: 6/18;
+    border: 1px white solid;
+    padding: 10px;
+}
+
+.userdiv{
+    grid-column: 1/50;
+    grid-row: 1/18;
+    border: 1px white solid;
+    padding: 10px;
+}
+
+.noborder{
+    border: none;
+}
+
+.facingdiv{
+    border: 1px white solid;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.facingname{
+    grid-column: 2/45;
+    grid-row: 2/17;
+    width: 100%;
+}
+
+.facingdesciption{
+    grid-column: 45/90;
+    grid-row: 2/17;
+    width: 100%;
+}
+
+.facingdelect{
+    grid-column: 90/100;
+    grid-row: 2/17;
+    cursor: pointer;
+}
+
+.noborderbutton{
+    border: none;
+    background: none;
+    font-size: 30px;
+    color: white;
+}
+
+.input2{
+    border: 1px black solid;
+    margin: 0px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.textarea{
+    width: 75%;
+    height: 10vh;
+    font-size: 20px;
+}
+
+.file{
+    width: 175px;
+}
+
+.disabled:hover{
+    background: revert;
+    color: revert;
+}
+
+.mediadiv{
+    max-width: 60vw;
+}
+
+.media{
+    width: 100%;
+}
+
+.opinionmain{
+    text-align: left;
+}
+
+.opinion{
+    margin: 15px 0px;
+}
+
+.opiniondiv{
+    border: 1px white solid;
+    margin-bottom: 10px;
+    cursor: move;
+    color: white;
+}
+
+.opinionlistdivdiv{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    height: 30vh;
+}
+
+.opinionlistdiv{
+    width: 45%;
+    margin: 0px 10px;
+    height: 25vh;
+}
+
+.opinionlist{
+    height: 25vh;
+    margin-left: 10px;
+}
+
+.facingmaindiv{
+    height: 45vh;
+}
+
+/* .select{
+    position: absolute;
+    right: 5px;
+    width: 45%;
+    font-size: 25px;
+    text-align: center;
+} */
+
+.plandiv{
+    width: 25vw;
+}
+
+.selectdiv{
+    margin: 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.viewmain{
+    width: 70vw;
+}
+
+.lightboxmain{
+    width: 50vw;
+    height: 70vh;
+}
+
+.bluebutton:disabled{
+    background: rgba(45, 171, 249, 0.7);
+}
+
+.warning{
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.lightboxtitle{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.lightboxtable{
+    max-height: 85%;
+}
+
+.lightboxbuttondiv{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+}
+
+.statistictr{
+    position: relative;
+    bottom: 1px;
+}
+
+.statistictd{
+    width: 20%;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.statistictdshow{
+    padding: 0px;
+    margin: 0px;
+}
+
+.statisticselect{
+    background: whitesmoke;
+    color: black;
+    margin: 0px;
+}
+
+.statisticnoneselect{
+    background: rgb(179, 179, 179);
+}
+
+.statisticbartypea{
+    max-width: 95%;
+}
+
+.selectshowdiv{
+    display: flex;
+}
+
+.statisticbartypeb{
+    max-width: 40%;
+    height: 35vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 5px;
+}
+
+.statisticmain{
+    height: 65vh;
+    width: 80vw;
+}
+
+.statisticleft{
+    grid-column: 1/40;
+    grid-row: 1/18;
+    border: 1px white solid;
+    height: 50vh;
+}
+
+.statisticright{
+    grid-column: 40/100;
+    grid-row: 1/18;
+}
+
+.statisticbartext{
+    font-size: 40px;
+}
+
+.statisticbartypec{
+    width: 95%;
+    margin: 5px 2.5%;
+}
+
+.loginmain{
+    width: 300px;
+}
+
+.inputmargin{
+    margin: 10px 0px;
+}

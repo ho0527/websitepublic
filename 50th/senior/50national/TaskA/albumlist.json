@@ -1,0 +1,56 @@
+{
+	"albums": [
+		{
+			"id": "0",
+			"album_artists": ["Ayase","Ikura"],
+			"attr": {
+				"publisher": "發行商",
+				"pubdate": "2023-07-13"
+			},
+			"title": "YOASOBI的專輯",
+			"description": "這是一個YOASOBI的專輯",
+			"cover": "https://upload.wikimedia.org/wikipedia/zh/2/26/YOASOBI_banner.jpg",
+			"tracks": [
+				{
+					"id": "0_0",
+					"title": "夜に駆ける",
+					"duration": "04:21",
+					"artists": ["ikura"],
+					"path": "http://hiiamchris.ddns.net/website/50th/senior/50national/TaskA/material/mp3/0_0.mp3"
+				},
+				{
+					"id": "0_1",
+					"title": "群青",
+					"duration": "04:22",
+					"artists": ["ikura"],
+					"path": "http://hiiamchris.ddns.net/website/50th/senior/50national/TaskA/material/mp3/0_1.mp3"
+				},
+				{
+					"id": "0_2",
+					"title": "Idol",
+					"duration": "03:34",
+					"artists": ["ikura"],
+					"path": "http://hiiamchris.ddns.net/website/50th/senior/50national/TaskA/material/mp3/0_2.mp3"
+				},
+				{
+					"id": "0_3",
+					"title": "怪物",
+					"duration": "03:28",
+					"artists": ["ikura"],
+					"path": "http://hiiamchris.ddns.net/website/50th/senior/50national/TaskA/material/mp3/0_3.mp3"
+				},
+				{
+					"id": "0_4",
+					"title": "たぶん",
+					"duration": "04:17",
+					"artists": ["ikura"],
+					"path": "http://hiiamchris.ddns.net/website/50th/senior/50national/TaskA/material/mp3/0_4.mp3",
+					"subtitle": {
+						"type": "lrc",
+						"path": "http://hiiamchris.ddns.net/website/50th/senior/50national/TaskA/subtitle/Yoasobi-Tabun by Ayase.lrc"
+					}
+				}
+			]
+		}
+	]
+}

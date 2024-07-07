@@ -1,0 +1,33 @@
+How to Play Star Battle.
+
+1. Move the spaceship using the sensible areas in the screen;
+2. The timer present the time lapsed;
+3. The fuel counter show the remain fuel;
+4. During the flight, the spaceship needs to destroy the asteroids and enemy spaceships that are presented in the space;
+5. You can shoot pressing Space Bar;
+6. If the spaceship hits a asteroid or another spaceship, you lose 15 points of fuel;
+7. Enemy spaceship needs 1 shot to be destroyed, you will get 5 points for each enemy destroyed;
+8. Asteroid needs 2 shots to be destroyed, you will get 10 points for each asteroid destroyed;
+9. If you destroy a friendly spaceship, you lose 10 points;
+10. During the flight, the spaceship needs to collect fuel in the space;
+11. You can pause the game clicking in a button pause, or pressing the letter "p";
+12. Go beyond all limits;
+Battle in Space with Star Battle Championship...
+
+
+
+如何玩星際大戰。
+
+1.利用螢幕上的敏感區域移動飛船；
+2. 計時器顯示經過的時間；
+3.燃油計數器顯示剩餘燃油；
+4.太空船在飛行過程中需要摧毀太空中出現的小行星和敵方飛船；
+5.按空白鍵可以射擊；
+6.如果太空船撞上小行星或其他太空船，你會損失15點燃料；
+7.敵方飛船需要射擊1次才能被摧毀，每擊毀一個敵人你將獲得5分；
+8.小行星需要2次射擊才能被摧毀，每摧毀一個小行星你將獲得10分；
+9.如果你摧毀了一艘友方飛船，你就會失去10分；
+10.飛行過程中，飛船需要在太空中收集燃料；
+11.您可以點選暫停按鈕或按字母「p」暫停遊戲；
+12.超越一切限制；
+星際大戰錦標賽在太空中戰鬥...

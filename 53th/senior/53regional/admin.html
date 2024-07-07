@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>管理者專區</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
+        <script src="../../../plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <div class="navigationbartitle">咖啡商品展示系統-會員管理</div>
+            </div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" onclick="location.href='main.html'" value="首頁">
+                <input type="button" class="navigationbarbutton" onclick="location.href='productindex.html'" value="上架商品">
+                <input type="button" class="navigationbarbutton navigationbarselect" onclick="location.href='admin.html'" value="會員管理">
+                <input type="button" class="navigationbarbutton" id="logout" value="登出">
+            </div>
+        </div>
+        <div class="adminmain main">
+            <h2>
+                會員管理
+                <input type="button" class="button" id="newuser" value="新增使用者">
+            </h2>
+            <div>
+                <input type="text" id="search">
+                <input type="button" id="searchsubmit" value="查詢">
+            </div>
+            <form>
+                <div class="admintable macossectiondiv">
+                    <table id="usertable"></table>
+                </div>
+            </form><br><br>
+            <h2>登入登出紀錄</h2>
+            <div class="admintable macossectiondiv">
+                <table id="logtable">
+                    <tr>
+                        <td class="admintd">使用者編號</td>
+                        <td class="admintd">使用者帳號</td>
+                        <td class="admintd">使用者姓名</td>
+                        <td class="admintd">動作(登入/登出)</td>
+                        <td class="admintd">成功/失敗</td>
+                        <td class="admintd">時間</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <table class="timer">
+            <tr>
+                <td class="timertd" rowspan="2">
+                    <input type="text" class="timerbox" id="timer" readonly>
+                </td>
+                <td class="timertd">
+                    <input type="text" class="timersec" id="changetimer">
+                    <input type="button" id="changetimersubmit" value="送出">
+                </td>
+            </tr>
+            <tr>
+                <td class="timertd">
+                <button class="timeerbutton" id="resetbutton">重新計時</button>
+                </td>
+            </tr>
+        </table>
+        <div id="lightbox"></div>
+        <script src="admin.js"></script>
+        <script src="logincheck.js"></script>
+    </body>
+</html>

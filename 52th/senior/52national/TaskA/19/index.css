@@ -1,0 +1,73 @@
+body{
+    background: rgba(135,135,135,0.65);
+    color: rgb(255,255,255);
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.race{
+    width: 100%;
+}
+
+.track{
+    width: 800px;
+    background-color: rgb(205, 205, 205);
+    position: relative;
+}
+
+.car{
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    transform: translate(-50%,-50%) rotate(270deg);
+    animation: 8s race linear infinite;
+}
+
+@keyframes race{
+    0%{
+        transform: translate(-50%,-50%) rotate(270deg);
+        top: 50%;
+        left: 65px;
+    }
+    12.5%{
+        transform: translate(-50%,-50%) rotate(360deg);
+        top: 25%;
+        left: 25%;
+    }
+    25%{
+        transform: translate(-50%,-50%) rotate(450deg);
+        top: 50%;
+        left: 50%;
+    }
+    37.5%{
+        transform: translate(-50%,-50%) rotate(360deg);
+        top: 80%;
+        left: 75%;
+    }
+    50%{
+        transform: translate(-50%,-50%) rotate(270deg);
+        top: 50%;
+        left: 95%;
+    }
+    62.5%{
+        transform: translate(-50%,-50%) rotate(180deg);
+        top: 25%;
+        left: 75%;
+    }
+    75%{
+        transform: translate(-50%,-50%) rotate(90deg);
+        top: 50%;
+        left: 50%;
+    }
+    87.5%{
+        transform: translate(-50%,-50%) rotate(180deg);
+        top: 80%;
+        left: 25%;
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(270deg);
+        top: 50%;
+        left: 65px;
+    }
+}

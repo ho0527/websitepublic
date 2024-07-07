@@ -1,0 +1,170 @@
+body{
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    word-break: break-all;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 99%;
+}
+
+.timer{
+    font-size: 300px;/* 字體大小 */
+    color: #333333;/* 文字顏色 */
+    text-align: center;/* 將文字置中 */
+    width:100%;/* 寬度 */
+}
+
+.digit{
+    display: inline-block;/* 設定顯示 */
+    text-align: center;/* 文字置中 */
+    letter-spacing:10px;/* 文字間格 */
+    width: 30px;/* 寬度 */
+}
+
+.button{
+    text-align: center;
+    position: relative;
+    bottom: 70px;
+}
+
+button{
+    background-color: #ffa07a;/* 背景顏色 */
+    border: none;/* 邊框 */
+    border-radius: 4px;/* 弧形邊框 */
+    color: #ffffff;/* 文字顏色 */
+    cursor: pointer;/* hover時變pointer */
+    font-size: 35px;/* 字體大小 */
+    margin: 20px;/* 物件間格 */
+    padding: 5px 10px;/* 預留空格 */
+}
+
+button:hover{
+    background-color: #fa8072;/* 背景顏色 */
+}
+
+button:active{
+    background-color: #e9967a;/* 背景顏色 */
+}
+
+.time{
+    display: inline-block;
+    position: relative;
+    padding: 5px;
+    width: 10%;
+    height: 400px;
+}
+
+.test{
+    display: inline-block;
+    position: relative;
+    bottom: 100px;
+    /* width: 10%; */
+    height: 400px;
+    color: red;
+    animation: 1s colon infinite;
+}
+
+.seg1{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 25px;
+    background-color: rgba(206, 206, 206, 0.2);
+}
+
+.seg2{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 25px;
+    height: 50%;
+    background-color: rgba(206, 206, 206, 0.2);
+}
+
+.seg3{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 25px;
+    height: 50%;
+    background-color: rgba(206, 206, 206, 0.2);
+}
+
+.seg4{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 25px;
+    background-color: rgba(206, 206, 206, 0.2);
+}
+
+.seg5{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 25px;
+    height: 50%;
+    background-color: rgba(206, 206, 206, 0.2);
+}
+
+.seg6{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 50%;
+    background-color: rgba(206, 206, 206, 0.2);
+}
+
+.seg7{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+    width: 100%;
+    height: 25px;
+    background-color: rgba(206, 206, 206, 0.2);
+}
+
+@keyframes colon{
+    0%{
+        color: red;
+    }
+    50%{
+        color: rgba(206, 206, 206, 0.2);
+    }
+    100%{
+        color: red;
+    }
+}
+
+/*
+##########################################
+align-items 屬性和 justify-content 屬性可以用來控制元素如何在容器中對齊。
+
+align-items 屬性可以控制元素在垂直方向上的對齊方式，它可以取以下值：
+    stretch（預設值）：將元素拉伸至和容器一樣高，使元素垂直居中。
+    center：將元素置中。
+    flex-start：將元素放在容器的頂部。
+    flex-end：將元素放在容器的底部。
+    baseline：將元素的基線與容器的基線對齊。
+
+justify-content 屬性可以控制元素在水平方向上的對齊方式，它可以取以下值：
+    flex-start（預設值）：將元素放在容器的左側。
+    flex-end：將元素放在容器的右側。
+    center：將元素置中。
+    space-between：在容器中將元素平均分佈。
+    space-around：在容器中將元素平均分佈，並在每個元素周圍留出空隙。
+#########################################
+*/

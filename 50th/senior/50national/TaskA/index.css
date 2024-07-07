@@ -1,0 +1,536 @@
+body{
+	overflow: hidden;
+}
+
+.navigationbar{
+	height: 75px;
+}
+
+.searchform{
+	text-align: right;
+}
+
+.search{
+	width: 30%;
+	display: inline-block;
+}
+
+.aside{
+	border-right: 2px white solid;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	background: white;
+	color: black;
+	padding: 5px;
+	z-index: 1000;
+	transition: 0.3s linear;
+}
+
+.openasidebutton{
+	border: none;
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	transform: translate(-0%,-50%);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	font-size: 30px;
+	text-align: center;
+	cursor: pointer;
+	z-index: 1000;
+	transition: 0.3s linear;
+}
+
+.album{
+	border: 1px white solid;
+	position: relative;
+	width: 20%;
+	height: 30vh;
+	margin: 20px;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+}
+
+.cover{
+	width: 100%;
+}
+
+.albumttext{
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+}
+
+.albumtitle{
+	position: relative;
+}
+
+.albumartist{
+	position: relative;
+}
+
+.menu{
+	position: relative;
+	font-size: 25px;
+	text-align: left;
+	z-index: 100;
+}
+
+.menubutton{
+	border: none;
+	background: none;
+	font-size: 25px;
+	cursor: pointer;
+	color: white;
+	transition: 0.5s;
+}
+
+.menubutton:hover{
+	text-decoration: underline;
+}
+
+.top{
+	position: fixed;
+	top: 75px;
+	left: 10px;
+	width: calc(100% - 10px);
+	height: 35vh;
+	overflow: hidden;
+	z-index: 100;
+}
+
+.albumcover{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+.albumtext{
+	position: relative;
+	z-index: 100;
+	mix-blend-mode: difference;
+}
+
+.title{
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.artist{
+	position: absolute;
+	top: 50px;
+	right: 5px;
+	font-size: 25px;
+}
+
+.publicdate{
+	position: absolute;
+	bottom: 0px;
+	left: 5px;
+	font-size: 20px;
+}
+
+.albumdescription{
+	position: absolute;
+	top: 40px;
+	left: 5px;
+	font-size: 20px;
+}
+
+.trackslengthandtime{
+	position: absolute;
+	bottom: 30px;
+	left: 5px;
+	font-size: 20px;
+}
+
+.albummain{
+	position: relative;
+	top: 35vh;
+	left: 10px;
+	width: calc(100% - 10px);
+	padding: 5px;
+	overflow: hidden;
+}
+
+.albumplay{
+	position: absolute;
+	bottom: 10px;
+	right: 50px;
+}
+
+/* #################################################################### */
+
+.tracklist{
+	border-bottom: 1px white solid;
+	width: 100%;
+}
+
+.no{
+	grid-column: 2/10;
+	grid-row: 1/18;
+}
+
+.tracktitle{
+	grid-column: 15/30;
+	grid-row: 1/18;
+}
+
+.artists{
+	grid-column: 35/50;
+	grid-row: 1/18;
+}
+
+.albumtitle{
+	grid-column: 55/70;
+	grid-row: 1/18;
+}
+
+.time{
+	grid-column: 75/85;
+	grid-row: 1/18;
+}
+
+.def{
+	grid-column: 90/100;
+	grid-row: 1/18;
+}
+
+.tracklisttext{
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.player{
+	width: 100%;
+}
+
+.list{
+	width: 100%;
+}
+/*
+.icon{
+	width: 45px;
+	margin-right: 10px;
+} */
+
+.albumicon{
+	width: 75px;
+}
+
+.playing{
+	background: rgb(190, 190, 190);
+}
+
+.warning{
+	color: red;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.counter{
+	text-align: right;
+}
+
+.playerror{
+	position: absolute;
+	width: 100%;
+	color: red;
+	font-size: 25px;
+	font-weight: bold;
+	opacity: 0.65;
+	z-index: 999;
+}
+
+.asidelist{
+	grid-column: 1/101;
+	grid-row: 1/15;
+}
+
+.audioplay{
+	grid-column: 1/101;
+	grid-row: 15/18;
+}
+
+.icondiv{
+	width: 50px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.playerdiv{
+	display: flex;
+}
+
+/*
+燈箱
+#########################################
+*/
+.div{
+	position: absolute;/* 絕對定位 */
+	top: 0px;/* 定位 */
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	z-index: 999;/*  */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mask{
+	position: absolute;/* 絕對定位 */
+	top: 0px;/* 定位 */
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	background-color: rgba(100, 100, 100, 0.25);/* 背景顏色 */
+	display: none;
+}
+
+.close{
+	border: 1px black solid;
+	padding: 10px 50px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 25px;
+	font-weight: bold;
+	transition-duration: 0.5s;
+}
+
+.submit{
+	border: 1px black solid;
+	padding: 10px 50px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 25px;
+	font-weight: bold;
+	transition-duration: 0.5s;
+}
+
+.close:hover{
+	background: gray;
+	color: white;
+}
+
+.submit:hover{
+	background: gray;
+	color: white;
+}
+
+.body{
+	position: absolute;/* 絕對定位 */
+	left: 50%;/* 定位 */
+	top: 50% ;
+	transform: translate(-50%,-50%);
+	text-align: center;/* 文字置中 */
+	font-size: 20px;
+	width: 1400px;/* 寬度 */
+	height: 675px;/* 高度 */
+	border: 1px blue solid;/* 邊框 */
+	background-color: rgb(98, 98, 98);/* 背景顏色 */
+	border-radius: 15px;/* 圓弧邊框 */
+	/* display: block; */
+}
+
+.stu{
+	font-size: 45px;/* 字體大小 */
+	text-align: center;/* 文字置中 */
+}
+
+.note{
+	font-size: 20px;/* 字體大小 */
+}
+
+.maintd{
+	width: 10000px;
+	height: 40px;
+	padding: 10px;
+}
+
+.avatar{
+	width: 140px;
+	font-size: 30px;
+}
+/*
+.input{
+	border: none;
+	width: 90%;
+	height: 40px;
+	background-color: white;
+	background: none;
+	border-bottom: 1px black solid;
+	outline: none;
+	font-size: 30px;
+} */
+
+.name{
+	width: 45%;
+}
+
+.left{
+	float: left;
+	width: 13%;
+	height: 550px;
+	border-right: 1px black solid;
+}
+
+.right{
+	float: right;
+	height: 245px;
+	width:85%;
+	position: relative;
+	right: 10px
+}
+
+.avater_preview{
+	width: 100px;
+	height: 100px;
+	border: 1px black solid;
+	border-radius: 50%;
+}
+
+.addclassbody{
+	position: absolute;/* 絕對定位 */
+	left: 50%;/* 定位 */
+	top: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;/* 文字置中 */
+	width: 525px;/* 寬度 */
+	height: 300px;/* 高度 */
+	padding: 10px;
+	font-size: 20px;
+	border: 1px blue solid;/* 邊框 */
+	background-color: rgba(100, 100, 100, 0.5);/* 背景顏色 */
+	border-radius: 15px;/* 圓弧邊框 */
+	/* display: block; */
+}
+
+.addclass{
+	width: 100%;
+	height: 25px;
+	font-size: 15px;
+}
+
+.selectclass{
+	width: 100px;
+}
+
+.buttondiv{
+	float: right;
+	position: relative;
+	right: 5px;
+	top: 5px;
+}
+
+/* .button{
+	border: 1px black solid;
+	padding: 10px 20px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 25px;
+	font-weight: bold;
+	transition-duration: 0.5s;
+}
+
+.button:hover{
+	background: gray;
+	color: white;
+} */
+
+/*
+#####################################
+*/
+
+.searchresult{
+	background: yellow;
+	color: black;
+	padding: 2px;
+}
+
+.player{
+	display: none;
+}
+
+.header{
+	grid-column: 1/100;
+	grid-row: 1;
+}
+
+.indexmain{
+	position: relative;
+	top: 75px;
+	width: 100vw;
+	height: calc(100vh - 75px);
+	border: none;
+	color: white;
+	padding: 0px 10px;
+}
+
+.maindiv{
+	position: absolute;
+	top: 5px;
+	left: 15px;
+	width: calc(100% - 15px);
+	height: 100%;
+}
+
+.hidden{
+	display: none ;
+}
+
+.volumebar{
+	rotate: -90deg;
+}
+
+.rollbar{
+	width: 100%;
+}
+
+.timedisplaydiv{
+	display: flex;
+	justify-content: space-between;
+}
+
+.playtype{
+	font-size: 15px;
+}
+
+.option{
+	font-size: 15px;
+}
+
+/* ==================================================================================================== */
+.signinmain{
+	width: 300px;
+}
+
+.margin-10px_0px{
+	margin: 10px 0px;
+}
+
+.mainmain{
+	width: 75vw;
+	max-height: 75vh;
+}
+
+.td{
+	width: 100000px;
+}
+
+.width-50per{
+	width: 50%;
+}

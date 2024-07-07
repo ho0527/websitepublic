@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+        <script src="/chrisplugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <div class="navigationbartitle">WorldSkill - Games</div>
+                <div class="navigationbartitle2">(Discover Games)</div>
+            </div>
+            <div class="navigationbarright" id="navigationbarright"></div>
+        </div>
+        <div class="navigationbar2">
+            <div class="count">
+                <div class="gamecount" id="gamecount"></div>
+                Games
+            </div>
+            <div class="function">
+                <div class="indexfunctionbuttondiv">
+                    <input type="button" class="bluebutton indexfunctionbutton" id="popular" value="popularity">
+                    <input type="button" class="bluebutton indexfunctionbutton" id="uploaddate" value="recently updated">
+                    <input type="button" class="bluebutton indexfunctionbutton" id="title" value="title">
+                </div>
+                <div class="indexfunctionbuttondiv">
+                    <input type="button" class="bluebutton indexfunctionbutton" id="asc" value="ASC">
+                    <input type="button" class="bluebutton indexfunctionbutton" id="desc" value="DESC">
+                </div>
+            </div>
+        </div>
+        <div class="maindiv macossectiondivy" id="main"></div>
+
+        <script src="initialize.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

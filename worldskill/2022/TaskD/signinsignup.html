@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="plugin/css/chrisplugin.css">
+        <script src="plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="navigationbarleft">
+                <div class="navigationbartitle">WorldSkill - Games</div>
+                <div class="navigationbartitle2" id="navigationbartitle2"></div>
+            </div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" id="signup" onclick="location.href='signinsignup.html?key=signup'" value="Sign Up">
+                <input type="button" class="navigationbarbutton" id="signin" onclick="location.href='signinsignup.html?key=signin'" value="Sign In">
+            </div>
+        </div>
+        <div class="main center" id="main">
+            <div class="inputmargin">
+                <div class="sttext">username</div>
+                <div class="stinput underline endicon">
+                    <input type="text" id="username">
+                    <div class="icon"><img src="/website/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
+                </div>
+            </div>
+            <div class="inputmargin">
+                <div class="sttext">password</div>
+                <div class="stinput underline endicon">
+                    <input type="text" id="password">
+                    <div class="icon"><img src="/website/material/icon/lock.svg" class="iconinputicon cursor_pointer" id="passwordicon" draggable="false"></div>
+                </div>
+            </div>
+            <div class="sttext error bold textcenter" id="error"></div>
+            <div class="textcenter">
+                <input type="button" class="stbutton outline" id="cancel" value="cancel">
+                <input type="button" class="stbutton outline" id="submit">
+            </div>
+        </div>
+
+        <script src="initialize.js"></script>
+        <script src="signinsignup.js"></script>
+    </body>
+</html>

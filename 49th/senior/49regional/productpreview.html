@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>電子競技網站管理</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
+        <script src="../../../plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar">
+            <div class="maintitle">電子競技網站管理-預覽</div>
+            <div class="navigationbarbuttondiv">
+                <input type="button" class="navigationbarbutton" onclick="location.href='main.html'" value="首頁">
+                <input type="button" class="navigationbarbutton selectbutton" onclick="location.href='productindex.html'" value="電競活動管理精靈">
+                <input type="button" class="navigationbarbutton" onclick="location.href='admin.php'" value="會員管理">
+                <input type="button" class="navigationbarbutton" onclick="location.href='api.php?logout='" value="登出">
+            </div>
+        </div>
+        <div class="productbar">
+            <div class="center">
+                <input type="button" class="navigationbarbutton" onclick="location.href='productindex.html'" value="選擇版型">
+                <input type="button" class="navigationbarbutton" onclick="location.href='productinput.html'" value="填寫資料">
+                <input type="button" class="navigationbarbutton selectbutton" onclick="location.reload()" value="預覽">
+                <input type="button" class="navigationbarbutton" onclick="location.href='productsubmit.html'" value="確定送出">
+            </div>
+        </div>
+
+        <div class="productpreviewmain" id="main"></div>
+
+        <script src="productclear.js"></script>
+        <script src="productpreview.js"></script>
+        <script src="logincheck.js"></script>
+    </body>
+</html>

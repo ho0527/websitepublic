@@ -1,0 +1,108 @@
+* {
+    font-family: Unispace, "Microsoft JhengHei UI";
+}
+
+.function {
+    display: none;
+}
+
+.tab {
+    padding: 10px;
+    background-color: darkmagenta;
+    border-top: 2px solid white;
+    position: relative;
+    cursor: pointer;
+}
+
+.tab::before, .tab::after {
+    width: 20px;
+    height: calc(100% + 2px);
+    top: -2px;
+    position: absolute;
+    background-color: darkmagenta;
+    border-top: 2px solid white;
+    content: '';
+}
+
+.tab::before {
+    left: -10px;
+    border-left: 2px solid white;
+    border-radius: 5px 0 0 0;
+    transform: skew(-15deg);
+}
+
+
+.tab::after {
+    right: -10px;
+    border-right: 2px solid white;
+    border-radius: 0 5px 0 0;
+    transform: skew(15deg);
+}
+
+.function:checked + label {
+    z-index: 50;
+}
+
+.content-box > div {
+    display: none;
+}
+
+body:has(#function-1:checked) #game-version-container {
+    display: block;
+}
+
+body:has(#function-2:checked) #score-board-container {
+    display: block;
+}
+
+body:has(#function-3:checked) #user-profile-container {
+    display: block;
+}
+
+body:has(#function-4:checked) #game-ranking-container {
+    display: block;
+}
+.content-box {
+    background-color: darkmagenta;
+    border: 2px solid white;
+    margin-top: -2px;
+    z-index: 30;
+}
+
+.timeline {
+    list-style: none;
+}
+
+.event {
+    background-color: rgba(139, 0, 139, 0.3);
+    padding: 30px;
+    border-left: 3px solid darkmagenta;
+    border-bottom: 1px dashed black;
+    cursor: pointer;
+    transition: .2s;
+    position: relative;
+}
+
+.event:hover {
+    background-color: darkmagenta;
+    border-left: 3px solid white;
+}
+
+.event::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 5px solid darkmagenta;
+    background-color: white;
+    transition: .2s;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(calc(-50% - 1.5px), 30px);
+}
+
+.event:hover::before {
+    background-color: darkmagenta;
+    border: 5px solid white;
+}

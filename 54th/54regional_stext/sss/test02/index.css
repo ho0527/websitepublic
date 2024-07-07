@@ -1,0 +1,170 @@
+body{
+    background: slateblue;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    user-select: none;
+}
+
+input[type="text"],input[type="number"],textarea{
+    border: 1px black solid;
+    width: 100%;
+    border-radius: 5px;
+    resize: none;
+}
+
+.nav{
+    width: 80vw;
+    height: 75px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav2{
+    width: 80vw;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+}
+
+.title2{
+    font-size: 30px;
+    color: white;
+    margin: 0px 5px;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.maindiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background: white;
+    padding: 20px;
+}
+
+.margin{
+    margin: 5px 0px;
+}
+
+.dropbox{
+    border: 1px black solid;
+    height: 55px;
+}
+
+.main{
+    background: white;
+    width: 80vw;
+    height: calc(100vh - 125px);
+    border-radius: 20px;
+    margin: 10px auto;
+    padding: 5px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.commentmain{
+    height: calc(100vh - 125px);
+    overflow-y: auto;
+}
+
+.commentdiv{
+    background: white;
+    width: 80vw;
+    height: 30vh;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 0px auto 20px auto;
+    display: flex;
+}
+
+.commentdivuser{
+    width: 30%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.commentdivmid{
+    width: 45%;
+    height: 100%;
+}
+
+.commentdivcontent{
+    background: whitesmoke;
+    height: 50%;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.commentdivreply{
+    background: whitesmoke;
+    height: 15%;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.commentdivtime{
+    height: 15%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.commentdivconntent{
+    height: 15%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.image{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.commentdivfunction{
+    width: 25%;
+}
+
+.pin{
+    border-left: 5px orange solid;
+}
+
+.map:hover{
+    position: relative;
+    animation: 1s map infinite;
+}
+
+.fill{
+    width: 100%;
+}
+
+@keyframes map{
+    0%,100%{
+        top: 0px;
+    }
+    50%{
+        top: 150px;
+    }
+}

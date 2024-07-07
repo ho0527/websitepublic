@@ -1,0 +1,181 @@
+.rangecontainer{
+	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+	box-sizing: border-box;
+	height: 45px;
+	user-select: none;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+
+	& .rangebackground, & .rangeselected{
+		border: 1px rgb(237, 237, 237) solid;
+		position: absolute;
+		top: 5px;
+		left: 0px;
+		width: 100%;
+		height: 10px;
+		background: lightgray;
+		border-radius: 3px;
+	}
+
+	& .rangeselected{
+		border: 1px solid #3c01dd;
+		width: 0px;
+		background: #3c01dd;
+		transition: all 0.2s linear;
+	}
+
+	&.disabled .rangeselected{
+		border-color: #5a5a5a;
+		background: rgb(92, 92, 92);
+	}
+
+	& .rangepointer{
+		border: 1px solid #bbb;
+		position: absolute;
+		left: -10px;
+		top: 0px;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: white;
+		box-shadow: inset 0 0 1px white, inset 0 1px 6px #ebebeb, 1px 1px 4px rgba(0, 0, 0, 0.1);
+		transition: all 0.2s linear;
+		cursor: pointer;
+
+		& .rangetooltip{
+			border: 1px var(--rangeslider-border-color) solid;
+			position: absolute;
+			left: 15px;
+			transform: translate(-50%, -35px);
+			background: var(--stgray-75);
+			border-radius: 3px;
+			width: auto;
+			min-width: 50px;
+			color: var(--rangeslider-color);
+			font-size: 13px;
+			text-align: center;
+			padding: 5px 10px;
+		}
+	}
+
+	&.disabled .rangepointer{
+		border-color: rgb(204, 204, 204);
+		cursor: not-allowed;
+	}
+
+
+	&.sliding .rangeselected,&.sliding .rangepointer{
+		transition: none;
+	}
+
+	& .rangescale{
+		left: 0px;
+		position: absolute;
+		top: 5px;
+		white-space: nowrap;
+
+		& span{
+			position: relative;
+			float: left;
+		}
+
+		& span::before{
+			content: "";
+			background: rgb(237, 237, 237);
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			width: 1px;
+			height: 8px;
+		}
+	}
+
+
+	&.rangenoscale span::before{
+		display: none;
+	}
+
+	&.rangenoscale span:first-child::before,
+	&.rangenoscale span:last-child::before{
+		display: block;
+	}
+
+	& .rangescale span:last-child{
+		margin-left: -1px;
+		width: 0px;
+	}
+
+	& .rangescale span div{
+		color: var(--rangeslider-color);
+		display: inline-block;
+		font-size: 12px;
+		margin-top: 20px;
+		text-decoration: none;
+	}
+
+	&.disabled .rangescale span div{
+		color: #999999;
+		cursor: not-allowed;
+	}
+
+	&.disabled .rangetooltip{
+		border-color: #ccc;
+		color: #999999;
+		cursor: not-allowed;
+	}
+
+	/* 長方形樣式 */
+	&.rectanglestyle{
+		& .rangepointer{
+			width: 30px;
+			height: 20px;
+			border-radius: 5px;
+
+			&::before{
+				content: "";
+				position: absolute;
+				left: 12px;
+				top: 5px;
+				width: 1px;
+				height: 9px;
+				background: rgb(221, 221, 221);
+			}
+
+			&::after{
+				content: "";
+				position: absolute;
+				right: 12px;
+				top: 5px;
+				width: 1px;
+				height: 9px;
+				background: rgb(221, 221, 221);
+				left: auto;
+			}
+		}
+	}
+	/* 圓形樣式 */
+	&.roundstyle{
+		& .rangepointer{
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+
+			&::before{
+				content: "";
+				width: 0px;
+				height: 0px;
+			}
+
+			&::after{
+				content: "";
+				width: 0px;
+				height: 0px;
+			}
+		}
+	}
+}

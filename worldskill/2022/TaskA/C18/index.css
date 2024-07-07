@@ -1,0 +1,387 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1.75%;
+    grid-template-columns: repeat(30, 1fr);
+    grid-auto-rows: 5%;
+    border: 5px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 55%;
+    height: 95%;
+    border-radius: 10px;
+}
+
+.h1{
+    grid-column: 1/31;
+    grid-row: 1;
+    position: relative;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 2px white solid;
+    text-align: center;
+}
+
+.h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.inputdiv{
+    grid-column: 1/31;
+    grid-row: 2;
+    border-bottom: 2px white solid;
+    padding: 0px 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.show{
+    grid-column: 1/31;
+    grid-row: 3/15;
+    border-bottom: 2px white solid;
+    padding: 5px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+}
+
+.reflashbutton{
+    grid-column: 2/15;
+    grid-row: 15;
+    padding: 5px;
+    background-color: rgb(220, 173, 78);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    z-index: 100;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.submit{
+    grid-column: 16/30;
+    grid-row: 15;
+    padding: 5px;
+    background-color: rgb(29, 145, 29);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.submit:hover{
+    background-color: rgb(102, 220, 102);
+    color: black;
+}
+
+.chart{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.table{
+    border: 1px white solid;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-0%);
+}
+
+.td{
+    border-right: 1px white solid;
+    border-bottom: 1px white solid;
+}
+
+.tdtitle{
+    width: 5%;
+}
+
+.tdshow{
+    width: 85%;
+}
+
+.tdnumber{
+    width: 10%;
+}
+
+.bar{
+    margin: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.bar:hover{
+    background-color: #ddd;
+}
+
+.bar-name{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bar-population{
+    font-size: 12px;
+}
+
+.chart-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.xcenter{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 100%;
+}
+
+.ycenter{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+    width: 100%;
+}
+
+.line{
+    height: 75%;
+    width: 0px;
+    background: red;
+}
+
+.navigationbar{
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.logo{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 250px;
+}
+
+.navigationbarbutton{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin-bottom: 10px;
+}
+
+.main{
+    position: relative;
+    top: 130px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+}
+
+.carousel{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+img{
+    cursor: pointer;
+}
+
+.item{
+    position: relative;
+    left: 500px;
+    display: none;
+    width: 100px;
+}
+
+.carouselimage{
+    width: 1000px;
+    height: 500px;
+}
+
+.carouselbutton{
+    border: 1px black solid;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.carouselbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.carouseltitle{
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width: 1000px;
+    height: 30px;
+    text-align: center;
+    background-color: rgba(39, 39, 39, 0.464);
+}
+
+.carouseldepiction{
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    height: 30px;
+    width: 1000px;
+    text-align: center;
+    background-color: rgba(39, 39, 39, 0.464);
+}
+
+.newstable{
+    position: relative;
+    top: 130px;
+    width: 100%;
+}
+
+.news{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    border: 2px white solid;
+    width: 50%;
+    border-radius: 10px;
+    margin: 25px 0px;
+}
+
+.newsimage{
+    width: 50px;
+    height: 50px;
+}
+
+.ticket{
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    padding: 20px;
+    border: 2px white solid;
+    width: 25%;
+    text-align: left;
+}
+
+.tickettext{
+    display: inline-block;
+    width: 45%;
+    text-align: center;
+}
+
+.input{
+    display: inline-block;
+    border: none;
+    background: none;
+    border-bottom: 2px rgb(215, 215, 215) solid;
+    width: 50%;
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+.verifycode{
+    text-align: center;
+}
+
+.button{
+    border: 1px black solid;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 5px;
+    text-align: center;
+    width: 100%;
+}

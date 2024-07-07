@@ -1,0 +1,229 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    width: 1920px;
+    height: 1080px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.logo{
+    height: 75px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.navigationbarleft{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    width: 125px;
+    height: 50px;
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.navigationbarselect{
+    background: gray;
+    color: white;
+}
+
+.main{
+    position: relative;
+    top: 130px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+}
+
+.carousel{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.item{
+    position: relative;
+    left: 500px;
+    display: none;
+    width: 100px;
+}
+
+.carouselimage{
+    width: 1000px;
+    height: 500px;
+}
+
+.carouselbutton{
+    border: 1px black solid;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.carouselbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.carouseltitle{
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width: 1000px;
+    height: 30px;
+    text-align: center;
+    background-color: rgba(39, 39, 39, 0.464);
+}
+
+.carouseldepiction{
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    height: 30px;
+    width: 1000px;
+    text-align: center;
+    background-color: rgba(39, 39, 39, 0.464);
+}
+
+.newstable{
+    position: relative;
+    top: 200px;
+    width: 100%;
+    height: 70vh;
+}
+
+.newstd{
+    border: 2px white solid;
+}
+
+.news{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 50%;
+    border-radius: 10px;
+    margin: 25px 0px;
+}
+
+.newsimage{
+    width: 50px;
+    height: 50px;
+}
+
+.ticket{
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    padding: 20px;
+    border: 2px white solid;
+    width: 25%;
+    text-align: left;
+}
+
+.tickettext{
+    display: inline-block;
+    width: 45%;
+    text-align: center;
+}
+
+.input{
+    display: inline-block;
+    border: none;
+    background: none;
+    border-bottom: 2px rgb(215, 215, 215) solid;
+    width: 50%;
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+.verifycode{
+    text-align: center;
+}
+
+.button{
+    border: 1px black solid;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 5px;
+    text-align: center;
+    width: 100%;
+}

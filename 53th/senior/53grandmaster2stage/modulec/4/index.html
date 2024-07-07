@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="inner">
+                <!--start-->
+                <div id="start">
+                    <img src="material/picture/start.svg" class="startsvg" draggable="false"><br>
+                    <input type="text" class="input1" id="nickname" placeholder="Nickname">
+                    <input type="button" class="" id="startgame" value="開始遊戲">
+                </div>
+
+                <!--game-->
+                <div id="game">
+                    <!--game data svg-->
+                    <div class="gameinfodiv">
+                        <div class="gameinfo" id="game-data-svg" data-svg-name="material/picture/game-info.svg">
+                            <img src="material/picture/game-info.svg" class="gameinfoimage" draggable="false">
+                            <h2 class="gamestage" id="gamestage"></h2>
+                            <h2 class="gamenickname" id="gamenickname"></h2>
+                            <h2 class="gamescore" id="gamescore"></h2>
+                        </div>
+                    </div>
+                    <!--timer svg-->
+                    <div class="timerimagediv" id=" " data-svg-name="timer.svg">
+                        <img src="material/picture/timer.svg" class="timerimage" draggable="false">
+                        <img src="material/picture/bar-top.png" class="timerbarimage" id="timerimage" draggable="false">
+                        <div class="timer" id="timer"></div>
+                    </div>
+                    <!--game boards-->
+                    <div class="gameboarddiv" id="gameboard" data-svg-name="game-boards.svg">
+                    </div>
+                </div>
+
+                <!--end-->
+                <div id="end">
+                    <img src="material/picture/failed.svg" class="gameendimage" draggable="false">
+                    <h4 id="text-nickname-2">JOHN DOE</h4>
+                    <h4 id="text-score-2">1,500</h4>
+                    <h4 id="text-time">00:00</h4>
+                </div>
+            </div>
+        </div>
+
+        <div id="lightbox"></div>
+
+        <!-- script -->
+        <script src="index.js"></script>
+        <script src="start.js"></script>
+        <script src="game.js"></script>
+        <script src="end.js"></script>
+    </body>
+</html>

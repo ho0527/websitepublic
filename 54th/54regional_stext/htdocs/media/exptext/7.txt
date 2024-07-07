@@ -1,0 +1,7 @@
+Cappuccino
+
+A cappuccino is a coffee drink made with espresso, steamed milk, and a layer of milk froth. It's often garnished with cocoa powder.
+
+http://localhost/cappuccino/hi.html
+
+1000$

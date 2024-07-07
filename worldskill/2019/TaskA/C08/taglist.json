@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "WorldSkills",
+        "color": "#9966ff"
+    },
+    {
+        "id": 2,
+        "name": "Web-Technologies",
+        "color": "#3366ff"
+    },
+    {
+        "id": 3,
+        "name": "Development",
+        "color": ""
+    },
+    {
+        "id": 4,
+        "name": "Design",
+        "color": "ff00ff"
+    }
+]

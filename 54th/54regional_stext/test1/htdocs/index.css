@@ -1,0 +1,244 @@
+body{
+    background: rgb(12,12,15);
+    /* color: white; */
+    animation: 10s bg infinite;
+}
+
+.nav{
+    background: rgba(197, 197, 197, 0.356);
+    position: fixed;
+    width: 100%;
+    height: 50px;
+}
+
+.nav2{
+    /* background: rgb(184, 184, 184); */
+    position: fixed;
+    top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+}
+
+.right{
+    position: absolute;
+    top: 10px;
+    right: 5px;
+}
+
+.main{
+    border: 1px lightgray solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 350px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.fill{
+    width: 100%;
+}
+
+.tc{
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.commentdiv{
+    border-radius: 5px;
+    padding: 5px;
+    height: 260px;
+    display: grid;
+    grid-template-columns: repeat(100,1fr);
+    grid-template-rows: repeat(14,1fr);
+    grid-auto-columns: 5%;
+}
+
+.commentimage{
+    border: 1px black solid;
+    grid-column: 1/15;
+    grid-row: 1/8;
+    text-align: center;
+}
+
+.commentusername{
+    border: 1px black solid;
+    grid-column: 15/30;
+    grid-row: 1/8;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commentcomment{
+    border: 1px black solid;
+    grid-column: 30/80;
+    grid-row: 1/8;
+    text-align: justify;
+    padding: 5px 10px;
+    overflow-y: auto;
+}
+
+.commenttime{
+    border: 1px black solid;
+    grid-column: 1/80;
+    grid-row: 8/10;
+    padding: 0px 10px;
+    text-align: left;
+}
+
+.commentconnect{
+    border: 1px black solid;
+    grid-column: 1/80;
+    grid-row: 10/12;
+    padding: 0px 10px;
+    text-align: left;
+}
+
+.commentreply{
+    border: 1px black solid;
+    grid-column: 1/80;
+    grid-row: 12/14;
+    padding: 0px 10px;
+    text-align: left;
+}
+
+.commentfunction{
+    border: 1px black solid;
+    grid-column: 80/101;
+    grid-row: 1/14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.commentmain{
+    position: relative;
+    top: 100px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.admincommentfunction{
+    flex-wrap: wrap;
+}
+
+.pin::after{
+    content: "以置頂";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.table{
+    border: 1px white solid;
+    border-collapse: collapse;
+    width: initial;
+    color: black;
+    margin: 5px auto;
+}
+
+.foodfunction{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 200px;
+}
+
+.map{
+    cursor: pointer;
+}
+
+.map:hover{
+    animation: 2s a infinite;
+}
+
+.date{
+    user-select: none;
+    cursor: pointer;
+}
+
+.select{
+    background: rgb(245, 245, 13);
+    color: black;
+}
+
+.btn{
+    cursor: pointer;
+}
+
+.indeximage:hover{
+    animation: 5s indeximage infinite;
+}
+
+.logo{
+    width: 60px;
+}
+
+
+@keyframes a{
+    0%{
+        position: absolute;
+        top: 75px;
+    }
+    50%{
+        position: absolute;
+        top: 150px;
+    }
+    100%{
+        position: absolute;
+        top: 75px;
+    }
+}
+
+@keyframes bg{
+    0%{
+        background: rgba(252, 0, 0, 0.1);
+    }
+    25%{
+        background: rgba(252, 164, 0, 0.1);
+    }
+    50%{
+        background: rgba(50, 252, 0, 0.1);
+    }
+    75%{
+        background: rgba(0, 88, 252, 0.1);
+    }
+    100%{
+        background: rgba(181, 0, 252, 0.1);
+    }
+}
+
+@keyframes indeximage{
+    0%{
+        box-shadow: rgb(255, 0, 0) 5 5 5 5;
+    }
+    25%{
+        box-shadow: rgba(252, 164, 0, 1) 5 5 5 5;
+    }
+    50%{
+        box-shadow: rgba(50, 252, 0, 1) 5 5 5 5;
+    }
+    75%{
+        box-shadow: rgba(0, 88, 252, 1) 5 5 5 5;
+    }
+    100%{
+        box-shadow: rgba(181, 0, 252, 1) 5 5 5 5;
+    }
+}

@@ -1,0 +1,34 @@
+<?php
+    $memoryBefore=memory_get_usage();
+    echo("p02\n");
+    $n=trim(fgets(STDIN));
+    $num=[];
+    $ans=[];
+    for($i=0;$i<$n;$i=$i+1){
+        $num[]=trim(fgets(STDIN));
+    }
+    for($i=0;$i<count($num);$i=$i+1){
+        if((1<=$num[$i])&&($num[$i]<=(2**31-1))){//判斷是否再要求內
+            $all=0;
+            for($j=1;$j<=$num[$i];$j=$j+1){
+                if($num[$i]%$j==0){//判斷是否是num因數
+                    $all=$all+1;
+                }
+            }
+            if($all==2){//判斷是否為質數
+                $ans[]="Y";
+            }else{
+                $ans[]="N";
+            }
+        }else{
+            $ans[]="N";
+        }
+    }
+    for($i=0;$i<count($ans);$i=$i+1){
+        echo($ans[$i]."\n");
+    }
+    echo("\n");
+    $memoryAfter=memory_get_usage();
+    $memoryDifference=$memoryAfter-$memoryBefore;
+    echo("memory used ".($memoryDifference/1048576)."MB");
+?>

@@ -1,0 +1,49 @@
+*{ cursor: none; }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    user-select: none;
+    word-break: break-all;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(119, 119, 119, 0.4);
+    border-radius: 50%;
+    display: none;
+}
+
+/* 定義自定義光標的CSS */
+.cursor{
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid #000;
+    position: absolute;
+    rotate: -20deg;
+    transform: translateY(12px);
+    pointer-events: none;
+}

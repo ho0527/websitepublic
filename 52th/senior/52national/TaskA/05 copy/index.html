@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Image Cropper</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="grid">
+            <div class="h1">
+                <div class="center">Image Cropper</div>
+            </div>
+            <div class="inputdiv">
+                <input type="file" id="file" accept="image/*">
+                <input type="button" id="submit" value="submit">
+            </div>
+            <div class="main">
+                <div class="imagediv" id="imagediv">
+                    <img src="" class="image" id="image" draggable="false">
+                </div>
+            </div>
+            <input type="button" class="reflashbutton" id="reflashbutton" value="重整">
+            <input type="button" class="cropdownloadbutton" id="cropdownloadbutton" value="crop" disabled>
+        </div>
+        <div class="cropdiv" id="cropdiv"></div>
+        <script src="index.js"></script>
+    </body>
+</html>

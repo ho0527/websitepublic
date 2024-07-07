@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <input type="button" class="button2" onclick="location.href='admin.php'" value="狀態">
+        <form action="post.php" method="POST">
+            <div class="grid">
+                <div class="link">*網址:</div>
+                <input type="text" class="input" id="input" name="link" value="https://hiiamchris.ddns.net/website/"><br><br>
+                <div class="linkbox">
+                    <input type="button" class="button" id="linkclear" value="清除">
+                </div>
+                <div class="question">
+                    *問題內容:
+                </div>
+                <select class="select" name="question">
+                    <option id="mainselect" value="none">請選擇</option>
+                    <option value="bug">一般問題回報</option>
+                    <option value="permission">權限問題回報</option>
+                    <option value="sever">伺服器問題回報</option>
+                    <option value="ux">使用者體驗(UX)回報</option>
+                    <option value="anthor">其他問題回報</option>
+                    <option value="anthorrecommend">其他建議</option>
+                </select><br><br>
+                <div class="selectbox">
+                    <input type="button" class="button" id="selectclear" value="清除">
+                </div>
+                <div class="contexttext">
+                    詳細敘述問題
+                </div>
+                <textarea class="context" id="context" name="context"></textarea><br><br>
+                <div class="contextbox">
+                    <div class="center">
+                        講的越詳細可以讓我更快找到問題
+                        <input type="button" class="button" id="contextclear" value="清除">
+                    </div>
+                </div>
+                <div class="email">電子信箱|DC etc. </div>
+                <input type="text" class="emailinput" name="email" value=""><br><br>
+                <div class="emailbox">
+                    <div class="center">
+                        可作為完成後回覆使用
+                        <input type="button" class="button" id="mailclear" value="清除">
+                    </div>
+                </div>
+                <div class="anthortext">
+                    其他回覆
+                </div>
+                <textarea class="anthor" id="anthor" name="anthor"></textarea><br><br>
+                <div class="anthorbox">
+                    <input type="button" class="button" id="anthorclear" value="清除">
+                </div>
+                <div class="buttondiv">
+                    <input type="reset" class="reflashbutton" value="清除">
+                    <input type="submit" class="submitbutton" name="submit" value="送出">
+                </div>
+            </div>
+        </form>
+        <script src="index.js"></script>
+    </body>
+</html>

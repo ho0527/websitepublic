@@ -1,0 +1,1142 @@
+{
+    "data": [
+        {
+            "title": "ws2019",
+            "statu": "FAILED",
+            "ps": "list",
+            "createdate": "2023/06/10",
+            "updatedate": "2024/02/08",
+            "data": [
+                {
+                    "title": "ModuleA-SPEEDTEST",
+                    "link": "TaskA/",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "N/A",
+                    "updatedate": "2024/02/08",
+                    "data": [
+                        {
+                            "list": "A",
+                            "description": "Design",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "A01-Blur Picture Image",
+                                    "link": "TaskA/A01/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "A02-Transparent Background",
+                                    "link": "TaskA/A02/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "A03-Pattern",
+                                    "link": "TaskA/A03/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "A04-Loading GIF",
+                                    "link": "TaskA/A04/",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "A05-Walking Gif",
+                                    "link": "TaskA/A05/",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "A06-UI-kit",
+                                    "link": "TaskA/A06/",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "A07-Messenger",
+                                    "link": "TaskA/A07/",
+                                    "statu": "FAILED",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": "B",
+                            "description": "LAYOUT",
+                            "statu": "SUCCESS",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "B01-HTML tags",
+                                    "link": "TaskA/B01/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "B02-CSS Grid",
+                                    "link": "TaskA/B02/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "B03-Loading Screen",
+                                    "link": "TaskA/B03/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "B04-Toggle",
+                                    "link": "TaskA/B04/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "B05-Yellow Square",
+                                    "link": "TaskA/B05/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "B06-Triangle",
+                                    "link": "TaskA/B06/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "B07-Grayscale image",
+                                    "link": "TaskA/B07/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "B08-Jumper Ball",
+                                    "link": "TaskA/B08/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "B09-HTML/CSS – Contact Form",
+                                    "link": "TaskA/B09/contact-form.html",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "B10-Border Radius & Box Shadow",
+                                    "link": "TaskA/B10/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "B11-Race track9",
+                                    "link": "TaskA/B11/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "B12-Video player interface",
+                                    "link": "TaskA/B12/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "B13-Gradient animation",
+                                    "link": "TaskA/B13/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "14",
+                                    "description": "B14-Modern layout",
+                                    "link": "TaskA/B14/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "15",
+                                    "description": "B15-Seven segment digital Timer",
+                                    "link": "TaskA/B15/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": "C",
+                            "description": "FONTEND",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "C01-Cube Rotation",
+                                    "link": "TaskA/C01/",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "C02-Loading Animation",
+                                    "link": "TaskA/C02/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "C03-Drawing Canvas",
+                                    "link": "TaskA/C03/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "C04-RGB Slider",
+                                    "link": "TaskA/C04/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "C05-JS – Calculation",
+                                    "link": "TaskA/C05/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "C06-JS - ASCII-Art",
+                                    "link": "TaskA/C06/",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "C07-HTML/CSS, JS – Clock",
+                                    "link": "TaskA/C07/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "C08-HTML/CSS, JS - Tag-Control",
+                                    "link": "TaskA/C08/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "C09-List of expenses:",
+                                    "link": "TaskA/C09/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "C10-Simple Image Filter",
+                                    "link": "TaskA/C10/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "C11-Canvas Animation",
+                                    "link": "TaskA/C11/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "C12-JS Arithmetic",
+                                    "link": "TaskA/C12/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "C13-JS Draggable",
+                                    "link": "TaskA/C13/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "14",
+                                    "description": "C14-Keyboard",
+                                    "link": "TaskA/C14/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "15",
+                                    "description": "C15-Parallax",
+                                    "link": "TaskA/C15/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "16",
+                                    "description": "C16-Smiley",
+                                    "link": "TaskA/C16/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "17",
+                                    "description": "C17-Transition",
+                                    "link": "TaskA/C17/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "18",
+                                    "description": "C18-Animation",
+                                    "link": "TaskA/C17/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "19",
+                                    "description": "C19-Chart from data",
+                                    "link": "TaskA/C19/",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "24",
+                                    "description": "C24-Array Integers",
+                                    "link": "TaskA/C24/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "25",
+                                    "description": "C25-Following cursor",
+                                    "link": "TaskA/C25/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "26",
+                                    "description": "C26-Circles",
+                                    "link": "TaskA/C26/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "27",
+                                    "description": "C27-Linear gradient",
+                                    "link": "TaskA/C27/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": "D",
+                            "description": "BACKEND",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "D01-PHP Calendar",
+                                    "link": "TaskA/D01/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "D02-Plugin works",
+                                    "link": "TaskA/D02/",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "D03-PHP Array",
+                                    "link": "TaskA/D03/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "D04-PHP Verification captcha",
+                                    "link": "TaskA/D04/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "D05-Watermark",
+                                    "link": "TaskA/D05/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "D06-Predominant colors",
+                                    "link": "TaskA/D06/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "D08-File manager",
+                                    "link": "../../../../anther/filemanager",
+                                    "statu": "UPDATEING",
+                                    "data": []
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "D10-Image Cropper",
+                                    "link": "TaskA/D10/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "D11-A Pagination Code",
+                                    "link": "TaskA/D11/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "D12-XML2JSON Converter",
+                                    "link": "TaskA/D12/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "D13-Remove duplicates",
+                                    "link": "TaskA/D13/",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleB-CMS",
+                    "statu": "N/A",
+                    "ps": "list",
+                    "createdate": "N/A",
+                    "updatedate": "N/A",
+                    "data": []
+                },
+                {
+                    "title": "ModuleC-BACKEND",
+                    "link": "https://hiiamchris.ddns.net:444/website/TaskC/",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "N/A",
+                    "updatedate": "N/A",
+                    "data": [
+                        {
+                            "list": 1,
+                            "description": "Database",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "Schema and data used as provided.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "Login data for organizers created.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "DB-Dump is provided in /XX_JS-PHP_A/db-dump/ Folder.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "DB-Dump contains fk-constraints and correct columns deduct 0.25 for missing/errors eg. no fk-constraints, wrong columns.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "ERD schema is provided in /XX_JS-PHP_A/db-dump/ Folder.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "Table for event ratings created Fields: event_id, rating, comment, creation_date.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "Table for sessions ratings createdFields: session_id, rating, creation_date.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "08",
+                                    "description": "DB strucutre is normalized.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 2,
+                            "description": "Admin Backend",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "09",
+                                    "description": "List all events.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "Show form for new event.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "Enter information for a new event Deduct 0.25 point per mistake..",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "Enter already used slug for a new event.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "Enter invalid slug for an event.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "14",
+                                    "description": "Show form for updating event.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "15",
+                                    "description": "Update event information.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "16",
+                                    "description": "Not possible to change an event of a different organizer by submitting the form against a different event (changing the action parameter of the form in the html).",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "17",
+                                    "description": "Show event detail.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "18",
+                                    "description": "Not possible to see an event of a different organizer by changing the id or slug in the url.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 3,
+                            "description": "Ticket and Session",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "19",
+                                    "description": "Show form for new ticketA3b – Enter information for a new ticket.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "20",
+                                    "description": "Show form for new session.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "21",
+                                    "description": "Enter information for a new session.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "22",
+                                    "description": "Enter invalid information for a new session – room booked.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "23",
+                                    "description": "Show form for updating session.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "24",
+                                    "description": "Update session information.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 4,
+                            "description": "Organizer",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "25",
+                                    "description": "Organizer login ok.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "26",
+                                    "description": "Organizer login fail.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "27",
+                                    "description": "Organizer logout.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "28",
+                                    "description": "Show form for new channel.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "29",
+                                    "description": "Enter information for a new channel.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "30",
+                                    "description": "Show form for new room.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "31",
+                                    "description": "Enter information for a new room.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "32",
+                                    "description": "Room capacity exceeded.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "33",
+                                    "description": "Show room overview.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 5,
+                            "description": "REST API",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "31",
+                                    "description": "Read all upcoming events Success.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "32",
+                                    "description": "Read all detail information of a single event Success, invalid event, invalid organizer, event belongs to a different organizer.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "31",
+                                    "description": "Attendee login Success, two attendees with same lastname but different registration code and vice 6versa, invalid lastname or registration code, invalid request parameters.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "32",
+                                    "description": "Attendee logout Success, invalid token, already logged out.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "31",
+                                    "description": "New event registration Success, invalid token, already participated, ticket is no longer available.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "32",
+                                    "description": "Get registrations of a user Success, invalid token.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "20",
+                                    "description": "Templates have been used Header, login, event list, create/view/edit event.",
+                                    "statu": "subjective",
+                                    "data": []
+                                },
+                                {
+                                    "no": "21",
+                                    "description": "Use of framework of choice.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleD-FONTEND",
+                    "link": "TaskD/",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "N/A",
+                    "updatedate": "N/A",
+                    "data": [
+                        {
+                            "list": 1,
+                            "description": "Events list and agenda",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "Attendee login ok",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "Attendee login fail",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "Attendee logout",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "List upcoming events",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "Display channels",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "Display talk and workshop sessions",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "Display registered sessions",
+                                    "statu": "FAILED",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 2,
+                            "description": "Session and Events",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "08",
+                                    "description": "Display session details on click of registered session.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "Enter registration mode and information should come from API.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "Able to select ticket successfully and cost reflects on the bottom field.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "Select ticket fail.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "Select workshop session and the cost reflects on the bottom field.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "Purchase function works as described from test project.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 3,
+                            "description": "General",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "14",
+                                    "description": "Frontend available at http://<hostname>/XX_JS-PHP_B/ No mark if wrong name",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "15",
+                                    "description": "All data from/to server passed using REST API",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "16",
+                                    "description": "TPersistent state Reloading any page shows the same page again (Event detail page, with logged in attendee).",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "17",
+                                    "description": "Error messages on user interface.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 4,
+                            "description": "JS Quality",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "18",
+                                    "description": "Use of framework/library of choice.",
+                                    "statu": "subjective",
+                                    "data": []
+                                },
+                                {
+                                    "no": "19",
+                                    "description": "Front-end layout follows the WCAG.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 5,
+                            "description": "Front end design",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "20",
+                                    "description": "Frontend layout follows the designed mock-ups.",
+                                    "statu": "subjective",
+                                    "data": []
+                                },
+                                {
+                                    "no": "21",
+                                    "description": "Choice of colors, typography, spacing between the elements enhanes the overall look and feel.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleE-ISP",
+                    "link": "TaskE/",
+                    "statu": "FAILED",
+                    "ps": "list",
+                    "createdate": "2023/12/16",
+                    "updatedate": "2024/01/06",
+                    "data": [
+                        {
+                            "list": 1,
+                            "description": "Editor functionality for Element",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "01",
+                                    "description": "When creating a new presentation or clearing the editor, one root element initially appears in the center of the screen",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "02",
+                                    "description": "WThe editor/viewer project is accessible via required URL",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "03",
+                                    "description": "The element has 4 interactive areas, (1, 2, 3, 4), which are hidden by default and are displayed only after mouse hover on the element.",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                },
+                                {
+                                    "no": "04",
+                                    "description": "When clicking on one of the interactive areas, a related element should appear on the side of the areas node on which the click was made. Link should also be created.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "05",
+                                    "description": "It is possible to change the content of element by wysiwyg editor",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "06",
+                                    "description": "It is possible to change the captions for each sections deduct",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "07",
+                                    "description": "It is possible to delete of element by delete button",
+                                    "statu": "SUCCESS",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 2,
+                            "description": "Editor functionality for Connections",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "08",
+                                    "description": "Any changes done inside slide editor is saved automatically and will be restored upon refresh.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "09",
+                                    "description": "When deleting an element, all link of this element must also be deleted",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "10",
+                                    "description": "The user can delete a link by click on the link and pressing the Delete/Back Space key",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "11",
+                                    "description": "Elements can be moved by mouse dragging around the editor, links should also follow the element.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "12",
+                                    "description": "It is possible to link two unrelated elements with the Shift key held down and move a section of one element to a section of another element.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "13",
+                                    "description": "Cross browser functionality.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 3,
+                            "description": "Viewer requirements",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "14",
+                                    "description": "Able to navigate via keyboard 1,2,3,4 keys",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "15",
+                                    "description": "Viewing begins with the root element.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "16",
+                                    "description": "The view mode can be seen in full screen mode",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "17",
+                                    "description": "An indicator is present to show where you are at the moment Just need to be there, not required to be functional.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "18",
+                                    "description": "It is possible to link two unrelated elements with the Shift key held down and move a section of one element to a section of another element.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "19",
+                                    "description": "Navigation control presented on the screen with the caption from associated interaction areas (navigation button, direction, caption of destination)",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "20",
+                                    "description": "It is possible to go to the desired element. Need to be functional.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "21",
+                                    "description": "Content is correctly displayed. Content input in the editor is shown in the viewer. Content follows rich text editor format.",
+                                    "statu": "FAILED",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 4,
+                            "description": "Animation",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "22",
+                                    "description": "The style of the transition animation corresponds to the direction of movement between the elements in view mode",
+                                    "statu": "FAILED",
+                                    "data": []
+                                },
+                                {
+                                    "no": "23",
+                                    "description": "Quality of used animation for editor.",
+                                    "statu": "subjective",
+                                    "data": []
+                                },
+                                {
+                                    "no": "24",
+                                    "description": "Quality of used animation for transition between elements in view mode.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        },
+                        {
+                            "list": 5,
+                            "description": "Code Quality",
+                            "statu": "FAILED",
+                            "data": [
+                                {
+                                    "no": "25",
+                                    "description": "Qll navigation elements are developed in accordance with the WCAG and standard ARIA (Accessible Rich Internet Applications Suite)",
+                                    "statu": "subjective",
+                                    "data": []
+                                },
+                                {
+                                    "no": "26",
+                                    "description": "Create easy-to-maintain CSS code.",
+                                    "statu": "subjective",
+                                    "data": []
+                                },
+                                {
+                                    "no": "27",
+                                    "description": "Create modular and reusable JavaScript code.",
+                                    "statu": "subjective",
+                                    "data": []
+                                },
+                                {
+                                    "no": "28",
+                                    "description": "Create easy-to-maintain JavaScript code.",
+                                    "statu": "subjective",
+                                    "data": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "ModuleF-MARKING PAGE",
+                    "statu": "N/A",
+                    "ps": "list",
+                    "createdate": "N/A",
+                    "updatedate": "N/A",
+                    "data": []
+                },
+                {
+                    "title": "ModuleG-TEAMWORK",
+                    "statu": "N/A",
+                    "ps": "list",
+                    "createdate": "N/A",
+                    "updatedate": "N/A",
+                    "data": []
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,348 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    word-break: break-all;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h2{
+    margin: 0px;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main{
+    position: relative;
+    margin-top: 130px;
+}
+
+.logo{
+    height: 75px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.navigationbarleft{
+    height: 75px;
+    position: absolute;
+    left: 20px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: rgba(250, 250, 250, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    z-index: 900;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbarbutton{
+    border: 1px black solid;
+    /* background: white; */
+    width: 125px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin: 0px 10px;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: white;
+}
+
+.logo{
+    height: 100%;
+}
+
+.slogantext{
+    font-size: 100px;
+    animation: 5s slogan infinite;
+}
+
+.title{
+    width: 150px;
+    font-size: 30px;
+    background: rgb(72, 198, 240);
+    position: relative;
+    left: 5%;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.input{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    outline: none;
+    font-size: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background-color: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background-color: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+
+.slogan{
+    height: 45vh;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.goal{
+    margin: 50px 0px;
+}
+
+.love{
+    margin: 50px 0px;
+}
+
+.about{
+    margin: 100px 0px;
+}
+
+.goalmain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.goal{
+    margin: 100px 0px;
+    overflow: hidden;
+}
+
+.lovediv{
+    border: 1px white solid;
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+    position: relative;
+    top: 50px;
+    height: 350px;
+    padding: 15px;
+}
+
+.carddiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card{
+    border: 1px white solid;
+    position: relative;
+    width: 20%;
+    height: 500px;
+    padding: 10px;
+    margin: 0px 20px;
+}
+
+.card:hover{
+    animation: 2s cardhover 1;
+}
+
+.lovedetail{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.loveimage{
+    width: 95%;
+}
+
+.goaldiv{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.abouttext{
+    width: 30%;
+    font-size: 20px;
+    display: inline-block;
+    margin: 0px 20px;
+}
+
+.aboutimage{
+    width: 5%;
+}
+
+.goaltext{
+    font-size: 50px;
+    opacity: 0.75;
+    display: inline-block;
+    margin: 0px 50px;
+}
+
+@keyframes slogan{
+    0%{
+        text-shadow: red 0 0 20px;
+    }
+    20%{
+        text-shadow: orange 0 0 20px;
+    }
+    40%{
+        text-shadow: yellow 0 0 20px;
+    }
+    60%{
+        text-shadow: blue 0 0 20px;
+    }
+    80%{
+        text-shadow: purple 0 0 20px;
+    }
+    100%{
+        text-shadow: red 0 0 20px;
+    }
+}
+
+@keyframes cardhover{
+    0%{
+        transform: scale(1);
+        rotate: 0deg;
+        box-shadow: red 0 0 20px;
+    }
+    40%{
+        transform: scale(1.15);
+        rotate: 360deg;
+    }
+    100%{
+        transform: scale(1);
+        rotate: 360deg;
+        box-shadow: blue 0 0 20px;
+    }
+}

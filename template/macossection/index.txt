@@ -1,0 +1,11 @@
+    |-------    -----    -                     -     -----  -----  -----   -------|
+   |-------    -        -            - - -          -                     -------|
+  |-------    -        -------    -          -     -----    --       --  -------|
+ |-------    -        -     -    -          -         -      --     --  -------|
+|-------    -----    -     -    -          -     -----         -----  -------|
+
+
+
+
+use div.macossectiondiv and it will work
+but you need to change the height of the div before youslef
