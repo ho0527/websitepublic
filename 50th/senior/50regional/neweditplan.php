@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>新增修改執行方案</title>
-        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="/index.css">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>

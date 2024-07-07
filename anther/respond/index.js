@@ -1,5 +1,5 @@
 document.getElementById("linkclear").onclick=function(){
-    document.getElementById("input").value="http://hiiamchris.hopto.org/website/"
+    document.getElementById("input").value="http://hiiamchris.hopto.org/"
 }
 
 document.getElementById("selectclear").onclick=function(){

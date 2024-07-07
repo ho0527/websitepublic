@@ -14,12 +14,12 @@
 ### 定義列表:
 1. "公開網站"指非下列網頁
    - **技能競賽類**(XXregional/national，worldskill等)
-   - 非公開網頁如: https://hiiamchris.ddns.net/website/chclass/ 等等
+   - 非公開網頁如: https://hiiamchris.ddns.net/chclass/ 等等
 
     以上兩個在接下來的定義為"自用網頁"
 
 2. "聯絡"指
-   - [使用此連結](https://hiiamchris.ddns.net/website/anther/respond)
+   - [使用此連結](https://hiiamchris.ddns.net/anther/respond)
    - 用DC找: chris0527
    - gmail: chris960527ho@gmail.com
    - FB: 賀皓群

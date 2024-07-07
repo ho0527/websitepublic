@@ -21,7 +21,7 @@ if(weblsget("51nationalmoduled-permission")){
 	if(weblsget("51nationalmoduled-permission")=="USER"){
 		innerhtml("#navigationbar",`
 			<div class="navigationbarleft">
-				<img src="/website/material/icon/mainicon.png" class="logo">
+				<img src="/material/icon/mainicon.png" class="logo">
 			</div>
 			<div class="navigationbarright">
 				<input type="button" class="navigationbarbutton" id="index" onclick="href('index.html')" value="首頁">
@@ -32,7 +32,7 @@ if(weblsget("51nationalmoduled-permission")){
 	}else{
 		innerhtml("#navigationbar",`
 			<div class="navigationbarleft">
-				<img src="/website/material/icon/mainicon.png" class="logo">
+				<img src="/material/icon/mainicon.png" class="logo">
 			</div>
 			<div class="navigationbarright">
 				<input type="button" class="navigationbarbutton" id="index" onclick="href('index.html')" value="首頁">
@@ -46,7 +46,7 @@ if(weblsget("51nationalmoduled-permission")){
 }else{
 	innerhtml("#navigationbar",`
 		<div class="navigationbarleft">
-			<img src="/website/material/icon/mainicon.png" class="logo">
+			<img src="/material/icon/mainicon.png" class="logo">
 		</div>
 		<div class="navigationbarright">
 			<input type="button" class="navigationbarbutton" id="index" onclick="href('index.html')" value="首頁">

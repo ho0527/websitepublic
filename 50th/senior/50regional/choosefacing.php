@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>選擇討論面向</title>
-        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="/index.css">
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="plugin/css/macossection.css">
         <script src="plugin/js/macossection.js"></script>

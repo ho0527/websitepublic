@@ -17,4 +17,4 @@
 12.完成:)
 
 
-# see also: https://github.com/ho0527/website/tree/master/worldskill/2022/TaskA/A05
+# see also: https://github.com/ho0527/tree/master/worldskill/2022/TaskA/A05
