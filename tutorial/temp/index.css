@@ -1,0 +1,382 @@
+body{
+    font-family: "Consolas";
+    background: rgb(25, 25, 25);
+    color: lightgray;
+    text-align: center;
+    word-break: break-all;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0px;
+    color: white;
+}
+
+hr{
+    border: 1px white solid;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+
+/* .main{
+    border: 2px white solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 20px;
+} */
+
+.grid{
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-rows: 5%;
+}
+
+.logo{
+    height: 75px;
+}
+
+.maintitle{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navigationbar{
+    border: 1px rgb(49, 53, 53) solid;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgba(40, 40, 40, 0.95);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 8px 32px 0 rgba(70, 70, 70, 0.1);
+    z-index: 900;
+}
+
+.navigationbar2{
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgba(50, 50, 50, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(185, 185, 185, 0.1);
+    z-index: 900;
+}
+
+.navigationbarleft{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navigationbarright{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0%,-50%);
+    margin-bottom: 10px;
+}
+
+.navigationbartitle{
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.navigationbarbutton{
+    border: 1px white solid;
+    background: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    margin: 0px 10px;
+    transition-duration: 0.5s;
+}
+
+.navigationbarbutton:hover{
+    background: gray;
+    color: black;
+}
+
+.navigationbarbutton:active{
+    box-shadow: 0px 10px 30px 0 rgba(77, 77, 77, 0.68);
+}
+
+.navigationbarselect{
+    background: black;
+    color: white;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xcenter{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.ycenter{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%,-50%);
+}
+
+.input{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 75%;
+    height: 40px;
+    outline: none;
+    font-size: 30px;
+    color: white;
+}
+
+.middleinput{
+    border: none;
+    border-bottom: 1px black solid;
+    background: none;
+    width: 35%;
+    height: 40px;
+    outline: none;
+    margin: 0px 5%;
+    font-size: 30px;
+    color: white;
+}
+
+.inputhint{
+    width: 23%;
+    display: inline-block;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+.inputdiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    border: 1px black solid;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    background: gray;
+    color: white;
+}
+
+.button:active{
+	position: relative;
+	top: 1px;
+}
+
+.bluebutton{
+	box-shadow: inset 1px -3px 7px 0px #29bbff;
+	background: #2dabf9 linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	border-radius: 5px;
+	border: 1px solid #0b0e07;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: bold;
+    margin: 5px 0px;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+}
+
+.bluebutton:hover{
+	background: #0688fa linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+}
+
+.bluebutton:active{
+	position: relative;
+	top: 1px;
+}
+
+.reflashbutton{
+    margin-top: 20px;
+    padding: 5px;
+    background: rgb(215, 164, 61);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.reflashbutton:hover{
+    background: rgb(255, 213, 128);
+    color: black;
+}
+
+.selectbutton{
+    background: rgba(35, 35, 35, 0.75);
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background: rgb(25, 25, 25);
+    text-align: center;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.a:hover{
+    text-decoration: underline;
+}
+
+.disabled:hover{
+    background: revert;
+    color: revert;
+}
+
+.primarytext{
+    font-size: 40px;
+    color: transparent;
+    font-weight: bold;
+}
+
+.secondarytext{
+    font-size: 30px;
+    color: white;
+}
+
+.text{
+    font-size: 20px;
+}
+
+.highlight{
+    font-weight: bold;
+    color: yellow;
+    display: inline-block;
+}
+
+.iconinputdiv{
+    border-bottom: 1px black solid;
+    padding: 0px 5px;
+    margin: 20px 0px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.iconinputtext{
+    width: 15%;
+    font-size: 25px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.iconiinputinput{
+    border: none;
+    font-size: 25px;
+    width: 75%;
+}
+
+.iconinputicondiv{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconinputicon{
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+.cursor_pointer{
+    cursor: pointer;
+}
+/* END */
+
+
+/* program START */
+
+.maindiv{
+    position: absolute;
+    top: 120px;
+    left: 0px;
+    height: calc(100% - 130px);
+    width: 100%;
+}
+
+.menu{
+    grid-column: 1/30;
+    grid-row: 1/18;
+    border: 1px whitesmoke solid;
+}
+
+.main{
+    grid-column: 30/101;
+    grid-row: 1/18;
+    border: 2px white solid;
+    font-size: 30px;
+    padding: 20px;
+}

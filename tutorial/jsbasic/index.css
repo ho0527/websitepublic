@@ -1,0 +1,120 @@
+.maindiv{
+    border: 2px white solid;
+    position: absolute;
+    top: 75px;
+    left: 0px;
+    height: calc(100vh - 75px);
+    width: 100%;
+}
+
+.menu{
+    grid-column: 1/25;
+    grid-row: 1/21;
+    border-right: 1px whitesmoke solid;
+}
+
+.main{
+    grid-column: 25/101;
+    grid-row: 1/21;
+    font-size: 20px;
+    padding: 20px;
+    text-align: left;
+}
+
+.ul{
+    text-align: left;
+}
+
+.block{
+    border-bottom: 1px whitesmoke solid;
+    padding-bottom: 25px;
+    margin: 10px 0px 20px 0px;
+}
+
+.blocktitle{
+    font-size: 45px;
+    font-weight: bolder;
+}
+
+.blocknext{
+    margin-left: 10px;
+}
+
+.blocknext2{
+    margin: 15px 0px 15px 20px;
+}
+
+.blocknext3{
+    margin: 10px 0px 10px 30px;
+}
+
+.blocknext4{
+    margin: 5px 0px 5px 40px;
+}
+
+.blocknexttitle{
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.blocknext2title{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.blocknext3title{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.blocknext4title{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.blockprimary{
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.blocktext{
+    font-size: 25px;
+    text-align: justify;
+}
+
+.blocklittletext{
+    font-size: 17px;
+    text-align: justify;
+}
+
+.copyright{
+    font-size: 15px;
+}
+
+.tip{
+    font-size: 20px;
+    text-align: left;
+    background: rgba(144,238,144,0.6);
+    color: whitesmoke;
+    padding: 10px;
+    margin: 10px 5px;
+}
+
+.notice{
+    font-size: 20px;
+    text-align: left;
+    background: rgba(255,255,0,0.25);
+    color: white;
+    padding: 10px;
+    margin: 10px 5px;
+}
+
+.warning{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    background: rgba(255,0,0,0.25);
+    color: lightcoral;
+    padding: 10px;
+    margin: 10px 5px;
+}

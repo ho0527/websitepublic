@@ -1,0 +1,2783 @@
+<!DOCTYPE html>
+<html class="maindark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>JS-basic</title>
+        <link rel="stylesheet" href="/website/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar" id="navigationbar">
+            <div class="navigationbarleft">
+                <img src="/website/material/icon/mainicon.png" class="logo">
+            </div>
+            <div class="navigationbartitle textcenter">JavaScript - 基本篇</div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" id="errorresponse" value="錯誤回報">
+            </div>
+        </div>
+
+        <div class="maindiv grid">
+            <!-- menu START -->
+            <div class="menu macossectiondivy">
+                <ul class="ul">
+                    <li class="li">JavaScript基本篇</li>
+                    <ul>
+                        <li><a href="#" class="a" onclick="smoothscroll('introduction')">介紹</a></li>
+                        <li><a href="#" class="a" onclick="smoothscroll('structure')">語彙結構</a></li>
+                        <li><a href="#" class="a" onclick="smoothscroll('comment')">註解方式</a></li>
+                        <li><a href="#" class="a" onclick="smoothscroll('type')">型別</a></li>
+                        <li><a href="#" class="a" onclick="smoothscroll('variable')">變數</a>
+                            <ul>
+                                <li><a href="#" class="a" onclick="smoothscroll('variablerole')">命名規定</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="a" onclick="smoothscroll('operation')">運算式及運算子</a>
+                            <ul>
+                                <li><a href="#" class="a" onclick="smoothscroll('operation_expression')">運算式</a>
+                                    <ul>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operation_mainstream')">主流運算式</a>
+                                            <ul>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operation_this')">this</a></li>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operation_parse')">解析</a></li>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operation_leftside')">左側運算式</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="a" onclick="smoothscroll('operator')">運算子</a>
+                                    <ul>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_role')">運算子規則</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_assignment')">賦值運算子</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_arithmetic')">算術運算子</a></li>
+                                        <li>
+                                            <a href="#" class="a" onclick="smoothscroll('operator_bit')">位元運算子</a>
+                                            <ul>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operator_bit_logic')">位元邏輯運算子</a></li>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operator_bit_move')">位元移動運算子</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_compare')">比較運算子</a></li>
+                                        <li>
+                                            <a href="#" class="a" onclick="smoothscroll('operator_logic')">邏輯運算子</a>
+                                            <ul>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operator_logic_shortcut')">短路解析</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_string')">字串運算子</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_condition')">條件運算子</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_comma')">逗點運算子</a></li>
+                                        <li>
+                                            <a href="#" class="a" onclick="smoothscroll('operator_unary')">一元運算子</a>
+                                            <ul>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operator_unary_delete')">delete</a></li>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operator_unary_typeof')">typeof</a></li>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operator_unary_void')">void</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="a" onclick="smoothscroll('operator_relation')">關係運算子</a>
+                                            <ul>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operator_relation_in')">in</a></li>
+                                                <li><a href="#" class="a" onclick="smoothscroll('operator_relation_instanceof')">instanceof</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_group')">分組運算子</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_new')">new</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_expand')">展開運算子</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('operator_priority')">運算子優先級</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="a" onclick="smoothscroll('judgmental')">判斷式</a>
+                            <ul>
+                                <li><a href="#" class="a" onclick="smoothscroll('judgmental_ifelse')">ifelse</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('judgmental_switchcase')">switchcase</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('judgmental_switchcasetoifelse')">switchcaseTOifelse</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="a" onclick="smoothscroll('loop')">迴圈</a>
+                            <ul>
+                                <li><a href="#" class="a" onclick="smoothscroll('loop_for')">forloop</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('loop_while')">while</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('loop_dowhile')">do-while</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('loop_foreach')">forEach</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('loop_while-dowhile-difference')">while及do-while之差異</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="a" onclick="smoothscroll('object')">物件</a>
+                            <ul>
+                                <li><a href="#" class="a" onclick="smoothscroll('object_array')">陣列</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('object_object')">物件</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="a" onclick="smoothscroll('function')">函式</a>
+                            <ul>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_introduction')">函式介紹</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_define')">定義函式</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_call')">呼叫函式</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_scope')">功能範圍</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_vsmethod')">函式vs方法</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_anonymous')">匿名函式</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_parameter')">函式參數</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_conflict')">函式作用域及衝突</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_insidefunction')">函式裡的函式</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_argumentsobject')">arguments物件</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('function_canbepredefined')">可預定義的函式</a>
+                                    <ul>
+                                        <li><a href="#" class="a" onclick="smoothscroll('function_canbepredefined_eval')">eval</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('function_canbepredefined_isfinite')">isFinite</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('function_canbepredefined_isnan')">isNaN</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('function_canbepredefined_parseintparsefloat')">parseInt & parseFloat</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('function_canbepredefined_number_string')">Number & String</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('function_canbepredefined_encodeuridecodeuriencodeuricomponentdecodeuricomponent')">encodeURI、decodeURI、encodeURIComponent、decodeURIComponent</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="a" onclick="smoothscroll('exception')">例外處理</a>
+                            <ul>
+                                <li><a href="#" class="a" onclick="smoothscroll('exception_introduction')">例外介紹</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('exception_fix')">處理例外</a>
+                                    <ul>
+                                        <li><a href="#" class="a" onclick="smoothscroll('exception_fix_throw')">throw</a></li>
+                                        <li><a href="#" class="a" onclick="smoothscroll('exception_fix_trycatch')">try-catch</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="a" onclick="smoothscroll('psandseealso')">註解及參見</a>
+                            <ul>
+                                <li><a href="#" class="a" onclick="smoothscroll('psandseealso_seealso')">參見</a></li>
+                                <li><a href="#" class="a" onclick="smoothscroll('key-reservedword')">關鍵保留字</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <!-- main START -->
+            <div class="main macossectiondivy">
+                <div class="block" id="introduction">
+                    <div class="blocklittletext">
+                        <h2 class="blocktitle">介紹</h2>
+                        <p>js 可以用來做很多事例如:</p>
+                        <ol>
+                            <li>存取網頁內容(access content)</li>
+                            <li>調整網頁內容(modify content)</li>
+                            <li>計畫運作規則(porgram rules)</li>
+                            <li>回應網頁事件(react to events)</li>
+                        </ol>
+                        主要就是為了增加網頁的互動性而出現的程式語言
+                    </div>
+                    <p><a href="https://developer.mozilla.org/zh-TW/docs/Learn/JavaScript/First_steps/What_is_JavaScript">詳細介紹參見</a></p>
+                </div>
+
+                <div class="block" id="structure">
+                    <h2 class="blocktitle">語彙結構</h2>
+                    <div class="blocklittletext">
+                        <ol>
+                            <li>大小寫敏感</li>
+                            <li>結尾分號模糊(可加可不加)</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="block" id="comment">
+                    <h2 class="blocktitle">註解方式</h2>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// 這是一個單行註解</span>
+
+<span class="hljs-comment">/*
+這是一個多行註解
+*/</span>
+
+<span class="hljs-comment">/*
+*甚至有人喜歡
+*這
+*樣
+*打
+*!
+*/</span></div></code></pre>
+                    </div>
+                </div>
+                <div class="block" id="type">
+                    <h2 class="blocktitle">型別</h2>
+                    <p>js中的型別共計有7種分別為<strong>boolean</strong>,<strong>null</strong>,<strong>undefined</strong>,<strong>number</strong>,<strong>bigint</strong>,<strong>string</strong>,<strong>symbol</strong>,<strong>object</strong><br>
+                    </p>
+                    <h3 id="boolean">boolean(布林值): 只有兩個型態<strong>true</strong>或<strong>false</strong></h3><br>
+                    <h3 id="null">null(空值): 通常是指一個<strong>不存在</strong>的或無效的物件或地址(反正就是沒有東西)</h3><br>
+                    <p></p>
+                    <h3 id="undefined">undefined(undefined): 是自動分配給剛剛聲明的變量或<strong>沒有實際參數</strong>的形式參數的原始值。</h3><br>
+                    <h3 id="number">number(數字): 就數字XD 分別有integer,float,double,bignum</h3>
+                    <div class="blocklittletext">
+                        例如:
+                        <ul>
+                            <li>123456</li>
+                            <li>4564151.12312</li>
+                            <li>4546513123.4566</li>
+                            <li>13132.123123132132</li>
+                        </ul>
+                        皆為數字
+                    </div><br>
+                    <h3 id="bigint">bigint(大整數): 是一種數字數據類型，可以表示任意精度格式的<strong>整數</strong></h3><br>
+                    <h3 id="string">string(字串): 就文本(大小引號模糊)</h3>
+                    <div class="blocklittletext">
+                        例如:
+                        <ul>
+                            <li>&quot;132156456&quot;</li>
+                            <li>&quot;abcdefg&quot;</li>
+                            <li>&quot;小賀大帥哥&quot;</li>
+                            <li>&quot;123.123&quot;</li>
+                        </ul>
+                        皆為字串
+                    </div><br>
+                    <h3 id="symbol">symbol(象徵)[ECMA6 new]</h3>
+                    <p class="blocklittletext">
+                        象徵是一個內置對象，其構造函數返回一個<b>symbol原語</b>(也稱為符號值或只是符號)，保證是唯一的。符號通常用於向對象添加唯一的屬性鍵，這些屬性鍵不會與任何其他代碼可能添加到該對象的鍵發生衝突，並且對於其他代碼通常用於訪問該對象的任何機制都是隱藏的。這實現了一種弱封裝形式，或者一種弱形式的信息隱藏。
+                    </p><br>
+                    <h3 id="object">object(物件): 是一個包含資料與處理資料指令的資料結構(array也是物件)</h3>
+                </div>
+
+                <div class="block" id="variable">
+                    <h2 class="blocktitle">變數</h2>
+                    <p>程式碼如果需要<strong>暫時</strong>儲存資料就會放在<strong>變數</strong>中</p>
+                    <div class="blocknext">
+                        <h3 class="blocknexttitle" id="variablerole">命名規定</h3>
+                        <ol>
+                            <li>js的最一開始的變數會需要用let或const或var開始</li>
+                            <li>不能被重複宣告</li>
+                            <li>常數(const)不能被更改</li>
+                            <li>須以 $ 或 _ 或 英文字母a-z(大小寫皆可)開始，之後可以使用數字在中間，但不得使用 #關鍵保留字</li>
+                        </ol>
+
+                        <p>例如以下都是合法的變數</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> abc=<span class="hljs-number">123</span>
+<span class="hljs-keyword">let</span> $<span class="hljs-number">345678</span>
+<span class="hljs-keyword">let</span> _adv<span class="hljs-comment">// 上面是一般的變數</span>
+<span class="hljs-keyword">const</span> aaa <span class="hljs-comment">// 這是一個常數(不能被更改)</span></div></code></pre>
+                        </div>
+
+                        <p>建議要先使用let const var</p>
+                        <div class="pre">
+<pre class="hljs"><code><div>abc=<span class="hljs-number">456</span> <span class="hljs-comment">// 正常輸出</span></div></code></pre>
+                        </div>
+
+                        <p>變數不能被<strong>重複宣告</strong></p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> abc=<span class="hljs-number">123</span>
+<span class="hljs-keyword">let</span> abc=<span class="hljs-number">456</span> <span class="hljs-comment">// X: Uncaught SyntaxError: Identifier 'abc' has already been declared</span></div></code></pre>
+                        </div>
+
+                        <p>如果要交換就直接換即可</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> abc=<span class="hljs-number">123</span>
+abc=<span class="hljs-number">456</span></div></code></pre>
+                        </div>
+
+                        <p>常數不能被更改</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> abc=<span class="hljs-number">123</span>
+abc=<span class="hljs-number">456</span> <span class="hljs-comment">// X: Uncaught TypeError: Assignment to constant variable. at &lt;anonymous&gt;:1:4</span></div></code></pre>
+                        </div>
+
+                        <p>變數須以 $ 或 _ 或 英文字母a-z(大小寫皆可)開始</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> <span class="hljs-number">1</span>aa <span class="hljs-comment">// X: Uncaught SyntaxError: Invalid or unexpected token</span></div></code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block" id="operation">
+                    <h2 class="blocktitle">運算式及運算子</h2>
+                    <div class="blocknext" id="operation_expression">
+                        <h3 class="blocknexttitle">運算式</h3>
+                        <p>運算式是一個任何一段可以取得一個值的程式碼。</p>
+                        <p>
+                            任何合乎語法的運算式都能取得一個值，概念上，有兩種不同型態的運算式: 其一是<b>有副作用的</b>(例如: 將一個值指定給一個變數)另一為<b>只為了取得值</b>而解析的運算式。<br>
+                            運算式 x=7 是上述的第一種類型。這個使用=運算子的運算式會將數值7賦與給x。運算式本身也會被解析為 7。<br>
+                            運算式 3+4 是上述的第二種類型。這個運算式使用+運算子把3和4加起來，<b>而不指定給任何變數。</b>
+                        </p><br>
+                        <div class="blocklittletext">
+                            js中運算式有下列幾種種類:
+                            <ul>
+                                <li>算術運算式: 解析出數字，例如 3.14159。（通常使用算術運算子。）</li>
+                                <li>字串運算式: 解析出字串，例如 &quot;Fred&quot; or &quot;234&quot;。（通常使用字串運算子。）</li>
+                                <li>邏輯運算式: 解析出 True 或 False（通常與邏輯運算子相關。）</li>
+                                <li>主流運算式: js中基本的關鍵字及運算式。</li>
+                                <li>左側運算式: 左側是指定值的對象。</li>
+                            </ul>
+                        </div>
+                        <div class="blocknext2" id="operation_mainstream">
+                            <h4 class="blocknext2title">主流運算式</h4>
+                            <p>js中基本的關鍵字及運算式。</p>
+                            <div class="blocknext3" id="operation_this">
+                                <h5 class="blocknext3title">this</h5>
+                                <p>this 關鍵字能取得當前所在物件。一般而言，this能取得呼叫處所在的物件。<br>
+                                    可以使用**.<strong>或</strong>[]**來取用該物件中的特性:<br>
+                                    this['特性名稱']<br>
+                                    this.特性名稱</p>
+                                <p>以下定義一個叫做a的函式，比較物件中特性value與傳入的兩變數:</p>
+                                <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">a</span>(<span class="hljs-params">obj,lowval,hival</span>)</span>{
+    <span class="hljs-keyword">if</span>(obj.value&lt;lowval||obj.value&gt;hival)
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"不可用的值!"</span>)
+}</div></code></pre>
+                                </div>
+                                <p>你可以在表單的onChange event handler中呼叫函式，並以this傳入表單的元素，範例如下:</p>
+                                <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>請輸入一介於18 與 99 的數字:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">"validate(this,18,99);"</span>&gt;</span></div></code></pre>
+                                </div>
+                            </div>
+                            <div class="blocknext3" id="operation_parse">
+                                <h5 id="%E8%A7%A3%E6%9E%90%E5%AF%A6%E9%A9%97">解析[ECMA new]</h5>
+                                <p>
+                                    陣列解析: [for (x of y) x]<br>
+                                    產生器解析: (for (x of y) y)
+                                </p>
+                                <p>解析在許多程式語言中都存在，允許你快速地基於現存陣列產生新的陣列，例如:</p>
+                                <div class="pre">
+<pre class="hljs"><code><div>[<span class="hljs-keyword">for</span> (i <span class="hljs-keyword">of</span> [ <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span> ]) i*i ];
+<span class="hljs-comment">// =&gt;[ 1,4,9 ]</span>
+<span class="hljs-keyword">let</span> abc=[ <span class="hljs-string">'A'</span>,<span class="hljs-string">'B'</span>,<span class="hljs-string">'C'</span> ];
+[<span class="hljs-keyword">for</span> (letters <span class="hljs-keyword">of</span> abc) letters.toLowerCase()];
+<span class="hljs-comment">// =&gt;[ 'a','b','c' ]</span>
+</div></code></pre>
+                                </div>
+                            </div>
+                            <div class="blocknext3" id="operation_leftside">
+                                <h5 class="blocknext3title">左側運算式</h5>
+                                <p>左側是指定值的對象。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocknext" id="operator">
+                        <h3 class="blocktitle">運算子</h3>
+                        <p>
+                            js有以下幾種運算子分別為: <strong>賦值運算子</strong>,<strong>比較運算子</strong>,<strong>算術運算子</strong>,<strong>位元運算子</strong>,<strong>邏輯運算子</strong>,<strong>字串運算子</strong>,<strong>條件（三元）運算子</strong>,<strong>逗點運算子</strong>,<strong>一元運算子</strong>,<strong>關係運算子</strong>
+                        </p>
+                        <div class="blocknext2" id="operator_role">
+                            <h4 class="blocknext2title">運算子規則</h4>
+                            <p>
+                                一個二元運算子需要具備兩個運算元，一個在運算元之前，一個在運算元之後:<br>
+                                運算元1 運算子 運算元2<br>
+                                例如,3+4 或 x*y.<br>
+                                因此可以推得你有n個運算元則至少需要n-1個運算子。
+                            </p>
+                        </div>
+                        <div class="blocknext2" id="operator_assignment">
+                            <h4 class="blocknext2title">賦值運算子</h4>
+                            <p>
+                                一個賦值運算子會將 <b>其*右方*的運算元 的值賦予 其*左方*的運算元</b>。最簡單的賦值運算子是"="，它將<b>賦予左方運算元與右方運算元相同之值</b>。也就是說<b>x=y 會把y的值賦予給x。</b>
+                            </p>
+                            <p>也有一些復合的賦值運算子是為了縮短下面表中的運算:</p>
+                            <table class="sttable outborder">
+                                <tr>
+                                    <td>名稱</td>
+                                    <td>簡化的運算子</td>
+                                    <td>意義</td>
+                                </tr>
+                                <tr>
+                                    <td>賦值</td>
+                                    <td>x=y</td>
+                                    <td>x=y</td>
+                                </tr>
+                                <tr>
+                                    <td>加法賦值</td>
+                                    <td>x+=y</td>
+                                    <td>x=x+y</td>
+                                </tr>
+                                <tr>
+                                    <td>減法賦值</td>
+                                    <td>x-=y</td>
+                                    <td>x=x-y</td>
+                                </tr>
+                                <tr>
+                                    <td>乘法賦值</td>
+                                    <td>x*=y</td>
+                                    <td>x=x*y</td>
+                                </tr>
+                                <tr>
+                                    <td>除法賦值</td>
+                                    <td>x/=y</td>
+                                    <td>x=x/y</td>
+                                </tr>
+                                <tr>
+                                    <td>餘數賦值</td>
+                                    <td>x%=y</td>
+                                    <td>x=x%y</td>
+                                </tr>
+                                <tr>
+                                    <td>指數賦值</td>
+                                    <td>x**=y</td>
+                                    <td>x=x**y</td>
+                                </tr>
+                                <tr>
+                                    <td>左移賦值</td>
+                                    <td>x&lt;&lt;=y</td>
+                                    <td>x=x&lt;&lt;y</td>
+                                </tr>
+                                <tr>
+                                    <td>右移賦值</td>
+                                    <td>x&gt;&gt;=y</td>
+                                    <td>x=x&gt;&gt;y</td>
+                                </tr>
+                                <tr>
+                                    <td>無號右移賦值</td>
+                                    <td>x&gt;&gt;&gt;=y</td>
+                                    <td>x=x&gt;&gt;&gt;y</td>
+                                </tr>
+                                <tr>
+                                    <td>位元 AND 賦值</td>
+                                    <td>x&amp;=y</td>
+                                    <td>x=x&amp;y</td>
+                                </tr>
+                                <tr>
+                                    <td>位元 XOR 賦值</td>
+                                    <td>x^=y</td>
+                                    <td>x=x^y</td>
+                                </tr>
+                                <tr>
+                                    <td>位元 OR 賦值</td>
+                                    <td>x|=y</td>
+                                    <td>x=x|y</td>
+                                </tr>
+                            </table>
+                            <p>解構為了進行更複雜的賦值，解構賦值是js用來從陣列或物件中提取資料的語法。</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> foo=[<span class="hljs-string">"one"</span>,<span class="hljs-string">"two"</span>,<span class="hljs-string">"three"</span>];
+
+<span class="hljs-comment">// 不使用解構</span>
+<span class="hljs-keyword">let</span> one=foo[<span class="hljs-number">0</span>]
+<span class="hljs-keyword">let</span> two=foo[<span class="hljs-number">1</span>]
+<span class="hljs-keyword">let</span> three=foo[<span class="hljs-number">2</span>]
+
+<span class="hljs-comment">// 使用解構</span>
+<span class="hljs-keyword">let</span> [one,two,three]=foo
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_compare">
+                            <h4 class="blocknext2title">比較運算子</h4>
+                            <p>
+                                比較運算子會比較運算元並基於比較的結果回傳邏輯值。運算元可以是數字，字串，邏輯，或物件的值。字串的比較是基於字典序的，使用Unicode的值。<br>
+                                在多數情況下，假如兩個運算元不具有相同型態，js會嘗試將它們轉換成相同型態。這個行為通常是將運算元以數學形式對待。在某些的轉換型態的例外中會使用到 === 及 !== 運算子，它們會嚴格地進行相等或不相等的比較。<br>
+                            </p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> var1=<span class="hljs-number">3</span>
+<span class="hljs-keyword">let</span> var2=<span class="hljs-number">4</span>
+</div></code></pre>
+                            </div>
+                            <p>這些運算子不會在確認相等與否前嘗試轉換運算元的型態。下面的表解釋了比較運算子:</p>
+                            <table class="sttable outborder">
+                                <tr>
+                                    <td>運算子</td>
+                                    <td>描述</td>
+                                    <td>會回傳True的例子</td>
+                                </tr>
+                                <tr>
+                                    <td>等於(==)</td>
+                                    <td>假如運算元等價就回傳True</td>
+                                    <td>3==var1,&quot;3&quot;==var1,3=="3"</td>
+                                </tr>
+                                <tr>
+                                    <td>不等於(!=)</td>
+                                    <td>假如運算元不等價就回傳True</td>
+                                    <td>var1!=4,var2!=&quot;3&quot;</td>
+                                </tr>
+                                <tr>
+                                    <td>嚴格等於(===)</td>
+                                    <td>假如運算元具有相同型態且等價則回傳True</td>
+                                    <td>3===var1</td>
+                                </tr>
+                                <tr>
+                                    <td>嚴格不等於(!==)</td>
+                                    <td>假如運算元具有相同型態但不等價或是具有不同型態回傳True</td>
+                                    <td>var1!==&quot;3&quot;,3!=="3"</td>
+                                </tr>
+                                <tr>
+                                    <td>大於(&gt;)</td>
+                                    <td>假如左方運算元大於右方運算元回傳True</td>
+                                    <td>var2&gt;var1,&quot;12&quot;&gt;2</td>
+                                </tr>
+                                <tr>
+                                    <td>大於或等於(&gt;=)</td>
+                                    <td>假如左方運算元大於或等於右方運算元回傳True</td>
+                                    <td>var2&gt;=var1,var1&gt;=3</td>
+                                </tr>
+                                <tr>
+                                    <td>小於(&lt;)</td>
+                                    <td>假如左方運算元小於右方運算元回傳True</td>
+                                    <td>var1&lt;var2,&quot;2&quot;&lt;12</td>
+                                </tr>
+                                <tr>
+                                    <td>小於或等於(&lt;=)</td>
+                                    <td>假如左方運算元小於或等於右方運算元回傳True</td>
+                                    <td>var1&lt;=var2,var2&lt;=5</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="blocknext2" id="operator_arithmetic">
+                            <h4 class="blocknext2title">算術運算子</h4>
+                            <p>算術運算子 以數值(文字或變數也可以)作為其運算元，並回傳單一數值。最常見的算術運算元是加法(+)，減法(-)，乘法(*)，及除法(/)在js中比較特別的是，在除數為0時Infinity。</p>
+                            範例:
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-number">1</span> / <span class="hljs-number">2</span>; <span class="hljs-comment">// =&gt;0.5</span>
+<span class="hljs-number">1</span> / <span class="hljs-number">2</span>==<span class="hljs-number">1.0</span> / <span class="hljs-number">2.0</span>; <span class="hljs-comment">// =&gt;會是 true</span>
+</div></code></pre>
+                            </div>
+                            <p>js算術運算子列表:</p>
+                            <table class="sttable outborder">
+                                <tr>
+                                    <td>運算子</td>
+                                    <td>描述</td>
+                                    <td>範例</td>
+                                </tr>
+                                <tr>
+                                    <td>取餘數(+)</td>
+                                    <td>二元運算子。加法。</td>
+                                    <td>12+5 回傳 17.</td>
+                                </tr>
+                                <tr>
+                                    <td>取餘數(-)</td>
+                                    <td>二元運算子。減法。</td>
+                                    <td>12-5 回傳 7.</td>
+                                </tr>
+                                <tr>
+                                    <td>取餘數(*)</td>
+                                    <td>二元運算子。乘法。</td>
+                                    <td>12*5 回傳 60.</td>
+                                </tr>
+                                <tr>
+                                    <td>取餘數(/)</td>
+                                    <td>二元運算子。除法。</td>
+                                    <td>12/5 回傳 2.4.</td>
+                                </tr>
+                                <tr>
+                                    <td>取餘數(%)</td>
+                                    <td>二元運算子。回傳兩個運算元相除後的餘數。</td>
+                                    <td>12%5回傳2.</td>
+                                </tr>
+                                <tr>
+                                    <td>增加 (++)</td>
+                                    <td>一元運算子。將運算元增加 1。假如使用在運算元之前(++x)，會運算元回傳增加1後的值;假如使用在運算元之後。(x++)，會回傳運算元加1前的值。</td>
+                                    <td>假如x是3，那<strong>++x將把x設定為4並回傳4</strong>，而<strong>x++會回傳3，接著才把x設定為4</strong>。</td>
+                                </tr>
+                                <tr>
+                                    <td>減少 (--)</td>
+                                    <td>一元運算子。將運算元減少 1。回傳值的情況與增加運算元相同。</td>
+                                    <td>假如x是3，那<strong>--x將把x設定為2並回傳2，而x--會回傳3，接著才把x設定為2。</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>(一元運算子)減號(-)</td>
+                                    <td>一元運算子。回傳運算元的負數。</td>
+                                    <td>假如x是3，-x回傳-3。</td>
+                                </tr>
+                                <tr>
+                                    <td>(一元運算子)加號(+)</td>
+                                    <td>一元運算子。嘗試將運算元轉換成數字，假如它還不是數字的話。</td>
+                                    <td>+&quot;3&quot;回傳3。+true回傳1.</td>
+                                </tr>
+                                <tr>
+                                    <td>指數運算子(**)</td>
+                                    <td>計算以a為底的b次方，也就是a^b</td>
+                                    <td>2**3回傳8 10**-1回傳0.1.</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="blocknext2" id="operator_bit">
+                            <h4 class="blocknext2title">位元運算子</h4>
+                            <p>
+                                把運算元當作<strong>32位元的0/1集合來看待</strong>，而不是十進位，十六進位，或八進位。例如，十進位數字9以二進位表示就是1001。位元運算子將運算元以上述二進位的形式處理，但是回傳js中的數字類型值。
+                            </p>
+                            <p>js位元運算子列表:</p>
+                            <table class="sttable outborder">
+                                <tr>
+                                    <td>運算子</td>
+                                    <td>用法</td>
+                                    <td>描述</td>
+                                    <td>範例</td>
+                                </tr>
+                                <tr>
+                                    <td>位元 AND</td>
+                                    <td>a&amp;b</td>
+                                    <td>回傳兩個運算元對於每個 bit 做 AND 的結果。</td>
+                                    <td><i>暫無</i></td>
+                                </tr>
+                                <tr>
+                                    <td>位元 OR</td>
+                                    <td>a|b</td>
+                                    <td>回傳兩個運算元對於每個 bit 做 OR 的結果。</td>
+                                    <td><i>暫無</i></td>
+                                </tr>
+                                <tr>
+                                    <td>位元 XOR</td>
+                                    <td>a^b</td>
+                                    <td>回傳兩個運算元對於每個 bit 做 XOR 的結果。</td>
+                                    <td><i>暫無</i></td>
+                                </tr>
+                                <tr>
+                                    <td>位元 NOT</td>
+                                    <td>~a</td>
+                                    <td>將運算元中的每個 bit 反轉(1-&gt;0,0-&gt;1)。</td>
+                                    <td><i>暫無</i></td>
+                                </tr>
+                                <tr>
+                                    <td>左移</td>
+                                    <td>a&lt;&lt;b</td>
+                                    <td>將a的每個bit向左移動b個bits，空餘的位數以0填滿。</td>
+                                    <td><i>暫無</i></td>
+                                </tr>
+                                <tr>
+                                    <td>有號右移</td>
+                                    <td>a&gt;&gt;b</td>
+                                    <td>將a的每個bit向右移動b個bits，空餘位數以最高位補滿。</td>
+                                    <td><i>暫無</i></td>
+                                </tr>
+                                <tr>
+                                    <td>以0填充的右移</td>
+                                    <td>a&gt;&gt;&gt;b</td>
+                                    <td>將a的每個bit向右移動b個bits，空餘的位數以0填滿。</td>
+                                    <td><i>暫無</i></td>
+                                </tr>
+                            </table>
+                            <div class="blocknext3" id="operator_bit_logic">
+                                <h5 class="blocknext3title">位元邏輯運算子</h5>
+                                <p>概念上，位元邏輯運算子 運作過程如下:</p>
+                                <p>
+                                    運算元被轉換為32bits的整數以二進位形式表示(0和1)。大於32bits的數字將被捨棄多出來的位元。<br>
+                                    例如，下列整數大於32個bit但是會被轉換為32個bit的整數:<br>
+                                    轉換之前: 11100110111110100000000000000110000000000001<br>
+                                    轉換之後: 10100000000000000110000000000001<br>
+                                    第一個運算元中的每個bit分別對應到第二個運算元的每個bit:第一個bit對第一個bit,第二個bit對第二個bit，以此類推。<br>
+                                    運算子會對於bit進行運算，結果也是基於bit來決定的。
+                                </p>
+                                例如，9的二元表示法是1001，15的二元表示法是1111。因此，在使用位元運算子的時候，結果如下:
+                                <table class="sttable outborder">
+                                    <tr>
+                                        <td>運算式</td>
+                                        <td>結果</td>
+                                        <td>二元描述式</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15&amp;9</td>
+                                        <td>9</td>
+                                        <td>1111 &amp; 1001=1001</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15|9</td>
+                                        <td>15</td>
+                                        <td>1111</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15^9</td>
+                                        <td>6</td>
+                                        <td>1111^1001=0110</td>
+                                    </tr>
+                                    <tr>
+                                        <td>~15</td>
+                                        <td>-16</td>
+                                        <td>~ 0000 0000 … 0000 1111=1111 1111 … 1111 0000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>~9</td>
+                                        <td>-10</td>
+                                        <td>~ 0000 0000 … 0000 1001=1111 1111 … 1111 0110</td>
+                                    </tr>
+                                </table>
+                                <p>注意，在使用位元NOT運算子時，所有的 32 個 bit 都被進行 NOT 了，包含最左邊用來描述正負數的位元(two's-complement representation)。</p>
+                            </div>
+                            <div class="blocknext3" id="operator_bit_move">
+                                <h5 class="blocknext3title">位元移動運算子</h5>
+                                <p>
+                                    位元移動運算子需要兩個運算元: 第一個是運算的目標，第二個是要移動的位元數。移動的方向取決於使用的運算子。<br>
+                                    移動運算子會將運算元轉換成 32 bits 的整數，並且會回傳與左方運算元相同的型態。
+                                </p>
+                                <p>移動運算子在下表被列出.</p>
+                                <table class="sttable outborder">
+                                    <tr>
+                                        <td>運算子</td>
+                                        <td>描述</td>
+                                        <td>範例</td>
+                                    </tr>
+                                    <tr>
+                                        <td>左移(&lt;&lt;)</td>
+                                        <td>這個運算子會將第一個運算元的每個bit向左移動第二個運算元所指定的bit數量。左邊超出的位數會被捨棄，右邊空出的位數以0補齊。</td>
+                                        <td>9&lt;&lt;2得到36，因為1001向左移動2bits會得到100100，也就是二進位的36。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>有號右移(&gt;&gt;)</td>
+                                        <td>這個運算子會將第一個運算元的每個bit向右移動第二個運算元所指定的bit數量。右邊超出的位數會被捨棄，左邊空出的位數以最高位補齊。</td>
+                                        <td>9&gt;&gt;2得到2，因為1001向右移動2bits會得到10，也就是二進位的2。相同的，-9&gt;&gt;2會得到-3，因為最高位用來表示正負號的bit被保留了。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>以0填充的右移(&gt;&gt;&gt;)</td>
+                                        <td>這個運算子會將第一個運算元的每個bit向右移動第二個運算元所指定的bit數量。右邊超出的位數會被捨棄，左邊空出的位數以0補齊。</td>
+                                        <td>19&gt;&gt;&gt;2得到4，因為10011向右移動2bits會得到100，是二進位的4。對於非負的數字而言，以0填充的右移會得到和有號右移相同的結果。</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_logic">
+                            <h4 class="blocknext2title">邏輯運算子</h4>
+                            <p>邏輯運算子通常被用於布林(邏輯)值; 使用於 布林(邏輯)值時，它們會回傳布林型態的值。然而，<b>&amp;&amp;</b>和<b>||</b>運算子實際上是回傳兩指定運算元之一，因此用於非布林型態值時，它可能會回傳一個非布林型態的值。</p>
+                            邏輯運算子將在下表中被詳細解釋:
+                            <table class="sttable outborder">
+                                <tr>
+                                    <th>運算元</th>
+                                    <th>使用時機</th>
+                                    <th>介紹</th>
+                                </tr>
+                                <tr>
+                                    <td>&amp;&amp; (AND)</td>
+                                    <td>運算式1&amp;&amp;運算式2</td>
+                                    <td>假如運算式1可以被轉換成false的話，回傳運算元1，否則，回傳運算元2。因此，&amp;&amp;只有<b>在運算元都是True時才會回傳True</b>。</td>
+                                </tr>
+                                <tr>
+                                    <td>|| (OR)</td>
+                                    <td>運算式1||運算式2</td>
+                                    <td>假如運算式1可以被轉換成true的話，回傳運算元1，否則，回傳運算元2。因此，||<b>在運算元有任一個是True時就會回傳True</b></td>
+                                </tr>
+                                <tr>
+                                    <td>! (NOY)</td>
+                                    <td>!運算式</td>
+                                    <td>假如單一個運算式被轉換成false時，回傳true。<b>也就是說會轉換成相反的狀態</b></td>
+                                </tr>
+                            </table>
+                            <p>可以被轉換為false的運算式是null、0、NaN、空字串（&quot;&quot;）、undefined。</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// &amp;&amp;（邏輯 AND）運算子的範例。</span>
+<span class="hljs-keyword">let</span> a1=<span class="hljs-literal">true</span>&amp;&amp;<span class="hljs-literal">true</span> <span class="hljs-comment">// =&gt;true</span>
+<span class="hljs-keyword">let</span> a2=<span class="hljs-literal">true</span>&amp;&amp;<span class="hljs-literal">false</span> <span class="hljs-comment">// =&gt;false</span>
+<span class="hljs-keyword">let</span> a3=<span class="hljs-literal">false</span>&amp;&amp;<span class="hljs-literal">true</span> <span class="hljs-comment">// =&gt;false</span>
+<span class="hljs-keyword">let</span> a4=<span class="hljs-literal">false</span>&amp;&amp;<span class="hljs-number">3</span>==<span class="hljs-number">4</span> <span class="hljs-comment">// =&gt;false</span>
+<span class="hljs-keyword">let</span> a5=<span class="hljs-string">"Cat"</span>&amp;&amp;<span class="hljs-string">"Dog"</span> <span class="hljs-comment">// =&gt;Dog</span>
+<span class="hljs-keyword">let</span> a6=<span class="hljs-literal">false</span>&amp;&amp;<span class="hljs-string">"Cat"</span> <span class="hljs-comment">// =&gt;false</span>
+<span class="hljs-keyword">let</span> a7=<span class="hljs-string">"Cat"</span>&amp;&amp;<span class="hljs-literal">false</span> <span class="hljs-comment">// =&gt;false</span>
+</div></code></pre>
+                            </div>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">//  ||（邏輯 OR）運算子的範例。</span>
+
+<span class="hljs-keyword">let</span> o1=<span class="hljs-literal">true</span>||<span class="hljs-literal">true</span> <span class="hljs-comment">// =&gt;true</span>
+<span class="hljs-keyword">let</span> o2=<span class="hljs-literal">false</span>||<span class="hljs-literal">true</span> <span class="hljs-comment">// =&gt;true</span>
+<span class="hljs-keyword">let</span> o3=<span class="hljs-literal">true</span>||<span class="hljs-literal">false</span> <span class="hljs-comment">// =&gt;true</span>
+<span class="hljs-keyword">let</span> o4=<span class="hljs-literal">false</span>||<span class="hljs-number">3</span>==<span class="hljs-number">4</span> <span class="hljs-comment">// =&gt;false</span>
+<span class="hljs-keyword">let</span> o5=<span class="hljs-string">"Cat"</span>||<span class="hljs-string">"Dog"</span> <span class="hljs-comment">// =&gt;Cat</span>
+<span class="hljs-keyword">let</span> o6=<span class="hljs-literal">false</span>||<span class="hljs-string">"Cat"</span> <span class="hljs-comment">// =&gt;Cat</span>
+<span class="hljs-keyword">let</span> o7=<span class="hljs-string">"Cat"</span>||<span class="hljs-literal">false</span> <span class="hljs-comment">// =&gt;Cat</span>
+</div></code></pre>
+                            </div>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// !（邏輯 NOT）運算子的範例。</span>
+
+<span class="hljs-keyword">let</span> n1=!<span class="hljs-literal">true</span> <span class="hljs-comment">// =&gt;false</span>
+<span class="hljs-keyword">let</span> n2=!<span class="hljs-literal">false</span> <span class="hljs-comment">// =&gt;true</span>
+<span class="hljs-keyword">let</span> n3=!<span class="hljs-string">"Cat"</span> <span class="hljs-comment">// =&gt;false</span>
+</div></code></pre>
+                            </div>
+                            <div class="blocknext3" id="operator_logic_shortcut">
+                                <h5 class="blocknext3title">短路解析</h5>
+                                <p>邏輯運算式是由左向右解析的，他們會以下列規則嘗試進行 短路解析:<br>
+                                    false&amp;&amp;任何東西 是 false 的短路解析。<br>
+                                    true||任何東西 是 true 的短路解析。<br>
+                                    這些規則保證 解析總是正確的。值得注意的地方是，剩餘部分的運算式並沒有被解析，所以不會占用任何效能。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_string">
+                            <h4 class="blocknext2title">字串運算子</h4>
+                            <p>除了作為比較運算子之外，運算子(+)也能用於字串，將兩字串接在一起，並回傳接在一起後的結果。</p>
+                            <p>例如:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"我的"</span>+<span class="hljs-string">"字串"</span>) <span class="hljs-comment">// =>"我的字串"</span>
+</div></code></pre>
+                            </div>
+                            <p>簡化的設定運算子+=也能用於串接字串。</p>
+                            <p>例如:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> mystring=<span class="hljs-string">"字"</span>
+mystring+=<span class="hljs-string">"母"</span> <span class="hljs-comment">// 得到"字母"並賦與給變數mystring.</span>
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_condition">
+                            <h4 class="blocknext2title">條件運算子</h4>
+                            <p>
+                                條件運算子(又稱三元運算子、三元運算式等等)是js中唯一需要三個運算元的運算子。這個運算子接受兩個運算元作為值且一個運算元作為條件。<br>
+                                語法是:
+                                <strong>條件?值1:值2</strong><br>
+                                如果條件為true，運算子回傳*值1*，否則回傳*值2*。你可以在任何使用標準運算子的地方改用條件運算子。
+                            </p>
+                            <p>例如:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> status=age&gt;=<span class="hljs-number">18</span>?<span class="hljs-string">"成人"</span>:<span class="hljs-string">"小孩"</span>
+</div></code></pre>
+                            </div>
+                            <p>這個陳述句會將&quot;成人&quot;賦與給變數status假如age大於等於18。否則，會將&quot;小孩&quot;賦與給變數status。</p>
+                        </div>
+                        <div class="blocknext2" id="operator_comma">
+                            <h4 class="blocknext2title">逗點運算子</h4>
+                            <p>逗點運算子作用是解析兩個運算元並回傳後面那個運算元的值。這個運算子通常用於 for 迴圈內部，讓多個變數能在每次迴圈中被更新。</p>
+                            <p>例如，假如 a 是一個有十個物件在裡面的二維陣列，下面的程式中就使用了逗點運算子來同時更新兩個變數。這段程式碼會印出陣列中所有對角線上的物件:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>,j=<span class="hljs-number">9</span>;i&lt;=j;i=i+1,j=j-1)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a["</span>+i+<span class="hljs-string">"]["</span>+j+<span class="hljs-string">"]="</span>+a[i][j])
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_unary">
+                            <h4 class="blocknext2title">一元運算子</h4>
+                            <p>一元運算是指只需要一個運算元的運算。</p>
+                            <p>
+                                一元運算子需要一個運算元，位於運算子之前:<br>
+                                例如:<br>
+                                運算元 運算子
+                            </p>
+                            <p>常用的一元運算子如下:</p>
+                        </div>
+                        <div class="blocknext3" id="operator_unary_delete">
+                            <h5 class="blocknext3title">delete</h5>
+                            <p>delete運算子會刪除物件，物件的性質，或是陣列中指定index的物件。語法是:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">delete</span> 物件名稱
+<span class="hljs-keyword">delete</span> 物件名稱.性質
+<span class="hljs-keyword">delete</span> 物件名稱[索引]
+<span class="hljs-keyword">delete</span> 性質 <span class="hljs-comment">// 只有在 with 陳述句中可以使用</span>
+</div></code></pre>
+                            </div>
+                            <p>物件名稱是物件的名稱，性質 是物件中的一個特性，索引 是用來表示物件在陣列中位置的一個整數。</p>
+                            <p>第四種形式只有在 with 陳述句中可用，用來刪除物件中的一個特性。</p>
+                            <p>你可以用delete運算子來刪除隱式宣告的變數，但不適用於使用let宣告的變數。</p>
+                            <p>假如delete運算子使用成功，它會將物件或是物件的特性設定為undefined。delete運算子會在運算成功時回傳 true，失敗時回傳false。</p>
+                            <div class="pre">
+<pre class="hljs"><code><div>x=<span class="hljs-number">42</span>
+<span class="hljs-keyword">let</span> y=<span class="hljs-number">43</span>
+myobj=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Number</span>()
+myobj.h=<span class="hljs-number">4</span> <span class="hljs-comment">// 建立特性 h</span>
+<span class="hljs-keyword">delete</span> x <span class="hljs-comment">// 回傳 true (只有在隱式宣告時能被刪除)</span>
+<span class="hljs-keyword">delete</span> y <span class="hljs-comment">// 回傳 false (在使用 let 宣告時無法刪除)</span>
+<span class="hljs-keyword">delete</span> <span class="hljs-built_in">Math</span>.PI <span class="hljs-comment">// 回傳 false (不能刪除內建定義的特性)</span>
+<span class="hljs-keyword">delete</span> myobj.h <span class="hljs-comment">// 回傳 true (可以刪除使用者自定義的特性)</span>
+<span class="hljs-keyword">delete</span> myobj <span class="hljs-comment">// 回傳 true (在隱式宣告時可被刪除)</span>
+</div></code></pre>
+                            </div>
+                            <p>
+                                在你刪除了陣列中的一個元素後，陣列的長度並不會改變。例如，假如你刪除a[3]，a[4]依然是a[4]而a[3]為undefined。
+                            </p>
+                            <p>當使用 delete 運算子刪除陣列中的一個元素後，那個元素便不再存在於陣列中了。在下面的程式中，array[3] 被用 delete 移除了。然而，array[3] 的記憶體位址仍可用並且會回傳undefined。</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> array=[<span class="hljs-string">"redwood"</span>,<span class="hljs-string">"bay"</span>,<span class="hljs-string">"cedar"</span>,<span class="hljs-string">"oak"</span>,<span class="hljs-string">"maple"</span>]
+<span class="hljs-keyword">delete</span> array[<span class="hljs-number">3</span>]
+<span class="hljs-keyword">if</span> (<span class="hljs-number">3</span> <span class="hljs-keyword">in</span> array){
+<span class="hljs-comment">// 不會執行到這裡</span>
+}
+</div></code></pre>
+                            </div>
+                            <p>假如你希望給予陣列元素undefined的值，你<b>可以直接使用undefined關鍵字</b>而不是使用delete運算子。下列範例中，array[3]被指定了undefined，然而陣列元素依然存在:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> array=[<span class="hljs-string">"redwood"</span>,<span class="hljs-string">"bay"</span>,<span class="hljs-string">"cedar"</span>,<span class="hljs-string">"oak"</span>,<span class="hljs-string">"maple"</span>]
+array[<span class="hljs-number">3</span>]=<span class="hljs-literal">undefined</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-number">3</span> <span class="hljs-keyword">in</span> array){
+<span class="hljs-comment">// 會執行這裡</span>
+}
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext3" id="operator_unary_typeof">
+                            <h5 class="blocknext3title">typeof</h5>
+                            <p>typeof運算子能以下列任一方式使用:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">typeof</span> 運算元
+<span class="hljs-keyword">typeof</span> (運算元)
+<span class="hljs-keyword">typeof</span> 運算子會回傳代表運算元類型的 字串。運算元能是字串，變數，關鍵字，或是會回傳型態的物件。括號是可有可無的。
+</div></code></pre>
+                            </div>
+                            <p>例如:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// 假設你定義了以下這些變數:</span>
+<span class="hljs-keyword">let</span> myFun=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span>(<span class="hljs-string">"5+2"</span>)
+<span class="hljs-keyword">let</span> shape=<span class="hljs-string">"round"</span>
+<span class="hljs-keyword">let</span> size=<span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> today=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()
+
+<span class="hljs-comment">// typeof運算子會回傳下列結果:</span>
+<span class="hljs-keyword">typeof</span> myFun <span class="hljs-comment">// 回傳 "function"</span>
+<span class="hljs-keyword">typeof</span> shape <span class="hljs-comment">// 回傳 "string"</span>
+<span class="hljs-keyword">typeof</span> size <span class="hljs-comment">// 回傳 "number"</span>
+<span class="hljs-keyword">typeof</span> today <span class="hljs-comment">// 回傳 "object"</span>
+<span class="hljs-keyword">typeof</span> doesntExist <span class="hljs-comment">// 回傳 "undefined"</span>
+<span class="hljs-comment">// 對於 true 和 null關鍵字，typeof運算子會回傳下列結果:</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-literal">true</span> <span class="hljs-comment">// 回傳 "boolean"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span> <span class="hljs-comment">// 回傳 "object"</span>
+
+<span class="hljs-comment">// 對於字串或數字，typeof運算子會回傳下列結果:</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-number">62</span> <span class="hljs-comment">// 回傳 "number"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-string">"Hello world"</span> <span class="hljs-comment">// 回傳 "string"</span>
+
+<span class="hljs-comment">// 對於特性，typeof 運算子會回傳 特性的值的類型:</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">document</span>.lastModified <span class="hljs-comment">// 回傳 "string"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span>.length <span class="hljs-comment">// 回傳 "number"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Math</span>.LN2 <span class="hljs-comment">// 回傳 "number"</span>
+
+<span class="hljs-comment">// 對於 方法 及 函式，typeof運算子會回傳下列結果:</span>
+<span class="hljs-keyword">typeof</span> blur <span class="hljs-comment">// 回傳 "function"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">eval</span> <span class="hljs-comment">// 回傳 "function"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">parseInt</span> <span class="hljs-comment">// 回傳 "function"</span>
+<span class="hljs-keyword">typeof</span> shape.split <span class="hljs-comment">// 回傳 "function"</span>
+
+<span class="hljs-comment">// 對於內建定義的物件，typeof運算子會回傳下列結果:</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Date</span> <span class="hljs-comment">// 回傳 "function"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Function</span> <span class="hljs-comment">// 回傳 "function"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Math</span> <span class="hljs-comment">// 回傳 "object"</span>
+<span class="hljs-keyword">typeof</span> Option <span class="hljs-comment">// 回傳 "function"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">String</span> <span class="hljs-comment">// 回傳 "function"</span>
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext3" id="operator_unary_void">
+                            <h5 class="blocknext3title">void</h5>
+                            <p>void運算子能以下列任一方式使用:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">void</span> (運算式)
+<span class="hljs-keyword">void</span> 運算式
+<span class="hljs-keyword">void</span> 運算子會解析運算式而不回傳任何值。
+運算式 是js中要解析的對象。括號是可有可無的，但是建議使用。
+</div></code></pre>
+                            </div>
+                            <p>你可以使用 void 運算子來解析超連結中的運算式。運算式會被解析而不會在當前頁面被印出。</p>
+                            <p>下列範例是一個在點擊時甚麼都不做的超連結。當使用者點擊連結時，void(0)被解析為undefined，而甚麼都不會發生。</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0)"</span>&gt;</span>點擊這裡，甚麼都不會發生<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</div></code></pre>
+                            </div>
+                            <p>下列範例是一個在使用者點擊時傳送表單的超連結。</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(document.form.submit())"</span>&gt;</span> 點擊以送出<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_relation">
+                            <h4 class="blocknext2title">關係運算子</h4>
+                            <p>關係運算子會比較兩運算元並基於比較結果回傳布林值。</p>
+                            <div class="blocknext3" id="operator_relation_in">
+                                <h5 class="blocknext3title">in</h5>
+                                <p>
+                                    in運算子在指定性質存在於物件中時回傳true。語法是:<br>
+                                    性質名稱 in 物件名稱<br>
+                                    性質名稱可以是字串或數字，或是陣列的索引，且物件名稱是物件的名稱。<br>
+                                    下列範例示範了in運算子的一些用法。<br>
+                                </p>
+                                <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// 陣列</span>
+<span class="hljs-keyword">let</span> trees=[<span class="hljs-string">"redwood"</span>,<span class="hljs-string">"bay"</span>,<span class="hljs-string">"cedar"</span>,<span class="hljs-string">"oak"</span>,<span class="hljs-string">"maple"</span>]
+<span class="hljs-number">0</span> <span class="hljs-keyword">in</span> trees <span class="hljs-comment">// =>true</span>
+<span class="hljs-number">3</span> <span class="hljs-keyword">in</span> trees <span class="hljs-comment">// =>true</span>
+<span class="hljs-number">6</span> <span class="hljs-keyword">in</span> trees <span class="hljs-comment">// =>false</span>
+<span class="hljs-string">"bay"</span> <span class="hljs-keyword">in</span> trees <span class="hljs-comment">// =>false // (你必須指定 索引，而不是 索引所對應的元素)</span>
+<span class="hljs-string">"length"</span> <span class="hljs-keyword">in</span> trees <span class="hljs-comment">// =>true // (length 是陣列的性質之一)</span>
+
+<span class="hljs-comment">// 內建物件</span>
+<span class="hljs-string">"PI"</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">Math</span> <span class="hljs-comment">// =>true</span>
+<span class="hljs-keyword">let</span> myString=<span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">"coral"</span>)
+<span class="hljs-string">"length"</span> <span class="hljs-keyword">in</span> myString <span class="hljs-comment">// =>true</span>
+
+<span class="hljs-comment">// 自訂義物件</span>
+<span class="hljs-keyword">let</span> mycar={ <span class="hljs-attr">make</span>: <span class="hljs-string">"Honda"</span>,<span class="hljs-attr">model</span>: <span class="hljs-string">"Accord"</span>,<span class="hljs-attr">year</span>: <span class="hljs-number">1998</span> }
+<span class="hljs-string">"make"</span> <span class="hljs-keyword">in</span> mycar <span class="hljs-comment">// =>true</span>
+<span class="hljs-string">"model"</span> <span class="hljs-keyword">in</span> mycar <span class="hljs-comment">// =>true</span>
+</div></code></pre>
+                                </div>
+                            </div>
+                            <div class="blocknext3" id="operator_relation_instanceof">
+                                <h5 class="blocknext3title">instanceof</h5>
+                                <p>
+                                    instanceof運算子在指定物件具有指定的物件型態時回傳true，語法是:<br>
+                                    物件名稱 instanceof 物件類型<br>
+                                    物件名稱是用來與物件類型比較的物件的名字，物件類型是物件的類型，例如Date或Array。
+                                </p>
+                                <p>當你需要在程式執行中確認物件的形態時，你可以使用instanceof運算子。例如，當捕捉到例外時，你可以依照例外的類型來決定用來處理意外的程式碼。</p>
+                                <p>例如，下列程式碼使用instanceof來判斷變數theDay是不是Date類型的物件。因為theDay是Date類型的物件，所以if陳述中的陳述句會被執行。</p>
+                                <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> theDay=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1995</span>,<span class="hljs-number">12</span>,<span class="hljs-number">17</span>)
+<span class="hljs-keyword">if</span> (theDay <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Date</span>){
+    <span class="hljs-comment">// 會被執行的陳述</span>
+}
+</div></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_group">
+                            <h4 class="blocknext2title">分組運算子</h4>
+                            <p>分組運算子(也就是"()")控制了運算子的優先順序。例如，你可以覆寫先乘除，後加減的優先順序，使其變成先加減，後乘除。</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> a=<span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> b=<span class="hljs-number">2</span>
+<span class="hljs-keyword">let</span> c=<span class="hljs-number">3</span>
+<span class="hljs-comment">// 預設運算級</span>
+a+b*c <span class="hljs-comment">// =&gt;7</span>
+<span class="hljs-comment">// 預設的結果</span>
+a+(b*c) <span class="hljs-comment">// =&gt;7</span>
+
+<span class="hljs-comment">// 現在複寫運算級</span>
+<span class="hljs-comment">// 變成先進行加法，後乘法了</span>
+(a+b)*c <span class="hljs-comment">// =&gt;9</span>
+
+<span class="hljs-comment">// 結果</span>
+a*c+b*c <span class="hljs-comment">// 9</span>
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_new">
+                            <h4 class="blocknext2title">new</h4>
+                            <p>你可以使用new運算子來建立一個使用者自定義物件或內建物件的實例。用法如下:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> 物件名稱=<span class="hljs-keyword">new</span> 物件型態([參數<span class="hljs-number">1</span>,參數<span class="hljs-number">2</span>,...,參數N])
+<span class="hljs-keyword">super</span>
+<span class="hljs-keyword">super</span> 關鍵字用於呼叫物件的父物件中的函式。在使用類別來呼叫父類別的建構子時很實用，例如:
+
+<span class="hljs-keyword">super</span>([參數]) <span class="hljs-comment">// 呼叫父物件的建構子.</span>
+<span class="hljs-keyword">super</span>.父物件的函式([參數])
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_expand">
+                            <h4 class="blocknext2title">展開運算子</h4>
+                            <p>展開運算子能將運算式展開於需要多個參數的地方（如函式呼叫）或是需要多個元素（如陣列字串常數）的地方。</p>
+                            <p>範例：現在你想要用已存在的一個陣列做為新的一個陣列的一部份，當字串常數不再可用而你必須使用指令式編程，也就是使用，一連串的 push、splice、concat，等等。展開運算子能讓過程變得更加簡潔:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> parts=[<span class="hljs-string">"肩膀"</span>,<span class="hljs-string">"膝蓋"</span>]
+<span class="hljs-keyword">let</span> lyrics=[<span class="hljs-string">"頭"</span>,...parts,<span class="hljs-string">"和"</span>,<span class="hljs-string">"腳趾"</span>]
+</div></code></pre>
+                            </div>
+                            <p>相同的，展開運算子也適用於函式呼叫:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">x,y,z</span>)</span>{}
+<span class="hljs-keyword">let</span> args=[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]
+f(...參數)
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="operator_priority">
+                            <h4 class="blocknext2title">運算子優先級</h4>
+                            <p>運算子優先級決定運算子被使用於運算元的先後順序。你也可以使用括號來強制指定優先級。</p>
+                            <p>下列表格列出了運算子的優先級，從高到低。</p>
+                            <table class="sttable outborder">
+                                <tr>
+                                    <td>優先級</td>
+                                    <td>運算子名稱</td>
+                                    <td>相依</td>
+                                    <td>運算子</td>
+                                </tr>
+                                <tr>
+                                    <td>19</td>
+                                    <td>分組運算子</td>
+                                    <td>無</td>
+                                    <td>()</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="5">18</td>
+                                    <td>Member Access</td>
+                                    <td>從左至右</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Computed Member Access</td>
+                                    <td>從左至右</td>
+                                    <td>[]</td>
+                                </tr>
+                                <tr>
+                                    <td>new (with argument list)</td>
+                                    <td>無</td>
+                                    <td>new name()</td>
+                                </tr>
+                                <tr>
+                                    <td>呼叫函式</td>
+                                    <td>從左至右</td>
+                                    <td>function()</td>
+                                </tr>
+                                <tr>
+                                    <td>可選串連（Optional chaining）</td>
+                                    <td>從左至右</td>
+                                    <td>?.</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>new (without argument list)</td>
+                                    <td>從右至左</td>
+                                    <td>new</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td><strong>字尾</strong>遞增遞減</td>
+                                    <td>無</td>
+                                    <td>++ --</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="9">15</td>
+                                    <td>Logical NOT</td>
+                                    <td>從右至左</td>
+                                    <td>!</td>
+                                </tr>
+                                <tr>
+                                    <td>Bitwise NOT</td>
+                                    <td>從右至左</td>
+                                    <td>~</td>
+                                </tr>
+                                <tr>
+                                    <td>Unary Plus</td>
+                                    <td>從右至左</td>
+                                    <td>+</td>
+                                </tr>
+                                <tr>
+                                    <td>Unary Negation</td>
+                                    <td>從右至左</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>字首遞增遞減</td>
+                                    <td>從右至左</td>
+                                    <td>++ --</td>
+                                </tr>
+                                <tr>
+                                    <td>typeof</td>
+                                    <td>從右至左</td>
+                                    <td>typeof</td>
+                                </tr>
+                                <tr>
+                                    <td>void</td>
+                                    <td>從右至左</td>
+                                    <td>void</td>
+                                </tr>
+                                <tr>
+                                    <td>delete</td>
+                                    <td>從右至左</td>
+                                    <td>delete</td>
+                                </tr>
+                                <tr>
+                                    <td>await</td>
+                                    <td>從右至左</td>
+                                    <td>await</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>次方</td>
+                                    <td>從右至左</td>
+                                    <td>**</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>乘除法模除</td>
+                                    <td>從左至右</td>
+                                    <td>* / %</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>加減法</td>
+                                    <td>從左至右</td>
+                                    <td>+ -</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>位元移動</td>
+                                    <td>從左至右</td>
+                                    <td>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>關係運算子</td>
+                                    <td>從左至右</td>
+                                    <td>&lt; &lt;= &gt; &gt;= in instanceof</td>
+                                </tr>
+                                <tr>
+                                    <td>09</td>
+                                    <td>相等性</td>
+                                    <td>從左至右</td>
+                                    <td>== != === !==</td>
+                                </tr>
+                                <tr>
+                                    <td>08</td>
+                                    <td>位元AND</td>
+                                    <td>從左至右</td>
+                                    <td>&amp;</td>
+                                </tr>
+                                <tr>
+                                    <td>07</td>
+                                    <td>位元XOR</td>
+                                    <td>從左至右</td>
+                                    <td>^</td>
+                                </tr>
+                                <tr>
+                                    <td>06</td>
+                                    <td>位元OR</td>
+                                    <td>從左至右</td>
+                                    <td>|</td>
+                                </tr>
+                                <tr>
+                                    <td>05</td>
+                                    <td>邏輯AND</td>
+                                    <td>從左至右</td>
+                                    <td>&amp;&amp;</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">04</td>
+                                    <td>邏輯OR</td>
+                                    <td>從左至右</td>
+                                    <td>||</td>
+                                </tr>
+                                <tr>
+                                    <td>Nullish Coalescing</td>
+                                    <td>從左至右</td>
+                                    <td>??</td>
+                                </tr>
+                                <tr>
+                                    <td>03</td>
+                                    <td>條件運算子</td>
+                                    <td>從右至左</td>
+                                    <td>?:</td>
+                                </tr>
+                                <tr>
+                                    <td>02</td>
+                                    <td>指定運算子</td>
+                                    <td>從右至左</td>
+                                    <td>= += -= **= *= /= %= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= &amp;= ^= |= &amp;&amp;= ||= ??=</td>
+                                </tr>
+                                <tr>
+                                    <td>01</td>
+                                    <td>逗點運算子</td>
+                                    <td>從左至右</td>
+                                    <td>,</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="block" id="judgmental">
+                    <h2 class="blocktitle">判斷式</h2>
+                    <div class="blocknext" id="judgmental_ifelse">
+                        <h3 class="blocknexttitle">ifelse</h3>
+                        <p>當條件成立的時候會執行if陳述式裡的程式，而不成立時則執行另外一個陳述式。</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span>(condition){
+    context
+}
+
+<span class="hljs-comment">// With an else clause</span>
+<span class="hljs-keyword">if</span>(condition){
+    context
+}<span class="hljs-keyword">else</span>{
+    context
+}
+</div></code></pre>
+                        </div>
+                        <p>condition是一個成立或不成立的運算式。</p>
+                        <p>
+                            context是如果if中的條件為真時執行陳述式。<br>
+                            陳述式可以為任何內容，包含巢狀式的if陳述。當要執行多行的陳述式時，使用區塊(block)將所要執行的陳述式包覆。<br>
+                            如果不需要執行任何動作時，則可以不撰寫任何陳述式。<br>
+                            當條件不成立時所執行的部份，當else被撰寫時才會被執行。可以是任何的陳述式，包含使用區塊(block)及巢狀的陳述。
+                        </p>
+                        <p>
+                            多重的ifelse陳述式可以使用else if子句來建立一個巢狀結構的句子。
+                            要記住，在JavaScript中<b>*沒有elseif*</b>的語法可以用(從來都沒有)。
+                        </p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span>(condition){
+    context
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(condition){
+    context
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(condition){
+    context
+}
+<span class="hljs-comment">// inf.</span>
+<span class="hljs-keyword">else</span>{
+    context
+}
+</div></code></pre>
+                        </div>
+                        <p>將巢狀結構適當的排版後，我們能更了解其背後運作的邏輯：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span>(condition){
+    context
+}<span class="hljs-keyword">else</span>{
+    <span class="hljs-keyword">if</span>(condition){
+        context
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">if</span>(condition){
+            context
+        }
+    }
+}
+</div></code></pre>
+                        </div>
+                        <p>如果在一個條件式中只要一行可以這樣簡化。</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span>(condition)
+    context
+<span class="hljs-keyword">else</span>
+    context
+</div></code></pre>
+                        </div>
+                        <p>但通常來說，無論如何都使用區塊陳述式(第一種方式)是個很好的習慣，尤其是當你使用巢狀結構的 if 陳述式時，這會讓人更容易理解你的程式碼。</p>
+                        <p>
+                            !!注意!! 不要被Boolean物件中，布林值的 true 和 false 給混淆了。<br>
+                            任何值只要不是false、undefined、null、0、NaN，或者空字串。任何物件包括其值是false的布林物件仍然會被條件陳述式視為條件成立。<br>
+                            舉例而言：
+                        </p>
+                        <div class="pre">
+<pre class="hljs"><code><div>let b = new Boolean(false);
+if (b) // =>ture
+</div></code></pre>
+                        </div>
+                    </div>
+                    <div class="blocknext" id="judgmental_switchcase">
+                        <h3 class="blocknexttitle">switchcase</h3>
+                        <p>switch語句會比對一個表達式裡頭的值是否符合case條件，然後執行跟這個條件相關的陳述式，以及此一符合條件以外，剩下其他條件裡的陳述式。</p>
+                        <p>語法</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">switch</span>(expression){
+    <span class="hljs-keyword">case</span> value1:
+        context
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> value2:
+        context
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-comment">// inf..</span>
+    <span class="hljs-keyword">case</span> valueN:
+        context
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-attr">default</span>:
+        <span class="hljs-keyword">break</span>;
+}
+</div></code></pre>
+                        </div>
+                        <p>expression: 一個表達式其結果用來跟每個 case 條件比對。</p>
+                        <p>case value: 一個 case 條件是用來跟 expression 匹配的。 如果 expression 符合特定的 valueN，那在case條件裡的語句就會執行，直到這個switch陳述式結束或遇到一個break。</p>
+                        <p>default: 那在 expression 的值並<b>不符合任何一個case條件的情況下，就會執行這個條件裡的語句</b>。</p>
+                        <p>一個 switch 陳述式會先評估自己的 expression。然後他會按照 case 條件順序開始尋找，直到比對到第一個表達式值跟輸入 expression 的值相等的 case 條件(嚴格相等)並把控制流交給該子句、並執行裡面的陳述式（如果給定值符合多個 case，就執行第一個符合的 case，就算該 case 與其他 case 不同）</p>
+                        <p>如果未找到匹配的 case 子句，程序將查找可選的 default 子句，如果找到，則將控制權轉移到該子句，執行關聯的語句。 如果沒有找到 default 子句，程序將繼續執行 switch 末尾後面的語句。<br>
+                            按照慣例， default 語句會是最後一個條件，但<strong>不一定要存在</strong>。（如果給定值符合多個 case，就執行第一個符合的 case，就算該 case 與其他 case 不同）</p>
+                        <p>與每個 case 標籤關聯的可選的break語句確保一旦執行匹配的語句，程序就跳出switch，並在switch後面的語句處繼續執行。 如果省略break，程序將繼續執行switch 語句中的下一條語句。</p>
+                        <p>在以下示例中，如果 expr 的計算結果為“Bananas”，則程序將該值與大小寫“Bananas”匹配並執行關聯的語句。 當遇到break時，程序跳出switch並執行switch後面的語句。<br>
+                            如果省略了break，則case“Cherries”的語句也將被執行。</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">switch</span>(expr){
+<span class="hljs-keyword">case</span> <span class="hljs-string">"Oranges"</span>:
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Oranges are $0.59 a pound."</span>)
+    <span class="hljs-keyword">break</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">"Apples"</span>:
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Apples are $0.32 a pound."</span>)
+    <span class="hljs-keyword">break</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">"Bananas"</span>:
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Bananas are $0.48 a pound."</span>)
+    <span class="hljs-keyword">break</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">"Cherries"</span>:
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Cherries are $3.00 a pound."</span>)
+    <span class="hljs-keyword">break</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">"Mangoes"</span>:
+<span class="hljs-keyword">case</span> <span class="hljs-string">"Papayas"</span>:
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Mangoes and papayas are $2.79 a pound."</span>)
+    <span class="hljs-keyword">break</span>
+<span class="hljs-attr">default</span>:
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Sorry, we are out of "</span>+expr+<span class="hljs-string">"."</span>)
+}
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Is there anything else you'd like?"</span>)
+</div></code></pre>
+                        </div>
+                        <p>如果忘記 break ，則腳本將從滿足條件的情況開始運行，並且無論是否滿足條件都將運行之後的情況。 請參閱此處的示例：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> foo=<span class="hljs-number">0</span>
+<span class="hljs-keyword">switch</span>(foo){
+    <span class="hljs-keyword">case</span> <span class="hljs-number">-1</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"negative 1"</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">0</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: <span class="hljs-comment">// no break statement in 'case 0:' so this case will run as well</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-attr">default</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"default"</span>)
+} <span class="hljs-comment">/*</span>
+<span class="hljs-comment">=>0</span>
+<span class="hljs-comment">1</span>
+<span class="hljs-comment">*/</span>
+</div></code></pre>
+                        </div>
+                        <p>cases 中間可以放 default! 如果 JavaScript 找不到匹配項，它會將您返回到默認值(就算置於所有其他情況之前時，它也適用)：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> foo=<span class="hljs-number">5</span>
+<span class="hljs-keyword">switch</span>(foo){
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-attr">default</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"default"</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"1"</span>)
+} <span class="hljs-comment">// =>"default"</span>
+</div></code></pre>
+                        </div>
+                        <p>同時使用多個條件 case 的方法<br>
+                            此方法利用了以下事實：如果 case 語句下面沒有中斷，則無論 case 是否滿足條件，它將繼續執行下一個 case 語句。 請參閱標題為“如果我忘記休息會怎樣？”的部分。</p>
+                        <p>這是單個操作順序 switch 語句的示例，其中四個不同的值執行完全相同的操作。</p>
+                        <div class="pre">
+    <pre class="hljs"><code><div><span class="hljs-keyword">let</span> Animal=<span class="hljs-string">"Giraffe"</span>
+<span class="hljs-keyword">switch</span> (Animal){
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Cow"</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Giraffe"</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Dog"</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Pig"</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"This animal will go on Noah's Ark."</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Dinosaur"</span>:
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"This animal will not."</span>)
+}
+</div></code></pre>
+                        </div>
+                        <p>Multi-case鍊式操作<br>
+                        這是多操作順序 switch 語句的示例，其中根據提供的整數，您可以收到不同的輸出。 這表明它將按照放置 case 語句的順序進行遍歷，並且不必按數字順序排列。 在 JavaScript 中，您甚至可以將字符串定義混合到這些
+                        case 語句中。</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> foo=<span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> output=<span class="hljs-string">"Output: "</span>
+<span class="hljs-keyword">switch</span> (foo){
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+        output=output+<span class="hljs-string">"So "</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        output=output+<span class="hljs-string">"What "</span>
+        output=output+<span class="hljs-string">"Is "</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        output=output+<span class="hljs-string">"Your "</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+        output=output+<span class="hljs-string">"Name"</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+        output=output+<span class="hljs-string">"?"</span>
+        <span class="hljs-built_in">console</span>.log(output)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+        output=output+<span class="hljs-string">"!"</span>
+        <span class="hljs-built_in">console</span>.log(output)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-attr">default</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Please pick a number from 0 to 5!"</span>)
+}
+</div></code></pre>
+                        </div>
+                        <p>
+                            switch 語句中的塊作用域變量<br>
+                            由於大多數現代瀏覽器都提供了ESMA6支持，因此在某些情況下您可能希望使用 let 和 const 語句來聲明塊作用域變量。
+                        </p>
+                        <p>看一下這個例子：</p>
+                        <div class="pre">
+
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> action=<span class="hljs-string">"say_hello"</span>
+<span class="hljs-keyword">switch</span>(action){
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"say_hello"</span>:
+        <span class="hljs-keyword">let</span> message=<span class="hljs-string">"hello"</span>
+        <span class="hljs-built_in">console</span>.log(message)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"say_hi"</span>:
+        <span class="hljs-keyword">let</span> message=<span class="hljs-string">"hi"</span>
+        <span class="hljs-built_in">console</span>.log(message)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-attr">default</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Empty action received."</span>)
+        <span class="hljs-keyword">break</span>
+}
+<span class="hljs-comment">// X: Uncaught SyntaxError: Identifier 'message' has not been displayed。</span>
+</div></code></pre>
+                        </div>
+                    <p>此示例將輸出您可能沒有預料到的錯誤。</p>
+                    <p>這是因為第一個let message='hello'; 與第二個 let 語句衝突 let message='hi'; 即使它們在自己單獨的 case 語句中 case 'say_hello': 和 case 'say_hi';<br>
+                        最終，這是由於兩個 let 語句都被解釋為同一塊作用域內相同變量名的重複聲明。</p>
+                    <p>我們可以通過用<b>括號</b>括起我們的 case 語句來輕鬆解決這個問題：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> action=<span class="hljs-string">"say_hello"</span>
+<span class="hljs-keyword">switch</span>(action){
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"say_hello"</span>:{
+        <span class="hljs-keyword">let</span> message=<span class="hljs-string">"hello"</span>
+        <span class="hljs-built_in">console</span>.log(message)
+        <span class="hljs-keyword">break</span>
+    }
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"say_hi"</span>:{
+        <span class="hljs-keyword">let</span> message=<span class="hljs-string">"hi"</span>
+        <span class="hljs-built_in">console</span>.log(message)
+        <span class="hljs-keyword">break</span>
+    }
+    <span class="hljs-attr">default</span>:{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Empty action received."</span>)
+        <span class="hljs-keyword">break</span>
+    }
+} <span class="hljs-comment">// =>"hello"</span>
+</div></code></pre>
+                    </div>
+                    <p>現在此代碼將在控制台中正常輸出不會出現任何錯誤。</p>
+                    <div class="blocknext" id="judgmental_switchcasetoifelse">
+                        <h3 class="blocknexttitle">switchcase_TO_ifelse</h3>
+                        <p>例如這個switchcase</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> test=<span class="hljs-number">0</span>
+<span class="hljs-keyword">switch</span>(test){
+    <span class="hljs-keyword">case</span> <span class="hljs-number">-1</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"negative 1"</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-attr">default</span>:
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"default"</span>)
+}
+</div></code></pre>
+                        </div>
+                    <p>改成if要這樣寫</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> test=<span class="hljs-number">0</span>
+<span class="hljs-keyword">if</span>(test==<span class="hljs-number">-1</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"negative 1"</span>)
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(test==<span class="hljs-number">0</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">0</span>)
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(test==<span class="hljs-number">1</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(test==<span class="hljs-number">2</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)
+}<span class="hljs-keyword">else</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"default"</span>)
+}
+</div></code></pre>
+                    </div>
+                    <p>如果沒break，if判斷式會等效成</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> test=<span class="hljs-number">0</span>
+<span class="hljs-keyword">if</span>(test==<span class="hljs-number">-1</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"negative 1"</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">0</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(test==<span class="hljs-number">0</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">0</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(test==<span class="hljs-number">1</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(test==<span class="hljs-number">2</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)
+}<span class="hljs-keyword">else</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"default"</span>)
+}
+</div></code></pre>
+                    </div>
+                    <p>if轉switchcase則相反這裡就不加闡述</p>
+                </div>
+            </div>
+            <div class="block" id="loop">
+                <h2 class="blocktitle">迴圈</h2>
+                <p>在本章收錄了js的 forloop while do-while forEach 迴圈</p>
+                <div class="blocknext" id="loop_for">
+                    <h4 class="blocknexttitle">forloop</h4>
+                    <h5>語法架構</h5>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;count;i=i+<span class="hljs-number">1</span>){
+    <span class="hljs-comment">// function...</span>
+}
+</div></code></pre>
+                    </div>
+                </div>
+
+                <div class="blocknext" id="loop_while">
+                    <h4 class="blocknexttitle">while</h4>
+                    <h5>語法架構</h5>
+                    <div class="pre">
+
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span>(i&lt;count){
+    <span class="hljs-comment">// function...</span>
+    i=i+<span class="hljs-number">1</span>
+}
+</div></code></pre>
+                    </div>
+                </div>
+
+                <div class="blocknext" id="loop_dowhile">
+                    <h4 class="blocknexttitle">do-while</h4>
+                    <h5>語法架構</h5>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>
+<span class="hljs-keyword">do</span>{
+    <span class="hljs-comment">//function...</span>
+    i=i+<span class="hljs-number">1</span>
+}<span class="hljs-keyword">while</span>(i&lt;count)
+</div></code></pre>
+                    </div>
+                </div>
+
+                <div class="blocknext" id="loop_foreach">
+                    <h4 class="blocknexttitle">forEach</h4>
+                    <h5>語法架構</h5>
+                    <div class="pre">
+<pre class="hljs"><code><div>array[].forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>{
+    <span class="hljs-comment">// function...</span>
+})
+</div></code></pre>
+                    </div>
+                </div>
+
+                <div class="blocknext" id="loop_while-dowhile-difference">
+                    <h3 class="blocknexttitle">while及do-while之差異</h3>
+                    <p><strong>while</strong>迴圈它可以重複執行一段程式碼，只要特定的條件保持為真。這種迴圈結構通常用<strong>於處理需要重複執行、直到特定條件不再滿足的情況</strong>。</p>
+                    <p>while 迴圈可以應用在處理資料的判斷、動態載入資料、處理事件等<strong>不知道次數</strong>的方面。</p>
+                    <p><strong>do-while</strong>可以在滿足特定條件的情況下重複執行一段程式碼。這種迴圈結構通<strong>常用於處理需要至少執行一次的操作</strong>，然後根據特定條件是否滿足來決定是否繼續重複執行。</p>
+                    <p>do-while迴圈可以應用在處理使用者輸入驗證、表單驗證、動態載入資料等場景中。你也可以根據具體的需求和情境，適應並應用這種迴圈結構在不同的網頁設計場景中。</p>
+                    <p>你可以根據具體的需求和情境，在網頁設計中使用 while/do-while 迴圈處理、動態操作 DOM 元素、處理事件循環等。<strong>請確保在使用迴圈時考慮好迴圈終止的條件，以避免無窮迴圈的發生</strong>。
+                    </p>
+                    <p>以一般程式來說，用while的次數會遠比用do-while來得高。</p>
+                    <p>(雖然我都只用forloopヾ(•ω•`)o)</p>
+                </div>
+            </div>
+
+            <div class="block" id="object">
+                <h2 class="blocktitle">物件</h2>
+                <p>再說物件之前我們先來說說 #陣列</p>
+                <div class="blocknext" id="object_array">
+                    <h3 class="blocknexttitle">陣列</h3>
+                    <p>陣列是一個特殊的物件主要的功能就是<strong>儲存大量資料</strong>
+                        陣列元素從一開始</p>
+                    <p>js的陣列語法如下:</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">let</span> array1=[<span class="hljs-string">"1"</span>,<span class="hljs-string">"2"</span>,<span class="hljs-string">"3"</span>] <span class="hljs-comment">// 以,分隔每隔值</span>
+<span class="hljs-built_in">console</span>.log(array1) <span class="hljs-comment">// =&gt; ["1","2","3"]</span>
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">let</span> array2=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-string">"1"</span>,<span class="hljs-string">"2"</span>,<span class="hljs-string">"3"</span>) <span class="hljs-comment">// 以,分隔每隔值</span>
+<span class="hljs-built_in">console</span>.log(array2) <span class="hljs-comment">// =&gt; ["1","2","3"]</span>
+
+<span class="hljs-comment">// 如果要拿到陣列的第一個值要這樣寫</span>
+consloe.log(array1[<span class="hljs-number">0</span>]) <span class="hljs-comment">// =&gt; "1"</span>
+consloe.log(array2.item(<span class="hljs-number">0</span>)) <span class="hljs-comment">// =&gt; "1"</span>
+
+<span class="hljs-comment">// 如果要改變陣列的直可以這麼做</span>
+array1[<span class="hljs-number">2</span>]=<span class="hljs-string">"4"</span>
+<span class="hljs-built_in">console</span>.log(array1) <span class="hljs-comment">// =&gt; ["1","2","4"]</span>
+</div></code></pre>
+                    </div>
+                    <p>建議使用第一種方式，本篇教學也都以第一種方式寫</p>
+                    <p>二維及多維陣列:</p>
+                    <p>範例:</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> array3=[
+    [<span class="hljs-string">"1"</span>,<span class="hljs-string">"2"</span>,<span class="hljs-string">"3"</span>],
+    [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>]
+] <span class="hljs-comment">// 像這樣子一個陣列又有一個就是二維(有兩個就是三維以此類推)</span>
+
+<span class="hljs-built_in">console</span>.log(array3) <span class="hljs-comment">/* =&gt;
+0:(3) ['1','2','3']
+1:(3) ['a','b','c']
+*/</span>
+</div></code></pre>
+                    </div>
+                </div>
+                <div class="blocknext" id="object_object">
+                    <h3 class="blocknexttitle">物件</h3>
+                    <p>物件(object)是一個包含資料與處理資料指令的資料結構。
+                    <p>語法:</p>
+                    <div class="pre">
+<pre class="hljs"><code><div>// Object initialiser or literal
+{
+    *value: *any
+    // *inf.*
+}
+// Called as a constructor
+new Object(*\[any\]*)
+</div></code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="block" id="function">
+                <h2 class="blocktitle">函式</h2>
+                <div class="blocknext" id="function_introduction">
+                    <h3 class="blocknexttitle">函式介紹</h3>
+                    <p>程式設計的另一個基本概念是函數，它允許您儲存一段程式碼，該程式碼在定義的區塊內執行單個任務，然後在需要時使用一個簡短命令調用該程式碼區塊，而不必多次輸入相同的程式碼。</p>
+                    <p>函式是構成js的基本要素之一。一個函式本身就是一段js程序—包含用於執行某一個任務或計算的語法。要呼叫某一個函式之前，你必需先在這個函式欲執行的 scope 中定義它。</p>
+                </div>
+                <div class="blocknext" id="function_define">
+                    <h3 id="%E5%AE%9A%E7%BE%A9%E5%87%BD%E5%BC%8F">定義函式</h3>
+                    一個函式的定義由一系列的函式關鍵詞組成:
+                    <ul class="ul">
+                        <li>函式的<strong>名稱(不得為 <a href="#" class="a" onclick="smoothscroll('key-reservedword')">關鍵保留字</a>)</strong>。</li>
+                        <li>包圍在<strong>括號</strong>中，並由<strong>半形逗號</strong>區隔的一個函式參數列表(可以為無參數)。</li>
+                        <li>包圍在<strong>大括號</strong>中，用於定義函式功能的一些js語句。</li>
+                    </ul>
+                    <p>例如，以下的程式碼定義了一個名為 square 的簡單函式:</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">square</span>(<span class="hljs-params">number</span>)</span>{
+    <span class="hljs-keyword">return</span> number*number
+}
+</div></code></pre>
+                    </div>
+                        <p>
+                            函式 square 有一個參數，叫作 number。這個函式只有一行程式碼，它會回傳 number 自乘的結果。函式的 return 語法描述函式的返回值。<br>
+                            原始參數（例如一個數字）被作為值傳遞給函式，如果呼叫的函式改變了這個參數的值，不會影響到函式外部的原始變數。<br>
+                            如果傳遞一個物件（例如Array或自定義的其它物件）作為參數，而函式改變了這個物件的屬性，這樣的改變對函式外部是有作用的(因為是傳遞物件的位址)，如下面的例子所示：
+                        </p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> mycar={ <span class="hljs-attr">make</span>: <span class="hljs-string">"Honda"</span>,<span class="hljs-attr">model</span>: <span class="hljs-string">"Accord"</span>,<span class="hljs-attr">year</span>: <span class="hljs-number">1998</span> }
+<span class="hljs-keyword">let</span> x
+<span class="hljs-keyword">let</span> y
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunc</span>(<span class="hljs-params">theObject</span>)</span>{
+    theObject.make=<span class="hljs-string">"Toyota"</span>
+}
+
+x=mycar.make <span class="hljs-comment">// =&gt; "Honda"</span>
+
+myFunc(mycar)
+y=mycar.make <span class="hljs-comment">// =&gt; "Toyota"</span>
+<span class="hljs-comment">// (屬性 make 被 function 改變)</span>
+</div></code></pre>
+                        </div>
+                    <p>請注意，重新給參數指定一個對象，並不會對函式的外部有任何影響，因為這樣只是改變了參數的值，而不是改變了對象的一個屬性值：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> mycar={ <span class="hljs-attr">make</span>: <span class="hljs-string">"Honda"</span>,<span class="hljs-attr">model</span>: <span class="hljs-string">"Accord"</span>,<span class="hljs-attr">year</span>: <span class="hljs-number">1998</span> }
+<span class="hljs-keyword">let</span> x
+<span class="hljs-keyword">let</span> y
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunc</span>(<span class="hljs-params">theObject</span>)</span>{
+    theObject={ <span class="hljs-attr">make</span>: <span class="hljs-string">"Ford"</span>,<span class="hljs-attr">model</span>: <span class="hljs-string">"Focus"</span>,<span class="hljs-attr">year</span>: <span class="hljs-number">2006</span> }
+}
+x=mycar.make <span class="hljs-comment">// =&gt; "Honda"</span>
+
+myFunc(mycar)
+y=mycar.make <span class="hljs-comment">// =&gt; "Honda"</span>
+</div></code></pre>
+    <p>儘管上述函式定義都是用的是陳述式，函式也同樣可以由函式表達式來定義。這樣的函式可以是匿名的；它不必有名稱。例如，上面提到的函式 square 也可這樣來定義：</p>
+    <pre class="hljs"><code><div><span class="hljs-keyword">let</span> square=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{
+    <span class="hljs-keyword">return</span> number*number
+}
+<span class="hljs-keyword">let</span> x=square(<span class="hljs-number">4</span>); <span class="hljs-comment">// =&gt; 16</span>
+</div></code></pre>
+                    </div>
+                    <p>必要時，函式名稱可與函式表達式同時存在，並且可以用於在函式內部代指其本身(遞迴)：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> factorial=<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fac</span>(<span class="hljs-params">n</span>)</span>{
+    <span class="hljs-keyword">if</span>(n&lt;<span class="hljs-number">2</span>){
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">return</span> n*fac(n<span class="hljs-number">-1</span>)
+    }
+}
+
+<span class="hljs-built_in">console</span>.log(factorial(<span class="hljs-number">3</span>))
+</div></code></pre>
+                    </div>
+                    <p>函式表達式在將函式作為一個參數傳遞給其它函式時十分方便。下面的例子展示了一個叫 map 的函式如何被定義，而後呼叫一個匿名函式作為其第一個參數：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">map</span>(<span class="hljs-params">f,a</span>)</span>{
+    <span class="hljs-keyword">let</span> result=[]
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i!=a.length;i=i+<span class="hljs-number">1</span>){
+        result[i]=f(a[i])
+    }
+    <span class="hljs-keyword">return</span> result
+}
+</div></code></pre>
+                    </div>
+                        <p>下面的程式碼呼叫 map 函式並將一個匿名函式傳入作為第一個參數:</p>
+                        <div class="pre">
+<pre class="hljs"><code><div>map(
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>)</span>{
+        <span class="hljs-keyword">return</span> x*x*x
+    },
+    [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">10</span>],
+) <span class="hljs-comment">// ->[0,1,8,125,1000]</span>
+</div></code></pre>
+                        </div>
+                        <p>除了上述的定義方式以外，我們也可以透過 Function constructor來定義，類似 eval()。</p>
+                    </div>
+                    <div class="blocknext" id="function_call">
+                        <h3 class="blocknexttitle">呼叫函式</h3>
+                        <p>定義一個函式並不會自動的執行它。定義了函式僅僅是賦予函式以名稱並明確函式被呼叫時該做些什麼。呼叫函式才會以給定的參數真正執行這些動作。例如，一旦你定義了函式 square，你可以如下這樣呼叫它：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div>square(<span class="hljs-number">5</span>)
+</div></code></pre>
+                        </div>
+                    <p>上述程式碼把 5 傳遞給 square 函式。函式執行完會回傳 25。<br>
+                    函式必須在呼叫區塊的可視範圍內，但函數也可以宣告在使用處的下面，如下列範例:</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">console</span>.log(square(<span class="hljs-number">5</span>))
+<span class="hljs-comment">/* ... */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">square</span>(<span class="hljs-params">n</span>)</span>{
+    <span class="hljs-keyword">return</span> n*n
+}
+</div></code></pre>
+                    </div>
+                    <p>函數的作用域是聲明它的函數，如果是在頂層聲明的，則為整個程序。請注意，這僅在使用上述語法定義函數時有效（即 function funcName(){}）。 下面的代碼將不起作用。</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">console</span>.log(square(<span class="hljs-number">5</span>))
+square=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>)</span>{
+    <span class="hljs-keyword">return</span> n*n
+}
+</div></code></pre>
+                    </div>
+                    <p>
+                        函數的參數不限於字符串和數字。 您也可以將整個對像傳遞給函數。 show_props 函數（在使用對像中定義）是將對像作為參數的函數示例。<br>
+                        函數可以是遞迴的。也就是說，它可以調用自己。例如，這是一個遞歸計算階乘的函數：
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">factorial</span>(<span class="hljs-params">n</span>)</span>{
+    <span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>||n==<span class="hljs-number">1</span>){
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">return</span> n*factorial(n<span class="hljs-number">-1</span>)
+    }
+}
+</div></code></pre>
+                    </div>
+                    <p>但不建議濫用遞迴，因為遞迴會造成性能嚴重耗損。</p>
+                    <p>然後，您可以計算一到五的階乘，如下所示：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> a,b,c,d,e
+a=factorial(<span class="hljs-number">1</span>) <span class="hljs-comment">// ->1</span>
+b=factorial(<span class="hljs-number">2</span>) <span class="hljs-comment">// ->2</span>
+c=factorial(<span class="hljs-number">3</span>) <span class="hljs-comment">// ->6</span>
+d=factorial(<span class="hljs-number">4</span>) <span class="hljs-comment">// ->24</span>
+e=factorial(<span class="hljs-number">5</span>) <span class="hljs-comment">// ->120</span>
+</div></code></pre>
+                    </div>
+                    <p>還有其他方法可以調用函數。通常情況下，需要動態調用函數，或者函數的參數數量不同，或者需要將函數調用的上下文設置為運行時確定的特定對象。其中之一，apply()方法，可以用來實現這個目標。</p>
+                </div>
+                <div class="blocknext" id="function_scope">
+                    <h3 class="blocknexttitle">功能範圍</h3>
+                    <p>
+                        函數內部定義的變量無法從函數外部的任何地方訪問，因為變量僅在函數範圍內定義。<br>
+                        但是，函數可以訪問其定義範圍內定義的所有變量和函數。<br>
+                        換句話說，在全局作用域中定義的函數可以訪問在全局作用域中定義的所有變量。<br>
+                        在另一個函數內定義的函數還可以訪問其父函數中定義的所有變量以及父函數有權訪問的任何其他變量。
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// 全域變數</span>
+<span class="hljs-keyword">let</span> num1=<span class="hljs-number">20</span>
+<span class="hljs-keyword">let</span> num2=<span class="hljs-number">3</span>
+<span class="hljs-keyword">let</span> name=<span class="hljs-string">"Chamahk"</span>
+
+<span class="hljs-comment">// 全域function</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> num1*num2
+}
+multiply() <span class="hljs-comment">// =&gt;60</span>
+
+<span class="hljs-comment">// 巢狀function範例</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getScore</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> num1=<span class="hljs-number">2</span>
+    <span class="hljs-keyword">let</span> num2=<span class="hljs-number">3</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> name+<span class="hljs-string">" scored "</span>+(num1+num2)
+    }
+    <span class="hljs-keyword">return</span> add()
+}
+
+getScore(); <span class="hljs-comment">// =&gt;"Chamahk scored 5"</span>
+</div></code></pre>
+                    </div>
+                </div>
+                <div class="blocknext" id="function_vsmethod">
+                    <h3 class="blocknexttitle">函式vs方法</h3>
+                    <p>
+                        在我們繼續前，有件事需要先釐清嫌格意義上來說，瀏覽器內建函數並不是函數（function）它們可能是方法（method）。這聽起來有點令人疑惑，不過在你目前的學習階段，函式(函數)與方法這兩個詞彙大多時候是可以互換的。
+                    </p>
+                    <p>
+                        這兩個詞的區別在方法（method）是定義在物件裡的函數（function）。瀏覽器內建函數（方法）和變數（此處被稱作屬性（property））被儲存在建構好的物件裡，令程式碼控制起來更有效率也更簡單。
+                    </p>
+                    <p>
+                        你還不需要了解js物件的內部運作——在之後的模組我們會學到物件內部的所有運作方式，以及如何創建你自己的物件。此時，我們只需要釐清方法與函數之間任何可能搞混的地方，在你上網查相關教學資源時很可能兩個詞彙都會碰到。
+                    </p>
+                </div>
+                <div class="blocknext" id="function_anonymous">
+                    <h3 class="blocknexttitle">匿名函式</h3>
+                    <p>在此章節中，你可能會看到以稍微不同的方式定義和調用函數。到目前為止，我們創建的函數通常像這樣：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-string">"hello"</span>)
+}
+</div></code></pre>
+                    </div>
+                    <p>但您也可以創建一個沒有名稱的函數:</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-string">"hello"</span>)
+}
+</div></code></pre>
+                    </div>
+                    <p>這被稱為匿名函數它沒有名稱!它自己並不會執行任何動作。通常你會將匿名函數與事件處理程式一起使用，例如以下範例將在按鈕被點擊時運行函數內的程式碼:</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"button"</span>).onclick=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-string">"hello"</span>)
+}
+</div></code></pre>
+                    </div>
+                    <p>以上的範例要求頁面上有一個<code>&lt;button&gt;</code>元素，以便選取並點擊。在課程中你已經多次見過這種結構，你將在之後的<a href="#" class="a">DOM控制</a>中學到更多並且使用它。</p>
+                    <p>你還可以將匿名函數指派為變數的值，例如：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> myGreeting=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-string">"hello"</span>)
+}
+</div></code></pre>
+                    </div>
+                    <p>這個函數現在可以這樣調用：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div>myGreeting()
+</div></code></pre>
+                    </div>
+                    <p>這實際上就是給這個函數的名字放到變數來命名而已，你也可以將這個函數指派為多個變數的值，例如：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> anotherGreeting=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-string">"hello"</span>)
+};
+</div></code></pre>
+                    </div>
+                    <p>這個函數現在可以這樣調用：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div>myGreeting()
+anotherGreeting()
+</div></code></pre>
+                    </div>
+                    <p>但這只會造成混亂，所以建議不這麼做，在創建函數時，最好堅持第一種形式：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myGreeting</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-string">"hello"</span>)
+}
+</div></code></pre>
+                    </div>
+                    <p>
+                        你主要使用匿名函數只是為了在事件觸發時執行一系列程式碼，像按下按鈕之後運行一些程式碼，使用事件處理程式。<br>
+                        再次強調，它看起來像這樣:
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div>button.onclick=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// 程式碼在這</span>
+}
+</div></code></pre>
+                    </div>
+                    <p>喔對了有可以改寫成這樣，這被稱為箭頭函式:</p>
+                    <div class="pre">
+<pre class="hljs"><code><div>button.onclick=<span class="hljs-function">(<span class="hljs-params"></span>)<span class="hljs-keyword">=></span></span>{
+    <span class="hljs-comment">// 程式碼在這</span>
+}
+</div></code></pre>
+                    </div>
+                </div>
+                <div class="blocknext" id="function_parameter">
+                    <h3 class="blocknexttitle">函式參數</h3>
+                    <p>
+                        有些函數在調用時需要指定參數(參數在某些文章中被稱為引數、屬性或特性)—這些參數是需要<b>放在函數括號內的值</b>，這些值是函數正確運作所需的。<br>
+                        舉個例子，瀏覽器內建的 Math.random() 函數不需要任何參數。當調用它時，它總是返回0到1之間的一個隨機數:
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> myNumber=<span class="hljs-built_in">Math</span>.random();
+</div></code></pre>
+                    </div>
+                    <p>而瀏覽器內建的字串 replace() 函數則需要兩個參數 — 在主字串中要查找的子字串，以及要用來替換該字串的子字串：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> mytext=<span class="hljs-string">"I am a string"</span>
+<span class="hljs-keyword">let</span> newstring=mytext.replace(<span class="hljs-string">"string"</span>,<span class="hljs-string">"sausage"</span>)
+</div></code></pre>
+                    </div>
+                    <p>
+                        當你需要指定多個參數時，它們之間用<strong>半形逗號</strong>分隔。<br>
+                        還要注意，有時參數是可選的，你不一定要指定它們。如果不指定，該函數通常會使用一些預設行為。舉個例子，陣列 join()函數的參數是可選的：
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> myArray=[<span class="hljs-string">"I"</span>,<span class="hljs-string">"love"</span>,<span class="hljs-string">"chocolate"</span>,<span class="hljs-string">"frogs"</span>]
+<span class="hljs-keyword">let</span> madeAString=myArray.join(<span class="hljs-string">" "</span>)<span class="hljs-comment">// ->'I love chocolate frogs'</span>
+<span class="hljs-keyword">let</span> madeAString=myArray.join()<span class="hljs-comment">// ->'I,love,chocolate,frogs'</span>
+</div></code></pre>
+                    </div>
+                    <p>如果不包含參數來指定連接/分隔字符，則默認使用逗號。</p>
+                </div>
+                <div class="blocknext" id="function_conflict">
+                    <h3 class="blocknexttitle">函式作用域及衝突</h3>
+                    <p>
+                        讓我們來談談作用域，這是處理函數時非常重要的概念。當你創建一個函數時，該函數內定義的變量和其他內容會位於自己單獨的作用域中，這意味著它們被封鎖在自己單獨的區域內，無法從其他函數內部或外部程式碼訪問。<br>
+                        在所有函數之外的頂層稱為全局作用域。在全局作用域中定義的值可以在程式碼的任何地方訪問。<br>
+                        JS之所以這樣設計，是基於多種原因 — 主要是出於安全和組織考慮。有時你不希望變數在程式碼的任何地方都是可訪問的<br>
+                        從其他地方引入的外部腳本可能會開始干擾你的程式碼，並造成問題，因為它們可能恰好使用與程式碼其他部分相同的變數名稱，造成衝突。這可能是惡意的，也可能是無意的。<br>
+                        例如，假設你有一個 HTML 文件在調用兩個外部的js文件，並且這兩個文件都有一個使用相同名稱變數和函數的定義:
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!-- Excerpt from my HTML --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"first.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"second.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><span class="hljs-comment">// second.js後引入</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+    greeting("chris")
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">// first.js</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greeting</span>(<span class="hljs-params">name</span>)</span>{
+    console.log(name+<span class="hljs-string">": welcome to our company."</span>)
+}
+
+<span class="hljs-comment">// second.js</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greeting</span>(<span class="hljs-params">name</span>)</span>{
+    console.log(<span class="hljs-string">"Our company is called "</span>+name+<span class="hljs-string">"."</span>)
+}
+</div></code></pre>
+                    </div>
+                    <p>
+                        你希望呼叫的兩個函數都被稱為greeting()，<strong>因為second.js它是在HTML中的後面引入，因此它的變數和函數覆蓋了first.js文件中的相同名稱</strong>。因此他的輸出為: "Our company is called chris."。<br>
+                        將程式碼的部分功能封閉在函數中，可以避免這樣的問題也被視為最佳實踐。
+                        簡單的說後創的蓋掉了先創的函式
+                    </p>
+                </div>
+                <div class="blocknext" id="function_insidefunction">
+                    <h3 class="blocknexttitle">函式裡的函式</h3>
+                    <p>
+                        您可以從任何地方調用函數，甚至可以在另一個函數內部調用。<br>
+                        這通常被用來保持代碼整潔，如果你有一個大而復雜的函數，如果你把它分解成幾個子函數，會更容易理解:
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> myvalue
+
+    subfunction1() <span class="hljs-comment">// X: ReferenceError: myvalue is not Define</span>
+    subfunction2()
+    subfunction3()
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">subfunction1</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(myvalue)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">subfunction2</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(myvalue)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">subfunction3</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(myvalue)
+}
+</div></code></pre>
+                    </div>
+                    <p>
+                        只需確保函數內使用的值在範圍內正確即可。
+                        上面的示例會拋出錯誤 ReferenceError: myvalue is not Define，因為儘管myvalue變量是在與函數調用相同的作用域中定義的，但它並未在函數定義內部定義 - 調用函數時運行的實際代碼。<br>
+                        要實現此功能，您必須將值作為參數傳遞給函數，如下所示：
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> myvalue=<span class="hljs-number">1</span>
+    subfunction1(myvalue)
+    subfunction2(myvalue)
+    subfunction3(myvalue)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">subfunction1</span>(<span class="hljs-params">value</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(value)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">subfunction2</span>(<span class="hljs-params">value</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(value)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">subfunction3</span>(<span class="hljs-params">value</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(value)
+}
+</div></code></pre>
+                    </div>
+                    <p>
+                        閉包是js最強大的特性之一。
+                        JS允許巢狀函式，並給予內部函式完全訪問所有變數，與外部函式定義的函式（還有所有外部函式內的變數與函式）。<br>
+                        不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。<br>
+                        另外，由於內部函式能訪問外部函式定義的變數與函式，將存活得比外部函式還久。
+                    </p>
+                    <p>閉包在以下情況下被創建：當內部函式以某種方式被指定為可以在外部範圍中使用時。</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pet</span>(<span class="hljs-params">name</span>)</span>{
+    <span class="hljs-keyword">function</span> <span class="hljs-title">getname</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> name
+    }
+    <span class="hljs-keyword">return</span> getname
+}
+
+<span class="hljs-keyword">let</span> mypet=pet(<span class="hljs-string">"abc"</span>)
+
+mypet() <span class="hljs-comment">// =&gt;"abc"</span>
+</div></code></pre>
+                    </div>
+                    <p>閉包也可以更複雜，當內部函式回傳一個包含用於操作外部函式內部變數的方法的物件時，例如：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createpet</span>(<span class="hljs-params">name</span>)</span>{
+    <span class="hljs-keyword">let</span> sex
+    <span class="hljs-keyword">return</span>{
+        <span class="hljs-attr">setname</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newname</span>)</span>{
+            name=newname
+        },
+
+        <span class="hljs-attr">getname</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> name
+        },
+
+        <span class="hljs-attr">getsex</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> sex
+        },
+
+        <span class="hljs-attr">setsex</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newsex</span>)</span>{
+            <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> newsex==<span class="hljs-string">"string"</span>&amp;&amp;(newsex.toLowerCase()==<span class="hljs-string">"male"</span>||newsex.toLowerCase()==<span class="hljs-string">"female"</span>)){
+                sex=newsex
+            }
+        },
+    }
+}
+
+<span class="hljs-keyword">let</span> pet=createpet(<span class="hljs-string">"Vivie"</span>)
+pet.getname() <span class="hljs-comment">// Vivie</span>
+
+pet.setname(<span class="hljs-string">"Oliver"</span>)
+pet.setsex(<span class="hljs-string">"male"</span>)
+pet.getsex() <span class="hljs-comment">// male</span>
+pet.getname() <span class="hljs-comment">// Oliver</span>
+</div></code></pre>
+                    </div>
+                    <p>在上述程式碼中，name變數是內部函式createpet定義的，但是可以透過回傳的物件中的方法來操作它。這樣的特性稱為閉包，允許內部函式訪問外部函式的變數。</p>
+                    <p>值得注意的是，使用閉包時要小心處理this變數。它的值取決於函式的呼叫方式，而不是它的定義方式。</p>
+                </div>
+                <div class="blocknext" id="function_argumentsobject">
+                    <h3 class="blocknexttitle">arguments物件</h3>
+                    <p>函式的參數保存在一個類似陣列的物件中。在函式內部，你可以使用以下方式來引用傳遞給它的參數：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">arguments</span>[i]
+</div></code></pre>
+                    </div>
+                    <p>
+                        其中i是參數的序數，從0開始。(所以，傳遞給函式的第一個參數將是 arguments[0])<br>
+                        實際傳遞給函式的參數數量可以通過arguments.length屬性來獲取。(其實就是把他想成是array)<br>
+                        使用arguments物件，你可以以比函式正式聲明的參數更多的參數來呼叫函式。<br>
+                        這在你事先不知道會傳遞多少個參數給函式時非常有用。你可以使用arguments.length來確定實際傳遞給函式的參數數量，然後使用arguments物件來訪問每個參數。<br>
+                        舉個例子，考慮一個函式，它將幾個字串連接在一起。該函式的唯一正式參數是指定連接這些項目的字符。函式定義如下：
+                    </p>
+                    <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myConcat</span>(<span class="hljs-params">separator</span>)</span>{
+    <span class="hljs-keyword">let</span> result=<span class="hljs-string">""</span>
+
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;<span class="hljs-built_in">arguments</span>.length;i=i+<span class="hljs-number">1</span>){
+        result=result+(<span class="hljs-built_in">arguments</span>[i]+separator)
+    }
+    <span class="hljs-keyword">return</span> result
+}
+</div></code></pre>
+                    </div>
+                    <p>你可以傳遞任意數量的參數給該函式，並將每個參數連接成一個字串 &quot;list&quot;：</p>
+                    <div class="pre">
+<pre class="hljs"><code><div>
+myConcat(<span class="hljs-string">","</span>,<span class="hljs-string">"red"</span>,<span class="hljs-string">"orange"</span>,<span class="hljs-string">"blue"</span>)<span class="hljs-comment">// ->"red,orange,blue,"</span>
+
+myConcat(<span class="hljs-string">"; "</span>,<span class="hljs-string">"elephant"</span>,<span class="hljs-string">"giraffe"</span>,<span class="hljs-string">"lion"</span>,<span class="hljs-string">"cheetah"</span>)<span class="hljs-comment">// ->"elephant; giraffe; lion; cheetah; "</span>
+
+myConcat(<span class="hljs-string">". "</span>,<span class="hljs-string">"sage"</span>,<span class="hljs-string">"basil"</span>,<span class="hljs-string">"oregano"</span>,<span class="hljs-string">"pepper"</span>,<span class="hljs-string">"parsley"</span>)<span class="hljs-comment">// ->"sage. basil. oregano. pepper. parsley. "</span>
+</div></code></pre>
+                    </div>
+                    <div class="notice">
+                        <b>注意!arguments不是真正的陣列。</b><br>
+                        它被稱為<b>&quot;類陣列&quot;</b>是因為它具有編號索引和長度屬性，<b>但並不具備陣列的所有操作方法。</b>
+                    </div>
+                </div>
+                <div class="blocknext" id="function_canbepredefined">
+                    <h3 class="blocknexttitle">可預定義的函式</h3>
+                    <p>js有11個可預定義函式，列表如下:</p>
+                    <ol>
+                        <li>eval</li>
+                        <li>isFinite</li>
+                        <li>isNaN</li>
+                        <li>parseInt</li>
+                        <li>parseFloat</li>
+                        <li>Number</li>
+                        <li>String</li>
+                        <li>encodeURI</li>
+                        <li>decodeURI</li>
+                        <li>encodeURIComponent</li>
+                        <li>decodeURIComponent</li>
+                    </ol>
+                    <div class="blocknext2" id="function_canbepredefined_eval">
+                        <h3 class="blocknext2title">eval</h3>
+                        <p>eval函式將字串中的內容轉成JS程式碼。eval的語法是:</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">eval</span>(expr);
+</div></code></pre>
+                        </div>
+                        <p>其中expr是要執行的程式碼</p>
+                        <div class="warning">
+                            但因為eval的不安全等等原因建議不使用此函數
+                        </div>
+                    </div>
+                    <div class="blocknext2" id="function_canbepredefined_isfinite">
+                        <h3 class="blocknext2title">isFinite</h3>
+                        <p>isFinite函式測試參數以確定它是否是一個有限數。isFinite 的語法是：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">isFinite</span>(number)
+</div></code></pre>
+                        </div>
+                        <p>
+                            其中number是要評估的數值。<br>
+                            <b>如果參數是NaN、正無窮或負無窮，該方法返回false；否則返回 true。</b><br>
+                            以下代碼檢查用戶輸入是否為有限數:
+                        </p>
+                    </div>
+                    <div class="blocknext2" id="function_canbepredefined_isnan">
+                        <h3 class="blocknext2title">isNaN</h3>
+                        <p>isNaN函式評估參數以確定它是否為&quot;NaN&quot;（不是一個數字）。isNaN的語法是：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">isNaN</span>(testvalue)
+</div></code></pre>
+                        </div>
+                        <p>其中testvalue是你想要評估的值。</p>
+                    </div>
+                    <div class="blocknext2" id="function_canbepredefined_parseintparsefloat">
+                        <h3 class="blocknext2title">parseInt、parseFloat</h3>
+                        <p>兩個&quot;parse&quot;函式，parseFloat和parseInt，都是在當傳遞一個字串作為參數時，它們會回傳一個數值。</p>
+                        <p>語法分別是:</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">parseInt</span>(str,radix?)
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-built_in">parseFloat</span>(str)
+</div></code></pre>
+                        </div>
+                        <p>
+                            parseInt分析其第一個參數，即字符串 str，並嘗試回傳指定基數(進制，基)的整數。<br>
+                            其中str是要解析的字符串，而radix是可選參數，表示解析時使用的基數(進制)。radix參數可以是介於2到 36之間的整數值。如果省略radix或基數為0，parseInt會根據以下規則分析字符串str:<br>
+                            <ul>
+                                <li>如果字符串以 &quot;0x&quot; 或 &quot;0X&quot;開頭，則基數被設定為16。</li>
+                                <li>如果字符串以 &quot;0&quot; 開頭且後跟非十六進制數字字符，則基數被設定為8。這是因為前置的0表示八進制數。</li>
+                                <li>如果字符串以任何其他字符開頭，或者radix為10，則基數被設定為10(十進制)。</li>
+                                <li>如果第一個字符無法轉換為數字，或者字符串是空的，parseInt則返回NaN。</li>
+                            </ul>
+
+                            而parseFloat分析其參數，即字符串str，並嘗試回傳一個浮點數。
+                            如果遇到一個不是加號、減號、數字、小數點、指數的字符，則它會返回該字符之前的值，並忽略該字符和所有後續字符。如果第一個字符無法轉換為數字，則它返回&quot;NaN&quot;。
+                        </p>
+                        <p>以下是一些例子：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">"123"</span>) <span class="hljs-comment">// =&gt; 123</span>
+<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">"12.3"</span>) <span class="hljs-comment">// =&gt; 12</span>
+<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">"0x10"</span>) <span class="hljs-comment">// =&gt; 16</span>
+<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">"0xAF"</span>,<span class="hljs-number">16</span>) <span class="hljs-comment">// =&gt; 175（0xAF 在十進制中是 175）</span>
+<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">"010"</span>) <span class="hljs-comment">// =&gt; 8</span>
+</div></code></pre>
+                        </div>
+                    </div>
+                    <div class="blocknext2" id="function_canbepredefined_number_string">
+                        <h3 class="blocknext2title">Number、String</h3>
+                        <p>
+                            這兩個函數分別用於將其他資料類型轉換為數字和字串。<br>
+                            它們的語法是：
+                        </p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">Number</span>(value)
+<span class="hljs-built_in">String</span>(value)
+</div></code></pre>
+                        </div>
+                        <p>其中value是你想要轉換的值。</p>
+                        <p>這些函式的使用方式如下：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">Number</span>(<span class="hljs-string">"123"</span>) <span class="hljs-comment">// =&gt; 123</span>
+<span class="hljs-built_in">Number</span>(<span class="hljs-string">"12.3"</span>) <span class="hljs-comment">// =&gt; 12.3</span>
+<span class="hljs-built_in">Number</span>(<span class="hljs-literal">true</span>) <span class="hljs-comment">// =&gt; 1</span>
+<span class="hljs-built_in">Number</span>(<span class="hljs-literal">false</span>) <span class="hljs-comment">// =&gt; 0</span>
+
+<span class="hljs-built_in">String</span>(<span class="hljs-number">123</span>) <span class="hljs-comment">// =&gt; "123"</span>
+<span class="hljs-built_in">String</span>(<span class="hljs-number">12.3</span>) <span class="hljs-comment">// =&gt; "12.3"</span>
+<span class="hljs-built_in">String</span>(<span class="hljs-literal">true</span>) <span class="hljs-comment">// =&gt; "true"</span>
+<span class="hljs-built_in">String</span>(<span class="hljs-literal">false</span>) <span class="hljs-comment">// =&gt; "false"</span>
+</div></code></pre>
+                        </div>
+                        <p>
+                            其中Number不能轉換時會回傳NaN
+                        </p>
+                    </div>
+                    <div class="blocknext2" id="function_canbepredefined_encodeuridecodeuriencodeuricomponentdecodeuricomponent">
+                        <h3 class="blocknext2title">encodeURI、decodeURI、encodeURIComponent、decodeURIComponent</h3>
+                        <p>
+                            這些函式用於對網址或URI中的特殊字符進行編碼或解碼。<br>
+                            encodeURI函式用於對整個URI进行編碼，但是它不會編碼以下字符：ASCII字母、數字、~!@#$&amp;*()=:/,;?+'。<br>
+                            decodeURI 函式用於解碼 encodeURI 編碼的 URI。<br>
+                            encodeURIComponent 函式用於對 URI 中的個別組件進行編碼。它會對所有特殊字符進行編碼，包括對於 encodeURI 函式不進行編碼的字符。<br>
+                            decodeURIComponent 函式用於解碼 encodeURIComponent 編碼的 URI 組件。<br>
+                            這些函式的語法如下：
+                        </p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">encodeURI</span>(uri)
+<span class="hljs-built_in">decodeURI</span>(uri)
+<span class="hljs-built_in">encodeURIComponent</span>(uriComponent)
+<span class="hljs-built_in">decodeURIComponent</span>(uriComponent)
+</div></code></pre>
+                        </div>
+                        <p>其中 uri 或 uriComponent 是你想要編碼或解碼的 URI 或 URI 組件。</p>
+                        <p>以下是一些例子：</p>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> url=<span class="hljs-string">"https://www.example.com/my page.html"</span>
+<span class="hljs-keyword">let</span> encodedUrl=<span class="hljs-built_in">encodeURI</span>(url)
+<span class="hljs-built_in">console</span>.log(encodedUrl) <span class="hljs-comment">// =&gt; "https://www.example.com/my%20page.html"</span>
+
+<span class="hljs-keyword">let</span> decodedUrl=<span class="hljs-built_in">decodeURI</span>(encodedUrl)
+<span class="hljs-built_in">console</span>.log(decodedUrl) <span class="hljs-comment">// =&gt; "https://www.example.com/my page.html"</span>
+
+<span class="hljs-keyword">let</span> query=<span class="hljs-string">"name=John&amp;age=30"</span>
+<span class="hljs-keyword">let</span> encodedQuery=<span class="hljs-built_in">encodeURIComponent</span>(query)
+<span class="hljs-built_in">console</span>.log(encodedQuery) <span class="hljs-comment">// =&gt; "name%3DJohn%26age%3D30"</span>
+
+<span class="hljs-keyword">let</span> decodedQuery=<span class="hljs-built_in">decodeURIComponent</span>(encodedQuery)
+<span class="hljs-built_in">console</span>.log(decodedQuery) <span class="hljs-comment">// =&gt; "name=John&amp;age=30"</span>
+</div></code></pre>
+                        </div>
+                        <p>
+                            請注意，encodeURI和encodeURIComponent函式是將URI組件編碼為安全的URI字符串的好方法，以防止URI中出現非法字符。<br>
+                            這在URL中傳遞參數時特別重要，以確保參數的值不會影響URL的解析。
+                        </p>
+                    </div>
+                </div>
+                <div class="blocknext" id="exception">
+                    <h3 class="blocknexttitle">例外處理</h3>
+                    <p>在js種共有7+1種不同的例外情形分別為<strong>Error</strong>,<strong>RangeError</strong>,<strong>ReferenceError</strong>,<strong>SyntaxError</strong>,<strong>TypeError</strong>,<strong>URIError</strong>,<s><strong>EvalError</strong></s>+<strong>NaN</strong>
+                    </p>
+                    <div class="blocknext2" id="exception_introduction">
+                        <h3 class="blocknext2title">例外介紹</h3>
+                        <ol>
+                            <li>Error(一般錯誤)
+                                Error 這個類型用來代表一般的錯誤情況，最常用在<strong>客製化例外</strong>情況。透過下面的指令可以產生一個錯誤物件的實例：</li>
+                        </ol>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> error=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"error message"</span>);
+<span class="hljs-built_in">console</span>.log(error) <span class="hljs-comment">// X: Error: error message</span>
+</div></code></pre>
+                        </div>
+                        <p>
+                            這個Error物件包含兩個屬性name和message:<br>
+                            name: 用來說明錯誤的類型(這裡就是 Error)<br>
+                            message: 提供更多關於此例外情況的描述。
+                        </p>
+                        <ol start="2">
+                            <li>
+                                RangeError(範圍錯誤)<br>
+                                這是一個當<strong>數值落在特定的區間外</strong>時會拋出的錯誤<br>
+                                例如，透過 toFixed() 方法時，它可以接受介於 0 ~ 20 的參數來說明要顯示到小數後第幾位，當這個參數超過這個區間時，就會拋出RangeError<br>
+                            </li>
+                        </ol>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> pi=<span class="hljs-number">3.14159</span>;
+pi.toFixed(<span class="hljs-number">100000</span>);  <span class="hljs-comment">// X: RangeError: toFixed() digits argument must be between 0 and 100</span>
+</div></code></pre>
+                        </div>
+                        <ol start="3">
+                            <li>
+                                ReferenceError(找不到變數：拼錯字)<br>
+                                這是一個當試圖<strong>存取一個不存在的變數</strong>時會拋出的錯誤，這個錯誤經常發生在拼錯字的情況。
+                            </li>
+                        </ol>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-built_in">console</span>.log(bar);    <span class="hljs-comment">// X: ReferenceError: bar is not defined</span>
+</div></code></pre>
+                        </div>
+                        <ol start="4">
+                            <li>
+                                SyntaxError(語法錯誤)<br>
+                                這是一個當有程式碼<strong>違反js的語法規則</strong>時會拋出的錯誤。<br>
+                                熟悉C或java的通常是在編譯的過程中遇到語法錯誤但js是直譯式語言，因此當程式碼被執行到時，才會辨認到語法錯誤。
+                            </li>
+                        </ol>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span>(<span class="hljs-literal">false</span>){    <span class="hljs-comment">// X: SyntaxError: Unexpected token (3:0)</span>
+<span class="hljs-comment">// 缺少結束的大括號</span>
+</div></code></pre>
+                        </div>
+                        <ol start="5">
+                            <li>
+                                TypeError(找不到函式)<br>
+                                這是一個如果某一<strong>變項的型別和所期待的操作不同</strong>時會拋出的錯誤，這經常發生在去呼叫執行一個不存在的函式時。
+                            </li>
+                        </ol>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// 由於 foo 當中並不包含 bar 這個函式，因此會拋出 TypeError 錯誤</span>
+<span class="hljs-keyword">let</span> foo={};
+foo.bar() <span class="hljs-comment">// X: TypeError: foo.bar is not a function</span>
+</div></code></pre>
+                        </div>
+                        <ol start="6">
+                            <li>
+                                URIError(uri錯誤)<br>
+                                這是一個當使用encodeURI()或decodeURI()的方法，但卻有<strong>給了不合法的URI</strong>時會拋出的錯誤
+                            </li>
+                        </ol>
+                        <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// "%" 表示的是 URI 中的跳脫片段，但在下面的例子中 "%" 後沒有接任和字串，因此是不合法的跳脫片段</span>
+<span class="hljs-built_in">decodeURIComponent</span>(<span class="hljs-string">"%"</span>);   <span class="hljs-comment">// X: URIError: URI malformed</span>
+</div></code></pre>
+                        </div>
+                        <ol start="7">
+                            <li>
+                                <p>
+                                    <s>EvalError(eval 錯誤)[ECMA6 delete]</s><br>
+                                    這是一個<strong>當eval()使用不恰當</strong>時會拋出的錯誤。<br>
+                                    這個錯誤不再被當前的ECMAScript規範所採用。
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    數學例外:NaN<br>
+                                    此例外並非正式例外是<b>數學在運算時出現錯誤會拋出的值</b>
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="blocknext2" id="exception_fix">
+                        <h3 class="blocknext2title">處理例外</h3>
+                        <p>你可以用<b>throw陳述式丟出例外</b>，並<b>以try-catch陳述式處理</b>。</p>
+                        <div class="blocknext3" id="exception_fix">
+                            <h4 class="blocknext3title">throw 陳述式</h4>
+                            <p>
+                                當拋出例外時，你要指定包含在要拋出物件中的值<br>
+                                您可以拋出任何運算式，而不僅僅是特定類型的運算式。<br>
+                                以下的程式碼會拋出一些不同類型的例外:
+                            </p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">throw</span> <span class="hljs-string">"Error2"</span> <span class="hljs-comment">// 字串形態</span>
+<span class="hljs-keyword">throw</span> <span class="hljs-number">42</span> <span class="hljs-comment">// 數字形態</span>
+<span class="hljs-keyword">throw</span> <span class="hljs-literal">true</span> <span class="hljs-comment">// True/False</span>
+<span class="hljs-keyword">throw</span>{
+    <span class="hljs-attr">toString</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"我是物件!"</span>
+    },
+}
+</div></code></pre>
+                            </div>
+                            <div class="notice">
+                                您可以在拋出例外時指定物件。然後，可以在catch區塊中引用對象的屬性。
+                            </div>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-comment">// 創建類型爲 UserException 的物件</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UserException</span>(<span class="hljs-params">message</span>)</span>{
+    <span class="hljs-keyword">this</span>.message=message
+    <span class="hljs-keyword">this</span>.name=<span class="hljs-string">"UserException"</span>
+}
+
+<span class="hljs-comment">// 讓例外轉換成整齊的字串當它被當作字串使用時</span>
+<span class="hljs-comment">// （舉例來說:於 error console）</span>
+UserException.prototype.toString=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name+<span class="hljs-string">': "'</span>+<span class="hljs-keyword">this</span>.message+<span class="hljs-string">'"'</span>
+}
+
+<span class="hljs-comment">// 創建一個物件的實例並丟出它</span>
+<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UserException(<span class="hljs-string">"Value too high"</span>)
+</div></code></pre>
+                            </div>
+                        </div>
+                        <div class="blocknext2" id="exception_fix_trycatch">
+                            <h3 class="blocknext2title">try-catch陳述式</h3>
+                            <p>
+                                try-catch陳述式標記了一組要嘗試的陳述式，並在拋出例外時指定一個或多個響應。 如果例外被拋出，try-catch陳述式捕獲它。<br>
+                                try-catch陳述式包括一個try區塊它包含一個或多個陳述式，零個或多個 catch 區塊，包含在 try 區塊中拋出例外時該做什麼的陳述式。<br>
+                                也就是說，你希望try區塊成功，如果它不成功，你控制權將傳遞給catch區塊。<br>
+                                如果try區塊內的任何陳述式拋出例外，則控制<strong>立即切換到catch區塊</strong>。如果在try區塊中沒有拋出例外，則<strong>跳過catch區塊</strong>。finally區塊在try和catch區塊執行完後執行，但在try-catch陳述式之後的陳述式之前執行。<br>
+                                以下的範例使用try-catch陳述式。該範例調用基於傳遞給函數的值並從陣列中檢索月份名稱的函數。如果值不對應於月份數（1-12），則會拋出一個例外，其值為 &quot;InvalidMonthNo&quot;，並且catch 區塊中的陳述式將 monthName 變數設置為 unknown。
+                            </p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getmonthname</span>(<span class="hljs-params">mo</span>)</span>{
+    mo=mo-<span class="hljs-number">1</span>
+    <span class="hljs-keyword">let</span> months=[<span class="hljs-string">"Jan"</span>,<span class="hljs-string">"Feb"</span>,<span class="hljs-string">"Mar"</span>,<span class="hljs-string">"Apr"</span>,<span class="hljs-string">"May"</span>,<span class="hljs-string">"Jun"</span>,<span class="hljs-string">"Jul"</span>,<span class="hljs-string">"Aug"</span>,<span class="hljs-string">"Sep"</span>,<span class="hljs-string">"Oct"</span>,<span class="hljs-string">"Nov"</span>,<span class="hljs-string">"Dec"</span>]
+    <span class="hljs-keyword">if</span> (months[mo]){
+        <span class="hljs-keyword">return</span> months[mo]
+    } <span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-string">"InvalidMonthNo"</span> <span class="hljs-comment">//throw關鍵字在這裏被使用</span>
+    }
+}
+
+<span class="hljs-keyword">try</span>{
+    <span class="hljs-comment">// statements to try</span>
+    monthname=getmonthname(mymonth) <span class="hljs-comment">// 函式可以丟出例外</span>
+} <span class="hljs-keyword">catch</span> (e){
+    monthname=<span class="hljs-string">"unknown"</span>
+    logmyerror(e) <span class="hljs-comment">// 將例外傳至例外處理機制</span>
+}
+</div></code></pre>
+                            </div>
+                            <p>
+                                你可以使用 catch 區塊來處理 try 區塊可能丟出的例外。<br>
+                                catch區塊指定用來保存 throw 陳述式所丟出的值的標識符您可以使用此標識符獲取有關被拋出的例外的信息。js在進入catch 區塊時創建此標識符 標識符僅持續catch區塊的持續時間；在 cath區塊完成執行後，標識符不再可用。<br>
+                                例如，下列的程式碼中丟出了一個例外，當例外發生後，控制權被轉交給 catch 區塊。
+                            </p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-keyword">try</span>{
+    <span class="hljs-keyword">throw</span> <span class="hljs-string">"myException"</span> <span class="hljs-comment">// 產生例外</span>
+} <span class="hljs-keyword">catch</span> (e){
+    <span class="hljs-comment">// 用於處理例外的陳述式</span>
+    logMyErrors(e) <span class="hljs-comment">// 將例外物件傳給 error handler</span>
+}
+</div></code></pre>
+                            </div>
+                            <p>
+                                finally 區塊中包含在 try 和 catch 區塊執行之後但在 try...catch 陳述式之後的陳述式之前 執行的陳述式。 無論是否拋出例外，finally 區塊都會執行。 如果拋出例外，則即使沒有 catch 區塊處理例外，finally 區塊中的陳述式也會執行。<br>
+                                您可以使用 finally 區塊來使腳本在發生例外時正常地結束。<br>
+                                例如，您可能需要釋放腳本中綁定的資源。 在以下示例中，打開一個文件，然後執行使用該文件的陳述式（伺服器端js允許您訪問文件）。<br>
+                                如果在打開文件時拋出例外，finally 區塊會在腳本結束之前關閉文件。
+                            </p>
+                            <div class="pre">
+<pre class="hljs"><code><div>openmyfile()
+<span class="hljs-keyword">try</span>{
+    writemyfile(theData) <span class="hljs-comment">// 可能產生例外</span>
+}<span class="hljs-keyword">catch</span>(error){
+    handleerror(error) <span class="hljs-comment">// 處理可能發生的例外</span>
+}<span class="hljs-keyword">finally</span>{
+    closemyfile() <span class="hljs-comment">// 總是在try結束後關閉檔案</span>
+}
+</div></code></pre>
+                            </div>
+                            <p>如果 finally 區塊有返回值，那麼該值將成為整個 try-catch-finally 過程的返回值，而捨棄 try 和 catch 區塊中的任何返回陳述式：</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>)</span>{
+<span class="hljs-keyword">try</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">0</span>)
+    <span class="hljs-keyword">throw</span> <span class="hljs-string">"bogus"</span>
+} <span class="hljs-keyword">catch</span> (e){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span> <span class="hljs-comment">// 這個回傳會被擱置</span>
+    <span class="hljs-comment">// 直到 finally 區塊結束</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>) <span class="hljs-comment">// 不會到達這裏</span>
+} <span class="hljs-keyword">finally</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">3</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span> <span class="hljs-comment">// 覆寫先前的 "return"</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">4</span>) <span class="hljs-comment">// 不會到達這裏</span>
+}
+<span class="hljs-comment">// "return false" 在這裏被執行</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span>) <span class="hljs-comment">// 不會到達這裏</span>
+}
+f() <span class="hljs-comment">// console 0,1,3 會回傳false</span>
+</div></code></pre>
+                            </div>
+                            <p>finally 區塊覆寫返回值也適用於在 catch 區塊中拋出或重新拋出的例外（即便在catch 中再次丟出例外，catch 所屬的 finally 區塊還是會被執行）:</p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">try</span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-string">"bogus"</span>
+    } <span class="hljs-keyword">catch</span> (e){
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"caught inner 'bogus'"</span>)
+        <span class="hljs-keyword">throw</span> e <span class="hljs-comment">// 此處的 throw 陳述式將被擱置到</span>
+        <span class="hljs-comment">// finally 區塊結束</span>
+    } <span class="hljs-keyword">finally</span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span> <span class="hljs-comment">// 覆寫先前的"throw"</span>
+    }
+    <span class="hljs-comment">// "return false" 在此被執行</span>
+}
+
+<span class="hljs-keyword">try</span>{
+    f()
+} <span class="hljs-keyword">catch</span> (e){
+    <span class="hljs-comment">// 這裏永遠不可能到達因為在 f 函式中 catch 的 throw</span>
+    <span class="hljs-comment">// 被 finally 中的 return 覆寫了</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"caught outer 'bogus'"</span>)
+} <span class="hljs-comment">// =&gt; caught inner "bogus"</span>
+</div></code></pre>
+                            </div>
+                            <p>
+                                你可以使用一個或多個的try-catch陳述式(稱為"巢狀try-catch")。<br>
+                                假如一個內層的try-catch陳述式不具有 catch 區塊， 它將必須要有 finally 區塊與及封閉的 try-catch 陳述式來檢測是否有符合的例外。<br>
+                                根據錯誤的類型，您可以使用 &quot;name&quot; 和 &quot;message&quot; 屬性來獲取更精確的資訊。<br>
+                                &quot;name&quot;提供了錯誤所屬的類別（class）（例如，&quot;DOMException&quot; 或 &quot;Error&quot;），而 &quot;message&quot;通常提供藉由將錯誤物件轉換為字串所獲得的更簡潔的資訊。<br>
+                                假如您要丟出自定義的例外，為了方便使用這些屬性（例如，如果你的 catch 區塊並不要區分你自己的例外和系統的），你可以使用 Error 構造子。<br>
+                                舉例來說:
+                            </p>
+                            <div class="pre">
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSomethingErrorProne</span> (<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">if</span> (ourCodeMakesAMistake()){
+        <span class="hljs-keyword">throw</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"The message"</span>))
+    } <span class="hljs-keyword">else</span>{
+        doSomethingToGetAJavascriptError()
+    }
+}
+<span class="hljs-keyword">try</span>{
+    doSomethingErrorProne()
+}
+<span class="hljs-keyword">catch</span> (e){
+    <span class="hljs-built_in">console</span>.log(e.name) <span class="hljs-comment">// 紀錄 'Error'</span>
+    <span class="hljs-built_in">console</span>.log(e.message) <span class="hljs-comment">// 紀錄 'The message' 或者其他js例外的資訊)</span>
+}
+</div></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blocknext" id="psandseealso">
+                <h2 class="blocknexttitle">註解及參見</h2>
+                <div class="blocknext2" id="psandseealso_seealso">
+                    <h3 class="blocknext2title">參見</h3>
+                    <p>
+                        <a href="https://www.eztrust.com.tw/webdesign/C/94">while及do-while之差異</a><br>
+                        <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_operators#%E9%97%9C%E4%BF%82%E9%81%8B%E7%AE%97%E5%AD%90">運算式與運算子</a><br>
+                        <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/if...else">ifelse</a><br>
+                        <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/switch">switchcase</a><br>
+                    </p>
+                    <p>其他JS相關教學</p>
+                    <ul>
+                        <li>A
+                            <ul>
+                                <li><a href="ajax.md">ajax</a></li>
+                            </ul>
+                        </li>
+                        <li>B</li>
+                        <li>C
+                            <ul>
+                                <li><a href="canvas.md">canvas</a></li>
+                            </ul>
+                        </li>
+                        <li>D</li>
+                        <li>E
+                            <ul>
+                                <li><a href="eventlistener.md">EventListener</a></li>
+                            </ul>
+                        </li>
+                        <li>F</li>
+                        <li>G</li>
+                        <li>H
+                            <ul>
+                                <li><a href="">html及css串接</a></li>
+                            </ul>
+                        </li>
+                        <li>I</li>
+                        <li>J
+                            <ul>
+                                <li><a href="">js API</a></li>
+                            </ul>
+                        </li>
+                        <li>K</li>
+                        <li>L</li>
+                        <li>M
+                            <ul>
+                                <li><a href="">metaprogramming</a></li>
+                            </ul>
+                        </li>
+                        <li>N
+                            <ul>
+                                <li><a href="">nodejs</a></li>
+                            </ul>
+                        </li>
+                        <li>O</li>
+                        <li>P
+                            <ul>
+                                <li><a href="js/promiss.ms">promiss</a></li>
+                            </ul>
+                        </li>
+                        <li>Q</li>
+                        <li>R</li>
+                        <li>S
+                            <ul>
+                                <li><a href="">svg</a></li>
+                            </ul>
+                        </li>
+                        <li>T</li>
+                        <li>U</li>
+                        <li>V</li>
+                        <li>W
+                            <ul>
+                                <li><a href="">web非同步</a></li>
+                                <li><a href="website/webstorage.md">web storage</a></li>
+                            </ul>
+                        </li>
+                        <li>X</li>
+                        <li>Y</li>
+                        <li>Z</li>
+                        <li>anthor
+                            <ul>
+                                <li><a href="">內建函式一覽</a></li>
+                                <li><a href="">類別</a></li>
+                                <li><a href="">模組</a></li>
+                                <li><a href="">程式庫</a></li>
+                                <li><a href="">迭代器及產生器</a></li>
+                                <li><a href="">事件</a></li>
+                                <li><a href="">擴充功能</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p id="key-reservedword">關鍵保留字(keyword and reserved word) 一覽</p>
+                    <ul>
+                        <li>await</li>
+                        <li>break</li>
+                        <li>case</li>
+                        <li>catch</li>
+                        <li>class</li>
+                        <li>const</li>
+                        <li>continue</li>
+                        <li>debugger</li>
+                        <li>default</li>
+                        <li>delete</li>
+                        <li>do</li>
+                        <li>else</li>
+                        <li>enum</li>
+                        <li>export</li>
+                        <li>extends</li>
+                        <li>false</li>
+                        <li>finally</li>
+                        <li>for</li>
+                        <li>function</li>
+                        <li>if</li>
+                        <li>implements</li>
+                        <li>import</li>
+                        <li>in</li>
+                        <li>instanceof</li>
+                        <li>interface</li>
+                        <li>let</li>
+                        <li>new</li>
+                        <li>null</li>
+                        <li>package</li>
+                        <li>private</li>
+                        <li>protected</li>
+                        <li>public</li>
+                        <li>return</li>
+                        <li>super</li>
+                        <li>switch</li>
+                        <li>static</li>
+                        <li>this</li>
+                        <li>throw</li>
+                        <li>try</li>
+                        <li>true</li>
+                        <li>typeof</li>
+                        <li>var</li>
+                        <li>void</li>
+                        <li>while</li>
+                        <li>with</li>
+                        <li>yield</li>
+                    </ul>
+                    簡寫表:
+                    <p>
+                        小賀chris:) &copy; All right Reverse。
+                        如有錯誤請使用discord聯絡: chris0527
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

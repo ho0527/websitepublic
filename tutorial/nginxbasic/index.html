@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body class="dark">
+        <div class="navigationbar" id="navigationbar">
+            <div class="navigationbarleft">
+                <img src="/website/material/icon/mainicon.png" class="logo">
+            </div>
+            <div class="navigationbartitle textcenter">NGINX - 基本篇</div>
+        </div>
+
+        <div class="maindiv grid">
+            <!-- menu START -->
+            <div class="menu">
+                <!-- <div class="listunorder">
+                    <div class="item">nginx基礎</div>
+                    <div class="listunorder">
+                        <div class="item"><a href="#" class="a" onclick="smoothscroll('introduction')">介紹</a></div>
+                    </div>
+                    <div class="listunorder">
+                        <div class="item"><a href="#" class="a" onclick="smoothscroll('download')">安裝(window版)</a></div>
+                        <div class="listunorder">
+                            <div class="item"><a href="#" class="a" onclick="smoothscroll('')">下載nginx</a></div>
+                        </div>
+                    </div>
+                </div> -->
+                <ul class="ul">
+                    <li class="li">nginx基礎</li>
+                    <ul class="ul">
+                        <li class="li">
+                            <a href="#" class="a" onclick="smoothscroll('introduction')">介紹</a>
+                        </li>
+
+                        <li class="li">
+                            <a href="#" class="a" onclick="smoothscroll('download')">安裝(window版)</a>
+                            <ul class="ul">
+                                <li class="li">
+                                    <a href="#" class="a" onclick="smoothscroll('')">下載nginx</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="li">
+                            <a href="#" class="a" onclick="smoothscroll('')">安裝</a>
+                            <ul class="ul">
+                                <li class="li">
+                                    <a href="#" class="a" onclick="smoothscroll('')">安裝</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="li">
+                            <a href="#" class="a" onclick="smoothscroll('')">註記</a>
+                            <ul class="ul">
+                                <li class="li">
+                                    <a href="#" class="a" onclick="smoothscroll('')">安裝</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <!-- main START -->
+            <div class="main macossectiondivy">
+                <div class="block" id="introduction">
+                    <div class="blocktitle">介紹</div>
+                    <div class="blocktext">
+                        Nginx 最主要的功能是作為網頁伺服器，處理來自網路的 HTTP 請求，並返回相對應的內容。另外，Nginx 也常常被使用為反向代理伺服器，這表示 Nginx 會在網站與使用者之間擔任傳遞訊息的角色，這樣可以大大提升網站的效能，以及提供更多的靈活度。此外，Nginx 也能提供負載均衡的服務，這樣可以幫助分散伺服器的負擔，提供更好的效能。
+                        <span class="copyright"><a href="https://tw.alphacamp.co/blog/nginx#什麼是-nginx？" class="a">出處點此</a></span>
+                    </div>
+                </div>
+                <div class="block" id="download">
+                    <div class="blocktitle">安裝nginx</div>
+                    <div class="notice">
+                        本篇教學使用window安裝，Linux或mac請另請高明。
+                    </div>
+                    <div class="blockprimary">下載nginx</div>
+                    <div class="blocktext">
+                        1. 請到<a href="https://nginx.org/en/download.html" class="a">nginx官網的下載區</a>
+                        2. 點擊
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+        <script src="index.js"></script>
+    </body>
+</html>

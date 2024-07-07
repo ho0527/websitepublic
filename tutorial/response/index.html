@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div class="navigationbar" id="navigationbar">
+            <div class="navigationbarleft">
+                <img src="/website/material/icon/mainicon.png" class="logo">
+            </div>
+            <div class="navigationbartitle textcenter"><span id="maintitle"></span> - 錯誤勘正/回報表單</div>
+            <div class="navigationbarright">
+                <input type="button" class="navigationbarbutton" id="goback" value="返回">
+            </div>
+        </div>
+
+        <div class="main responsemain center">
+            <div class="inputmargin">
+                <div class="sttextlabel">連結</div>
+                <div class="stinput startlabel">
+                    <div class="label linkinputlabel">https://hiiamchris.ddns.net/website/tutorial/response/</div>
+                    <input type="text" class="linkinput" id="link">
+                </div>
+            </div>
+            <div class="inputmargin">
+                <div class="sttextlabel">回報主旨</div>
+                <div class="stselect fill">
+                    <select id="subject">
+                        <option value="content_error">內容有誤</option>
+                        <option value="content_more">內容補充</option>
+                        <option value="style_error">排版錯誤</option>
+                        <option value="copyright_appeal">版權申訴</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputmargin">
+                <div class="sttextlabel">回報主旨</div>
+                <div class="stinput startlabel">
+                    <div class="label">#</div>
+                    <input type="text" id="id" placeholder="請填寫該段id">
+                </div>
+            </div>
+            <div class="inputmargin">
+                <div class="sttextlabel">標題</div>
+                <div class="stinput">
+                    <input type="text" id="title">
+                </div>
+            </div>
+            <div class="inputmargin">
+                <div class="sttextlabel">內文</div>
+                <div class="stinput">
+                    <textarea class="textarea" id="description" placeholder="請輸入建議/需勘正部分"></textarea>
+                </div>
+            </div>
+            <div class="inputmargin">
+                <div class="sttextlabel">完成後聯絡方式</div>
+                <div class="flex">
+                    <div class="stselect basic fill light">
+                        <select class="textcenter colorwhite" id="connecttype">
+                            <option value="na">不聯絡</option>
+                            <option value="phone">電話</option>
+                            <option value="email">信箱</option>
+                            <option value="dc">discord</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                    <div class="stinput basic">
+                        <input type="text" id="connectdata" placeholder="請輸入帳號/號碼...">
+                    </div>
+                </div>
+            </div>
+            <input type="button" class="stbutton fill outline" id="submit" value="送出">
+        </div>
+
+        <div id="lightbox"></div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
