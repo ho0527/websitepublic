@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../../index.css">
+        <link rel="stylesheet" href="../../indexindex.css">
+        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+        <script src="/chrisplugin/js/chrisplugin.js"></script>
+    </head>
+    <body id="body">
+        <div class="flex columngap-10px">
+            <div class="box bordertop error fill indexbox" data-link="modulea/">
+                <img src="/material/icon/mainicon.png" class="boximage">
+                <div class="content textcenter ycenter">
+                    <div class="text max bold">modulea</div>
+                    <div class="text tiny">lastupdate: 20231213</div>
+                </div>
+            </div>
+            <div class="box bordertop error fill indexbox" data-link="moduleb/">
+                <img src="/material/icon/mainicon.png" class="boximage">
+                <div class="content textcenter ycenter">
+                    <div class="text max bold">moduleb</div>
+                    <div class="text tiny">lastupdate: 20231213</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex columngap-10px">
+            <div class="box bordertop error fill indexbox" data-link="modulec/">
+                <img src="/material/icon/mainicon.png" class="boximage">
+                <div class="content textcenter ycenter">
+                    <div class="text max bold">modulec</div>
+                    <div class="text tiny">lastupdate: 20231213</div>
+                </div>
+            </div>
+            <div class="box bordertop error fill indexbox" data-link="moduled/">
+                <img src="/material/icon/mainicon.png" class="boximage">
+                <div class="content textcenter ycenter">
+                    <div class="text max bold">moduled</div>
+                    <div class="text tiny">lastupdate: 20231213</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex columngap-10px">
+            <div class="box bordertop error fill indexbox" data-link="modulee/">
+                <img src="/material/icon/mainicon.png" class="boximage">
+                <div class="content textcenter ycenter">
+                    <div class="text max bold">modulee</div>
+                    <div class="text tiny">lastupdate: 20231213</div>
+                </div>
+            </div>
+            <div class="box bordertop error fill indexbox" data-link="modulef/">
+                <img src="/material/icon/mainicon.png" class="boximage">
+                <div class="content textcenter ycenter">
+                    <div class="text max bold">modulef</div>
+                    <div class="text tiny">lastupdate: 20231213</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            如果有遇到程式有問題請用DC找 chris0527 或 <a href="../../anther/respond" class="a">填寫此表單</a> 回報
+        </div>
+
+        <!-- <script src="../../index.js"></script> -->
+
+		<script>
+			onclick(".indexbox",function(element,event){
+                console.log("oin")
+                setTimeout(function(){
+                    href(element.dataset.link)
+                },100)
+			})
+
+			startmacossection()
+		</script>
+    </body>
+</html>
