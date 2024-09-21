@@ -9,22 +9,6 @@ if(weblsget(WEBLSNAME+"maindata")){
 	maindata=json(weblsget(WEBLSNAME+"maindata"))
 }
 
-onclick("#carpark",function(element,event){
-
-})
-
-onclick("#event",function(element,event){
-
-})
-
-onclick("#weather",function(element,event){
-
-})
-
-onclick("#setting",function(element,event){
-
-})
-
 onclick("#operating",function(element,event){
 	innerhtml("#main",`
 		<div class="selection">
