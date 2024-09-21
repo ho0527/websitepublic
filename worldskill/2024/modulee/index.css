@@ -11804,3 +11804,14 @@ html[data-background="secondary"],html[data-background="secondary"] body{
 
 
 /* program START */
+.width-200px{
+	width: 200px;
+}
+
+.width-80vw{
+	width: 80vw;
+}
+
+.height-70vh{
+	height: 70vh;
+}
