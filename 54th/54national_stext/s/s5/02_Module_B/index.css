@@ -1,0 +1,295 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    overflow-x: auto;
+}
+
+@media screen and (min-width: 1025px) {
+    header{
+        height: 75px;
+        padding: 0px 5vw;
+        background: rgb(52, 238, 52);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .phonebuttongroup,.barger{
+        display: none;
+    }
+
+    .buttongroup{
+        border-radius: 5px;
+        background: lightgreen;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .buttongroup>input[type="button"]{
+        border: none;
+        background: none;
+        font-size: 20px;
+        padding: 5px 10px;
+        margin: 0px;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+    
+    .buttongroup>input[type="button"]:hover{
+        background: rgb(199, 248, 199);
+    }
+    
+    .buttongroup>input[type="button"]:active{
+        opacity: 0.8;
+        /* box-shadow: 0 0 10px inset black; */
+    }
+    
+    .curser{
+        margin: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .curserimage{
+        width: 90vw;
+        transition: 0.3s linear;
+    }
+    
+    .lightborder{
+        border: 1px lightgray solid;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 5px;
+    }
+    
+    main{
+        width: 90vw;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .sectionimage{
+        width: 30vw;
+    }
+    
+    footer{
+        height: 75px;
+        background: rgb(52, 238, 52);
+        font-size: 20px;
+        padding: 0px 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }    
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    header{
+        height: 75px;
+        padding: 0px 5vw;
+        background: rgb(52, 238, 52);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    h2{
+        text-align: center;
+    }
+    
+    .buttongroup{
+        display: none;
+    }
+
+    .barger{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+
+    .barger>.line{
+        width: 50px;
+        height: 3px;
+        background: black;
+    }
+
+    .phonebuttongroup{
+        border-radius: 5px;
+        display: none;
+        background: lightgreen;
+        transition: 0.3s linear;
+    }
+    
+    .phonebuttongroup>input[type="button"]{
+        border: none;
+        background: none;
+        width: 100%;
+        font-size: 20px;
+        padding: 5px 10px;
+        margin: 0px;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+    
+    .phonebuttongroup>input[type="button"]:hover{
+        background: rgb(199, 248, 199);
+    }
+    
+    .phonebuttongroup>input[type="button"]:active{
+        opacity: 0.8;
+    }
+    
+    .curser{
+        margin: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .curserimage{
+        width: 90vw;
+        transition: 0.3s linear;
+    }
+    
+    .lightborder{
+        border: 1px lightgray solid;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 5px;
+    }
+    
+    main{
+        width: 90vw;
+        margin: 10px auto;
+    }
+    
+    .sectionimage{
+        width: 40vw;
+    }
+    
+    footer{
+        height: 75px;
+        background: rgb(52, 238, 52);
+        font-size: 20px;
+        padding: 0px 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }    
+}
+
+@media screen and (max-width: 481px){
+    header{
+        height: 75px;
+        padding: 0px 5vw;
+        background: rgb(52, 238, 52);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    h2{
+        text-align: center;
+    }
+    
+    .buttongroup{
+        display: none;
+    }
+
+    .barger{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+
+    .barger>.line{
+        width: 50px;
+        height: 3px;
+        background: black;
+    }
+
+    .phonebuttongroup{
+        border-radius: 5px;
+        display: none;
+        background: lightgreen;
+        transition: 0.3s linear;
+    }
+    
+    .phonebuttongroup>input[type="button"]{
+        border: none;
+        background: none;
+        width: 100%;
+        font-size: 20px;
+        padding: 5px 10px;
+        margin: 0px;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+    
+    .phonebuttongroup>input[type="button"]:hover{
+        background: rgb(199, 248, 199);
+    }
+    
+    .phonebuttongroup>input[type="button"]:active{
+        opacity: 0.8;
+    }
+    
+    .curser{
+        margin: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .curserimage{
+        width: 90vw;
+        transition: 0.3s linear;
+    }
+    
+    .lightborder{
+        border: 1px lightgray solid;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 5px;
+        flex-wrap: wrap;
+    }
+    
+    main{
+        width: 90vw;
+        margin: 10px auto;
+    }
+    
+    .sectionimage{
+        width: 80vw;
+    }
+    
+    footer{
+        height: 75px;
+        background: rgb(52, 238, 52);
+        font-size: 20px;
+        padding: 0px 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }    
+}
+
+.flex{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}

@@ -1,0 +1,127 @@
+body{
+    width: 85vw;
+    background: orange;
+    padding: 0px;
+    margin: 0px auto;
+    overflow: auto hidden;
+}
+
+input[type="text"]{
+    border: 1px black solid;
+    border-radius: 10px;
+    font-size: 25px;
+    padding: 5px;
+}
+
+input[type="button"]{
+    border-radius: 10px;
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#nickname{
+    text-align: right;
+    font-size: 25px;
+}
+
+#gamename{
+    text-align: center;
+    font-size: 30px;
+}
+
+#timer{
+    text-align: center;
+    font-size: 20px;
+}
+
+#player{
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#page1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#page3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#page6{
+    background: rgb(253, 93, 0);
+    position: relative;
+    top: 10px;
+    left: 50%;
+    width: calc(40px * 15);
+    height: calc(40px * 15);
+    transform: translate(-50%,-0%);
+    display: grid;
+    grid-template-columns: repeat(15,1fr);
+}
+
+#page7{
+    font-size: 30px;
+}
+
+.borderdiv{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    cursor: pointer;
+}
+
+.borderdiv.B::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    transform: translate(-50%,-50%);
+    background: black;
+    border-radius: 50%;
+}
+
+.borderdiv.W::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    transform: translate(-50%,-50%);
+    background: white;
+    border-radius: 50%;
+}
+
+.border{
+    width: 20px;
+    height: 20px;
+}
+
+.border.top{
+    border-top: 1px black solid;
+}
+
+.border.bottom{
+    border-bottom: 1px black solid;
+}
+
+.border.left{
+    border-left: 1px black solid;
+}
+
+.border.right{
+    border-right: 1px black solid;
+}

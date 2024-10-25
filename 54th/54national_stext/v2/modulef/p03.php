@@ -1,0 +1,11 @@
+<?php
+    $n=(int)readline();
+    $a=0;
+    $b=1;
+    for($i=0;$i<$n;$i=$i+1){
+        $temp=$a;
+        $a=bcadd($b,"0",0);
+        $b=bcadd($temp,$b,0);
+    }
+    echo($a);
+?>

@@ -1,0 +1,647 @@
+{
+	"info": {
+		"_postman_id": "4f958350-8390-4b31-a893-fcceedb16802",
+		"name": "54_Module_D",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27049917"
+	},
+	"item": [
+		{
+			"name": "使用者登入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@web.tw\",\r\n    \"password\": \"adminpass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASEURL}}auth/login",
+					"host": [
+						"{{BASEURL}}auth"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "使用者註冊",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test100@web.tw",
+							"type": "text"
+						},
+						{
+							"key": "nickname",
+							"value": "test8",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "chris",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"type": "file",
+							"src": "/C:/nginx/htdocs/website/worldskill/2022/TaskA/A05/images/image-01.jpg"
+						},
+						{
+							"key": "error",
+							"value": "admin@web.tw",
+							"description": "userexists",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "error",
+							"value": "123",
+							"description": "passwordwrror",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASEURL}}auth/register",
+					"host": [
+						"{{BASEURL}}auth"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "使用者登出",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/api/auth/logout",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "搜索圖片",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_by",
+							"value": "updated_at",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "order_type",
+							"value": "desc",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "keyword",
+							"value": "test",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "page_size",
+							"value": "10",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "order_by",
+							"value": "cat",
+							"description": "orderby errror",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/image/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"search"
+					],
+					"query": [
+						{
+							"key": "order_by",
+							"value": "updated_at",
+							"disabled": true
+						},
+						{
+							"key": "order_type",
+							"value": "asc",
+							"disabled": true
+						},
+						{
+							"key": "keyword",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page_size",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "order_by",
+							"value": "cat",
+							"description": "error",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "熱門圖片",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/image/popular",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"popular"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "瀏覽用戶圖片",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/user/1/image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"user",
+						"1",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "上傳圖片",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "test4",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test4descr",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/賀皓群chris/Downloads/Screenshot 2023-09-09 211826.png"
+						},
+						{
+							"key": "error",
+							"value": "admin@web.tw",
+							"description": "userexists",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "error",
+							"value": "123",
+							"description": "passwordwrror",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/image/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新圖片",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test5\",\r\n    \"description\": \"test5desc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/image/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del圖片",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/image/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get評論",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://hiiamchris.ddns.net:81/website/53th/senior/53national/TaskD/public/api/image/1/comment",
+					"protocol": "http",
+					"host": [
+						"hiiamchris",
+						"ddns",
+						"net"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"1",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "發布評論",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"hihihihihih\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/image/1/comment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"1",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reply評論",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"hi can i play with you?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://hiiamchris.ddns.net:81/website/53th/senior/53national/TaskD/public/api/image/1/comment/2/reply",
+					"protocol": "http",
+					"host": [
+						"hiiamchris",
+						"ddns",
+						"net"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"1",
+						"comment",
+						"2",
+						"reply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del評論",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/image/1/comment/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"image",
+						"1",
+						"comment",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查詢熱門圖片發布者",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_by",
+							"value": "updated_at",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:81/website/53th/senior/53national/TaskD/public/api/user/popular?order_by=upload_count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"website",
+						"53th",
+						"senior",
+						"53national",
+						"TaskD",
+						"public",
+						"api",
+						"user",
+						"popular"
+					],
+					"query": [
+						{
+							"key": "order_by",
+							"value": "upload_count"
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "S3RrD7G3ngsKP32yKMGGUVkbtIft2a",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "http://localhost:81/53_N0_D/public/api/",
+			"type": "string"
+		}
+	]
+}

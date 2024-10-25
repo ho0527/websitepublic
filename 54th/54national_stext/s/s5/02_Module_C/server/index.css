@@ -1,0 +1,116 @@
+body{
+    width: 80vw;
+    height: 100%;
+    margin: 0px auto;
+    overflow: none;
+}
+
+input[type="text"]{
+    border: 1px black solid;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 30px;
+}
+
+input[type="button"]{
+    border: 1px black solid;
+    border-radius: 5px;
+    font-size: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#nicknamediv{
+    font-size: 30px;
+    text-align: right;
+}
+
+#roomdiv{
+    font-size: 30px;
+    text-align: center;
+}
+
+#time{
+    font-size: 30px;
+    text-align: center;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#playerlist{
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#page6{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(15,1fr);
+    background: rgb(255, 115, 0);
+}
+
+.borderdiv{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    cursor: pointer;
+}
+
+.borderdiv.B::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black;
+}
+
+.borderdiv.W::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+}
+
+.border{
+    width: 25px;
+    height: 25px;
+}
+
+.border.left{
+    border-left: 1px black solid;
+}
+
+.border.right{
+    border-right: 1px black solid;
+}
+
+.border.top{
+    border-top: 1px black solid;
+}
+
+.border.bottom{
+    border-bottom: 1px black solid;
+}
+
+#page7{
+    font-size: 25px;
+}

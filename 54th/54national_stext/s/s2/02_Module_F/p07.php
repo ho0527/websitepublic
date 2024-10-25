@@ -1,0 +1,16 @@
+<?php
+    $data=json_decode(readline());
+    $index=1;
+    $i=1;
+    $ans="Y";
+    while($index<count($data)){
+        $temparr=array_slice($data,$index,2**$i);
+        if($temparr!=array_reverse($temparr)){
+            $ans="N";
+            break;
+        }
+        $index=$index+2**$i;
+        $i=$i+1;
+    }
+    echo($ans);
+?>

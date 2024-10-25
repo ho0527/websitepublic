@@ -1,0 +1,114 @@
+[
+	{
+		"id": 0,
+		"name": "大腿",
+		"price": "40",
+		"image": "image/pic01.jpg",
+		"type": "點心"
+	},
+	{
+		"id": 1,
+		"name": "棒腿",
+		"price": "40",
+		"image": "image/pic02.jpg",
+		"type": "點心"
+	},
+	{
+		"id": 2,
+		"name": "6塊雞塊",
+		"price": "30",
+		"image": "image/pic03.jpg",
+		"type": "點心"
+	},
+	{
+		"id": 3,
+		"name": "可樂",
+		"price": "50",
+		"image": "image/pic04.jpg",
+		"type": "點心"
+	},
+	{
+		"id": 4,
+		"name": "薯條",
+		"price": "60",
+		"image": "image/pic05.jpg",
+		"type": "點心"
+	},
+	{
+		"id": 5,
+		"name": "薯餅",
+		"price": "40",
+		"image": "image/pic06.jpg",
+		"type": "點心"
+	},
+	{
+		"id": 6,
+		"name": "冰淇淋",
+		"price": "50",
+		"image": "image/pic07.jpg",
+		"type": "點心"
+	},
+	{
+		"id": 7,
+		"name": "冰炫風",
+		"price": "35",
+		"image": "image/pic08.jpg",
+		"type": "點心"
+	},
+	{
+		"id": 8,
+		"name": "四盎司牛肉堡",
+		"price": "100",
+		"image": "image/pic09.jpg",
+		"type": "漢堡"
+	},
+	{
+		"id": 9,
+		"name": "雙層牛肉吉事堡",
+		"price": "120",
+		"image": "image/pic10.jpg",
+		"type": "漢堡"
+	},
+	{
+		"id": 10,
+		"name": "大麥克",
+		"price": "50",
+		"image": "image/pic11.jpg",
+		"type": "漢堡"
+	},
+	{
+		"id": 11,
+		"name": "一個好吃的漢堡",
+		"price": "90",
+		"image": "image/pic12.jpg",
+		"type": "漢堡"
+	},
+	{
+		"id": 12,
+		"name": "嫩煎鷄腿堡",
+		"price": "75",
+		"image": "image/pic13.jpg",
+		"type": "漢堡"
+	},
+	{
+		"id": 13,
+		"name": "麥香鷄",
+		"price": "80",
+		"image": "image/pic14.jpg",
+		"type": "漢堡"
+	},
+	{
+		"id": 14,
+		"name": "嫩煎鷄腿堡",
+		"price": "45",
+		"image": "image/pic15.jpg",
+		"type": "漢堡"
+	},
+	{
+		"id": 15,
+		"name": "雙層麥香鷄",
+		"price": "60",
+		"image": "image/pic16.jpg",
+		"type": "漢堡"
+	}
+]

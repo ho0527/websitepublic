@@ -1,0 +1,364 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+.cursor{
+    width: 90vw;
+    margin: 10px auto;
+}
+
+.cursor>img{
+    width: 90vw;
+}
+
+@media screen and (min-width: 1025px) {
+    nav{
+        background: rgb(25, 231, 25);
+        padding: 0px 5vw;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .temp{
+        display: none;
+    }
+
+    .barger,.phonebuttondiv{
+        display: none;
+    }
+
+    .pcbuttondiv{
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .pcbutton{
+        border: none;
+        background: rgb(122, 255, 155);
+        font-size: 15px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .pcbutton:hover{
+        background: rgb(237, 255, 212);
+    }
+
+    .pcbutton:active{
+        opacity: 0.8;
+    }
+
+    .cursor{
+        width: 90vw;
+        margin: 10px auto;
+    }
+
+    main{
+        width: 90vw;
+        margin: 0px auto;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    article{
+        border: 1px rgb(202, 202, 202) solid;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px 0px;
+    }
+
+    .section1{
+        width: 33%;
+    }
+
+    .section2{
+        width: 65%;
+    }
+
+    .article1{
+        width: 100%;
+    }
+
+    .article2{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    h3{
+        margin: 1px 0px;
+    }
+
+    .article1>img{
+        width: 100%;
+    }
+
+    .article2>img{
+        width: 50%;
+        margin-right: 5px;
+    }
+
+    .mainimage{
+        width: 33%;
+    }
+
+    footer{
+        background: rgb(25, 231, 25);
+        padding: 0px 5vw;
+        height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    nav{
+        background: rgb(25, 231, 25);
+        padding: 0px 5vw;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .barger{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+
+    .phonebuttondiv{
+        display: none;
+        background: rgb(122, 255, 155);
+    }
+
+    .pcbutton{
+        width: 100%;
+    }
+
+    .bargerdiv{
+        width: 100%;
+        height: 3px;
+        background: black;
+    }
+
+    .pcbuttondiv{
+        display: none;
+    }
+
+    .pcbutton{
+        border: none;
+        background: rgb(122, 255, 155);
+        font-size: 15px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .pcbutton:hover{
+        background: rgb(237, 255, 212);
+    }
+
+    .pcbutton:active{
+        opacity: 0.8;
+    }
+
+    main{
+        width: 90vw;
+        margin: 0px auto;
+    }
+
+    article{
+        border: 1px rgb(202, 202, 202) solid;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px 0px;
+    }
+
+    .section1{
+        width: 100%;
+    }
+
+    .section2{
+        width: 100%;
+    }
+
+    .article1{
+        width: 100%;
+        padding: 5px 15px;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    .article2{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    h3{
+        margin: 1px 0px;
+    }
+
+    .article1>img{
+        width: 47%;
+    }
+
+    .article2>img{
+        width: 50%;
+        margin-right: 5px;
+    }
+
+    .mainimage{
+        width: 33%;
+    }
+
+    footer{
+        background: rgb(25, 231, 25);
+        padding: 0px 5vw;
+        height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 481px) {
+    nav{
+        background: rgb(25, 231, 25);
+        padding: 0px 5vw;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .barger{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+
+    .phonebuttondiv{
+        display: none;
+        background: rgb(122, 255, 155);
+    }
+
+    .pcbutton{
+        width: 100%;
+    }
+
+    .bargerdiv{
+        width: 100%;
+        height: 3px;
+        background: black;
+    }
+
+    .pcbuttondiv{
+        display: none;
+    }
+
+    .pcbutton{
+        border: none;
+        background: rgb(122, 255, 155);
+        font-size: 15px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .pcbutton:hover{
+        background: rgb(237, 255, 212);
+    }
+
+    .pcbutton:active{
+        opacity: 0.8;
+    }
+
+    main{
+        width: 90vw;
+        margin: 0px auto;
+    }
+
+    article{
+        border: 1px rgb(202, 202, 202) solid;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px 0px;
+    }
+
+    .section1{
+        width: 100%;
+    }
+
+    .section2{
+        width: 100%;
+    }
+
+    .article1{
+        width: 100%;
+    }
+
+    .article2{
+        width: 100%;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    h3{
+        margin: 1px 0px;
+    }
+
+    .article1>img{
+        width: 100%;
+    }
+
+    .article2>img{
+        width: 100%;
+        margin-right: 5px;
+    }
+
+    .mainimage{
+        width: 33%;
+    }
+
+    footer{
+        background: rgb(25, 231, 25);
+        padding: 0px 5vw;
+        height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

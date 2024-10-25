@@ -1,0 +1,249 @@
+body{
+    background: orange;
+    width: 90vw;
+    padding: 0px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+input{
+    border: 1px black solid;
+    font-size: 20px;
+    width: 100%;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+header{
+    width: 100%;
+    height: 75px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main{
+    position: absolute;
+    top: 75px;
+    width: 90vw;
+    height: calc(100vh - 75px - 75px);
+    padding: 0px 10px;
+    background: white;
+    border-radius: 10px;
+}
+
+main.haveaside{
+    width: calc(70vw - 10px);
+}
+
+aside{
+    position: absolute;
+    top: 75px;
+    right: calc(5vw - 20px);
+    width: 0px;
+    height: 0px;
+    background: white;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+aside.haveaside{
+    width: calc(20vw - 10px);
+    height: calc(100vh - 75px - 75px);
+}
+
+footer{
+    position: absolute;
+    bottom: 5px;
+    margin-top: 10px;
+    width: 90vw;
+    height: 50px;
+    padding: 5px 10px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.confirm{
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.whitebutton{
+    border: none;
+    background: white;
+    color: black;
+    font-weight: bold;
+    width: 85px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 20px;
+}
+
+.orderbutton{
+    border: 1px orange solid;
+    background: white;
+    color: black;
+    font-weight: bold;
+    width: 85px;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.orderbutton.active{
+    border: none;
+    background: orange;
+    color: white;
+    font-weight: bold;
+    width: 85px;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orangebutton{
+    border: none;
+    background: orange;
+    color: white;
+    font-weight: bold;
+    width: 20vw;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.categorylist{
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.categorylist li{
+    border: 1px orange solid;
+    background: white;
+    color: black;
+    font-weight: bold;
+    width: 85px;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.categorylist li.active{
+    border: none;
+    background: orange;
+    color: white;
+    font-weight: bold;
+    width: 85px;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu{
+    padding: 0px 10px;
+    height: calc(100vh - 75px - 75px - 45px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.menuitem{
+    background: whitesmoke;
+    width: 200px;
+    height: 190px;
+    padding: 5px;
+    margin: 0px 5px;
+    border-radius: 10px;
+}
+
+.meal{
+    max-width: 70%;
+    min-height: 50%;
+    max-height: 100%;
+    margin: 0px auto;
+}
+
+.addmealbutton{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.justifyContent-space-around{
+    justify-content: space-around;
+}
+
+.delete{
+    color: red;
+    cursor: pointer;
+}
+
+.list{
+    padding: 0px;
+    list-style: none;
+}
+
+.orderitem{
+    background: whitesmoke;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    overflow-y: auto;
+}
+
+.margin-5px_0px{
+    margin: 5px 0px;
+}
+
+#orderList{
+    height: 70vh;
+    overflow-y: auto;
+}
+
+#finishOrderList{
+    height: 70vh;
+    overflow-y: auto;
+}

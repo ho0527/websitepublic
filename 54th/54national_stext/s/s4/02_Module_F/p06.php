@@ -1,0 +1,13 @@
+<?php
+    $data=readline();
+    $left=0;
+    $right=0;
+    for($i=0;$i<strlen($data);$i=$i+1){
+        if($data[$i]=="("&&$data[0]!="("&&$left==0){
+            $left=$i;
+        }elseif($data[$i]==")"){
+            $right=$i;
+        }
+    }
+    echo((0<$right-$left)?($right-$left):0);
+?>

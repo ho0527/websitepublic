@@ -1,0 +1,22 @@
+<?php
+    $n=(int)readline();
+    for($i=0;$i<$n;$i=$i+1){
+        $data=(int)readline();
+        $echo="Y";
+        if($data==2){
+            $echo="Y";
+        }elseif($data==3){
+            $echo="Y";
+        }elseif($data%2==0){
+            $echo="N";
+        }else{
+            for($j=3;$j<=sqrt($data);$j=$j+2){
+                if($data%$j==0){
+                    $echo="N";
+                    break;
+                }
+            }
+        }
+        echo($echo);
+    }
+?>

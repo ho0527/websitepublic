@@ -1,0 +1,6062 @@
+{
+	"info": {
+		"_postman_id": "4f958350-8390-4b31-a893-fcceedb16802",
+		"name": "54_Module_D",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27049917"
+	},
+	"item": [
+		{
+			"name": "API1_使用者登入",
+			"item": [
+				{
+					"name": "success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@web.tw\",\r\n    \"password\": \"adminpass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/login",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success_2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user2@web.tw\",\r\n    \"password\": \"user2pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/login",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"this_maybe_is_invalid_login@web.tw\",\r\n    \"password\": \"invalid_password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/login",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing filed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@web.tw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/login",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wrong data type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": 123,\r\n    \"password\": \"adminpass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/login",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wrong data type_email error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"123..13\",\r\n    \"password\": \"adminpass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/login",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API2_使用者登出",
+			"item": [
+				{
+					"name": "tokenerror",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BASEURL}}user/logout",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "error token",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/logout",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API3_使用者註冊",
+			"item": [
+				{
+					"name": "success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "testuser@web.tw",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "testuser",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "profile_image",
+									"type": "file",
+									"src": "postman-cloud:///1ef0d3e8-b64f-4ec0-8ba2-b978ec2306c9"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/register",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user exists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@web.tw",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "test8",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "chris",
+									"type": "text"
+								},
+								{
+									"key": "profile_image",
+									"type": "file",
+									"src": "postman-cloud:///1ef0d3e8-b64f-4ec0-8ba2-b978ec2306c9"
+								},
+								{
+									"key": "error",
+									"value": "admin@web.tw",
+									"description": "userexists",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "error",
+									"value": "123",
+									"description": "passwordwrror",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/register",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing filed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test6@web.tw",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "test8",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "chris",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "profile_image",
+									"type": "file",
+									"src": "/C:/Users/賀皓群chris/Pictures/mainicon.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/register",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test6@web.tw",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "test8",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "chris",
+									"type": "text"
+								},
+								{
+									"key": "profile_image",
+									"value": "asdsa",
+									"description": "image error",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/register",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "worng data type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test6",
+									"description": "data type error",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "test8",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "chris",
+									"type": "text"
+								},
+								{
+									"key": "profile_image",
+									"type": "file",
+									"src": "postman-cloud:///1ef0d3e8-b64f-4ec0-8ba2-b978ec2306c9"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/register",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API4_取得任務類型",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/type",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"type"
+									],
+									"query": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "error",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/type",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"type"
+									],
+									"query": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "worng_datatype_error",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "desc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "orderby errror",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "error",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "建議先多新增幾筆資料再來看，為了total_count及分頁系統",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API5_新增任務類型",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/type",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"type"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/type",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"type"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"inputs\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success_2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing2\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test2_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test2_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test2_number2\",\r\n            \"type\": \"number\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success_3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing3\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test3_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test3_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test3_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success_4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing4\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test4_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test4_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test4_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_MISSING_FIELD error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n        // ,{\r\n        //     \"name\": \"test_error\",\r\n        //     \"type\": \"error\"\r\n        // }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_MISSING_FIELD  error_2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"error data\": \"test1_string\",\r\n            \"error data2\": \"string\"\r\n        },{\r\n            \"bad\": \"test1_number\",\r\n            \"chris\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": \"thisiswrong\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error_2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test2_string\",\r\n            \"type\": \"thisiserror\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error_3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test2_string\",\r\n            \"type\": \"thisiserror\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "task type name 以存在",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"gpt3\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASKTYPE_INPUT_NAME_EXISTS error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"thistaskcantinsert\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API6_新增任務",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": 3,\r\n    \"inputs\": {\r\n        \"width\": \"123\",\r\n        \"height\": \"456\",\r\n        \"prompt\": \"data\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task",
+									"host": [
+										"{{BASEURL}}task"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": 3,\r\n    \"inputs\": {\r\n        \"width\": \"123\",\r\n        \"height\": \"456\",\r\n        \"prompt\": \"data\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task",
+									"host": [
+										"{{BASEURL}}task"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入admin的帳號(可至: API1/success)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success / MSG_USER_QUOTA_IS_EMPTY error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": 3,\r\n    \"inputs\": {\r\n        \"width\": 123,\r\n        \"height\": 456,\r\n        \"prompt\": \"data\"\r\n    }\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task",
+							"host": [
+								"{{BASEURL}}task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_MISSING_FIELD error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputs\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task",
+							"host": [
+								"{{BASEURL}}task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": 3,\r\n    \"inputs\": \"thisiswrong\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task",
+							"host": [
+								"{{BASEURL}}task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASKTYPE_TYPE_ERROR error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": 3,\r\n    \"inputs\": {\r\n        \"width\": \"a123\",\r\n        \"height\": \"false\",\r\n        \"prompt\": \"234\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task",
+							"host": [
+								"{{BASEURL}}task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASKTYPE_NOT_EXISTS error Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": 9999999,\r\n    \"inputs\": {\r\n        \"width\": 123,\r\n        \"height\": 456,\r\n        \"prompt\": \"data\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task",
+							"host": [
+								"{{BASEURL}}task"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "請先登入user2的帳號(可至: API1/success2)",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API7_查詢指定任務",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}task",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"query": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "error",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "desc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "orderby errror",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}task",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "error",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "desc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "orderby errror",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type?order_by=error",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "error"
+								},
+								{
+									"key": "order_type",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "error",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API8_取得指定任務",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/1",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"1"
+									],
+									"query": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "error",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/1",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"1"
+									],
+									"query": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "worng_datatype_error",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入admin的帳號(可至: API1/success)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "desc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "orderby errror",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/1",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"1"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "error",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASK_NOT_EXISTS error",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "desc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "orderby errror",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/maybe_no_this_task",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"maybe_no_this_task"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "error",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASK_NOT_EXISTS error_2(請勿將token設為user2)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "desc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "orderby errror",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/2",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"2"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "updated_at",
+									"disabled": true
+								},
+								{
+									"key": "order_type",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "cat",
+									"description": "error",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "請先登入user2的帳號(可至: API1/success2)",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "[以刪除]API9_修改任務類型",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/type/1",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"type",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/type/1",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"type",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"very_good_gpt3\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/1",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_MISSING_FIELD error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n        // ,{\r\n        //     \"name\": \"test_error\",\r\n        //     \"type\": \"error\"\r\n        // }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/2",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_MISSING_FIELD  error_2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"error data\": \"test1_string\",\r\n            \"error data2\": \"string\"\r\n        },{\r\n            \"bad\": \"test1_number\",\r\n            \"chris\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/1",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": \"thisiswrong\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/1",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error_2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test2_string\",\r\n            \"type\": \"thisiserror\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/1",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error_3",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing 1\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test2_string\",\r\n            \"type\": \"thisiserror\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/1",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "task type name 以存在",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"gpt3\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/2",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASKTYPE_INPUT_NAME_EXISTS error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"thistaskcantinsert\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"test1_string\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"test1_bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/2",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASK_NOT_EXISTS error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"thistaskcantinsert\",\r\n    \"inputs\": [\r\n        {\r\n            \"name\": \"string\",\r\n            \"type\": \"string\"\r\n        },{\r\n            \"name\": \"number\",\r\n            \"type\": \"number\"\r\n        },{\r\n            \"name\": \"bool\",\r\n            \"type\": \"boolean\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/maybe_no_this_task",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"maybe_no_this_task"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API10_刪除任務類型",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/type/1",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"type",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/type/1",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"type",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/1",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASKTYPE_NOT_EXISTS error",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/maybe_no_this_task",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"maybe_no_this_task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASKTYPE_NOT_EXISTS error_2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/type/4",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"type",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API11_新增使用者額度",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"tasktypelist\": \"1,2,3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}user/quota/2",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"quota",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"value\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}user/quota/2",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"quota",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"value\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/quota/2",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"quota",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_MISSING_FIELD error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/quota/2",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"quota",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"value\": \"errordatatype\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/quota/2",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"quota",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_USER_NOT_EXISTS error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"value\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/quota/no_this_user",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"quota",
+								"no_this_user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API12_新增worker",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"testing\",\r\n    \"tasktypelist\": \"1,2,3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker",
+									"host": [
+										"{{BASEURL}}worker"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"testing\",\r\n    \"tasktypelist\": \"1,2,3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker",
+									"host": [
+										"{{BASEURL}}worker"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing2\",\r\n    \"tasktypelist\": \"1,2,3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker",
+							"host": [
+								"{{BASEURL}}worker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_MISSING_FIELD error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"error\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker",
+							"host": [
+								"{{BASEURL}}worker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testing1\",\r\n    \"tasktypelist\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker",
+							"host": [
+								"{{BASEURL}}worker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "worker name 以存在",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ec2-northeast-1\",\r\n    \"tasktypelist\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker",
+							"host": [
+								"{{BASEURL}}worker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASKTYPE_NOT_EXISTS error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"thistaskcantinsert\",\r\n    \"tasktypelist\": \"1000000,maybenothistasktype\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker",
+							"host": [
+								"{{BASEURL}}worker"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API13_修改worker",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    // \"name\": \"test\"\r\n    // ,\r\n    // \"tasktypelist\": \"1,2,3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker/1",
+									"host": [
+										"{{BASEURL}}worker"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    // \"name\": \"test\"\r\n    // ,\r\n    // \"tasktypelist\": \"1,2,3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker/1",
+									"host": [
+										"{{BASEURL}}worker"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"updatetest\"\r\n    // ,\r\n    // \"tasktypelist\": \"1,2,3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success_2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"name\": \"updatetest\"\r\n    // ,\r\n    \"tasktypelist\": \"1,2,3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": false\r\n    // ,\r\n    // \"tasktypelist\": \"1,2,3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WORKER_NOT_EXISTS error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"name\": \"test\"\r\n    // ,\r\n    // \"tasktypelist\": \"1,2,3\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/no_this_user",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"no_this_user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "worker name 以存在",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ec2-northeast-1\",\r\n    \"tasktypelist\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/3",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASKTYPE_NOT_EXISTS error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"thistaskcantinsert\",\r\n    \"tasktypelist\": \"1000000,maybenothistasktype\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API14_刪除worker",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker/1",
+									"host": [
+										"{{BASEURL}}worker"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker/1",
+									"host": [
+										"{{BASEURL}}worker"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WORKER_NOT_EXISTS error",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/maybe_no_this_worker",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"maybe_no_this_worker"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API15_查詢使用者列表",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}user",
+									"host": [
+										"{{BASEURL}}user"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}user",
+									"host": [
+										"{{BASEURL}}user"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user",
+							"host": [
+								"{{BASEURL}}user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API16_修改使用者",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}user/2",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}user/2",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入user2的帳號(可至: API1/success2)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"email\": \"test@web.tw\"\r\n    // ,\r\n    // \"password\": \"testpass\"\r\n    // ,\r\n    \"nickname\": \"test\"\r\n    //,\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/2",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"email\": \"test@web.tw\"\r\n    // ,\r\n    // \"password\": \"testpass\"\r\n    // ,\r\n    \"nickname\": false\r\n    //,\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/2",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_USER_NOT_EXISTS error Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"email\": \"test@web.tw\"\r\n    // ,\r\n    // \"password\": \"testpass\"\r\n    // ,\r\n    \"nickname\": \"test\"\r\n    //,\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/user_not_exists",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"user_not_exists"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API17_取消任務",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": 3,\r\n    \"inputs\": {\r\n        \"width\": \"123\",\r\n        \"height\": \"456\",\r\n        \"prompt\": \"data\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/cancel/26",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"cancel",
+										"26"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": 3,\r\n    \"inputs\": {\r\n        \"width\": \"123\",\r\n        \"height\": \"456\",\r\n        \"prompt\": \"data\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}task/cancel/26",
+									"host": [
+										"{{BASEURL}}task"
+									],
+									"path": [
+										"cancel",
+										"26"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入admin的帳號(可至: API1/success)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success error",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/cancel/3",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"cancel",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASK_NOT_EXISTS error",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/cancel/maybe_no_this_task",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"cancel",
+								"maybe_no_this_task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASK_IS_END error",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}task/cancel/1",
+							"host": [
+								"{{BASEURL}}task"
+							],
+							"path": [
+								"cancel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "請先登入user2的帳號(可至: API1/success2)",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API18_查詢剩餘額度",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}user/leftquota",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"leftquota"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}user/leftquota",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"leftquota"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入admin的帳號(可至: API1/success)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/leftquota",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"leftquota"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "請先登入user2的帳號(可至: API1/success2)",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API19_查詢額度變更紀錄",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}user/quota",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"quota"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}user/quota",
+									"host": [
+										"{{BASEURL}}user"
+									],
+									"path": [
+										"quota"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "請先登入admin的帳號(可至: API1/success)",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "291124ddb96730a006d48d4b74fa37f3a1e040dffbe2549b3e0778e7bbf51eb2",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASEURL}}user/quota",
+							"host": [
+								"{{BASEURL}}user"
+							],
+							"path": [
+								"quota"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "請先登入user2的帳號(可至: API1/success2)",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "11d2fc8d527af9f4a399094dc6c86f6e1b6213db2462e8281d342ced736a8dbb",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API20_取得需執行任務",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_by",
+											"value": "updated_at",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_type",
+											"value": "desc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "cat",
+											"description": "orderby errror",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker/task",
+									"host": [
+										"{{BASEURL}}worker"
+									],
+									"path": [
+										"task"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/task",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"task"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "預設為worker2",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "1648o3knsmv9erfzcptb8u7vsemew7hh",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API21_回報任務結果",
+			"item": [
+				{
+					"name": "token error",
+					"item": [
+						{
+							"name": "token error",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "finished",
+											"type": "text"
+										},
+										{
+											"key": "result",
+											"type": "file",
+											"src": "postman-cloud:///1ef14b87-e113-4690-9595-d7591109f39f"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker/task/1",
+									"host": [
+										"{{BASEURL}}worker"
+									],
+									"path": [
+										"task",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "token error",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "no permission",
+					"item": [
+						{
+							"name": "no permission",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "finished",
+											"type": "text"
+										},
+										{
+											"key": "result",
+											"type": "file",
+											"src": "postman-cloud:///1ef14b87-e113-4690-9595-d7591109f39f"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASEURL}}worker/task/1",
+									"host": [
+										"{{BASEURL}}worker"
+									],
+									"path": [
+										"task",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "worker1",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eztffswhcrqhqfwxbj2ej1nl32543s8d",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "finished",
+									"type": "text"
+								},
+								{
+									"key": "result",
+									"type": "file",
+									"src": "postman-cloud:///1ef14b87-e113-4690-9595-d7591109f39f"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/task/3",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"task",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_MISSING_FIELD error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "finished",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "result",
+									"type": "file",
+									"src": "postman-cloud:///1ef14b87-e113-4690-9595-d7591109f39f"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/task/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_WRONG_DATA_TYPE error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "error",
+									"type": "text"
+								},
+								{
+									"key": "result",
+									"type": "file",
+									"src": "postman-cloud:///1ef14b87-e113-4690-9595-d7591109f39f"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/task/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_IMAGE_CAN_NOT_PROCESS error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "finished",
+									"type": "text"
+								},
+								{
+									"key": "result",
+									"type": "file",
+									"src": "postman-cloud:///1ef14b97-92a5-4f20-99d2-b8bd6555a5ba"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/task/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASK_NOT_EXISTS error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "finished",
+									"type": "text"
+								},
+								{
+									"key": "result",
+									"type": "file",
+									"src": "postman-cloud:///1ef14b87-e113-4690-9595-d7591109f39f"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/task/maybe_no_this_task",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"task",
+								"maybe_no_this_task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MSG_TASK_IS_END error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "finished",
+									"type": "text"
+								},
+								{
+									"key": "result",
+									"type": "file",
+									"src": "postman-cloud:///1ef14b87-e113-4690-9595-d7591109f39f"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}worker/task/1",
+							"host": [
+								"{{BASEURL}}worker"
+							],
+							"path": [
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "預設為worker2",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "1648o3knsmv9erfzcptb8u7vsemew7hh",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "8523a96cc6bf2be0fca343cab4bb9eb1ff5de659ed916db888d2e00529613cde",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "http://localhost:81/54national\\moduled/public/api/",
+			"type": "string"
+		}
+	]
+}

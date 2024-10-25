@@ -1,0 +1,75 @@
+body{
+    width: 85vw;
+    margin: 0px auto;
+}
+
+
+.display-none{
+    display: none;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mainborder{
+    width: calc(50px * 15);
+    height: calc(50px * 15);
+    display: grid;
+    grid-template-columns: repeat(15,1fr);
+}
+
+.borderdiv{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.borderdiv::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-0%,-50%);
+    width: 100%;
+    height: 2px;
+    background: black;
+}
+
+.borderdiv::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    width: 2px;
+    height: 100%;
+    background: black;
+}
+
+.borderdiv>.B{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: black;
+    z-index: 99;
+}
+
+.borderdiv>.W{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    z-index: 99;
+}

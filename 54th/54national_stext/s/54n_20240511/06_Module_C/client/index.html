@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="bootstrap.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="nickname"></div>
+        <div id="timeer"></div>
+        <div id="page1">
+            暱稱: <input type="text" id="name">
+            <input type="button" onclick="signin()" value="Start">
+        </div>
+        <div class="display-none" id="page2">
+            <input type="button" onclick="clearall(3)" value="建立遊戲室">
+            <input type="button" onclick="addroom()" value="加入遊戲室">
+        </div>
+        <div class="display-none" id="page3">
+            遊戲室名稱: <input type="text" id="roomname">
+            <input type="button" onclick="createroom()" value="建立">
+        </div>
+        <div class="display-none" id="page4"></div>
+        <div class="display-none" id="page5"></div>
+        <div class="display-none" id="page6"></div>
+        <div class="display-none" id="page7"></div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
