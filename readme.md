@@ -1,8 +1,8 @@
-# hi 如果想連進我的網站可以使用此網址https://hiiamchris.ddns.net/
+# hi 如果想連進我的網站可以使用此網址https://chris.chrisho.us.kg/
 
-# 這個裡面如果有問題可以用DC: chris0527 跟我說 或 [用此](https://hiiamchris.ddns.net/anther/respond/) 回報
+# 這個裡面如果有問題可以用DC: chris0527 跟我說 或 [用此](https://chris.chrisho.us.kg/anther/respond/) 回報
 
-# 程式都可以自己拿去改拿去參考 不需告知(使用條款請參照TOUv2.0.0.pdf)
+# 程式都可以自己拿去改拿去參考 不需告知(使用條款請參照[TOUv2.0.1.pdf](TOUv2.0.1.pdf))
 
 ---
 
@@ -57,7 +57,7 @@ template/ --> 模板等等
 3. 首頁檔案
 
 4. 公告/新聞區
-   - https://hiiamchris.ddns.net/news.html
+   - https://chris.chrisho.us.kg/news.html
 
 ### 在各檔案內會有 about/ 內可以看到該專案的詳細資料
 
