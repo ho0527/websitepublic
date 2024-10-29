@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <title>Document</title>
         <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
         <script src="error.js"></script>
-        <script src="https://chrisplugin.pages.dev/js/chrisplugin.js"></script>
+        <script src="/website/plugin/js/chrisplugin.js"></script>
     </head>
     <body>
         <?php

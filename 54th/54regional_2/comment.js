@@ -37,7 +37,7 @@ ajax("GET",ajaxurl+"/getcommentlist",function(event,data){
             if(row[i]["pin"]=="true"){
                 docgetid("pindiv").innerHTML=`
                     ${docgetid("pindiv").innerHTML}
-                    <img src="/material/icon/dark/pin01-solid.png" class="pinicon" title="已訂選">
+                    <img src="/website/material/icon/dark/pin01-solid.png" class="pinicon" title="已訂選">
                     <div class="commentdiv grid" id="${row[i]["id"]}">
                         <div class="commentusername macossectiondivx">${row[i]["username"]}</div>
                         <div class="commentcontent macossectiondivy">${commentcontent}</div>

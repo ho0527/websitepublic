@@ -133,7 +133,7 @@
                 <table>
                     <tr>
                         <td class="producttd">商品名稱: chris</td>
-                        <td class="producttd">相關連結: https://hiicmchris.ddns.net/</td>
+                        <td class="producttd">相關連結: https://hiicmchris.ddns.net/website/</td>
                     </tr>
                     <tr>
                         <td class="producttd">商品簡介: <br>it is me!</td>

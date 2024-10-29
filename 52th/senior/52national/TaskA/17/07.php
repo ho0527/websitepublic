@@ -6,7 +6,7 @@
     @$referer = $_SERVER["HTTP_REFERER"];
 
     // 判斷 Referer 是否是 07.html
-    if ($referer=="http://localhost/52th/senior/52national/TaskA/17/07.html"||$referer=="http://hiiamchris.hopto.org/52th/senior/52national/TaskA/17/07.html") {
+    if ($referer=="http://localhost/website/52th/senior/52national/TaskA/17/07.html"||$referer=="http://hiiamchris.hopto.org/website/52th/senior/52national/TaskA/17/07.html") {
         // 允許瀏覽圖片
         // 取得圖片的路徑
         $image_path= "images/".$_GET["image"];

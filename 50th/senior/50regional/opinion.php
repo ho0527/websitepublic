@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>管理者專區</title>
-        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/website/index.css">
         <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
-        <script src="https://chrisplugin.pages.dev/js/chrisplugin.js"></script>
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
     </head>
     <body>
         <?php

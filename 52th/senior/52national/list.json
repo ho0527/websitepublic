@@ -22,168 +22,168 @@
                                 {
                                     "no": "01",
                                     "description": "A01",
-                                    "link": "../../../worldskill/2019/TaskA/B02/",
+                                    "link": "../../../worldskill/2019/TaskA/B02",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "02",
                                     "description": "A02",
-                                    "link": "../../../worldskill/2019/TaskA/B03/",
+                                    "link": "../../../worldskill/2019/TaskA/B03",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "03",
                                     "description": "A03",
-                                    "link": "TaskA/03/",
+                                    "link": "TaskA/03",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "04",
                                     "description": "A04",
-                                    "link": "TaskA/04/",
+                                    "link": "TaskA/04",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "05",
                                     "description": "A05",
-                                    "link": "../../../worldskill/2019/TaskA/D10/",
+                                    "link": "../../../worldskill/2019/TaskA/D10",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "06",
                                     "description": "A06",
-                                    "link": "../../../worldskill/2019/TaskA/A01/",
+                                    "link": "../../../worldskill/2019/TaskA/A01",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "07",
                                     "description": "A07",
-                                    "link": "TaskA/07/",
+                                    "link": "TaskA/07",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "08",
                                     "description": "A08",
-                                    "link": "../../../worldskill/2019/TaskA/B04/",
+                                    "link": "../../../worldskill/2019/TaskA/B04",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "09",
                                     "description": "A09",
-                                    "link": "../../../worldskill/2019/TaskA/C16/",
+                                    "link": "../../../worldskill/2019/TaskA/C16",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": 10,
                                     "description": "A10",
-                                    "link": "TaskA/10/",
+                                    "link": "TaskA/10",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": 11,
                                     "description": "A11",
-                                    "link": "TaskA/11/",
+                                    "link": "TaskA/11",
                                     "statu": "FAILED",
                                     "data": []
                                 },
                                 {
                                     "no": 12,
                                     "description": "A12",
-                                    "link": "TaskA/12/",
+                                    "link": "TaskA/12",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": 13,
                                     "description": "A13",
-                                    "link": "TaskA/13/",
+                                    "link": "TaskA/13",
                                     "statu": "FAILED",
                                     "data": []
                                 },
                                 {
                                     "no": 14,
                                     "description": "A14",
-                                    "link": "TaskA/14/",
+                                    "link": "TaskA/14",
                                     "statu": "N/A",
                                     "data": []
                                 },
                                 {
                                     "no": 15,
                                     "description": "A15",
-                                    "link": "TaskA/15/",
+                                    "link": "TaskA/15",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": 16,
                                     "description": "A16",
-                                    "link": "../../../worldskill/2019/TaskA/D04/",
+                                    "link": "../../../worldskill/2019/TaskA/D04",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": 17,
                                     "description": "A17",
-                                    "link": "TaskA/17/",
+                                    "link": "TaskA/17",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": 18,
                                     "description": "A18",
-                                    "link": "TaskA/18/",
+                                    "link": "TaskA/18",
                                     "statu": "N/A",
                                     "data": []
                                 },
                                 {
                                     "no": 19,
                                     "description": "A19",
-                                    "link": "TaskA/19/",
+                                    "link": "TaskA/19",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": 20,
                                     "description": "A20",
-                                    "link": "../../../worldskill/2019/TaskA/B15/",
+                                    "link": "../../../worldskill/2019/TaskA/B15",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "F1",
                                     "description": "AFM10",
-                                    "link": "../../../worldskill/2022/TaskA/C12/a.html/",
+                                    "link": "../../../worldskill/2022/TaskA/C12/a.html",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "F2",
                                     "description": "AFM11",
-                                    "link": "../../../worldskill/2022/TaskA/C15/",
+                                    "link": "../../../worldskill/2022/TaskA/C15",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "F3",
                                     "description": "AFM12",
-                                    "link": "../../../worldskill/2022/TaskA/C14/",
+                                    "link": "../../../worldskill/2022/TaskA/C14",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "F4",
                                     "description": "AFM13",
-                                    "link": "TaskA/FM-13/",
+                                    "link": "TaskA/FM-13",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
@@ -203,28 +203,28 @@
                                 {
                                     "no": "01",
                                     "description": "A02",
-                                    "link": "TaskA/02 copy/",
+                                    "link": "TaskA/02 copy",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "02",
                                     "description": "A02",
-                                    "link": "TaskA/02 copy 2/",
+                                    "link": "TaskA/02 copy 2",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "03",
                                     "description": "A03kj",
-                                    "link": "TaskA/03kj/",
+                                    "link": "TaskA/03kj",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "04",
                                     "description": "A05copy",
-                                    "link": "TaskA/05 copy/",
+                                    "link": "TaskA/05 copy",
                                     "statu": "SUCCESS",
                                     "data": []
                                 }
@@ -250,7 +250,7 @@
                 },
                 {
                     "title": "ModuleD-BACKEND",
-                    "link": "https://hiiamchris.ddns.net:444/52th/senior/52national/TaskD//",
+                    "link": "https://hiiamchris.ddns.net:444/website/52th/senior/52national/TaskD/",
                     "statu": "SUCCESS",
                     "ps": "list",
                     "createdate": "2023/02/05",
@@ -1096,7 +1096,7 @@
                 },
                 {
                     "title": "ModuleE-SPA",
-                    "link": "TaskE//",
+                    "link": "TaskE/",
                     "statu": "FAILED",
                     "ps": "list",
                     "createdate": "2023/02/05",
@@ -1105,7 +1105,7 @@
                 },
                 {
                     "title": "ModuleE-SPA(backend type)",
-                    "link": "moduleebackendtype/",
+                    "link": "moduleebackendtype",
                     "statu": "FAILED",
                     "ps": "list",
                     "createdate": "2023/11/14",

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>signup</title>
-        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/website/index.css">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
@@ -34,21 +34,21 @@
                             <div class="label">帳號</div>
                             <div class="input underline endicon">
                                 <input type="text" name="username" value="<?php echo($row[1]) ?>">
-                                <div class="icon"><img src="/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
+                                <div class="icon"><img src="/website/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
                             </div>
                         </div>
                         <div class="inputdiv">
                             <div class="label">密碼</div>
                             <div class="input underline endicon">
                                 <input type="text" name="password" value="<?php echo($row[2]) ?>">
-                                <div class="icon"><img src="/material/icon/lock.svg" class="iconinputicon cursor_pointer" id="passwordicon" draggable="false"></div>
+                                <div class="icon"><img src="/website/material/icon/lock.svg" class="iconinputicon cursor_pointer" id="passwordicon" draggable="false"></div>
                             </div>
                         </div>
                         <div class="inputdiv">
                             <div class="label">姓名</div>
                             <div class="input underline endicon">
                                 <input type="text" name="name" value="<?php echo($row[3]) ?>">
-                                <div class="icon"><img src="/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
+                                <div class="icon"><img src="/website/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
                             </div>
                         </div>
                         <div class="textcenter">
@@ -79,21 +79,21 @@
                             <div class="label">帳號</div>
                             <div class="input underline endicon">
                                 <input type="text" name="username">
-                                <div class="icon"><img src="/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
+                                <div class="icon"><img src="/website/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
                             </div>
                         </div>
                         <div class="inputdiv">
                             <div class="label">密碼</div>
                             <div class="input underline endicon">
                                 <input type="text" name="password">
-                                <div class="icon"><img src="/material/icon/lock.svg" class="iconinputicon cursor_pointer" id="passwordicon" draggable="false"></div>
+                                <div class="icon"><img src="/website/material/icon/lock.svg" class="iconinputicon cursor_pointer" id="passwordicon" draggable="false"></div>
                             </div>
                         </div>
                         <div class="inputdiv">
                             <div class="label">姓名</div>
                             <div class="input underline endicon">
                                 <input type="text" name="name">
-                                <div class="icon"><img src="/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
+                                <div class="icon"><img src="/website/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
                             </div>
                         </div>
                         <div class="textcenter">

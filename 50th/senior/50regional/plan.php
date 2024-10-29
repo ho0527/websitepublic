@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>管理者專區</title>
-        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/website/index.css">
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="plugin/css/macossection.css">
         <script src="plugin/js/macossection.js"></script>
