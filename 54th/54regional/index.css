@@ -197,6 +197,16 @@
     width: 90vw;
     height: calc(100vh - 160px);
     padding: 10px;
+    display: flex;
+}
+
+.calendardiv{
+    width: 70%;
+    margin: 0px 10px 0px 0px;
+}
+
+.bookroommain{
+    width: 30%;
 }
 
 .calendarselecter{
