@@ -10,45 +10,32 @@
         <script src="/chrisplugin/js/chrisplugin.js"></script>
     </head>
     <body>
-        <div class="box fill indexbox" data-link="https://chris.chrisho.us.kg/website/news.html">
-            <img src="/material/icon/mainicon.png" class="boximage">
-            <div class="content textcenter ycenter">
-                <div class="text max bold">網站公告區</div>
-                <div class="text tiny">lastupdate: 20240115</div>
-            </div>
-        </div>
-        <div class="flex columngap-10px">
-            <div class="box fill indexbox" data-link="skill.html">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">技能競賽</div>
-                    <div class="text tiny">lastupdate: 20231213</div>
-                </div>
-            </div>
-            <div class="box fill indexbox" data-link="https://chris.chrisho.us.kg/website/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">有趣的東西</div>
-                    <div class="text tiny">lastupdate: 20240318</div>
-                </div>
-            </div>
-        </div>
-        <div class="flex columngap-10px">
-            <div class="box fill indexbox" data-link="https://chris.chrisho.us.kg/chrispluginapi/zhtw/docs/v1.0.0/about/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">模板及樣式</div>
-                    <div class="text tiny">lastupdate: 20240307</div>
-                </div>
-            </div>
-            <div class="box fill indexbox" data-link="https://chris.chrisho.us.kg/case.html/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">文檔及文件</div>
-                    <div class="text tiny">lastupdate: 20240314</div>
-                </div>
-            </div>
-        </div>
+		<div class="navigationbar">
+			<div class="navigationbarleft">
+				<img src="material/icon/mainicon.png" class="logo">
+			</div>
+			<div class="navigationbarright">
+				<input type="button" class="navigationbarbutton" onclick="location.href='/'" value="返回">
+			</div>
+		</div>
+		<div class="indexmain macossectiondivy">
+			<div class="flex columngap-10px">
+				<div class="box fill indexbox" data-link="domesticskill.html">
+					<img src="/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">勞動部技能競賽</div>
+						<div class="text tiny">lastupdate: 20231213</div>
+					</div>
+				</div>
+				<div class="box fill indexbox" data-link="worldskill.html">
+					<img src="/material/icon/mainicon.png" class="boximage">
+					<div class="content textcenter ycenter">
+						<div class="text max bold">國際技能競賽</div>
+						<div class="text tiny">lastupdate: 20240318</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
         <div class="footer">
             如果有遇到程式有問題請用DC找 chris0527 或 <a href="anther/respond" class="a">填寫此表單</a> 回報
@@ -56,10 +43,6 @@
 
 		<script>
 			onclick(".indexbox",function(element,event){
-				innerhtml("title",`
-					bye>~<
-				`,false)
-
                 setTimeout(function(){
                     href(element.dataset.link)
                 },100)
@@ -67,6 +50,5 @@
 
 			startmacossection()
 		</script>
-        <!-- <script src="index.js"></script> -->
     </body>
 </html>
