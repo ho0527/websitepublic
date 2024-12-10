@@ -10,46 +10,60 @@
         <script src="/chrisplugin/js/chrisplugin.js"></script>
     </head>
     <body id="body">
-        <div class="flex columngap-10px">
-            <div class="box bordertop success fill indexbox" data-link="modulea/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">modulea_速度競賽</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
+		<div class="navigationbar">
+			<div class="navigationbarleft">
+				<img src="/material/icon/mainicon.png" class="logo">
+			</div>
+			<div class="navigationbarright">
+				<input type="button" class="navigationbarbutton" onclick="location.href='../'" value="返回">
+			</div>
+		</div>
+		<div class="indexmain macossectiondivy">
+            <div class="flex columngap-10px">
+                <a href="modulea/" class="box bordertop success fill indexbox">
+                    <img src="image/modulea.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulea</div>
+                        <div class="text max bold">速度競賽</div>
+                        <div class="text tiny">lastupdate: 20230716</div>
+                    </div>
+                </a>
+                <a href="moduleb/" class="box bordertop success fill indexbox" data-link="moduleb/">
+                    <img src="image/moduleb.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">moduleb</div>
+                        <div class="text max bold">小畫家</div>
+                        <div class="text tiny">lastupdate: 20230716</div>
+                    </div>
+                </a>
             </div>
-            <div class="box bordertop success fill indexbox" data-link="moduleb/">
-                <img src="image/moduleb.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">moduleb_小畫家</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
+            <div class="flex columngap-10px">
+                <a href="modulec/" class="box bordertop success fill indexbox">
+                    <img src="image/modulec.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulec</div>
+                        <div class="text max bold">layout</div>
+                        <div class="text tiny">lastupdate: 20230716</div>
+                    </div>
+                </a>
+                <a href="https://hiiamchris.ddns.net:444/website/53th/senior/53national/TaskD/" class="box bordertop success fill indexbox">
+                    <img src="image/moduled.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">moduled</div>
+                        <div class="text max bold">API</div>
+                        <div class="text tiny">lastupdate: 20230716</div>
+                    </div>
+                </a>
             </div>
-        </div>
-        <div class="flex columngap-10px">
-            <div class="box bordertop success fill indexbox" data-link="modulec/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">modulec_layout</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
-            </div>
-            <div class="box bordertop success fill indexbox" data-link="https://hiiamchris.ddns.net:444/website/53th/senior/53national/TaskD/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">moduled_API</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
-            </div>
-        </div>
-        <div class="flex columngap-10px">
-            <div class="box bordertop success fill indexbox" data-link="modulee/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">modulee_演算法</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
-            </div>
+            <div class="flex columngap-10px">
+                <a href="modulee/" class="box bordertop success fill indexbox">
+                    <img src="image/modulee.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulee</div>
+                        <div class="text max bold">演算法</div>
+                        <div class="text tiny">lastupdate: 20230716</div>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -57,14 +71,6 @@
             如果有遇到程式有問題請用DC找 chris0527 或 <a href="../../anther/respond" class="a">填寫此表單</a> 回報
         </div>
 
-		<script>
-			onclick(".indexbox",function(element,event){
-                setTimeout(function(){
-                    href(element.dataset.link)
-                },100)
-			})
-
-			startmacossection()
-		</script>
+		<script src="/ghost.js"></script>
     </body>
 </html>
