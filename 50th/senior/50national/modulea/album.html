@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>音樂播放器</title>
-		<link rel="stylesheet" href="/website/index.css">
+		<link rel="stylesheet" href="/index.css">
 		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
 		<script src="/chrisplugin/js/chrisplugin.js"></script>
@@ -11,18 +11,24 @@
 	<body>
 		<div class="navigationbar" id="navigationbar"></div>
 
-		<div class="main center mainmain macossectiondivy" id="main">
-			<table id="maintable">
+		<div class="textcente main center mainmain -bottom-3">
+			<table id="main">
 				<tr>
 					<th>#</th>
-					<th>userid</th>
-					<th>move</th>
-					<th>movetime</th>
+					<th>名稱</th>
+					<th>描述</th>
+					<th>演唱者列表</th>
+					<th>封面圖片上傳區</th>
+					<th>發行商</th>
+					<th>發表日期</th>
+					<th>功能區</th>
 				</tr>
 			</table>
 		</div>
 
+		<div id="lightbox"></div>
+
 		<script src="initialize.js"></script>
-		<script src="log.js"></script>
+		<script src="album.js"></script>
 	</body>
 </html>
