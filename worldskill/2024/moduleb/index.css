@@ -1,0 +1,44 @@
+body{
+	width: 100vw;
+	height: 100vh;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+
+.navigationbar{
+	height: 35px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px 10px;
+}
+
+a{
+	border: 1px black solid;
+	background: rgb(0, 58, 219);
+	text-decoration: none;
+	color: white;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.companymain{
+	padding: 5px 10px;
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
+}
+
+.companydiv{
+	background: whitesmoke;
+	width: 30%;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.companydiv div{
+	margin: 5px 0px;
+}
