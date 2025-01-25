@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>台灣之美 - 精選景點</title>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<!-- accesskey沒有用 -->
+		<nav id="nav" accesskey="u">
+			<div class="temp"></div>
+			<h1>台灣之美</h1>
+			<div class="buttonlist">
+				<input type="button" value="首頁">
+				<input type="button" value="關於我們">
+				<input type="button" value="熱門景點">
+				<input type="button" value="攝影分享">
+				<input type="button" value="與我聯絡">
+			</div>
+			<div class="bergerbar" id="bergerbar">
+				<div class="line"></div>
+				<div class="line"></div>
+				<div class="line"></div>
+			</div>
+		</nav>
+		<div class="bergerbuttonlist" id="bergerbuttonlist">
+			<input type="button" value="首頁">
+			<input type="button" value="關於我們">
+			<input type="button" value="熱門景點">
+			<input type="button" value="攝影分享">
+			<input type="button" value="與我聯絡">
+		</div>
+
+		<header class="carousel">
+			<div class="carouselimage"></div>
+		</header>
+
+		<main>
+			<div class="flex">
+				<aside class="feature" id="feature" accesskey="l">
+					<h2>精選照片</h2>
+					<div class="border">
+						<div class="photo"><img src="media/P54011.jpg" alt="feature1" class="image"></div>
+						<div class="photo"><img src="media/P54012.jpg" alt="feature2" class="image"></div>
+					</div>
+				</aside>
+				<article class="recommend" id="recommend" accesskey="c">
+					<h2>推薦景點</h2>
+					<section class="border flex">
+						<div class="photo"><img src="media/P54021.jpg" alt="feature1" class="image"></div>
+						<div class="recommendtext">
+							<h3>日月潭</h3>
+							<p>日月潭可以說是中台灣具國際化的推薦景點，附近景點豐富、美食小吃林立，最棒的是日月潭國家風景區還有規劃環湖單車步道，可以騎腳踏車吹風、看風景，很適合帶全家人規劃來日月潭一日遊或二日遊。</p>
+						</div>
+					</section>
+					<section class="border flex">
+						<div class="photo"><img src="media/P54022.jpg" alt="feature2" class="image"></div>
+						<div class="recommendtext">
+							<h3>阿里山國家風景區</h3>
+							<p>阿里山區的森林樹種相當豐富，包括亞熱帶闊葉林、寒帶針葉林以及丘陵地形的熱帶林皆能在這邊觀賞到。由於高海拔的緣故，氣溫相較於平地更舒適，是夏天不錯的避暑景點，而且阿里山的日出、雲海以及晚霞更是令人屏息的大自然美景，來阿里山玩還可以搭森林小火車，非常充實驚豔</p>
+						</div>
+					</section>
+				</article>
+			</div>
+		</main>
+
+		<footer id="footer" accesskey="z">版權所有：技檢中心</footer>
+
+		<script>
+			document.getElementById("bergerbar").onclick=function(){
+				document.getElementById("bergerbuttonlist").style.display="block"
+			}
+
+			// 確定一下accesskey
+			document.onkeydown=function(event){
+				if(event.altKey&&event.key=="u"){
+					location.href="#nav"
+				}else if(event.altKey&&event.key=="l"){
+					location.href="#feature"
+				}else if(event.altKey&&event.key=="c"){
+					location.href="#recommend"
+				}else if(event.altKey&&event.key=="z"){
+					location.href="#footer"
+				}
+			}
+		</script>
+	</body>
+</html>

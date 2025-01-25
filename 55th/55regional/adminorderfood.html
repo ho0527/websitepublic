@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="maindark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>快樂旅遊網</title>
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div id="adminnavigationbar"></div>
+        <div class="navigationbar2 adminnavigationbar2">
+            <input type="button" class="navigationbarbutton" onclick="location.href='admincomment.html'" value="留言管理">
+            <input type="button" class="navigationbarbutton" onclick="location.href='adminroom.html'" value="訂房管理">
+            <input type="button" class="navigationbarbutton navigationbarselect" onclick="location.href='adminorderfood.html'" value="訂餐管理">
+            <input type="button" class="navigationbarbutton" onclick="location.href='adminfoodlist.html'" value="餐點管理">
+        </div>
+
+        <div class="adminorderfoodmain">
+            <div class="adminorderfoodlist macossectiondivy">
+                <table class="table outborder" id="maintable">
+                </table>
+            </div>
+        </div>
+
+        <div id="lightbox"></div>
+
+        <script src="initialize.js"></script>
+        <script src="adminorderfood.js"></script>
+    </body>
+</html>

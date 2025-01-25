@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="maindark">
+    <head>
+        <meta charset="UTF-8">
+        <title>網站前台登入介面</title>
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <div id="navigationbar"></div>
+
+        <div class="main center loginmain">
+            <div class="inputmargin">
+                <div class="text">帳號</div>
+                <div class="input underline endicon">
+                    <input type="text" id="username">
+                    <div class="icon"><img src="/website/material/icon/user.svg" class="iconinputicon" draggable="false"></div>
+                </div>
+            </div>
+            <div class="inputmargin">
+                <div class="text">密碼</div>
+                <div class="input underline endicon">
+                    <input type="text" id="password">
+                    <div class="icon"><img src="/website/material/icon/eyeclose.svg" class="iconinputicon cursor_pointer" id="passwordicon" draggable="false"></div>
+                </div>
+            </div>
+            <div class="verifycode" id="verifycode">驗證碼:</div>
+            <div class="inputmargin">
+                <div class="input underline">
+                    <input type="text" id="verifycodeans">
+                </div>
+            </div>
+            <div class="textcenter">
+                <input type="button" class="button outline" id="reflashverifycode" value="重新產生">
+                <input type="button" class="button outline" id="clear" value="清除">
+                <input type="button" class="button outline" id="submit" value="登入">
+            </div>
+        </div>
+
+        <script src="initialize.js"></script>
+        <script src="signin.js"></script>
+    </body>
+</html>
