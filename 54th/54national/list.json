@@ -2,10 +2,10 @@
     "data": [
         {
             "title": "54national",
-            "statu": "FAILED",
+            "statu": "SUCCESS",
             "ps": "list",
-            "createdate": "N/A",
-            "updatedate": "N/A",
+            "createdate": "2024/04/30",
+            "updatedate": "2024/07/21",
             "data": [
                 {
                     "title": "ModuleA-DESIGN",
