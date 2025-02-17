@@ -1,4 +1,4 @@
-ajax("GET",AJAXURL+"getcompanylist",function(data,event){
+ajax("GET",AJAXURL+"getdeactivatecompanylist",function(data,event){
 	console.log(data)
 	if(data["success"]){
 		console.log(data["data"])
@@ -24,19 +24,9 @@ ajax("GET",AJAXURL+"getcompanylist",function(data,event){
 						<div>address: ${row[i]["contactaddress"]}</div>
 						<div>phone: ${row[i]["contactphone"]}</div>
 					</div>
-					<div>
-						<input type="button" class="button edit" data-id="${row[i]["id"]}" value="edit">
-						<input type="button" class="button deactivate" data-id="${row[i]["id"]}" value="deactivate">
-					</div>
 				</div>
 			`
 		}
-
-		document.querySelectorAll(".companydiv").forEach(function(element){
-			element.onclick=function(){
-				location.href="companydetail.html?id="+element.dataset.id
-			}
-		})
 
 		document.querySelectorAll(".edit").forEach(function(element){
 			element.onclick=function(){

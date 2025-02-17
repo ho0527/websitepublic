@@ -30,13 +30,15 @@ a{
 	display: flex;
 	align-items: start;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .companydiv{
 	background: whitesmoke;
-	width: 30%;
+	width: max(300px,30%);
 	border-radius: 10px;
 	margin: 10px;
+	cursor: pointer;
 }
 
 .companydiv div{

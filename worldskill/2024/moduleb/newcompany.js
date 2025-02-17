@@ -1,12 +1,13 @@
 document.getElementById("submit").onclick=function(){
-	let ajax=new XMLHttpRequest()
-
-	ajax.onload=function(event){
-
-	}
-
-	ajax.open("POST",AJAXURL+"newcompany")
-	ajax.send(JSON.stringify({
+	ajax("POST",AJAXURL+"newcompany",function(data,event){
+		if(data["success"]){
+			alert("create success")
+			location.href="company.html"
+		}else{
+			alert("未知錯誤 請聯繫管理員")
+			console.log(data["data"])
+		}
+	},{
 		"name": document.getElementById("name").value,
 		"address": document.getElementById("address").value,
 		"phone": document.getElementById("phone").value,
@@ -17,5 +18,5 @@ document.getElementById("submit").onclick=function(){
 		"contactname": document.getElementById("contactname").value,
 		"contactphone": document.getElementById("contactphone").value,
 		"contactaddress": document.getElementById("contactaddress").value
-	}))
+	})
 }
