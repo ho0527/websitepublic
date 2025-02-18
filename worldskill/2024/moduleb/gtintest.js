@@ -1,5 +1,5 @@
-if(getget("companyid")){
-	ajax("GET",AJAXURL+"getcompanyproductlist/"+getget("companyid"),function(data,event){
+formsubmit("form",function(){
+	ajax("GET",AJAXURL+"gtintest",function(data,event){
 		if(data["success"]){
 			let row=data["data"]
 
@@ -7,16 +7,22 @@ if(getget("companyid")){
 				document.getElementById("main").innerHTML=`
 					${document.getElementById("main").innerHTML}
 					<div class="companydiv">
-						<div><img src="${row[i]["imagelink"]}" class="image"></div>
 						<div>name: ${row[i]["name"]}</div>
-						<div>address: ${row[i]["engname"]}</div>
-						<div>phone: ${row[i]["gtin"]}</div>
-						<div>email: ${row[i]["description"]}</div>
-						<div>email: ${row[i]["engdescription"]}</div>
-						<div>email: ${row[i]["brandname"]}</div>
-						<div>email: ${row[i]["country"]}</div>
-						<div>email: ${row[i]["grossweight"]}(${row[i]["unit"]})</div>
-						<div>email: ${row[i]["contentweight"]}(${row[i]["unit"]})</div>
+						<div>address: ${row[i]["address"]}</div>
+						<div>phone: ${row[i]["phone"]}</div>
+						<div>email: ${row[i]["email"]}</div>
+						<div>
+							owner:
+							<div>name: ${row[i]["ownername"]}</div>
+							<div>address: ${row[i]["owneraddress"]}</div>
+							<div>phone: ${row[i]["ownerphone"]}</div>
+						</div>
+						<div>
+							contact:
+							<div>name: ${row[i]["contactname"]}</div>
+							<div>address: ${row[i]["contactaddress"]}</div>
+							<div>phone: ${row[i]["contactphone"]}</div>
+						</div>
 						<div>
 							<input type="button" class="button edit" data-id="${row[i]["id"]}" value="edit">
 							<input type="button" class="button deactivate" data-id="${row[i]["id"]}" value="deactivate">
@@ -24,6 +30,12 @@ if(getget("companyid")){
 					</div>
 				`
 			}
+
+			document.querySelectorAll(".companydiv").forEach(function(element){
+				element.onclick=function(){
+					location.href="companydetail.html?id="+element.dataset.id
+				}
+			})
 
 			document.querySelectorAll(".edit").forEach(function(element){
 				element.onclick=function(event){
@@ -51,15 +63,8 @@ if(getget("companyid")){
 				}
 			})
 		}else{
-			if(data["data"]=="company not found"){
-				alert("company not found")
-				location.href="company.html"
-			}else{
-				alert("未知錯誤 請聯繫管理員"+data["data"])
-				console.log(data["data"])
-			}
+			alert("未知錯誤 請聯繫管理員"+data["data"])
+			console.log(data["data"])
 		}
 	})
-}else{
-	location.href="company.html"
-}
+})

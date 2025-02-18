@@ -2,6 +2,7 @@ const WEBLSNAME="worldskill2024moduleb-"
 const AJAXURL="/backend/worldskill2024moduleb/"
 
 let file=location.href.split("/")[location.href.split("/").length-1]
+let dontneedsigninfile=["","index.html","login.html"]
 
 function getget(key){
 	return new URLSearchParams(location.search).get(key)
@@ -33,11 +34,11 @@ function ajax(method,url,callback=function(){},data=null){
 }
 
 if(localStorage.getItem(WEBLSNAME+"signined")=="true"){
-	if(file=="login.html"){
+	if(dontneedsigninfile.includes(file)){
 		location.href="company.html"
 	}
 }else{
-	if(file!="login.html"){
+	if(dontneedsigninfile.includes(file)){
 		alert("401 error: not logined")
 		location.href="login.html"
 	}
