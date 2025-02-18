@@ -1,5 +1,6 @@
 const WEBLSNAME="worldskill2024moduleb-"
 const AJAXURL="/backend/worldskill2024moduleb/"
+const UPLOADFILEURL="/backenduploadfile/worldskill2024moduleb/"
 
 let file=location.href.split("/")[location.href.split("/").length-1]
 let dontneedsigninfile=["","index.html","login.html"]
@@ -15,11 +16,17 @@ function formsubmit(formid,callback=function(){}){
 	}
 }
 
-function ajax(method,url,callback=function(){},data=null){
-	let ajax=new XMLHttpRequest()
+function ajax(method,url,callback=function(){},data=null,header={}){
+	let xmlhttprequest=new XMLHttpRequest()
 
-	ajax.onload=function(event){
-		let response=ajax.responseText
+	xmlhttprequest.open(method,url)
+
+	for(let key in header){
+		xmlhttprequest.setRequestHeader(key,header[key])
+	}
+
+	xmlhttprequest.onload=function(event){
+		let response=xmlhttprequest.responseText
 		try{
 			response=JSON.parse(response)
 		}finally{
@@ -27,10 +34,12 @@ function ajax(method,url,callback=function(){},data=null){
 		}
 	}
 
-	ajax.open(method,url)
-	ajax.send(JSON.stringify(data))
+	if(typeof data=="object"&&!(data instanceof FormData))
+		xmlhttprequest.send(JSON.stringify(data))
+	else
+		xmlhttprequest.send(data)
 
-	return ajax
+	return xmlhttprequest
 }
 
 if(localStorage.getItem(WEBLSNAME+"signined")=="true"){

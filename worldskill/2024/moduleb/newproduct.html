@@ -15,15 +15,15 @@
 			<form id="form" method="POST">
 				<div class="inputdiv">
 					<div class="label">file</div>
-					<input type="file" id="file" accept="image/*" required>
+					<input type="file" id="file" accept="image/*">
 				</div>
 				<div class="inputdiv">
 					<div class="label">name</div>
 					<input type="text" id="name" required>
 				</div>
 				<div class="inputdiv">
-					<div class="label">eng name</div>
-					<input type="text" id="engname" required>
+					<div class="label">english name</div>
+					<input type="text" id="enname" required>
 				</div>
 				<div class="inputdiv">
 					<div class="label">GTIN</div>
@@ -31,11 +31,11 @@
 				</div>
 				<div class="inputdiv">
 					<div class="label">description</div>
-					<input type="text" id="description" required>
+					<textarea id="description" required></textarea>
 				</div>
 				<div class="inputdiv">
-					<div class="label">engdescription</div>
-					<input type="text" id="engdescription" required>
+					<div class="label">english description</div>
+					<textarea id="endescription" required></textarea>
 				</div>
 				<div class="inputdiv">
 					<div class="label">brand name</div>
@@ -47,11 +47,15 @@
 				</div>
 				<div class="inputdiv">
 					<div class="label">gross weight</div>
-					<input type="text" id="grossweight" required>
+					<input type="number" id="grossweight" min="0" step="0.00001" required>
 				</div>
 				<div class="inputdiv">
 					<div class="label">content weight</div>
-					<input type="text" id="contentweight" required>
+					<input type="number" id="contentweight" min="0" step="0.00001" required>
+				</div>
+				<div class="inputdiv">
+					<div class="label">unit</div>
+					<input type="text" id="unit" required>
 				</div>
 
 				<input type="submit" id="submit" value="submit">

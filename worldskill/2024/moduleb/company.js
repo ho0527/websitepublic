@@ -5,7 +5,7 @@ ajax("GET",AJAXURL+"getcompanylist",function(data,event){
 		for(let i=0;i<row.length;i=i+1){
 			document.getElementById("main").innerHTML=`
 				${document.getElementById("main").innerHTML}
-				<div class="companydiv">
+				<div class="companydiv" data-id="${row[i]["id"]}">
 					<div>name: ${row[i]["name"]}</div>
 					<div>address: ${row[i]["address"]}</div>
 					<div>phone: ${row[i]["phone"]}</div>
@@ -32,7 +32,7 @@ ajax("GET",AJAXURL+"getcompanylist",function(data,event){
 
 		document.querySelectorAll(".companydiv").forEach(function(element){
 			element.onclick=function(){
-				location.href="companydetail.html?id="+element.dataset.id
+				location.href="companydetail.html?companyid="+element.dataset.id
 			}
 		})
 

@@ -26,11 +26,13 @@ a{
 }
 
 .companymain{
+	height: calc(100vh - 50px);
 	padding: 5px 10px;
 	display: flex;
 	align-items: start;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	overflow: hidden auto;
 }
 
 .companydiv{
@@ -52,4 +54,12 @@ a{
 
 .allvalid{
 	display: none;
+}
+
+.fill{
+	width: 100%;
+}
+
+.cursor-initial{
+	cursor: initial;
 }

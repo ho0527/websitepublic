@@ -1,13 +1,38 @@
 if(getget("companyid")){
 	ajax("GET",AJAXURL+"getcompanyproductlist/"+getget("companyid"),function(data,event){
 		if(data["success"]){
-			let row=data["data"]
+			let row=data["data"]["product"]
+
+			document.getElementById("main").innerHTML=`
+				<div class="companydiv fill cursor-initial" data-id="${data["data"]["company"]["id"]}">
+					<div>name: ${data["data"]["company"]["name"]}</div>
+					<div>address: ${data["data"]["company"]["address"]}</div>
+					<div>phone: ${data["data"]["company"]["phone"]}</div>
+					<div>email: ${data["data"]["company"]["email"]}</div>
+					<div>
+						owner:
+						<div>name: ${data["data"]["company"]["ownername"]}</div>
+						<div>address: ${data["data"]["company"]["owneraddress"]}</div>
+						<div>phone: ${data["data"]["company"]["ownerphone"]}</div>
+					</div>
+					<div>
+						contact:
+						<div>name: ${data["data"]["company"]["contactname"]}</div>
+						<div>address: ${data["data"]["company"]["contactaddress"]}</div>
+						<div>phone: ${data["data"]["company"]["contactphone"]}</div>
+					</div>
+					<div>
+						<input type="button" class="button" id="editcompany" data-id="${data["data"]["company"]["id"]}" value="edit">
+						<input type="button" class="button" id="deactivatecompany" data-id="${data["data"]["company"]["id"]}" value="deactivate">
+					</div>
+				</div>
+			`
 
 			for(let i=0;i<row.length;i=i+1){
 				document.getElementById("main").innerHTML=`
 					${document.getElementById("main").innerHTML}
-					<div class="companydiv">
-						<div><img src="${row[i]["imagelink"]}" class="image"></div>
+					<div class="companydiv cursor-initial">
+						<div><img src="${UPLOADFILEURL}${row[i]["imagelink"]}" class="image"></div>
 						<div>name: ${row[i]["name"]}</div>
 						<div>address: ${row[i]["engname"]}</div>
 						<div>phone: ${row[i]["gtin"]}</div>
@@ -24,6 +49,8 @@ if(getget("companyid")){
 					</div>
 				`
 			}
+
+			document.getElementById("newproduct").href="newproduct.html?companyid="+getget("companyid")
 
 			document.querySelectorAll(".edit").forEach(function(element){
 				element.onclick=function(event){
@@ -50,6 +77,28 @@ if(getget("companyid")){
 					}
 				}
 			})
+
+			document.getElementById("editcompany").onclick=function(event){
+				event.preventDefault()
+				event.stopPropagation()
+				location.href="editcompany.html?id="+getget("companyid")
+			}
+
+			document.getElementById("deactivatecompany").onclick=function(event){
+				event.preventDefault()
+				event.stopPropagation()
+				if(confirm("confirm deactivate?")){
+					ajax("PUT",AJAXURL+"deactivatecompany/"+getget("companyid"),function(data,event){
+						if(data["success"]){
+							alert("deactivate success")
+							location.href="company.html"
+						}else{
+							alert("未知錯誤 請聯繫管理員"+data["data"])
+							console.log(data["data"])
+						}
+					})
+				}
+			}
 		}else{
 			if(data["data"]=="company not found"){
 				alert("company not found")
