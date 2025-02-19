@@ -2,7 +2,7 @@
 
 # 這個裡面如果有問題可以用DC: chris0527 跟我說 或 [用此](https://chris.chrisho.us.kg/anther/respond/) 回報
 
-# 程式都可以自己拿去改拿去參考 不需告知(使用條款請參照[TOUv2.0.1.pdf](TOUv2.0.1.pdf))
+# 程式都可以自己拿去改拿去參考 不需告知(使用條款請參照[TOUv2.0.2.pdf](TOUv2.0.2.pdf))
 
 ---
 
