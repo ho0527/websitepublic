@@ -1,8 +1,26 @@
 if(getget("companyid")){
+	let file=""
+
+	document.getElementById("file").onchange=function(event){
+		let filereader=new FileReader()
+		file=this.files
+		filereader.onload=function(){
+			document.getElementById("filepreview").src=filereader.result
+		}
+		filereader.readAsDataURL(file[0])
+	}
+
+	document.getElementById("movefile").onclick=function(){
+		file=""
+		document.getElementById("filepreview").src=""
+		document.getElementById("file").value=""
+	}
+
 	formsubmit("form",function(){
+
 		let formdata=new FormData()
 
-		formdata.append("file",document.getElementById("file").files)
+		formdata.append("file",file)
 		formdata.append("name",document.getElementById("name").value)
 		formdata.append("enname",document.getElementById("enname").value)
 		formdata.append("gtin",document.getElementById("gtin").value)

@@ -34,14 +34,14 @@ if(getget("companyid")){
 					<div class="companydiv cursor-initial">
 						<div><img src="${UPLOADFILEURL}${row[i]["imagelink"]}" class="image"></div>
 						<div>name: ${row[i]["name"]}</div>
-						<div>address: ${row[i]["engname"]}</div>
-						<div>phone: ${row[i]["gtin"]}</div>
-						<div>email: ${row[i]["description"]}</div>
-						<div>email: ${row[i]["engdescription"]}</div>
-						<div>email: ${row[i]["brandname"]}</div>
-						<div>email: ${row[i]["country"]}</div>
-						<div>email: ${row[i]["grossweight"]}(${row[i]["unit"]})</div>
-						<div>email: ${row[i]["contentweight"]}(${row[i]["unit"]})</div>
+						<div>enname: ${row[i]["enname"]}</div>
+						<div>gtin: ${row[i]["gtin"]}</div>
+						<div>description: ${row[i]["description"]}</div>
+						<div>endescription: ${row[i]["endescription"]}</div>
+						<div>brandname: ${row[i]["brandname"]}</div>
+						<div>country: ${row[i]["country"]}</div>
+						<div>grossweight: ${row[i]["grossweight"]}(${row[i]["unit"]})</div>
+						<div>contentweight: ${row[i]["contentweight"]}(${row[i]["unit"]})</div>
 						<div>
 							<input type="button" class="button edit" data-id="${row[i]["id"]}" value="edit">
 							<input type="button" class="button deactivate" data-id="${row[i]["id"]}" value="deactivate">

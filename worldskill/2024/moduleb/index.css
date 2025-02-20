@@ -63,3 +63,7 @@ a{
 .cursor-initial{
 	cursor: initial;
 }
+
+.filepreview{
+	max-height: 150px;
+}
