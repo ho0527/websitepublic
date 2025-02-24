@@ -30,15 +30,17 @@ a{
 	padding: 5px 10px;
 	display: flex;
 	align-items: start;
-	justify-content: space-between;
+	justify-content: start;
 	flex-wrap: wrap;
+	gap: 10px;
 	overflow: hidden auto;
 }
 
 .companydiv{
 	background: whitesmoke;
-	width: max(300px,30%);
+	width: max(250px,calc(33% - 35px));
 	border-radius: 10px;
+	padding: 5px;
 	margin: 10px;
 	cursor: pointer;
 }

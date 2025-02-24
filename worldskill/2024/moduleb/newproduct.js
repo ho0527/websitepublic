@@ -17,7 +17,6 @@ if(getget("companyid")){
 	}
 
 	formsubmit("form",function(){
-
 		let formdata=new FormData()
 
 		formdata.append("file",file)
