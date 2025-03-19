@@ -15,16 +15,16 @@
 				<img src="/material/icon/mainicon.png" class="logo">
 			</div>
 			<div class="navigationbarright">
-				<input type="button" class="navigationbarbutton" onclick="location.href='/'" value="返回">
+				<input type="button" class="navigationbarbutton" onclick="location.href='/worldskill.html'" value="返回">
 			</div>
 		</div>
-		<div class="indexmain macossectiondivy">
+		<div class="indexmain overflow-hidden_auto">
             <div class="flex columngap-10px">
                 <div class="box bordertop error fill indexbox" data-link="modulea/">
                     <img src="/material/icon/mainicon.png" class="boximage">
                     <div class="content textcenter ycenter">
                         <div class="text max bold">modulea</div>
-                        <div class="text tiny">lastupdate: 20231213</div>
+                        <div class="text tiny">lastupdate: 20250319</div>
                     </div>
                 </div>
                 <div class="box bordertop error fill indexbox" data-link="moduleb/">
@@ -77,13 +77,10 @@
 
 		<script>
 			onclick(".indexbox",function(element,event){
-                console.log("oin")
                 setTimeout(function(){
                     href(element.dataset.link)
                 },100)
 			})
-
-			startmacossection()
 		</script>
     </body>
 </html>

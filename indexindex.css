@@ -764,3 +764,7 @@ table{
 .footer{
     background: #e26b09;
 } */
+
+.overflow-hidden_auto{
+    overflow: hidden auto;
+}
