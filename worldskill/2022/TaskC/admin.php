@@ -20,8 +20,8 @@
 			</div>
 		</div>
 
-		<div class="main width-75vw">
-			<table class="table-auto">
+		<div class="main center width-75vw">
+			<table class="table-auto textcenter">
 				<tr>
 					<th>#</th>
 					<th>username</th>

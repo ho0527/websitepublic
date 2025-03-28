@@ -27,7 +27,7 @@
 			if(isset($row[0])){
 				?>
 				<div>
-					<table class="table-auto">
+					<table class="table-auto textcenter">
 						<tr>
 							<th>#</th>
 							<th>username</th>

@@ -11,7 +11,7 @@
         <script src="/chrisplugin/js/chrisplugin.js"></script>
     </head>
     <body>
-		<?php include("link.php");if(isset($_SESSION["signin"])){ header("admin.html"); } ?>
+		<?php include("link.php");if(isset($_SESSION["signin"])){ header("location: admin.php"); } ?>
 
         <form method="POST" class="main center">
 			<div class="inputdiv">
@@ -25,7 +25,7 @@
 			<div class="inputdiv">
 				<div class="label">password</div>
 				<div class="input endicon underline">
-					<input type="text" name="password">
+					<input type="password" name="password">
 					<div class="icon"><img src="/material/icon/eyeclose.svg" class="iconinputicon cursor-pointer" id="passwordicon" draggable="false"></div>
 				</div>
 			</div>
