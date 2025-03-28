@@ -20,7 +20,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="main width-75vw">
 			<table class="table-auto">
 				<tr>
 					<th>#</th>

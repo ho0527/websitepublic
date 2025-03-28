@@ -20,7 +20,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="main width-75vw">
 			<table class="table-auto">
 				<tr>
 					<th>#</th>
@@ -41,7 +41,7 @@
 							<td><?= $row[$i]["lastlogintime"] ?></td>
 							<td>
 								<?php
-									if($row[$i]["deletetime"]){
+									if($row[$i]["blocktime"]){
 										?><a href="userdetail.php?username=<?= $row[$i]["username"] ?>" class="button outline">see</a><?php
 									}else{
 										?><a href="api/unblock.php?id=<?= $row[$i]["id"] ?>" class="button outline">unblock</a><?php
