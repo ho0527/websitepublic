@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="/index.css">
         <link rel="stylesheet" href="index.css">
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
         <script src="/chrisplugin/js/chrisplugin.js"></script>
     </head>
     <body>
+		<?php include("link.php"); ?>
+
         <form method="POST" class="main center">
 			<div class="inputdiv">
 				<div class="label">username</div>
@@ -33,15 +36,14 @@
         </form>
 
 		<?php
-			include("link.php");
-
 			if(isset($_POST["submit"])){
 				$username=$_POST["username"];
 				$password=$_POST["password"];
 
 				if($row=query($db,"SELECT*FROM `admin` WHERE `username`=? AND `password`=?",[$username,$password])){
-					$_SESSION[""]=true;
-					?><script>alert("signin success:(");location.href="./"</script><?php
+					query($db,"UPDATE `admin` SET `lastlogintime`=? WHERE `username`=?",[$time,$username]);
+					$_SESSION["signin"]=true;
+					?><script>alert("signin success:(");location.href="./admin.php"</script><?php
 				}else{
 					?><script>alert("signin faild:(");location.href="./"</script><?php
 				}
