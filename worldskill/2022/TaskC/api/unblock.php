@@ -1,4 +1,6 @@
 <?php
+	include("../link.php");
+
 	$id=$_GET["id"];
 
 	if($id){

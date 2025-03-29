@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="main center width-75vw">
-			<table class="table-auto">
+			<table class="table-auto textcenter">
 				<tr>
 					<th>#</th>
 					<th>username</th>
@@ -35,16 +35,16 @@
 					for($i=0;$i<count($row);$i=$i+1){
 						?>
 						<tr>
-							<td><?= $i ?></td>
+							<td><?= $i+1 ?></td>
 							<td><?= $row[$i]["username"] ?></td>
 							<td><?= $row[$i]["createtime"] ?></td>
 							<td><?= $row[$i]["lastlogintime"] ?></td>
 							<td>
 								<?php
 									if($row[$i]["blocktime"]){
-										?><a href="userdetail.php?username=<?= $row[$i]["username"] ?>" class="button outline">see</a><?php
-									}else{
 										?><a href="api/unblock.php?id=<?= $row[$i]["id"] ?>" class="button outline">unblock</a><?php
+									}else{
+										?><a href="userdetail.php?username=<?= $row[$i]["username"] ?>" class="button outline">see</a><?php
 									}
 								?>
 							</td>

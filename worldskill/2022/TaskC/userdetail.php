@@ -20,49 +20,59 @@
 			</div>
 		</div>
 
+		<div class="main center">
+			<?php
+				$username=$_GET["username"];
+				$row=query($db,"SELECT * FROM `user` WHERE `username`=? AND `blocktime` IS NULL",[$username]);
+
+				if(isset($row[0])){
+					$row=$row[0];
+					?>
+					<div>
+						<table class="table-auto textcenter width-75vw">
+							<tr>
+								<th>username</th>
+								<th>createtime</th>
+								<th>lastlogintime</th>
+							</tr>
+							<tr>
+								<td><?= $row["username"] ?></td>
+								<td><?= $row["createtime"] ?></td>
+								<td><?= $row["lastlogintime"] ?></td>
+							</tr>
+						</table>
+
+						<hr>
+
+						<form method="POST">
+							<select class="select" name="blockreason">
+								<option value="You have been blocked by an administrator">You have been blocked by an administrator</option>
+								<option value="You have been blocked for spamming">You have been blocked for spamming</option>
+								<option value="You have been blocked for cheating">You have been blocked for cheating</option>
+							</select>
+							<input type="hidden" name="userid" value="<?= $row["id"]; ?>">
+							<input type="submit" class="button outline" name="blocksubmit" value="submit">
+						</form>
+					</div>
+					<?php
+				}else{
+					echo("user not found");
+				}
+			?>
+		</div>
+
 		<?php
-			$username=$_GET["username"];
-			$row=query($db,"SELECT * FROM `user` WHERE `username`=?",[$username]);
+			if(isset($_POST["blocksubmit"])){
+				$id=$_POST["userid"];
 
-			if(isset($row[0])){
-				?>
-				<div>
-					<table class="table-auto textcenter">
-						<tr>
-							<th>#</th>
-							<th>username</th>
-							<th>createtime</th>
-							<th>lastlogintime</th>
-							<th>function</th>
-						</tr>
-						<?php
-							$row=query($db,"SELECT * FROM `user`");
+				if($id){
+					$row=query($db,"SELECT*FROM `user` WHERE `id`=?",[$id]);
+					if($row){
+						query($db,"UPDATE `user` SET `blocktime`=? AND `blockreason`=? WHERE `id`=?",[$time,$_POST["blockreason"],$id]);
+					}
+				}
 
-							for($i=0;$i<count($row);$i=$i+1){
-								?>
-								<tr>
-									<td><?= $i ?></td>
-									<td><?= $row[$i]["username"] ?></td>
-									<td><?= $row[$i]["createtime"] ?></td>
-									<td><?= $row[$i]["lastlogintime"] ?></td>
-									<td>
-										<?php
-											if($row[$i]["deletetime"]){
-												?><a href="userdetail.php?id=<?= $row[$i]["id"] ?>" class="button outline">see</a><?php
-											}else{
-												?><a href="api/unblock.php?id=<?= $row[$i]["id"] ?>" class="button outline">unblock</a><?php
-											}
-										?>
-									</td>
-								</tr>
-								<?php
-							}
-						?>
-					</table>
-				</div>
-				<?php
-			}else{
-				echo("user not found");
+				header("location: user.php");
 			}
 		?>
     </body>

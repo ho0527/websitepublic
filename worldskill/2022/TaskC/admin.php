@@ -34,7 +34,7 @@
 					for($i=0;$i<count($row);$i=$i+1){
 						?>
 						<tr>
-							<td><?= $i ?></td>
+							<td><?= $i+1 ?></td>
 							<td><?= $row[$i]["username"] ?></td>
 							<td><?= $row[$i]["createtime"] ?></td>
 							<td><?= $row[$i]["lastlogintime"] ?></td>
