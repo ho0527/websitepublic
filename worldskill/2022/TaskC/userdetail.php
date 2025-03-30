@@ -68,7 +68,7 @@
 				if($id){
 					$row=query($db,"SELECT*FROM `user` WHERE `id`=?",[$id]);
 					if($row){
-						query($db,"UPDATE `user` SET `blocktime`=? AND `blockreason`=? WHERE `id`=?",[$time,$_POST["blockreason"],$id]);
+						query($db,"UPDATE `user` SET `blocktime`=?,`blockreason`=? WHERE `id`=?",[$time,$_POST["blockreason"],$id]);
 					}
 				}
 
