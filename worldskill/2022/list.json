@@ -580,7 +580,7 @@
                     "statu": "FAILED",
                     "ps": "list",
                     "createdate": "2023/11/01",
-                    "updatedate": "2024/01/02",
+                    "updatedate": "2025/03/30",
                     "data": [
                         {
                             "list": 1,
@@ -825,7 +825,7 @@
                                 {
                                     "no": "02",
                                     "description": "Administrator can block a developer Developer cannot login after blocked. An error message showed",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
@@ -837,19 +837,19 @@
                                 {
                                     "no": "04",
                                     "description": "Form is protected from SQL Injection Choose an input to test, choose by team and be consistant.",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "05",
                                     "description": "The admin can see all admin users in the database with username, created timestamp and last login timestamp.",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "06",
                                     "description": "The admin can see all platform users with username, registration timestamp, last login timestamp and click a link to their profile page.",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
@@ -861,19 +861,19 @@
                                 {
                                     "no": "08",
                                     "description": "The admin can block and unblock users given a choice of reasons.",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "09",
                                     "description": "The blocked user's profile is no longer reachable and instead treated as it would not exist 404",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "10",
                                     "description": "If the user was already logged in, they will be logged out and shown the reason the next time they interact with the backend.",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
