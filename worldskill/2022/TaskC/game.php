@@ -21,6 +21,11 @@
 		</div>
 
 		<div class="main center width-75vw">
+			<form>
+				<input type="text" class="input" name="title" value="value">
+				<input type="submit" class="submit" name="submit" value="submit">
+			</form>
+			<hr>
 			<table class="table-auto">
 				<tr>
 					<th>#</th>
