@@ -1,0 +1,55 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#ddd;
+}
+
+div {
+    position:relative;
+    width:500px;
+    height:300px;
+    overflow:hidden;
+}
+
+img:first-of-type {
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    clip-path:inset(0 50% 0 0);
+    transition:clip-path 0.3s;
+}
+
+img:last-of-type {
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+div::before {
+    content:"";
+    position:absolute;
+    width:10px;
+    height:100%;
+    background:url("splitter.svg") center/cover no-repeat;
+    left:50%;
+    transform:translateX(-50%);
+    transition:left 0.3s;
+}
+
+div:hover img:first-of-type {
+    clip-path:inset(0 0 0 0);
+}
+
+div:hover::before {
+    left:100%;
+}
