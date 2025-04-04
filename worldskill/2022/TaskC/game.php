@@ -36,7 +36,7 @@
 					<th>function</th>
 				</tr>
 				<?php
-					$row=query($db,"SELECT * FROM `game` WHERE `title` LIKE ?",["%".($_GET["title"]??"")."%"]);
+					$row=query($db,"SELECT*FROM `game` WHERE `title` LIKE ?",["%".($_GET["title"]??"")."%"]);
 
 					for($i=0;$i<count($row);$i=$i+1){
 						?>
@@ -48,7 +48,7 @@
 							<td><?= query($db,"SELECT*FROM `user` WHERE `id`=?",[$row[$i]["userid"]])[0]["username"] ?></td>
 							<td>
 								<?php
-									if($row[$i]["deletetime"]){
+									if($row[$i]["deletetime"]==null){
 										?><a href="gamedetail.php?slug=<?= $row[$i]["slug"] ?>" class="button outline">see</a><?php
 									}else{
 										?>deleted<?php
