@@ -57,7 +57,7 @@ table{
 }
 
 /* 新增學生 */
-.addsut{
+.addstu{
     position: relative;/* 絕對定位 */
     top:0px;/* 定位 */
     right: 3px;
@@ -76,7 +76,7 @@ table{
     transition-duration: 0.5s;
 }
 
-.addsut:hover{
+.addstu:hover{
     background-color: rgba(100, 100, 100,0.35);/* 背景顏色 */
 }
 
@@ -296,11 +296,24 @@ table{
     cursor: pointer;
 }
 
+.searchresult{
+    background: yellow;
+}
+
+.classitem{
+    border-radius: 0px;
+    background: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content:  space-between;
+    cursor: pointer;
+}
+
 .current{
     background-color: rgb(135, 135, 135);
     color: white;
-}
-
-.searchresult{
-    background: yellow;
 }
