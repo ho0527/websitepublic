@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>game detail</title>
+        <title>game list</title>
         <link rel="stylesheet" href="/index.css">
         <link rel="stylesheet" href="index.css">
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -12,6 +12,17 @@
     </head>
     <body>
 		<?php include("link.php");include("signincheck.php"); ?>
+		<?php
+			if(isset($_GET["slug"])){
+				$slug=$_GET["slug"];
+				$row=query($db,"SELECT*FROM `game` WHERE `slug` LIKE ? AND `deletetime` IS NULL",[$slug]);
+				if(0<count($row)){
+					$row=$row[0];
+				}else{
+					header("location: game.php");
+				}
+			}
+		?>
 
 		<div class="navigationbar">
             <div class="navigationbarleft"></div>
@@ -20,50 +31,61 @@
 			</div>
 		</div>
 
-		<?php
-			$slug=$_GET["slug"];
-			$row=query($db,"SELECT * FROM `game` WHERE `slug`=?",[$slug]);
+		<div class="main center width-75vw">
+			<table class="table-auto">
+				<tr>
+					<th>#</th>
+					<th>title</th>
+					<th>description</th>
+					<th>author</th>
+					<th>function</th>
+				</tr>
+				<tr>
+					<td><?= $i ?></td>
+					<td><?= $row[$i]["title"] ?></td>
+					<td><?= $row[$i]["description"] ?></td>
+					<td><?= query($db,"SELECT*FROM `user` WHERE `id`=?",[$row[$i]["userid"]])[0]["username"] ?></td>
+					<td>
+						<a href="api/deletegame.php?slug=<?= $row[$i]["slug"] ?>" class="button outline">delete</a>
+					</td>
+				</tr>
+			</table>
 
-			if(isset($row[0])){
-				?>
-				<div>
-					<table class="table-auto">
-						<tr>
-							<th>#</th>
-							<th>username</th>
-							<th>createtime</th>
-							<th>lastlogintime</th>
-							<th>function</th>
-						</tr>
-						<?php
-							$row=query($db,"SELECT * FROM `user`");
+			<div>
+				score<br>
+				<table class="table-auto">
+					<tr>
+						<th>#</th>
+						<th>user name</th>
+						<th>game name</th>
+						<th>version</th>
+						<th>score</th>
+					</tr>
+					<?php
+						$gameversionrow=query($db,"SELECT*FROM `gameversion` WHERE `gameid`=?",[$row[$i]["id"]]);
 
-							for($i=0;$i<count($row);$i=$i+1){
+						for($i=0;$i<count($gameversionrow);$i=$i+1){
+							$scorerow=query($db,"SELECT*FROM `score` WHERE `gameversioneid`=?",[$gameversionrow[$i]["id"]]);
+							for($j=0;$j<count($scorerow);$j=$j+1){
+								$userrow=query($db,"SELECT*FROM `user` WHERE `id`=?",[$scorerow[$j]["userid"]])[0];
 								?>
 								<tr>
-									<td><?= $i ?></td>
-									<td><?= $row[$i]["username"] ?></td>
-									<td><?= $row[$i]["createtime"] ?></td>
-									<td><?= $row[$i]["lastlogintime"] ?></td>
+									<td><?= $i*$j+$j ?></td>
+									<td><?= $userrow["username"] ?></td>
+									<td><?= $row["title"] ?></td>
+									<td><?= $gameversionrow[$i]["version"] ?></td>
+									<td><?= $row[$j]["score"] ?></td>
 									<td>
-										<?php
-											if($row[$i]["deletetime"]){
-												?><a href="userdetail.php?id=<?= $row[$i]["id"] ?>" class="button outline">see</a><?php
-											}else{
-												?><a href="api/unblock.php?id=<?= $row[$i]["id"] ?>" class="button outline">unblock</a><?php
-											}
-										?>
+										<a href="api/deletescore.php?id=<?= $scorerow[$j]["id"] ?>" class="button outline">delete score</a>
+										<a href="api/deleteuserscore.php?id=<?= $scorerow[$j]["id"] ?>&userid=<?= $userrow["id"] ?>" class="button outline">delete user socre</a>
 									</td>
 								</tr>
 								<?php
 							}
-						?>
-					</table>
-				</div>
-				<?php
-			}else{
-				echo("user not found");
-			}
-		?>
+						}
+					?>
+				</table>
+			</div>
+		</div>
     </body>
 </html>
