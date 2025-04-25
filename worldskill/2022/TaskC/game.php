@@ -25,7 +25,7 @@
 			<form>
 				<div class="input">
 					<input type="text" name="title" value="">
-				<div>
+				</div>
 				<input type="submit" class="button" name="submit" value="submit">
 			</form>
 			<hr>

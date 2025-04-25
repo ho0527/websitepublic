@@ -34,14 +34,12 @@
 		<div class="main center width-75vw">
 			<table class="table-auto">
 				<tr>
-					<th>#</th>
 					<th>title</th>
 					<th>description</th>
 					<th>author</th>
 					<th>function</th>
 				</tr>
 				<tr>
-					<td><?= $i ?></td>
 					<td><?= $row["title"] ?></td>
 					<td><?= $row["description"] ?></td>
 					<td><?= query($db,"SELECT*FROM `user` WHERE `id`=?",[$row["userid"]])[0]["username"] ?></td>
