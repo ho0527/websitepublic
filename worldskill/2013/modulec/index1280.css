@@ -1,3 +1,63 @@
-@media screen and (min-width:1280px){
-    
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+@media screen and (min-width:1280px) {
+	.header {
+		background: rgb(34, 34, 34);
+		font-size: 15px;
+		padding: 0px 10vw;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.manageaccountbutton {
+		color: lightgray;
+	}
+
+	.signoutbutton {
+		color: lightgray;
+	}
+
+	.navigationbar {
+		font-size: 15px;
+		padding: 10px 10vw;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo {
+		width: 100px;
+	}
+
+	.signoutbutton {
+		color: lightgray;
+	}
+
+	.titlebar {
+		background: red;
+		padding: 10px 10vw;
+	}
+}
+
+.color-white {
+	color: white;
+}
+
+.fontsize-15px {
+	font-size: 15px;
+}
+
+.display-flex {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.image{
+	max-width: 100%;
+	max-height: auto;
 }
