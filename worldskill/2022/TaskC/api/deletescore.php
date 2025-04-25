@@ -10,5 +10,5 @@
 		}
 	}
 
-	header("location: ../game.php");
+	header("location: ../gamedetail.php?slug=".$_GET["slug"]);
 ?>

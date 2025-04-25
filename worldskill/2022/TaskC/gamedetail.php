@@ -31,7 +31,7 @@
 			</div>
 		</div>
 
-		<div class="main center width-75vw">
+		<div class="main center width-75vw textcenter">
 			<table class="table-auto">
 				<tr>
 					<th>title</th>
@@ -61,6 +61,7 @@
 					</tr>
 					<?php
 						$gameversionrow=query($db,"SELECT*FROM `gameversion` WHERE `gameid`=?",[$row["id"]]);
+						$index=1;
 
 						for($i=0;$i<count($gameversionrow);$i=$i+1){
 							$scorerow=query($db,"SELECT*FROM `score` WHERE `gameversionid`=?",[$gameversionrow[$i]["id"]]);
@@ -68,17 +69,18 @@
 								$userrow=query($db,"SELECT*FROM `user` WHERE `id`=?",[$scorerow[$j]["userid"]])[0];
 								?>
 								<tr>
-									<td><?= $i*$j+$j ?></td>
+									<td><?= $index ?></td>
 									<td><?= $userrow["username"] ?></td>
 									<td><?= $row["title"] ?></td>
 									<td><?= $gameversionrow[$i]["version"] ?></td>
 									<td><?= $scorerow[$j]["score"] ?></td>
 									<td>
-										<a href="api/deletescore.php?id=<?= $scorerow[$j]["id"] ?>" class="button outline">delete score</a>
-										<a href="api/deleteuserscore.php?id=<?= $scorerow[$j]["id"] ?>&userid=<?= $userrow["id"] ?>" class="button outline">delete user socre</a>
+										<a href="api/deletescore.php?id=<?= $scorerow[$j]["id"] ?>&slug=<?= $_GET["slug"] ?>" class="button outline">delete score</a>
+										<a href="api/deleteuserscore.php?gameversionid=<?= $scorerow[$j]["gameversionid"] ?>&userid=<?= $userrow["id"] ?>&slug=<?= $_GET["slug"] ?>" class="button outline">delete user socre</a>
 									</td>
 								</tr>
 								<?php
+								$index=$index+1;
 							}
 						}
 					?>

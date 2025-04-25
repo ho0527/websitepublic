@@ -21,10 +21,10 @@
 			</div>
 		</div>
 
-		<div class="main center width-75vw">
+		<div class="main center width-75vw textcenter">
 			<form>
 				<div class="input">
-					<input type="text" name="title" value="">
+					<input type="text" name="title" value="<?= $_GET["title"]??"" ?>">
 				</div>
 				<input type="submit" class="button" name="submit" value="submit">
 			</form>
@@ -47,7 +47,7 @@
 							$gameversionrow=$gameversionrow[count($gameversionrow)-1];
 							?>
 							<tr>
-								<td><?= $i ?></td>
+								<td><?= $i+1 ?></td>
 								<td><?= $row[$i]["title"] ?></td>
 								<td><?= $row[$i]["description"] ?></td>
 								<td><?php if($gameversionrow["thumbnailpath"]){ echo("no thumbnail"); }else{ ?><img src="<?= $gameversionrow["thumbnailpath"] ?>" class="image"><?php } ?></td>

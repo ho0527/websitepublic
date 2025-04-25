@@ -20,7 +20,7 @@
 			</div>
 		</div>
 
-		<div class="main center">
+		<div class="main center textcenter">
 			<?php
 				$username=$_GET["username"];
 				$row=query($db,"SELECT * FROM `user` WHERE `username`=? AND `blocktime` IS NULL",[$username]);

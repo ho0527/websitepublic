@@ -21,7 +21,7 @@
 			</div>
 		</div>
 
-		<div class="main center width-75vw">
+		<div class="main center width-75vw textcenter">
 			<table class="table-auto">
 				<tr>
 					<th>#</th>
@@ -39,7 +39,7 @@
 						$gamenrow=query($db,"SELECT*FROM `game` WHERE `id`=?",[$gameversionrow["gameid"]])[0];
 						?>
 						<tr>
-							<td><?= $i ?></td>
+							<td><?= $i+1 ?></td>
 							<td><?= $userrow["username"] ?></td>
 							<td><?= $gamenrow["title"] ?></td>
 							<td><?= $gameversionrow["version"] ?></td>
