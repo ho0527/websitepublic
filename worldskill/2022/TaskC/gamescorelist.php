@@ -36,7 +36,7 @@
 					for($i=0;$i<count($row);$i=$i+1){
 						$userrow=query($db,"SELECT*FROM `user` WHERE `id`=?",[$row[$i]["userid"]])[0];
 						$gameversionrow=query($db,"SELECT*FROM `gameversion` WHERE `id`=?",[$row[$i]["gameversionid"]])[0];
-						$gamenrow=query($db,"SELECT*FROM `gamen` WHERE `id`=?",[$gameversionrow["gamenid"]])[0];
+						$gamenrow=query($db,"SELECT*FROM `game` WHERE `id`=?",[$gameversionrow["gameid"]])[0];
 						?>
 						<tr>
 							<td><?= $i ?></td>

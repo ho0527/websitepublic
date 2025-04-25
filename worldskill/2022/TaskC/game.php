@@ -24,7 +24,7 @@
 		<div class="main center width-75vw">
 			<form>
 				<div class="input">
-					<input type="text" name="title" value="value">
+					<input type="text" name="title" value="">
 				<div>
 				<input type="submit" class="button" name="submit" value="submit">
 			</form>
@@ -43,25 +43,27 @@
 
 					for($i=0;$i<count($row);$i=$i+1){
 						$gameversionrow=query($db,"SELECT*FROM `gameversion` WHERE `gameid`=?",[$row[$i]["id"]]);
-						$gameversionrow=$gameversionrow[count($gameversionrow)-1]["version"];
-						?>
-						<tr>
-							<td><?= $i ?></td>
-							<td><?= $row[$i]["title"] ?></td>
-							<td><?= $row[$i]["description"] ?></td>
-							<td><?php if($gameversionrow["thumbnailpath"]){ echo("no thumbnail"); }else{ ?><img src="<?= $gameversionrow["thumbnailpath"] ?>" class="image"><?php } ?></td>
-							<td><?= query($db,"SELECT*FROM `user` WHERE `id`=?",[$row[$i]["userid"]])[0]["username"] ?></td>
-							<td>
-								<?php
-									if($row[$i]["deletetime"]==null){
-										?><a href="gamedetail.php?slug=<?= $row[$i]["slug"] ?>" class="button outline">see</a><?php
-									}else{
-										?>deleted<?php
-									}
-								?>
-							</td>
-						</tr>
-						<?php
+						if(0<count($gameversionrow)){
+							$gameversionrow=$gameversionrow[count($gameversionrow)-1];
+							?>
+							<tr>
+								<td><?= $i ?></td>
+								<td><?= $row[$i]["title"] ?></td>
+								<td><?= $row[$i]["description"] ?></td>
+								<td><?php if($gameversionrow["thumbnailpath"]){ echo("no thumbnail"); }else{ ?><img src="<?= $gameversionrow["thumbnailpath"] ?>" class="image"><?php } ?></td>
+								<td><?= query($db,"SELECT*FROM `user` WHERE `id`=?",[$row[$i]["userid"]])[0]["username"] ?></td>
+								<td>
+									<?php
+										if($row[$i]["deletetime"]==null){
+											?><a href="gamedetail.php?slug=<?= $row[$i]["slug"] ?>" class="button outline">see</a><?php
+										}else{
+											?>deleted<?php
+										}
+									?>
+								</td>
+							</tr>
+							<?php
+						}
 					}
 				?>
 			</table>

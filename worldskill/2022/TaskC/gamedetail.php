@@ -42,11 +42,11 @@
 				</tr>
 				<tr>
 					<td><?= $i ?></td>
-					<td><?= $row[$i]["title"] ?></td>
-					<td><?= $row[$i]["description"] ?></td>
-					<td><?= query($db,"SELECT*FROM `user` WHERE `id`=?",[$row[$i]["userid"]])[0]["username"] ?></td>
+					<td><?= $row["title"] ?></td>
+					<td><?= $row["description"] ?></td>
+					<td><?= query($db,"SELECT*FROM `user` WHERE `id`=?",[$row["userid"]])[0]["username"] ?></td>
 					<td>
-						<a href="api/deletegame.php?slug=<?= $row[$i]["slug"] ?>" class="button outline">delete</a>
+						<a href="api/deletegame.php?slug=<?= $row["slug"] ?>" class="button outline">delete</a>
 					</td>
 				</tr>
 			</table>
@@ -62,10 +62,10 @@
 						<th>score</th>
 					</tr>
 					<?php
-						$gameversionrow=query($db,"SELECT*FROM `gameversion` WHERE `gameid`=?",[$row[$i]["id"]]);
+						$gameversionrow=query($db,"SELECT*FROM `gameversion` WHERE `gameid`=?",[$row["id"]]);
 
 						for($i=0;$i<count($gameversionrow);$i=$i+1){
-							$scorerow=query($db,"SELECT*FROM `score` WHERE `gameversioneid`=?",[$gameversionrow[$i]["id"]]);
+							$scorerow=query($db,"SELECT*FROM `score` WHERE `gameversionid`=?",[$gameversionrow[$i]["id"]]);
 							for($j=0;$j<count($scorerow);$j=$j+1){
 								$userrow=query($db,"SELECT*FROM `user` WHERE `id`=?",[$scorerow[$j]["userid"]])[0];
 								?>
@@ -74,7 +74,7 @@
 									<td><?= $userrow["username"] ?></td>
 									<td><?= $row["title"] ?></td>
 									<td><?= $gameversionrow[$i]["version"] ?></td>
-									<td><?= $row[$j]["score"] ?></td>
+									<td><?= $scorerow[$j]["score"] ?></td>
 									<td>
 										<a href="api/deletescore.php?id=<?= $scorerow[$j]["id"] ?>" class="button outline">delete score</a>
 										<a href="api/deleteuserscore.php?id=<?= $scorerow[$j]["id"] ?>&userid=<?= $userrow["id"] ?>" class="button outline">delete user socre</a>
