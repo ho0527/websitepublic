@@ -43,7 +43,7 @@
 				if($row=query($db,"SELECT*FROM `admin` WHERE `username`=? AND `password`=?",[$username,$password])){
 					query($db,"UPDATE `admin` SET `lastlogintime`=? WHERE `username`=?",[$time,$username]);
 					$_SESSION["signin"]=true;
-					?><script>alert("signin success:(");location.href="./admin.php"</script><?php
+					?><script>alert("signin success:)");location.href="./admin.php"</script><?php
 				}else{
 					?><script>alert("signin faild:(");location.href="./"</script><?php
 				}
