@@ -1,5 +1,5 @@
 <?php
-    $db=new PDO("mysql:host=localhost;dbname=ws2022modulec;charset=utf8","root","");
+    $db=new PDO("mysql:host=localhost;dbname=worldskill2022modulec;charset=utf8","root","");
     date_default_timezone_set("Asia/Taipei");
     $time=date("Y-m-d H:i:s");
     session_start();

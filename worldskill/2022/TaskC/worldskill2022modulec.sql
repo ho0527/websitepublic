@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost
--- 產生時間： 2025 年 04 月 25 日 04:06
+-- 主機： 127.0.0.1
+-- 產生時間： 2025 年 04 月 25 日 16:36
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `ws2022modulec`
+-- 資料庫： `worldskill2022modulec`
 --
 
 -- --------------------------------------------------------
@@ -66,9 +66,9 @@ CREATE TABLE `game` (
 --
 
 INSERT INTO `game` (`id`, `userid`, `title`, `slug`, `description`, `createtime`, `updatetime`, `deletetime`) VALUES
-(1, 4, 'Demo Game 1 (updated)', 'demo-game-1', 'This is demo game 1 (updated)', '2023-12-31 21:10:39', '2024-01-01 20:48:35', NULL),
+(1, 4, 'Demo Game 1 (updated)', 'demo-game-1', 'This is demo game 1 (updated)', '2023-12-31 21:10:39', '2025-04-25 21:36:39', NULL),
 (2, 5, 'Demo Game 2', 'demo-game-2', 'lorem text for this game2', '2023-12-31 21:16:04', '2024-01-01 21:05:25', NULL),
-(5, 4, 'My New Game', 'my-new-game', 'This is my newest game, it is awesome', '2024-01-01 21:05:04', '2024-01-01 21:05:04', NULL);
+(6, 4, 'My New Game', 'my-new-game', 'This is my newest game, it is awesome', '2025-04-25 21:40:15', '2025-04-25 21:40:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,7 @@ CREATE TABLE `gameversion` (
 INSERT INTO `gameversion` (`id`, `gameid`, `thumbnailpath`, `gamepath`, `version`, `createtime`, `updatetime`, `deletetime`) VALUES
 (1, 1, '/backend/media/ws2022modulec/demo-game-1/1/thumbnail.png', '/backend/media/ws2022modulec/demo-game-1/1/', 1, '2025-03-28 02:38:26', NULL, NULL),
 (2, 1, '/backend/media/ws2022modulec/demo-game-1/2/thumbnail.png', '/backend/media/ws2022modulec/demo-game-1/2/', 2, '2025-03-28 02:39:35', NULL, NULL),
-(3, 2, '/backend/media/ws2022modulec/demo-game-2/1/thumbnail.png', '/backend/media/ws2022modulec/demo-game-1/4/', 1, '2025-03-28 02:40:30', NULL, NULL),
+(3, 2, '/backend/media/ws2022modulec/demo-game-2/1/thumbnail.png', '/backend/media/ws2022modulec/demo-game-2/1/', 1, '2025-03-28 02:40:30', NULL, NULL),
 (4, 1, '/backend/media/ws2022modulec/demo-game-1/3/thumbnail.png', '/backend/media/ws2022modulec/demo-game-1/3/', 3, '2025-03-28 02:40:48', NULL, NULL),
 (5, 1, '/backend/media/ws2022modulec/demo-game-1/4/thumbnail.png', '/backend/media/ws2022modulec/demo-game-1/4/', 4, '2025-03-28 02:41:11', NULL, NULL);
 
@@ -107,6 +107,7 @@ INSERT INTO `gameversion` (`id`, `gameid`, `thumbnailpath`, `gamepath`, `version
 CREATE TABLE `score` (
   `id` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
+  `gameid` int(11) NOT NULL,
   `gameversionid` int(11) NOT NULL,
   `score` double NOT NULL,
   `createtime` text NOT NULL
@@ -116,12 +117,13 @@ CREATE TABLE `score` (
 -- 傾印資料表的資料 `score`
 --
 
-INSERT INTO `score` (`id`, `userid`, `gameversionid`, `score`, `createtime`) VALUES
-(1, 1, 1, 10, '2024-01-01 21:08:40'),
-(2, 1, 1, 15, '2024-01-01 21:11:44'),
-(3, 1, 4, 12, '2024-01-16 21:12:48'),
-(4, 4, 2, 3, '2024-01-16 21:13:34'),
-(5, 4, 1, 1, '2024-02-09 14:21:35');
+INSERT INTO `score` (`id`, `userid`, `gameid`, `gameversionid`, `score`, `createtime`) VALUES
+(1, 1, 1, 1, 10, '2024-01-01 21:08:40'),
+(2, 1, 1, 1, 15, '2024-01-01 21:11:44'),
+(3, 1, 1, 4, 12, '2024-01-16 21:12:48'),
+(4, 4, 2, 3, 3, '2024-01-16 21:13:34'),
+(5, 4, 1, 1, 1, '2024-02-09 14:21:35'),
+(6, 4, 1, 0, 1000, '2025-04-25 22:22:01');
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,9 @@ INSERT INTO `token` (`id`, `userid`, `token`, `createtime`) VALUES
 (8, 4, 'cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e44561426', '2023-12-31 18:11:49'),
 (9, 1, '13d65aceb53ab1887e7decba787dcad6d8022a39d63e9949b38edfe051a9e03660013272', '2024-01-01 15:54:37'),
 (11, 4, 'cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e40413224', '2024-01-05 21:30:20'),
-(17, 4, 'cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e08430676', '2024-02-12 16:42:40');
+(17, 4, 'cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e08430676', '2024-02-12 16:42:40'),
+(18, 4, 'cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e08747351', '2025-04-25 21:33:43'),
+(19, 5, '45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e30503898819', '2025-04-25 22:32:20');
 
 -- --------------------------------------------------------
 
@@ -228,7 +232,7 @@ ALTER TABLE `admin`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `gameversion`
@@ -240,13 +244,13 @@ ALTER TABLE `gameversion`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `score`
 --
 ALTER TABLE `score`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `token`
 --
 ALTER TABLE `token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `user`
