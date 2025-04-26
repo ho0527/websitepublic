@@ -9,3 +9,6 @@
 /wtf/
 **/.DS_Store
 .codegpt
+.vscode/
+
+anther/
