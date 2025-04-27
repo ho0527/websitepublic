@@ -13,11 +13,28 @@ if(slug){
 				</div>
 
 				<div>
+					<input type="button" class="updatebutton" id="updatebutton" value="Save Changes">
 					<input type="button" class="uploadbutton" id="uploadbutton" value="upload new version">
 					<input type="button" class="deletebutton" id="deletebutton" value="delete">
-					<input type="file" id="zipfile" accept=".zip">
+					<input type="file" class="display-none" id="zipfile" accept=".zip">
 				</div>
 			`
+
+			onclick("#updatebutton",function(element,event){
+				ajax("PUT",AJAXURL+"api/v1/games/"+slug,function(event,data){
+					if(data["success"]){
+						alert("update success")
+						href("")
+					}else{
+						alert(data["message"])
+					}
+				},str({
+					"title": getvalue("title"),
+					"description": getvalue("description")
+				}),[
+					["Authorization","Bearer "+weblsget("worldskill2022MDtoken")]
+				])
+			})
 
 			onclick("#uploadbutton",function(element,event){
 				click("#zipfile")
@@ -40,16 +57,18 @@ if(slug){
 			})
 
 			onclick("#deletebutton",function(element,event){
-				ajax("DELETE",AJAXURL+"api/v1/games/"+slug,function(event,data){
-					if(data["success"]){
-						alert("delete success")
-						href("profile.html")
-					}else{
-						alert(data["message"])
-					}
-				},null,[
-					["Authorization","Bearer "+weblsget("worldskill2022MDtoken")]
-				])
+				if(confirm("Are you sure to delete this game?")){
+					ajax("DELETE",AJAXURL+"api/v1/games/"+slug,function(event,data){
+						if(data["success"]){
+							alert("delete success")
+							href("profile.html")
+						}else{
+							alert(data["message"])
+						}
+					},null,[
+						["Authorization","Bearer "+weblsget("worldskill2022MDtoken")]
+					])
+				}
 			})
 		}else{
 			href("game.html?slug="+slug)
