@@ -22,7 +22,7 @@ if(slug){
 
 			onclick("#updatebutton",function(element,event){
 				ajax("PUT",AJAXURL+"api/v1/games/"+slug,function(event,data){
-					if(data["success"]){
+					if(data["status"]=="success"){
 						alert("update success")
 						href("")
 					}else{
@@ -44,7 +44,7 @@ if(slug){
 				let zipfile=domgetid("zipfile").files[0]
 
 				ajax("POST",AJAXURL+"api/v1/games/"+slug+"/upload",function(event,data){
-					if(data["success"]){
+					if(data==""){
 						alert("upload success")
 						href("")
 					}else{
@@ -59,11 +59,11 @@ if(slug){
 			onclick("#deletebutton",function(element,event){
 				if(confirm("Are you sure to delete this game?")){
 					ajax("DELETE",AJAXURL+"api/v1/games/"+slug,function(event,data){
-						if(data["success"]){
+						if(data["status"]=="forbidden"){
+							alert(data["message"])
+						}else{
 							alert("delete success")
 							href("profile.html")
-						}else{
-							alert(data["message"])
 						}
 					},null,[
 						["Authorization","Bearer "+weblsget("worldskill2022MDtoken")]
