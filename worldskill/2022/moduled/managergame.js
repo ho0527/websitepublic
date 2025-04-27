@@ -41,10 +41,10 @@ if(slug){
 			})
 
 			onchange("#zipfile",function(element,event){
-				let zipfile=domgetid("zipfile").files[0]
+				let zipfile=element.files[0]
 
 				ajax("POST",AJAXURL+"api/v1/games/"+slug+"/upload",function(event,data){
-					if(data==""){
+					if(data["status"]=="success"){
 						alert("upload success")
 						href("")
 					}else{
