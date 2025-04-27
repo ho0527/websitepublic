@@ -63,24 +63,52 @@ if(slug){
 			`
 
 			domgetid("game").innerHTML=`
-				<iframe src="${data["gamePath"]}/" class="iframe" title="這是遊戲"></iframe>
+				<div class="game grid" data-slug="${data["content"][i]["slug"]}">
+					<input type="text" class="title" id="title" value="${data["content"][i]["title"]}">
+					<div class="author">by ${data["content"][i]["author"]}</div>
+					<textarea class="description" id="description">${data["content"][i]["description"]}</textarea>
+					<div class="scorecount">score submit: ${data["content"][i]["scoreCount"]}</div>
+					<div class="imagediv"><img src="${pictureurl}" class="image"></div>
+				</div>
+
+				<div>
+					<input type="button" class="uploadbutton" id="uploadbutton" value="upload new version">
+					<input type="button" class="deletebutton" id="deletebutton" value="delete">
+					<input type="file" id="zipfile" accept=".zip">
+				</div>
 			`
 
-			// 回傳分數
-			getmessage(function(element,event){
-				if(event.data.score&&window.confirm("Are you sure you want to submit your score?")){
-					ajax("POST","/backend/worldskill2022modulec/api/v1/games/"+slug+"/scores",function(event,data){
-						if(data["status"]=="success"){
-							location.reload()
-						}else{
-							alert(data["message"])
-						}
-					},JSON.stringify({
-						"score": event.data.score
-					}),[
-						["Authorization","Bearer "+weblsget("worldskill2022MDtoken")]
-					])
-				}
+			onclick("#uploadbutton",function(element,event){
+				click("#zipfile")
+			})
+
+			onchange("#zipfile",function(element,event){
+				let zipfile=domgetid("zipfile").files[0]
+
+				ajax("POST",AJAXURL+"api/v1/games/"+slug+"/upload",function(event,data){
+					if(data["success"]){
+						alert("upload success")
+						href("")
+					}else{
+						alert(data)
+					}
+				},formdata([
+					["zipfile",zipfile],
+					["token",weblsget("worldskill2022MDtoken")]
+				]))
+			})
+
+			onclick("#deletebutton",function(element,event){
+				ajax("DELETE",AJAXURL+"api/v1/games/"+slug,function(event,data){
+					if(data["success"]){
+						alert("delete success")
+						href("profile.html")
+					}else{
+						alert(data["message"])
+					}
+				},null,[
+					["Authorization","Bearer "+weblsget("worldskill2022MDtoken")]
+				])
 			})
 		}else{
 			href("game.html?slug="+slug)
