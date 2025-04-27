@@ -1,74 +1,15 @@
 let slug=getget("slug")
 
 if(slug){
-	function leaderboard(){
-		ajax("GET",AJAXURL+"api/v1/games/"+slug+"/scores",function(event,data){
-			let username=false
-			let usercheck=false
-
-			domgetid("gameleaderboard").innerHTML=``
-
-			if(weblsget("worldskill2022MDusername")){
-				username=weblsget("worldskill2022MDusername")
-			}
-
-			for(let i=0;i<Math.min(10,data["scores"].length);i=i+1){
-				if(username==data["scores"][i]["username"]&&username){
-					domgetid("gameleaderboard").innerHTML=`
-						${domgetid("gameleaderboard").innerHTML}
-						<tr class="highlightuser">
-							<td class="gamenotd">#${i+1}</td>
-							<td class="gameusernametd">${data["scores"][i]["username"]}</td>
-							<td class="gamescoretd">${data["scores"][i]["score"]}</td>
-						</tr>
-					`
-					usercheck=true
-				}else{
-					domgetid("gameleaderboard").innerHTML=`
-						${domgetid("gameleaderboard").innerHTML}
-						<tr class="gametr">
-							<td class="gamenotd">#${i+1}</td>
-							<td class="gameusernametd">${data["scores"][i]["username"]}</td>
-							<td class="gamescoretd">${data["scores"][i]["score"]}</td>
-						</tr>
-					`
-				}
-			}
-
-			if(!usercheck){
-				for(let i=0;i<data["scores"].length;i=i+1){
-					if(username==data["scores"][i]["username"]&&username){
-						domgetid("gameleaderboard").innerHTML=`
-							${domgetid("gameleaderboard").innerHTML}
-							<tr class="highlightuser">
-								<td class="gamenotd"></td>
-								<td class="gameusernametd">${data["scores"][i]["username"]}</td>
-								<td class="gamescoretd">${data["scores"][i]["score"]}</td>
-							</tr>
-						`
-						usercheck=true
-					}
-				}
-			}
-		})
-	}
-
 	ajax("GET",AJAXURL+"api/v1/games/"+slug,function(event,data){
 		if(data["author"]==weblsget("worldskill2022MDusername")){
-			domgetid("navigationbartitle2").innerHTML=`
-				(Game: ${data["title"]})
-			`
-			domgetid("gamedescription").innerHTML=`
-				${data["description"]}
-			`
-
 			domgetid("game").innerHTML=`
-				<div class="game grid" data-slug="${data["content"][i]["slug"]}">
-					<input type="text" class="title" id="title" value="${data["content"][i]["title"]}">
-					<div class="author">by ${data["content"][i]["author"]}</div>
-					<textarea class="description" id="description">${data["content"][i]["description"]}</textarea>
-					<div class="scorecount">score submit: ${data["content"][i]["scoreCount"]}</div>
-					<div class="imagediv"><img src="${pictureurl}" class="image"></div>
+				<div class="game grid" data-slug="${data["slug"]}">
+					<input type="text" class="title" id="title" value="${data["title"]}">
+					<div class="author">by ${data["author"]}</div>
+					<textarea class="description" id="description">${data["description"]}</textarea>
+					<div class="scorecount">score submit: ${data["scoreCount"]}</div>
+					<div class="imagediv"><img src="${data["thumbnail"]??"material/picture/default.jpg"}" class="image"></div>
 				</div>
 
 				<div>
@@ -115,8 +56,6 @@ if(slug){
 		}
 	})
 
-	leaderboard()
-	// setInterval(leaderboard,5000)
 
 	// show signin/signup || signout button
 	if(isset(weblsget("worldskill2022MDtoken"))){
