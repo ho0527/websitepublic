@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Drip Effect</title>
+    <style>
+        body {
+            background:#000;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .drip-container {
+            position:relative;
+            width:10px;
+            height:200px;
+        }
+
+        .drop {
+            position:absolute;
+            top:0;
+            left:0;
+            width:10px;
+            height:10px;
+            background:#00f;
+            border-radius:50%;
+            animation:drip 2s linear infinite;
+        }
+
+        .ripple {
+            position:absolute;
+            bottom:0;
+            left:-10px;
+            width:30px;
+            height:30px;
+            border:2px solid #00f;
+            border-radius:50%;
+            opacity:0;
+            animation:ripple 2s linear infinite;
+            animation-delay:2s;
+        }
+
+        @keyframes drip {
+            0% {
+                top:0;
+                opacity:0;
+                transform:scale(0.3);
+            }
+            30% {
+                opacity:1;
+            }
+            90% {
+                opacity:1;
+            }
+            100% {
+                top:190px;
+                opacity:0;
+                transform:scale(1);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform:scale(0.2);
+                opacity:0.6;
+            }
+            100% {
+                transform:scale(1.5);
+                opacity:0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="drip-container">
+        <div class="drop"></div>
+        <div class="ripple"></div>
+    </div>
+</body>
+</html>

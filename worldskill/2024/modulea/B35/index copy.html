@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Sierpinski Triangle</title>
+	</head>
+	<body>
+		<input type="number" id="iterations" placeholder="Enter iterations" min="0">
+		<button onclick="drawFractal()">Draw Fractal</button>
+		<canvas id="fractalCanvas" width="600" height="600"></canvas>
+
+		<script>
+			function drawFractal() {
+				let iterations = document.getElementById("iterations").value
+				let canvas = document.getElementById("fractalCanvas")
+				let ctx = canvas.getContext("2d")
+				ctx.clearRect(0, 0, canvas.width, canvas.height)
+				let size = canvas.width / 2
+				let height = size * Math.sqrt(3) / 2
+				drawSierpinski(ctx, canvas.width / 4, canvas.height - height, size, iterations)
+			}
+
+			function drawSierpinski(ctx, x, y, size, iterations) {
+				if (iterations == 0) {
+					drawTriangle(ctx, x, y, size)
+				} else {
+					let halfSize = size / 2
+					let height = halfSize * Math.sqrt(3) / 2
+					drawSierpinski(ctx, x, y, halfSize, iterations - 1)
+					drawSierpinski(ctx, x + halfSize, y, halfSize, iterations - 1)
+					drawSierpinski(ctx, x + halfSize / 2, y - height, halfSize, iterations - 1)
+				}
+			}
+
+			function drawTriangle(ctx, x, y, size) {
+				let height = size * Math.sqrt(3) / 2
+				ctx.beginPath()
+				ctx.moveTo(x, y)
+				ctx.lineTo(x + size, y)
+				ctx.lineTo(x + size / 2, y - height)
+				ctx.closePath()
+				ctx.fill()
+			}
+		</script>
+	</body>
+</html>

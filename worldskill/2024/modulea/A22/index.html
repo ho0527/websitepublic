@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS Bar Chart</title>
+		<style>
+			.chart {
+				position: relative;
+				background: whitesmoke;
+				width: 500px;
+				height: 300px;
+				margin: 50px auto;
+				display: flex;
+				align-items: flex-end;
+				justify-content: space-evenly;
+				overflow: hidden;
+			}
+
+			.bar {
+				width: 40px;
+				height: 0px;
+				transition: 0.5s ease-out;
+			}
+
+			.chart:hover .bar:nth-child(1) {
+				height: 60%;
+				background: red;
+				transition-delay: 0s;
+			}
+
+			.chart:hover .bar:nth-child(2) {
+				height: 80%;
+				background: blue;
+				transition-delay: 0.2s;
+			}
+
+			.chart:hover .bar:nth-child(3) {
+				height: 50%;
+				background: green;
+				transition-delay: 0.4s;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="chart">
+			<div class="bar"></div>
+			<div class="bar"></div>
+			<div class="bar"></div>
+		</div>
+	</body>
+</html>

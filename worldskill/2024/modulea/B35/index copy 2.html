@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fractal Triangle</title>
+    <style>
+        body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #container {
+            position: relative;
+            width: 512px;
+            height: 443px; /* 約 512 * √3 / 2 */
+            margin: 0 auto;
+        }
+
+        .triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 87px solid black; /* 50 * √3 ≈ 87 */
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="draw(event)">
+        <input type="number" id="depth" min="0" value="0">
+        <button type="submit">Draw</button>
+    </form>
+    <div id="container"></div>
+
+    <script>
+        function createTriangle(x,y,size){
+            let tri=document.createElement("div")
+            tri.className="triangle"
+            tri.style.left=x+"px"
+            tri.style.top=y+"px"
+            tri.style.transform="scale("+(size/100)+") translate(-50%,0)"
+            return tri
+        }
+
+        function drawTriangle(parent,x,y,size,depth){
+            if(depth==0){
+                parent.appendChild(createTriangle(x,y,size))
+                return
+            }
+            let h=size*Math.sqrt(3)/2
+            drawTriangle(parent,x,y,size/2,depth-1)
+            drawTriangle(parent,x-size/4,y+h/2,size/2,depth-1)
+            drawTriangle(parent,x+size/4,y+h/2,size/2,depth-1)
+        }
+
+        function draw(e){
+            e.preventDefault()
+            document.getElementById("container").innerHTML=``
+            drawTriangle(document.getElementById("container"),256,0,512,parseInt(document.getElementById("depth").value))
+        }
+    </script>
+</body>
+</html>
