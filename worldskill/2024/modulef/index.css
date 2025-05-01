@@ -9,8 +9,8 @@ body {
 	top: 0px;
 	left: 0px;
 	background: whitesmoke;
-    backdrop-filter: blur(80px);
-    opacity: 0.85;
+	backdrop-filter: blur(80px);
+	opacity: 0.85;
 	width: calc(100% - 20%);
 	padding: 20px 10%;
 	display: flex;
@@ -29,19 +29,19 @@ body {
 	color: rgb(0, 38, 207);
 }
 
-.calltoaction{
+.calltoaction {
 	position: relative;
 	width: 100%;
 	min-height: 50vh;
 	max-height: 100vh;
 }
 
-.calltoactionimage{
+.calltoactionimage {
 	min-height: 50vh;
 	max-height: 100vh;
 }
 
-.calltoactionbuttondiv{
+.calltoactionbuttondiv {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -50,96 +50,96 @@ body {
 
 .calltoactionbutton {
 	position: relative;
-    border: none;
+	border: none;
 	font-size: 20px;
 	border-radius: 10px;
 	background: rgb(179, 179, 179);
 	padding: 35px 50px;
 	cursor: pointer;
 
-    --x: 300%;
-    --y: 300%;
+	--x: 300%;
+	--y: 300%;
 }
 
 .calltoactionbutton::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: -1px;
-    right: -1px;
-    top: -1px;
-    border-radius: 0.375rem;
-    bottom: -1px;
-    background: radial-gradient(circle at var(--x) var(--y),
-    rgb(249, 22, 22), rgb(249, 22, 22), transparent, transparent);
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	border-radius: 10px;
+	background: radial-gradient(circle at var(--x) var(--y),
+			rgb(249, 22, 22), rgb(249, 22, 22), transparent, transparent);
 }
 
 .calltoactionbutton::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 2px;
-    right: 2px;
-    top: 2px;
-    border-radius: 0.375rem;
-    bottom: 2px;
-    background-color: var(--blue);
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 2px;
+	right: 2px;
+	top: 2px;
+	border-radius: 10px;
+	background: rgb(179, 179, 179);
 }
 
-.image{
+.image {
 	width: 100%;
 	max-height: 100%;
 	object-fit: cover;
 }
 
-.phone{
+.phone {
 	display: none;
 }
 
-.mapattraction{
+.mapattraction {
 	padding: 10px 10vw;
 }
 
-.mapattractiontitle{
+.mapattractiontitle {
 	font-size: 50px;
 	font-weight: bold;
 	text-align: center;
 	margin: 10px 0px 30px 0px;
 }
 
-.video{
+.video {
 	width: 100%;
 	max-height: 100%;
 }
 
-.footer{
+.footer {
 	width: calc(100% - 20%);
 	padding: 20px 10%;
 	line-height: 15px;
 	background: rgb(203, 203, 203);
 }
 
-.footerlinkdiv{
+.footerlinkdiv {
 	margin: 10px 0px 20px 0px;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 }
 
-.footerlinkdiv>div>div{
+.footerlinkdiv>div>div {
 	margin: 15px 0px;
 }
 
-.textcenter{
+.textcenter {
 	text-align: center;
 	margin: 30px 0px 0px 0px;
 }
 
 @media screen and (max-width: 760px) {
-	.pc{
+	.pc {
 		display: none;
 	}
-	.phone{
+
+	.phone {
 		display: initial;
 	}
 }
