@@ -1,6 +1,5 @@
-let video=document.getElementById("video")
-
 function main(){
+	let video=document.getElementById("video")
     let rect=video.getBoundingClientRect()
 
     if(0.5<=((Math.min(rect.bottom,innerHeight)-Math.max(rect.top,0)))/(rect.height)){
