@@ -17,7 +17,9 @@
 		<div class="calltoaction">
 			<img src="material/images/cover.jpg" src="call to action" class="image pc calltoactionimage">
 			<img src="material/images/cover-low-res.jpg" src="call to action phone" class="image phone calltoactionimage">
-			<div class="calltoactionbutton">Call To Action</div>
+			<div class="calltoactionbuttondiv">
+				<button class="calltoactionbutton" id="calltoactionbutton">Call To Action</button>
+			</div>
 		</div>
 
 		<div class="mapattraction">
@@ -38,46 +40,54 @@
 			<video src="material/videos/lyon.mp4" class="video" id="video" muted loop></video>
 		</div>
 
-		<div class="mapattraction">
-			<div class="mapattractiontitle">Map Attractions</div>
-			<div>
-				<img src="material/images/lyon-map.jpg" src="map" class="image pc">
-				<img src="material/images/lyon-map-low-res.jpg" src="map phone" class="image phone">
-				<div class="mapdiv">
-					<div class="mapcard">
-						<img src="" class="image">
-						<div class="mapcardtitle"></div>
+		<div class="block">
+			<div class="essentialinformation">
+				<div class="mapattractiontitle">Essential Information</div>
+				<div>
+					<div>Contact: 04 72 10 30 30</div>
+					<div>Address: Mairie de Lyon,69205 Lyon cedex 01</div>
+					<input type="button" class="readbutton" id="read" value="Read it Loud">
+				</div>
+			</div>
+
+			<div class="latestevent">
+				<div class="mapattractiontitle">Latest Event</div>
+				<div class="eventdiv">
+					<div class="event">
+						<img src="material" class="image eventimage">
+						<div class="eventdescription"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="mapattraction">
-			<div class="mapattractiontitle">Map Attractions</div>
-			<div>
-				<img src="material/images/lyon-map.jpg" src="map" class="image pc">
-				<img src="material/images/lyon-map-low-res.jpg" src="map phone" class="image phone">
-				<div class="mapdiv">
-					<div class="mapcard">
-						<img src="" class="image">
-						<div class="mapcardtitle"></div>
-					</div>
-				</div>
+		<div class="otherinformation">
+			<div class="mapattractiontitle">Other Information</div>
+			<div class="tabdiv">
+				<div></div>
 			</div>
 		</div>
 
-		<div class="mapattraction">
-			<div class="mapattractiontitle">Map Attractions</div>
-			<div>
-				<img src="material/images/lyon-map.jpg" src="map" class="image pc">
-				<img src="material/images/lyon-map-low-res.jpg" src="map phone" class="image phone">
-				<div class="mapdiv">
-					<div class="mapcard">
-						<img src="" class="image">
-						<div class="mapcardtitle"></div>
-					</div>
+		<div class="contactus">
+			<div class="mapattractiontitle">Contact Us</div>
+			<form action="" class="contactusform">
+				<div class="inputdiv">
+					<label for="firstname">First name</label>
+					<input type="text" class="input" name="firstname">
 				</div>
-			</div>
+				<div class="inputdiv">
+					<label for="lastname">Last name</label>
+					<input type="text" class="input" name="lastname">
+				</div>
+				<div class="inputdiv">
+					<label for="email">Email</label>
+					<input type="text" class="input" name="email">
+				</div>
+				<div class="inputdiv">
+					<label for="phone">Phone</label>
+					<input type="text" class="input" name="phone">
+				</div>
+			</form>
 		</div>
 
 		<div class="footer">
