@@ -4,6 +4,12 @@ body {
 	overflow: hidden auto;
 }
 
+.image {
+	width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
 .navigationbar {
 	position: fixed;
 	top: 0px;
@@ -85,10 +91,33 @@ body {
 	background: rgb(179, 179, 179);
 }
 
-.image {
+.block {
+	padding: 10px 10%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.margin-10px_0px {
+	margin: 10px 0px;
+}
+
+.essentialinformation {
 	width: 100%;
-	max-height: 100%;
-	object-fit: cover;
+}
+
+.readbutton {
+	background: rgb(37, 37, 255);
+	border-radius: 10px;
+	font-size: 15px;
+	color: white;
+	padding: 15px 25px;
+	cursor: pointer;
+}
+
+.latestevent {
+	width: 100%;
 }
 
 .phone {
@@ -106,16 +135,91 @@ body {
 	margin: 10px 0px 30px 0px;
 }
 
+.mapattractionmain{
+	position: relative;
+}
+
+.mapattractiondiv{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.mapdiv {
+	width: 50%;
+	margin: 40px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 40px;
+}
+
+.mapcard{
+	background: white;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.mapcardtitle{
+	font-size: 15px;
+	margin: 0px 0px 20px 0px;
+}
+
 .video {
 	width: 100%;
 	max-height: 100%;
 }
 
+.contactus {
+	position: relative;
+	padding: 0px 10%;
+	margin: 50px 0px;
+}
+
+.contactustitle {
+	position: absolute;
+	top: -75px;
+	left: 50%;
+	transform: translate(-50%, -0%);
+	border: 2px rgb(179, 179, 179) solid;
+	background: white;
+	padding: 30px 15px;
+}
+
+.contactusform {
+	border: 2px rgb(179, 179, 179) solid;
+	padding: 100px 15px 15px 15px;
+	margin-top: 150px;
+}
+
+.inputdiv {
+	width: 100%;
+	white-space: nowrap;
+	margin: 10px 0px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.input {
+	width: 100%;
+}
+
+.display-flex {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+
 .footer {
 	width: calc(100% - 20%);
-	padding: 20px 10%;
 	line-height: 15px;
 	background: rgb(203, 203, 203);
+	padding: 20px 10%;
 }
 
 .footerlinkdiv {
