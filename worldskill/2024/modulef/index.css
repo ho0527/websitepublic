@@ -4,6 +4,11 @@ body {
 	overflow: hidden auto;
 }
 
+a{
+	color: black;
+	text-decoration: none;
+}
+
 .image {
 	width: 100%;
 	max-height: 100%;
