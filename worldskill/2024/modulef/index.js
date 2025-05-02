@@ -23,22 +23,9 @@ document.getElementById("calltoactionbutton").onmouseleave=function(event){
 }
 
 document.getElementById("read").onclick=function(){
-    speechSynthesis.cancel() // 清除先前語音
     let text="Mairie de Lyon,69205 Lyon cedex 01"
     let utter=new SpeechSynthesisUtterance(text)
-    utter.lang="fr-FR"
-    utter.rate=1
-    utter.pitch=1
-    utter.volume=0.8
-
-    let voices=speechSynthesis.getVoices()
-    for(let i=0;i<voices.length;i=i+1){
-        if(voices[i].lang=="fr-FR"){
-            utter.voice=voices[i]
-            break
-        }
-    }
-
+    utter.lang="en-US"
     speechSynthesis.speak(utter)
 }
 
