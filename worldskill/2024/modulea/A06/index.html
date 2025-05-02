@@ -50,6 +50,37 @@
         }
 
         /* YOUR CODE HERE */
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgb(125, 125, 125);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            border: 10px solid rgba(255, 255, 255, 0);
+            border-top: 10px solid #3450db; /* Blue */
+            border-radius: 50%;
+            width: 30vw;
+            height: 30vw;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Animation for spinning */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        [hidden] {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +92,7 @@
 <div class="container">
     <div class="loading-container">
         <!-- YOUR CODE HERE -->
+        <div class="spinner"></div>
     </div>
     <section class="content">
         <h2>Large Text Content</h2>
@@ -119,6 +151,10 @@
     });
 
     /* YOUR CODE HERE */
+        const loadingContainer = document.querySelector('.loading-container');
+        window.onload = function () {
+            loadingContainer.style.display = 'none';
+        };
 </script>
 </body>
 </html>
