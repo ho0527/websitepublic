@@ -171,6 +171,64 @@ a {
 	margin: 0px 0px 20px 0px;
 }
 
+.positiondiv{
+	position: relative;
+	width: 50%;
+	height: 100%;
+}
+
+.position{
+	width: 40px;
+	height: 40px;
+	background: pink;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: 0.3s linear;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.position:hover{
+	scale: 1.05;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.position::before{
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	width: 20px;
+	height: 20px;
+	rotate: 45deg;
+	background: pink;
+	z-index: 1;
+}
+
+.position span {
+	position:relative;
+	z-index:2;
+}
+
+.positiona{
+	position: absolute;
+	top: 100px;
+	left: 50px;
+}
+
+.positionb{
+	position: absolute;
+	top: 100px;
+	left: 250px;
+}
+
+.positionc{
+	position: absolute;
+	top: 200px;
+	left: 150px;
+}
+
 .video {
 	width: 100%;
 	max-height: 100%;
@@ -190,6 +248,23 @@ a {
 	border: 2px rgb(179, 179, 179) solid;
 	background: white;
 	padding: 30px 15px;
+}
+
+.tabdiv{
+	padding: 0px 15%;
+}
+
+.eventdiv {
+	width: 30vw;
+	overflow: auto hidden;
+	display: flex;
+	gap: 20px;
+	padding: 10px;
+}
+
+.event {
+	padding: 5px;
+    flex:0 0 200px;
 }
 
 .contactusform {
@@ -241,6 +316,33 @@ a {
 .textcenter {
 	text-align: center;
 	margin: 30px 0px 0px 0px;
+}
+
+.card {
+	position: relative;
+	transition: 0.1s linear;
+	overflow: hidden;
+}
+
+.card:hover {
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+	scale: 1.05;
+	z-index: 10;
+}
+
+.cardhover {
+	position: absolute;
+	top: -5px;
+	left: -35%;
+	width: 25%;
+	height: calc(100% - 10px);
+	rotate: 15deg;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+	transition: 0.5s linear;
+}
+
+.card:hover .cardhover {
+	left: 100%;
 }
 
 .offlinemessage {

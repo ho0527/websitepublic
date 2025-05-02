@@ -31,32 +31,35 @@
 				<img src="material/images/lyon-map-low-res.jpg" src="map phone" class="image phone">
 				<div class="display-flex mapattractiondiv">
 					<div class="mapdiv">
-						<a href="" class="mapcard">
+						<a href="" class="mapcard card">
+    						<div class="cardhover"></div>
 							<img src="material/images/attraction-a.jpg" alt="attraction a" class="image pc">
 							<img src="material/images/attraction-a-low-res.jpg"alt="attraction a phone" class="image phone">
 							<div class="mapcardtitle">attraction a</div>
 						</a>
-						<a href="" class="mapcard">
+						<a href="" class="mapcard card">
+    						<div class="cardhover"></div>
 							<img src="material/images/attraction-b.jpg" alt="attraction b" class="image pc">
 							<img src="material/images/attraction-b-low-res.jpg"alt="attraction b phone" class="image phone">
 							<div class="mapcardtitle">attraction b</div>
 						</a>
-						<a href="" class="mapcard">
+						<a href="" class="mapcard card">
+    						<div class="cardhover"></div>
 							<img src="material/images/attraction-c.jpg" alt="attraction c" class="image pc">
 							<img src="material/images/attraction-c-low-res.jpg"alt="attraction c phone" class="image phone">
 							<div class="mapcardtitle">attraction c</div>
 						</a>
-						<a href="" class="mapcard">
+						<a href="" class="mapcard card">
+    						<div class="cardhover"></div>
 							<img src="material/images/all-attractions.jpg" alt="attraction all" class="image pc">
 							<img src="material/images/all-attractions-low-res.jpg"alt="attraction all phone" class="image phone">
 							<div class="mapcardtitle">attraction all</div>
 						</a>
 					</div>
-					<div class="mapdiv">
-						<div class="mapcard">
-							<img src="" class="image">
-							<div class="mapcardtitle"></div>
-						</div>
+					<div class="positiondiv">
+						<a href="" class="position positiona"><span>A</span></a>
+						<a href="" class="position positionb"><span>B</span></a>
+						<a href="" class="position positionc"><span>C</span></a>
 					</div>
 				</div>
 			</div>
@@ -79,9 +82,41 @@
 			<div class="latestevent">
 				<div class="mapattractiontitle">Latest Event</div>
 				<div class="eventdiv">
-					<div class="event">
-						<img src="material" class="image eventimage">
-						<div class="eventdescription"></div>
+					<div class="event card">
+						<div class="cardhover"></div>
+						<img src="material/latest-events-images/worldskills-2024-p.jpg" alt="worldskills-2024-pworldskills-2024-p" class="image eventimage pc">
+						<img src="material/latest-events-images/worldskills-2024-p-low-res.jpg" alt="worldskills-2024-pworldskills-2024-p phone" class="image eventimage phone">
+						<div class="eventdescription">Lyon accueille la finale mondiale des Worldskills 2024</div>
+					</div>
+					<div class="event card">
+						<div class="cardhover"></div>
+						<img src="material/latest-events-images/fda-p.jpg" alt="fda-p" class="image eventimage pc">
+						<img src="material/latest-events-images/fda-p-low-res.jpg" alt="fda-p phone" class="image eventimage phone">
+						<div class="eventdescription">Forum des associations 2024</div>
+					</div>
+					<div class="event card">
+						<div class="cardhover"></div>
+						<img src="material/latest-events-images/lyon-kayak-p-0.jpg" alt="lyon-kayak-p-0" class="image eventimage pc">
+						<img src="material/latest-events-images/lyon-kayak-p-0-low-res.jpg" alt="lyon-kayak-p-0 phone" class="image eventimage phone">
+						<div class="eventdescription">Lyon Kayak</div>
+					</div>
+					<div class="event card">
+						<div class="cardhover"></div>
+						<img src="material/latest-events-images/semaine-bleue-2024-p.jpg" alt="semaine-bleue-2024-p-0" class="image eventimage pc">
+						<img src="material/latest-events-images/semaine-bleue-2024-p-low-res.jpg" alt="semaine-bleue-2024-p-0 phone" class="image eventimage phone">
+						<div class="eventdescription">La semaine bleue 2024</div>
+					</div>
+					<div class="event card">
+						<div class="cardhover"></div>
+						<img src="material/latest-events-images/village-des-metiers-p.jpg" alt="village-des-metiers-p-0" class="image eventimage pc">
+						<img src="material/latest-events-images/village-des-metiers-p-low-res.jpg" alt="village-des-metiers-p-0 phone" class="image eventimage phone">
+						<div class="eventdescription">Le Village des Métiers</div>
+					</div>
+					<div class="event card">
+						<div class="cardhover"></div>
+						<img src="material/latest-events-images/journees_portes_ouvertes_entreprises_2023_p.jpg" alt="journees_portes_ouvertes_entreprises_2023_p-0" class="image eventimage pc">
+						<img src="material/latest-events-images/journees_portes_ouvertes_entreprises_2023_p-low-res.jpg" alt="journees_portes_ouvertes_entreprises_2023_p-0 phone" class="image eventimage phone">
+						<div class="eventdescription">Les Journées Portes Ouvertes des Entreprises</div>
 					</div>
 				</div>
 			</div>
@@ -90,7 +125,15 @@
 		<div class="otherinformation">
 			<div class="mapattractiontitle">Other Information</div>
 			<div class="tabdiv">
-				<div></div>
+				<info-tab>
+					<div slot="tab">Tab 1</div>
+					<div slot="tab">Tab 2</div>
+					<div slot="tab">Tab 3</div>
+
+					<div slot="panel">This is the content for Tab 1.</div>
+					<div slot="panel">This is the content for Tab 2.</div>
+					<div slot="panel">This is the content for Tab 3.</div>
+				</info-tab>
 			</div>
 		</div>
 
@@ -149,5 +192,6 @@
 		</div>
 
 		<script src="index.js"></script>
+		<script src="module.js" type="module"></script>
 	</body>
 </html>
