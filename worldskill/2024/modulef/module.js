@@ -43,39 +43,41 @@ class sampletab extends HTMLElement{
 
 		this.tabs.forEach((tab,i)=>{
 			let t=tab.cloneNode(true)
-			t.setAttribute("role","tab")
-			t.setAttribute("tabindex",i==0?"0":"-1")
-			t.setAttribute("aria-selected",i==0?"true":"false")
-			t.setAttribute("aria-controls","panel"+(i+1))
-			t.addEventListener("click",()=>this.select(i))
-			t.addEventListener("keydown",(e)=>{
-				if(e.key=="ArrowRight")this.select((i+1)%this.tabs.length)
-				if(e.key=="ArrowLeft")this.select((i-1+this.tabs.length)%this.tabs.length)
-			})
+			t["role"]="tab"
+			t["tabindex"]=i==0?"0":"-1"
+			t["aria-selected"]=i==0?"true":"false"
+			t["aria-controls"]="panel"+(i+1)
+			t.onclick=()=>{
+				this.select(i);
+			}
+			t.onkeydown=(event)=>{
+				if(event.key=="ArrowRight")
+					this.select((i+1)%this.tabs.length)
+				if(event.key=="ArrowLeft")
+					this.select((i-1+this.tabs.length)%this.tabs.length)
+			}
 			this.tablist.appendChild(t)
 		})
 
 		this.panels.forEach((panel,i)=>{
-			panel.setAttribute("role","tabpanel")
-			panel.setAttribute("id","panel"+(i+1))
-			panel.setAttribute("aria-labelledby",this.tabs[i].id)
-			if(i!=0)panel.setAttribute("aria-hidden","true")
-			else panel.setAttribute("aria-hidden","false")
+			panel["role"]="tabpanel"
+			panel["id"]="panel"+(i+1)
+			panel["aria-labelledby"]=this.tabs[i].id
+			panel["aria-hidden"]=(i!=0)?"true":"false"
 		})
 
 		this.select(0)
 	}
 
 	select(index){
-		let tabs=this.tablist.querySelectorAll("[role=tab]")
-		tabs.forEach((tab,i)=>{
-			tab.setAttribute("aria-selected",i==index?"true":"false")
-			tab.setAttribute("tabindex",i==index?"0":"-1")
+		this.tablist.querySelectorAll("[role=tab]").forEach(function(tab,i){
+			tab["aria-selected"]=i==index?"true":"false"
+			tab["tabindex"]=i==index?"0":"-1"
 			if(i==index)tab.focus()
 		})
 		this.panels.forEach((panel,i)=>{
 			panel.hidden=i!=index
-			panel.setAttribute("aria-hidden",i!=index?"true":"false")
+			panel["aria-hidden"]=i!=index?"true":"false"
 			if(i==index)this.tabpanel.innerHTML=panel.innerHTML
 		})
 	}
