@@ -33,6 +33,14 @@ window.onresize=function(){
 	main()
 }
 
+window.ononline=function(){
+	document.querySelectorAll("body")[0].classList.remove("offline")
+}
+
+window.onoffline=function(){
+	document.querySelectorAll("body")[0].classList.add("offline")
+}
+
 document.onscroll=function(){
 	main()
 }

@@ -4,7 +4,7 @@ body {
 	overflow: hidden auto;
 }
 
-a{
+a {
 	color: black;
 	text-decoration: none;
 }
@@ -140,11 +140,11 @@ a{
 	margin: 40px 0px;
 }
 
-.mapattractionmain{
+.mapattractionmain {
 	position: relative;
 }
 
-.mapattractiondiv{
+.mapattractiondiv {
 	position: absolute;
 	top: 0px;
 	width: 100%;
@@ -159,14 +159,14 @@ a{
 	gap: 40px;
 }
 
-.mapcard{
+.mapcard {
 	background: white;
 	border-radius: 5px;
 	padding: 5px;
 	cursor: pointer;
 }
 
-.mapcardtitle{
+.mapcardtitle {
 	font-size: 15px;
 	margin: 0px 0px 20px 0px;
 }
@@ -241,6 +241,41 @@ a{
 .textcenter {
 	text-align: center;
 	margin: 30px 0px 0px 0px;
+}
+
+.offlinemessage {
+	display: none;
+}
+
+.offline>div {
+	display: none;
+}
+
+.offline .navigationbar {
+	display: flex;
+	position: initial;
+}
+
+.offline .block {
+	display: block;
+}
+
+.offline .essentialinformation {
+	width: 100%;
+	display: block;
+}
+
+.offline .latestevent {
+	display: none;
+}
+
+.offline .offlinemessage {
+	display: block;
+	width: 100%;
+	color: red;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px;
 }
 
 @media screen and (max-width: 760px) {
