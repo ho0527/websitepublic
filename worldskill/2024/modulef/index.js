@@ -10,16 +10,16 @@ function main(){
 }
 
 document.getElementById("calltoactionbutton").onmousemove=function(event){
-	let rect=this.getBoundingClientRect();
-	let x=(event.clientX - rect.left) / rect.width * 100;
-	let y=(event.clientY - rect.top) / rect.height * 100;
-	this.style.setProperty("--x",`${x}%`)
-	this.style.setProperty("--y",`${y}%`)
+	let rect=this.getBoundingClientRect()
+	let x=(event.clientX-rect.left)/rect.width*100
+	let y=(event.clientY-rect.top)/rect.height*100
+	this.style.setProperty("--x",x+"%")
+	this.style.setProperty("--y",y+"%")
 }
 
-document.getElementById("calltoactionbutton").onmouseleave=function(event){
-	this.style.setProperty("--x",`300%`)
-	this.style.setProperty("--y",`300%`)
+document.getElementById("calltoactionbutton").onmouseleave=function(){
+	this.style.setProperty("--x","300%")
+	this.style.setProperty("--y","300%")
 }
 
 document.getElementById("read").onclick=function(){
