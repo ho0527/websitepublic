@@ -1,47 +1,47 @@
-.maindiv{
+.maindiv {
     width: 100vw;
     height: 100vh;
 }
 
-.titlediv{
+.titlediv {
     position: absolute;
     width: 100%;
     text-align: center;
     z-index: 999;
 }
 
-.title{
+.title {
     font-size: 45px;
     font-weight: bold;
 }
 
-.subtitle{
+.subtitle {
     font-size: 25px;
     font-style: normal;
 }
 
-.indexdiv{
+.indexdiv {
     display: none;
 }
 
-.featurediv{
+.featurediv {
     display: none;
 }
 
-.informationdiv{
+.informationdiv {
     display: none;
 }
 
-.roadmapdiv{
+.roadmapdiv {
     display: none;
 }
 
-.radio{
+.radio {
     display: none;
     cursor: pointer;
 }
 
-.banner{
+.banner {
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -50,62 +50,65 @@
     opacity: 0.75;
 }
 
-.feature{
+.feature {
     display: none;
 }
 
-.maindiv:has(.indexradio:checked)>.indexdiv{
+.maindiv:has(.indexradio:checked)>.indexdiv {
     display: block;
 }
 
-.maindiv:has(.featureradio:checked)>.featurediv{
+.maindiv:has(.featureradio:checked)>.featurediv {
     display: block;
 }
 
-.maindiv:has(.informationradio:checked)>.informationdiv{
+.maindiv:has(.informationradio:checked)>.informationdiv {
     display: block;
 }
 
-.maindiv:has(.roadmapradio:checked)>.roadmapdiv{
+.maindiv:has(.roadmapradio:checked)>.roadmapdiv {
     display: block;
 }
 
 /* indexradio change START */
-.radiodiv:has(.indexradio:checked){
+.radiodiv:has(.indexradio:checked) {
     position: absolute;
     left: 0px;
     bottom: 0px;
     width: 100%;
 }
 
-.radiodiv:has(.featureradio:checked){
+.radiodiv:has(.featureradio:checked) {
     position: absolute;
     left: 0px;
     bottom: 0px;
     width: 100%;
 }
 
-.radiodiv:has(.informationradio:checked){
+.radiodiv:has(.informationradio:checked) {
     position: absolute;
     left: 0px;
     bottom: 0px;
     width: 100%;
 }
 
-.radiodiv:has(.roadmapradio:checked){
+.radiodiv:has(.roadmapradio:checked) {
     position: absolute;
     left: 0px;
     bottom: 0px;
     width: 100%;
 }
+
 /* indexradio change END */
 
-.labeldiv{
+.labeldiv {
     display: inline-block;
     width: 15vw;
 }
 
-.label{
+.label {
+    color: white;
+    line-height: 1.5;
     position: absolute;
     left: 0px;
     width: 100%;
@@ -114,7 +117,7 @@
     cursor: pointer;
 }
 
-.featureimage{
+.featureimage {
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -124,17 +127,17 @@
 
 /* feature change START */
 
-.featurediv{
+.featurediv {
     position: absolute;
     top: calc(50% + 30px);
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 100vw;
     height: 75vh;
     padding: 5px 20px;
 }
 
-.featuremaindiv{
+.featuremaindiv {
     border: 1px gray solid;
     width: 95vw;
     height: 65vh;
@@ -142,58 +145,59 @@
     overflow: hidden auto;
 }
 
-.featurelabeldiv{
+.featurelabeldiv {
     display: inline-block;
     width: 20vw;
 }
 
-.featuremain{
+.featuremain {
     display: none;
 }
 
-.featurediv:has(.feature1:checked)>.featuremaindiv>.feature1div{
+.featurediv:has(.feature1:checked)>.featuremaindiv>.feature1div {
     display: block;
 }
 
-.feature1image{
+.feature1image {
     max-width: 100%;
 }
 
-.feature1title{
+.feature1title {
     font-size: 40px;
     font-weight: bold;
 }
 
-.feature1description{
+.feature1description {
     font-size: 15px;
     text-align: justify;
     display: flex;
     align-items: start;
 }
 
-.featurediv:has(.feature2:checked)>.featuremaindiv>.feature2div{
+.featurediv:has(.feature2:checked)>.featuremaindiv>.feature2div {
     display: block;
 }
 
-.feature2table{
+.feature2table {
     font-size: 20px;
 }
 
-.featurediv:has(.feature3:checked)>.featuremaindiv>.feature3div{
+.featurediv:has(.feature3:checked)>.featuremaindiv>.feature3div {
     display: block;
 }
 
-.feature3image{
+.feature3image {
     max-width: 100%;
     max-height: 30vh;
 }
 
-.featurediv:has(.feature4:checked)>.featuremaindiv>.feature4div{
+.featurediv:has(.feature4:checked)>.featuremaindiv>.feature4div {
     display: block;
 }
+
 /* feature change END */
 
-.featureradiodiv{
+.featureradiodiv {
     position: relative;
     z-index: 999;
 }
