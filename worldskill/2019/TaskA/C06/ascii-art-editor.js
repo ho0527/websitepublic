@@ -49,9 +49,33 @@ var ASCIIArtEditor = function () {
  *
  * @todo
  */
-ASCIIArtEditor.prototype.mirror = function (image, axis) {
+ASCIIArtEditor.prototype.mirror=function(image,axis){
     // <---- Implement this method
-};
+    if(axis!="x"&&axis!="y"){
+        throw new Error("Invalid axis")
+    }
+
+    let lines=image.split(this.lineSeperator)
+    let result=[]
+
+    if(axis=="x"){
+        let len=lines.length
+        for(let i=0;i<len;i=i+1){
+            result[i]=lines[len-i-1]
+        }
+    }else{
+        for(let i=0;i<lines.length;i=i+1){
+            let line=lines[i]
+            let reversed=""
+            for(let j=0;j<line.length;j=j+1){
+                reversed=line.charAt(j)+reversed
+            }
+            result.push(reversed)
+        }
+    }
+
+    return result.join(this.lineSeperator)
+}
 
 
 /**
@@ -74,6 +98,49 @@ ASCIIArtEditor.prototype.mirror = function (image, axis) {
  *
  * @todo
  */
-ASCIIArtEditor.prototype.rotate = function(image, angle) {
+ASCIIArtEditor.prototype.rotate=function(image,angle){
     // <---- Implement this method
-};
+    if(![0,90,180,270,360].includes(angle)){
+        throw new Error("Invalid angle")
+    }
+
+    let lines=image.split(this.lineSeperator)
+    let size=lines.length
+    let result=[]
+
+    for(let i=0;i<size;i=i+1){
+        result.push("")
+    }
+
+    if(angle==0||angle==360){
+        return image
+    }
+
+    if(angle==90){
+        for(let i=0;i<size;i=i+1){
+            for(let j=size-1;j>=0;j=j-1){
+                result[i]=result[i]+lines[j].charAt(i)
+            }
+        }
+    }
+
+    if(angle==180){
+        for(let i=size-1;i>=0;i=i-1){
+            let reversed=""
+            for(let j=lines[i].length-1;j>=0;j=j-1){
+                reversed=reversed+lines[i].charAt(j)
+            }
+            result[size-1-i]=reversed
+        }
+    }
+
+    if(angle==270){
+        for(let i=0;i<size;i=i+1){
+            for(let j=0;j<size;j=j+1){
+                result[i]=result[i]+lines[j].charAt(size-1-i)
+            }
+        }
+    }
+
+    return result.join(this.lineSeperator)
+}
