@@ -5,7 +5,7 @@
             "statu": "FAILED",
             "ps": "list",
             "createdate": "2023/06/10",
-            "updatedate": "2024/02/08",
+            "updatedate": "2025/05/14",
             "data": [
                 {
                     "title": "ModuleA-SPEEDTEST",
@@ -13,7 +13,7 @@
                     "statu": "FAILED",
                     "ps": "list",
                     "createdate": "N/A",
-                    "updatedate": "2024/02/08",
+                    "updatedate": "2025/05/14",
                     "data": [
                         {
                             "list": "A",
@@ -227,7 +227,7 @@
                                     "no": "06",
                                     "description": "C06-JS - ASCII-Art",
                                     "link": "TaskA/C06/",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
