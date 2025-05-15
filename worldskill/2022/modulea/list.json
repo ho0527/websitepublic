@@ -12,7 +12,7 @@
                     "statu": "FAILED",
                     "ps": "list",
                     "createdate": "N/A",
-                    "updatedate": "2024/04/04",
+                    "updatedate": "2025/05/15",
                     "data": [
                         {
                             "list": "A",
@@ -186,7 +186,7 @@
                                     "no": "B12",
                                     "description": "B12-Rectangle rotation",
                                     "link": "B12/",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
