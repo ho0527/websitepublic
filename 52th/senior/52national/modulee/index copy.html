@@ -1,11 +1,57 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>學生資料管理系統</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
+        <script src="/website/plugin/js/chrisplugin.js"></script>
+    </head>
+    <body>
+        <header class="header" id="header">
+            <h1 id="logo"></h1>
+            <form class="searchform" id="searchForm">
+                <input type="text" class="search" name="search" placeholder="搜尋">
+            </form>
+        </header><br>
+
+        <aside class="aside" id="aside">
+            <button class="addstu" id="addStudent">
+                <img src="icon/newstudents.png" class="icon">
+                新增學生
+            </button>
+            <ul class="list" id="studentList">
+                <li class="item" id="allstu">所有學生<span class="num"></span></li>
+            </ul>
+            <hr>
+            <ul class="list" id="classList">
+                <li class="item" id="allclass"><img src="">班級(顯示更多)</li><br>
+                <div id="class"></div>
+                <li class="item" id="addClass">建立班級</li>
+            </ul>
+            <hr>
+            <ul class="list" id="trash">
+                <li class="item" id="trashcan">垃圾桶</li>
+            </ul>
+            <button id="export_data">匯出資料</button>
+            <button id="import_data">匯入資料</button>
+        </aside>
+
+        <main class="main" id="main"></main>
+
+        <div id="dialog" class="lightboxmask"></div>
+
+        <script src="index.js"></script>
+    </body>
+</html> -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>學生資料管理系統</title>
-        <link rel="stylesheet" href="index.css">
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="index.css">
     </head>
     <body class="bg-gray-100">
         <header id="header" class="flex items-center justify-between bg-white shadow px-6 py-4">
@@ -42,28 +88,7 @@
             </aside>
 
             <main id="main" class="flex-1 p-6 overflow-y-auto">
-                <div class="students space-y-4">
-                    <p class="message text-gray-500">目前還沒有任何學生</p>
-                    <!--
-                    <div class="student flex items-center justify-between bg-white shadow p-4 rounded hover:shadow-md">
-                        <div class="flex items-center space-x-4">
-                            <img src="icon.png" alt="avatar" class="avatar w-[56px] h-[56px] rounded-full">
-                            <div>
-                                <p class="fullname font-semibold">王小明</p>
-                                <p class="student_id text-sm text-gray-500">ID123456</p>
-                                <p class="email text-sm text-gray-500">test@example.com</p>
-                                <p class="phone text-sm text-gray-500">0912345678</p>
-                                <p class="class text-sm text-gray-500">三年甲班</p>
-                                <p class="address text-sm text-gray-500">台北市中山區</p>
-                            </div>
-                        </div>
-                        <div class="actions hidden space-x-2">
-                            <button class="edit text-blue-500">編輯</button>
-                            <button class="delete text-red-500">刪除</button>
-                        </div>
-                    </div>
-                    -->
-                </div>
+                <!-- 主內容區 -->
             </main>
         </div>
 
