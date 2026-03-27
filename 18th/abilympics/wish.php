@@ -12,7 +12,7 @@
 		<?php include "block/header.php"; ?>
 		<?php include "block/nav.php"; ?>
 
-		<div class="bergerbar">
+		<div class="burgerbar">
 			<a href="./">首頁</a> >
 			<span>許願</span>
 		</div>

@@ -20,7 +20,7 @@ a {
 	margin: 5px;
 }
 
-.bergerbar span {
+.burgerbar span {
 	margin: 5px;
 	user-select: none;
 }
@@ -54,7 +54,7 @@ a:hover {
 	width: 100px;
 }
 
-.bergerbar {
+.burgerbar {
 	text-align: right;
 }
 
@@ -85,14 +85,15 @@ label {
 	margin: 10px 0px;
 }
 
-.label>input,.label>select {
+.label>input,
+.label>select {
 	border: 1px black solid;
 	border-radius: 5px;
 	padding: 5px;
 	width: 100%;
 }
 
-.label>select{
+.label>select {
 	cursor: pointer;
 }
 
@@ -114,11 +115,11 @@ footer {
 	margin-top: 20px;
 }
 
-.withtr{
+.withtr {
 	position: relative;
 }
 
-.likecontent{
+.likecontent {
 	position: absolute;
 	right: 0px;
 	bottom: 40px;
@@ -130,10 +131,25 @@ footer {
 	display: none;
 }
 
-.position-relative{
+.position-relative {
 	position: relative;
 }
 
-.margin_10px_0px{
+.margin_10px_0px {
 	margin: 10px 0px;
+}
+
+@media screen and (max-width: 600px) {
+	.header {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.logo {
+		width: 80px;
+	}
+
+	.burgerbar{
+		display: none;
+	}
 }
