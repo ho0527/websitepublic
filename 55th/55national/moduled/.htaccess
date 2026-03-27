@@ -1,0 +1,16 @@
+RewriteEngine On
+
+RewriteRule ^login$ login.php [B,L,QSA]
+RewriteRule ^company$ company.php [B,L,QSA]
+RewriteRule ^comapnydetail$ comapnydetail.php [B,L,QSA]
+RewriteRule ^newcompany$ newcompany.php [B,L,QSA]
+RewriteRule ^editcompany$ editcompany.php [B,L,QSA]
+RewriteRule ^deactivatecompany$ deactivatecompany.php [B,L,QSA]
+RewriteRule ^products$ product.php [B,L,QSA]
+RewriteRule ^products/([0-9]+)$ productdetail.php?id=$1 [B,L,QSA]
+RewriteRule ^products/new$ newproduct.php [B,L,QSA]
+RewriteRule ^editproduct$ editproduct.php [B,L,QSA]
+RewriteRule ^products.json$ api.php?key=getproductlist [B,L,QSA]
+RewriteRule ^products/([0-9]+).json$ api.php?key=getproduct&gtin=$1 [B,L,QSA]
+RewriteRule ^checkgtin$ checkgtin.php [B,L,QSA]
+RewriteRule ^01/([0-9]+)$ publicproduct.php?gtin=$1 [B,L,QSA]

@@ -1,0 +1,139 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	margin: 5px;
+	user-select: none;
+}
+
+.nounderline {
+	text-decoration: none !important;
+}
+
+.button {
+	cursor: pointer;
+	padding: 5px 10px;
+	margin: 5px;
+}
+
+.bergerbar span {
+	margin: 5px;
+	user-select: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 20px;
+}
+
+.header>a {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 20px;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.logo {
+	width: 100px;
+}
+
+.bergerbar {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+main {
+	position: relative;
+	min-height: 80vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.signinform {
+	border: 1px black solid;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+label {
+	display: flex;
+	margin: 5px 0px;
+}
+
+.label {
+	margin: 10px 0px;
+}
+
+.label>input,.label>select {
+	border: 1px black solid;
+	border-radius: 5px;
+	padding: 5px;
+	width: 100%;
+}
+
+.label>select{
+	cursor: pointer;
+}
+
+.align-start {
+	align-items: start;
+}
+
+tr>th,
+tr>td {
+	font-size: 15px;
+	padding: 5px;
+}
+
+.verimg {
+	width: 200px;
+}
+
+footer {
+	margin-top: 20px;
+}
+
+.withtr{
+	position: relative;
+}
+
+.likecontent{
+	position: absolute;
+	right: 0px;
+	bottom: 40px;
+	width: 150px;
+	height: 20px;
+	border: 1px black solid;
+	background: white;
+	z-index: 800;
+	display: none;
+}
+
+.position-relative{
+	position: relative;
+}
+
+.margin_10px_0px{
+	margin: 10px 0px;
+}

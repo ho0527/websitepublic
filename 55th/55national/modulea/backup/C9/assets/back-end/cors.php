@@ -1,0 +1,3 @@
+<?php
+
+/** EDIT AREA **/

@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule ^tags/(.+)$ tag.php?tag=$1 [B,L,QSA,NE]
+RewriteRule ^heritages/(.+)$ index.php?data=$1 [B,L,QSA,NE]
+RewriteRule ^image/(.+)$ content-pages/images/$1 [L,QSA,NE]

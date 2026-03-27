@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SVG Fractal Triangle</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+        }
+        svg {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="draw(event)">
+        <input type="number" id="depth" min="0" max="7" value="0">
+        <button type="submit">Draw</button>
+    </form>
+    <svg id="svg" width="600" height="520"></svg>
+
+    <script>
+        let svg=document.getElementById("svg")
+
+        function createTriangle(x1,y1,x2,y2,x3,y3){
+            let tri=document.createElementNS("http://www.w3.org/2000/svg","polygon")
+            tri.setAttribute("points",`${x1},${y1} ${x2},${y2} ${x3},${y3}`)
+            tri.setAttribute("fill","black")
+            svg.appendChild(tri)
+        }
+
+        function sierpinski(x,y,size,depth){
+            if(depth==0){
+                let h=size*Math.sqrt(3)/2
+                let x1=x
+                let y1=y
+                let x2=x-size/2
+                let y2=y+h
+                let x3=x+size/2
+                let y3=y+h
+                createTriangle(x1,y1,x2,y2,x3,y3)
+                return
+            }
+            let h=size*Math.sqrt(3)/2
+            sierpinski(x,y,size/2,depth-1)
+            sierpinski(x-size/4,y+h/2,size/2,depth-1)
+            sierpinski(x+size/4,y+h/2,size/2,depth-1)
+        }
+
+        function draw(e){
+            e.preventDefault()
+            let depth=parseInt(document.getElementById("depth").value)
+            svg.innerHTML=""
+            sierpinski(300,20,500,depth)
+        }
+    </script>
+</body>
+</html>
