@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Compare</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container" id="container">
+            <img src="before.jpg" class="image-before slider-image" draggable="false">
+            <img src="after.jpg" class="image-after slider-image" draggable="false">
+            <input type="range" class="slider" id="slider" min="0" max="100" value="50" oninput="document.body.style.setProperty('--position', `${this.value}%`)">
+        </div>
+    </body>
+</html>

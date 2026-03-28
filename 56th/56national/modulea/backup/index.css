@@ -1,0 +1,26 @@
+.block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.link{
+    position: relative;
+    width: 50%;
+    height: 500px;
+}
+
+.image{
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 25px;
+}
