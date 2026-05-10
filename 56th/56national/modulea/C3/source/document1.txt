@@ -1,0 +1,4 @@
+Welcome to PHP programming
+This is the first document
+PHP is a server-side scripting language
+JavaScript is used for client-side programming

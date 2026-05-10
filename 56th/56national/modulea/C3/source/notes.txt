@@ -1,0 +1,4 @@
+Learning notes for programming
+Python is another programming language
+We are studying PHP development
+The end of my notes

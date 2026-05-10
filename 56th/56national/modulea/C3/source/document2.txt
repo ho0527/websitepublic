@@ -1,0 +1,4 @@
+Web development with PHP
+HTML and CSS are markup languages
+PHP makes web development easier
+Database connections are important

@@ -1,0 +1,17 @@
+[
+  { "id": 1, "name": "JavaScript", "desc": "Programming language" },
+  { "id": 2, "name": "HTML", "desc": "Markup language" },
+  { "id": 3, "name": "CSS", "desc": "Style sheet language" },
+  { "id": 4, "name": "React", "desc": "UI library" },
+  { "id": 5, "name": "Node.js", "desc": "JavaScript runtime" },
+  { "id": 6, "name": "Vue.js", "desc": "Progressive JavaScript framework" },
+  { "id": 7, "name": "Angular", "desc": "TypeScript-based web app framework" },
+  { "id": 8, "name": "TypeScript", "desc": "Typed superset of JavaScript" },
+  { "id": 9, "name": "Sass", "desc": "CSS preprocessor" },
+  { "id": 10, "name": "Webpack", "desc": "Module bundler" },
+  { "id": 11, "name": "Babel", "desc": "JavaScript compiler" },
+  { "id": 12, "name": "Git", "desc": "Version control system" },
+  { "id": 13, "name": "Docker", "desc": "Container platform" },
+  { "id": 14, "name": "GraphQL", "desc": "API query language" },
+  { "id": 15, "name": "Jest", "desc": "JavaScript testing framework" }
+]

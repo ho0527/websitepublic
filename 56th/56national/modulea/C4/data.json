@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Team Meeting",
+    "start": "2024-01-15 09:00:00",
+    "end": "2024-01-15 10:00:00",
+    "priority": 5
+  },
+  {
+    "title": "Client Call",
+    "start": "2024-01-15 09:30:00",
+    "end": "2024-01-15 10:30:00",
+    "priority": 8
+  },
+  {
+    "title": "Code Review",
+    "start": "2024-01-15 10:15:00",
+    "end": "2024-01-15 11:00:00",
+    "priority": 6
+  },
+  {
+    "title": "Lunch Break",
+    "start": "2024-01-15 12:00:00",
+    "end": "2024-01-15 13:00:00",
+    "priority": 3
+  },
+  {
+    "title": "Project Demo",
+    "start": "2024-01-15 14:00:00",
+    "end": "2024-01-15 15:00:00",
+    "priority": 9
+  },
+  {
+    "title": "Training Session",
+    "start": "2024-01-15 14:30:00",
+    "end": "2024-01-15 16:00:00",
+    "priority": 4
+  },
+  {
+    "title": "Daily Standup",
+    "start": "2024-01-15 08:30:00",
+    "end": "2024-01-15 09:15:00",
+    "priority": 7
+  }
+]

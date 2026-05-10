@@ -1,111 +1,531 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="/index.css">
-        <link rel="stylesheet" href="/indexindex.css">
-        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
-        <script src="/chrisplugin/js/chrisplugin.js"></script>
-    </head>
-    <body id="body">
-		<div class="navigationbar">
-			<div class="navigationbarleft">
-				<img src="/material/icon/mainicon.png" class="logo">
-			</div>
-			<div class="navigationbarright">
-				<input type="button" class="navigationbarbutton" onclick="location.href='../'" value="返回">
-			</div>
-		</div>
-		<div class="indexmain overflow-hidden_auto">
-            <div class="flex columngap-10px">
-                <div class="box bordertop success fill indexbox" data-link="A06/">
-                    <img src="image/a06.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">A06</div>
-                        <div class="text tiny">lastupdate: 20250502</div>
-                    </div>
-                </div>
-                <div class="box bordertop error fill indexbox" data-link="A13/">
-                    <img src="/material/icon/mainicon.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">A13</div>
-                        <div class="text tiny">lastupdate: 20250319</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex columngap-10px">
-                <div class="box bordertop success fill indexbox" data-link="A22/">
-                    <img src="image/a22.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">A22</div>
-                        <div class="text tiny">lastupdate: 20250430</div>
-                    </div>
-                </div>
-                <div class="box bordertop error fill indexbox" data-link="B09/">
-                    <img src="/material/icon/mainicon.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">B09</div>
-                        <div class="text tiny">lastupdate: 20250319</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex columngap-10px">
-                <div class="box bordertop success fill indexbox" data-link="B35/">
-                    <img src="image/b35.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">B35</div>
-                        <div class="text tiny">lastupdate: 20250430</div>
-                    </div>
-                </div>
-                <div class="box bordertop success fill indexbox" data-link="B39/">
-                    <img src="image/b39.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">B39</div>
-                        <div class="text tiny">lastupdate: 20240921</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex columngap-10px">
-                <div class="box bordertop error fill indexbox" data-link="C01/">
-                    <img src="/material/icon/mainicon.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">C01</div>
-                        <div class="text tiny">lastupdate: 20250319</div>
-                    </div>
-                </div>
-                <div class="box bordertop success fill indexbox" data-link="C09/">
-                    <img src="/material/icon/mainicon.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">C09</div>
-                        <div class="text tiny">lastupdate: 20250430</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex columngap-10px">
-                <div class="box bordertop success fill indexbox" data-link="C11/">
-                    <img src="image/c11.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">C11</div>
-                        <div class="text tiny">lastupdate: 20250430</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<html lang="zh-Hant">
 
-        <div class="footer">
-            如果有遇到程式有問題請用DC找 chris0527 或 <a href="../../anther/respond/" class="a">填寫此表單</a> 回報
-        </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Module A - Speed Test 索引</title>
+	<style>
+		:root {
+			--bg: #0f1216;
+			--panel: #161b22;
+			--panel-2: #1c232c;
+			--border: #2a313a;
+			--text: #e6edf3;
+			--muted: #8b949e;
+			--accent: #58a6ff;
+			--lvl1: #2ea043;
+			--lvl2: #d29922;
+			--lvl3: #da3633;
+			--shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 
-        <!-- <script src="../../index.js"></script> -->
+			--st-todo-bg: #3a1414;
+			--st-todo-bd: #6e2222;
+			--st-prog-bg: #3a3014;
+			--st-prog-bd: #7a5e1a;
+			--st-done-bg: #14391c;
+			--st-done-bd: #1f6b34;
+		}
 
-		<script>
-			onclick(".indexbox",function(element,event){
-                setTimeout(function(){
-                    href(element.dataset.link)
-                },100)
-			})
-		</script>
-    </body>
+		@media (prefers-color-scheme: light) {
+			:root {
+				--bg: #f6f8fa;
+				--panel: #ffffff;
+				--panel-2: #f0f3f6;
+				--border: #d0d7de;
+				--text: #1f2328;
+				--muted: #59636e;
+				--accent: #0969da;
+				--shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+				--st-todo-bg: #ffe5e5;
+				--st-todo-bd: #ff9b9b;
+				--st-prog-bg: #fff3cf;
+				--st-prog-bd: #e3b341;
+				--st-done-bg: #d6f3dd;
+				--st-done-bd: #2da44e;
+			}
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			background: var(--bg);
+			color: var(--text);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
+				"Microsoft JhengHei", "Noto Sans TC", Roboto, sans-serif;
+			line-height: 1.5;
+		}
+
+		header {
+			padding: 32px 24px 12px;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		header h1 {
+			margin: 0 0 4px;
+			font-size: 26px;
+		}
+
+		header .subtitle {
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		.toolbar {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 8px 24px 16px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			align-items: center;
+		}
+
+		.search {
+			flex: 1;
+			min-width: 220px;
+			background: var(--panel);
+			border: 1px solid var(--border);
+			color: var(--text);
+			border-radius: 8px;
+			padding: 10px 12px;
+			font-size: 14px;
+			outline: none;
+		}
+
+		.search:focus {
+			border-color: var(--accent);
+		}
+
+		.filter-btn {
+			background: var(--panel);
+			border: 1px solid var(--border);
+			color: var(--text);
+			padding: 8px 12px;
+			border-radius: 8px;
+			cursor: pointer;
+			font-size: 13px;
+			white-space: nowrap;
+		}
+
+		.filter-btn:hover {
+			border-color: var(--accent);
+		}
+
+		.filter-btn.active {
+			background: var(--accent);
+			color: #fff;
+			border-color: var(--accent);
+		}
+
+		.stats {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 24px 8px;
+			color: var(--muted);
+			font-size: 12px;
+			display: flex;
+			gap: 14px;
+			flex-wrap: wrap;
+		}
+
+		.stats span b {
+			color: var(--text);
+			font-weight: 600;
+		}
+
+		main {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 8px 24px 64px;
+		}
+
+		section {
+			margin-top: 28px;
+		}
+
+		section h2 {
+			margin: 0 0 14px;
+			font-size: 18px;
+			padding-bottom: 8px;
+			border-bottom: 1px solid var(--border);
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		section h2 .count {
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: normal;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+			gap: 12px;
+		}
+
+		.card {
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-left: 4px solid var(--border);
+			border-radius: 10px;
+			padding: 12px 14px;
+			text-decoration: none;
+			color: var(--text);
+			transition: transform .15s ease, border-color .15s;
+			box-shadow: var(--shadow);
+		}
+
+		.card:hover {
+			transform: translateY(-2px);
+			border-color: var(--accent);
+		}
+
+		.card.status-todo {
+			background: var(--st-todo-bg);
+			border-left-color: var(--st-todo-bd);
+		}
+
+		.card.status-process {
+			background: var(--st-prog-bg);
+			border-left-color: var(--st-prog-bd);
+		}
+
+		.card.status-done {
+			background: var(--st-done-bg);
+			border-left-color: var(--st-done-bd);
+		}
+
+		.card-row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+		}
+
+		.card .info {
+			min-width: 0;
+			flex: 1;
+		}
+
+		.card .code {
+			font-weight: 700;
+			font-size: 14px;
+			color: var(--accent);
+		}
+
+		.card .title {
+			font-size: 13px;
+			margin-top: 2px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.badge {
+			flex-shrink: 0;
+			font-size: 11px;
+			font-weight: 600;
+			padding: 3px 8px;
+			border-radius: 999px;
+			color: #fff;
+		}
+
+		.badge.lvl-1 {
+			background: var(--lvl1);
+		}
+
+		.badge.lvl-2 {
+			background: var(--lvl2);
+		}
+
+		.badge.lvl-3 {
+			background: var(--lvl3);
+		}
+
+		.meta {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 11px;
+			color: var(--muted);
+			margin-top: 2px;
+		}
+
+		.status-pill {
+			display: inline-flex;
+			align-items: center;
+			gap: 5px;
+			font-weight: 600;
+		}
+
+		.status-dot {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #888;
+		}
+
+		.status-todo .status-dot {
+			background: #ff5c5c;
+		}
+
+		.status-process .status-dot {
+			background: #f0c419;
+		}
+
+		.status-done .status-dot {
+			background: #2ecc71;
+		}
+
+		.empty {
+			color: var(--muted);
+			font-size: 13px;
+			padding: 8px 0;
+		}
+
+		footer {
+			text-align: center;
+			color: var(--muted);
+			font-size: 12px;
+			padding: 24px;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1 style="text-align: center;">第 56 屆全國技能競賽 — 網頁技術 模組 A 測速試題</h1>
+	</header>
+
+	<div class="toolbar">
+		<input class="search" id="search" type="text" placeholder="搜尋題號或題目..." />
+		<button class="filter-btn active" data-level="all">全部</button>
+		<button class="filter-btn" data-level="1">Lv 1</button>
+		<button class="filter-btn" data-level="2">Lv 2</button>
+		<button class="filter-btn" data-level="3">Lv 3</button>
+		<button class="filter-btn" data-status="todo">未做</button>
+		<button class="filter-btn" data-status="process">進行中</button>
+		<button class="filter-btn" data-status="done">完成</button>
+	</div>
+
+	<div class="stats" id="stats"></div>
+	<main id="main"></main>
+
+	<script>
+		/* ====================================================================
+		   在這裡手動編輯每一題：
+			 path    : 連結路徑（可隨意改成 ../ 或絕對路徑）
+			 status  : "todo" | "process" | "done"   → 紅 / 黃 / 綠
+			 updated : 顯示在卡片右下角的更新時間（任意字串）
+		==================================================================== */
+		const data = {
+			"設計實作任務 (Design)": [
+				{ code: "A1", title: "下雨了", level: 1, path: "A1/index.html", status: "todo", updated: "" },
+				{ code: "A2", title: "波浪文字", level: 2, path: "A2/index.html", status: "done", updated: "20260510" },
+				{ code: "A3", title: "條碼掃描器動畫", level: 2, path: "A3/index.html", status: "todo", updated: "" },
+				{ code: "A4", title: "隧道動畫", level: 1, path: "A4/index.html", status: "todo", updated: "" },
+				{ code: "A5", title: "多步驟表格", level: 3, path: "A5/index.html", status: "todo", updated: "" },
+				{ code: "A6", title: "工具提示鏈", level: 3, path: "A6/index.html", status: "todo", updated: "" },
+				{ code: "A7", title: "載入動畫", level: 1, path: "A7/index.html", status: "todo", updated: "" },
+				{ code: "A8", title: "載入動畫", level: 2, path: "A8/index.html", status: "todo", updated: "" },
+				{ code: "A9", title: "建立功能性載入動畫", level: 1, path: "A9/index.html", status: "todo", updated: "" },
+				{ code: "A10", title: "滴落", level: 2, path: "A10/index.html", status: "todo", updated: "" },
+				{ code: "A11", title: "CSS 長條圖", level: 1, path: "A11/index.html", status: "todo", updated: "" },
+				{ code: "A12", title: "深淺模式", level: 1, path: "A12/index.html", status: "todo", updated: "" },
+				{ code: "A13", title: "註冊表單", level: 1, path: "A13/index.html", status: "todo", updated: "" },
+				{ code: "A14", title: "工具提示", level: 2, path: "A14/index.html", status: "todo", updated: "" },
+				{ code: "A15", title: "響應式卡片", level: 2, path: "A15/index.html", status: "todo", updated: "" },
+				{ code: "A16", title: "步驟進度", level: 2, path: "A16/index.html", status: "todo", updated: "" },
+				{ code: "A17", title: "輪播圖", level: 3, path: "A17/index.html", status: "todo", updated: "" },
+				{ code: "A18", title: "3D 卡片", level: 3, path: "A18/index.html", status: "todo", updated: "" },
+				{ code: "A19", title: "卡片堆疊", level: 3, path: "A19/index.html", status: "todo", updated: "" }
+			],
+			"前端開發任務 (Frontend)": [
+				{ code: "B1", title: "無限捲動引言檢視工具", level: 1, path: "B1/index.html", status: "todo", updated: "" },
+				{ code: "B2", title: "CSS 檢視工具", level: 2, path: "B2/index.html", status: "todo", updated: "" },
+				{ code: "B3", title: "3D 無限隧道", level: 2, path: "B3/index.html", status: "todo", updated: "" },
+				{ code: "B4", title: "閃電", level: 1, path: "B4/index.html", status: "todo", updated: "" },
+				{ code: "B5", title: "ASCII 即時繪圖", level: 3, path: "B5/index.html", status: "todo", updated: "" },
+				{ code: "B6", title: "影片播放工具", level: 3, path: "B6/index.html", status: "todo", updated: "" },
+				{ code: "B7", title: "磁性可拖曳元件", level: 2, path: "B7/index.html", status: "todo", updated: "" },
+				{ code: "B8", title: "動態筆記本", level: 2, path: "B8/index.html", status: "todo", updated: "" },
+				{ code: "B9", title: "符號密碼遮罩", level: 1, path: "B9/index.html", status: "todo", updated: "" },
+				{ code: "B10", title: "單字拆分與隨機排列工具", level: 1, path: "B10/index.html", status: "todo", updated: "" },
+				{ code: "B11", title: "相片幻燈片", level: 2, path: "B11/index.html", status: "todo", updated: "" },
+				{ code: "B12", title: "繪畫工具", level: 3, path: "B12/index.html", status: "todo", updated: "" },
+				{ code: "B13", title: "折線圖", level: 2, path: "B13/index.html", status: "todo", updated: "" },
+				{ code: "B14", title: "影像比較", level: 2, path: "B14/index.html", status: "todo", updated: "" },
+				{ code: "B15", title: "分形三角形", level: 1, path: "B15/index.html", status: "todo", updated: "" },
+				{ code: "B16", title: "多個計數器", level: 1, path: "B16/index.html", status: "todo", updated: "" },
+				{ code: "B17", title: "即時密碼強度", level: 1, path: "B17/index.html", status: "todo", updated: "" },
+				{ code: "B18", title: "簡易待辦清單", level: 1, path: "B18/index.html", status: "todo", updated: "" },
+				{ code: "B19", title: "箭頭鍵移動矩形", level: 1, path: "B19/index.html", status: "todo", updated: "" },
+				{ code: "B20", title: "即時時鐘", level: 1, path: "B20/index.html", status: "todo", updated: "" },
+				{ code: "B21", title: "背景選色器", level: 1, path: "B21/index.html", status: "done", updated: "20260510" },
+				{ code: "B22", title: "收藏功能", level: 1, path: "B22/index.html", status: "todo", updated: "" },
+				{ code: "B23", title: "電子簽名", level: 2, path: "B23/index.html", status: "todo", updated: "" },
+				{ code: "B24", title: "碼錶", level: 2, path: "B24/index.html", status: "todo", updated: "" },
+				{ code: "B25", title: "圖片預覽", level: 2, path: "B25/index.html", status: "todo", updated: "" },
+				{ code: "B26", title: "多檔案上傳", level: 3, path: "B26/index.html", status: "todo", updated: "" }
+			],
+			"後段開發任務 (Backend)": [
+				{ code: "C1", title: "分頁留言板", level: 1, path: "C1/index.html", status: "todo", updated: "" },
+				{ code: "C2", title: "CSV 資料解析與聚合", level: 2, path: "C2/index.html", status: "process", updated: "20260510" },
+				{ code: "C3", title: "文件內容搜索", level: 2, path: "C3/index.html", status: "todo", updated: "" },
+				{ code: "C4", title: "時間衝突解決工具", level: 3, path: "C4/index.html", status: "todo", updated: "" },
+				{ code: "C5", title: "填字遊戲格生成工具", level: 3, path: "C5/index.html", status: "todo", updated: "" },
+				{ code: "C6", title: "重組詞搜尋工具", level: 1, path: "C6/index.html", status: "todo", updated: "" },
+				{ code: "C7", title: "階層式選單生成工具", level: 1, path: "C7/index.html", status: "todo", updated: "" },
+				{ code: "C8", title: "ASCII 藝術轉換工具", level: 2, path: "C8/index.html", status: "todo", updated: "" },
+				{ code: "C9", title: "基於檔案的縮網址工具", level: 2, path: "C9/index.html", status: "todo", updated: "" },
+				{ code: "C10", title: "資料夾壓縮工具", level: 1, path: "C10/index.html", status: "todo", updated: "" },
+				{ code: "C11", title: "API 跨來源資源共用", level: 2, path: "C11/index.html", status: "todo", updated: "" },
+				{ code: "C12", title: "影像馬賽克", level: 1, path: "C12/index.html", status: "todo", updated: "" }
+			],
+			"影像開發任務 (Image)": [
+				{ code: "D1", title: "Favicon 設計", level: 1, path: "D1/index.html", status: "todo", updated: "" },
+				{ code: "D2", title: "圓形個人資料相片裁切", level: 1, path: "D2/index.html", status: "todo", updated: "" },
+				{ code: "D3", title: "速度感特效", level: 1, path: "D3/index.html", status: "todo", updated: "" },
+				{ code: "D4", title: "文字遮罩", level: 1, path: "D4/index.html", status: "todo", updated: "" },
+				{ code: "D5", title: "文字水波模糊特效", level: 2, path: "D5/index.html", status: "todo", updated: "" }
+			]
+		};
+		/* ==================================================================== */
+
+		const STATUS_LABEL = { todo: '未開始', process: '進行中', done: '已完成' };
+
+		const main = document.getElementById('main');
+		const statsEl = document.getElementById('stats');
+		let currentLevel = 'all';
+		let currentStatus = 'all';
+		let currentQuery = '';
+
+		function renderStats() {
+			let total = 0, todo = 0, prog = 0, done = 0;
+			for (const items of Object.values(data)) {
+				for (const it of items) {
+					total++;
+					if (it.status === 'todo') todo++;
+					else if (it.status === 'process') prog++;
+					else if (it.status === 'done') done++;
+				}
+			}
+			const pct = total ? Math.round((done / total) * 100) : 0;
+			statsEl.innerHTML = `
+      <span>總計 <b>${total}</b></span>
+      <span style="color:#ff5c5c">未開始 <b>${todo}</b></span>
+      <span style="color:#f0c419">進行中 <b>${prog}</b></span>
+      <span style="color:#2ecc71">已完成 <b>${done}</b> (${pct}%)</span>
+    `;
+		}
+
+		function escapeHtml(s) {
+			return String(s).replace(/[&<>"']/g, c => ({
+				'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+			}[c]));
+		}
+
+		function render() {
+			main.innerHTML = '';
+			const q = currentQuery.trim().toLowerCase();
+			let totalShown = 0;
+
+			for (const [section, items] of Object.entries(data)) {
+				const filtered = items.filter(it => {
+					const matchLevel = currentLevel === 'all' || String(it.level) === currentLevel;
+					const matchStatus = currentStatus === 'all' || it.status === currentStatus;
+					const matchQuery = !q ||
+						it.code.toLowerCase().includes(q) ||
+						it.title.toLowerCase().includes(q);
+					return matchLevel && matchStatus && matchQuery;
+				});
+				if (filtered.length === 0) continue;
+
+				const sec = document.createElement('section');
+				const h2 = document.createElement('h2');
+				h2.innerHTML = `${escapeHtml(section)} <span class="count">(${filtered.length})</span>`;
+				sec.appendChild(h2);
+
+				const grid = document.createElement('div');
+				grid.className = 'grid';
+				for (const it of filtered) {
+					const status = it.status || 'todo';
+					const a = document.createElement('a');
+					a.className = `card status-${status}`;
+					a.href = it.path;
+					a.innerHTML = `
+          <div class="card-row">
+            <div class="info">
+              <div class="code">${escapeHtml(it.code)}</div>
+              <div class="title">${escapeHtml(it.title)}</div>
+            </div>
+            <span class="badge lvl-${it.level}">Lv ${it.level}</span>
+          </div>
+          <div class="meta">
+            <span class="status-pill">
+              <span class="status-dot"></span>${STATUS_LABEL[status] || status}
+            </span>
+            <span class="updated">${it.updated ? escapeHtml(it.updated) : '—'}</span>
+          </div>
+        `;
+					grid.appendChild(a);
+					totalShown++;
+				}
+				sec.appendChild(grid);
+				main.appendChild(sec);
+			}
+
+			if (totalShown === 0) {
+				const empty = document.createElement('div');
+				empty.className = 'empty';
+				empty.textContent = '找不到符合條件的題目。';
+				main.appendChild(empty);
+			}
+			renderStats();
+		}
+
+		document.querySelectorAll('.filter-btn[data-level]').forEach(btn => {
+			btn.addEventListener('click', () => {
+				document.querySelectorAll('.filter-btn[data-level]').forEach(b => b.classList.remove('active'));
+				btn.classList.add('active');
+				currentLevel = btn.dataset.level;
+				render();
+			});
+		});
+		document.querySelectorAll('.filter-btn[data-status]').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const s = btn.dataset.status;
+				if (currentStatus === s) {
+					currentStatus = 'all';
+					btn.classList.remove('active');
+				} else {
+					document.querySelectorAll('.filter-btn[data-status]').forEach(b => b.classList.remove('active'));
+					btn.classList.add('active');
+					currentStatus = s;
+				}
+				render();
+			});
+		});
+		document.getElementById('search').addEventListener('input', e => {
+			currentQuery = e.target.value;
+			render();
+		});
+
+		render();
+	</script>
+</body>
+
 </html>
