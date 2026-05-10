@@ -1,0 +1,680 @@
+{
+	"info": {
+		"_postman_id": "03e18abd-fb30-45da-9ce4-51d3ba05ac53",
+		"name": "Module C Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "user1",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "user1pass",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "user4",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "user4@web.tw",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "user4pass",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Albums",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/albums?limit=1&cursor=eyJpZCI6MX0=&limit=1&cursor=123eyJpZCI6MH0=&year=2023-2024",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "cursor",
+							"value": "eyJpZCI6MX0="
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "cursor",
+							"value": "123eyJpZCI6MH0="
+						},
+						{
+							"key": "year",
+							"value": "2023-2024"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Album Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/albums/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Album Cover",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/albums/1/cover",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"1",
+						"cover"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Songs in Album",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/albums/2/songs",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"2",
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Songs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/songs?limit=2&cursor=eyJpZCI6MX0=&keyword=Sunrise",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"songs"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "cursor",
+							"value": "eyJpZCI6MX0="
+						},
+						{
+							"key": "keyword",
+							"value": "Sunrise"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Song Cover",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/songs/26/cover",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"songs",
+						"26",
+						"cover"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Song Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/songs/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"songs",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Statistics Result",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/statistics?metrics=label",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "metrics",
+							"value": "label"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users?limit=2&cursor=eyJpZCI6MH0=&cursor=eyJpZCI6MX0=&limit=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "cursor",
+							"value": "eyJpZCI6MH0="
+						},
+						{
+							"key": "cursor",
+							"value": "eyJpZCI6MX0="
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Role",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"role\":\"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ban User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users/1/ban",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"1",
+						"ban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unban User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users/1/unban",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"1",
+						"unban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Album",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "aaa",
+							"type": "default"
+						},
+						{
+							"key": "artist",
+							"value": "adwdaw",
+							"type": "default"
+						},
+						{
+							"key": "release_year",
+							"value": "2025",
+							"type": "default"
+						},
+						{
+							"key": "genre",
+							"value": "adw",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "awdawd",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/albums",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Album Details",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\":\"My Updated Album Title\",\n  \"description\":\"Updated description.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/albums/10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Album",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/albums/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Song to Album",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "adw",
+							"type": "default"
+						},
+						{
+							"key": "duration_seconds",
+							"value": "213",
+							"type": "default"
+						},
+						{
+							"key": "label",
+							"value": "Rock",
+							"type": "default"
+						},
+						{
+							"key": "lyrics",
+							"value": "adwjlawkd",
+							"type": "default"
+						},
+						{
+							"key": "cover_image",
+							"value": [
+								"C:\\Users\\Chris\\Downloads\\241431972_228792375874740_6633254224451159716_n.jpg"
+							],
+							"type": "default"
+						},
+						{
+							"key": "is_cover",
+							"value": "false",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/albums/1/songs",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"1",
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Song Order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"song_ids\":[1,2]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/albums/1/songs/order",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"1",
+						"songs",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Song Details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "update_title",
+							"type": "default"
+						},
+						{
+							"key": "duration_seconds",
+							"value": "111",
+							"type": "default"
+						},
+						{
+							"key": "label",
+							"value": "Rock,Pop",
+							"type": "default"
+						},
+						{
+							"key": "lyrics",
+							"value": "Lyrics updated",
+							"type": "default"
+						},
+						{
+							"key": "cover_image",
+							"value": [
+								"C:\\xampp\\htdocs\\01_module_b\\Module E Media Files\\Sample Photos\\basilique-notre-dame-de-fourviere-lyon.jpg"
+							],
+							"type": "default"
+						},
+						{
+							"key": "is_cover",
+							"value": "true",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/albums/1/songs/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"1",
+						"songs",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Song from Album",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/albums/1/songs/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"albums",
+						"1",
+						"songs",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{admin_token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "X-Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": ""
+		},
+		{
+			"key": "admin_token",
+			"value": ""
+		}
+	]
+}
