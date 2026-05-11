@@ -9,35 +9,33 @@
     class user extends Controller{
         public function signin(Request $request){
             $requestdata=Validator::make($request->all(),[
-                "email"=>"required|string|email",
+                "username"=>"required|string",
                 "password"=>"required|string"
             ],[
                 "required"=>4,
-                "string"=>5,
-                "email"=>5
+                "string"=>5
             ]);
 
             if(!$requestdata->fails()){
                 $requestdata=$requestdata->validate();
                 $row=DB::table("users")
-                    ->where("email","=",$requestdata["email"])
+                    ->where("username","=",$requestdata["username"])
                     ->select("*")->get();
                 if($row->isNotEmpty()&&Hash::check($requestdata["password"],$row[0]->password_hash)){
-                    $token=hash("sha256",$row[0]->email);
+                    $token=hash("sha256",$row[0]->username);
                     DB::table("users")
-                        ->where("id","=",$row[0]->id)
+                        ->where("user_id","=",$row[0]->user_id)
                         ->update([
-                            "access_token"=>$token
+                            "token"=>$token
                         ]);
                     return response()->json([
                         "success"=>true,
                         "data"=>[
-                            "id"=>$row[0]->id,
+                            "id"=>$row[0]->user_id,
+                            "username"=>$row[0]->username,
                             "email"=>$row[0]->email,
-                            "nickname"=>$row[0]->nickname,
-                            "profile_image"=>url($row[0]->profile_image),
-                            "type"=>$row[0]->type,
-                            "access_token"=>$token,
+                            "role"=>$row[0]->role,
+                            "token"=>$token,
                             "created_at"=>$this->timestarp($row[0]->created_at)
                         ]
                     ]);

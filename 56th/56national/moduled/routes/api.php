@@ -18,9 +18,9 @@
     |
     */
 
-    Route::POST("/user/login",[user::class,"signin"]);
-    Route::POST("/user/register",[user::class,"signup"]);
-    Route::POST("/user/logout",[user::class,"signout"]);
+    Route::POST("/login",[user::class,"signin"]);
+    Route::POST("/register",[user::class,"signup"]);
+    Route::POST("/logout",[user::class,"signout"]);
     Route::GET("/user",[user::class,"getuserlist"]);
     Route::PUT("/user/{userid}",[user::class,"edituser"]);
     Route::GET("/user/leftquota",[user::class,"getleftquota"]);
