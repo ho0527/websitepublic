@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			body{
+				background: white;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.main {
+				position: relative;
+				padding: 10px;
+				text-align: center;
+			}
+
+			.image{
+				border: 1px black solid;
+				width: 200px;
+			}
+
+			.imagediv{
+				position: relative;
+			}
+
+			.line{
+				border: 1px red solid;
+				width: 100%;
+				position: absolute;
+				top: 0px;
+				animation: line 2s linear infinite;
+			}
+
+			@keyframes line {
+				0% {
+					top: 0px;
+				}
+				50% {
+					top: calc(100% - 5px);
+				}
+				100% {
+					top: 0px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="imagediv">
+				<div class="line"></div>
+				<img src="barcode.png" class="image">
+			</div>
+			162956944404
+		</div>
+	</body>
+</html>
