@@ -1,9 +1,0 @@
-Options -Indexes -MultiViews
-
-RewriteEngine On
-
-# Route all requests to your PHP script
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-
-RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
