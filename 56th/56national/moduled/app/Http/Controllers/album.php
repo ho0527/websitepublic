@@ -79,6 +79,85 @@
             }
         }
 
+        public function getalbumlist(Request $request){
+            $requestdata=Validator::make($request->all(),[
+                "capital"=>"string",
+                "year"=>"string",
+                "limit"=>"integer",
+                "cursor"=>"string"
+            ],[
+                "string"=>5,
+                "integer"=>5,
+                "in"=>5
+            ]);
+
+            if(!$requestdata->fails()){
+                $requestdata=$requestdata->validated();
+
+                $capital=$requestdata["capital"]??"";
+                $year=$requestdata["year"]??"0-9999";
+                $limit=$requestdata["limit"]??"10";
+                $cursor=$requestdata["cursor"]??null;
+
+                $yearsplit=explode("-",$year);
+                if(count($yearsplit)==2&&is_numeric($yearsplit[0])&&is_numeric($yearsplit[1])&&$yearsplit[0]<=$yearsplit[1]){
+                    $startyear=$yearsplit[0];
+                    $endyear=$yearsplit[1];
+                }else{
+                    return $this->error(5);
+                }
+
+                if($cursor!=null){
+                    $cursor=json_decode(base64_decode($cursor),true);
+                    if($cursor["id"]){
+                        $cursor=$cursor["id"];
+                    }else{
+                        return $this->error(5);
+                    }
+                }else{
+                    $cursor=0;
+                }
+
+                $data=[];
+                $row=DB::table("albums")
+                    ->where("album_id",">=",$cursor)
+                    ->where("release_year",">=",$startyear)
+                    ->where("release_year","<=",$endyear)
+                    ->where("title","like",$capital."%")
+                    ->limit($limit)
+                    ->select("*")->get();
+
+                for($i=0;$i<count($row);$i=$i+1){
+                    $userrow=DB::table("users")
+                        ->where("user_id","=",$row[$i]->publisher_id)
+                        ->select("*")->first();
+
+                    $data[]=[
+                        "id"=>$row[$i]->album_id,
+                        "title"=>$row[$i]->title,
+                        "artist"=>$row[$i]->artist,
+                        "release_year"=>$row[$i]->release_year,
+                        "publisher"=>[
+                            "id"=>$userrow->user_id,
+                            "username"=>$userrow->username,
+                            "email"=>$userrow->email,
+                        ]
+                    ];
+                }
+
+                return response()->json([
+                    "success"=>true,
+                    "data"=>$data,
+                    "meta"=>[
+                        "prev_cursor"=>$cursor>0?base64_encode(json_encode(["id"=>$cursor])):null,
+                        "next_cursor"=>count($row)==$limit?base64_encode(json_encode(["id"=>$row[count($row)-1]->album_id])):null
+                    ]
+                ]);
+            }else{
+                return $this->error($requestdata->errors()->first());
+            }
+        }
+
         public function getalbum(Request $request,int $albumid){
             $row=DB::table("albums")
                 ->where("album_id","=",$albumid)
@@ -109,65 +188,6 @@
                 ]);
             }else{
                 return $this->error(6);
-            }
-        }
-
-        public function getalbumlist(Request $request){
-            $requestdata=Validator::make($request->all(),[
-                "capital"=>"string",
-                "year"=>"string",
-                "limit"=>"interger",
-                "cursor"=>"string"
-            ],[
-                "string"=>5,
-                "interger"=>5,
-                "in"=>5
-            ]);
-
-            if(!$requestdata->fails()){
-                $requestdata=$requestdata->validated();
-                if($request->header("Authorization")){
-                    $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
-                    if($tokendata!=-1){
-                        $data=[];
-                        if($tokendata["type"]=="USER")
-                            $query=DB::table("albums")
-                                ->where("user_id","=",$tokendata["id"])
-                                ->orderBy($requestdata["order_by"]??"created_at",$requestdata["order_type"]??"asc");
-                        else
-                            $query=DB::table("albums")
-                                ->orderBy($requestdata["order_by"]??"created_at",$requestdata["order_type"]??"asc");
-
-                        if(isset($status)){
-                            $query->whereRaw("FIND_IN_SET(status,?)",[$requestdata["status"]]);
-                        }
-
-                        $row=$query->select("*")->get();
-
-                        for($i=(($requestdata["page"]??1)-1)*($requestdata["page_size"]??10);$i<min(($requestdata["page"]??1)*($requestdata["page_size"]??10),count($row));$i=$i+1){
-                            $data[]=[
-                                "id"=>$row[$i]->id,
-                                "status"=>$row[$i]->status,
-                                "created_at"=>$this->timestarp($row[$i]->created_at),
-                                "updated_at"=>$this->timestarp($row[$i]->updated_at)
-                            ];
-                        }
-
-                        return response()->json([
-                            "success"=>true,
-                            "data"=>[
-                                "total_counts"=>count($row),
-                                "posts"=>$data
-                            ]
-                        ]);
-                    }else{
-                        return $this->error(2);
-                    }
-                }else{
-                    return $this->error(2);
-                }
-            }else{
-                return $this->error($requestdata->errors()->first());
             }
         }
 
