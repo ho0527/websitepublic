@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			.task{
+				border: 1px solid black;
+				width: 200px;
+				padding: 5px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.tasktext{
+				max-width: 150px;
+				overflow-x: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="text" id="task">
+			<input type="button" id="submit" value="新增">
+		</div>
+		<div id="taskdiv"></div>
+
+		<script>
+			document.getElementById("submit").onclick=function() {
+				let task=document.getElementById("task")
+				let taskdiv=document.getElementById("taskdiv")
+
+				if (task.value.trim()!="") {
+					let p=document.createElement("p")
+					p.classList.add("task")
+					p.innerHTML=`
+						<span class="tasktext">${task.value}</span>
+						<input type="button" value="刪除" onclick="this.parentElement.remove()">
+					`
+					taskdiv.appendChild(p)
+					task.value=""
+				}
+			}
+		</script>
+	</body>
+</html>
