@@ -23,12 +23,12 @@
 
         public function logincheck($token){
             $row=DB::table("users")
-                ->where("access_token","=",$token)
+                ->where("token","=",$token)
                 ->select("*")->get();
             if($row->isNotEmpty()){
                 return [
-                    "id"=>$row[0]->id,
-                    "type"=>$row[0]->type
+                    "id"=>$row[0]->user_id,
+                    "role"=>$row[0]->role
                 ];
             }else{
                 return -1;
@@ -37,12 +37,12 @@
 
         public function error($key){
             $data=[
-                ["MSG_INVALID_LOGIN",403],
-                ["MSG_USER_EXISTS",409],
-                ["MSG_INVALID_ACCESS_TOKEN",401],
-                ["MSG_PERMISSION_DENY",403],
-                ["MSG_MISSING_FIELD",400],
-                ["MSG_WRONG_DATA_TYPE",400],
+                ["Login Failed",403],
+                ["Username already taken",409],
+                ["Email already taken",400],
+                ["Invalid access token",401],
+                ["Permission denied",403],
+                ["Validation failed",400],
                 ["MSG_IMAGE_CAN_NOT_PROCESS",400],
                 ["MSG_TASK_NOT_EXISTS",404],
                 ["MSG_TASKTYPE_INPUT_NAME_EXISTS",409],

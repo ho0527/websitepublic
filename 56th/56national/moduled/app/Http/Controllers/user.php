@@ -50,51 +50,55 @@
         public function signup(Request $request){
             $requestdata=Validator::make($request->all(),[
                 "email"=>"required|string|email",
-                "nickname"=>"required|string",
-                "password"=>"required|string",
-                "profile_image"=>"required|mimes:png,jpg"
+                "username"=>"required|string",
+                "password"=>"required|string"
             ],[
-                "required"=>4,
+                "required"=>5,
                 "string"=>5,
                 "email"=>5,
-                "mimes"=>6
             ]);
 
             if(!$requestdata->fails()){
                 $requestdata=$requestdata->validate();
                 $row=DB::table("users")
-                    ->where("email","=",$requestdata["email"])
+                    ->where("username","=",$requestdata["username"])
                     ->select("*")->get();
                 if($row->isEmpty()){
-                    $path="/storage/".$requestdata["profile_image"]->store("images");
-                    DB::table("users")->insert([
-                        "email"=>$requestdata["email"],
-                        "password_hash"=>Hash::make($requestdata["password"]),
-                        "nickname"=>$requestdata["nickname"],
-                        "profile_image"=>$path,
-                        "type"=>"USER",
-                        "created_at"=>Controller::time()
-                    ]);
                     $row=DB::table("users")
+                        ->where("email","=",$requestdata["email"])
                         ->select("*")->get();
-                    $row=$row[count($row)-1];
-                    DB::table("user_quota_transactions")->insert([
-                        "user_id"=>$row->id,
-                        "value"=>10,
-                        "reason"=>"CREATE_USER",
-                        "created_at"=>Controller::time()
-                    ]);
-                    return response()->json([
-                        "success"=>true,
-                        "data"=>[
-                            "id"=>$row->id,
-                            "email"=>$row->email,
-                            "nickname"=>$row->nickname,
-                            "profile_image"=>url($row->profile_image),
-                            "type"=>$row->type,
-                            "created_at"=>$this->timestarp($row->created_at)
-                        ]
-                    ]);
+                    if($row->isEmpty()){
+                        // $path="/storage/".$requestdata["profile_image"]->store("images");
+                        DB::table("users")->insert([
+                            "email"=>$requestdata["email"],
+                            "password_hash"=>Hash::make($requestdata["password"]),
+                            "username"=>$requestdata["username"],
+                            "role"=>"USER",
+                            "created_at"=>Controller::time()
+                        ]);
+                        $row=DB::table("users")
+                            ->select("*")->get();
+                        $row=$row[count($row)-1];
+                        // DB::table("user_quota_transactions")->insert([
+                        //     "user_id"=>$row->id,
+                        //     "value"=>10,
+                        //     "reason"=>"CREATE_USER",
+                        //     "created_at"=>Controller::time()
+                        // ]);
+                        return response()->json([
+                            "success"=>true,
+                            "data"=>[
+                                "id"=>$row->user_id,
+                                "email"=>$row->email,
+                                "username"=>$row->username,
+                                "role"=>$row->role,
+                                "created_at"=>$this->timestarp($row->created_at),
+                                "updated_at"=>$this->timestarp($row->updated_at),
+                            ]
+                        ]);
+                    }else{
+                        return Controller::error(2);
+                    }
                 }else{
                     return Controller::error(1);
                 }
@@ -104,29 +108,28 @@
         }
 
         public function signout(Request $request){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+            if($request->header("X-Authorization")){
+                $tokendata=$this->logincheck(explode("Bearer ",$request->header("X-Authorization"))[1]);
                 if($tokendata!=-1){
                     DB::table("users")
-                        ->where("id","=",$tokendata["id"])
+                        ->where("user_id","=",$tokendata["id"])
                         ->update([
-                            "access_token"=>NULL
+                            "token"=>NULL
                         ]);
                     return response()->json([
-                        "success"=>true,
-                        "data"=>""
+                        "success"=>true
                     ]);
                 }else{
-                    return $this->error(2);
+                    return $this->error(3);
                 }
             }else{
-                return $this->error(2);
+                return $this->error(3);
             }
         }
 
         public function getuserlist(Request $request){
             if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+                $tokendata=$this->logincheck(explode("Bearer ",$request->header("X-Authorization"))[1]);
                 if($tokendata!=-1){
                     if($tokendata["type"]=="ADMIN"){
                         $row=DB::table("users")
