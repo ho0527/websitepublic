@@ -2,7 +2,7 @@
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\user;
-    use App\Http\Controllers\worker;
+    use App\Http\Controllers\album;
     use App\Http\Controllers\finance;
     use App\Http\Controllers\task;
     // use App\Http\Controllers\image;
@@ -20,26 +20,27 @@
 
     Route::POST("/login",[user::class,"signin"]);
     Route::POST("/register",[user::class,"signup"]);
+    Route::GET("/albums",[album::class,"getalbumlist"]);
+    Route::GET("/albums/{albumid}",[album::class,"getalbum"]);
+    Route::GET("/albums/{albumid}/cover",[album::class,"getalbumcover"]);
     Route::POST("/logout",[user::class,"signout"]);
-    Route::GET("/user",[user::class,"getuserlist"]);
-    Route::PUT("/user/{userid}",[user::class,"edituser"]);
     Route::GET("/user/leftquota",[user::class,"getleftquota"]);
     Route::GET("/user/quota",[user::class,"getquotalist"]);
 
-    Route::GET("/task/type",[task::class,"gettasktype"]);
-    Route::POST("/task/type",[task::class,"newtasktype"]);
-    Route::DELETE("/task/type/{tasktypeid}",[task::class,"deletetasktype"]);
+    // Route::GET("/task/type",[task::class,"gettasktype"]);
+    // Route::POST("/task/type",[task::class,"newtasktype"]);
+    // Route::DELETE("/task/type/{tasktypeid}",[task::class,"deletetasktype"]);
 
-    Route::POST("/task",[task::class,"newtask"]);
-    Route::GET("/task",[task::class,"gettasklist"]);
-    Route::GET("/task/{taskid}",[task::class,"gettask"]);
-    Route::DELETE("/task/cancel/{taskid}",[task::class,"canceltask"]);
+    // Route::POST("/task",[task::class,"newtask"]);
+    // Route::GET("/task",[task::class,"gettasklist"]);
+    // Route::GET("/task/{taskid}",[task::class,"gettask"]);
+    // Route::DELETE("/task/cancel/{taskid}",[task::class,"canceltask"]);
 
-    Route::POST("/user/quota/{userid}",[user::class,"newquota"]);
+    // Route::POST("/user/quota/{userid}",[user::class,"newquota"]);
 
-    Route::POST("/worker",[worker::class,"newworker"]);
-    Route::PUT("/worker/{workerid}",[worker::class,"editworker"]);
-    Route::DELETE("/worker/{workerid}",[worker::class,"deleteworker"]);
-    Route::GET("/worker/task",[worker::class,"workergettask"]);
-    Route::POST("/worker/task/{taskid}",[worker::class,"workerresponsetask"]);
+    // Route::POST("/worker",[worker::class,"newworker"]);
+    // Route::PUT("/worker/{workerid}",[worker::class,"editworker"]);
+    // Route::DELETE("/worker/{workerid}",[worker::class,"deleteworker"]);
+    // Route::GET("/worker/task",[worker::class,"workergettask"]);
+    // Route::POST("/worker/task/{taskid}",[worker::class,"workerresponsetask"]);
 ?>

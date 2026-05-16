@@ -13,7 +13,7 @@
     class Controller extends BaseController{
         use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-        public function timestarp($data){
+        public function timestarp(string $data){
             return implode("T",explode(" ",$data));
         }
 
@@ -21,7 +21,7 @@
             return date("Y-m-d H:i:s");
         }
 
-        public function logincheck($token){
+        public function logincheck(string $token){
             $row=DB::table("users")
                 ->where("token","=",$token)
                 ->select("*")->get();
@@ -35,7 +35,7 @@
             }
         }
 
-        public function error($key){
+        public function error(int $key){
             $data=[
                 ["Login Failed",403],
                 ["Username already taken",409],
@@ -43,8 +43,8 @@
                 ["Invalid access token",401],
                 ["Permission denied",403],
                 ["Validation failed",400],
-                ["MSG_IMAGE_CAN_NOT_PROCESS",400],
-                ["MSG_TASK_NOT_EXISTS",404],
+                ["Not found",404],
+                ["Cover Not Found",404],
                 ["MSG_TASKTYPE_INPUT_NAME_EXISTS",409],
                 ["MSG_USER_QUOTA_IS_EMPTY",409],
                 ["MSG_USER_NOT_EXISTS",404],

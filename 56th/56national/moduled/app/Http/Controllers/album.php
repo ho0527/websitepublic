@@ -8,8 +8,8 @@
     use Illuminate\Support\Facades\Validator;
     use PhpParser\Node\Stmt\Const_;
 
-    class task extends Controller{
-        public function gettasktype(Request $request){
+    class album extends Controller{
+        public function getalbumtype(Request $request){
             $requestdata=Validator::make($request->all(),[
                 "order_by"=>"string|in:created_at",
                 "order_type"=>"string|in:asc,desc",
@@ -27,7 +27,7 @@
                     if($tokendata!=-1){
                         if($tokendata["type"]=="ADMIN"){
                             $data=[];
-                            $row=DB::table("task_types")
+                            $row=DB::table("album_types")
                                 ->orderBy($request["order_by"]??"created_at",$request["order_type"]??"asc")
                                 ->skip(($request["page"]??1-1)*($request["page_size"]??10))
                                 ->take($request["page_size"]??10)
@@ -36,8 +36,8 @@
                             for($i=0;$i<count($row);$i=$i+1){
                                 $input=[];
 
-                                $inputrow=DB::table("task_type_inputs")
-                                    ->where("task_type_id","=",$row[$i]->id)
+                                $inputrow=DB::table("album_type_inputs")
+                                    ->where("album_type_id","=",$row[$i]->id)
                                     ->select("*")->get();
 
                                 for($j=0;$j<count($inputrow);$j=$j+1){
@@ -55,7 +55,7 @@
                                 ];
                             }
 
-                            $row=DB::table("task_types")
+                            $row=DB::table("album_types")
                                 ->select("*")->get();
 
                             return response()->json([
@@ -79,136 +79,45 @@
             }
         }
 
-        public function gettask(Request $request,$taskid){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
-                if($tokendata!=-1){
-                    if($tokendata["type"]=="USER"){
-                        $row=DB::table("tasks")
-                            ->where("id","=",$taskid)
-                            ->where("user_id","=",$tokendata["id"])
-                            ->select("*")->first();
+        public function getalbum(Request $request,int $albumid){
+            $row=DB::table("albums")
+                ->where("album_id","=",$albumid)
+                ->select("*")->first();
 
-                        if($row){
-                            $typedata=[];
-                            $userdata=[];
-                            $workerdata=NULL;
+            if($row){
+                $userrow=DB::table("users")
+                    ->where("user_id","=",$row->publisher_id)
+                    ->select("*")->first();
 
-                            $typerow=DB::table("task_types")
-                                ->where("id","=",$row->task_type_id)
-                                ->select("*")->first();
-
-                            $input=[];
-
-                            $inputrow=DB::table("task_type_inputs")
-                                ->where("task_type_id","=",$row->id)
-                                ->select("*")->get();
-
-                            for($j=0;$j<count($inputrow);$j=$j+1){
-                                $input[]=[
-                                    "name"=>$inputrow[$j]->name,
-                                    "type"=>$inputrow[$j]->type
-                                ];
-                            }
-
-                            $typedata[]=[
-                                "id"=>$typerow->id,
-                                "name"=>$typerow->name,
-                                "inputs"=>$input,
-                                "created_at"=>$this->timestarp($typerow->created_at)
-                            ];
-
-                            $userrow=DB::table("users")
-                                ->where("id","=",$row->user_id)
-                                ->select("*")->first();
-
-                            $userdata=[
-                                "id"=>$userrow->id,
-                                "email"=>$userrow->email,
-                                "nickname"=>$userrow->nickname,
-                                "profile_image"=>url($userrow->profile_image),
-                                "type"=>$userrow->type,
-                                "created_at"=>$this->timestarp($userrow->created_at)
-                            ];
-
-                            if($row->worker_id!=NULL){
-                                $workertaskdata=[];
-                                $workerrow=DB::table("workers")
-                                    ->where("id","=",$row->worker_id)
-                                    ->select("*")->first();
-
-                                $workertyperow=DB::table("worker_task_types")
-                                    ->where("worker_id","=",$row->worker_id)
-                                    ->select("*")->get();
-
-                                for($i=0;$i<count($workertyperow);$i=$i+1){
-                                    $workertasktyperow=DB::table("task_types")
-                                        ->where("id","=",$workertyperow[$i]->task_type_id)
-                                        ->select("*")->first();
-
-                                    $input=[];
-
-                                    $inputrow=DB::table("task_type_inputs")
-                                        ->where("task_type_id","=",$row->id)
-                                        ->select("*")->get();
-
-                                    for($j=0;$j<count($inputrow);$j=$j+1){
-                                        $input[]=[
-                                            "name"=>$inputrow[$j]->name,
-                                            "type"=>$inputrow[$j]->type
-                                        ];
-                                    }
-
-                                    $workertaskdata[]=[
-                                        "id"=>$workertasktyperow->id,
-                                        "name"=>$workertasktyperow->name,
-                                        "inputs"=>$input,
-                                        "created_at"=>$this->timestarp($workertasktyperow->created_at)
-                                    ];
-                                }
-                                $workerdata=[
-                                    "id"=>$workerrow->id,
-                                    "name"=>$workerrow->name,
-                                    "types"=>$workertaskdata,
-                                    "is_idled"=>$row->status=="proccessing"?true:false,
-                                    "created_at"=>$this->timestarp($workerrow->created_at)
-                                ];
-                            }
-
-                            return response()->json([
-                                "success"=>true,
-                                "data"=>[
-                                    "id"=>$row->id,
-                                    "type"=>$typedata,
-                                    "user"=>$userdata,
-                                    "worker"=>$workerdata,
-                                    "status"=>$row->status,
-                                    "result"=>$row->result==NULL?NULL:url($row->result),
-                                    "created_at"=>$this->timestarp($row->created_at),
-                                    "updated_at"=>$this->timestarp($row->updated_at),
-                                ]
-                            ]);
-                        }else{
-                            return $this->error(7);
-                        }
-                    }else{
-                        return $this->error(3);
-                    }
-                }else{
-                    return $this->error(2);
-                }
+                return response()->json([
+                    "success"=>true,
+                    "data"=>[
+                        "id"=>$row->album_id,
+                        "title"=>$row->title,
+                        "artist"=>$row->artist,
+                        "release_year"=>$row->release_year,
+                        "genre"=>$row->genre,
+                        "description"=>$row->description,
+                        "created_at"=>$row->created_at,
+                        "updated_at"=>$row->updated_at,
+                        "publisher"=>[
+                            "id"=>$userrow->user_id,
+                            "username"=>$userrow->username,
+                            "email"=>$userrow->email,
+                        ]
+                    ]
+                ]);
             }else{
-                return $this->error(2);
+                return $this->error(6);
             }
         }
 
-        public function gettasklist(Request $request){
+        public function getalbumlist(Request $request){
             $requestdata=Validator::make($request->all(),[
-                "order_by"=>"string|in:created_at,updated_at",
-                "order_type"=>"string|in:asc,desc",
-                "page"=>"interger",
-                "page_size"=>"interger",
-                "status"=>"string|in:pending,proccessing,finished,failed,canceled"
+                "capital"=>"string",
+                "year"=>"string",
+                "limit"=>"interger",
+                "cursor"=>"string"
             ],[
                 "string"=>5,
                 "interger"=>5,
@@ -222,11 +131,11 @@
                     if($tokendata!=-1){
                         $data=[];
                         if($tokendata["type"]=="USER")
-                            $query=DB::table("tasks")
+                            $query=DB::table("albums")
                                 ->where("user_id","=",$tokendata["id"])
                                 ->orderBy($requestdata["order_by"]??"created_at",$requestdata["order_type"]??"asc");
                         else
-                            $query=DB::table("tasks")
+                            $query=DB::table("albums")
                                 ->orderBy($requestdata["order_by"]??"created_at",$requestdata["order_type"]??"asc");
 
                         if(isset($status)){
@@ -262,7 +171,30 @@
             }
         }
 
-        public function newtask(Request $request){
+        public function getalbumcover(Request $request,int $albumid){
+            $row=DB::table("albums")
+                ->where("album_id","=",$albumid)
+                ->select("*")->first();
+
+            if($row){
+                $songrow=DB::table("songs")
+                    ->where("album_id","=",$row->album_id)
+                    ->where("is_cover","=",true)
+                    ->orderBy("track_order","asc")
+                    ->select("*")->first();
+
+                if($songrow){
+                    $path=storage_path("app/".$songrow->cover_image_path);
+                    return response()->file($path);
+                }else{
+                    return $this->error(7);
+                }
+            }else{
+                return $this->error(6);
+            }
+        }
+
+        public function newalbum(Request $request){
             $requestdata=Validator::make($request->all(),[
                 "type"=>"required|integer",
                 "inputs"=>"required|array"
@@ -278,7 +210,7 @@
                     $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
                     if($tokendata!=-1){
                         if($tokendata["type"]=="USER"){
-                            $row=DB::table("task_types")
+                            $row=DB::table("album_types")
                                 ->where("id","=",$requestdata["type"])
                                 ->where("deleted_at","=",NULL)
                                 ->select("*")->first();
@@ -289,8 +221,8 @@
                                     ->sum("value");
                                 if(0<$quotacount){
                                     foreach($requestdata["inputs"] as $key=>$value){
-                                        $typeinputrow=DB::table("task_type_inputs")
-                                            ->where("task_type_id","=",$requestdata["type"])
+                                        $typeinputrow=DB::table("album_type_inputs")
+                                            ->where("album_type_id","=",$requestdata["type"])
                                             ->where("name","=",$key)
                                             ->select("*")->first();
                                         if(!$typeinputrow){
@@ -311,25 +243,25 @@
                                         }
                                     }
 
-                                    DB::table("tasks")->insert([
-                                        "task_type_id"=>$requestdata["type"],
+                                    DB::table("albums")->insert([
+                                        "album_type_id"=>$requestdata["type"],
                                         "user_id"=>$tokendata["id"],
                                         "status"=>"pending",
                                         "created_at"=>$this->time()
                                     ]);
 
-                                    $row=DB::table("tasks")
+                                    $row=DB::table("albums")
                                         ->select("*")->get();
                                     $row=$row[count($row)-1];
 
                                     foreach($requestdata["inputs"] as $key=>$value){
-                                        $typeinputrow=DB::table("task_type_inputs")
-                                            ->where("task_type_id","=",$requestdata["type"])
+                                        $typeinputrow=DB::table("album_type_inputs")
+                                            ->where("album_type_id","=",$requestdata["type"])
                                             ->where("name","=",$key)
                                             ->select("*")->first();
 
-                                        DB::table("task_inputs")->insert([
-                                            "task_id"=>$row->id,
+                                        DB::table("album_inputs")->insert([
+                                            "album_id"=>$row->id,
                                             "name"=>$typeinputrow->name,
                                             "type"=>$typeinputrow->type,
                                             "value"=>$value
@@ -340,12 +272,12 @@
                                         ->where("id","=",$tokendata["id"])
                                         ->select("*")->first();
 
-                                    $typerow=DB::table("task_types")
+                                    $typerow=DB::table("album_types")
                                         ->where("id","=",$requestdata["type"])
                                         ->select("*")->first();
 
-                                    $typeinputrow=DB::table("task_type_inputs")
-                                        ->where("task_type_id","=",$requestdata["type"])
+                                    $typeinputrow=DB::table("album_type_inputs")
+                                        ->where("album_type_id","=",$requestdata["type"])
                                         ->select("*")->get();
 
                                     $input=[];
@@ -409,7 +341,7 @@
             }
         }
 
-        public function newtasktype(Request $request){
+        public function newalbumtype(Request $request){
             $requestdata=Validator::make($request->all(),[
                 "name"=>"required|string",
                 "inputs"=>"required|array",
@@ -438,26 +370,26 @@
                                     }
                                 }
 
-                                $row=DB::table("task_types")
+                                $row=DB::table("album_types")
                                     ->where("name","=",$request["name"])
                                     ->where("deleted_at","=",NULL)
                                     ->select("*")->get();
 
                                 if($row->isEmpty()){
-                                    DB::table("task_types")->insert([
+                                    DB::table("album_types")->insert([
                                         "name"=>$request["name"],
                                         "created_at"=>$this->time()
                                     ]);
-                                    $row=DB::table("task_types")
+                                    $row=DB::table("album_types")
                                         ->where("name","=",$request["name"])
                                         ->select("*")->get();
 
                                     $row=$row[count($row)-1];
-                                    $tasktypeid=$row->id;
+                                    $albumtypeid=$row->id;
 
                                     for($i=0;$i<count($request["inputs"]);$i=$i+1){
-                                        DB::table("task_type_inputs")->insert([
-                                            "task_type_id"=>$tasktypeid,
+                                        DB::table("album_type_inputs")->insert([
+                                            "album_type_id"=>$albumtypeid,
                                             "name"=>$request["inputs"][$i]["name"],
                                             "type"=>$request["inputs"][$i]["type"]
                                         ]);
@@ -466,7 +398,7 @@
                                     return response()->json([
                                         "success"=>true,
                                         "data"=>[
-                                            "id"=>$tasktypeid,
+                                            "id"=>$albumtypeid,
                                             "name"=>$request["name"],
                                             "inputs"=>$request["inputs"],
                                             "created_at"=>$row->created_at
@@ -492,18 +424,18 @@
             }
         }
 
-        public function deletetasktype(Request $request,$tasktypeid){
+        public function deletealbumtype(Request $request,$albumtypeid){
             if($request->header("Authorization")){
                 $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
                 if($tokendata!=-1){
                     if($tokendata["type"]=="ADMIN"){
-                        $row=DB::table("task_types")
-                            ->where("id","=",$tasktypeid)
+                        $row=DB::table("album_types")
+                            ->where("id","=",$albumtypeid)
                             ->where("deleted_at","=",NULL)
                             ->select("*")->get();
                         if($row->isNotEmpty()){
-                            DB::table("task_types")
-                                ->where("id","=",$tasktypeid)
+                            DB::table("album_types")
+                                ->where("id","=",$albumtypeid)
                                 ->update([
                                     "deleted_at"=>$this->time()
                                 ]);
@@ -526,20 +458,20 @@
             }
         }
 
-        public function canceltask(Request $request,$taskid){
+        public function cancelalbum(Request $request,$albumid){
             if($request->header("Authorization")){
                 $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
                 if($tokendata!=-1){
                     if($tokendata["type"]=="USER"){
-                        $row=DB::table("tasks")
-                            ->where("id","=",$taskid)
+                        $row=DB::table("albums")
+                            ->where("id","=",$albumid)
                             ->where("user_id","=",$tokendata["id"])
                             ->select("*")->first();
 
                         if($row){
                             if($row->status=="pending"){
-                                DB::table("tasks")
-                                    ->where("id","=",$taskid)
+                                DB::table("albums")
+                                    ->where("id","=",$albumid)
                                     ->update([
                                         "status"=>"canceled",
                                         "updated_at"=>$this->time()
