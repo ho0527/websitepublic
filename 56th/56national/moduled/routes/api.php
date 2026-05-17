@@ -36,6 +36,10 @@
     Route::POST("/albums",[album::class,"newalbum"]);
     Route::PUT("/albums/{albumid}",[album::class,"editalbum"]);
     Route::DELETE("/albums/{albumid}",[album::class,"deletealbum"]);
+    Route::POST("/albums/{albumid}/songs",[song::class,"newsong"]);
+    Route::PUT("/albums/{albumid}",[song::class,"editsongorder"]);
+    Route::POST("/albums/{albumid}/songs/{songid}",[song::class,"editsong"]);
+    Route::DELETE("/albums/{albumid}/songs/{songid}",[song::class,"deletesong"]);
 
     // Route::GET("/task/type",[task::class,"gettasktype"]);
     // Route::POST("/task/type",[task::class,"newtasktype"]);

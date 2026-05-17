@@ -26,31 +26,36 @@
 
                 $capital=$requestdata["capital"]??"";
                 $year=$requestdata["year"]??"0-9999";
-                $limit=$requestdata["limit"]??"10";
+                $limit=$requestdata["limit"]??10;
                 $cursor=$requestdata["cursor"]??null;
+                $cursororg=$cursor;
 
                 $yearsplit=explode("-",$year);
                 if(count($yearsplit)==2&&is_numeric($yearsplit[0])&&is_numeric($yearsplit[1])&&$yearsplit[0]<=$yearsplit[1]){
-                    $startyear=$yearsplit[0];
-                    $endyear=$yearsplit[1];
+                    $startyear=(int)$yearsplit[0];
+                    $endyear=(int)$yearsplit[1];
                 }else{
-                    return $this->error(5);
+                    return $this->error(15);
                 }
 
                 if($cursor!=null){
                     $cursor=json_decode(base64_decode($cursor),true);
-                    if($cursor["id"]){
+                    if(isset($cursor["id"])){
                         $cursor=$cursor["id"];
                     }else{
-                        return $this->error(5);
+                        return $this->error(20);
                     }
                 }else{
                     $cursor=0;
                 }
 
+                if($limit<1||100<$limit){
+                    return $this->error(19);
+                }
+
                 $data=[];
                 $row=DB::table("albums")
-                    ->where("album_id",">=",$cursor)
+                    ->where("album_id",">",$cursor)
                     ->where("release_year",">=",$startyear)
                     ->where("release_year","<=",$endyear)
                     ->where("title","like",$capital."%")
@@ -80,7 +85,7 @@
                     "success"=>true,
                     "data"=>$data,
                     "meta"=>[
-                        "prev_cursor"=>$cursor>0?base64_encode(json_encode(["id"=>$cursor])):null,
+                        "prev_cursor"=>$cursororg,
                         "next_cursor"=>count($row)==$limit?base64_encode(json_encode(["id"=>$row[count($row)-1]->album_id])):null
                     ]
                 ]);
@@ -209,7 +214,7 @@
                         ],[
                             "required"=>5,
                             "string"=>5,
-                            "integer"=>15,
+                            "integer"=>5,
                         ]);
                         if(!$requestdata->fails()){
                             $requestdata=$requestdata->validated();

@@ -54,10 +54,11 @@
                 ["Cannot ban order admin",403], // 13
                 ["User is banned",403], // 14
                 ["Invalid year format",400], // 15
-                ["[delete]",400],
-                ["MSG_TASKTYPE_TYPE_ERROR",400],
-                ["MSG_TASKTYPE_NAME_EXISTS",409],
-                ["MSG_WORKER_NAME_EXISTS",409],
+                ["Too many covers provided",400], // 16
+                ["Invalid file type",400], // 17
+                ["Access denied",403], // 18
+                ["Invalid parameter",400], // 19
+                ["Invalid cursor",400], // 20
                 ["[delete]",404],
                 ["MSG_TASK_IS_END",400]
             ];
