@@ -3,7 +3,7 @@
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\user;
     use App\Http\Controllers\album;
-    use App\Http\Controllers\finance;
+    use App\Http\Controllers\song;
     use App\Http\Controllers\task;
     // use App\Http\Controllers\image;
 
@@ -23,9 +23,19 @@
     Route::GET("/albums",[album::class,"getalbumlist"]);
     Route::GET("/albums/{albumid}",[album::class,"getalbum"]);
     Route::GET("/albums/{albumid}/cover",[album::class,"getalbumcover"]);
+    Route::GET("/albums/{albumid}/songs",[song::class,"getalbumsonglist"]);
+    Route::GET("/songs/{songid}/cover",[song::class,"getsongcover"]);
+    Route::GET("/songs",[song::class,"getsonglist"]);
+
     Route::POST("/logout",[user::class,"signout"]);
-    Route::GET("/user/leftquota",[user::class,"getleftquota"]);
-    Route::GET("/user/quota",[user::class,"getquotalist"]);
+    Route::GET("/songs/{songid}",[song::class,"getsong"]);
+
+    Route::PUT("/users/{userid}",[user::class,"edituserrole"]);
+    Route::PUT("/users/{userid}/ban",[user::class,"banuser"]);
+    Route::PUT("/users/{userid}/unban",[user::class,"unbanuser"]);
+    Route::POST("/albums",[album::class,"newalbum"]);
+    Route::PUT("/albums/{albumid}",[album::class,"editalbum"]);
+    Route::DELETE("/albums/{albumid}",[album::class,"deletealbum"]);
 
     // Route::GET("/task/type",[task::class,"gettasktype"]);
     // Route::POST("/task/type",[task::class,"newtasktype"]);

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			body{
+				height: 100dvh;
+				background: black;
+				font-size: 75px;
+				font-weight: bold;
+				letter-spacing: 10px;
+				color: white;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="clock"></div>
+
+		<script>
+			function loop(){
+				let now=new Date()
+				let hours=String(now.getHours()).padStart(2,"0")
+				let minutes=String(now.getMinutes()).padStart(2,"0")
+				let seconds=String(now.getSeconds()).padStart(2,"0")
+				document.getElementById("clock").textContent=hours+":"+minutes+":"+seconds
+				setTimeout(loop,1000-now.getMilliseconds())
+			}
+
+			loop()
+		</script>
+	</body>
+</html>

@@ -214,150 +214,195 @@
             }
         }
 
+        public function getalbumsonglist(Request $request,int $albumid){
+            $row=DB::table("albums")
+                ->where("album_id","=",$albumid)
+                ->select("*")->first();
+
+            if($row){
+                $data=[];
+
+                $songrow=DB::table("songs")
+                    ->where("album_id","=",$row->album_id)
+                    ->whereNull("deleted_at")
+                    ->select("*")->get();
+
+                for($i=0;$i<count($songrow);$i=$i+1){
+                    $songlabeldata=[];
+                    $songlabelrow=DB::table("song_labels")
+                        ->where("song_id","=",$songrow[$i]->song_id)
+                        ->select("*")->get();
+
+                    for($j=0;$j<count($songlabelrow);$j=$j+1){
+                        $labelrow=DB::table("labels")
+                            ->where("label_id","=",$songlabelrow[$j]->label_id)
+                            ->select("*")->first();
+                        $songlabeldata[]=$labelrow->label;
+                    }
+
+                    $data[]=[
+                        "id"=>$songrow[$i]->song_id,
+                        "album_id"=>$songrow[$i]->album_id,
+                        "title"=>$songrow[$i]->title,
+                        "label"=>$songlabeldata,
+                        "duration_seconds"=>$songrow[$i]->duration_seconds,
+                        "is_cover"=>$songrow[$i]->is_cover,
+                        "order"=>$songrow[$i]->track_order,
+                        "cover"=>"/api/songs/".$songrow[$i]->song_id."/cover"
+                    ];
+                }
+
+                return response()->json([
+                    "success"=>true,
+                    "data"=>$data
+                ]);
+            }else{
+                return $this->error(6);
+            }
+        }
+
         public function newalbum(Request $request){
-            $requestdata=Validator::make($request->all(),[
-                "type"=>"required|integer",
-                "inputs"=>"required|array"
-            ],[
-                "required"=>4,
-                "integer"=>5,
-                "array"=>5
-            ]);
+            if($request->header("Authorization")){
+                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+                if($tokendata!=-1){
+                    if($tokendata["type"]=="admin"){
+                        $requestdata=Validator::make($request->all(),[
+                            "title"=>"required|string",
+                            "artist"=>"required|string",
+                            "release_year"=>"required|integer",
+                            "genre"=>"required|string",
+                            "description"=>"required|string"
+                        ],[
+                            "required"=>5,
+                            "string"=>5,
+                            "integer"=>15,
+                        ]);
+                        if(!$requestdata->fails()){
+                            $requestdata=$requestdata->validated();
+                            $title=$requestdata["title"];
+                            $artist=$requestdata["artist"];
+                            $release_year=$requestdata["release_year"];
+                            $genre=$requestdata["genre"];
+                            $description=$requestdata["description"];
 
-            if(!$requestdata->fails()){
-                $requestdata=$requestdata->validated();
-                if($request->header("Authorization")){
-                    $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
-                    if($tokendata!=-1){
-                        if($tokendata["type"]=="USER"){
-                            $row=DB::table("album_types")
-                                ->where("id","=",$requestdata["type"])
-                                ->where("deleted_at","=",NULL)
+                            DB::table("albums")->insert([
+                                "title"=>$title,
+                                "artist"=>$artist,
+                                "release_year"=>$release_year,
+                                "genre"=>$genre,
+                                "description"=>$description,
+                                "publisher_id"=>$tokendata["id"],
+                                "created_at"=>$this->time(),
+                                "updated_at"=>$this->time()
+                            ]);
+
+                            $row=DB::table("albums")
+                                ->select("*")->get();
+                            $row=$row[count($row)-1];
+
+                            $userrow=DB::table("users")
+                                ->where("user_id","=",$tokendata["id"])
                                 ->select("*")->first();
-
-                            if($row){
-                                $quotacount=DB::table("user_quota_transactions")
-                                    ->where("user_id","=",$tokendata["id"])
-                                    ->sum("value");
-                                if(0<$quotacount){
-                                    foreach($requestdata["inputs"] as $key=>$value){
-                                        $typeinputrow=DB::table("album_type_inputs")
-                                            ->where("album_type_id","=",$requestdata["type"])
-                                            ->where("name","=",$key)
-                                            ->select("*")->first();
-                                        if(!$typeinputrow){
-                                            return $this->error(12);
-                                        }
-                                        if($typeinputrow->type=="string"){
-                                            if(!is_string($value)){
-                                                return $this->error(15);
-                                            }
-                                        }elseif($typeinputrow->type=="number"){
-                                            if(!is_numeric($value)){
-                                                return $this->error(15);
-                                            }
-                                        }elseif($typeinputrow->type=="boolean"){
-                                            if(!is_bool($value)){
-                                                return $this->error(15);
-                                            }
-                                        }
-                                    }
-
-                                    DB::table("albums")->insert([
-                                        "album_type_id"=>$requestdata["type"],
-                                        "user_id"=>$tokendata["id"],
-                                        "status"=>"pending",
-                                        "created_at"=>$this->time()
-                                    ]);
-
-                                    $row=DB::table("albums")
-                                        ->select("*")->get();
-                                    $row=$row[count($row)-1];
-
-                                    foreach($requestdata["inputs"] as $key=>$value){
-                                        $typeinputrow=DB::table("album_type_inputs")
-                                            ->where("album_type_id","=",$requestdata["type"])
-                                            ->where("name","=",$key)
-                                            ->select("*")->first();
-
-                                        DB::table("album_inputs")->insert([
-                                            "album_id"=>$row->id,
-                                            "name"=>$typeinputrow->name,
-                                            "type"=>$typeinputrow->type,
-                                            "value"=>$value
-                                        ]);
-                                    }
-
-                                    $userrow=DB::table("users")
-                                        ->where("id","=",$tokendata["id"])
-                                        ->select("*")->first();
-
-                                    $typerow=DB::table("album_types")
-                                        ->where("id","=",$requestdata["type"])
-                                        ->select("*")->first();
-
-                                    $typeinputrow=DB::table("album_type_inputs")
-                                        ->where("album_type_id","=",$requestdata["type"])
-                                        ->select("*")->get();
-
-                                    $input=[];
-
-                                    for($i=0;$i<count($typeinputrow);$i=$i+1){
-                                        $input[]=[
-                                            "name"=>$typeinputrow[$i]->name,
-                                            "type"=>$typeinputrow[$i]->type
-                                        ];
-                                    }
-
-                                    DB::table("user_quota_transactions")->insert([
-                                        "user_id"=>$tokendata["id"],
-                                        "value"=>-1,
-                                        "reason"=>"CONSUME",
-                                        "created_at"=>$this->time()
-                                    ]);
-
-                                    return response()->json([
-                                        "success"=>true,
-                                        "data"=>[
-                                            "id"=>$row->id,
-                                            "type"=>[
-                                                "id"=>$typerow->id,
-                                                "name"=>$typerow->name,
-                                                "inputs"=>$input,
-                                                "created_at"=>$typerow->created_at
-                                            ],
-                                            "user"=>[
-                                                "id"=>$userrow->id,
-                                                "email"=>$userrow->email,
-                                                "nickname"=>$userrow->nickname,
-                                                "profile_image"=>url($userrow->profile_image),
-                                                "type"=>$userrow->type,
-                                                "created_at"=>$userrow->created_at,
-                                            ],
-                                            "worker"=>NULL,
-                                            "status"=>$row->status,
-                                            "result"=>$row->result,
-                                            "created_at"=>$row->created_at,
-                                            "updated_at"=>$row->updated_at
-                                        ]
-                                    ]);
-                                }else{
-                                    return $this->error(9);
-                                }
-                            }else{
-                                return $this->error(7);
-                            }
+                            return response()->json([
+                                "success"=>true,
+                                "data"=>[
+                                    "id"=>$row->album_id,
+                                    "title"=>$row->title,
+                                    "artist"=>$row->artist,
+                                    "release_year"=>$row->release_year,
+                                    "genre"=>$row->genre,
+                                    "description"=>$row->description,
+                                    "publisher"=>[
+                                        "id"=>$userrow->user_id,
+                                        "username"=>$userrow->username,
+                                        "email"=>$userrow->email,
+                                    ],
+                                    "created_at"=>$this->timestarp($row->created_at),
+                                    "updated_at"=>$this->timestarp($row->updated_at)
+                                ]
+                            ],201);
                         }else{
-                            return $this->error(3);
+                            return $this->error($requestdata->errors()->first());
                         }
                     }else{
-                        return $this->error(2);
+                        return $this->error(8);
                     }
                 }else{
-                    return $this->error(2);
+                    return $this->error(3);
                 }
             }else{
-                return $this->error($requestdata->errors()->first());
+                return $this->error(9);
+            }
+        }
+
+        public function editalbum(Request $request,int $albumid){
+            if($request->header("Authorization")){
+                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+                if($tokendata!=-1){
+                    if($tokendata["type"]=="admin"){
+                        $row=DB::table("albums")
+                            ->where("album_id","=",$albumid)
+                            ->select("*")->first();
+
+                        if($row){
+                            $requestdata=Validator::make($request->all(),[
+                                "title"=>"required|string",
+                                "description"=>"required|string"
+                            ],[
+                                "required"=>5,
+                                "string"=>5,
+                            ]);
+                            if(!$requestdata->fails()){
+                                $requestdata=$requestdata->validated();
+                                $title=$requestdata["title"];
+                                $description=$requestdata["description"];
+
+                                DB::table("albums")
+                                    ->where("album_id","=",$albumid)
+                                    ->update([
+                                        "title"=>$title,
+                                        "description"=>$description
+                                    ]);
+
+                                $row=DB::table("albums")
+                                    ->where("album_id","=",$albumid)
+                                    ->select("*")->first();
+
+                                $userrow=DB::table("users")
+                                    ->where("user_id","=",$tokendata["id"])
+                                    ->select("*")->first();
+                                return response()->json([
+                                    "success"=>true,
+                                    "data"=>[
+                                        "id"=>$row->album_id,
+                                        "title"=>$row->title,
+                                        "artist"=>$row->artist,
+                                        "release_year"=>$row->release_year,
+                                        "genre"=>$row->genre,
+                                        "description"=>$row->description,
+                                        "publisher"=>[
+                                            "id"=>$userrow->user_id,
+                                            "username"=>$userrow->username,
+                                            "email"=>$userrow->email,
+                                        ],
+                                        "created_at"=>$this->timestarp($row->created_at),
+                                        "updated_at"=>$this->timestarp($row->updated_at)
+                                    ]
+                                ]);
+                            }else{
+                                return $this->error($requestdata->errors()->first());
+                            }
+                        }else{
+                            return $this->error(6);
+                        }
+                    }else{
+                        return $this->error(8);
+                    }
+                }else{
+                    return $this->error(3);
+                }
+            }else{
+                return $this->error(9);
             }
         }
 
@@ -444,12 +489,12 @@
             }
         }
 
-        public function deletealbumtype(Request $request,$albumtypeid){
+        public function deletealbum(Request $request,int $albumid){
             if($request->header("Authorization")){
                 $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="ADMIN"){
-                        $row=DB::table("album_types")
+                    if($tokendata["type"]=="admin"){
+                        $row=DB::table("admin")
                             ->where("id","=",$albumtypeid)
                             ->where("deleted_at","=",NULL)
                             ->select("*")->get();

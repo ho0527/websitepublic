@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			body{
+				height: 100dvh;
+				background: black;
+				color: white;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="button" id="button" value="隨機字符"><br>
+			請輸入密碼: <input type="text" id="input" value="">
+		</div>
+
+		<script>
+			let realpassword=[]
+			let hashpassword=[]
+
+			function randomstring() {
+				let characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+				return characters.charAt(Math.floor(Math.random()*characters.length))
+			}
+
+			document.getElementById("input").oninput=function(event){
+				let pos=input.selectionStart
+				let type=event.inputType
+
+				if(type=="deleteContentBackward"){
+					realpassword.splice(pos,1)
+					hashpassword.splice(pos,1)
+				}else{
+					let char=input.value[pos-1]
+					if(!char)return
+
+					realpassword.splice(pos-1,0,char)
+					hashpassword.splice(pos-1,0,randomstring())
+				}
+
+				let isfake=document.getElementById("button").value=="隨機字符"
+
+				input.value=isfake ? hashpassword.join("") : realpassword.join("")
+
+				input.setSelectionRange(pos,pos)
+			}
+
+			document.getElementById("button").onclick=function(){
+				if(this.value=="隨機字符"){
+					this.value="真實密碼"
+					document.getElementById("input").value=realpassword.join("")
+				}else{
+					this.value="隨機字符"
+					document.getElementById("input").value=hashpassword.join("")
+				}
+			}
+		</script>
+	</body>
+</html>

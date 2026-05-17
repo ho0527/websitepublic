@@ -22,23 +22,27 @@
                     ->where("username","=",$requestdata["username"])
                     ->select("*")->get();
                 if($row->isNotEmpty()&&Hash::check($requestdata["password"],$row[0]->password_hash)){
-                    $token=hash("sha256",$row[0]->username);
-                    DB::table("users")
-                        ->where("user_id","=",$row[0]->user_id)
-                        ->update([
-                            "token"=>$token
+                    if(!$row[0]->is_banned){
+                        $token=hash("sha256",$row[0]->username);
+                        DB::table("users")
+                            ->where("user_id","=",$row[0]->user_id)
+                            ->update([
+                                "token"=>$token
+                            ]);
+                        return response()->json([
+                            "success"=>true,
+                            "data"=>[
+                                "id"=>$row[0]->user_id,
+                                "username"=>$row[0]->username,
+                                "email"=>$row[0]->email,
+                                "role"=>$row[0]->role,
+                                "token"=>$token,
+                                "created_at"=>$this->timestarp($row[0]->created_at)
+                            ]
                         ]);
-                    return response()->json([
-                        "success"=>true,
-                        "data"=>[
-                            "id"=>$row[0]->user_id,
-                            "username"=>$row[0]->username,
-                            "email"=>$row[0]->email,
-                            "role"=>$row[0]->role,
-                            "token"=>$token,
-                            "created_at"=>$this->timestarp($row[0]->created_at)
-                        ]
-                    ]);
+                    }else{
+                            return $this->error(14);
+                    }
                 }else{
                     return $this->error(0);
                 }
@@ -68,7 +72,6 @@
                         ->where("email","=",$requestdata["email"])
                         ->select("*")->get();
                     if($row->isEmpty()){
-                        // $path="/storage/".$requestdata["profile_image"]->store("images");
                         DB::table("users")->insert([
                             "email"=>$requestdata["email"],
                             "password_hash"=>Hash::make($requestdata["password"]),
@@ -79,12 +82,6 @@
                         $row=DB::table("users")
                             ->select("*")->get();
                         $row=$row[count($row)-1];
-                        // DB::table("user_quota_transactions")->insert([
-                        //     "user_id"=>$row->id,
-                        //     "value"=>10,
-                        //     "reason"=>"CREATE_USER",
-                        //     "created_at"=>Controller::time()
-                        // ]);
                         return response()->json([
                             "success"=>true,
                             "data"=>[
@@ -95,7 +92,7 @@
                                 "created_at"=>$this->timestarp($row->created_at),
                                 "updated_at"=>$this->timestarp($row->updated_at),
                             ]
-                        ]);
+                        ],201);
                     }else{
                         return Controller::error(2);
                     }
@@ -123,7 +120,7 @@
                     return $this->error(3);
                 }
             }else{
-                return $this->error(3);
+                return $this->error(9);
             }
         }
 
@@ -163,119 +160,161 @@
             }
         }
 
-        public function getleftquota(Request $request){
+        public function edituserrole(Request $request, int $userid){
             if($request->header("Authorization")){
                 $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="USER"){
-                        $row=DB::table("user_quota_transactions")
-                            ->where("user_id","=",$tokendata["id"])
-                            ->sum("value");
-                        return response()->json([
-                            "success"=>true,
-                            "data"=>(int)$row
+                    if($tokendata["type"]=="admin"){
+                        $requestdata=Validator::make($request->all(),[
+                            "role"=>"required|string|in:user,admin"
+                        ],[
+                            "required"=>5,
+                            "string"=>5,
+                            "in"=>5,
                         ]);
-                    }else{
-                        return $this->error(3);
-                    }
-                }else{
-                    return $this->error(2);
-                }
-            }else{
-                return $this->error(2);
-            }
-        }
-
-        public function getquotalist(Request $request){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
-                if($tokendata!=-1){
-                    if($tokendata["type"]=="USER"){
-                        $row=DB::table("user_quota_transactions")
-                            ->where("user_id","=",$tokendata["id"])
-                            ->select("*")->get();
-
-                        $data=[];
-
-                        for($i=0;$i<count($row);$i=$i+1){
-                            $data[]=[
-                                "id"=>$row[$i]->id,
-                                "value"=>$row[$i]->value,
-                                "reason"=>$row[$i]->reason,
-                                "created_at"=>$this->timestarp($row[$i]->created_at)
-                            ];
-                        }
-
-                        return response()->json([
-                            "success"=>true,
-                            "data"=>$data
-                        ]);
-                    }else{
-                        return $this->error(3);
-                    }
-                }else{
-                    return $this->error(2);
-                }
-            }else{
-                return $this->error(2);
-            }
-        }
-
-        public function edituser(Request $request,$userid){
-            $requestdata=Validator::make($request->all(),[
-                "email"=>"string|email",
-                "nickname"=>"string",
-                "password"=>"string"
-            ],[
-                "required"=>4,
-                "string"=>5,
-                "email"=>5,
-            ]);
-            if(!$requestdata->fails()){
-                $requestdata=$requestdata->validated();
-                if($request->header("Authorization")){
-                    $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
-                    if($tokendata!=-1){
-                        if($tokendata["type"]=="ADMIN"){
+                        if(!$requestdata->fails()){
+                            $requestdata=$requestdata->validated();
                             $row=DB::table("users")
-                                ->where("id","=",$userid)
-                                ->select("*")->get();
-                            if($row->isNotEmpty()){
+                                ->where("user_id","=",$userid)
+                                ->select("*")->first();
+                            if($row){
+                                if($row->is_banned){
+                                    return $this->error(11);
+                                }
+                                if($row->role=="admin"){
+                                    $adminrow=DB::table("users")
+                                        ->where("role","=","admin")
+                                        ->where("user_id","!=",$userid)
+                                        ->select("*")->get();
+                                    if($adminrow->isEmpty()){
+                                        return $this->error(10);
+                                    }
+                                }
                                 DB::table("users")
-                                    ->where("id","=",$userid)
+                                    ->where("user_id","=",$userid)
                                     ->update([
-                                        "email"=>$request["email"]??$row[0]->email,
-                                        "nickname"=>$request["nickname"]??$row[0]->nickname,
-                                        "password_hash"=>Hash::make($request["password"])??$row[0]->password_hash
+                                        "role"=>$requestdata["role"]
                                     ]);
                                 $row=DB::table("users")
-                                    ->where("id","=",$userid)
-                                    ->select("*")->get();
+                                    ->where("user_id","=",$userid)
+                                    ->select("*")->first();
                                 return response()->json([
                                     "success"=>true,
                                     "data"=>[
-                                        "id"=>$row[0]->id,
-                                        "email"=>$row[0]->email,
-                                        "nickname"=>$row[0]->nickname,
-                                        "profile_image"=>url($row[0]->profile_image),
-                                        "type"=>$row[0]->type,
-                                        "created_at"=>$this->timestarp($row[0]->created_at)
+                                        "id"=>$row->id,
+                                        "email"=>$row->email,
+                                        "username"=>$row->username,
+                                        "role"=>$row->role,
+                                        "is_banned"=>$row->is_banned,
+                                        "created_at"=>$this->timestarp($row->created_at),
+                                        "updated_at"=>$this->timestarp($row->updated_at)
                                     ]
                                 ]);
                             }else{
-                                return $this->error(10);
+                                return $this->error(6);
                             }
                         }else{
-                            return $this->error(3);
+                            return $this->error($requestdata->errors()->first());
                         }
                     }else{
-                        return $this->error(2);
+                        return $this->error(8);
                     }
                 }else{
-                    return $this->error(2);
+                    return $this->error(3);
                 }
             }else{
-                return $this->error($requestdata->errors()->first());
+                return $this->error(9);
+            }
+        }
+
+        public function banuser(Request $request, int $userid){
+            if($request->header("Authorization")){
+                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+                if($tokendata!=-1){
+                    if($tokendata["type"]=="admin"){
+                        $row=DB::table("users")
+                            ->where("user_id","=",$userid)
+                            ->select("*")->first();
+                        if($row){
+                            if($tokendata["id"]==$userid){
+                                return $this->error(12);
+                            }
+                            if($row->role=="admin"){
+                                return $this->error(13);
+                            }
+                            DB::table("users")
+                                ->where("user_id","=",$userid)
+                                ->update([
+                                    "is_banned"=>true,
+                                    "token"=>NULL
+                                ]);
+                            $row=DB::table("users")
+                                ->where("user_id","=",$userid)
+                                ->select("*")->first();
+                            return response()->json([
+                                "success"=>true,
+                                "data"=>[
+                                    "id"=>$row->id,
+                                    "email"=>$row->email,
+                                    "username"=>$row->username,
+                                    "role"=>$row->role,
+                                    "is_banned"=>$row->is_banned,
+                                    "updated_at"=>$this->timestarp($row->updated_at)
+                                ]
+                            ]);
+                        }else{
+                            return $this->error(6);
+                        }
+                    }else{
+                        return $this->error(8);
+                    }
+                }else{
+                    return $this->error(3);
+                }
+            }else{
+                return $this->error(9);
+            }
+        }
+
+        public function unbanuser(Request $request, int $userid){
+            if($request->header("Authorization")){
+                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+                if($tokendata!=-1){
+                    if($tokendata["type"]=="admin"){
+                        $row=DB::table("users")
+                            ->where("user_id","=",$userid)
+                            ->select("*")->first();
+                        if($row){
+                            DB::table("users")
+                                ->where("user_id","=",$userid)
+                                ->update([
+                                    "is_banned"=>false
+                                ]);
+                            $row=DB::table("users")
+                                ->where("user_id","=",$userid)
+                                ->select("*")->first();
+                            return response()->json([
+                                "success"=>true,
+                                "data"=>[
+                                    "id"=>$row->id,
+                                    "email"=>$row->email,
+                                    "username"=>$row->username,
+                                    "role"=>$row->role,
+                                    "is_banned"=>$row->is_banned,
+                                    "updated_at"=>$this->timestarp($row->updated_at)
+                                ]
+                            ]);
+                        }else{
+                            return $this->error(6);
+                        }
+                    }else{
+                        return $this->error(8);
+                    }
+                }else{
+                    return $this->error(3);
+                }
+            }else{
+                return $this->error(9);
             }
         }
 

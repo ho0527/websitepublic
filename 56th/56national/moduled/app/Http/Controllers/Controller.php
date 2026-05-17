@@ -37,20 +37,22 @@
 
         public function error(int $key){
             $data=[
-                ["Login Failed",403],
-                ["Username already taken",409],
-                ["Email already taken",400],
-                ["Invalid access token",401],
-                ["Permission denied",403],
-                ["Validation failed",400],
-                ["Not found",404],
-                ["Cover Not Found",404],
-                ["MSG_TASKTYPE_INPUT_NAME_EXISTS",409],
-                ["MSG_USER_QUOTA_IS_EMPTY",409],
-                ["MSG_USER_NOT_EXISTS",404],
-                ["MSG_NO_TASK_PENDING",404],
-                ["MSG_TASKTYPE_NOT_EXISTS",404],
-                ["MSG_WORKER_NOT_EXISTS",404],
+                ["Login Failed",403], // 0
+                ["Username already taken",409], // 1
+                ["Email already taken",400], // 2
+                ["Invalid access token",401], // 3
+                ["Permission denied",403], // 4
+                ["Validation failed",400], // 5
+                ["Not found",404], // 6
+                ["Cover Not Found",404], // 7
+                ["Admin access required",403], // 8
+                ["Access Token is required",401], // 9
+                ["Last admin domotion forbidden",403], // 10
+                ["Banned user update failed",409], // 11
+                ["Cannot ban self",400], // 12
+                ["Cannot ban order admin",403], // 13
+                ["User is banned",403], // 14
+                ["Invalid year format",400], // 15
                 ["[delete]",400],
                 ["MSG_TASKTYPE_TYPE_ERROR",400],
                 ["MSG_TASKTYPE_NAME_EXISTS",409],
