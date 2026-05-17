@@ -42,8 +42,8 @@
 
                                 for($j=0;$j<count($inputrow);$j=$j+1){
                                     $input[]=[
-                                         "name"=>$inputrow[$j]->name,
-                                         "type"=>$inputrow[$j]->type
+                                        "name"=>$inputrow[$j]->name,
+                                        "type"=>$inputrow[$j]->type
                                     ];
                                 }
 
@@ -160,7 +160,7 @@
 
         public function getsong(Request $request,int $songid){
             if($request->header("X-Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("X-Authorization"))[1]);
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
                     $row=DB::table("songs")
                         ->where("song_id","=",$songid)
@@ -177,7 +177,7 @@
                             $labelrow=DB::table("labels")
                                 ->where("label_id","=",$songlabelrow[$j]->label_id)
                                 ->select("*")->first();
-                            $songlabeldata[]=$labelrow->label;
+                            $songlabeldata[]=$labelrow->name;
                         }
 
                         DB::table("user_view_logs")

@@ -106,7 +106,7 @@
 
         public function signout(Request $request){
             if($request->header("X-Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("X-Authorization"))[1]);
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
                     DB::table("users")
                         ->where("user_id","=",$tokendata["id"])
@@ -126,9 +126,9 @@
 
         public function getuserlist(Request $request){
             if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("X-Authorization"))[1]);
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="ADMIN"){
+                    if($tokendata["role"]=="ADMIN"){
                         $row=DB::table("users")
                             ->select("*")->get();
                         $data=[];
@@ -161,10 +161,10 @@
         }
 
         public function edituserrole(Request $request, int $userid){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+            if($request->header("X-Authorization")){
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="admin"){
+                    if($tokendata["role"]=="admin"){
                         $requestdata=Validator::make($request->all(),[
                             "role"=>"required|string|in:user,admin"
                         ],[
@@ -201,7 +201,7 @@
                                 return response()->json([
                                     "success"=>true,
                                     "data"=>[
-                                        "id"=>$row->id,
+                                        "id"=>$row->user_id,
                                         "email"=>$row->email,
                                         "username"=>$row->username,
                                         "role"=>$row->role,
@@ -228,10 +228,10 @@
         }
 
         public function banuser(Request $request, int $userid){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+            if($request->header("X-Authorization")){
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="admin"){
+                    if($tokendata["role"]=="admin"){
                         $row=DB::table("users")
                             ->where("user_id","=",$userid)
                             ->select("*")->first();
@@ -254,7 +254,7 @@
                             return response()->json([
                                 "success"=>true,
                                 "data"=>[
-                                    "id"=>$row->id,
+                                    "id"=>$row->user_id,
                                     "email"=>$row->email,
                                     "username"=>$row->username,
                                     "role"=>$row->role,
@@ -277,10 +277,10 @@
         }
 
         public function unbanuser(Request $request, int $userid){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+            if($request->header("X-Authorization")){
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="admin"){
+                    if($tokendata["role"]=="admin"){
                         $row=DB::table("users")
                             ->where("user_id","=",$userid)
                             ->select("*")->first();
@@ -296,7 +296,7 @@
                             return response()->json([
                                 "success"=>true,
                                 "data"=>[
-                                    "id"=>$row->id,
+                                    "id"=>$row->user_id,
                                     "email"=>$row->email,
                                     "username"=>$row->username,
                                     "role"=>$row->role,
@@ -331,7 +331,7 @@
                 if($request->header("Authorization")){
                     $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
                     if($tokendata!=-1){
-                        if($tokendata["type"]=="ADMIN"){
+                        if($tokendata["role"]=="ADMIN"){
                             $row=DB::table("users")
                                 ->where("id","=",$userid)
                                 ->select("*")->get();

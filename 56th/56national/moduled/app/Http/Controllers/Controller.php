@@ -22,6 +22,7 @@
         }
 
         public function logincheck(string $token){
+            $token=str_replace("Bearer ","",$token);
             $row=DB::table("users")
                 ->where("token","=",$token)
                 ->select("*")->get();

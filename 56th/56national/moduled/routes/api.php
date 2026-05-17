@@ -23,7 +23,7 @@
     Route::GET("/albums",[album::class,"getalbumlist"]);
     Route::GET("/albums/{albumid}",[album::class,"getalbum"]);
     Route::GET("/albums/{albumid}/cover",[album::class,"getalbumcover"]);
-    Route::GET("/albums/{albumid}/songs",[song::class,"getalbumsonglist"]);
+    Route::GET("/albums/{albumid}/songs",[album::class,"getalbumsonglist"]);
     Route::GET("/songs/{songid}/cover",[song::class,"getsongcover"]);
     Route::GET("/songs",[song::class,"getsonglist"]);
 

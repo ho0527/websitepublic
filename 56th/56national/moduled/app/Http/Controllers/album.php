@@ -9,76 +9,6 @@
     use PhpParser\Node\Stmt\Const_;
 
     class album extends Controller{
-        public function getalbumtype(Request $request){
-            $requestdata=Validator::make($request->all(),[
-                "order_by"=>"string|in:created_at",
-                "order_type"=>"string|in:asc,desc",
-                "page"=>"interger",
-                "page_size"=>"interger"
-            ],[
-                "string"=>5,
-                "interger"=>5,
-                "in"=>5
-            ]);
-
-            if(!$requestdata->fails()){
-                if($request->header("Authorization")){
-                    $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
-                    if($tokendata!=-1){
-                        if($tokendata["type"]=="ADMIN"){
-                            $data=[];
-                            $row=DB::table("album_types")
-                                ->orderBy($request["order_by"]??"created_at",$request["order_type"]??"asc")
-                                ->skip(($request["page"]??1-1)*($request["page_size"]??10))
-                                ->take($request["page_size"]??10)
-                                ->select("*")->get();
-
-                            for($i=0;$i<count($row);$i=$i+1){
-                                $input=[];
-
-                                $inputrow=DB::table("album_type_inputs")
-                                    ->where("album_type_id","=",$row[$i]->id)
-                                    ->select("*")->get();
-
-                                for($j=0;$j<count($inputrow);$j=$j+1){
-                                    $input[]=[
-                                         "name"=>$inputrow[$j]->name,
-                                         "type"=>$inputrow[$j]->type
-                                    ];
-                                }
-
-                                $data[]=[
-                                    "id"=>$row[$i]->id,
-                                    "name"=>$row[$i]->name,
-                                    "inputs"=>$input,
-                                    "created_at"=>$this->timestarp($row[$i]->created_at)
-                                ];
-                            }
-
-                            $row=DB::table("album_types")
-                                ->select("*")->get();
-
-                            return response()->json([
-                                "success"=>true,
-                                "data"=>[
-                                    "total_count"=>count($row),
-                                    "posts"=>$data
-                                ]
-                            ]);
-                        }else{
-                            return $this->error(3);
-                        }
-                    }else{
-                        return $this->error(2);
-                    }
-                }else{
-                    return $this->error(2);
-                }
-            }else{
-                return $this->error($requestdata->errors()->first());
-            }
-        }
-
         public function getalbumlist(Request $request){
             $requestdata=Validator::make($request->all(),[
                 "capital"=>"string",
@@ -124,6 +54,7 @@
                     ->where("release_year",">=",$startyear)
                     ->where("release_year","<=",$endyear)
                     ->where("title","like",$capital."%")
+                    ->whereNull("deleted_at")
                     ->limit($limit)
                     ->select("*")->get();
 
@@ -161,6 +92,7 @@
         public function getalbum(Request $request,int $albumid){
             $row=DB::table("albums")
                 ->where("album_id","=",$albumid)
+                ->whereNull("deleted_at")
                 ->select("*")->first();
 
             if($row){
@@ -194,6 +126,7 @@
         public function getalbumcover(Request $request,int $albumid){
             $row=DB::table("albums")
                 ->where("album_id","=",$albumid)
+                ->whereNull("deleted_at")
                 ->select("*")->first();
 
             if($row){
@@ -217,6 +150,7 @@
         public function getalbumsonglist(Request $request,int $albumid){
             $row=DB::table("albums")
                 ->where("album_id","=",$albumid)
+                ->whereNull("deleted_at")
                 ->select("*")->first();
 
             if($row){
@@ -237,7 +171,7 @@
                         $labelrow=DB::table("labels")
                             ->where("label_id","=",$songlabelrow[$j]->label_id)
                             ->select("*")->first();
-                        $songlabeldata[]=$labelrow->label;
+                        $songlabeldata[]=$labelrow->name;
                     }
 
                     $data[]=[
@@ -262,10 +196,10 @@
         }
 
         public function newalbum(Request $request){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+            if($request->header("X-Authorization")){
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="admin"){
+                    if($tokendata["role"]=="admin"){
                         $requestdata=Validator::make($request->all(),[
                             "title"=>"required|string",
                             "artist"=>"required|string",
@@ -336,10 +270,10 @@
         }
 
         public function editalbum(Request $request,int $albumid){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+            if($request->header("X-Authorization")){
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="admin"){
+                    if($tokendata["role"]=="admin"){
                         $row=DB::table("albums")
                             ->where("album_id","=",$albumid)
                             ->select("*")->first();
@@ -406,160 +340,36 @@
             }
         }
 
-        public function newalbumtype(Request $request){
-            $requestdata=Validator::make($request->all(),[
-                "name"=>"required|string",
-                "inputs"=>"required|array",
-                "inputs.*.name"=>"required|string",
-                "inputs.*.type"=>"required|string|in:string,number,boolean"
-            ],[
-                "required"=>4,
-                "string"=>5,
-                "array"=>5,
-                "in"=>5
-            ]);
-
-            if(!$requestdata->fails()){
-                if(preg_match("/^([a-z]|_|[0-9])+$/",$request["name"])){
-                    if($request->header("Authorization")){
-                        $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
-                        if($tokendata!=-1){
-                            if($tokendata["type"]=="ADMIN"){
-                                $tempnamelist=[];
-
-                                for($i=0;$i<count($request["inputs"]);$i=$i+1){
-                                    if(!in_array($request["inputs"][$i]["name"],$tempnamelist)){
-                                        $tempnamelist[]=$request["inputs"][$i]["name"];
-                                    }else{
-                                        return $this->error(8);
-                                    }
-                                }
-
-                                $row=DB::table("album_types")
-                                    ->where("name","=",$request["name"])
-                                    ->where("deleted_at","=",NULL)
-                                    ->select("*")->get();
-
-                                if($row->isEmpty()){
-                                    DB::table("album_types")->insert([
-                                        "name"=>$request["name"],
-                                        "created_at"=>$this->time()
-                                    ]);
-                                    $row=DB::table("album_types")
-                                        ->where("name","=",$request["name"])
-                                        ->select("*")->get();
-
-                                    $row=$row[count($row)-1];
-                                    $albumtypeid=$row->id;
-
-                                    for($i=0;$i<count($request["inputs"]);$i=$i+1){
-                                        DB::table("album_type_inputs")->insert([
-                                            "album_type_id"=>$albumtypeid,
-                                            "name"=>$request["inputs"][$i]["name"],
-                                            "type"=>$request["inputs"][$i]["type"]
-                                        ]);
-                                    }
-
-                                    return response()->json([
-                                        "success"=>true,
-                                        "data"=>[
-                                            "id"=>$albumtypeid,
-                                            "name"=>$request["name"],
-                                            "inputs"=>$request["inputs"],
-                                            "created_at"=>$row->created_at
-                                        ]
-                                    ]);
-                                }else{
-                                    return $this->error(16);
-                                }
-                            }else{
-                                return $this->error(3);
-                            }
-                        }else{
-                            return $this->error(2);
-                        }
-                    }else{
-                        return $this->error(2);
-                    }
-                }else{
-                    return $this->error(5);
-                }
-            }else{
-                return $this->error($requestdata->errors()->first());
-            }
-        }
-
         public function deletealbum(Request $request,int $albumid){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
+            if($request->header("X-Authorization")){
+                $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
-                    if($tokendata["type"]=="admin"){
-                        $row=DB::table("admin")
-                            ->where("id","=",$albumtypeid)
-                            ->where("deleted_at","=",NULL)
-                            ->select("*")->get();
-                        if($row->isNotEmpty()){
-                            DB::table("album_types")
-                                ->where("id","=",$albumtypeid)
+                    if($tokendata["role"]=="admin"){
+                        $row=DB::table("albums")
+                            ->where("album_id","=",$albumid)
+                            ->whereNull("deleted_at")
+                            ->select("*")->first();
+                        if($row){
+                            DB::table("albums")
+                                ->where("album_id","=",$albumid)
                                 ->update([
                                     "deleted_at"=>$this->time()
                                 ]);
 
                             return response()->json([
-                                "success"=>true,
-                                "data"=>""
+                                "success"=>true
                             ]);
                         }else{
-                            return $this->error(12);
+                            return $this->error(6);
                         }
                     }else{
-                        return $this->error(3);
+                        return $this->error(8);
                     }
                 }else{
-                    return $this->error(2);
+                    return $this->error(3);
                 }
             }else{
-                return $this->error(2);
-            }
-        }
-
-        public function cancelalbum(Request $request,$albumid){
-            if($request->header("Authorization")){
-                $tokendata=$this->logincheck(explode("Bearer ",$request->header("Authorization"))[1]);
-                if($tokendata!=-1){
-                    if($tokendata["type"]=="USER"){
-                        $row=DB::table("albums")
-                            ->where("id","=",$albumid)
-                            ->where("user_id","=",$tokendata["id"])
-                            ->select("*")->first();
-
-                        if($row){
-                            if($row->status=="pending"){
-                                DB::table("albums")
-                                    ->where("id","=",$albumid)
-                                    ->update([
-                                        "status"=>"canceled",
-                                        "updated_at"=>$this->time()
-                                    ]);
-
-                                return response()->json([
-                                    "success"=>true,
-                                    "data"=>""
-                                ]);
-                            }else{
-                                return $this->error(19);
-                            }
-                        }else{
-                            return $this->error(7);
-                        }
-                    }else{
-                        return $this->error(3);
-                    }
-                }else{
-                    return $this->error(2);
-                }
-            }else{
-                return $this->error(2);
+                return $this->error(9);
             }
         }
     }
