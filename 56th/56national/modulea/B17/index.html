@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			.input{
+				border: 2px solid #ccc;
+				border-radius: 5px;
+				padding: 10px;
+				outline: none;
+			}
+			.weak{
+				border-color: red;
+			}
+			.mid{
+				border-color: orange;
+			}
+			.strong{
+				border-color: green;
+			}
+			.text{
+				margin-top: 5px;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="password" id="password" class="input" placeholder="輸入密碼">
+
+		<script>
+
+			document.getElementById("password").oninput=function(){
+				let val=this.value
+				let len=val.length
+
+				let hasupper=/[A-Z]/.test(val)
+				let hasnum=/[0-9]/.test(val)
+				let hasspecial=/[^A-Za-z0-9]/.test(val)
+
+				this.className="input"
+
+				if(len<6){
+					this.classList.add("weak")
+					if(len==0){
+						this.classList="input"
+					}
+				}else if(len>=6&&hasupper&&hasnum){
+					if(len>=8&&hasspecial){
+						this.classList.add("strong")
+					}else{
+						this.classList.add("mid")
+					}
+				}else{
+					this.classList.add("weak")
+				}
+			}
+		</script>
+	</body>
+</html>
