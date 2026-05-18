@@ -125,38 +125,76 @@
         }
 
         public function getuserlist(Request $request){
-            if($request->header("Authorization")){
+            if($request->header("X-Authorization")){
                 $tokendata=$this->logincheck($request->header("X-Authorization"));
                 if($tokendata!=-1){
-                    if($tokendata["role"]=="ADMIN"){
-                        $row=DB::table("users")
-                            ->select("*")->get();
-                        $data=[];
-                        for($i=0;$i<count($row);$i=$i+1){
-                            $data[]=[
-                                "id"=>$row[$i]->id,
-                                "email"=>$row[$i]->email,
-                                "nickname"=>$row[$i]->nickname,
-                                "profile_image"=>url($row[$i]->profile_image),
-                                "type"=>$row[$i]->type,
-                                "created_at"=>$this->timestarp($row[$i]->created_at)
-                            ];
-                        }
-                        return response()->json([
-                            "success"=>true,
-                            "data"=>[
-                                "total_count"=>count($data),
-                                "users"=>$data
-                            ]
+                    if($tokendata["role"]=="admin"){
+                        $requestdata=Validator::make($request->all(),[
+                            "limit"=>"integer",
+                            "cursor"=>"string"
+                        ],[
+                            "string"=>19,
+                            "integer"=>19,
                         ]);
+
+                        if(!$requestdata->fails()){
+                            $requestdata=$requestdata->validated();
+
+                            $limit=$requestdata["limit"]??10;
+                            $cursor=$requestdata["cursor"]??null;
+                            $cursororg=$cursor;
+
+                            if($cursor!=null){
+                                $cursor=json_decode(base64_decode($cursor),true);
+                                if(isset($cursor["id"])){
+                                    $cursor=$cursor["id"];
+                                }else{
+                                    return $this->error(20);
+                                }
+                            }else{
+                                $cursor=0;
+                            }
+
+                            if($limit<1||100<$limit){
+                                return $this->error(19);
+                            }
+
+                            $data=[];
+                            $row=DB::table("users")
+                                ->where("user_id",">",$cursor)
+                                ->limit($limit)
+                                ->select("*")->get();
+
+                            for($i=0;$i<count($row);$i=$i+1){
+                                $data[]=[
+                                    "id"=>$row[$i]->user_id,
+                                    "email"=>$row[$i]->email,
+                                    "username"=>$row[$i]->username,
+                                    "is_banned"=>$row[$i]->is_banned,
+                                    "role"=>$row[$i]->role,
+                                    "created_at"=>$this->timestarp($row[$i]->created_at)
+                                ];
+                            }
+
+                            return response()->json([
+                                "success"=>true,
+                                "data"=>$data,
+                                "meta"=>[
+                                    "prev_cursor"=>$cursororg,
+                                    "next_cursor"=>count($row)==$limit?base64_encode(json_encode(["id"=>$row[count($row)-1]->user_id])):null
+                                ]
+                            ]);
+                        }else{
+                            return $this->error($requestdata->errors()->first());
+                        }
                     }else{
-                        return $this->error(3);
+                        return $this->error(8);
                     }
                 }else{
-                    return $this->error(2);
+                    return $this->error(3);
                 }
             }else{
-                return $this->error(2);
+                return $this->error(9);
             }
         }
 

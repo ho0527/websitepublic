@@ -30,6 +30,7 @@
     Route::POST("/logout",[user::class,"signout"]);
     Route::GET("/songs/{songid}",[song::class,"getsong"]);
 
+    Route::GET("/users",[user::class,"getuserlist"]);
     Route::PUT("/users/{userid}",[user::class,"edituserrole"]);
     Route::PUT("/users/{userid}/ban",[user::class,"banuser"]);
     Route::PUT("/users/{userid}/unban",[user::class,"unbanuser"]);
