@@ -29,6 +29,7 @@
 
     Route::POST("/logout",[user::class,"signout"]);
     Route::GET("/songs/{songid}",[song::class,"getsong"]);
+    Route::GET("/statistics",[song::class,"getstatistics"]);
 
     Route::GET("/users",[user::class,"getuserlist"]);
     Route::PUT("/users/{userid}",[user::class,"edituserrole"]);
@@ -38,7 +39,7 @@
     Route::PUT("/albums/{albumid}",[album::class,"editalbum"]);
     Route::DELETE("/albums/{albumid}",[album::class,"deletealbum"]);
     Route::POST("/albums/{albumid}/songs",[song::class,"newsong"]);
-    Route::PUT("/albums/{albumid}",[song::class,"editsongorder"]);
+    Route::PUT("/albums/{albumid}/songs/order",[song::class,"editsongorder"]);
     Route::POST("/albums/{albumid}/songs/{songid}",[song::class,"editsong"]);
     Route::DELETE("/albums/{albumid}/songs/{songid}",[song::class,"deletesong"]);
 

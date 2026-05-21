@@ -138,6 +138,7 @@
                 $songrow=DB::table("songs")
                     ->where("album_id","=",$row->album_id)
                     ->where("is_cover","=",true)
+                    ->whereNull("deleted_at")
                     ->orderBy("track_order","asc")
                     ->select("*")->first();
 
@@ -164,6 +165,7 @@
                 $songrow=DB::table("songs")
                     ->where("album_id","=",$row->album_id)
                     ->whereNull("deleted_at")
+                    ->orderBy("track_order","asc")
                     ->select("*")->get();
 
                 for($i=0;$i<count($songrow);$i=$i+1){
@@ -281,6 +283,7 @@
                     if($tokendata["role"]=="admin"){
                         $row=DB::table("albums")
                             ->where("album_id","=",$albumid)
+                            ->whereNull("deleted_at")
                             ->select("*")->first();
 
                         if($row){

@@ -76,7 +76,7 @@
                             "email"=>$requestdata["email"],
                             "password_hash"=>Hash::make($requestdata["password"]),
                             "username"=>$requestdata["username"],
-                            "role"=>"USER",
+                            "role"=>"user",
                             "created_at"=>Controller::time()
                         ]);
                         $row=DB::table("users")
@@ -170,8 +170,8 @@
                                     "id"=>$row[$i]->user_id,
                                     "email"=>$row[$i]->email,
                                     "username"=>$row[$i]->username,
-                                    "is_banned"=>$row[$i]->is_banned,
                                     "role"=>$row[$i]->role,
+                                    "is_banned"=>$row[$i]->is_banned,
                                     "created_at"=>$this->timestarp($row[$i]->created_at)
                                 ];
                             }

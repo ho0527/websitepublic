@@ -35,6 +35,7 @@ CREATE TABLE `albums` (
   `release_year` year(4) DEFAULT NULL,
   `genre` varchar(100) DEFAULT NULL,
   `description` text DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -43,18 +44,18 @@ CREATE TABLE `albums` (
 -- 傾印資料表的資料 `albums`
 --
 
-INSERT INTO `albums` (`album_id`, `publisher_id`, `title`, `artist`, `release_year`, `genre`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Morning Vibes', 'The Beatles', '2024', 'Relax', 'A relaxing collection of pop hits to start your day.', '2025-11-13 01:41:32', '2025-11-16 09:37:02'),
-(2, 1, 'Chill Nights', 'Chris', '2023', 'Lo-Fi', 'Smooth lo-fi tracks perfect for night study sessions.', '2025-11-13 01:41:32', '2025-11-13 01:56:28'),
-(3, 1, 'Exodus', 'Bob Marley & The Wailers', '1977', 'Reggae', 'A landmark album defining reggae music for a global audience, blending spiritual and political themes.', '2025-11-16 09:36:47', '2025-11-16 09:36:47'),
-(4, 1, 'I Never Loved a Man the Way I Love You', 'Aretha Franklin', '1967', 'Soul', 'The breakthrough album for the Queen of Soul, featuring the iconic anthem \"Respect\".', '2025-11-16 09:36:47', '2025-11-16 10:14:34'),
-(5, 1, 'Kind of Blue', 'Miles Davis', '1959', 'Modal Jazz', 'Often cited as the greatest jazz album ever; a masterpiece of modal improvisation. (Note: Modal Jazz, not general Jazz)', '2025-11-16 09:36:47', '2025-11-16 10:14:36'),
-(6, 1, 'Live at the Regal', 'B.B. King', '1965', 'Blues', 'Considered one of the greatest live blues recordings, capturing B.B. King\'s electrifying performance.', '2025-11-16 09:36:47', '2025-11-16 09:36:47'),
-(7, 1, 'Master of Puppets', 'Metallica', '1986', 'Metal', 'A defining album of the thrash metal genre, known for its complex compositions and dark lyrical content.', '2025-11-16 09:36:47', '2025-11-16 10:14:40'),
-(8, 1, 'Ramones', 'Ramones', '1976', 'Punk', 'The debut album that laid the groundwork for punk rock with its fast, minimalist, and aggressive sound.', '2025-11-16 09:36:47', '2025-11-16 10:14:42'),
-(9, 1, 'The Freewheelin\' Bob Dylan', 'Bob Dylan', '1963', 'Folk', 'Established Dylan as a seminal songwriter, filled with protest songs and poetic lyricism.', '2025-11-16 09:36:47', '2025-11-16 09:36:47'),
-(10, 1, 'Confessions', 'Usher', '2004', 'R&B', 'A dominant R&B album of the 2000s, exploring themes of infidelity and personal turmoil.', '2025-11-16 09:36:47', '2025-11-16 10:14:44'),
-(11, 1, 'Mothership Connection', 'Parliament', '1975', 'Funk', 'A definitive P-Funk album, blending deep grooves with Afrofuturist themes and concepts.', '2025-11-16 09:39:01', '2025-11-16 10:14:45');
+INSERT INTO `albums` (`album_id`, `publisher_id`, `title`, `artist`, `release_year`, `genre`, `description`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Morning Vibes', 'The Beatles', '2024', 'Relax', 'A relaxing collection of pop hits to start your day.', NULL, '2025-11-13 01:41:32', '2025-11-16 09:37:02'),
+(2, 1, 'Chill Nights', 'Chris', '2023', 'Lo-Fi', 'Smooth lo-fi tracks perfect for night study sessions.', NULL, '2025-11-13 01:41:32', '2025-11-13 01:56:28'),
+(3, 1, 'Exodus', 'Bob Marley & The Wailers', '1977', 'Reggae', 'A landmark album defining reggae music for a global audience, blending spiritual and political themes.', NULL, '2025-11-16 09:36:47', '2025-11-16 09:36:47'),
+(4, 1, 'I Never Loved a Man the Way I Love You', 'Aretha Franklin', '1967', 'Soul', 'The breakthrough album for the Queen of Soul, featuring the iconic anthem \"Respect\".', NULL, '2025-11-16 09:36:47', '2025-11-16 10:14:34'),
+(5, 1, 'Kind of Blue', 'Miles Davis', '1959', 'Modal Jazz', 'Often cited as the greatest jazz album ever; a masterpiece of modal improvisation. (Note: Modal Jazz, not general Jazz)', NULL, '2025-11-16 09:36:47', '2025-11-16 10:14:36'),
+(6, 1, 'Live at the Regal', 'B.B. King', '1965', 'Blues', 'Considered one of the greatest live blues recordings, capturing B.B. King\'s electrifying performance.', NULL, '2025-11-16 09:36:47', '2025-11-16 09:36:47'),
+(7, 1, 'Master of Puppets', 'Metallica', '1986', 'Metal', 'A defining album of the thrash metal genre, known for its complex compositions and dark lyrical content.', NULL, '2025-11-16 09:36:47', '2025-11-16 10:14:40'),
+(8, 1, 'Ramones', 'Ramones', '1976', 'Punk', 'The debut album that laid the groundwork for punk rock with its fast, minimalist, and aggressive sound.', NULL, '2025-11-16 09:36:47', '2025-11-16 10:14:42'),
+(9, 1, 'The Freewheelin\' Bob Dylan', 'Bob Dylan', '1963', 'Folk', 'Established Dylan as a seminal songwriter, filled with protest songs and poetic lyricism.', NULL, '2025-11-16 09:36:47', '2025-11-16 09:36:47'),
+(10, 1, 'Confessions', 'Usher', '2004', 'R&B', 'A dominant R&B album of the 2000s, exploring themes of infidelity and personal turmoil.', NULL, '2025-11-16 09:36:47', '2025-11-16 10:14:44'),
+(11, 1, 'Mothership Connection', 'Parliament', '1975', 'Funk', 'A definitive P-Funk album, blending deep grooves with Afrofuturist themes and concepts.', NULL, '2025-11-16 09:39:01', '2025-11-16 10:14:45');
 
 -- --------------------------------------------------------
 
