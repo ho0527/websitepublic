@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>C1 Pagination Board</title>
+	<style>
+		body{font-family:Arial,sans-serif;background:#f8fafc;margin:0;color:#0f172a}
+		main{max-width:720px;margin:auto;padding:28px}
+		form{display:flex;gap:8px;margin-bottom:18px}
+		input{flex:1;padding:10px;border:1px solid #94a3b8;border-radius:8px}
+		button{padding:10px 14px;border:0;border-radius:8px;background:#2563eb;color:white;cursor:pointer}
+		.msg{background:white;padding:14px;border-radius:8px;margin:8px 0;box-shadow:0 4px 12px #0001}
+		.pages button{margin-right:6px;background:#64748b}.pages .on{background:#16a34a}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Message Board</h1>
+		<form id="form"><input id="text" placeholder="Write a message"><button>Add</button></form>
+		<div id="list"></div>
+		<div class="pages" id="pages"></div>
+	</main>
+	<script>
+		let messages=Array.from({length:18},(_,i)=>`Sample message ${i+1}`)
+		let page=1,per=5
+		function render(){
+			const start=(page-1)*per
+			list.innerHTML=messages.slice(start,start+per).map(m=>`<div class="msg">${m}</div>`).join("")
+			const total=Math.ceil(messages.length/per)||1
+			page=Math.min(page,total)
+			pages.innerHTML=Array.from({length:total},(_,i)=>`<button class="${page===i+1?"on":""}" data-p="${i+1}">${i+1}</button>`).join("")
+			pages.querySelectorAll("button").forEach(b=>b.onclick=function(){page=Number(this.dataset.p);render()})
+		}
+		form.onsubmit=function(e){e.preventDefault();if(text.value.trim()){messages.unshift(text.value.trim());text.value="";page=1;render()}}
+		render()
+	</script>
+</body>
+</html>

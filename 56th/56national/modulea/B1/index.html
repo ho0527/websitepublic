@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B1 Quotes</title>
+	<style>
+		body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#e2e8f0}
+		header{position:sticky;top:0;background:#111827;padding:18px;text-align:center;box-shadow:0 2px 16px #0006}
+		#list{max-width:720px;margin:auto;padding:18px;display:grid;gap:14px}
+		.quote{background:#1e293b;border-left:5px solid #38bdf8;border-radius:8px;padding:18px;line-height:1.5}
+		.author{color:#93c5fd;margin-top:8px;font-weight:bold}
+	</style>
+</head>
+<body>
+	<header><h1>Infinite Quotes</h1><p id="count"></p></header>
+	<div id="list"></div>
+	<script>
+		const quotes=[
+			["Stay hungry, stay foolish.","Steve Jobs"],["Simplicity is the ultimate sophistication.","Leonardo da Vinci"],
+			["Code is like humor. When you have to explain it, it is bad.","Cory House"],["First, solve the problem. Then, write the code.","John Johnson"],
+			["Make it work, make it right, make it fast.","Kent Beck"],["Experience is the name everyone gives to their mistakes.","Oscar Wilde"]
+		]
+		let made=0
+		function addBatch(){
+			for(let i=0;i<8;i++){
+				const q=quotes[made%quotes.length]
+				const el=document.createElement("article")
+				el.className="quote"
+				el.innerHTML=`<div>"${q[0]}"</div><div class="author">- ${q[1]}</div>`
+				list.appendChild(el)
+				made++
+			}
+			count.textContent=`Loaded ${made} quotes`
+		}
+		addBatch()
+		window.onscroll=function(){
+			if(innerHeight+scrollY>=document.body.offsetHeight-80) addBatch()
+		}
+	</script>
+</body>
+</html>

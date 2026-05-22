@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>C7 Cascading Menu</title>
+	<style>
+		body{font-family:Arial,sans-serif;margin:0;min-height:100vh;background:#fefce8;display:grid;place-items:center}
+		main{width:min(640px,92vw);background:white;padding:24px;border-radius:12px;box-shadow:0 12px 30px #ca8a0433}
+		select{padding:10px;border-radius:8px;border:1px solid #d6a900;margin:6px;min-width:180px}
+		#path{margin-top:16px;font-weight:bold}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Hierarchical Select</h1>
+		<div id="menus"></div>
+		<div id="path"></div>
+	</main>
+	<script>
+		const data={
+			Asia:{Taiwan:["Taipei","Taichung","Kaohsiung"],Japan:["Tokyo","Osaka","Kyoto"]},
+			Europe:{France:["Paris","Lyon"],Italy:["Rome","Milan"]},
+			America:{USA:["New York","Seattle"],Canada:["Toronto","Vancouver"]}
+		}
+		function makeSelect(values,level){
+			const s=document.createElement("select")
+			s.innerHTML='<option value="">Choose</option>'+values.map(v=>`<option>${v}</option>`).join("")
+			s.onchange=function(){while(menus.children.length>level+1)menus.lastChild.remove();next(level,this.value);showPath()}
+			menus.appendChild(s)
+		}
+		function next(level,value){
+			if(!value) return
+			if(level===0) makeSelect(Object.keys(data[value]),1)
+			if(level===1) makeSelect(data[menus.children[0].value][value],2)
+		}
+		function showPath(){path.textContent=Array.from(menus.children).map(s=>s.value).filter(Boolean).join(" > ")}
+		makeSelect(Object.keys(data),0)
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>C6 Anagram Search</title>
+	<style>
+		body{font-family:Arial,sans-serif;margin:0;min-height:100vh;background:#ecfeff;display:grid;place-items:center}
+		main{width:min(620px,92vw);background:white;padding:24px;border-radius:12px;box-shadow:0 12px 32px #0891b233}
+		input{width:100%;padding:12px;border:1px solid #67e8f9;border-radius:8px;font-size:18px}
+		#result{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+		span{padding:8px 12px;background:#cffafe;border-radius:999px}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Anagram Search</h1>
+		<input id="query" placeholder="Type letters, e.g. listen">
+		<div id="result"></div>
+	</main>
+	<script>
+		const words=["listen","silent","enlist","inlets","stone","tones","notes","apple","plea","pale","leap","earth","heart","hater"]
+		const key=s=>s.toLowerCase().replace(/[^a-z]/g,"").split("").sort().join("")
+		query.oninput=function(){
+			const k=key(this.value)
+			result.innerHTML=k?words.filter(w=>key(w)===k).map(w=>`<span>${w}</span>`).join(""):""
+			if(k&&!result.innerHTML) result.textContent="No matches"
+		}
+		query.value="listen";query.oninput()
+	</script>
+</body>
+</html>

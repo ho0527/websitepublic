@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>D2 Round Crop</title>
+	<style>
+		body{margin:0;min-height:100vh;background:#f8fafc;font-family:Arial,sans-serif;display:grid;place-items:center}
+		main{text-align:center}
+		.avatar{width:260px;height:260px;border-radius:50%;object-fit:cover;object-position:center;border:10px solid white;box-shadow:0 16px 40px #0f172a33}
+		.controls{margin-top:16px}
+		input{width:260px}
+	</style>
+</head>
+<body>
+	<main>
+		<img id="photo" class="avatar" src="people.jpg" alt="portrait">
+		<h1>Circle Profile Crop</h1>
+		<div class="controls"><label>Zoom <input id="zoom" type="range" min="100" max="170" value="100"></label></div>
+	</main>
+	<script>
+		zoom.oninput=function(){photo.style.width=photo.style.height=this.value*2.6+"px";photo.style.maxWidth="80vw"}
+	</script>
+</body>
+</html>

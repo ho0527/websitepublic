@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A13 Register</title>
+	<style>
+		body{margin:0;min-height:100vh;background:#eef2f7;display:grid;place-items:center;font-family:Arial,sans-serif}
+		form{width:min(420px,92vw);background:white;padding:26px;border-radius:12px;box-shadow:0 16px 40px #1f293733}
+		label{display:block;margin-top:14px;font-weight:bold}
+		input{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px;margin-top:6px}
+		.error{color:#dc2626;font-size:13px;min-height:18px}
+		button{width:100%;margin-top:18px;border:0;border-radius:8px;padding:12px;background:#2563eb;color:white;font-weight:bold}
+		.ok{color:#16a34a;text-align:center;font-weight:bold}
+	</style>
+</head>
+<body>
+	<form id="form">
+		<h1>Register</h1>
+		<label>Name<input id="name" autocomplete="name"></label><div class="error" id="eName"></div>
+		<label>Email<input id="email" autocomplete="email"></label><div class="error" id="eEmail"></div>
+		<label>Password<input id="password" type="password"></label><div class="error" id="ePassword"></div>
+		<label>Confirm Password<input id="confirm" type="password"></label><div class="error" id="eConfirm"></div>
+		<button>Create account</button>
+		<p class="ok" id="ok"></p>
+	</form>
+	<script>
+		const formEl=document.getElementById("form")
+		const nameEl=document.getElementById("name")
+		const emailEl=document.getElementById("email")
+		const passwordEl=document.getElementById("password")
+		const confirmEl=document.getElementById("confirm")
+		const errors=[eName,eEmail,ePassword,eConfirm]
+		formEl.onsubmit=function(e){
+			e.preventDefault()
+			eName.textContent=nameEl.value.trim()?"":"Name is required"
+			eEmail.textContent=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)?"":"Email is invalid"
+			ePassword.textContent=passwordEl.value.length>=8?"":"Password needs at least 8 characters"
+			eConfirm.textContent=passwordEl.value===confirmEl.value?"":"Passwords do not match"
+			ok.textContent=errors.every(x=>!x.textContent)?"Registration complete":""
+		}
+	</script>
+</body>
+</html>

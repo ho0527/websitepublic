@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A4 Tunnel</title>
+	<style>
+		body{margin:0;height:100vh;background:#04070c;overflow:hidden;display:grid;place-items:center}
+		.tunnel{position:relative;width:min(90vmin,780px);aspect-ratio:1;perspective:600px;transform-style:preserve-3d}
+		.ring{position:absolute;inset:50%;width:30vmin;height:30vmin;margin:-15vmin;border:5px solid hsl(var(--h),90%,62%);box-shadow:0 0 26px hsl(var(--h),90%,60%);transform:translateZ(var(--z)) rotate(var(--r));animation:fly 2.4s linear infinite;border-radius:18px}
+		@keyframes fly{from{transform:translateZ(-850px) rotate(var(--r));opacity:0}20%{opacity:1}to{transform:translateZ(420px) rotate(calc(var(--r) + 160deg));opacity:0}}
+	</style>
+</head>
+<body>
+	<div class="tunnel">
+		<script>
+			for(let i=0;i<28;i++){
+				document.write(`<i class="ring" style="--z:${-850+i*45}px;--r:${i*12}deg;--h:${190+i*8};animation-delay:${-i*.09}s"></i>`)
+			}
+		</script>
+	</div>
+</body>
+</html>

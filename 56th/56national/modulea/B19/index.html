@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B19 Move Box</title>
+	<style>
+		body {
+			position: relative;
+			margin: 0;
+			height: 100vh;
+			background: #111827;
+			color: white;
+			font-family: Arial, sans-serif;
+			overflow: hidden
+		}
+
+		#box {
+			position: absolute;
+			left: 40px;
+			top: 90px;
+			transform: translate(-50%,-50%);
+			width: 80px;
+			height: 80px;
+			background: #22c55e;
+			border-radius: 10px;
+			box-shadow: 0 0 24px #22c55e
+		}
+
+		.help {
+			padding: 20px
+		}
+	</style>
+</head>
+
+<body>
+	<div id="box"></div>
+	<script>
+		let x = innerWidth * 0.5 - 40
+		let y = innerHeight * 0.5 - 40
+		let step = 10
+		function draw() {
+			x = Math.max(0, Math.min(innerWidth - 80, x))
+			y = Math.max(50, Math.min(innerHeight - 80, y))
+			box.style.left = x + "px"; box.style.top = y + "px"
+		}
+		onkeydown = function (e) {
+			if (e.key === "ArrowLeft") x -= step
+			if (e.key === "ArrowRight") x += step
+			if (e.key === "ArrowUp") y -= step
+			if (e.key === "ArrowDown") y += step
+			draw()
+		}
+		draw()
+	</script>
+</body>
+
+</html>

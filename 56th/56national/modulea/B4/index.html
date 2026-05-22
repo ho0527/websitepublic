@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B4 Lightning</title>
+	<style>
+		body{margin:0;height:100vh;background:#050816;overflow:hidden;display:grid;place-items:center;color:#fff;font-family:Arial,sans-serif}
+		.sky{position:fixed;inset:0;background:radial-gradient(circle at 50% 10%,#1f2a55,#050816 60%);animation:flash 4s infinite}
+		svg{position:relative;width:min(70vw,520px);filter:drop-shadow(0 0 18px #fde047)}
+		.bolt{fill:none;stroke:#fef08a;stroke-width:12;stroke-linejoin:round;stroke-dasharray:900;animation:strike 1.5s infinite}
+		h1{position:absolute;bottom:12%;letter-spacing:6px}
+		@keyframes strike{0%,60%{stroke-dashoffset:900;opacity:0}63%,72%{stroke-dashoffset:0;opacity:1}76%,100%{opacity:0}}
+		@keyframes flash{0%,62%,74%,100%{filter:brightness(1)}64%,70%{filter:brightness(2.5)}}
+	</style>
+</head>
+<body>
+	<div class="sky"></div>
+	<svg viewBox="0 0 300 520" aria-label="lightning">
+		<polyline class="bolt" points="178 20 78 238 156 238 116 500 238 184 158 184 178 20"/>
+	</svg>
+	<h1>LIGHTNING</h1>
+</body>
+</html>

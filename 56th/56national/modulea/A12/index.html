@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A12 Theme</title>
+	<style>
+		:root {
+			--bg: #fff;
+			--fg: #222;
+			--card: #fff;
+			--accent: #222;
+		}
+
+		body.dark {
+			--bg: #222;
+			--fg: #fff;
+			--card: rgb(14, 17, 20);
+			--accent: #2563eb;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			background: var(--bg);
+			color: var(--fg);
+			font-family: Arial, sans-serif;
+			display: grid;
+			place-items: center;
+			transition: .3s
+		}
+
+		.card {
+			width: min(420px, 90vw);
+			padding: 28px;
+			border-radius: 14px;
+			background: var(--card);
+			box-shadow: 0 18px 45px #0003
+		}
+
+		button {
+			border: 0;
+			border-radius: 999px;
+			padding: 12px 18px;
+			background: var(--accent);
+			color: var(--card);
+			font-weight: bold;
+			cursor: pointer;
+			transition: .3s;
+		}
+
+		h1 {
+			margin-top: 0
+		}
+	</style>
+</head>
+
+<body>
+	<div class="card">
+		<h1>Light / Dark Mode</h1>
+		<p>Click the button to switch the page theme.</p>
+		<button id="toggle">關閉</button>
+	</div>
+	<script>
+		document.getElementById("toggle").onclick = function () {
+			document.body.classList.toggle("dark")
+			if (document.getElementById("toggle").innerHTML == "關閉") {
+				document.getElementById("toggle").innerHTML = "啟用"
+			} else {
+				document.getElementById("toggle").innerHTML = "關閉"
+			}
+			localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light")
+		}
+	</script>
+</body>
+
+</html>
