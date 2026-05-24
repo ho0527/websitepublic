@@ -1,36 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>B22 Favorites</title>
 	<style>
-		body{margin:0;min-height:100vh;background:#f1f5f9;font-family:Arial,sans-serif;color:#0f172a}
-		main{max-width:820px;margin:auto;padding:28px}
-		.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
-		.card{background:white;border-radius:10px;padding:16px;box-shadow:0 8px 24px #0f172a22}
-		button{border:0;border-radius:999px;padding:8px 12px;cursor:pointer}
-		.active{background:#facc15}
+		body {
+			margin: 0;
+			min-height: 100vh;
+			background: #f1f5f9;
+			font-family: Arial, sans-serif;
+			color: #0f172a
+		}
+
+		main {
+			max-width: 820px;
+			margin: auto;
+			padding: 28px
+		}
+
+		/* .grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			gap: 14px
+		} */
+
+		.card {
+			background: white;
+			border-radius: 10px;
+			width: 100%;
+			padding: 8px 16px;
+			box-shadow: 0 8px 24px #0f172a22;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin: 10px 0px;
+		}
+
+		button {
+			border: none;
+			background: none;
+			cursor: pointer;
+			font-size: 25px;
+			color: lightslategray;
+		}
+
+		.active {
+			color: #facc15;
+		}
 	</style>
 </head>
+
 <body>
 	<main>
 		<h1>Favorite Items</h1>
 		<div class="grid" id="grid"></div>
 	</main>
 	<script>
-		const items=["HTML","CSS","JavaScript","Canvas","Animation","API"]
-		let fav=JSON.parse(localStorage.getItem("favorites")||"[]")
-		function render(){
-			grid.innerHTML=items.map(name=>`<div class="card"><h2>${name}</h2><button class="${fav.includes(name)?"active":""}" data-name="${name}">${fav.includes(name)?"Saved":"Favorite"}</button></div>`).join("")
-			document.querySelectorAll("button").forEach(btn=>btn.onclick=function(){
-				const name=this.dataset.name
-				fav=fav.includes(name)?fav.filter(x=>x!==name):fav.concat(name)
-				localStorage.setItem("favorites",JSON.stringify(fav))
+		fetch("data.json")
+			.then(function (response) {
+				return response.json()
+			})
+			.then(function (data) {
+				const items = data
+				let fav = JSON.parse(localStorage.getItem("56nationmoduleab22favorite") || "[]")
+				function render() {
+					grid.innerHTML = items.map(name => `
+						<div class="card">
+							<div>
+								<h2>${name.name}</h2>
+								<p>${name.desc}</p>
+							</div>
+							<button class="${fav.includes(name.name) ? "active" : ""}" data-name="${name.name}">${fav.includes(name.name) ? "&starf;" : "&star;"}</button>
+						</div>
+					`).join("")
+					document.querySelectorAll("button").forEach(btn => btn.onclick = function () {
+						const name = this.dataset.name
+						fav = fav.includes(name) ? fav.filter(x => x !== name) : fav.concat(name)
+						localStorage.setItem("56nationmoduleab22favorite", JSON.stringify(fav))
+						render()
+					})
+				}
 				render()
 			})
-		}
-		render()
 	</script>
 </body>
+
 </html>

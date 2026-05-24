@@ -8,35 +8,59 @@
 		body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#e2e8f0}
 		header{position:sticky;top:0;background:#111827;padding:18px;text-align:center;box-shadow:0 2px 16px #0006}
 		#list{max-width:720px;margin:auto;padding:18px;display:grid;gap:14px}
-		.quote{background:#1e293b;border-left:5px solid #38bdf8;border-radius:8px;padding:18px;line-height:1.5}
-		.author{color:#93c5fd;margin-top:8px;font-weight:bold}
+		.quote{background:#1e293b;border-left:5px solid #38bdf8;border-radius:8px;padding:18px;line-height:1.5;font-style: italic;}
+		.author{color:#93c5fd;margin-top:8px;font-weight:bold;text-align: right;font-style: normal;}
+		.note{
+			color: lightslategray;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
-	<header><h1>Infinite Quotes</h1><p id="count"></p></header>
+	<header><h1>Infinite Quotes</h1></header>
 	<div id="list"></div>
 	<script>
-		const quotes=[
-			["Stay hungry, stay foolish.","Steve Jobs"],["Simplicity is the ultimate sophistication.","Leonardo da Vinci"],
-			["Code is like humor. When you have to explain it, it is bad.","Cory House"],["First, solve the problem. Then, write the code.","John Johnson"],
-			["Make it work, make it right, make it fast.","Kent Beck"],["Experience is the name everyone gives to their mistakes.","Oscar Wilde"]
-		]
-		let made=0
-		function addBatch(){
-			for(let i=0;i<8;i++){
-				const q=quotes[made%quotes.length]
-				const el=document.createElement("article")
-				el.className="quote"
-				el.innerHTML=`<div>"${q[0]}"</div><div class="author">- ${q[1]}</div>`
-				list.appendChild(el)
-				made++
-			}
-			count.textContent=`Loaded ${made} quotes`
-		}
-		addBatch()
-		window.onscroll=function(){
-			if(innerHeight+scrollY>=document.body.offsetHeight-80) addBatch()
-		}
+		fetch("quotes.json")
+			.then(function(response){
+				return response.json()
+			})
+			.then(function(data){
+				const quotes=data
+				let made=0
+				function addBatch(){
+					if(quotes.length<=made){
+						return
+					}
+					let note=document.createElement("div")
+					note.className="note"
+					note.innerHTML=`Loading more qutoes... (正在載入更多引言...)`
+					list.appendChild(note)
+					setTimeout(function(){
+						document.getElementById("list").removeChild(note)
+					}, 100)
+					for(let i=0;i<8;i++){
+						const q=quotes[made%quotes.length]
+						const el=document.createElement("article")
+						el.className="quote"
+						el.innerHTML=`<div>"${q["text"]}"</div><div class="author">- ${q["author"]}</div>`
+						list.appendChild(el)
+						made++
+						if(quotes.length<=made){
+							break
+						}
+					}
+					if(quotes.length<=made){
+						const el=document.createElement("div")
+						el.className="note"
+						el.innerHTML=`已無更多名言可載入`
+						list.appendChild(el)
+					}
+				}
+				addBatch()
+				window.onscroll=function(){
+					if(innerHeight+scrollY>=document.body.offsetHeight-80) addBatch()
+				}
+			})
 	</script>
 </body>
 </html>
