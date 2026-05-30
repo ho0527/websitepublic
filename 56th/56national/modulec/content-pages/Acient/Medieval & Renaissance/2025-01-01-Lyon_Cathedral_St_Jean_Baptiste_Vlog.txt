@@ -1,6 +1,0 @@
----
-draft: true
-title: Writing in progress
----
-
-To-be written.

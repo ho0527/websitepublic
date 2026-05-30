@@ -1,0 +1,16 @@
+.slideshow.theme-a .slide.active {
+  animation: theme-a-still var(--speed) ease both;
+}
+
+.slideshow.theme-a .slide figcaption {
+  animation: theme-a-still calc(var(--speed) * 0.7) ease both;
+}
+
+@keyframes theme-a-still {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}

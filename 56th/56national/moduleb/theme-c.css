@@ -1,0 +1,32 @@
+.slideshow.theme-c .slide.active img {
+  animation: theme-c-photo var(--speed) cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.slideshow.theme-c .caption-word {
+  display: inline-block;
+  margin: 0 3px;
+  opacity: 0;
+  animation: theme-c-word calc(var(--speed) * 0.7) ease both;
+}
+
+@keyframes theme-c-photo {
+  0% {
+    opacity: 0;
+    transform: translateY(110%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes theme-c-word {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

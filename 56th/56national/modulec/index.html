@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f7f5ef">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="南港服務">
+    <title>南港展覽館服務</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <button class="back-button" type="button" aria-label="返回" hidden>
+                <span aria-hidden="true">‹</span>
+            </button>
+            <h1 id="viewTitle">停車場</h1>
+            <div class="location-pill" aria-live="polite">
+                <span id="locationText">定位中</span>
+            </div>
+        </header>
+
+        <main id="appMain" class="content" tabindex="-1">
+            <section id="parkingView" class="view active" aria-labelledby="parkingTitle">
+                <h2 id="parkingTitle" class="sr-only">停車場空位清單</h2>
+                <div id="parkingList" class="list" aria-live="polite"></div>
+            </section>
+
+            <section id="parkingDetailView" class="view" aria-labelledby="parkingDetailTitle">
+                <h2 id="parkingDetailTitle" class="sr-only">停車場詳細資訊</h2>
+                <article id="parkingDetail" class="detail-panel"></article>
+            </section>
+
+            <section id="eventsView" class="view" aria-labelledby="eventsTitle">
+                <h2 id="eventsTitle" class="sr-only">活動清單</h2>
+                <form class="filter-bar" id="eventFilter">
+                    <label>
+                        開始日期
+                        <input id="startDate" type="date" autocomplete="off">
+                    </label>
+                    <label>
+                        結束日期
+                        <input id="endDate" type="date" autocomplete="off">
+                    </label>
+                </form>
+                <div id="eventList" class="event-list" aria-live="polite"></div>
+                <p id="eventStatus" class="status-text" role="status"></p>
+            </section>
+
+            <section id="weatherView" class="view" aria-labelledby="weatherTitle">
+                <h2 id="weatherTitle" class="sr-only">未來一週天氣</h2>
+                <div id="weatherTrack" class="weather-track" aria-label="未來一週天氣"></div>
+            </section>
+
+            <section id="settingsView" class="view" aria-labelledby="settingsTitle">
+                <h2 id="settingsTitle" class="sr-only">設定</h2>
+                <div class="settings-stack">
+                    <fieldset class="setting-group">
+                        <legend>佈景主題</legend>
+                        <label><input type="radio" name="theme" value="light"> 淺色</label>
+                        <label><input type="radio" name="theme" value="dark"> 深色</label>
+                        <label><input type="radio" name="theme" value="system"> 跟隨系統</label>
+                    </fieldset>
+                    <fieldset class="setting-group">
+                        <legend>停車場排序方式</legend>
+                        <label class="switch-row">
+                            <span>按字母排序</span>
+                            <input id="sortToggle" type="checkbox" role="switch" aria-label="切換停車場排序方式">
+                            <span>按距離排序</span>
+                        </label>
+                    </fieldset>
+                </div>
+            </section>
+        </main>
+
+        <nav class="tabbar" aria-label="主要導覽">
+            <button class="tab-button active" type="button" data-view="parking">
+                <span aria-hidden="true">P</span>
+                停車場
+            </button>
+            <button class="tab-button" type="button" data-view="events">
+                <span aria-hidden="true">E</span>
+                活動
+            </button>
+            <button class="tab-button" type="button" data-view="weather">
+                <span aria-hidden="true">W</span>
+                天氣
+            </button>
+            <button class="tab-button" type="button" data-view="settings">
+                <span aria-hidden="true">S</span>
+                設定
+            </button>
+        </nav>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>

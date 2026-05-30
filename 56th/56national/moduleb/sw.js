@@ -1,23 +1,21 @@
-let CACHE_NAME="demo-cache"
-let FILES_TO_CACHE=[
-    "/",
-    "index.html",
-    "index.css",
-    "index.js"
-]
+self.addEventListener("install", (event) => {
+  self.skipWaiting();
+});
 
-self.addEventListener("install",function(event){
-    event.waitUntil(
-        caches.open(CACHE_NAME).then(function(cache){
-            return cache.addAll(FILES_TO_CACHE)
-        })
-    )
-})
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys()
+      .then((names) => Promise.all(names.map((name) => caches.delete(name))))
+      .then(() => self.registration.unregister())
+  );
+});
 
-self.addEventListener("fetch",function(event){
-    event.respondWith(
-        caches.match(event.request).then(function(response){
-            return response!=null?response:fetch(event.request)
-        })
-    )
-})
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+  event.respondWith(
+    fetch(event.request).catch(() => new Response("", {
+      status: 504,
+      statusText: "Service worker removed"
+    }))
+  );
+});

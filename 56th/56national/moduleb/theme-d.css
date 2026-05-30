@@ -1,0 +1,45 @@
+.slideshow.theme-d {
+  background:
+    linear-gradient(135deg, rgba(31, 111, 109, 0.28), rgba(238, 178, 95, 0.18)),
+    #0a0f12;
+}
+
+.slideshow.theme-d .slide.active img {
+  animation: theme-d-photo var(--speed) ease both;
+  filter: saturate(1.08) contrast(1.02);
+}
+
+.slideshow.theme-d .slide.active figcaption {
+  background: rgba(255, 255, 255, 0.9);
+  color: #14201f;
+  animation: theme-d-caption calc(var(--speed) * 0.72) ease both;
+}
+
+body.dark .slideshow.theme-d .slide.active figcaption {
+  background: rgba(20, 32, 31, 0.88);
+  color: #f7f4ed;
+}
+
+@keyframes theme-d-photo {
+  0% {
+    opacity: 0;
+    clip-path: inset(14% 14% 14% 14%);
+    transform: scale(1.08) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes theme-d-caption {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
