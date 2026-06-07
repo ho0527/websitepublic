@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<title>多步驟表單</title>
+
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			font-family: Arial, "Microsoft JhengHei", sans-serif;
+			background: linear-gradient(135deg, #dbeafe, #f5f3ff);
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		/* 隱藏控制用 radio */
+		.step-radio {
+			display: none;
+		}
+
+		.form-card {
+			width: 420px;
+			padding: 32px;
+			background: #ffffff;
+			border-radius: 18px;
+			box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+			overflow: hidden;
+		}
+
+		.title {
+			text-align: center;
+			margin-bottom: 24px;
+		}
+
+		.title h1 {
+			margin: 0 0 8px;
+			font-size: 28px;
+			color: #1f2937;
+		}
+
+		.title p {
+			margin: 0;
+			color: #6b7280;
+			font-size: 14px;
+		}
+
+		.steps {
+			position: relative;
+			height: 280px;
+		}
+
+		.step {
+			position: absolute;
+			inset: 0;
+
+			opacity: 0;
+			transform: translateX(40px);
+			pointer-events: none;
+
+			transition: opacity 0.4s ease, transform 0.4s ease;
+		}
+
+		.step h2 {
+			margin-top: 0;
+			margin-bottom: 20px;
+			color: #111827;
+			font-size: 22px;
+		}
+
+		.form-group {
+			margin-bottom: 16px;
+		}
+
+		.form-group label {
+			display: block;
+			margin-bottom: 6px;
+			color: #374151;
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		.form-group input {
+			width: 100%;
+			padding: 12px 14px;
+			border: 1px solid #d1d5db;
+			border-radius: 10px;
+			font-size: 16px;
+			outline: none;
+			transition: 0.2s;
+		}
+
+		.form-group input:focus {
+			border-color: #6366f1;
+			box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+		}
+
+		.button-row {
+			display: flex;
+			justify-content: space-between;
+			gap: 12px;
+			margin-top: 24px;
+		}
+
+		.btn {
+			flex: 1;
+			padding: 12px 16px;
+			border: none;
+			border-radius: 10px;
+			font-size: 16px;
+			text-align: center;
+			cursor: pointer;
+			transition: 0.25s;
+		}
+
+		.btn-primary {
+			background: #4f46e5;
+			color: white;
+		}
+
+		.btn-primary:hover {
+			background: #4338ca;
+		}
+
+		.btn-secondary {
+			background: #e5e7eb;
+			color: #374151;
+		}
+
+		.btn-secondary:hover {
+			background: #d1d5db;
+		}
+
+		.confirm-box {
+			padding: 18px;
+			background: #f9fafb;
+			border: 1px solid #e5e7eb;
+			border-radius: 12px;
+			color: #374151;
+			line-height: 1.7;
+		}
+
+		/* 第 1 步顯示 */
+		#step-1:checked~.form-card .step-1 {
+			opacity: 1;
+			transform: translateX(0);
+			pointer-events: auto;
+		}
+
+		/* 第 2 步顯示 */
+		#step-2:checked~.form-card .step-2 {
+			opacity: 1;
+			transform: translateX(0);
+			pointer-events: auto;
+		}
+
+		/* 第 3 步顯示 */
+		#step-3:checked~.form-card .step-3 {
+			opacity: 1;
+			transform: translateX(0);
+			pointer-events: auto;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- CSS-only 狀態控制 -->
+	<input class="step-radio" type="radio" name="step" id="step-1" checked>
+	<input class="step-radio" type="radio" name="step" id="step-2">
+	<input class="step-radio" type="radio" name="step" id="step-3">
+
+	<form class="form-card">
+		<div class="steps">
+			<!-- Step 1 -->
+			<div class="step step-1">
+				<h2>第 1 步：個人資料</h2>
+				<div class="form-group">
+					<label for="name">姓名</label>
+					<input type="text" id="name" placeholder="請輸入姓名">
+				</div>
+				<div class="form-group">
+					<label for="email">電子郵件</label>
+					<input type="email" id="email" placeholder="請輸入電子郵件">
+				</div>
+				<div class="button-row">
+					<label class="btn btn-primary" for="step-2">下一步</label>
+				</div>
+			</div>
+			<!-- Step 2 -->
+			<div class="step step-2">
+				<h2>第 2 步：地址</h2>
+				<div class="form-group">
+					<label for="street">街道</label>
+					<input type="text" id="street" placeholder="請輸入街道">
+				</div>
+				<div class="form-group">
+					<label for="city">城市</label>
+					<input type="text" id="city" placeholder="請輸入城市">
+				</div>
+				<div class="button-row">
+					<label class="btn btn-secondary" for="step-1">上一步</label>
+					<label class="btn btn-primary" for="step-3">下一步</label>
+				</div>
+			</div>
+			<!-- Step 3 -->
+			<div class="step step-3">
+				<h2>第 3 步：確認</h2>
+				<div class="confirm-box">
+					請確認你填寫的個人資料與地址資訊。
+					若資料無誤，請按下送出按鈕完成表單。
+				</div>
+				<div class="button-row">
+					<label class="btn btn-secondary" for="step-2">上一步</label>
+					<button class="btn btn-primary" type="submit">送出</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

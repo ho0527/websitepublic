@@ -92,7 +92,7 @@ button {
     height: calc(var(--topbar-height) + env(safe-area-inset-top));
     padding: calc(12px + env(safe-area-inset-top)) 14px 10px;
     display: grid;
-    grid-template-columns: 44px 1fr auto;
+    grid-template-columns: 1fr auto;
     align-items: center;
     gap: 8px;
     background: color-mix(in srgb, var(--bg) 92%, transparent);
@@ -131,6 +131,7 @@ button {
     overflow-y: auto;
     padding: calc(var(--topbar-height) + env(safe-area-inset-top) + 14px) 14px calc(var(--tabbar-height) + env(safe-area-inset-bottom) + 16px);
     scroll-behavior: smooth;
+    position: relative;
 }
 
 .view {
@@ -139,6 +140,10 @@ button {
 
 .view.active {
     display: block;
+}
+
+#weatherView {
+    transform: translate(0px, 50%);
 }
 
 .list,
@@ -334,7 +339,7 @@ button {
     height: 132px;
     justify-self: center;
     fill: none;
-    stroke: #1c3e60;
+    stroke: #4e8ecf;
     stroke-width: 1;
     stroke-linecap: round;
     stroke-linejoin: round;

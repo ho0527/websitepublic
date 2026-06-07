@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<title>B24 碼錶</title>
+	<style>
+		body {
+			font-family: Arial, "Microsoft JhengHei", sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background: #f4f4f4;
+		}
+
+		.stopwatch {
+			width: 320px;
+			padding: 30px;
+			text-align: center;
+			background: white;
+			border-radius: 16px;
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+		}
+
+		.time {
+			font-size: 42px;
+			font-weight: bold;
+			margin-bottom: 24px;
+			letter-spacing: 2px;
+		}
+
+		.buttons {
+			display: flex;
+			justify-content: center;
+			gap: 12px;
+		}
+
+		button {
+			padding: 10px 24px;
+			font-size: 18px;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			background: #2563eb;
+			color: white;
+		}
+
+		button:hover {
+			background: #1d4ed8;
+		}
+
+		#resetBtn {
+			background: #dc2626;
+			display: none;
+		}
+
+		#resetBtn:hover {
+			background: #b91c1c;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="stopwatch">
+		<div id="timeDisplay" class="time">00:00:000</div>
+
+		<div class="buttons">
+			<button id="controlBtn">開始</button>
+			<button id="resetBtn">重設</button>
+		</div>
+	</div>
+
+	<script>
+		const timeDisplay = document.getElementById("timeDisplay");
+		const controlBtn = document.getElementById("controlBtn");
+		const resetBtn = document.getElementById("resetBtn");
+
+		let state = "initial";
+		// initial = 初始
+		// running = 計時中
+		// paused = 暫停中
+
+		let startTime = 0;
+		let elapsedTime = 0;
+		let animationId = null;
+
+		function formatTime(ms) {
+			const minutes = Math.floor(ms / 60000);
+			const seconds = Math.floor((ms % 60000) / 1000);
+			const milliseconds = Math.floor(ms % 1000);
+
+			return (
+				String(minutes).padStart(2, "0") + ":" +
+				String(seconds).padStart(2, "0") + ":" +
+				String(milliseconds).padStart(3, "0")
+			);
+		}
+
+		function updateDisplay() {
+			timeDisplay.textContent = formatTime(elapsedTime);
+		}
+
+		function updateButtons() {
+			if (state === "initial") {
+				controlBtn.textContent = "開始";
+				resetBtn.style.display = "none";
+			} else if (state === "running") {
+				controlBtn.textContent = "停止";
+				resetBtn.style.display = "inline-block";
+			} else if (state === "paused") {
+				controlBtn.textContent = "恢復";
+				resetBtn.style.display = "inline-block";
+			}
+		}
+
+		function runTimer() {
+			elapsedTime = performance.now() - startTime;
+			updateDisplay();
+			animationId = requestAnimationFrame(runTimer);
+		}
+
+		controlBtn.addEventListener("click", function () {
+			if (state === "initial") {
+				state = "running"
+				startTime = performance.now()
+				runTimer()
+			} else if (state === "running") {
+				state = "paused"
+				cancelAnimationFrame(animationId)
+			} else if (state === "paused") {
+				state = "running"
+				startTime = performance.now() - elapsedTime
+				runTimer()
+			}
+
+			updateButtons()
+		})
+
+		resetBtn.addEventListener("click", function () {
+			cancelAnimationFrame(animationId)
+
+			state = "initial"
+			elapsedTime = 0
+
+			updateDisplay()
+			updateButtons()
+		})
+
+		updateDisplay()
+		updateButtons()
+	</script>
+
+</body>
+
+</html>

@@ -1,28 +1,24 @@
+<?php
+	include("link.php");
+	$article=article_by_id($_GET["id"] ?? 0);
+	if(!$article){ header("location: index.php"); exit; }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<title><?= e($article["title"]) ?> - FunTech</title>
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body id="article">
-		<?php
-			include("link.php");
-			$id=$_GET["id"];
-
-			if($row=query("SELECT*FROM `article` WHERE `article_id`=?",[$id])){
-				$row=$row[0];
-				?>
-				<header class="article-header">
-					<h1 class="article-title"></h1>
-					<time datetime="" class="article-date"></time>
-				</header>
-				<section class="article-body"></section>
-				<?php
-			}else{
-				header("location: index.php");
-			}
-		?>
+		<?php render_header(); ?>
+		<main class="article-page">
+			<header class="article-header">
+				<h1 class="article-title"><?= e($article["title"]) ?></h1>
+				<time datetime="<?= e($article["date"]) ?>" class="article-date"><?= e($article["date"]) ?></time>
+			</header>
+			<section class="article-body"><?= nl2br(e($article["content"])) ?></section>
+		</main>
 	</body>
 </html>

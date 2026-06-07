@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<title>A6 工具提示鏈</title>
+
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			font-family: Arial, "Microsoft JhengHei", sans-serif;
+			background: linear-gradient(135deg, #eef2ff, #f8fafc);
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.tooltip-wrapper {
+			position: relative;
+			display: inline-block;
+		}
+
+		.trigger {
+			padding: 14px 28px;
+			border-radius: 12px;
+			background: #4f46e5;
+			color: white;
+			font-size: 20px;
+			font-weight: bold;
+			cursor: pointer;
+			box-shadow: 0 10px 24px rgba(79, 70, 229, 0.3);
+		}
+
+		.tooltip {
+			position: absolute;
+			top: 50%;
+			left: calc(100% + 14px);
+			transform: translateY(-50%) translateX(-8px);
+
+			min-width: 180px;
+			padding: 12px 16px;
+			border-radius: 10px;
+			color: white;
+			font-size: 15px;
+			line-height: 1.5;
+			white-space: nowrap;
+
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			cursor: pointer;
+
+			transition:
+				opacity 0.25s ease,
+				transform 0.25s ease,
+				visibility 0.25s ease;
+		}
+
+		/* 箭頭 */
+		.tooltip::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: 100%;
+			transform: translateY(-50%);
+
+			border-width: 8px;
+			border-style: solid;
+		}
+
+		/*
+      透明橋接區：
+      讓滑鼠從父元素移到下一層 tooltip 的途中，
+      經過中間空白時不會中斷 hover。
+    */
+		.tooltip-wrapper::after,
+		.tooltip::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 100%;
+
+			width: 18px;
+			height: 90px;
+			transform: translateY(-50%);
+
+			background: transparent;
+		}
+
+		/* 第一層：滑到觸發元素時出現 */
+		.tooltip-wrapper:hover>.tooltip {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+			transform: translateY(-50%) translateX(0);
+		}
+
+		/* 第二、第三層：滑到上一層 tooltip 時出現 */
+		.tooltip:hover>.tooltip {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+			transform: translateY(-50%) translateX(0);
+		}
+
+		/* 第一層樣式 */
+		.tooltip.level-1 {
+			background: #111827;
+		}
+
+		.tooltip.level-1::before {
+			border-color: transparent #111827 transparent transparent;
+		}
+
+		/* 第二層樣式 */
+		.tooltip.level-2 {
+			background: #1d4ed8;
+		}
+
+		.tooltip.level-2::before {
+			border-color: transparent #1d4ed8 transparent transparent;
+		}
+
+		/* 第三層樣式 */
+		.tooltip.level-3 {
+			background: #047857;
+		}
+
+		.tooltip.level-3::before {
+			border-color: transparent #047857 transparent transparent;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="tooltip-wrapper">
+		<div class="trigger">滑鼠移到這裡</div>
+
+		<div class="tooltip level-1">
+			第一層工具提示
+
+			<div class="tooltip level-2">
+				第二層工具提示
+
+				<div class="tooltip level-3">
+					第三層工具提示
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

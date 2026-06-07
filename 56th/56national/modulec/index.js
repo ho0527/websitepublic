@@ -1,5 +1,3 @@
-"use strict";
-
 const parkingLots = [
     { id: "p1", name: "南港展覽館一館地下停車場", available: 126, total: 620, latitude: 25.0561, longitude: 121.6178 },
     { id: "p2", name: "南港展覽館二館停車場", available: 74, total: 320, latitude: 25.0581, longitude: 121.6162 },
@@ -41,7 +39,7 @@ const weatherData = [
 ];
 
 const state = {
-    view: "parking",
+    view: location.hash.substring(1)??"parking",
     previousView: null,
     selectedParkingId: null,
     sortMode: localStorage.getItem("modulec-sort") || "alphabet",
@@ -94,17 +92,21 @@ function init() {
     resetEvents();
     renderWeather();
     bindEvents();
-    switchView("parking");
+    switchView(state.view);
     registerServiceWorker();
 }
 
 function bindEvents() {
     document.querySelectorAll(".tab-button").forEach((button) => {
-        button.addEventListener("click", () => switchView(button.dataset.view));
+        button.addEventListener("click", () => {
+            switchView(button.dataset.view)
+            location.href="#"+button.dataset.view
+        });
     });
 
     backButton.addEventListener("click", () => {
         switchView(state.previousView || "parking");
+        location.href="#"+state.previousView
     });
 
     sortToggle.addEventListener("change", () => {
@@ -169,8 +171,8 @@ function setLocation(latitude, longitude, source) {
     renderParkingList();
 }
 
-function updateLocationText() {
-    locationText.textContent = `${state.location.source} ${state.location.latitude.toFixed(4)}, ${state.location.longitude.toFixed(4)}`;
+function updateLocationText(){
+    return ;
 }
 
 function getSortedParkingLots() {

@@ -41,8 +41,8 @@
 		let y = innerHeight * 0.5 - 40
 		let step = 10
 		function draw() {
-			x = Math.max(0, Math.min(innerWidth - 80, x))
-			y = Math.max(50, Math.min(innerHeight - 80, y))
+			x = Math.max(0, Math.min(innerWidth - 40, x))
+			y = Math.max(40, Math.min(innerHeight - 40, y))
 			box.style.left = x + "px"; box.style.top = y + "px"
 		}
 		onkeydown = function (e) {

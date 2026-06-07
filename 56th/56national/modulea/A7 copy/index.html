@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A7 Loader</title>
+	<style>
+		body{margin:0;height:100vh;display:grid;place-items:center;background:#101418;font-family:Arial,sans-serif;color:#fff}
+		.loader{display:flex;gap:12px;align-items:end;height:90px}
+		.loader span{width:18px;height:18px;border-radius:50%;background:#4ade80;animation:bounce .8s ease-in-out infinite}
+		.loader span:nth-child(2){animation-delay:.12s;background:#38bdf8}
+		.loader span:nth-child(3){animation-delay:.24s;background:#fbbf24}
+		.loader span:nth-child(4){animation-delay:.36s;background:#fb7185}
+		p{text-align:center;letter-spacing:4px;margin-top:18px}
+		@keyframes bounce{50%{height:70px;border-radius:18px;transform:translateY(-12px)}}
+	</style>
+</head>
+<body>
+	<div>
+		<div class="loader"><span></span><span></span><span></span><span></span></div>
+		<p>LOADING</p>
+	</div>
+</body>
+</html>
