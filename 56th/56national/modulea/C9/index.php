@@ -9,13 +9,11 @@ if (!file_exists($dataFile)) {
     touch($dataFile);
 }
 
-function h(string $value): string
-{
+function h(string $value){
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
-function loadUrlMap(string $dataFile): array
-{
+function loadUrlMap(string $dataFile){
     $map = [];
     $lines = file($dataFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
@@ -33,8 +31,7 @@ function loadUrlMap(string $dataFile): array
     return $map;
 }
 
-function generateCode(array $existingCodes, int $length = 6): string
-{
+function generateCode(array $existingCodes, int $length = 6){
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $maxIndex = strlen($characters) - 1;
 
@@ -104,10 +101,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         * { box-sizing: border-box; }
         body {
+            width: 100vw;
+            height: 100vh;
             margin: 0;
             font-family: Arial, "Microsoft JhengHei", sans-serif;
             background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
             color: #0f172a;
+            overflow: hidden;
         }
         main {
             width: min(760px, calc(100vw - 32px));
@@ -199,7 +199,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
         <section class="card">
             <h1>C9 檔案縮網址工具</h1>
-            <p class="intro">輸入完整網址後，系統會產生 6 字元短代碼並寫入 <code>urls.txt</code>。之後訪問 <code>?id=短代碼</code> 就會自動轉址到原始網址。</p>
 
             <?php if ($errors !== []): ?>
                 <div class="error">
