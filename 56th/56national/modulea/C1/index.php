@@ -22,10 +22,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $errors[]='請輸入留言內容。';
     }
 
-    if(!in_array($perPage, $allowedPerPage, true)){
-        $perPage=$defaultPerPage;
-    }
-
     if($errors==[]){
         $entry=[
             'name'=> $name,
