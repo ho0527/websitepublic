@@ -1,0 +1,574 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	margin: 5px;
+	user-select: none;
+}
+
+.nounderline {
+	text-decoration: none !important;
+}
+
+.button {
+	cursor: pointer;
+	padding: 5px 10px;
+	margin: 5px;
+}
+
+.burgerbar span {
+	margin: 5px;
+	user-select: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.header {
+	margin: 20px 0px;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 20px;
+}
+
+#header {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 20px;
+}
+
+nav .active{
+	color: rgb(255, 196, 0);
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.logo {
+	width: 10%;
+}
+
+.burgerbar {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+main {
+	position: relative;
+	min-height: 80vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.signinform {
+	border: 1px black solid;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+label {
+	display: flex;
+	margin: 5px 0px;
+}
+
+.label {
+	margin: 10px 0px;
+}
+
+.label>input,
+.label>select {
+	border: 1px black solid;
+	border-radius: 5px;
+	padding: 5px;
+	width: 100%;
+}
+
+.label>select {
+	cursor: pointer;
+}
+
+.align-start {
+	align-items: start;
+}
+
+tr>th,
+tr>td {
+	font-size: 15px;
+	padding: 5px;
+}
+
+.verimg {
+	width: 200px;
+}
+
+footer {
+	margin-top: 20px;
+}
+
+.withtr {
+	position: relative;
+}
+
+.likecontent {
+	position: absolute;
+	right: 0px;
+	bottom: 40px;
+	width: 150px;
+	height: 20px;
+	border: 1px black solid;
+	background: white;
+	z-index: 800;
+	display: none;
+}
+
+.position-relative {
+	position: relative;
+}
+
+.margin_10px_0px {
+	margin: 10px 0px;
+}
+
+/* ===== 版面 ===== */
+
+.container {
+	width: 90%;
+	max-width: 1100px;
+	margin: 0px auto;
+}
+
+main.page {
+	display: block;
+	min-height: 60vh;
+	margin: 20px 0px;
+}
+
+section {
+	margin: 30px 0px;
+}
+
+h2 {
+	font-size: 20px;
+	border-left: 5px rgb(26, 176, 158) solid;
+	padding-left: 10px;
+}
+
+.hint {
+	color: rgb(76, 122, 150);
+	font-size: 14px;
+}
+
+a.button {
+	display: inline-block;
+	border: 1px black solid;
+	border-radius: 5px;
+}
+
+.burgerbutton {
+	display: none;
+	border: 1px black solid;
+	border-radius: 5px;
+	background: white;
+	margin: 5px auto;
+}
+
+/* 平板版下拉選單，桌機版與手機版不顯示 */
+.navselect {
+	display: none;
+}
+
+.navselect>select {
+	border: 1px black solid;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+	min-width: 200px;
+}
+
+/* ===== 首頁 ===== */
+
+.hero {
+	position: relative;
+	color: white;
+	text-align: center;
+	background: rgb(11, 16, 32);
+}
+
+.hero>img {
+	width: 100%;
+	height: 320px;
+	object-fit: cover;
+	display: block;
+	opacity: 0.8;
+}
+
+.hero>.herotext {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+	text-shadow: 0px 2px 6px rgb(11, 16, 32);
+}
+
+.hero h2 {
+	border: none;
+	font-size: 26px;
+	margin: 5px;
+}
+
+/* ===== 卡片 ===== */
+
+.cardlist {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 20px;
+}
+
+.card {
+	border: 1px rgb(219, 230, 239) solid;
+	border-radius: 10px;
+	overflow: hidden;
+	background: white;
+}
+
+.card>img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	display: block;
+}
+
+.cardbody {
+	padding: 10px 15px;
+}
+
+.cardbody h3 {
+	margin: 5px 0px;
+}
+
+.cardbody p {
+	margin: 5px 0px;
+}
+
+.datalist {
+	list-style: none;
+	padding: 0px;
+	margin: 10px 0px;
+}
+
+.datalist>li {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 4px 0px;
+	border-bottom: 1px rgb(238, 244, 250) solid;
+	font-size: 15px;
+}
+
+.datalist>li>span:first-child {
+	color: rgb(76, 122, 150);
+}
+
+/* ===== 標籤與星等 ===== */
+
+.tag {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 10px;
+	font-size: 14px;
+	color: white;
+}
+
+.tag.high {
+	background: rgb(47, 163, 107);
+}
+
+.tag.mid {
+	background: rgb(245, 179, 1);
+	color: black;
+}
+
+.tag.low {
+	background: rgb(229, 72, 77);
+}
+
+.tag.none {
+	background: rgb(148, 163, 184);
+}
+
+.stars>.star {
+	color: rgb(216, 222, 231);
+	letter-spacing: 2px;
+}
+
+.stars>.star.on {
+	color: rgb(245, 179, 1);
+}
+
+/* ===== 訊息 ===== */
+
+.message {
+	border: 1px rgb(219, 230, 239) solid;
+	border-left: 5px rgb(63, 140, 208) solid;
+	border-radius: 5px;
+	padding: 10px 15px;
+	margin: 10px 0px;
+	background: rgb(242, 248, 252);
+}
+
+.message.success {
+	border-left-color: rgb(47, 163, 107);
+}
+
+.message.warning {
+	border-left-color: rgb(245, 179, 1);
+}
+
+.error {
+	color: rgb(229, 72, 77);
+	font-size: 14px;
+	min-height: 18px;
+	display: block;
+}
+
+.label>textarea {
+	border: 1px black solid;
+	border-radius: 5px;
+	padding: 5px;
+	width: 100%;
+	font-family: inherit;
+	resize: vertical;
+}
+
+/* ===== 長文字截斷 ===== */
+
+.notefull {
+	display: none;
+}
+
+.cutopen>.noteshort {
+	display: none;
+}
+
+.cutopen>.notefull {
+	display: inline;
+}
+
+/* ===== 日記 ===== */
+
+.diarycard {
+	display: flex;
+	gap: 15px;
+	border: 1px rgb(219, 230, 239) solid;
+	border-radius: 10px;
+	padding: 15px;
+	margin: 15px 0px;
+}
+
+.diarycard>img {
+	width: 200px;
+	height: 140px;
+	object-fit: cover;
+	border-radius: 5px;
+	flex-shrink: 0;
+}
+
+.diarybody {
+	flex-grow: 1;
+}
+
+.blesscount {
+	color: rgb(229, 72, 77);
+	font-weight: bold;
+}
+
+/* ===== 表格 ===== */
+
+.tablewrap {
+	overflow-x: auto;
+	width: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+tr>th {
+	background: rgb(238, 244, 250);
+	white-space: nowrap;
+}
+
+tr>th,
+tr>td {
+	border-bottom: 1px rgb(234, 240, 246) solid;
+	text-align: left;
+	vertical-align: top;
+}
+
+.emaillink {
+	cursor: pointer;
+	color: rgb(63, 140, 208);
+	text-decoration: underline;
+}
+
+/* ===== RWD ===== */
+
+/* 平板：Logo 縮小、標語可換行、主選單改下拉選單、內容改雙欄 */
+@media screen and (max-width: 1024px) {
+	#header{
+		justify-content: center;
+	}
+
+	.header {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.header>.subtitle {
+		text-align: center;
+		white-space: normal;
+	}
+
+	.logo {
+		width: 15%;
+	}
+
+	nav {
+		display: none;
+	}
+
+	.navselect {
+		display: block;
+	}
+
+	.burgerbar {
+		text-align: center;
+	}
+
+	.cardlist {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 790px) {
+	#header{
+		justify-content: center;
+	}
+
+	.header>.subtitle {
+		display: none;
+	}
+
+	h1{
+		font-size: 20px;
+	}
+
+	.logo {
+		width: 25%;
+	}
+
+	.burgerbutton {
+		display: block;
+	}
+
+	/* 手機版改回收合選單，下拉選單不顯示 */
+	.navselect {
+		display: none;
+	}
+
+	nav {
+		display: none;
+		flex-direction: column;
+	}
+
+	nav.open {
+		display: flex;
+	}
+
+	.cardlist {
+		grid-template-columns: 1fr;
+	}
+
+	nav>a {
+		padding: 8px 0px;
+		border-bottom: 1px rgb(234, 240, 246) solid;
+	}
+
+	.burgerbar {
+		text-align: center;
+		font-size: 14px;
+	}
+
+	.hero>img {
+		height: 200px;
+	}
+
+	.diarycard {
+		flex-direction: column;
+	}
+
+	.diarycard>img {
+		width: 100%;
+		height: 180px;
+	}
+
+	/* 手機版表格改為堆疊卡片，欄位名稱由 data-label 帶出 */
+	.tablewrap {
+		overflow-x: visible;
+	}
+
+	table.stack,
+	table.stack tr,
+	table.stack td {
+		display: block;
+		width: 100%;
+	}
+
+	table.stack thead,
+	table.stack tr.headrow {
+		display: none;
+	}
+
+	table.stack tr {
+		border: 1px rgb(219, 230, 239) solid;
+		border-radius: 10px;
+		margin: 10px 0px;
+		padding: 5px;
+	}
+
+	table.stack td {
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		text-align: right;
+		border-bottom: 1px rgb(238, 244, 250) solid;
+		/* 長 Email 等不含空白的字串要能斷行，否則會撐破版面 */
+		overflow-wrap: anywhere;
+		word-break: break-all;
+		min-width: 0px;
+	}
+
+	table.stack td::before {
+		content: attr(data-label);
+		color: rgb(76, 122, 150);
+		text-align: left;
+		flex-shrink: 0;
+	}
+}
