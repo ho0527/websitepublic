@@ -81,7 +81,7 @@
 						</div>
 						<div class="label">
 							<label for="photo">照片網址或檔名</label>
-							<input type="text" id="photo" name="photo" maxlength="255" placeholder="media/images/aurora-levi.jpg">
+							<input type="text" id="photo" name="photo" maxlength="255" value="media/images/aurora-levi.jpg">
 							<span class="error" id="error_photo"></span>
 						</div>
 						<div class="center">

@@ -97,6 +97,5 @@ document.getElementById("diaryform").onsubmit=function(event){
 
 	if(pass==false){
 		event.preventDefault()
-		alert("表單有欄位需要修正，請查看紅色提示文字")
 	}
 }
