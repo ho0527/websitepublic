@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B7 磁性可拖曳元件</title>
+	<style>
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			background: #0f1216;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #e6edf3;
+			overflow: hidden;
+		}
+
+		h1 {
+			font-size: 20px;
+			margin: 24px 0px 4px 28px;
+		}
+
+		.hint {
+			color: #8b949e;
+			font-size: 14px;
+			margin: 0px 0px 0px 28px;
+		}
+
+		.item {
+			position: absolute;
+			width: 130px;
+			height: 130px;
+			border-radius: 16px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 17px;
+			font-weight: bold;
+			color: #ffffff;
+			cursor: grab;
+			user-select: none;
+			box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.4);
+			/* 位移由 JS 控制，這裡只負責放大與陰影的過渡 */
+			transition: box-shadow 0.25s ease;
+		}
+
+		.item:hover {
+			box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.6);
+		}
+
+		.item.dragging {
+			cursor: grabbing;
+			z-index: 20;
+			box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.7);
+		}
+	</style>
+</head>
+
+<body>
+	<h1>磁性可拖曳元件</h1>
+	<p class="hint">按住方塊可以拖曳；滑鼠靠近其他方塊時它們會被吸引，離開後平滑回到原位。</p>
+
+	<div class="item" style="left:120px; top:180px; background:#ef4444">Red</div>
+	<div class="item" style="left:320px; top:300px; background:#f59e0b">Amber</div>
+	<div class="item" style="left:540px; top:170px; background:#22c55e">Green</div>
+	<div class="item" style="left:760px; top:330px; background:#3b82f6">Blue</div>
+	<div class="item" style="left:960px; top:200px; background:#a855f7">Purple</div>
+
+	<script>
+		/*
+		 * B7: 磁性可拖曳元件（等級 2）
+		 * - 元素可按住拖曳移動
+		 * - 未被拖曳的元素會對滑鼠位置產生磁吸反應（靠近時被吸引）
+		 * - 滑鼠遠離後以緩動方式滑順回到原位
+		 */
+
+		const MAGNET_RADIUS = 220     // 磁吸生效的距離
+		const MAGNET_STRENGTH = 0.35  // 吸引強度
+		const EASING = 0.15           // 回位的緩動係數
+
+		const items = Array.from(document.querySelectorAll(".item")).map(function (element) {
+			return {
+				element: element,
+				homeX: element.offsetLeft,     // 原始位置
+				homeY: element.offsetTop,
+				offsetX: 0,                    // 目前相對原位的位移
+				offsetY: 0,
+				scale: 1,
+				dragging: false
+			}
+		})
+
+		let pointerX = -9999
+		let pointerY = -9999
+		let dragTarget = null
+		let grabDeltaX = 0
+		let grabDeltaY = 0
+
+		document.addEventListener("pointermove", function (event) {
+			pointerX = event.clientX
+			pointerY = event.clientY
+
+			if (dragTarget !== null) {
+				// 拖曳中：位移直接跟著滑鼠
+				dragTarget.offsetX = pointerX - grabDeltaX - dragTarget.homeX
+				dragTarget.offsetY = pointerY - grabDeltaY - dragTarget.homeY
+			}
+		})
+
+		items.forEach(function (item) {
+			item.element.addEventListener("pointerdown", function (event) {
+				dragTarget = item
+				item.dragging = true
+				item.element.classList.add("dragging")
+				grabDeltaX = event.clientX - (item.homeX + item.offsetX)
+				grabDeltaY = event.clientY - (item.homeY + item.offsetY)
+				item.element.setPointerCapture(event.pointerId)
+			})
+
+			item.element.addEventListener("pointerup", function () {
+				if (dragTarget === item) {
+					dragTarget = null
+				}
+				item.dragging = false
+				item.element.classList.remove("dragging")
+			})
+		})
+
+		function animate() {
+			items.forEach(function (item) {
+				if (!item.dragging) {
+					// 元素中心點
+					const centerX = item.homeX + item.offsetX + item.element.offsetWidth / 2
+					const centerY = item.homeY + item.offsetY + item.element.offsetHeight / 2
+					const deltaX = pointerX - centerX
+					const deltaY = pointerY - centerY
+					const distance = Math.hypot(deltaX, deltaY)
+
+					let targetX = 0
+					let targetY = 0
+					let targetScale = 1
+
+					if (distance < MAGNET_RADIUS) {
+						// 越靠近吸引力越強
+						const power = (1 - distance / MAGNET_RADIUS) * MAGNET_STRENGTH
+						targetX = deltaX * power
+						targetY = deltaY * power
+						targetScale = 1 + (1 - distance / MAGNET_RADIUS) * 0.12
+					}
+
+					// 緩動：不論是被吸引還是回到原位，都是平滑移動
+					item.offsetX = item.offsetX + (targetX - item.offsetX) * EASING
+					item.offsetY = item.offsetY + (targetY - item.offsetY) * EASING
+					item.scale = item.scale + (targetScale - item.scale) * EASING
+				}
+
+				item.element.style.transform =
+					"translate(" + item.offsetX.toFixed(2) + "px," + item.offsetY.toFixed(2) + "px) scale(" + item.scale.toFixed(3) + ")"
+			})
+
+			requestAnimationFrame(animate)
+		}
+		animate()
+	</script>
+</body>
+
+</html>

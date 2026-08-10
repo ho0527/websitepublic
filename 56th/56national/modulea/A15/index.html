@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A15 響應式卡片</title>
+	<style>
+		/*
+		 * A15: 響應式卡片（等級 2）
+		 * 4 張卡片（圖片 + 標題 + 按鈕），依螢幕寬度自動重排：
+		 *   ≥1024px → 4 欄、768~1023px → 2 欄、≤767px → 1 欄
+		 * 圖片不裁切並維持原始比例。
+		 */
+
+		body {
+			margin: 0px;
+			padding: 24px;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+		}
+
+		.grid {
+			display: grid;
+			gap: 20px;
+			max-width: 1280px;
+			margin: 0px auto;
+			grid-template-columns: 1fr;   /* 767px 以下：1 欄 */
+		}
+
+		/* 768px ~ 1023px：2 欄 */
+		@media (min-width: 768px) {
+			.grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		/* 1024px 以上：4 欄 */
+		@media (min-width: 1024px) {
+			.grid {
+				grid-template-columns: repeat(4, 1fr);
+			}
+		}
+
+		.card {
+			background: #ffffff;
+			border: 1px solid #d0d7de;
+			border-radius: 12px;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+		}
+
+		/* 圖片區：以 contain 呈現，因此不會被裁切也不會變形 */
+		.thumb {
+			background: #eef1f5;
+			aspect-ratio: 4 / 3;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+
+		.thumb img {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+			display: block;
+		}
+
+		.body {
+			padding: 16px;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			flex: 1;
+		}
+
+		.title {
+			font-size: 17px;
+			font-weight: bold;
+			margin: 0px;
+		}
+
+		.more {
+			margin-top: auto;
+			align-self: center;
+			background: #1f6feb;
+			color: #ffffff;
+			border: none;
+			border-radius: 6px;
+			padding: 8px 28px;
+			font-size: 15px;
+			font-family: inherit;
+			cursor: pointer;
+			transition-duration: 0.3s;
+		}
+
+		.more:hover {
+			background: #3b82f6;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="grid">
+		<div class="card">
+			<div class="thumb"><img src="card1.jpg" alt="Sample Image Card"></div>
+			<div class="body">
+				<p class="title">Sample Image Card</p>
+				<button class="more">More</button>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="thumb"><img src="card2.jpg" alt="Sample Image Card"></div>
+			<div class="body">
+				<p class="title">Sample Image Card</p>
+				<button class="more">More</button>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="thumb"><img src="card3.jpg" alt="Sample Image Card"></div>
+			<div class="body">
+				<p class="title">Sample Image Card</p>
+				<button class="more">More</button>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="thumb"><img src="card4.jpg" alt="Sample Image Card"></div>
+			<div class="body">
+				<p class="title">Sample Image Card</p>
+				<button class="more">More</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,24 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>B4 Lightning</title>
+	<title>B4 閃電</title>
 	<style>
-		body{margin:0;height:100vh;background:#050816;overflow:hidden;display:grid;place-items:center;color:#fff;font-family:Arial,sans-serif}
-		.sky{position:fixed;inset:0;background:radial-gradient(circle at 50% 10%,#1f2a55,#050816 60%);animation:flash 4s infinite}
-		svg{position:relative;width:min(70vw,520px);filter:drop-shadow(0 0 18px #fde047)}
-		.bolt{fill:none;stroke:#fef08a;stroke-width:12;stroke-linejoin:round;stroke-dasharray:900;animation:strike 1.5s infinite}
-		h1{position:absolute;bottom:12%;letter-spacing:6px}
-		@keyframes strike{0%,60%{stroke-dashoffset:900;opacity:0}63%,72%{stroke-dashoffset:0;opacity:1}76%,100%{opacity:0}}
-		@keyframes flash{0%,62%,74%,100%{filter:brightness(1)}64%,70%{filter:brightness(2.5)}}
+		body {
+			margin: 0px;
+			height: 100vh;
+			overflow: hidden;
+			background: radial-gradient(circle at 50% 0%, #16213a, #05070d 70%);
+			cursor: crosshair;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+		}
+
+		canvas {
+			display: block;
+		}
+
+		.hint {
+			position: fixed;
+			left: 50%;
+			bottom: 24px;
+			transform: translateX(-50%);
+			color: rgba(255, 255, 255, 0.55);
+			font-size: 15px;
+			pointer-events: none;
+			user-select: none;
+		}
 	</style>
 </head>
+
 <body>
-	<div class="sky"></div>
-	<svg viewBox="0 0 300 520" aria-label="lightning">
-		<polyline class="bolt" points="178 20 78 238 156 238 116 500 238 184 158 184 178 20"/>
-	</svg>
-	<h1>LIGHTNING</h1>
+	<canvas id="canvas"></canvas>
+	<div class="hint">點擊畫面任一處，閃電會從上方擊中該點</div>
+
+	<script>
+		/*
+		 * B4: 閃電（等級 1）
+		 * 點擊畫面時，由螢幕上方往下產生閃電擊中點擊位置。
+		 * 每道閃電由多段鋸齒線段組成；單次點擊會隨機產生多道；出現後短時間內淡出。
+		 */
+
+		const canvas = document.getElementById("canvas")
+		const context = canvas.getContext("2d")
+
+		/** 讓畫布填滿視窗 */
+		function resize() {
+			canvas.width = window.innerWidth
+			canvas.height = window.innerHeight
+		}
+		window.addEventListener("resize", resize)
+		resize()
+
+		const bolts = []   // 目前存在的閃電
+
+		/**
+		 * 產生一道由上而下的鋸齒閃電
+		 * @param {number} targetX 擊中點的 X
+		 * @param {number} targetY 擊中點的 Y
+		 * @returns {object} 閃電資料（節點座標與剩餘壽命）
+		 */
+		function createBolt(targetX, targetY) {
+			const segmentCount = 14 + Math.floor(Math.random() * 8)
+			const startX = targetX + (Math.random() - 0.5) * 240
+			const points = []
+
+			for (let i = 0; i <= segmentCount; i = i + 1) {
+				const ratio = i / segmentCount
+				// 從起點線性走到目標點，再加上隨機水平抖動形成鋸齒
+				const baseX = startX + (targetX - startX) * ratio
+				const jitter = (1 - ratio) * 60 * (Math.random() - 0.5) * 2
+                points.push({
+                    x: baseX + jitter,
+                    y: targetY * ratio
+                })
+			}
+			// 確保最後一點準確落在被點擊的位置
+			points[points.length - 1] = { x: targetX, y: targetY }
+
+			return {
+				points: points,
+				life: 1,                                   // 1 → 0 代表淡出
+				width: 1.5 + Math.random() * 2.5,
+				hue: 195 + Math.random() * 40
+			}
+		}
+
+		/** 畫出一道閃電 */
+		function drawBolt(bolt) {
+			context.save()
+			context.globalAlpha = Math.max(bolt.life, 0)
+			context.strokeStyle = "hsl(" + bolt.hue + ", 100%, 85%)"
+			context.lineWidth = bolt.width
+			context.lineJoin = "round"
+			context.lineCap = "round"
+			context.shadowColor = "hsl(" + bolt.hue + ", 100%, 70%)"
+			context.shadowBlur = 18
+
+			context.beginPath()
+			bolt.points.forEach(function (point, index) {
+				if (index === 0) {
+					context.moveTo(point.x, point.y)
+				} else {
+					context.lineTo(point.x, point.y)
+				}
+			})
+			context.stroke()
+			context.restore()
+		}
+
+		function animate() {
+			context.clearRect(0, 0, canvas.width, canvas.height)
+
+			for (let i = bolts.length - 1; i >= 0; i = i - 1) {
+				const bolt = bolts[i]
+				drawBolt(bolt)
+				bolt.life = bolt.life - 0.035     // 短時間內淡出
+				if (bolt.life <= 0) {
+					bolts.splice(i, 1)             // 壽命結束就清除
+				}
+			}
+
+			requestAnimationFrame(animate)
+		}
+		animate()
+
+		// 點擊時一次產生 2~4 道閃電（數量隨機）
+		canvas.addEventListener("click", function (event) {
+			const count = 2 + Math.floor(Math.random() * 3)
+			for (let i = 0; i < count; i = i + 1) {
+				bolts.push(createBolt(event.clientX, event.clientY))
+			}
+		})
+	</script>
 </body>
+
 </html>

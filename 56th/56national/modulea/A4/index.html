@@ -1,23 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>A4 Tunnel</title>
+	<title>A4 隧道動畫</title>
 	<style>
-		body{margin:0;height:100vh;background:#04070c;overflow:hidden;display:grid;place-items:center}
-		.tunnel{position:relative;width:min(90vmin,780px);aspect-ratio:1;perspective:600px;transform-style:preserve-3d}
-		.ring{position:absolute;inset:50%;width:30vmin;height:30vmin;margin:-15vmin;border:5px solid hsl(var(--h),90%,62%);box-shadow:0 0 26px hsl(var(--h),90%,60%);transform:translateZ(var(--z)) rotate(var(--r));animation:fly 2.4s linear infinite;border-radius:18px}
-		@keyframes fly{from{transform:translateZ(-850px) rotate(var(--r));opacity:0}20%{opacity:1}to{transform:translateZ(420px) rotate(calc(var(--r) + 160deg));opacity:0}}
+		/*
+		 * A4: 隧道動畫（等級 1）
+		 * 只使用 HTML 與 CSS（不使用 JavaScript）做出 3D 隧道效果。
+		 * 多個圓環由遠方朝觀看者移動，並平滑淡入淡出，無限循環。
+		 */
+
+		body {
+			margin: 0px;
+			height: 100vh;
+			background: #000000;   /* 背景全黑並覆蓋整個視窗 */
+			overflow: hidden;
+			display: grid;
+			place-items: center;   /* 隧道置中於畫面水平與垂直中心 */
+		}
+
+		.tunnel {
+			position: relative;
+			width: min(80vmin, 640px);
+			aspect-ratio: 1;
+			perspective: 620px;
+			transform-style: preserve-3d;
+		}
+
+		.ring {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 34vmin;
+			height: 34vmin;
+			max-width: 300px;
+			max-height: 300px;
+			margin: -17vmin 0px 0px -17vmin;
+			border: 5px solid #38bdf8;
+			border-radius: 26px;
+			box-shadow: 0px 0px 24px rgba(56, 189, 248, 0.55);
+			animation: fly 3.2s linear infinite;
+		}
+
+		/*
+		 * 每個圓環用不同的 animation-delay 錯開，形成連續前進的隧道。
+		 * 12 個環 × 3.2 秒 → 每 0.2667 秒出現一個環。
+		 */
+		.ring:nth-child(1)  { animation-delay: 0s;      border-color: #38bdf8; }
+		.ring:nth-child(2)  { animation-delay: -0.267s; border-color: #4cc2f7; }
+		.ring:nth-child(3)  { animation-delay: -0.533s; border-color: #60c8f5; }
+		.ring:nth-child(4)  { animation-delay: -0.800s; border-color: #74cef3; }
+		.ring:nth-child(5)  { animation-delay: -1.067s; border-color: #88d4f1; }
+		.ring:nth-child(6)  { animation-delay: -1.333s; border-color: #9cd0ef; }
+		.ring:nth-child(7)  { animation-delay: -1.600s; border-color: #b0c6ee; }
+		.ring:nth-child(8)  { animation-delay: -1.867s; border-color: #c0b8ee; }
+		.ring:nth-child(9)  { animation-delay: -2.133s; border-color: #cfaaef; }
+		.ring:nth-child(10) { animation-delay: -2.400s; border-color: #dc9cf0; }
+		.ring:nth-child(11) { animation-delay: -2.667s; border-color: #e78ef1; }
+		.ring:nth-child(12) { animation-delay: -2.933s; border-color: #f180f2; }
+
+		/*
+		 * 由遠(-900px)推進到觀看者面前(500px)，同時緩緩旋轉。
+		 * 頭尾的 opacity 為 0，中段為 1，達成自然的淡入與淡出。
+		 */
+		@keyframes fly {
+			0% {
+				transform: translateZ(-900px) rotate(0deg);
+				opacity: 0;
+			}
+
+			15% {
+				opacity: 1;
+			}
+
+			75% {
+				opacity: 1;
+			}
+
+			100% {
+				transform: translateZ(500px) rotate(150deg);
+				opacity: 0;
+			}
+		}
 	</style>
 </head>
+
 <body>
 	<div class="tunnel">
-		<script>
-			for(let i=0;i<28;i++){
-				document.write(`<i class="ring" style="--z:${-850+i*45}px;--r:${i*12}deg;--h:${190+i*8};animation-delay:${-i*.09}s"></i>`)
-			}
-		</script>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
 	</div>
 </body>
+
 </html>

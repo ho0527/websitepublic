@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B25 圖片預覽</title>
+	<style>
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 16px;
+			padding: 36px 20px;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+		}
+
+		h1 {
+			font-size: 20px;
+			margin: 0px;
+		}
+
+		.hint {
+			color: #59636e;
+			font-size: 14px;
+			margin: 0px;
+		}
+
+		.filters {
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		button {
+			border: 1px solid #d0d7de;
+			background: #ffffff;
+			border-radius: 6px;
+			padding: 9px 22px;
+			font-size: 15px;
+			font-family: inherit;
+			cursor: pointer;
+			transition-duration: 0.3s;
+		}
+
+		button:hover {
+			border-color: #1f6feb;
+			color: #1f6feb;
+		}
+
+		/* 目前套用中的濾鏡 */
+		button.active {
+			background: #1f6feb;
+			border-color: #1f6feb;
+			color: #ffffff;
+		}
+
+		.stage {
+			background: #ffffff;
+			border: 1px solid #d0d7de;
+			border-radius: 12px;
+			padding: 14px;
+			box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.07);
+			display: none;
+		}
+
+		.stage.show {
+			display: block;
+		}
+
+		#preview {
+			display: block;
+			max-width: min(80vw, 640px);
+			max-height: 60vh;
+			border-radius: 8px;
+			transition: filter 0.3s ease;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>圖片預覽</h1>
+	<p class="hint">選擇本機圖片後會立即預覽，並可套用濾鏡（一次只會套用一種）</p>
+
+	<input type="file" id="file" accept="image/*">
+
+	<div class="filters">
+		<button data-filter="none" class="active">原圖</button>
+		<button data-filter="grayscale(1)">灰階 Grayscale</button>
+		<button data-filter="sepia(1)">復古 Sepia</button>
+		<button data-filter="invert(1)">反相 Invert</button>
+	</div>
+
+	<div class="stage" id="stage">
+		<img id="preview" alt="預覽">
+	</div>
+
+	<script>
+		/*
+		 * B25: 圖片預覽（等級 2）
+		 * 選檔後立即預覽，並提供灰階 / 復古 / 反相三種濾鏡，
+		 * 每次只會套用一種（直接覆寫 filter 而非疊加）。
+		 */
+
+		const fileInput = document.getElementById("file")
+		const preview = document.getElementById("preview")
+		const stage = document.getElementById("stage")
+		const buttons = document.querySelectorAll(".filters button")
+
+		fileInput.addEventListener("change", function () {
+			const file = fileInput.files[0]
+			if (file === undefined) {
+				return
+			}
+			// 用 FileReader 讀成 DataURL，選檔後馬上顯示
+			const reader = new FileReader()
+			reader.onload = function (event) {
+				preview.src = event.target.result
+				stage.classList.add("show")
+			}
+			reader.readAsDataURL(file)
+		})
+
+		buttons.forEach(function (button) {
+			button.onclick = function () {
+				buttons.forEach(function (other) {
+					other.classList.remove("active")
+				})
+				button.classList.add("active")
+				preview.style.filter = button.dataset.filter
+			}
+		})
+	</script>
+</body>
+
+</html>

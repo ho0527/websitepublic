@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B26 多檔案上傳</title>
+	<style>
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 18px;
+			padding: 36px 20px;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+		}
+
+		h1 {
+			font-size: 20px;
+			margin: 0px;
+		}
+
+		.hint {
+			color: #59636e;
+			font-size: 14px;
+			margin: 0px;
+		}
+
+		/* 拖放區 */
+		.dropzone {
+			width: min(90vw, 620px);
+			border: 2px dashed #b6c2cf;
+			border-radius: 12px;
+			background: #ffffff;
+			padding: 34px 20px;
+			text-align: center;
+			color: #59636e;
+			transition-duration: 0.25s;
+		}
+
+		.dropzone.over {
+			border-color: #1f6feb;
+			background: #eff6ff;
+			color: #1f6feb;
+		}
+
+		.dropzone button {
+			margin-top: 12px;
+			background: #1f6feb;
+			color: #ffffff;
+			border: none;
+			border-radius: 6px;
+			padding: 10px 24px;
+			font-size: 15px;
+			font-family: inherit;
+			cursor: pointer;
+		}
+
+		.dropzone button:hover {
+			background: #3b82f6;
+		}
+
+		/* 檔案列表 */
+		#list {
+			width: min(90vw, 620px);
+			list-style: none;
+			padding: 0px;
+			margin: 0px;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		#list li {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			background: #ffffff;
+			border: 1px solid #d0d7de;
+			border-radius: 8px;
+			padding: 12px 14px;
+			cursor: grab;
+			transition-duration: 0.2s;
+		}
+
+		#list li.dragging {
+			opacity: 0.4;
+			cursor: grabbing;
+		}
+
+		#list li .grip {
+			color: #8b949e;
+			font-size: 18px;
+		}
+
+		#list li .name {
+			flex: 1;
+			word-break: break-all;
+		}
+
+		#list li .size {
+			color: #59636e;
+			font-size: 13px;
+			white-space: nowrap;
+		}
+
+		.empty {
+			color: #8b949e;
+			font-size: 14px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>多檔案上傳</h1>
+	<p class="hint">可一次選取多個檔案，或直接把檔案拖進下方區域；列表中的項目可拖曳調整順序。</p>
+
+	<div class="dropzone" id="dropzone">
+		把檔案拖放到這裡
+		<br>
+		<button id="pick">選擇檔案</button>
+		<input type="file" id="file" multiple hidden>
+	</div>
+
+	<ul id="list"></ul>
+	<p class="empty" id="empty">尚未加入任何檔案</p>
+
+	<script>
+		/*
+		 * B26: 多檔案上傳（等級 3）
+		 * - 檔案選擇按鈕可一次選多個檔案（不限副檔名）
+		 * - 支援拖放上傳
+		 * - 列表顯示檔名與大小，並可用拖放調整順序，變更即時反映
+		 */
+
+		const dropzone = document.getElementById("dropzone")
+		const fileInput = document.getElementById("file")
+		const list = document.getElementById("list")
+		const empty = document.getElementById("empty")
+
+		let files = []      // 目前的檔案順序
+
+		/** 把位元組數換成易讀的單位 */
+		function formatSize(bytes) {
+			const units = ["B", "KB", "MB", "GB"]
+			let value = bytes
+			let index = 0
+			while (value >= 1024 && index < units.length - 1) {
+				value = value / 1024
+				index = index + 1
+			}
+			return value.toFixed(index === 0 ? 0 : 1) + " " + units[index]
+		}
+
+		/** 依 files 的順序重畫列表 */
+		function render() {
+			list.innerHTML = ""
+			empty.style.display = files.length === 0 ? "block" : "none"
+
+			files.forEach(function (file, index) {
+				const item = document.createElement("li")
+				item.draggable = true
+				item.dataset.index = index
+				item.innerHTML =
+					'<span class="grip">☰</span>' +
+					'<span class="name"></span>' +
+					'<span class="size"></span>'
+				item.querySelector(".name").textContent = file.name
+				item.querySelector(".size").textContent = formatSize(file.size)
+				list.appendChild(item)
+			})
+		}
+
+		/** 加入檔案（同時支援選檔與拖放） */
+		function addFiles(fileList) {
+			Array.from(fileList).forEach(function (file) {
+				files.push(file)
+			})
+			render()
+		}
+
+		document.getElementById("pick").onclick = function () {
+			fileInput.click()
+		}
+
+		fileInput.addEventListener("change", function () {
+			addFiles(fileInput.files)
+			fileInput.value = ""
+		})
+
+		// 拖放上傳
+		dropzone.addEventListener("dragover", function (event) {
+			event.preventDefault()
+			dropzone.classList.add("over")
+		})
+
+		dropzone.addEventListener("dragleave", function () {
+			dropzone.classList.remove("over")
+		})
+
+		dropzone.addEventListener("drop", function (event) {
+			event.preventDefault()
+			dropzone.classList.remove("over")
+			addFiles(event.dataTransfer.files)
+		})
+
+		// 列表內拖放排序
+		let dragIndex = null
+
+		list.addEventListener("dragstart", function (event) {
+			const item = event.target.closest("li")
+			if (item === null) {
+				return
+			}
+			dragIndex = Number(item.dataset.index)
+			item.classList.add("dragging")
+			event.dataTransfer.effectAllowed = "move"
+		})
+
+		list.addEventListener("dragend", function (event) {
+			const item = event.target.closest("li")
+			if (item !== null) {
+				item.classList.remove("dragging")
+			}
+			dragIndex = null
+		})
+
+		list.addEventListener("dragover", function (event) {
+			event.preventDefault()
+			const item = event.target.closest("li")
+			if (item === null || dragIndex === null) {
+				return
+			}
+			const overIndex = Number(item.dataset.index)
+			if (overIndex === dragIndex) {
+				return
+			}
+			// 立刻把拖曳中的檔案搬到新位置，畫面即時反映
+			const moved = files.splice(dragIndex, 1)[0]
+			files.splice(overIndex, 0, moved)
+			dragIndex = overIndex
+			render()
+			list.children[overIndex].classList.add("dragging")
+		})
+
+		render()
+	</script>
+</body>
+
+</html>

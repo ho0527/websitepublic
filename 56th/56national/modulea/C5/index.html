@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>C5 填字遊戲格生成工具</title>
+	<style>
+		body {
+			margin: 0px;
+			padding: 34px 20px;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 16px;
+		}
+
+		h1 {
+			font-size: 20px;
+			margin: 0px;
+		}
+
+		.hint {
+			color: #59636e;
+			font-size: 14px;
+			margin: 0px;
+			text-align: center;
+		}
+
+		textarea {
+			width: min(90vw, 520px);
+			height: 110px;
+			padding: 12px;
+			font-size: 15px;
+			font-family: inherit;
+			border: 1px solid #d0d7de;
+			border-radius: 8px;
+			resize: vertical;
+			box-sizing: border-box;
+		}
+
+		button {
+			background: #1f6feb;
+			color: #ffffff;
+			border: none;
+			border-radius: 6px;
+			padding: 10px 26px;
+			font-size: 15px;
+			font-family: inherit;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background: #3b82f6;
+		}
+
+		/* 15×15 的方形文字格 */
+		#grid {
+			display: grid;
+			grid-template-columns: repeat(15, 34px);
+			grid-template-rows: repeat(15, 34px);
+			gap: 2px;
+			background: #d0d7de;
+			padding: 2px;
+			border-radius: 6px;
+		}
+
+		.cell {
+			background: #ffffff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 17px;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: #1f2328;
+		}
+
+		/* 未被單字佔據的格子顯示為空白（以底色區分） */
+		.cell.empty {
+			background: #eef1f5;
+		}
+
+		.report {
+			width: min(90vw, 620px);
+			font-size: 14px;
+			color: #59636e;
+		}
+
+		.report span.fail {
+			color: #b42318;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>填字遊戲格生成工具</h1>
+	<p class="hint">以逗號分隔或換行輸入多個單字，程式會隨機以水平或垂直方向放入 15×15 的格子中，交叉字母會自動對齊。</p>
+
+	<textarea id="input">crossword, puzzle, random, word, grid, skill, code, web</textarea>
+	<button id="generate">生成</button>
+
+	<div id="grid"></div>
+	<div class="report" id="report"></div>
+
+	<script>
+		/*
+		 * C5: 填字遊戲格生成工具（等級 3）
+		 * 作法：先放最長的單字在中央，之後每個單字嘗試與已放置的字母交叉；
+		 * 找不到交叉點時再找任何不衝突的空位。放不下的單字會在下方回報。
+		 */
+
+		const SIZE = 15
+		const gridElement = document.getElementById("grid")
+		const reportElement = document.getElementById("report")
+
+		/** 建立空的 15×15 二維陣列 */
+		function createGrid() {
+			const grid = []
+			for (let row = 0; row < SIZE; row = row + 1) {
+				grid.push(new Array(SIZE).fill(""))
+			}
+			return grid
+		}
+
+		/**
+		 * 檢查單字放在指定位置是否合法
+		 * @param {string[][]} grid 目前格子
+		 * @param {string} word 單字
+		 * @param {number} row 起始列
+		 * @param {number} column 起始行
+		 * @param {boolean} horizontal 是否為水平方向
+		 */
+		function canPlace(grid, word, row, column, horizontal) {
+			const length = word.length
+			if (horizontal) {
+				if (column < 0 || column + length > SIZE || row < 0 || row >= SIZE) {
+					return false
+				}
+				// 單字左右兩端必須留白，才不會和別的字黏在一起
+				if (column - 1 >= 0 && grid[row][column - 1] !== "") { return false }
+				if (column + length < SIZE && grid[row][column + length] !== "") { return false }
+
+				for (let i = 0; i < length; i = i + 1) {
+					const current = grid[row][column + i]
+					if (current !== "" && current !== word[i]) {
+						return false
+					}
+					// 沒有交叉時，上下不可以緊鄰其他字母
+					if (current === "") {
+						if (row - 1 >= 0 && grid[row - 1][column + i] !== "") { return false }
+						if (row + 1 < SIZE && grid[row + 1][column + i] !== "") { return false }
+					}
+				}
+				return true
+			}
+
+			if (row < 0 || row + length > SIZE || column < 0 || column >= SIZE) {
+				return false
+			}
+			if (row - 1 >= 0 && grid[row - 1][column] !== "") { return false }
+			if (row + length < SIZE && grid[row + length][column] !== "") { return false }
+
+			for (let i = 0; i < length; i = i + 1) {
+				const current = grid[row + i][column]
+				if (current !== "" && current !== word[i]) {
+					return false
+				}
+				if (current === "") {
+					if (column - 1 >= 0 && grid[row + i][column - 1] !== "") { return false }
+					if (column + 1 < SIZE && grid[row + i][column + 1] !== "") { return false }
+				}
+			}
+			return true
+		}
+
+		/** 把單字寫進格子 */
+		function place(grid, word, row, column, horizontal) {
+			for (let i = 0; i < word.length; i = i + 1) {
+				if (horizontal) {
+					grid[row][column + i] = word[i]
+				} else {
+					grid[row + i][column] = word[i]
+				}
+			}
+		}
+
+		/** 打亂陣列，讓每次生成的版面都不同 */
+		function shuffle(items) {
+			for (let i = items.length - 1; i > 0; i = i - 1) {
+				const j = Math.floor(Math.random() * (i + 1))
+				const temporary = items[i]
+				items[i] = items[j]
+				items[j] = temporary
+			}
+			return items
+		}
+
+		/**
+		 * 產生填字格
+		 * @param {string[]} words 單字清單
+		 */
+		function build(words) {
+			const grid = createGrid()
+			const placed = []
+			const failed = []
+
+			// 長的單字先放，比較容易成功
+			const sorted = words.slice().sort(function (a, b) {
+				return b.length - a.length
+			})
+
+			sorted.forEach(function (word, index) {
+				if (index === 0) {
+					// 第一個單字放在中央，方向隨機
+					const horizontal = Math.random() < 0.5
+					const row = horizontal ? Math.floor(SIZE / 2) : Math.floor((SIZE - word.length) / 2)
+					const column = horizontal ? Math.floor((SIZE - word.length) / 2) : Math.floor(SIZE / 2)
+					if (canPlace(grid, word, row, column, horizontal)) {
+						place(grid, word, row, column, horizontal)
+						placed.push(word)
+						return
+					}
+				}
+
+				// 收集所有可以交叉的位置，隨機挑一個
+				const candidates = []
+				for (let row = 0; row < SIZE; row = row + 1) {
+					for (let column = 0; column < SIZE; column = column + 1) {
+						const letter = grid[row][column]
+						if (letter === "") {
+							continue
+						}
+						for (let i = 0; i < word.length; i = i + 1) {
+							if (word[i] !== letter) {
+								continue
+							}
+							// 與水平字交叉就改放垂直，反之亦然
+							if (canPlace(grid, word, row - i, column, false)) {
+								candidates.push({ row: row - i, column: column, horizontal: false })
+							}
+							if (canPlace(grid, word, row, column - i, true)) {
+								candidates.push({ row: row, column: column - i, horizontal: true })
+							}
+						}
+					}
+				}
+
+				if (candidates.length > 0) {
+					const pick = shuffle(candidates)[0]
+					place(grid, word, pick.row, pick.column, pick.horizontal)
+					placed.push(word)
+					return
+				}
+
+				// 沒有交叉點時，找任何一個不衝突的空位
+				const spots = []
+				for (let row = 0; row < SIZE; row = row + 1) {
+					for (let column = 0; column < SIZE; column = column + 1) {
+						if (canPlace(grid, word, row, column, true)) {
+							spots.push({ row: row, column: column, horizontal: true })
+						}
+						if (canPlace(grid, word, row, column, false)) {
+							spots.push({ row: row, column: column, horizontal: false })
+						}
+					}
+				}
+				if (spots.length > 0) {
+					const pick = shuffle(spots)[0]
+					place(grid, word, pick.row, pick.column, pick.horizontal)
+					placed.push(word)
+				} else {
+					failed.push(word)
+				}
+			})
+
+			return { grid: grid, placed: placed, failed: failed }
+		}
+
+		/** 把格子畫到畫面上 */
+		function render(result) {
+			gridElement.innerHTML = ""
+			result.grid.forEach(function (row) {
+				row.forEach(function (letter) {
+					const cell = document.createElement("div")
+					cell.className = letter === "" ? "cell empty" : "cell"
+					cell.textContent = letter
+					gridElement.appendChild(cell)
+				})
+			})
+
+			let text = "已放入 " + result.placed.length + " 個單字：" + result.placed.join("、")
+			if (result.failed.length > 0) {
+				text = text + "　<span class='fail'>放不下：" + result.failed.join("、") + "</span>"
+			}
+			reportElement.innerHTML = text
+		}
+
+		document.getElementById("generate").onclick = function () {
+			// 輸入格式：逗號分隔或換行
+			const words = document.getElementById("input").value
+				.split(/[,\n]/)
+				.map(function (word) { return word.trim().toUpperCase() })
+				.filter(function (word) { return /^[A-Z]+$/.test(word) && word.length <= SIZE })
+
+			if (words.length === 0) {
+				reportElement.textContent = "請輸入至少一個英文單字。"
+				return
+			}
+			render(build(words))
+		}
+
+		document.getElementById("generate").click()
+	</script>
+</body>
+
+</html>

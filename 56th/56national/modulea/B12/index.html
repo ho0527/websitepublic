@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B12 繪畫工具</title>
+	<style>
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 30px 20px;
+		}
+
+		h1 {
+			font-size: 20px;
+			margin: 0px 0px 4px 0px;
+		}
+
+		.hint {
+			color: #59636e;
+			font-size: 14px;
+			margin: 0px 0px 16px 0px;
+		}
+
+		.toolbar {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-bottom: 14px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.color {
+			width: 34px;
+			height: 34px;
+			border-radius: 50%;
+			border: 3px solid transparent;
+			cursor: pointer;
+		}
+
+		.color.active {
+			border-color: #1f2328;
+		}
+
+		button {
+			background: #ffffff;
+			border: 1px solid #d0d7de;
+			border-radius: 6px;
+			padding: 8px 18px;
+			font-family: inherit;
+			font-size: 14px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			border-color: #1f6feb;
+			color: #1f6feb;
+		}
+
+		/*
+		 * resize: both 讓使用者可以拖曳右下角調整尺寸，
+		 * canvas 本身的解析度會在 JS 中跟著同步。
+		 */
+		.wrap {
+			width: 300px;
+			height: 300px;
+			resize: both;
+			overflow: hidden;
+			border: 1px solid #d0d7de;
+			border-radius: 8px;
+			background: #ffffff;
+			box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.07);
+		}
+
+		canvas {
+			display: block;
+			width: 100%;
+			height: 100%;
+			cursor: crosshair;
+			touch-action: none;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>繪畫工具</h1>
+	<p class="hint">選擇顏色後在畫布上拖曳即可作畫；拖曳畫布右下角可以調整尺寸。</p>
+
+	<div class="toolbar">
+		<div class="color active" style="background:#000000" data-color="#000000"></div>
+		<div class="color" style="background:#ef4444" data-color="#ef4444"></div>
+		<div class="color" style="background:#22c55e" data-color="#22c55e"></div>
+		<div class="color" style="background:#3b82f6" data-color="#3b82f6"></div>
+		<div class="color" style="background:#eab308" data-color="#eab308"></div>
+		<button id="clear">清除</button>
+		<button id="saveJpg">儲存為 JPG</button>
+		<button id="savePng">儲存為 PNG</button>
+	</div>
+
+	<div class="wrap" id="wrap">
+		<canvas id="canvas"></canvas>
+	</div>
+
+	<script>
+		/*
+		 * B12: 繪畫工具（等級 3）
+		 * - 五個顏色按鈕
+		 * - 預設畫布 300×300
+		 * - 拖曳右下角可調整畫布尺寸（調整時保留既有畫面）
+		 * - 可另存為 JPG 或 PNG
+		 */
+
+		const wrap = document.getElementById("wrap")
+		const canvas = document.getElementById("canvas")
+		const context = canvas.getContext("2d")
+
+		let currentColor = "#000000"
+		let isDrawing = false
+
+		/** 依容器大小同步畫布解析度，並保留原本畫好的內容 */
+		function syncSize() {
+			const width = Math.max(wrap.clientWidth, 1)
+			const height = Math.max(wrap.clientHeight, 1)
+			if (canvas.width === width && canvas.height === height) {
+				return
+			}
+			// 先保存舊畫面，調整後再貼回去
+			const snapshot = document.createElement("canvas")
+			snapshot.width = canvas.width
+			snapshot.height = canvas.height
+			if (canvas.width > 0 && canvas.height > 0) {
+				snapshot.getContext("2d").drawImage(canvas, 0, 0)
+			}
+
+			canvas.width = width
+			canvas.height = height
+			context.fillStyle = "#ffffff"
+			context.fillRect(0, 0, width, height)      // 白底，存成 JPG 才不會變黑
+			context.drawImage(snapshot, 0, 0)
+
+			context.lineWidth = 4
+			context.lineCap = "round"
+			context.lineJoin = "round"
+		}
+
+		// 監看容器尺寸變化（使用者拖曳右下角時觸發）
+		new ResizeObserver(syncSize).observe(wrap)
+		syncSize()
+
+		/** 取得指標在畫布上的座標 */
+		function getPosition(event) {
+			const rect = canvas.getBoundingClientRect()
+			return { x: event.clientX - rect.left, y: event.clientY - rect.top }
+		}
+
+		canvas.addEventListener("pointerdown", function (event) {
+			isDrawing = true
+			const point = getPosition(event)
+			context.strokeStyle = currentColor
+			context.beginPath()
+			context.moveTo(point.x, point.y)
+			canvas.setPointerCapture(event.pointerId)
+		})
+
+		canvas.addEventListener("pointermove", function (event) {
+			if (!isDrawing) {
+				return
+			}
+			const point = getPosition(event)
+			context.lineTo(point.x, point.y)
+			context.stroke()
+		})
+
+		canvas.addEventListener("pointerup", function () {
+			isDrawing = false
+		})
+
+		// 顏色選擇
+		document.querySelectorAll(".color").forEach(function (swatch) {
+			swatch.onclick = function () {
+				document.querySelectorAll(".color").forEach(function (other) {
+					other.classList.remove("active")
+				})
+				swatch.classList.add("active")
+				currentColor = swatch.dataset.color
+			}
+		})
+
+		document.getElementById("clear").onclick = function () {
+			context.fillStyle = "#ffffff"
+			context.fillRect(0, 0, canvas.width, canvas.height)
+		}
+
+		/**
+		 * 將畫布存成檔案下載到使用者電腦
+		 * @param {string} type MIME 類型
+		 * @param {string} extension 副檔名
+		 */
+		function save(type, extension) {
+			const link = document.createElement("a")
+			link.href = canvas.toDataURL(type, 0.92)
+			link.download = "drawing." + extension
+			document.body.appendChild(link)
+			link.click()
+			document.body.removeChild(link)
+		}
+
+		document.getElementById("saveJpg").onclick = function () {
+			save("image/jpeg", "jpg")
+		}
+
+		document.getElementById("savePng").onclick = function () {
+			save("image/png", "png")
+		}
+	</script>
+</body>
+
+</html>

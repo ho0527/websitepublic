@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B6 影片播放工具</title>
+	<style>
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+			background: #0f1216;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #e6edf3;
+		}
+
+		.player {
+			width: min(90vw, 760px);
+			background: #161b22;
+			border: 1px solid #2a313a;
+			border-radius: 12px;
+			padding: 14px;
+		}
+
+		video {
+			width: 100%;
+			border-radius: 8px;
+			display: block;
+			background: #000000;
+		}
+
+		.controls {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+			margin-top: 12px;
+		}
+
+		.play {
+			width: 46px;
+			height: 46px;
+			border-radius: 50%;
+			border: none;
+			background: #1f6feb;
+			color: #ffffff;
+			font-size: 18px;
+			cursor: pointer;
+			flex-shrink: 0;
+		}
+
+		.play:hover {
+			background: #3b82f6;
+		}
+
+		.time {
+			font-size: 13px;
+			color: #8b949e;
+			font-variant-numeric: tabular-nums;
+			flex-shrink: 0;
+		}
+
+		/* 進度列 */
+		.bar {
+			position: relative;
+			flex: 1;
+			height: 8px;
+			background: #2a313a;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.played {
+			height: 100%;
+			width: 0%;
+			background: #1f6feb;
+			border-radius: 4px;
+		}
+
+		/* 縮圖預覽：滑鼠移到進度列時顯示於其上方 */
+		.preview {
+			position: absolute;
+			bottom: 22px;
+			transform: translateX(-50%);
+			display: none;
+			background: #05070a;
+			border: 1px solid #2a313a;
+			border-radius: 8px;
+			padding: 6px;
+			text-align: center;
+			pointer-events: none;
+		}
+
+		.preview canvas {
+			display: block;
+			border-radius: 4px;
+			width: 160px;
+			height: 90px;
+			background: #000000;
+		}
+
+		.preview span {
+			display: block;
+			margin-top: 4px;
+			font-size: 12px;
+			color: #8b949e;
+			font-variant-numeric: tabular-nums;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="player">
+		<video id="video" src="video.mp4" preload="metadata"></video>
+
+		<div class="controls">
+			<button class="play" id="play">▶</button>
+			<span class="time" id="current">00:00</span>
+
+			<div class="bar" id="bar">
+				<div class="played" id="played"></div>
+				<div class="preview" id="preview">
+					<canvas id="thumb" width="160" height="90"></canvas>
+					<span id="previewTime">00:00</span>
+				</div>
+			</div>
+
+			<span class="time" id="duration">00:00</span>
+		</div>
+	</div>
+
+	<!-- 只用於擷取縮圖，不顯示於畫面 -->
+	<video id="thumbSource" src="video.mp4" preload="metadata" style="display:none" muted></video>
+
+	<script>
+		/*
+		 * B6: 影片播放工具（等級 3）
+		 * 播放/暫停（圖示隨狀態更新）、進度列、點擊跳轉、
+		 * 滑鼠移到進度列上方時顯示對應時間點的縮圖與時間標示。
+		 * 僅使用 HTML / CSS / JavaScript，未使用外部函式庫。
+		 */
+
+		const video = document.getElementById("video")
+		const playButton = document.getElementById("play")
+		const bar = document.getElementById("bar")
+		const played = document.getElementById("played")
+		const preview = document.getElementById("preview")
+		const previewTime = document.getElementById("previewTime")
+		const thumbCanvas = document.getElementById("thumb")
+		const thumbContext = thumbCanvas.getContext("2d")
+		const thumbSource = document.getElementById("thumbSource")
+
+		/** 秒數轉為 MM:SS */
+		function formatTime(seconds) {
+			if (!isFinite(seconds)) {
+				return "00:00"
+			}
+			const minutes = Math.floor(seconds / 60)
+			const rest = Math.floor(seconds % 60)
+			return String(minutes).padStart(2, "0") + ":" + String(rest).padStart(2, "0")
+		}
+
+		// 播放 / 暫停，按鈕圖示隨狀態即時更新
+		playButton.onclick = function () {
+			if (video.paused) {
+				video.play()
+			} else {
+				video.pause()
+			}
+		}
+		video.addEventListener("play", function () { playButton.textContent = "❚❚" })
+		video.addEventListener("pause", function () { playButton.textContent = "▶" })
+
+		video.addEventListener("loadedmetadata", function () {
+			document.getElementById("duration").textContent = formatTime(video.duration)
+		})
+
+		// 進度列反映目前播放位置
+		video.addEventListener("timeupdate", function () {
+			const ratio = video.currentTime / video.duration
+			played.style.width = (ratio * 100) + "%"
+			document.getElementById("current").textContent = formatTime(video.currentTime)
+		})
+
+		/** 由滑鼠位置換算成影片時間 */
+		function timeFromEvent(event) {
+			const rect = bar.getBoundingClientRect()
+			const ratio = Math.min(Math.max((event.clientX - rect.left) / rect.width, 0), 1)
+			return { ratio: ratio, time: ratio * video.duration }
+		}
+
+		// 點擊進度列跳轉
+		bar.addEventListener("click", function (event) {
+			video.currentTime = timeFromEvent(event).time
+		})
+
+		/*
+		 * 縮圖預覽：用另一個隱藏的 <video> 去 seek，
+		 * seek 完成後才畫到 canvas，避免影響主播放器造成卡頓。
+		 */
+		let pendingTime = null
+		let isSeeking = false
+
+		function requestThumb(time) {
+			pendingTime = time
+			if (!isSeeking && thumbSource.readyState >= 1) {
+				isSeeking = true
+				thumbSource.currentTime = pendingTime
+			}
+		}
+
+		thumbSource.addEventListener("seeked", function () {
+			thumbContext.drawImage(thumbSource, 0, 0, thumbCanvas.width, thumbCanvas.height)
+			isSeeking = false
+			// 期間若滑鼠又移動了，補畫最後一次要求的時間點
+			if (pendingTime !== null && Math.abs(pendingTime - thumbSource.currentTime) > 0.2) {
+				isSeeking = true
+				thumbSource.currentTime = pendingTime
+			}
+		})
+
+		bar.addEventListener("mousemove", function (event) {
+			const position = timeFromEvent(event)
+			preview.style.display = "block"
+			preview.style.left = (position.ratio * 100) + "%"
+			previewTime.textContent = formatTime(position.time)
+			requestThumb(position.time)
+		})
+
+		// 滑鼠離開進度列時縮圖預覽消失
+		bar.addEventListener("mouseleave", function () {
+			preview.style.display = "none"
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A8 指定符號</title>
+	<style>
+		/*
+		 * A8: 載入動畫（等級 2）— 請使用 CSS 做出指定的符號
+		 * 題目圖為青天白日：藍底、十二道白色尖角光芒、外圈藍環的白色圓日。
+		 * 全部以 CSS 繪製，未使用任何圖片。
+		 */
+
+		body {
+			margin: 0px;
+			height: 100vh;
+			background: #000095;   /* 題目圖的深藍底 */
+			display: grid;
+			place-items: center;
+		}
+
+		.emblem {
+			position: relative;
+			width: 360px;
+			height: 360px;
+		}
+
+		/*
+		 * 十二道光芒：每一道都是一個三角形，
+		 * 以整個徽章的中心為旋轉基準點，每 30 度放一道。
+		 */
+		.ray {
+			position: absolute;
+			top: 0px;
+			left: 50%;
+			width: 62px;
+			height: 180px;
+			margin-left: -31px;
+			background: #ffffff;
+			clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+			transform-origin: 50% 180px;
+		}
+
+		.ray:nth-child(1)  { transform: rotate(0deg); }
+		.ray:nth-child(2)  { transform: rotate(30deg); }
+		.ray:nth-child(3)  { transform: rotate(60deg); }
+		.ray:nth-child(4)  { transform: rotate(90deg); }
+		.ray:nth-child(5)  { transform: rotate(120deg); }
+		.ray:nth-child(6)  { transform: rotate(150deg); }
+		.ray:nth-child(7)  { transform: rotate(180deg); }
+		.ray:nth-child(8)  { transform: rotate(210deg); }
+		.ray:nth-child(9)  { transform: rotate(240deg); }
+		.ray:nth-child(10) { transform: rotate(270deg); }
+		.ray:nth-child(11) { transform: rotate(300deg); }
+		.ray:nth-child(12) { transform: rotate(330deg); }
+
+		/*
+		 * 中央的白日：白色圓形加上藍色外環，
+		 * 疊在光芒之上，把三角形往中心收斂的部分蓋住。
+		 */
+		.sun {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 176px;
+			height: 176px;
+			margin: -88px 0px 0px -88px;
+			background: #ffffff;
+			border: 13px solid #000095;
+			border-radius: 50%;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="emblem">
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="ray"></div>
+		<div class="sun"></div>
+	</div>
+</body>
+
+</html>

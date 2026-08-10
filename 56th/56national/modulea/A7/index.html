@@ -1,24 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>A7 Loader</title>
+	<title>A7 載入動畫</title>
 	<style>
-		body{margin:0;height:100vh;display:grid;place-items:center;background:#101418;font-family:Arial,sans-serif;color:#fff}
-		.loader{display:flex;gap:12px;align-items:end;height:90px}
-		.loader span{width:18px;height:18px;border-radius:50%;background:#4ade80;animation:bounce .8s ease-in-out infinite}
-		.loader span:nth-child(2){animation-delay:.12s;background:#38bdf8}
-		.loader span:nth-child(3){animation-delay:.24s;background:#fbbf24}
-		.loader span:nth-child(4){animation-delay:.36s;background:#fb7185}
-		p{text-align:center;letter-spacing:4px;margin-top:18px}
-		@keyframes bounce{50%{height:70px;border-radius:18px;transform:translateY(-12px)}}
+		/*
+		 * A7: 載入動畫（等級 1）
+		 * 參照 preview.gif：黑底上有數圈同心圓，線條為藍紫漸層，
+		 * 亮度由內而外依序脈動，形成擴散的波紋感。
+		 */
+
+		body {
+			margin: 0px;
+			height: 100vh;
+			background: #000000;
+			display: grid;
+			place-items: center;
+		}
+
+		.loader {
+			position: relative;
+			width: 260px;
+			height: 260px;
+		}
+
+		/*
+		 * 每一圈的作法：整塊填滿藍→紫漸層，再用 radial-gradient 遮罩
+		 * 把中間挖空，只留下 2px 的環，這樣線條才能是漸層色。
+		 */
+		.ring {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			background: linear-gradient(100deg, #22d3ee 0%, #6366f1 50%, #e879f9 100%);
+			-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000000 calc(100% - 2px));
+			mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000000 calc(100% - 2px));
+			animation: pulse 2.4s ease-in-out infinite;
+		}
+
+		/* 五圈固定半徑，靠 animation-delay 讓亮度由內往外傳遞 */
+		.ring:nth-child(1) { width: 52px;  height: 52px;  animation-delay: 0s; }
+		.ring:nth-child(2) { width: 104px; height: 104px; animation-delay: 0.16s; }
+		.ring:nth-child(3) { width: 156px; height: 156px; animation-delay: 0.32s; }
+		.ring:nth-child(4) { width: 208px; height: 208px; animation-delay: 0.48s; }
+		.ring:nth-child(5) { width: 260px; height: 260px; animation-delay: 0.64s; }
+
+		@keyframes pulse {
+			0%, 100% {
+				opacity: 0.18;
+				filter: blur(0px);
+			}
+
+			35% {
+				opacity: 1;
+				filter: blur(0.4px);
+			}
+		}
 	</style>
 </head>
+
 <body>
-	<div>
-		<div class="loader"><span></span><span></span><span></span><span></span></div>
-		<p>LOADING</p>
+	<div class="loader">
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
 	</div>
 </body>
+
 </html>

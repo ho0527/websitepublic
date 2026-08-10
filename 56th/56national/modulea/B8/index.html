@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B8 動態筆記本</title>
+	<style>
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+			display: flex;
+			justify-content: center;
+			padding: 40px 20px;
+		}
+
+		.notebook {
+			width: min(90vw, 680px);
+			background: #ffffff;
+			border: 1px solid #d0d7de;
+			border-radius: 12px;
+			padding: 24px;
+			box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+		}
+
+		h1 {
+			font-size: 20px;
+			margin: 0px 0px 4px 0px;
+		}
+
+		.hint {
+			color: #59636e;
+			font-size: 14px;
+			margin: 0px 0px 18px 0px;
+		}
+
+		/* 每一則筆記的輸入區，高度會依內容自動增加 */
+		.note {
+			display: block;
+			width: 100%;
+			border: none;
+			border-bottom: 1px solid #e4e7ec;
+			outline: none;
+			resize: none;
+			overflow: hidden;
+			font-family: inherit;
+			font-size: 16px;
+			line-height: 1.7;
+			padding: 10px 4px;
+			background: transparent;
+			color: inherit;
+			box-sizing: border-box;
+		}
+
+		.note:focus {
+			border-bottom-color: #1f6feb;
+			background: #f8fbff;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="notebook">
+		<h1>動態筆記本</h1>
+		<p class="hint">Enter：在下方新增一個輸入區　·　Shift + Enter：同一區內換行　·　高度會依內容自動調整</p>
+
+		<div id="list">
+			<!-- 一開始只有一個文字輸入區 -->
+			<textarea class="note" rows="1" placeholder="開始寫下第一則筆記..."></textarea>
+		</div>
+	</div>
+
+	<script>
+		/*
+		 * B8: 動態筆記本（等級 2）
+		 * - 起始只有一個輸入區
+		 * - 每個輸入區都會依內容自動調整高度
+		 * - Enter 於下方建立新的輸入區；Shift + Enter 只在同一區換行
+		 */
+
+		const list = document.getElementById("list")
+
+		/** 依內容自動調整輸入區高度 */
+		function autoResize(textarea) {
+			textarea.style.height = "auto"
+			textarea.style.height = textarea.scrollHeight + "px"
+		}
+
+		/**
+		 * 在指定輸入區下方插入一個新的輸入區並聚焦
+		 * @param {HTMLTextAreaElement} current 目前的輸入區
+		 */
+		function insertNoteAfter(current) {
+			const note = document.createElement("textarea")
+			note.className = "note"
+			note.rows = 1
+			note.placeholder = "繼續寫下一則筆記..."
+			current.insertAdjacentElement("afterend", note)
+			autoResize(note)
+			note.focus()
+		}
+
+		// 用事件委派處理所有輸入區（含之後新增的）
+		list.addEventListener("input", function (event) {
+			if (event.target.classList.contains("note")) {
+				autoResize(event.target)
+			}
+		})
+
+		list.addEventListener("keydown", function (event) {
+			if (!event.target.classList.contains("note")) {
+				return
+			}
+			if (event.key === "Enter" && !event.shiftKey) {
+				// 單獨按 Enter：不換行，改成新增一個輸入區
+				event.preventDefault()
+				insertNoteAfter(event.target)
+			}
+			// Shift + Enter 不攔截，維持 textarea 原本的換行行為
+		})
+
+		autoResize(list.querySelector(".note"))
+	</script>
+</body>
+
+</html>

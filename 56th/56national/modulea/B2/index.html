@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B2 CSS 檢視工具</title>
+	<style>
+		body {
+			margin: 0px;
+			padding: 30px;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+		}
+
+		h1 {
+			font-size: 22px;
+		}
+
+		.demo {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			align-items: flex-start;
+			margin-top: 20px;
+		}
+
+		.box {
+			width: 160px;
+			height: 120px;
+			background: #38bdf8;
+			color: #08313f;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 10px;
+			font-size: 18px;
+			margin: 6px;
+			padding: 8px;
+		}
+
+		.box.pink {
+			background: #f472b6;
+			color: #4a1030;
+			width: 200px;
+			height: 90px;
+		}
+
+		.demo-button {
+			background: #1f6feb;
+			color: #ffffff;
+			border: 2px solid #1a4fb0;
+			border-radius: 8px;
+			padding: 12px 26px;
+			font-size: 16px;
+			font-family: inherit;
+			margin: 10px;
+			cursor: pointer;
+		}
+
+		.demo-list {
+			background: #ffffff;
+			border: 1px solid #d0d7de;
+			border-radius: 10px;
+			padding: 14px 30px;
+			margin: 4px;
+			font-size: 15px;
+			line-height: 2;
+		}
+
+		/* 滑鼠移過時的高亮外框 */
+		.inspect-hover {
+			outline: 3px dashed #ef4444 !important;
+			outline-offset: 2px;
+		}
+
+		/* 工具提示 */
+		#tooltip {
+			position: absolute;
+			z-index: 9999;
+			display: none;
+			background: #1f2328;
+			color: #ffffff;
+			font-size: 13px;
+			line-height: 1.7;
+			padding: 12px 14px;
+			border-radius: 8px;
+			box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.35);
+			pointer-events: none;
+			white-space: nowrap;
+		}
+
+		#tooltip b {
+			color: #7dd3fc;
+		}
+
+		.hint {
+			color: #59636e;
+			font-size: 14px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>CSS 檢視工具</h1>
+	<p class="hint">滑鼠移到元素上會標示外框，點擊元素會顯示它的 CSS 屬性。</p>
+
+	<div class="demo" id="demo">
+		<div class="box">Box A</div>
+		<div class="box pink">Box B</div>
+		<button class="demo-button">Demo Button</button>
+		<ul class="demo-list">
+			<li>List item one</li>
+			<li>List item two</li>
+			<li>List item three</li>
+		</ul>
+	</div>
+
+	<div id="tooltip"></div>
+
+	<script>
+		/*
+		 * B2: CSS 檢視工具（等級 2）
+		 * 只用原生 JavaScript，不使用任何外部函式庫。
+		 * 滑鼠移入 → 標示外框；點擊 → 顯示該元素的主要 CSS 屬性。
+		 */
+
+		// 要顯示在工具提示中的屬性
+		const SHOWN_PROPERTIES = [
+			["color", "顏色"],
+			["background-color", "背景顏色"],
+			["font-size", "字體大小"],
+			["width", "寬度"],
+			["height", "高度"],
+			["border", "邊界"],
+			["margin", "外邊距"],
+			["padding", "內邊距"]
+		]
+
+		const demo = document.getElementById("demo")
+		const tooltip = document.getElementById("tooltip")
+		let highlighted = null
+
+		/** 移除前一個元素的高亮 */
+		function clearHighlight() {
+			if (highlighted !== null) {
+				highlighted.classList.remove("inspect-hover")
+				highlighted = null
+			}
+		}
+
+		/** 取得元素的 CSS 屬性文字 */
+		function describe(element) {
+			const style = getComputedStyle(element)
+			const rows = SHOWN_PROPERTIES.map(function (entry) {
+				return "<b>" + entry[1] + "</b> (" + entry[0] + "): " + style.getPropertyValue(entry[0])
+			})
+			return "&lt;" + element.tagName.toLowerCase() + "&gt;<br>" + rows.join("<br>")
+		}
+
+		// 滑鼠移入：標示目前元素，並移除前一個高亮
+		demo.addEventListener("mouseover", function (event) {
+			if (event.target === demo) {
+				return
+			}
+			clearHighlight()
+			highlighted = event.target
+			highlighted.classList.add("inspect-hover")
+		})
+
+		// 滑鼠離開示範區域時一併清掉高亮與提示
+		demo.addEventListener("mouseleave", function () {
+			clearHighlight()
+			tooltip.style.display = "none"
+		})
+
+		// 點擊：顯示 CSS 屬性
+		demo.addEventListener("click", function (event) {
+			if (event.target === demo) {
+				return
+			}
+			tooltip.innerHTML = describe(event.target)
+			tooltip.style.display = "block"
+			tooltip.style.left = (event.pageX + 16) + "px"
+			tooltip.style.top = (event.pageY + 16) + "px"
+		})
+	</script>
+</body>
+
+</html>

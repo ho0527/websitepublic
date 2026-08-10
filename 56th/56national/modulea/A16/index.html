@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A16 步驟進度</title>
+	<style>
+		/*
+		 * A16: 步驟進度（等級 2）
+		 * 三步驟流程，三種狀態各有明顯不同的設計：
+		 *   已完成 Completed → 綠色、進行中 In Progress → 藍色、待處理 Pending → 淺藍色
+		 * 版面為自行設計，未直接複製 sample-1.png。
+		 */
+
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+		}
+
+		.progress {
+			display: flex;
+			align-items: flex-start;
+			background: #ffffff;
+			border: 1px solid #d0d7de;
+			border-radius: 16px;
+			padding: 40px 32px;
+			box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
+		}
+
+		.step {
+			width: 190px;
+			text-align: center;
+			position: relative;
+		}
+
+		/* 步驟之間的連接線 */
+		.step + .step::before {
+			content: "";
+			position: absolute;
+			top: 27px;
+			left: -50%;
+			width: 100%;
+			height: 4px;
+			background: #dbe6f5;
+		}
+
+		.step.completed + .step::before {
+			background: #2da44e;
+		}
+
+		.circle {
+			position: relative;
+			z-index: 1;
+			width: 54px;
+			height: 54px;
+			margin: 0px auto 14px auto;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 22px;
+			font-weight: bold;
+			color: #ffffff;
+			border: 4px solid transparent;
+		}
+
+		.label {
+			font-size: 16px;
+			font-weight: bold;
+			margin-bottom: 4px;
+		}
+
+		.state {
+			font-size: 13px;
+		}
+
+		/* 已完成：綠色 */
+		.completed .circle {
+			background: #2da44e;
+			border-color: #b7e4c4;
+		}
+
+		.completed .state {
+			color: #2da44e;
+		}
+
+		/* 進行中：藍色，加上呼吸光暈強調目前正在進行 */
+		.current .circle {
+			background: #1f6feb;
+			border-color: #b6d2fb;
+			animation: breathe 1.6s ease-in-out infinite;
+		}
+
+		.current .state {
+			color: #1f6feb;
+		}
+
+		@keyframes breathe {
+			0%, 100% {
+				box-shadow: 0px 0px 0px 0px rgba(31, 111, 235, 0.45);
+			}
+
+			50% {
+				box-shadow: 0px 0px 0px 10px rgba(31, 111, 235, 0);
+			}
+		}
+
+		/* 待處理：淺藍色 */
+		.pending .circle {
+			background: #a8c9f0;
+			border-color: #dbe9fb;
+		}
+
+		.pending .label,
+		.pending .state {
+			color: #8494a6;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="progress">
+		<div class="step completed">
+			<div class="circle">✓</div>
+			<div class="label">建立帳號</div>
+			<div class="state">Completed</div>
+		</div>
+
+		<div class="step current">
+			<div class="circle">2</div>
+			<div class="label">填寫資料</div>
+			<div class="state">In Progress</div>
+		</div>
+
+		<div class="step pending">
+			<div class="circle">3</div>
+			<div class="label">完成驗證</div>
+			<div class="state">Pending</div>
+		</div>
+	</div>
+</body>
+
+</html>

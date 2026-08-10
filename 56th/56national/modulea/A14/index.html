@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A14 工具提示</title>
+	<style>
+		/*
+		 * A14: 工具提示（等級 2）
+		 * Settings 與 Log Out 水平並排，滑鼠懸停或鍵盤 Tab 聚焦時顯示說明。
+		 * Settings 的提示在正上方，Log Out 的提示在右側，預設不可見且不會被遮擋。
+		 */
+
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+		}
+
+		/* 兩個文字元素水平並排 */
+		.menu {
+			display: flex;
+			align-items: center;
+			gap: 48px;
+		}
+
+		.item {
+			position: relative;
+			font-size: 20px;
+			font-weight: bold;
+			color: #1f2328;
+			cursor: pointer;
+			padding: 8px 12px;
+			border-radius: 6px;
+			outline: none;
+		}
+
+		.item:hover,
+		.item:focus-visible {
+			background: #e8edf3;
+		}
+
+		.item:focus-visible {
+			box-shadow: 0px 0px 0px 3px rgba(56, 132, 255, 0.45);
+		}
+
+		/* 工具提示本體：預設完全隱藏，且 z-index 夠高不會被其他元素遮擋 */
+		.tooltip {
+			position: absolute;
+			z-index: 100;
+			width: max-content;
+			max-width: 260px;
+			background: #1f2328;
+			color: #ffffff;
+			font-size: 14px;
+			font-weight: normal;
+			line-height: 1.5;
+			padding: 8px 12px;
+			border-radius: 6px;
+			box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+			opacity: 0;
+			visibility: hidden;
+			transition-duration: 0.2s;
+			pointer-events: none;
+		}
+
+		/* 懸停或鍵盤聚焦時顯示 */
+		.item:hover .tooltip,
+		.item:focus-visible .tooltip {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		/* Settings：出現在文字正上方 */
+		.tooltip-top {
+			bottom: calc(100% + 10px);
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.tooltip-top::after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			border: 6px solid transparent;
+			border-top-color: #1f2328;
+		}
+
+		/* Log Out：出現在文字右側 */
+		.tooltip-right {
+			left: calc(100% + 10px);
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.tooltip-right::after {
+			content: "";
+			position: absolute;
+			right: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+			border: 6px solid transparent;
+			border-right-color: #1f2328;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="menu">
+		<span class="item" tabindex="0">
+			Settings
+			<span class="tooltip tooltip-top" role="tooltip">Click the Settings button to configure the service.</span>
+		</span>
+
+		<span class="item" tabindex="0">
+			Log Out
+			<span class="tooltip tooltip-right" role="tooltip">You will be logged out and redirected to the main page.</span>
+		</span>
+	</div>
+</body>
+
+</html>

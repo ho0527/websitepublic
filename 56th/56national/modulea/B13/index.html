@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B13 折線圖</title>
+	<style>
+		/*
+		 * B13: 折線圖（等級 2）
+		 * 一週網站造訪量的折線圖，預設為模糊；滑鼠移到圖表上方時移除模糊。
+		 * 模糊與懸停效果皆以 CSS 完成。
+		 */
+
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+			background: #f6f8fa;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #1f2328;
+		}
+
+		.card {
+			background: #ffffff;
+			border: 1px solid #d0d7de;
+			border-radius: 14px;
+			padding: 26px 30px;
+			box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
+		}
+
+		h1 {
+			font-size: 19px;
+			margin: 0px 0px 2px 0px;
+		}
+
+		.hint {
+			color: #59636e;
+			font-size: 13px;
+			margin: 0px 0px 18px 0px;
+		}
+
+		/* 預設模糊，滑鼠移入後恢復清晰 */
+		.chart {
+			filter: blur(6px);
+			transition: filter 0.35s ease;
+			cursor: pointer;
+		}
+
+		.chart:hover {
+			filter: blur(0px);
+		}
+
+		.axis {
+			stroke: #d0d7de;
+			stroke-width: 1;
+		}
+
+		.line {
+			fill: none;
+			stroke: #1f6feb;
+			stroke-width: 3;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+		}
+
+		.area {
+			fill: rgba(31, 111, 235, 0.12);
+		}
+
+		.dot {
+			fill: #ffffff;
+			stroke: #1f6feb;
+			stroke-width: 3;
+		}
+
+		.label {
+			font-size: 12px;
+			fill: #59636e;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="card">
+		<h1>一週網站造訪量</h1>
+		<p class="hint">滑鼠移到圖表上即可看清楚數據</p>
+
+		<!-- 造訪量：120 / 200 / 165 / 260 / 310 / 240 / 350（上限 400） -->
+		<svg class="chart" width="560" height="300" viewBox="0 0 560 300">
+			<line class="axis" x1="50" y1="250" x2="530" y2="250"></line>
+			<line class="axis" x1="50" y1="30" x2="50" y2="250"></line>
+
+			<polygon class="area"
+				points="80,184 155,140 230,168.75 305,105 380,71.5 455,118 530,57.5 530,250 80,250"></polygon>
+
+			<polyline class="line" points="80,184 155,140 230,168.75 305,105 380,71.5 455,118 530,57.5"></polyline>
+
+			<circle class="dot" cx="80" cy="184" r="5"></circle>
+			<circle class="dot" cx="155" cy="140" r="5"></circle>
+			<circle class="dot" cx="230" cy="168.75" r="5"></circle>
+			<circle class="dot" cx="305" cy="105" r="5"></circle>
+			<circle class="dot" cx="380" cy="71.5" r="5"></circle>
+			<circle class="dot" cx="455" cy="118" r="5"></circle>
+			<circle class="dot" cx="530" cy="57.5" r="5"></circle>
+
+			<text class="label" x="80" y="270" text-anchor="middle">Mon</text>
+			<text class="label" x="155" y="270" text-anchor="middle">Tue</text>
+			<text class="label" x="230" y="270" text-anchor="middle">Wed</text>
+			<text class="label" x="305" y="270" text-anchor="middle">Thu</text>
+			<text class="label" x="380" y="270" text-anchor="middle">Fri</text>
+			<text class="label" x="455" y="270" text-anchor="middle">Sat</text>
+			<text class="label" x="530" y="270" text-anchor="middle">Sun</text>
+
+			<text class="label" x="42" y="254" text-anchor="end">0</text>
+			<text class="label" x="42" y="144" text-anchor="end">200</text>
+			<text class="label" x="42" y="34" text-anchor="end">400</text>
+		</svg>
+	</div>
+</body>
+
+</html>

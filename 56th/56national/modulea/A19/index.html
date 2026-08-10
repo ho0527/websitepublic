@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A19 卡片堆疊</title>
+	<style>
+		/*
+		 * A19: 卡片堆疊（等級 3）
+		 * 3 張卡片在 3D 空間中堆疊：沿 Z 軸依序後退並沿 Y 軸稍微旋轉。
+		 * 被選中的卡片會明顯向前彈出、Y 軸旋轉歸零正對前方；
+		 * 未選取的卡片半透明且陰影較淡。可用「上一個 / 下一個」切換。
+		 */
+
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 40px;
+			background: #0f172a;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			color: #e2e8f0;
+		}
+
+		.stage {
+			perspective: 1200px;
+			width: 340px;
+			height: 340px;
+			display: grid;
+			place-items: center;
+		}
+
+		.deck {
+			position: relative;
+			width: 220px;
+			height: 300px;
+			transform-style: preserve-3d;
+		}
+
+		.card {
+			position: absolute;
+			inset: 0px;
+			border-radius: 18px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 64px;
+			font-weight: bold;
+			color: #ffffff;
+			background: linear-gradient(160deg, #38bdf8, #6366f1);
+			transition: transform 0.55s ease, opacity 0.55s ease, box-shadow 0.55s ease;
+			/* 未選取：半透明、陰影較不明顯 */
+			opacity: 0.45;
+			box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.35);
+		}
+
+		/* 堆疊位置：每張沿 Z 軸後退並稍微轉向 */
+		.card[data-offset="0"] { transform: translateZ(0px)    translateX(0px)  rotateY(0deg); }
+		.card[data-offset="1"] { transform: translateZ(-120px) translateX(46px) rotateY(-22deg); }
+		.card[data-offset="2"] { transform: translateZ(-240px) translateX(84px) rotateY(-32deg); }
+
+		/* 被選取的卡片：向前彈出、轉正、完全不透明、陰影加強 */
+		.card.selected {
+			opacity: 1;
+			transform: translateZ(160px) translateX(0px) rotateY(0deg);
+			box-shadow: 0px 24px 50px rgba(0, 0, 0, 0.6);
+		}
+
+		.controls {
+			display: flex;
+			gap: 16px;
+		}
+
+		button {
+			background: #1e293b;
+			color: #e2e8f0;
+			border: 1px solid #334155;
+			border-radius: 8px;
+			padding: 10px 26px;
+			font-size: 16px;
+			font-family: inherit;
+			cursor: pointer;
+			transition-duration: 0.3s;
+		}
+
+		button:hover {
+			background: #334155;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="stage">
+		<div class="deck" id="deck">
+			<div class="card">1</div>
+			<div class="card">2</div>
+			<div class="card">3</div>
+		</div>
+	</div>
+
+	<div class="controls">
+		<button id="prev">上一個</button>
+		<button id="next">下一個</button>
+	</div>
+
+	<script>
+		/* 依目前選取的索引，重新計算每張卡片在堆疊中的位置 */
+		const cards = document.querySelectorAll(".card")
+		let selectedIndex = 0
+
+		function render() {
+			cards.forEach(function (card, index) {
+				// offset 表示這張卡片排在被選取卡片後方第幾層
+				const offset = (index - selectedIndex + cards.length) % cards.length
+				card.dataset.offset = offset
+				card.classList.toggle("selected", offset === 0)
+				card.style.zIndex = String(cards.length - offset)
+			})
+		}
+
+		document.getElementById("prev").onclick = function () {
+			selectedIndex = (selectedIndex - 1 + cards.length) % cards.length
+			render()
+		}
+
+		document.getElementById("next").onclick = function () {
+			selectedIndex = (selectedIndex + 1) % cards.length
+			render()
+		}
+
+		render()
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A18 3D 卡片</title>
+	<style>
+		/*
+		 * A18: 3D 卡片（等級 3）
+		 * 6 張卡片水平排成一列，各有不同背景色與正反面；
+		 * 滑鼠懸停時繞 Y 軸平滑旋轉 180 度顯示背面，背面顯示卡片編號。
+		 */
+
+		body {
+			margin: 0px;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 26px;
+			flex-wrap: wrap;
+			background: #10151d;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+		}
+
+		/* 外層負責建立 3D 透視 */
+		.card {
+			width: 170px;
+			height: 240px;
+			perspective: 900px;
+		}
+
+		/* 內層是真正翻轉的元素 */
+		.inner {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			transform-style: preserve-3d;
+			transition: transform 0.7s cubic-bezier(0.4, 0.1, 0.2, 1);
+		}
+
+		.card:hover .inner {
+			transform: rotateY(180deg);
+		}
+
+		.face {
+			position: absolute;
+			inset: 0px;
+			border-radius: 14px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			color: #ffffff;
+			font-size: 22px;
+			font-weight: bold;
+			backface-visibility: hidden;   /* 背對鏡頭的那一面不顯示 */
+			/* 用內外陰影營造立體感 */
+			box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.45),
+				inset 0px 1px 0px rgba(255, 255, 255, 0.35),
+				inset 0px -6px 14px rgba(0, 0, 0, 0.25);
+		}
+
+		.back {
+			transform: rotateY(180deg);
+			font-size: 56px;
+			background: #1f2937;
+			color: #f8fafc;
+		}
+
+		/* 每張卡片不同的背景顏色 */
+		.card:nth-child(1) .front { background: linear-gradient(160deg, #ef4444, #b91c1c); }
+		.card:nth-child(2) .front { background: linear-gradient(160deg, #f97316, #c2410c); }
+		.card:nth-child(3) .front { background: linear-gradient(160deg, #eab308, #a16207); }
+		.card:nth-child(4) .front { background: linear-gradient(160deg, #22c55e, #15803d); }
+		.card:nth-child(5) .front { background: linear-gradient(160deg, #3b82f6, #1d4ed8); }
+		.card:nth-child(6) .front { background: linear-gradient(160deg, #a855f7, #7e22ce); }
+	</style>
+</head>
+
+<body>
+	<div class="card">
+		<div class="inner">
+			<div class="face front">Card One</div>
+			<div class="face back">1</div>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="inner">
+			<div class="face front">Card Two</div>
+			<div class="face back">2</div>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="inner">
+			<div class="face front">Card Three</div>
+			<div class="face back">3</div>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="inner">
+			<div class="face front">Card Four</div>
+			<div class="face back">4</div>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="inner">
+			<div class="face front">Card Five</div>
+			<div class="face back">5</div>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="inner">
+			<div class="face front">Card Six</div>
+			<div class="face back">6</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B5 ASCII 即時繪圖</title>
+	<style>
+		body {
+			margin: 0px;
+			padding: 24px;
+			background: #0f1216;
+			color: #e6edf3;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+		}
+
+		h1 {
+			font-size: 20px;
+			margin: 0px 0px 6px 0px;
+		}
+
+		.hint {
+			color: #8b949e;
+			font-size: 14px;
+			margin: 0px 0px 16px 0px;
+		}
+
+		/* 左右並排的兩個畫布 */
+		.panels {
+			display: flex;
+			gap: 20px;
+			flex-wrap: wrap;
+		}
+
+		.panel {
+			background: #161b22;
+			border: 1px solid #2a313a;
+			border-radius: 10px;
+			padding: 12px;
+		}
+
+		.panel h2 {
+			font-size: 15px;
+			margin: 0px 0px 10px 0px;
+			color: #8b949e;
+		}
+
+		#draw {
+			background: #ffffff;
+			border-radius: 6px;
+			cursor: crosshair;
+			touch-action: none;
+			display: block;
+		}
+
+		/* ASCII 視圖，用等寬字排出字元畫 */
+		#ascii {
+			width: 480px;
+			height: 360px;
+			margin: 0px;
+			overflow: hidden;
+			font-family: Consolas, "Courier New", monospace;
+			font-size: 8px;
+			line-height: 8px;
+			letter-spacing: 0px;
+			color: #22c55e;
+			background: #05070a;
+			border-radius: 6px;
+			white-space: pre;
+		}
+
+		button {
+			margin-top: 12px;
+			background: #21262d;
+			color: #e6edf3;
+			border: 1px solid #2a313a;
+			border-radius: 6px;
+			padding: 8px 20px;
+			font-family: inherit;
+			cursor: pointer;
+		}
+
+		button:hover {
+			border-color: #58a6ff;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>ASCII 即時繪圖</h1>
+	<p class="hint">在左邊畫布用滑鼠或觸控自由繪圖，右邊會即時轉成 @ 字元組成的 ASCII 圖像。</p>
+
+	<div class="panels">
+		<div class="panel">
+			<h2>畫布一：手繪</h2>
+			<canvas id="draw" width="480" height="360"></canvas>
+			<button id="clear">清除</button>
+		</div>
+
+		<div class="panel">
+			<h2>畫布二：ASCII 即時輸出</h2>
+			<pre id="ascii"></pre>
+		</div>
+	</div>
+
+	<script>
+		/*
+		 * B5: ASCII 即時繪圖（等級 3）
+		 * 左畫布繪圖 → 取像素 → 只有實際畫過的地方轉成 @ →
+		 * 右側以「逐字浮現」的方式呈現，模擬打字輸出的感覺。
+		 * 僅使用 HTML / CSS / JavaScript。
+		 */
+
+		const CELL = 6           // 每個字元對應的像素方塊大小
+		const drawCanvas = document.getElementById("draw")
+		const drawContext = drawCanvas.getContext("2d", { willReadFrequently: true })
+		const asciiElement = document.getElementById("ascii")
+
+		const columns = Math.floor(drawCanvas.width / CELL)
+		const rows = Math.floor(drawCanvas.height / CELL)
+
+		drawContext.fillStyle = "#ffffff"
+		drawContext.fillRect(0, 0, drawCanvas.width, drawCanvas.height)
+		drawContext.lineWidth = 8
+		drawContext.lineCap = "round"
+		drawContext.lineJoin = "round"
+		drawContext.strokeStyle = "#000000"
+
+		let isDrawing = false
+		let targetGrid = []       // 目前應該顯示的字元格
+		let shownCount = 0        // 已經「打字」出來的字元數，用來做漸進顯示
+
+		/** 掃描畫布，把有筆跡的格子標成 @ */
+		function scan() {
+			const image = drawContext.getImageData(0, 0, drawCanvas.width, drawCanvas.height).data
+			const grid = []
+
+			for (let row = 0; row < rows; row = row + 1) {
+				const line = []
+				for (let column = 0; column < columns; column = column + 1) {
+					// 取每個格子中心點的亮度，夠暗代表這裡被畫過
+					const x = column * CELL + Math.floor(CELL / 2)
+					const y = row * CELL + Math.floor(CELL / 2)
+					const offset = (y * drawCanvas.width + x) * 4
+					const brightness = (image[offset] + image[offset + 1] + image[offset + 2]) / 3
+					line.push(brightness < 128 ? "@" : " ")
+				}
+				grid.push(line)
+			}
+			targetGrid = grid
+		}
+
+		/** 逐字顯示：每次多顯示一些字元，做出打字輸出的效果 */
+		function render() {
+			const flat = []
+			targetGrid.forEach(function (line) {
+				flat.push(line.join(""))
+			})
+
+			// 只計算「有內容」的字元數量作為打字進度上限
+			const filledPositions = []
+			targetGrid.forEach(function (line, rowIndex) {
+				line.forEach(function (character, columnIndex) {
+					if (character === "@") {
+						filledPositions.push(rowIndex * columns + columnIndex)
+					}
+				})
+			})
+
+			if (shownCount < filledPositions.length) {
+				shownCount = Math.min(shownCount + 40, filledPositions.length)
+			} else {
+				shownCount = filledPositions.length
+			}
+
+			// 依進度只畫出前 shownCount 個 @
+			const visible = new Set(filledPositions.slice(0, shownCount))
+			const output = []
+			for (let row = 0; row < rows; row = row + 1) {
+				let line = ""
+				for (let column = 0; column < columns; column = column + 1) {
+					line = line + (visible.has(row * columns + column) ? "@" : " ")
+				}
+				output.push(line)
+			}
+			asciiElement.textContent = output.join("\n")
+
+			requestAnimationFrame(render)
+		}
+
+		/** 取得事件在畫布上的座標（同時支援滑鼠與觸控） */
+		function getPosition(event) {
+			const rect = drawCanvas.getBoundingClientRect()
+			return { x: event.clientX - rect.left, y: event.clientY - rect.top }
+		}
+
+		drawCanvas.addEventListener("pointerdown", function (event) {
+			isDrawing = true
+			const point = getPosition(event)
+			drawContext.beginPath()
+			drawContext.moveTo(point.x, point.y)
+			drawCanvas.setPointerCapture(event.pointerId)
+		})
+
+		drawCanvas.addEventListener("pointermove", function (event) {
+			if (!isDrawing) {
+				return
+			}
+			const point = getPosition(event)
+			drawContext.lineTo(point.x, point.y)
+			drawContext.stroke()
+			scan()   // 繪圖同時即時更新 ASCII
+		})
+
+		drawCanvas.addEventListener("pointerup", function () {
+			isDrawing = false
+		})
+
+		document.getElementById("clear").onclick = function () {
+			drawContext.fillStyle = "#ffffff"
+			drawContext.fillRect(0, 0, drawCanvas.width, drawCanvas.height)
+			drawContext.strokeStyle = "#000000"
+			shownCount = 0
+			scan()
+		}
+
+		scan()
+		render()
+	</script>
+</body>
+
+</html>

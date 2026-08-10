@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B3 3D 無限隧道</title>
+	<style>
+		body {
+			margin: 0px;
+			height: 100vh;
+			overflow: hidden;
+			background: #05070d;
+			display: grid;
+			place-items: center;
+		}
+
+		.stage {
+			position: relative;
+			width: 100vw;
+			height: 100vh;
+			display: grid;
+			place-items: center;
+		}
+
+		/*
+		 * 圓環：正圓形、白色半透明邊框，並有細微的發光效果。
+		 * 直徑與透明度由 JavaScript 依「深度」即時計算，
+		 * 越接近觀看者直徑越大，並在最遠與最近時淡出，形成無限延伸感。
+		 */
+		.ring {
+			position: absolute;
+			border-radius: 50%;
+			border: 2px solid rgba(255, 255, 255, 0.75);
+			box-shadow: 0px 0px 18px rgba(255, 255, 255, 0.35),
+				inset 0px 0px 18px rgba(255, 255, 255, 0.18);
+			will-change: width, height, opacity;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="stage" id="stage"></div>
+
+	<script>
+		/*
+		 * B3: 3D 無限隧道（等級 2）
+		 * 每個圓環有一個 0~1 的進度值，代表它在隧道中的位置。
+		 * 進度越大代表越靠近觀看者：直徑指數放大、並在頭尾淡出，
+		 * 進度超過 1 就回到 0，因此隧道看起來永遠延伸不完。
+		 */
+
+		const RING_COUNT = 18          // 同時存在的圓環數量
+		const CYCLE_SECOND = 4.5       // 一個圓環由最遠走到最近所需秒數
+		const MIN_SIZE = 40            // 最遠處的直徑
+		const MAX_SIZE = 2200          // 最近處的直徑
+
+		const stage = document.getElementById("stage")
+		const rings = []
+
+		for (let index = 0; index < RING_COUNT; index = index + 1) {
+			const ring = document.createElement("div")
+			ring.className = "ring"
+			stage.appendChild(ring)
+			// 平均分佈在整個週期上，畫面才不會有空檔
+			rings.push({ element: ring, progress: index / RING_COUNT })
+		}
+
+		let lastTime = performance.now()
+
+		function update(now) {
+			const delta = (now - lastTime) / 1000
+			lastTime = now
+
+			rings.forEach(function (ring) {
+				ring.progress = ring.progress + delta / CYCLE_SECOND
+				if (ring.progress >= 1) {
+					ring.progress = ring.progress - 1
+				}
+
+				// 指數成長：接近觀看者時直徑放大得更快，透視感較自然
+				const size = MIN_SIZE * Math.pow(MAX_SIZE / MIN_SIZE, ring.progress)
+
+				// 頭尾淡出：0~0.15 淡入、0.75~1 淡出
+				let opacity = 1
+				if (ring.progress < 0.15) {
+					opacity = ring.progress / 0.15
+				} else if (ring.progress > 0.75) {
+					opacity = (1 - ring.progress) / 0.25
+				}
+
+				ring.element.style.width = size + "px"
+				ring.element.style.height = size + "px"
+				ring.element.style.opacity = opacity.toFixed(3)
+			})
+
+			requestAnimationFrame(update)
+		}
+
+		requestAnimationFrame(update)
+	</script>
+</body>
+
+</html>

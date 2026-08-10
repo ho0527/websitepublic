@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>C8 ASCII 藝術轉換工具</title>
+	<style>
+		body {
+			margin: 0px;
+			padding: 30px 20px;
+			background: #0f1216;
+			color: #e6edf3;
+			font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 14px;
+		}
+
+		h1 {
+			font-size: 20px;
+			margin: 0px;
+		}
+
+		.hint {
+			color: #8b949e;
+			font-size: 14px;
+			margin: 0px;
+			text-align: center;
+		}
+
+		.toolbar {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		input[type="file"] {
+			color: #e6edf3;
+		}
+
+		label {
+			font-size: 14px;
+			color: #8b949e;
+		}
+
+		input[type="range"] {
+			width: 180px;
+		}
+
+		#ascii {
+			margin: 0px;
+			padding: 14px;
+			background: #05070a;
+			border: 1px solid #2a313a;
+			border-radius: 8px;
+			font-family: Consolas, "Courier New", monospace;
+			font-size: 7px;
+			line-height: 7px;
+			letter-spacing: 0px;
+			white-space: pre;
+			overflow: auto;
+			max-width: 95vw;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>ASCII 藝術轉換工具</h1>
+	<p class="hint">選擇一張圖片，會轉換成由 @ 與 . 組成的 ASCII 圖像（最大 200 字元寬 × 80 字元高）。</p>
+
+	<div class="toolbar">
+		<input type="file" id="file" accept="image/*">
+		<label>閾值 <span id="thresholdText">50</span>%</label>
+		<input type="range" id="threshold" min="10" max="90" value="50">
+	</div>
+
+	<pre id="ascii">請選擇圖片…</pre>
+
+	<script>
+		/*
+		 * C8: ASCII 藝術轉換工具（等級 2）
+		 * 圖片先縮放到不超過 200 字元寬、80 字元高，
+		 * 再依每個字元格的平均亮度決定要輸出 @（暗）或 .（亮）。
+		 */
+
+		const MAX_COLUMNS = 200
+		const MAX_ROWS = 80
+		// 字元通常高比寬大約 2 倍，取樣時要補償，圖形才不會被拉長
+		const CHARACTER_RATIO = 2
+
+		const asciiElement = document.getElementById("ascii")
+		const thresholdInput = document.getElementById("threshold")
+		const thresholdText = document.getElementById("thresholdText")
+		const canvas = document.createElement("canvas")
+		const context = canvas.getContext("2d", { willReadFrequently: true })
+
+		let currentImage = null
+
+		/** 將目前的圖片轉成 ASCII 並顯示 */
+		function convert() {
+			if (currentImage === null) {
+				return
+			}
+
+			// 依比例計算輸出的字元數，並限制在 200×80 之內
+			let columns = MAX_COLUMNS
+			let rows = Math.round(columns * (currentImage.height / currentImage.width) / CHARACTER_RATIO)
+			if (rows > MAX_ROWS) {
+				rows = MAX_ROWS
+				columns = Math.round(rows * (currentImage.width / currentImage.height) * CHARACTER_RATIO)
+				columns = Math.min(columns, MAX_COLUMNS)
+			}
+
+			canvas.width = columns
+			canvas.height = rows
+			context.drawImage(currentImage, 0, 0, columns, rows)
+			const data = context.getImageData(0, 0, columns, rows).data
+
+			const limit = Number(thresholdInput.value) / 100 * 255
+			const lines = []
+
+			for (let row = 0; row < rows; row = row + 1) {
+				let line = ""
+				for (let column = 0; column < columns; column = column + 1) {
+					const offset = (row * columns + column) * 4
+					// 以感知亮度計算灰階值
+					const brightness = data[offset] * 0.299 + data[offset + 1] * 0.587 + data[offset + 2] * 0.114
+					line = line + (brightness < limit ? "@" : ".")
+				}
+				lines.push(line)
+			}
+
+			asciiElement.textContent = lines.join("\n")
+		}
+
+		document.getElementById("file").addEventListener("change", function (event) {
+			const file = event.target.files[0]
+			if (file === undefined) {
+				return
+			}
+			const reader = new FileReader()
+			reader.onload = function (loaded) {
+				const image = new Image()
+				image.onload = function () {
+					currentImage = image
+					convert()
+				}
+				image.src = loaded.target.result
+			}
+			reader.readAsDataURL(file)
+		})
+
+		thresholdInput.addEventListener("input", function () {
+			thresholdText.textContent = thresholdInput.value
+			convert()
+		})
+
+		// 頁面載入時先以資料夾提供的 img.png 做示範
+		const sample = new Image()
+		sample.onload = function () {
+			currentImage = sample
+			convert()
+		}
+		sample.src = "img.png"
+	</script>
+</body>
+
+</html>
