@@ -1,0 +1,31 @@
+# 相依套件（Windows 與 Linux 的 node_modules 內容不同，一律不進版控）
+node_modules/
+vendor/
+bower_components/
+
+# 建置產出與暫存資料夾
+dist/
+build/
+.cache/
+.tmp/
+tmp/
+temp/
+coverage/
+
+# 記錄檔與執行期產物
+*.log
+npm-debug.log*
+yarn-error.log*
+php_errors.log
+
+# 編輯器與作業系統產生的檔案
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 環境設定
+.env
+.env.local

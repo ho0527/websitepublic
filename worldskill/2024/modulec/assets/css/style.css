@@ -1,0 +1,650 @@
+/* ==========================================================================
+   WorldSkills 2024 Web Technologies - 模組 C「Lyon Heritage Sites」樣式
+   本檔案不依賴任何外部 CDN，字型一律使用系統字型堆疊。
+   目錄：
+     1. 基礎設定與變數
+     2. 版面骨架（頁首、頁尾、容器）
+     3. 列表頁（資料夾卡片、文章卡片、標籤）
+     4. 單篇遺產頁（封面聚光、標題、附註、內文）
+     5. 圖片放大檢視（lightbox）
+     6. 響應式調整
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- 1. 基礎 */
+:root {
+    --color-page: #eceff1;
+    --color-surface: #ffffff;
+    --color-ink: #1b1c1e;
+    --color-ink-soft: #4a4f55;
+    --color-line: #d5dade;
+    --color-link: #0b4da2;
+    --color-link-hover: #06356f;
+    --color-accent: #8c2f1c;
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .08), 0 8px 24px rgba(20, 24, 28, .07);
+    --font-sans: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans TC",
+        "Microsoft JhengHei", sans-serif;
+    --font-serif: Georgia, "Times New Roman", "Noto Serif TC", serif;
+    /* 聚光圈的中心點，由 assets/js/app.js 隨滑鼠更新 */
+    --spotlight-x: 50%;
+    --spotlight-y: 50%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-link);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-link-hover);
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-link);
+    outline-offset: 2px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: .92em;
+    background: rgba(27, 28, 30, .07);
+    padding: .1em .35em;
+    border-radius: 4px;
+}
+
+/* 跳至主要內容：鍵盤使用者按 Tab 時才出現 */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-ink);
+    color: #fff;
+    padding: .6rem 1rem;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    left: 0;
+    color: #fff;
+}
+
+/* ------------------------------------------------------------ 2. 版面骨架 */
+.wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.site-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-line);
+    position: relative;
+    z-index: 20;
+}
+
+.site-header__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: .9rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header__brand {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.site-header__brand a {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: .01em;
+}
+
+.site-header__tagline {
+    font-size: .82rem;
+    color: var(--color-ink-soft);
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.search-form__label {
+    font-size: .85rem;
+    color: var(--color-ink-soft);
+}
+
+.search-form__input {
+    font: inherit;
+    padding: .45rem .65rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    min-width: 15rem;
+    background: #fff;
+    color: var(--color-ink);
+}
+
+.search-form__button {
+    font: inherit;
+    padding: .45rem 1rem;
+    border: 1px solid var(--color-link);
+    border-radius: var(--radius);
+    background: var(--color-link);
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-form__button:hover {
+    background: var(--color-link-hover);
+}
+
+.site-footer {
+    margin-top: 3rem;
+    padding: 1.5rem 1.25rem 2.5rem;
+    text-align: center;
+    color: var(--color-ink-soft);
+    font-size: .85rem;
+}
+
+.breadcrumb {
+    margin: 1.5rem 0 .5rem;
+    font-size: .88rem;
+}
+
+.breadcrumb ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb li + li::before {
+    content: "/";
+    margin-right: .35rem;
+    color: var(--color-ink-soft);
+}
+
+/* -------------------------------------------------------------- 3. 列表頁 */
+.listing-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    margin: .4rem 0 .5rem;
+    /* 標題排版採用 common-ligatures 連字設定 */
+    font-variant-ligatures: common-ligatures;
+    font-feature-settings: "liga" 1, "clig" 1;
+}
+
+.listing-intro {
+    margin: 0 0 2rem;
+    color: var(--color-ink-soft);
+    max-width: 60ch;
+}
+
+.folder-section h2,
+.page-section h2,
+.tag-section h2 {
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--color-ink-soft);
+    margin: 2rem 0 .9rem;
+}
+
+.folder-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: .9rem;
+}
+
+.folder-card a {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: .9rem 1rem;
+    text-decoration: none;
+    color: var(--color-ink);
+    box-shadow: var(--shadow);
+}
+
+.folder-card a:hover {
+    border-color: var(--color-link);
+}
+
+.folder-card__icon {
+    font-size: 1.3rem;
+}
+
+.folder-card__name {
+    font-weight: 600;
+}
+
+.folder-card__count {
+    margin-left: auto;
+    font-size: .8rem;
+    color: var(--color-ink-soft);
+}
+
+.page-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.1rem;
+}
+
+.page-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.page-card__cover {
+    display: block;
+    background: #dfe4e8;
+}
+
+.page-card__cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-card__body {
+    padding: 1rem 1.2rem 1.1rem;
+}
+
+.page-card__title {
+    font-family: var(--font-serif);
+    font-variant-ligatures: common-ligatures;
+    margin: 0 0 .4rem;
+    font-size: 1.28rem;
+    line-height: 1.25;
+}
+
+.page-card__title a {
+    text-decoration: none;
+}
+
+.page-card__title a:hover {
+    text-decoration: underline;
+}
+
+.page-card__summary {
+    margin: 0 0 .6rem;
+}
+
+.page-card__summary a {
+    color: var(--color-ink-soft);
+    text-decoration: none;
+}
+
+.page-card__summary a:hover {
+    color: var(--color-ink);
+    text-decoration: underline;
+}
+
+.page-card__meta {
+    margin: 0 0 .5rem;
+    font-size: .82rem;
+    color: var(--color-ink-soft);
+    display: flex;
+    gap: .8rem;
+}
+
+.page-card__format {
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 0 .55rem;
+}
+
+.tag-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+
+.tag {
+    display: inline-block;
+    font-size: .8rem;
+    padding: .15rem .6rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    background: #f5f7f8;
+    text-decoration: none;
+}
+
+.tag:hover {
+    border-color: var(--color-link);
+    background: #eaf1fb;
+}
+
+.tag__count {
+    color: var(--color-ink-soft);
+    margin-left: .3rem;
+}
+
+.tag-list--cloud {
+    gap: .5rem;
+}
+
+.empty-state {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-line);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    color: var(--color-ink-soft);
+}
+
+.button-link {
+    display: inline-block;
+    padding: .5rem 1.1rem;
+    border-radius: var(--radius);
+    background: var(--color-link);
+    color: #fff;
+    text-decoration: none;
+}
+
+.button-link:hover {
+    background: var(--color-link-hover);
+    color: #fff;
+}
+
+/* -------------------------------------------------------- 4. 單篇遺產頁 */
+.cover {
+    position: relative;
+    /* 標題方塊會往下超出封面 1.6rem，這裡預留足夠空間避免壓到麵包屑 */
+    margin-bottom: 3.5rem;
+}
+
+.cover__frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    max-height: 62vh;
+    overflow: hidden;
+    background: #10161c;
+}
+
+.cover__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 底層稍微壓暗，聚光圈之外才會看起來比較沉 */
+    filter: brightness(.68) saturate(.85);
+}
+
+/*
+   聚光效果：上層是同一張未壓暗的封面，套用徑向漸層遮罩。
+   遮罩是一個以滑鼠位置為圓心的圓，由黑色（完全顯示）漸變到
+   rgba(255,255,255,0)（完全透明）於 300px 處。
+*/
+.cover__image--spotlight {
+    position: absolute;
+    inset: 0;
+    filter: none;
+    -webkit-mask-image: radial-gradient(circle 300px at var(--spotlight-x) var(--spotlight-y),
+            rgb(0, 0, 0) 0,
+            rgba(255, 255, 255, 0) 300px);
+    mask-image: radial-gradient(circle 300px at var(--spotlight-x) var(--spotlight-y),
+            rgb(0, 0, 0) 0,
+            rgba(255, 255, 255, 0) 300px);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transition: -webkit-mask-position .05s linear;
+}
+
+/* 標題區塊：疊在封面下緣的黑色方塊，符合規格書示意圖 */
+.cover__title {
+    position: absolute;
+    left: max(1.25rem, calc(50vw - 560px + 1.25rem));
+    bottom: -1.6rem;
+    max-width: min(52rem, calc(100% - 2.5rem));
+    margin: 0;
+    padding: .85rem 1.5rem 1rem;
+    background: #000;
+    color: #fff;
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.4vw, 2.35rem);
+    line-height: 1.18;
+    /* 規格要求：標題排版使用 common-ligatures 連字設定 */
+    font-variant-ligatures: common-ligatures;
+    font-feature-settings: "liga" 1, "clig" 1;
+}
+
+.heritage__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1.75rem;
+    align-items: start;
+    margin-top: 1rem;
+}
+
+.article-body {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem 2.25rem 2.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.06rem;
+    line-height: 1.75;
+    overflow-wrap: break-word;
+}
+
+.article-body > *:first-child {
+    margin-top: 0;
+}
+
+.article-body h1,
+.article-body h2,
+.article-body h3 {
+    font-variant-ligatures: common-ligatures;
+    line-height: 1.25;
+}
+
+/* 內文照片：滿版於主要內容容器，並可點擊放大 */
+.article-body img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 1.6rem 0;
+    border-radius: 6px;
+    cursor: zoom-in;
+}
+
+.article-body p {
+    margin: 0 0 1.1rem;
+}
+
+/* 首段首字下沉，佔三行高度 */
+.article-body > p:first-of-type::first-letter {
+    float: left;
+    font-size: 3.35em;
+    line-height: .84;
+    padding: .06em .1em 0 0;
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.article-body footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-line);
+    color: var(--color-ink-soft);
+    font-size: .92rem;
+}
+
+/* 附註資訊：捲動時固定在頂端 */
+.heritage-aside {
+    position: sticky;
+    top: 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.2rem 1.3rem;
+    font-size: .92rem;
+}
+
+.heritage-aside__list {
+    margin: 0;
+}
+
+.heritage-aside__row + .heritage-aside__row {
+    margin-top: .9rem;
+    padding-top: .9rem;
+    border-top: 1px solid var(--color-line);
+}
+
+.heritage-aside dt {
+    font-size: .74rem;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--color-ink-soft);
+    margin-bottom: .25rem;
+}
+
+.heritage-aside dd {
+    margin: 0;
+}
+
+/* --------------------------------------------------- 5. 圖片放大檢視 */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    background: rgba(9, 12, 15, .92);
+    cursor: zoom-out;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font: inherit;
+    padding: .4rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid #fff;
+    background: rgba(0, 0, 0, .65);
+    color: #fff;
+    cursor: pointer;
+}
+
+.lightbox__close:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* ------------------------------------------------------- 6. 響應式調整 */
+@media (max-width: 900px) {
+    .heritage__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .heritage-aside {
+        position: static;
+        order: -1;
+    }
+
+    .cover__title {
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-card {
+        grid-template-columns: 1fr;
+    }
+
+    .page-card__cover img {
+        height: 180px;
+    }
+
+    .search-form {
+        width: 100%;
+    }
+
+    .search-form__input {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .article-body {
+        padding: 1.4rem 1.2rem 1.8rem;
+    }
+}
+
+/* 使用者偏好減少動態效果時關閉平滑捲動 */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

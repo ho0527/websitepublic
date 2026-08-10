@@ -1,0 +1,13 @@
+---
+title: A Post for Future Posting
+tags: Lyon, Future
+cover: future-lyon.jpeg
+summary: Scheduled for the far future, so it must never appear in any listing until that date arrives.
+---
+This page carries a date that is far in the future.
+
+Because the date is after today, the listing has to hide it completely.
+
+future-lyon.jpeg
+
+The single page itself stays reachable by its direct URL, which makes it easy to preview a scheduled article before it goes live.

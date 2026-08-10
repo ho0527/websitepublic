@@ -1,0 +1,17 @@
+---
+tags: Lyon, Park, France
+summary: A 117 hectare English style park with a lake, a free zoo and a rose garden of 30,000 bushes.
+---
+Parc de la Tete d'Or opened in 1857 and is still one of the largest urban parks in France.
+
+Its name comes from a legend claiming that a golden head of Christ was buried somewhere under the grounds.
+
+tete-dor-lake.jpeg
+
+The lake covers sixteen hectares and can be crossed by rowing boat during the summer months.
+
+The botanical garden shelters greenhouses from the nineteenth century, and the rose garden holds more than thirty thousand bushes.
+
+2024-05-30-parc-de-la-tete-dor.jpeg
+
+Neither a title nor a cover is declared in the front-matter of this file, so both have to be derived from the file name.

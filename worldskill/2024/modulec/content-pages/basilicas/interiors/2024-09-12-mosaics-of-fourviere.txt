@@ -1,0 +1,15 @@
+---
+title: Mosaics of Fourviere
+tags: Lyon, Art, Religion
+cover: fourviere-mosaic.jpeg
+summary: Gold, marble and glass tell the story of Marie across the walls of the upper church.
+---
+The upper church of Fourviere is covered from floor to vault with mosaics made of gold leaf, coloured glass and Italian marble.
+
+Six large panels face each other in pairs, three on the history of France and three on the history of the Church.
+
+fourviere-mosaic.jpeg
+
+Every panel was assembled tessera by tessera by the Lyon workshop of Georges Decote, who needed almost twenty years to complete the set.
+
+This page is stored inside a nested sub-folder, basilicas/interiors, so it also demonstrates the nested routing rule.
