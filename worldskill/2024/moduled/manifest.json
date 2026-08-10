@@ -1,0 +1,35 @@
+{
+	"name": "Lyon Mobile Web Service",
+	"short_name": "Lyon Service",
+	"description": "Carpark availability, city events and weekly weather for Lyon.",
+	"lang": "en",
+	"dir": "ltr",
+	"start_url": "./",
+	"scope": "./",
+	"id": "/worldskill/2024/moduled/",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#ffffff",
+	"theme_color": "#1c3e60",
+	"categories": ["travel", "utilities", "weather"],
+	"icons": [
+		{
+			"src": "material/icon/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "material/icon/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "material/icon/icon-maskable-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	]
+}

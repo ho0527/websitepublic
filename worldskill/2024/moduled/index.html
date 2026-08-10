@@ -1,23 +1,177 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-        <link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" href="https://chrisplugin.pages.dev/css/chrisplugin.css">
-		<script src="https://chrisplugin.pages.dev/js/chrisplugin.js"></script>
-	</head>
-	<body>
-		<div>
-			<input type="button" class="button outline" id="carpark" value="Carparks">
-			<input type="button" class="button outline" id="event" value="Events">
-			<input type="button" class="button outline" id="weather" value="Weather">
-			<input type="button" class="button outline" id="setting" value="Setting">
-		</div>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 行動裝置檢視設定：滿版、支援瀏海機型的安全區域 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta name="description" content="Lyon Mobile Web Service - carpark availability, city events and weekly weather.">
+	<meta name="theme-color" content="#1c3e60">
 
-		<div class="main center width-80vw height-70vh" id="main"></div>
+	<!-- iOS 行動網頁 App 設定 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="Lyon Service">
+	<link rel="apple-touch-icon" href="material/icon/icon-192.png">
+	<link rel="apple-touch-icon" sizes="192x192" href="material/icon/icon-192.png">
+	<link rel="apple-touch-icon" sizes="512x512" href="material/icon/icon-512.png">
 
-		<script src="index.js"></script>
-	</body>
+	<!-- Android 行動網頁 App 設定 -->
+	<link rel="manifest" href="manifest.json">
+	<link rel="icon" href="material/icon/icon-192.png" type="image/png">
+
+	<title>Lyon Mobile Web Service</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<!-- 頁首：固定在畫面最上方，顯示目前檢視標題與返回鈕 -->
+	<header class="app-header" id="appHeader">
+		<button type="button" class="header-back" id="headerBackButton" hidden>
+			<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+				<polyline points="15 5 8 12 15 19"></polyline>
+			</svg>
+			<span>Back</span>
+		</button>
+		<h1 class="header-title" id="headerTitle">Carparks</h1>
+	</header>
+
+	<!-- 主要內容：唯一可捲動的區域 -->
+	<main class="app-main" id="appMain" tabindex="-1">
+
+		<!-- 檢視一：停車場列表 -->
+		<section class="view" id="viewCarparks" aria-labelledby="carparkViewHeading">
+			<h2 class="visually-hidden" id="carparkViewHeading">Carpark availability</h2>
+
+			<p class="location-bar" id="locationBar">Locating…</p>
+
+			<div class="inline-toolbar">
+				<span class="toolbar-label">Sort by</span>
+				<div class="segmented" role="group" aria-label="Carpark sorting method">
+					<button type="button" class="segmented-item" data-sort-value="alphabet">Alphabet</button>
+					<button type="button" class="segmented-item" data-sort-value="distance">Distance</button>
+				</div>
+			</div>
+
+			<ul class="carpark-list" id="carparkList"></ul>
+			<p class="empty-hint" id="carparkEmptyHint" hidden>No carpark data available.</p>
+		</section>
+
+		<!-- 檢視二：單一停車場詳細（focus mode） -->
+		<section class="view" id="viewCarparkFocus" aria-labelledby="carparkFocusName" hidden>
+			<div class="focus-card">
+				<h2 class="focus-name" id="carparkFocusName">—</h2>
+				<p class="focus-distance" id="carparkFocusDistance">—</p>
+				<p class="focus-availability-label" id="carparkFocusAvailabilityLabel">Available spaces</p>
+				<p class="focus-availability" id="carparkFocusAvailability" aria-live="polite" aria-atomic="true">—</p>
+				<p class="focus-refresh-hint">Availability refreshes every 10 seconds.</p>
+			</div>
+		</section>
+
+		<!-- 檢視三：活動列表 -->
+		<section class="view" id="viewEvents" aria-labelledby="eventViewHeading" hidden>
+			<h2 class="visually-hidden" id="eventViewHeading">Lyon events</h2>
+
+			<form class="event-filter" id="eventFilterForm">
+				<div class="field">
+					<label for="eventBeginningDate">Beginning date</label>
+					<input type="date" id="eventBeginningDate" name="beginning_date">
+				</div>
+				<div class="field">
+					<label for="eventEndingDate">Ending date</label>
+					<input type="date" id="eventEndingDate" name="ending_date">
+				</div>
+				<button type="reset" class="reset-button" id="eventFilterResetButton">Clear dates</button>
+			</form>
+
+			<ul class="event-list" id="eventList"></ul>
+
+			<!-- 無限捲動的觸發哨兵與載入提示 -->
+			<div class="infinite-sentinel" id="eventSentinel" aria-hidden="true"></div>
+			<p class="loading-hint" id="eventLoadingHint" role="status">Loading events…</p>
+			<p class="empty-hint" id="eventEmptyHint" hidden>No events match the selected dates.</p>
+		</section>
+
+		<!-- 檢視四：天氣 -->
+		<section class="view" id="viewWeather" aria-labelledby="weatherViewHeading" hidden>
+			<h2 class="section-heading" id="weatherViewHeading">Lyon &mdash; next 7 days</h2>
+			<div class="weather-scroller" id="weatherScroller" tabindex="0" role="group" aria-label="Weekly weather forecast, scroll horizontally"></div>
+			<p class="scroll-hint">Swipe horizontally to see each day.</p>
+		</section>
+
+		<!-- 檢視五：設定 -->
+		<section class="view" id="viewSetting" aria-labelledby="settingViewHeading" hidden>
+			<h2 class="visually-hidden" id="settingViewHeading">Setting</h2>
+
+			<fieldset class="setting-group">
+				<legend>Theme</legend>
+				<label class="radio-row">
+					<input type="radio" name="themeMode" value="light">
+					<span>Light theme</span>
+				</label>
+				<label class="radio-row">
+					<input type="radio" name="themeMode" value="dark">
+					<span>Dark theme</span>
+				</label>
+				<label class="radio-row">
+					<input type="radio" name="themeMode" value="system">
+					<span>Follow system setting</span>
+				</label>
+			</fieldset>
+
+			<fieldset class="setting-group">
+				<legend>Carpark sorting method</legend>
+				<label class="radio-row">
+					<input type="radio" name="carparkSort" value="alphabet">
+					<span>Sort by alphabet</span>
+				</label>
+				<label class="radio-row">
+					<input type="radio" name="carparkSort" value="distance">
+					<span>Sort by distance</span>
+				</label>
+			</fieldset>
+
+			<fieldset class="setting-group">
+				<legend>Simulated geolocation</legend>
+				<p class="setting-note" id="settingLocationNote">—</p>
+				<p class="setting-note">
+					Append <code>?latitude=45.755051&amp;longitude=4.846358</code> to the page URL to simulate a location.
+				</p>
+			</fieldset>
+		</section>
+	</main>
+
+	<!-- 頁尾導覽列：固定在畫面最下方 -->
+	<nav class="app-nav" aria-label="Main navigation">
+		<button type="button" class="nav-button" data-view="carparks">
+			<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+				<rect x="3" y="3" width="18" height="18" rx="4"></rect>
+				<path d="M9 17V7h3.5a3 3 0 0 1 0 6H9"></path>
+			</svg>
+			<span>Carparks</span>
+		</button>
+		<button type="button" class="nav-button" data-view="events">
+			<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+				<rect x="3" y="5" width="18" height="16" rx="3"></rect>
+				<path d="M3 10h18M8 3v4M16 3v4"></path>
+			</svg>
+			<span>Events</span>
+		</button>
+		<button type="button" class="nav-button" data-view="weather">
+			<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+				<circle cx="9" cy="9" r="3.5"></circle>
+				<path d="M7 18h10a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6 1.2A3 3 0 0 0 7 18z"></path>
+			</svg>
+			<span>Weather</span>
+		</button>
+		<button type="button" class="nav-button" data-view="setting">
+			<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+				<circle cx="12" cy="12" r="3.2"></circle>
+				<path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6"></path>
+			</svg>
+			<span>Setting</span>
+		</button>
+	</nav>
+
+	<script src="index.js"></script>
+</body>
 </html>
