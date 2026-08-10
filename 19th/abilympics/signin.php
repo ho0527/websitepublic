@@ -1,22 +1,4 @@
 <?php include "initialize.php"; ?>
-<?php
-	$page="admin";
-	$signinok=false;
-	$signinerror="";
-
-	if($_SERVER["REQUEST_METHOD"]=="POST"){
-		$username=$_POST["username"];
-		$password=$_POST["password"];
-		$adminlist=query($db,"SELECT*FROM `admin` WHERE `username`=? AND `password`=?",[$username,$password]);
-
-		if(count($adminlist)>0){
-			$signinok=true;
-		}else{
-			$signinerror="帳號或密碼錯誤，請重新輸入";
-		}
-	}
-?>
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 	<head>
@@ -38,13 +20,6 @@
 
 		<main>
 			<form action="" method="POST" id="signinform" class="signinform">
-				<?php
-					if($signinerror!=""){
-						?>
-						<div class="message warning"><?= $signinerror ?></div>
-						<?php
-					}
-				?>
 				<div class="label">
 					<label for="username">帳號</label>
 					<input type="text" id="username" name="username" required>
@@ -64,14 +39,5 @@
 
 		<script src="initialize.js"></script>
 		<script src="signin.js"></script>
-		<?php
-			if($signinok){
-				?>
-				<script>
-					signin()
-				</script>
-				<?php
-			}
-		?>
 	</body>
 </html>

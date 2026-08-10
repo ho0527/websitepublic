@@ -26,8 +26,7 @@
 						<div class="label">
 							<label for="code">觀測地點</label>
 							<select name="code" id="code">
-								<option value="">請選擇地點</option>
-								<option value="all" <?= ($_GET["code"]??"")=="all"?"selected":"" ?>>全部地點</option>
+								<option value="all" <?= ($_GET["code"]??"all")=="all"?"selected":"" ?>>全部地點</option>
 								<?php
 									$locationlist=query($db,"SELECT*FROM `location`");
 									foreach($locationlist as $location){
@@ -44,74 +43,67 @@
 					</form>
 
 					<?php
-						$code=$_GET["code"]??"";
+						$code=$_GET["code"]??"all";
 
-						if($code==""){
-							//尚未選擇地點
+						if($code=="all"){
+							$reportlist=query($db,"SELECT `location`.`code`,`location`.`name`,`location`.`nameen`,`location`.`image`,`location`.`alt`,`forecast`.* FROM `forecast` INNER JOIN `location` ON `forecast`.`locationid`=`location`.`id` ORDER BY `forecast`.`probability` DESC");
+						}else{
+							$reportlist=query($db,"SELECT `location`.`code`,`location`.`name`,`location`.`nameen`,`location`.`image`,`location`.`alt`,`forecast`.* FROM `forecast` INNER JOIN `location` ON `forecast`.`locationid`=`location`.`id` WHERE `location`.`code`=?",[$code]);
+						}
+
+						if(count($reportlist)==0){
+							//查無此地點
 							?>
-							<div class="message warning">請先選擇要查詢的觀測地點</div>
+							<div class="message warning">查無此地點的預報資料，請重新選擇</div>
 							<?php
 						}else{
-							if($code=="all"){
-								$reportlist=query($db,"SELECT `location`.`code`,`location`.`name`,`location`.`nameen`,`location`.`image`,`location`.`alt`,`forecast`.* FROM `forecast` INNER JOIN `location` ON `forecast`.`locationid`=`location`.`id` ORDER BY `forecast`.`probability` DESC");
-							}else{
-								$reportlist=query($db,"SELECT `location`.`code`,`location`.`name`,`location`.`nameen`,`location`.`image`,`location`.`alt`,`forecast`.* FROM `forecast` INNER JOIN `location` ON `forecast`.`locationid`=`location`.`id` WHERE `location`.`code`=?",[$code]);
-							}
-
-							if(count($reportlist)==0){
-								//查無此地點
-								?>
-								<div class="message warning">查無此地點的預報資料，請重新選擇</div>
+							?>
+							<div class="cardlist">
 								<?php
-							}else{
-								?>
-								<div class="cardlist">
-									<?php
-										foreach($reportlist as $report){
-											?>
-											<div class="card">
-												<img src="<?= $report["image"] ?>" alt="<?= $report["alt"] ?>">
-												<div class="cardbody">
-													<h3><?= $report["name"] ?> <?= recommendtag($report["recommendation"]) ?></h3>
-													<p class="hint"><?= $report["nameen"] ?></p>
+									foreach($reportlist as $report){
+										?>
+										<div class="card">
+											<img src="<?= $report["image"] ?>" alt="<?= $report["alt"] ?>">
+											<div class="cardbody">
+												<h3><?= $report["name"] ?> <?= recommendtag($report["recommendation"]) ?></h3>
+												<p class="hint"><?= $report["nameen"] ?></p>
+												<?php
+													if($report["kpindex"]===null){
+														//該地點無資料
+														?>
+														<div class="message warning">此地點目前無預報資料，請稍後再試</div>
+														<?php
+													}else{
+														?>
+														<ul class="datalist">
+															<li><span>Kp 指數</span><span><?= $report["kpindex"] ?></span></li>
+															<li><span>雲量</span><span><?= $report["cloudcover"] ?> %</span></li>
+															<li><span>極光機率</span><span><?= $report["probability"] ?> %</span></li>
+															<li><span>氣溫</span><span><?= $report["temperature"] ?> °C</span></li>
+															<li><span>最佳觀賞時間</span><span><?= $report["besttime"] ?></span></li>
+															<li><span>推薦程度</span><span><?= recommendtag($report["recommendation"]) ?></span></li>
+														</ul>
+														<?php
+													}
+												?>
+												<div class="cutbox">
+													<span class="noteshort"><?= cutstr($report["note"],40) ?></span>
+													<span class="notefull"><?= $report["note"] ?></span>
 													<?php
-														if($report["kpindex"]===null){
-															//該地點無資料
+														if(mb_strlen($report["note"])>40){
 															?>
-															<div class="message warning">此地點目前無預報資料，請稍後再試</div>
-															<?php
-														}else{
-															?>
-															<ul class="datalist">
-																<li><span>Kp 指數</span><span><?= $report["kpindex"] ?></span></li>
-																<li><span>雲量</span><span><?= $report["cloudcover"] ?> %</span></li>
-																<li><span>極光機率</span><span><?= $report["probability"] ?> %</span></li>
-																<li><span>氣溫</span><span><?= $report["temperature"] ?> °C</span></li>
-																<li><span>最佳觀賞時間</span><span><?= $report["besttime"] ?></span></li>
-																<li><span>推薦程度</span><span><?= recommendtag($report["recommendation"]) ?></span></li>
-															</ul>
+															<input type="button" class="button cutbutton" value="展開">
 															<?php
 														}
 													?>
-													<div class="cutbox">
-														<span class="noteshort"><?= cutstr($report["note"],40) ?></span>
-														<span class="notefull"><?= $report["note"] ?></span>
-														<?php
-															if(mb_strlen($report["note"])>40){
-																?>
-																<input type="button" class="button cutbutton" value="展開">
-																<?php
-															}
-														?>
-													</div>
 												</div>
 											</div>
-											<?php
-										}
-									?>
-								</div>
-								<?php
-							}
+										</div>
+										<?php
+									}
+								?>
+							</div>
+							<?php
 						}
 					?>
 				</section>

@@ -76,15 +76,6 @@
 					</form>
 
 					<?php
-						if($email!=""){
-							?>
-							<div class="message">
-								目前只顯示 <?= $email ?> 的所有投稿
-								<a href="admin.php">取消篩選</a>
-							</div>
-							<?php
-						}
-
 						$data=[];
 
 						if($email!=""){

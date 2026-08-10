@@ -108,7 +108,7 @@
 								<div class="diarybody">
 									<h3><?= $diary["name"] ?> <?= stars($diary["rating"]) ?></h3>
 									<p class="hint">
-										<?= $diary["location"] ?>　<?= $diary["date"] ?>　<?= maskemail($diary["email"]) ?>
+										<?= $diary["location"] ?> <?= $diary["date"] ?> <?= maskemail($diary["email"]) ?>
 									</p>
 									<div class="cutbox">
 										<span class="noteshort"><?= cutstr($diary["content"],60) ?></span>
