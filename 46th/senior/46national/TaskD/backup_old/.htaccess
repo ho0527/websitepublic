@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+# 如果请求的是一个真实存在的文件或目录，则直接访问，不重写
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# 将 xxx/train-lookup/2016-01-01/Taipei/Taitung/1 重写到 xxx/train-lookup.php?date=2016-01-01&from=Taipei&to=Taitung&trainType=1
+RewriteRule ^api/login/([^/]+)/([^/]+)$ api.php?key=login&username=$1&password=$2 [L,QSA]
+RewriteRule ^api/logincheck$ api.php?key=logincheck [L,QSA]

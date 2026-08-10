@@ -1,11 +1,16 @@
-Options +FollowSymLinks
-RewriteEngine On
-RewriteBase /
+# 單一入口（Front Controller）
+#
+# 本模組在開發環境是以 nginx 提供服務（設定見 README.md），
+# 這份 .htaccess 讓專案在 Apache 環境下也能直接運作，不需另外設定。
 
-# 如果请求的是一个真实存在的文件或目录，则直接访问，不重写
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+Options -Indexes +FollowSymLinks
 
-# 将 xxx/train-lookup/2016-01-01/Taipei/Taitung/1 重写到 xxx/train-lookup.php?date=2016-01-01&from=Taipei&to=Taitung&trainType=1
-RewriteRule ^api/login/([^/]+)/([^/]+)$ api.php?key=login&username=$1&password=$2 [L,QSA]
-RewriteRule ^api/logincheck$ api.php?key=logincheck [L,QSA]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 實際存在的檔案或目錄直接提供，其餘一律交給 index.php 處理，
+    # 使車次查詢與列車資訊可以使用 SEO 形式的網址。
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?route=/$1 [QSA,L]
+</IfModule>
