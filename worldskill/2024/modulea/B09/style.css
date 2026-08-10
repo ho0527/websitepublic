@@ -1,0 +1,103 @@
+/*
+ * B9: Image Compare 圖像比較（WorldSkills 2024 Module A）
+ * 只能使用提供的 index.html、圖片與 splitter.svg，不可增減 HTML 元素（偽元素除外）。
+ *
+ * 作法：
+ *  - 隱形的 input[type=range] 鋪滿整個容器，所以「點擊容器」或「拖曳分隔線」都能調整比例
+ *  - range 的 oninput 會把百分比寫進 --position
+ *  - before 圖以 --position 當寬度，object-position:left 讓它從右側被裁掉
+ *  - 分隔線用容器的 ::after 呈現，位置同樣跟著 --position
+ */
+
+body {
+    --position: 50%;
+    --image-width: 1024px;
+
+    position: relative;
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f6f8fa;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.container {
+    position: relative;
+    display: grid;
+    place-content: center;
+    width: min(var(--image-width), 100vw);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* 兩張圖疊在一起，before 只顯示 --position 這麼寬 */
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+    display: block;
+}
+
+.image-before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: var(--position);
+}
+
+/* 分隔線：維持 splitter.svg 原本比例，圓形握把才不會被拉扁 */
+.container::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: var(--position);
+    width: 60px;
+    height: 100%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: url("splitter.svg") no-repeat center / contain;
+}
+
+/* 透明的滑桿鋪滿容器，負責接收點擊與拖曳 */
+.slider {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 10;
+}
+
+/* 滑鼠移入時，於容器左右兩端顯示 Before / After 標示 */
+body:has(.container:hover)::before,
+body:has(.container:hover)::after {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.38);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 10px 14px;
+    z-index: 50;
+    pointer-events: none;
+}
+
+body:has(.container:hover)::before {
+    content: "Before";
+    left: max(0px, calc(50% - var(--image-width) / 2));
+}
+
+body:has(.container:hover)::after {
+    content: "After";
+    right: max(0px, calc(50% - var(--image-width) / 2));
+}
