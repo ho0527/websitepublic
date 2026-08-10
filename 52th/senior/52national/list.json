@@ -93,7 +93,7 @@
                                     "no": 11,
                                     "description": "A11",
                                     "link": "TaskA/11",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {

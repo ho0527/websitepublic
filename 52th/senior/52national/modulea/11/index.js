@@ -1,105 +1,146 @@
-function removearrayduplicate(array){
-    let uniquearray=[];
-    let seenelement={};
-    for(let i=0;i<array.length;i=i+1){
-        let element=array[i];
-        if(!seenelement[element]){
-            uniquearray.push(element);
-            seenelement[element]=true;
+/**
+ * Task A 05: 資料視覺化
+ * 讀取 CSV（縣市、鄉鎮市區、男生人數、女生人數），以長條圖呈現人口數。
+ * 預設依縣市呈現（排序依出現順序），點選長條後切換為該縣市各鄉鎮市區的人口數。
+ */
+
+const fileInput = document.getElementById("inputfile")
+const table = document.getElementById("table")
+const submitButton = document.getElementById("submit")
+const reloadButton = document.getElementById("reflashbutton")
+
+let countyList = []       // [{ name, population, districts: [{ name, population }] }]
+let currentCounty = null  // 目前展開的縣市，null 代表顯示全部縣市
+
+/**
+ * 解析 CSV 文字，彙整成縣市 / 鄉鎮市區兩層資料
+ * 縣市與鄉鎮市區皆維持在檔案中出現的順序
+ * @param {string} text CSV 內容
+ * @returns {object[]} 縣市資料陣列
+ */
+function parseCsv(text) {
+    const lines = text.split(/\r?\n/).filter(function (line) {
+        return line.trim() !== ""
+    })
+    const counties = []
+    const countyIndex = {}
+
+    // 第一行為欄位名稱，從第二行開始讀資料
+    for (let i = 1; i < lines.length; i = i + 1) {
+        const columns = lines[i].split(",")
+        if (columns.length < 4) {
+            continue
         }
+        const countyName = columns[0].trim()
+        const districtName = columns[1].trim()
+        const male = parseInt(columns[2], 10) || 0
+        const female = parseInt(columns[3], 10) || 0
+        const population = male + female
+        if (countyName === "") {
+            continue
+        }
+
+        if (countyIndex[countyName] === undefined) {
+            countyIndex[countyName] = counties.length
+            counties.push({ name: countyName, population: 0, districts: [] })
+        }
+        const county = counties[countyIndex[countyName]]
+        county.population = county.population + population
+        county.districts.push({ name: districtName, population: population })
     }
-    return uniquearray;
+    return counties
 }
 
-document.getElementById("submit").onclick=function(){
-    let csvdata=[]
-    let county=[]
-    let county1=[]
-    let county2=[]
-    let total=[]
-    let countytotal=[]
-    let largestnumber
-    let reader=new FileReader()
-    reader.onload=function(event){
-        const lines=event.target.result.split("\n")
-        let ans=""
-        for(let i=0;i<lines.length;i=i+1){
-            let line=lines[i].split(",")
-            csvdata.push(line)
-            ans=ans+"<br>"+line
-        }
-        let countytotaltemp=[]
-        for(let i=1;i<lines.length;i=i+1){
-            if(csvdata[i][0]!=""){
-                county1.push(csvdata[i][0])
-                county2.push(csvdata[i][1])
-                let totalsum=parseInt(csvdata[i][2])+parseInt(csvdata[i][3])
-                total.push(totalsum)
-                county.push([csvdata[i][0]+" "+csvdata[i][1],totalsum])
-                countytotaltemp.push([csvdata[i][0],totalsum])
+/**
+ * 繪製長條圖
+ * @param {{name:string,population:number}[]} rows 要呈現的資料
+ * @param {boolean} clickable 長條是否可點選（僅縣市層可點）
+ */
+function renderChart(rows, clickable) {
+    // 以最大值進位到千位作為長條的比例基準
+    const maxPopulation = rows.reduce(function (max, row) {
+        return row.population > max ? row.population : max
+    }, 0)
+    const scale = Math.max(Math.ceil(maxPopulation / 1000) * 1000, 1)
+
+    table.innerHTML = ""
+    rows.forEach(function (row, index) {
+        const tr = document.createElement("tr")
+        tr.className = "tr"
+
+        const nameCell = document.createElement("td")
+        nameCell.className = "td tdtitle"
+        nameCell.textContent = row.name
+
+        const barCell = document.createElement("td")
+        barCell.className = "td tdshow"
+        const bar = document.createElement("div")
+        bar.className = "line"
+        barCell.appendChild(bar)
+
+        const numberCell = document.createElement("td")
+        numberCell.className = "td tdnumber"
+        numberCell.textContent = row.population.toLocaleString()
+
+        tr.appendChild(nameCell)
+        tr.appendChild(barCell)
+        tr.appendChild(numberCell)
+        table.appendChild(tr)
+
+        // 先掛上元素再設定寬度，讓長條有展開的動畫
+        setTimeout(function () {
+            bar.style.width = (row.population / scale) * 100 + "%"
+        }, 50)
+
+        if (clickable) {
+            tr.classList.add("clickable")
+            tr.onclick = function () {
+                showDistricts(index)
             }
         }
-        county1=removearrayduplicate(county1)
-        for(let i=0;i<countytotaltemp.length;i=i+1){
-            let index=countytotal.findIndex(function(c){ return c[0]==countytotaltemp[i][0] })
-            if(index==-1){
-                countytotal.push([countytotaltemp[i][0],1])
-            }else{
-                countytotal[index][1]=countytotal[index][1]+countytotaltemp[i][1]
-            }
-        }
-        // document.getElementById("log").innerHTML=ans
-    }
-    reader.readAsText(document.getElementById("inputfile").files[0])
-    setTimeout(function(){
-        let temptotal=countytotal
-        temptotal.sort(function(a,b){
-            return b-a
-        })
-        largestnumber=temptotal[0]
-        let x=Math.ceil(largestnumber[1]/1000)*1000
-        document.getElementById("table").innerHTML=``
-        for(i=0;i<county1.length;i=i+1){
-            let tr=document.createElement("tr")
-            tr.classList.add("tr")
-            document.getElementById("table").appendChild(tr)
-            let td=document.createElement("td")
-            td.classList.add("td")
-            td.classList.add("tdtitle")
-            td.id=i
-            td.innerHTML=`${county1[i]}`
-            document.querySelectorAll(".tr")[i].appendChild(td)
-            let td2=document.createElement("td")
-            td2.classList.add("td")
-            td2.classList.add("tdshow")
-            td2.id=i+"2"
-            td2.innerHTML=`
-                <div class="line"></div>
-            `
-            document.querySelectorAll(".tr")[i].appendChild(td2)
-            let td3=document.createElement("td")
-            td3.classList.add("td")
-            td3.classList.add("tdnumber")
-            td3.id=i+"3"
-            td3.innerHTML=`${countytotal[i][1]}`
-            document.querySelectorAll(".tr")[i].appendChild(td3)
-        }
-        setTimeout(function(){
-            for(i=0;i<county1.length;i=i+1){
-                document.querySelectorAll(".line")[i].style.width=(countytotal[i][1]/x)*100+"%"
-            }
-        },100)
-        document.querySelectorAll(".tdshow").forEach(function(event){
-            event.onclick=function(){
-                for(let i=0;i<county.length;i=i+1){
-                    console.log("county.length="+county.length)
-                    console.log(i+"="+county[i])
-                }
-            }
-        })
-    },100)
+    })
 }
 
-document.getElementById("reflashbutton").onclick=function(){
+/** 顯示所有縣市的人口數 */
+function showCounties() {
+    currentCounty = null
+    document.getElementById("chartTitle").textContent = "各縣市人口數"
+    document.getElementById("backButton").style.display = "none"
+    renderChart(countyList, true)
+}
+
+/**
+ * 顯示指定縣市底下各鄉鎮市區的人口數
+ * @param {number} index 縣市在 countyList 中的索引
+ */
+function showDistricts(index) {
+    currentCounty = countyList[index]
+    document.getElementById("chartTitle").textContent = currentCounty.name + " 各鄉鎮市區人口數"
+    document.getElementById("backButton").style.display = "inline-block"
+    renderChart(currentCounty.districts, false)
+}
+
+/** 讀取選取的 CSV 並產生圖表 */
+function loadCsvFile() {
+    const file = fileInput.files[0]
+    if (file === undefined) {
+        alert("請先選擇 CSV 檔案")
+        return
+    }
+    const reader = new FileReader()
+    reader.onload = function (event) {
+        countyList = parseCsv(event.target.result)
+        if (countyList.length === 0) {
+            alert("這個檔案沒有可用的資料")
+            return
+        }
+        showCounties()
+    }
+    reader.readAsText(file, "UTF-8")
+}
+
+submitButton.onclick = loadCsvFile
+reloadButton.onclick = function () {
     location.reload()
 }
+document.getElementById("backButton").onclick = showCounties

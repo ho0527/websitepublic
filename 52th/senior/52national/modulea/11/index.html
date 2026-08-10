@@ -4,8 +4,6 @@
         <meta charset="UTF-8">
         <title>資料視覺化</title>
         <link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" href="https://chrisplugin.pages.dev/css/chrisplugin.css">
-		<script src="https://chrisplugin.pages.dev/js/chrisplugin.js"></script>
     </head>
     <body>
         <div class="grid">
@@ -14,15 +12,17 @@
             </div>
             <div class="inputdiv">
                 選擇檔案 <input type="file" id="inputfile" accept=".csv">
+                <input type="button" class="submit" id="submit" value="生成">
+                <input type="button" class="reflashbutton" id="reflashbutton" value="重整">
+            </div>
+            <div class="charthead">
+                <span id="chartTitle">請選擇 CSV 檔案</span>
+                <input type="button" class="backbutton" id="backButton" value="← 回各縣市">
             </div>
             <div class="show">
-                <table id="table" class="table">
-                </table>
+                <table id="table" class="table"></table>
             </div>
-            <input type="button" class="reflashbutton" id="reflashbutton" value="重整">
-            <input type="button" class="submit" id="submit" value="生成">
         </div>
-        <div id="log" class="log"></div>
         <script src="index.js"></script>
     </body>
 </html>
