@@ -3,15 +3,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<!-- 舊版純前端原型的頁面，功能已改由 PHP 後端提供，這裡只負責轉址 -->
+		<meta http-equiv="refresh" content="0; url=./login/">
+		<title>Redirecting…</title>
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
-		enter password:<br>
-		<input type="text" id="password">
-		<input type="button" class="button" id="submit" value="submit">
-
-		<script src="initialize.js"></script>
-		<script src="signin.js"></script>
+		<div class="navigationbar">
+			<div>This page has moved.</div>
+			<div><a href="./login/" class="a">continue</a></div>
+		</div>
+		<script>
+			location.replace("./login/")
+		</script>
 	</body>
 </html>

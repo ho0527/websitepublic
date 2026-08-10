@@ -3,22 +3,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<!-- 舊版純前端原型的頁面，功能已改由 PHP 後端提供，這裡只負責轉址 -->
+		<meta http-equiv="refresh" content="0; url=./companies/">
+		<title>Redirecting…</title>
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
 		<div class="navigationbar">
-			<div></div>
-			<div>
-				<a href="company.html" class="a">back</a>
-				<a href="newproduct.html" class="a" id="newproduct">new product</a>
-			</div>
+			<div>This page has moved.</div>
+			<div><a href="./companies/" class="a">continue</a></div>
 		</div>
-
-		<div class="companymain" id="main">
-		</div>
-
-		<script src="initialize.js"></script>
-		<script src="companydetail.js"></script>
+		<script>
+			location.replace("./companies/")
+		</script>
 	</body>
 </html>

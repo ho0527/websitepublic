@@ -3,68 +3,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<!-- 舊版純前端原型的頁面，功能已改由 PHP 後端提供，這裡只負責轉址 -->
+		<meta http-equiv="refresh" content="0; url=./products/new/">
+		<title>Redirecting…</title>
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
 		<div class="navigationbar">
-			<a href="company.html" class="a">back</a>
+			<div>This page has moved.</div>
+			<div><a href="./products/new/" class="a">continue</a></div>
 		</div>
-
-		<div class="center">
-			<form id="form" method="POST">
-				<div class="inputdiv">
-					<div class="label">file</div>
-					<input type="file" id="file" accept="image/*"><br>
-					<img src="" id="filepreview" class="filepreview">
-				</div>
-				<input type="button" id="movefile" value="移除圖片">
-				<div class="inputdiv">
-					<div class="label">name</div>
-					<input type="text" id="name" required>
-				</div>
-				<div class="inputdiv">
-					<div class="label">english name</div>
-					<input type="text" id="enname" required>
-				</div>
-				<div class="inputdiv">
-					<div class="label">GTIN</div>
-					<input type="text" id="gtin" required>
-				</div>
-				<div class="inputdiv">
-					<div class="label">description</div>
-					<textarea id="description" required></textarea>
-				</div>
-				<div class="inputdiv">
-					<div class="label">english description</div>
-					<textarea id="endescription" required></textarea>
-				</div>
-				<div class="inputdiv">
-					<div class="label">brand name</div>
-					<input type="text" id="brandname" required>
-				</div>
-				<div class="inputdiv">
-					<div class="label">country</div>
-					<input type="text" id="country" required>
-				</div>
-				<div class="inputdiv">
-					<div class="label">gross weight</div>
-					<input type="number" id="grossweight" min="0" step="0.00001" required>
-				</div>
-				<div class="inputdiv">
-					<div class="label">content weight</div>
-					<input type="number" id="contentweight" min="0" step="0.00001" required>
-				</div>
-				<div class="inputdiv">
-					<div class="label">unit</div>
-					<input type="text" id="unit" required>
-				</div>
-
-				<input type="submit" id="submit" value="submit">
-			</form>
-		</div>
-
-		<script src="initialize.js"></script>
-		<script src="newproduct.js"></script>
+		<script>
+			location.replace("./products/new/")
+		</script>
 	</body>
 </html>

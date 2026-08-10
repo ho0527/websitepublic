@@ -3,62 +3,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<!-- 舊版純前端原型的頁面，功能已改由 PHP 後端提供，這裡只負責轉址 -->
+		<meta http-equiv="refresh" content="0; url=./products/">
+		<title>Redirecting…</title>
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
 		<div class="navigationbar">
-			<a href="company.html" class="a">back</a>
+			<div>This page has moved.</div>
+			<div><a href="./products/" class="a">continue</a></div>
 		</div>
-
-		<div class="center">
-			<form id="form" method="post">
-				<div class="inputdiv">
-					<div class="label">company name</div>
-					<input type="text" id="name">
-				</div>
-				<div class="inputdiv">
-					<div class="label">company address</div>
-					<input type="text" id="address">
-				</div>
-				<div class="inputdiv">
-					<div class="label">company phone</div>
-					<input type="text" id="phone">
-				</div>
-				<div class="inputdiv">
-					<div class="label">company email</div>
-					<input type="text" id="email">
-				</div>
-				<div class="inputdiv">
-					<div class="label">owner name</div>
-					<input type="text" id="ownername">
-				</div>
-				<div class="inputdiv">
-					<div class="label">owner phone</div>
-					<input type="text" id="ownerphone">
-				</div>
-				<div class="inputdiv">
-					<div class="label">owner address</div>
-					<input type="text" id="owneraddress">
-				</div>
-				<div class="inputdiv">
-					<div class="label">contact name</div>
-					<input type="text" id="contactname">
-				</div>
-				<div class="inputdiv">
-					<div class="label">contact phone</div>
-					<input type="text" id="contactphone">
-				</div>
-				<div class="inputdiv">
-					<div class="label">contact address</div>
-					<input type="text" id="contactaddress">
-				</div>
-
-				<input type="submit" id="submit" value="submit">
-			</form>
-		</div>
-
-		<script src="initialize.js"></script>
-		<script src="editproduct.js"></script>
+		<script>
+			location.replace("./products/")
+		</script>
 	</body>
 </html>
