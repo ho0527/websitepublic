@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>WorldSkills 2019 - ModuleA 速度競賽</title>
+	<link rel="stylesheet" href="/index.css">
+	<link rel="stylesheet" href="/indexindex.css">
+	<link rel="stylesheet" href="/speedtest/speedtest.css">
+</head>
+
+<body>
+	<div class="navigationbar">
+		<div class="navigationbarleft">
+			<img src="/material/icon/mainicon.png" class="logo">
+		</div>
+		<div class="navigationbarright">
+			<input type="button" class="navigationbarbutton" onclick="location.href='../'" value="返回">
+		</div>
+	</div>
+
+	<div style="height: 75px;"></div>
+
+	<header>
+		<h1 style="text-align: center;">WorldSkills 2019 — 模組 A 速度競賽</h1>
+	</header>
+
+	<div class="toolbar" id="toolbar"></div>
+	<div class="stats" id="stats"></div>
+	<main id="main"></main>
+
+	<footer>
+		如果有遇到程式有問題請用DC找 chris0527 或 <a href="/anther/respond/">填寫此表單</a> 回報
+	</footer>
+
+	<script>
+		/* ====================================================================
+		   在這裡手動編輯每一題：
+			 path    : 連結路徑(省略代表尚未上傳，卡片不可點)
+			 status  : "todo" | "process" | "done"   → 紅 / 黃 / 綠
+			 updated : 顯示在卡片右下角的更新時間
+		==================================================================== */
+		const SPEEDTEST_DATA = {
+			"設計實作任務 (Design)": [
+				{ code: "A01", title: "Blur Picture Image", path: "A01/", status: "done", updated: "" },
+				{ code: "A02", title: "Transparent Background", status: "done", updated: "" },
+				{ code: "A03", title: "Pattern", status: "done", updated: "" },
+				{ code: "A04", title: "Loading GIF", status: "done", updated: "" },
+				{ code: "A05", title: "Walking Gif", status: "todo", updated: "" },
+				{ code: "A06", title: "UI-kit", status: "todo", updated: "" },
+				{ code: "A07", title: "Messenger", status: "todo", updated: "" }
+			],
+			"刻板任務 (Layout)": [
+				{ code: "B01", title: "HTML tags", path: "B01/", status: "done", updated: "" },
+				{ code: "B02", title: "CSS Grid", path: "B02/", status: "done", updated: "" },
+				{ code: "B03", title: "Loading Screen", path: "B03/", status: "done", updated: "" },
+				{ code: "B04", title: "Toggle", path: "B04/", status: "done", updated: "" },
+				{ code: "B05", title: "Yellow Square", path: "B05/", status: "done", updated: "" },
+				{ code: "B06", title: "Triangle", path: "B06/", status: "done", updated: "" },
+				{ code: "B07", title: "Grayscale image", path: "B07/", status: "done", updated: "" },
+				{ code: "B08", title: "Jumper Ball", path: "B08/", status: "done", updated: "" },
+				{ code: "B09", title: "HTML/CSS – Contact Form", path: "B09/contact-form.html", status: "done", updated: "" },
+				{ code: "B10", title: "Border Radius & Box Shadow", path: "B10/", status: "done", updated: "" },
+				{ code: "B11", title: "Race track9", path: "B11/", status: "done", updated: "" },
+				{ code: "B12", title: "Video player interface", path: "B12/", status: "done", updated: "" },
+				{ code: "B13", title: "Gradient animation", path: "B13/", status: "done", updated: "" },
+				{ code: "B14", title: "Modern layout", path: "B14/", status: "done", updated: "" },
+				{ code: "B15", title: "Seven segment digital Timer", path: "B15/", status: "done", updated: "" }
+			],
+			"前端開發任務 (Frontend)": [
+				{ code: "C01", title: "Cube Rotation", path: "C01/", status: "todo", updated: "" },
+				{ code: "C02", title: "Loading Animation", path: "C02/", status: "done", updated: "" },
+				{ code: "C03", title: "Drawing Canvas", path: "C03/", status: "done", updated: "" },
+				{ code: "C04", title: "RGB Slider", path: "C04/", status: "done", updated: "" },
+				{ code: "C05", title: "JS – Calculation", path: "C05/", status: "done", updated: "" },
+				{ code: "C06", title: "JS - ASCII-Art", path: "C06/", status: "done", updated: "" },
+				{ code: "C07", title: "HTML/CSS, JS – Clock", path: "C07/", status: "done", updated: "" },
+				{ code: "C08", title: "HTML/CSS, JS - Tag-Control", path: "C08/", status: "done", updated: "" },
+				{ code: "C09", title: "List of expenses:", path: "C09/", status: "done", updated: "" },
+				{ code: "C10", title: "Simple Image Filter", path: "C10/", status: "done", updated: "" },
+				{ code: "C11", title: "Canvas Animation", path: "C11/", status: "done", updated: "" },
+				{ code: "C12", title: "JS Arithmetic", path: "C12/", status: "done", updated: "" },
+				{ code: "C13", title: "JS Draggable", path: "C13/", status: "done", updated: "" },
+				{ code: "C14", title: "Keyboard", path: "C14/", status: "done", updated: "" },
+				{ code: "C15", title: "Parallax", path: "C15/", status: "done", updated: "" },
+				{ code: "C16", title: "Smiley", path: "C16/", status: "done", updated: "" },
+				{ code: "C17", title: "Transition", path: "C17/", status: "done", updated: "" },
+				{ code: "C18", title: "Animation", path: "C17/", status: "done", updated: "" },
+				{ code: "C19", title: "Chart from data", status: "todo", updated: "" },
+				{ code: "C24", title: "Array Integers", path: "C24/", status: "done", updated: "" },
+				{ code: "C25", title: "Following cursor", path: "C25/", status: "done", updated: "" },
+				{ code: "C26", title: "Circles", path: "C26/", status: "done", updated: "" },
+				{ code: "C27", title: "Linear gradient", path: "C27/", status: "done", updated: "" }
+			],
+			"後端開發任務 (Backend)": [
+				{ code: "D01", title: "PHP Calendar", path: "D01/", status: "done", updated: "" },
+				{ code: "D02", title: "Plugin works", path: "D02/", status: "todo", updated: "" },
+				{ code: "D03", title: "PHP Array", path: "D03/", status: "done", updated: "" },
+				{ code: "D04", title: "PHP Verification captcha", path: "D04/", status: "done", updated: "" },
+				{ code: "D05", title: "Watermark", status: "done", updated: "" },
+				{ code: "D06", title: "Predominant colors", path: "D06/", status: "done", updated: "" },
+				{ code: "D08", title: "File manager", path: "/anther/filemanager/", status: "process", updated: "" },
+				{ code: "D10", title: "Image Cropper", path: "D10/", status: "done", updated: "" },
+				{ code: "D11", title: "A Pagination Code", path: "D11/", status: "done", updated: "" },
+				{ code: "D12", title: "XML2JSON Converter", path: "D12/", status: "done", updated: "" },
+				{ code: "D13", title: "Remove duplicates", path: "D13/", status: "done", updated: "" }
+			]
+		};
+	</script>
+	<script src="/speedtest/speedtest.js"></script>
+</body>
+
+</html>

@@ -1,90 +1,78 @@
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../../index.css">
-        <link rel="stylesheet" href="../../indexindex.css">
-        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
-        <script src="/chrisplugin/js/chrisplugin.js"></script>
-    </head>
-    <body id="body">
-        <div class="flex columngap-10px">
-            <div class="box bordertop success fill indexbox" data-link="taska/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">A01-Resize and Grayscale Multiple Images</div>
-                    <div class="text normal">競賽中提供的“images”文件夾中有許多圖片。這些圖片是大小為 640 x N 的彩色圖片。請對所有這些圖片進行編輯</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
-            </div>
-            <div class="box bordertop success fill indexbox" data-link="taskb/">
-                <img src="image/moduleb.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">moduleb_小畫家</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
-            </div>
-        </div>
-        <div class="flex columngap-10px">
-            <div class="box bordertop success fill indexbox" data-link="taskc/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">modulec_layout</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
-            </div>
-            <div class="box bordertop success fill indexbox" data-link="taskd/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">moduled_API</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
-            </div>
-        </div>
-        <div class="flex columngap-10px">
-            <div class="box bordertop success fill indexbox" data-link="taske/">
-                <img src="/material/icon/mainicon.png" class="boximage">
-                <div class="content textcenter ycenter">
-                    <div class="text max bold">modulee_演算法</div>
-                    <div class="text tiny">lastupdate: 20230716</div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            如果有遇到程式有問題請用DC找 chris0527 或 <a href="../../anther/respond" class="a">填寫此表單</a> 回報
-        </div>
-
-		<script>
-			onclick(".indexbox",function(element,event){
-                setTimeout(function(){
-                    href(element.dataset.link)
-                },100)
-			})
-
-			startmacossection()
-		</script>
-    </body>
-</html> -->
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="/index.css">
-        <link rel="stylesheet" href="/indexindex.css">
-        <link rel="stylesheet" href="/website/plugin/css/chrisplugin.css">
-        <script src="/website/plugin/js/chrisplugin.js"></script>
-    </head>
-    <body id="body">
-        <div class="footer">
-            如果有遇到程式有問題請用DC找 chris0527 或 <a href="/website/anther/respond" class="a">填寫此表單</a> 回報，<a href="finish.txt" class="a">完成程式列表</a>
-        </div>
-        <script src="/website/index.js"></script>
-    </body>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>第53屆全國技能競賽 - 模組A 速度競賽</title>
+	<link rel="stylesheet" href="/index.css">
+	<link rel="stylesheet" href="/indexindex.css">
+	<link rel="stylesheet" href="/speedtest/speedtest.css">
+</head>
+
+<body>
+	<div class="navigationbar">
+		<div class="navigationbarleft">
+			<img src="/material/icon/mainicon.png" class="logo">
+		</div>
+		<div class="navigationbarright">
+			<input type="button" class="navigationbarbutton" onclick="location.href='../'" value="返回">
+		</div>
+	</div>
+
+	<div style="height: 75px;"></div>
+
+	<header>
+		<h1 style="text-align: center;">第 53 屆全國技能競賽 — 網頁技術 模組 A 速度競賽</h1>
+	</header>
+
+	<div class="toolbar" id="toolbar"></div>
+	<div class="stats" id="stats"></div>
+	<main id="main"></main>
+
+	<footer>
+		如果有遇到程式有問題請用DC找 chris0527 或 <a href="/anther/respond/">填寫此表單</a> 回報
+	</footer>
+
+	<script>
+		/* ====================================================================
+		   在這裡手動編輯每一題：
+			 path    : 連結路徑(省略代表尚未上傳，卡片不可點)
+			 status  : "todo" | "process" | "done"   → 紅 / 黃 / 綠
+			 updated : 顯示在卡片右下角的更新時間
+		==================================================================== */
+		const SPEEDTEST_DATA = {
+			"速度競賽任務": [
+				{ code: "A01", title: "Resize and Grayscale Multiple Images", path: "/worldskill/2022/modulea/A05/index.txt", status: "done", updated: "" },
+				{ code: "A02", title: "Add a filter", path: "/worldskill/2022/modulea/A08/index.txt", status: "done", updated: "" },
+				{ code: "A03", title: "TODO List", path: "/worldskill/2022/modulea/B02/", status: "done", updated: "" },
+				{ code: "A04", title: "製作網頁的日出日落動畫", path: "/worldskill/2022/modulea/B11/", status: "done", updated: "" },
+				{ code: "A05", title: "Responsive grid layout", path: "/worldskill/2022/modulea/B15/", status: "done", updated: "" },
+				{ code: "A06", title: "Keyword Highlighter", path: "/worldskill/2022/modulea/C01/", status: "todo", updated: "" },
+				{ code: "A07", title: "Color Transform", path: "/worldskill/2022/modulea/C05/", status: "done", updated: "" },
+				{ code: "A08", title: "Native JavaScript Routing", status: "done", updated: "" },
+				{ code: "A09", title: "Markdown 預覽", path: "/worldskill/2022/modulea/C13/", status: "done", updated: "" },
+				{ code: "A10", title: "圖像顏色偵測器", path: "/worldskill/2022/modulea/C14/", status: "done", updated: "" },
+				{ code: "A11", title: "夜間模式", path: "/worldskill/2022/modulea/C15/", status: "done", updated: "" },
+				{ code: "A12", title: "建立圖片預覽視窗套件", path: "/worldskill/2022/modulea/C18/", status: "done", updated: "" },
+				{ code: "A13", title: "Kanban Board Sortable", path: "/worldskill/2022/modulea/C22/", status: "done", updated: "" },
+				{ code: "A14", title: "像素編輯器", path: "/worldskill/2022/modulea/C28/", status: "done", updated: "" },
+				{ code: "A15", title: "答案檢查器", path: "/worldskill/2022/modulea/D01/", status: "done", updated: "" },
+				{ code: "A16", title: "操作 Array", path: "/worldskill/2022/modulea/D02/", status: "done", updated: "" },
+				{ code: "A17", title: "Tic-Tac-Toe", path: "/worldskill/2022/modulea/D03/", status: "done", updated: "" },
+				{ code: "A18", title: "Live chat", path: "/worldskill/2022/modulea/D06/", status: "done", updated: "" },
+				{ code: "A19", title: "Generate image with Base64", path: "/worldskill/2022/modulea/D13/", status: "done", updated: "" },
+				{ code: "A20", title: "Write a Secure Login", path: "/worldskill/2022/modulea/D15/", status: "done", updated: "" }
+			],
+			"自己做好玩的": [
+				{ code: "A06copy", title: "第 01 題", path: "06/", status: "done", updated: "" },
+				{ code: "A09copy", title: "第 02 題", path: "09/", status: "todo", updated: "" },
+				{ code: "A13copy", title: "第 03 題", status: "done", updated: "" },
+				{ code: "A17smart", title: "第 04 題", status: "todo", updated: "" }
+			]
+		};
+	</script>
+	<script src="/speedtest/speedtest.js"></script>
+</body>
+
 </html>

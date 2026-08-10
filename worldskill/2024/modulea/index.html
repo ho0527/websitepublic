@@ -1,111 +1,65 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="/index.css">
-        <link rel="stylesheet" href="/indexindex.css">
-        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
-        <script src="/chrisplugin/js/chrisplugin.js"></script>
-    </head>
-    <body id="body">
-		<div class="navigationbar">
-			<div class="navigationbarleft">
-				<img src="/material/icon/mainicon.png" class="logo">
-			</div>
-			<div class="navigationbarright">
-				<input type="button" class="navigationbarbutton" onclick="location.href='../'" value="返回">
-			</div>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>WorldSkills 2024 - ModuleA 速度競賽</title>
+	<link rel="stylesheet" href="/index.css">
+	<link rel="stylesheet" href="/indexindex.css">
+	<link rel="stylesheet" href="/speedtest/speedtest.css">
+</head>
+
+<body>
+	<div class="navigationbar">
+		<div class="navigationbarleft">
+			<img src="/material/icon/mainicon.png" class="logo">
 		</div>
-		<div class="indexmain overflow-hidden_auto">
-            <div class="flex columngap-10px">
-                <div class="box bordertop success fill indexbox" data-link="A06/">
-                    <img src="image/a06.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">A06</div>
-                        <div class="text tiny">lastupdate: 20250502</div>
-                    </div>
-                </div>
-                <div class="box bordertop error fill indexbox" data-link="A13/">
-                    <img src="/material/icon/mainicon.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">A13</div>
-                        <div class="text tiny">lastupdate: 20250319</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex columngap-10px">
-                <div class="box bordertop success fill indexbox" data-link="A22/">
-                    <img src="image/a22.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">A22</div>
-                        <div class="text tiny">lastupdate: 20250430</div>
-                    </div>
-                </div>
-                <div class="box bordertop error fill indexbox" data-link="B09/">
-                    <img src="/material/icon/mainicon.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">B09</div>
-                        <div class="text tiny">lastupdate: 20250319</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex columngap-10px">
-                <div class="box bordertop success fill indexbox" data-link="B35/">
-                    <img src="image/b35.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">B35</div>
-                        <div class="text tiny">lastupdate: 20250430</div>
-                    </div>
-                </div>
-                <div class="box bordertop success fill indexbox" data-link="B39/">
-                    <img src="image/b39.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">B39</div>
-                        <div class="text tiny">lastupdate: 20240921</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex columngap-10px">
-                <div class="box bordertop error fill indexbox" data-link="C01/">
-                    <img src="/material/icon/mainicon.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">C01</div>
-                        <div class="text tiny">lastupdate: 20250319</div>
-                    </div>
-                </div>
-                <div class="box bordertop success fill indexbox" data-link="C09/">
-                    <img src="/material/icon/mainicon.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">C09</div>
-                        <div class="text tiny">lastupdate: 20250430</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex columngap-10px">
-                <div class="box bordertop success fill indexbox" data-link="C11/">
-                    <img src="image/c11.png" class="boximage">
-                    <div class="content textcenter ycenter">
-                        <div class="text max bold">C11</div>
-                        <div class="text tiny">lastupdate: 20250430</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<div class="navigationbarright">
+			<input type="button" class="navigationbarbutton" onclick="location.href='../'" value="返回">
+		</div>
+	</div>
 
-        <div class="footer">
-            如果有遇到程式有問題請用DC找 chris0527 或 <a href="../../anther/respond/" class="a">填寫此表單</a> 回報
-        </div>
+	<div style="height: 75px;"></div>
 
-        <!-- <script src="../../index.js"></script> -->
+	<header>
+		<h1 style="text-align: center;">WorldSkills 2024 — 模組 A 速度競賽</h1>
+	</header>
 
-		<script>
-			onclick(".indexbox",function(element,event){
-                setTimeout(function(){
-                    href(element.dataset.link)
-                },100)
-			})
-		</script>
-    </body>
+	<div class="toolbar" id="toolbar"></div>
+	<div class="stats" id="stats"></div>
+	<main id="main"></main>
+
+	<footer>
+		如果有遇到程式有問題請用DC找 chris0527 或 <a href="/anther/respond/">填寫此表單</a> 回報
+	</footer>
+
+	<script>
+		/* ====================================================================
+		   在這裡手動編輯每一題：
+			 path    : 連結路徑(省略代表尚未上傳，卡片不可點)
+			 status  : "todo" | "process" | "done"   → 紅 / 黃 / 綠
+			 updated : 顯示在卡片右下角的更新時間
+		==================================================================== */
+		const SPEEDTEST_DATA = {
+			"設計實作任務 (Design)": [
+				{ code: "A06", title: "建立功能性載入動畫", path: "A06/", status: "done", updated: "20250502" },
+				{ code: "A13", title: "滴落", path: "A13/", status: "todo", updated: "20250319" },
+				{ code: "A22", title: "CSS 長條圖", path: "A22/", status: "done", updated: "20250430" }
+			],
+			"前端開發任務 (Frontend)": [
+				{ code: "B09", title: "影像比較", path: "B09/", status: "todo", updated: "20250319" },
+				{ code: "B35", title: "分形三角形", path: "B35/", status: "done", updated: "20250430" },
+				{ code: "B39", title: "多個計數器", path: "B39/", status: "done", updated: "20240921" }
+			],
+			"後端開發任務 (Backend)": [
+				{ code: "C01", title: "資料夾壓縮工具", path: "C01/", status: "todo", updated: "20250319" },
+				{ code: "C09", title: "API 跨來源資源共用", path: "C09/front-end/", status: "done", updated: "20250430" },
+				{ code: "C11", title: "影像馬賽克", path: "C11/", status: "done", updated: "20250430" }
+			]
+		};
+	</script>
+	<script src="/speedtest/speedtest.js"></script>
+</body>
+
 </html>

@@ -3,15 +3,85 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../../../indexindex.css">
-        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
-        <script src="../../../plugin/js/chrisplugin.js"></script>
+        <title>第53屆國手選拔二階</title>
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/indexindex.css">
+        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+        <script src="/chrisplugin/js/chrisplugin.js"></script>
     </head>
     <body id="body">
-        <div class="footer">
-            如果有遇到程式有問題請用DC找 chris0527 或 <a href="../../../anther/respond" class="a">填寫此表單</a> 回報，<a href="finish.txt" class="a">完成程式列表</a>
+		<div class="navigationbar">
+			<div class="navigationbarleft">
+				<img src="/material/icon/mainicon.png" class="logo">
+			</div>
+			<div class="navigationbarright">
+				<input type="button" class="navigationbarbutton" onclick="location.href='../../'" value="返回">
+			</div>
+		</div>
+		<div class="indexmain overflow-hidden_auto">
+            <div class="flex columngap-10px">
+                <div class="box bordertop warn fill indexbox boxfail" data-link="#">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulea / moduleb</div>
+                        <div class="text max bold">API(GraphQL) / 單元測試</div>
+                        <div class="text tiny">lastupdate: 20231226</div>
+                    </div>
+                </div>
+                <div class="box bordertop warn fill indexbox" data-link="modulec/1/">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulec-1</div>
+                        <div class="text max bold">前端模組</div>
+                        <div class="text tiny">lastupdate: 20231204</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex columngap-10px">
+                <div class="box bordertop success fill indexbox" data-link="modulec/4/">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulec-4</div>
+                        <div class="text max bold">前端模組</div>
+                        <div class="text tiny">lastupdate: 20231204</div>
+                    </div>
+                </div>
+                <div class="box bordertop error fill indexbox boxfail" data-link="#">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">moduled</div>
+                        <div class="text max bold">行銷頁面(本處不更新，請見 2022/modulef)</div>
+                        <div class="text tiny">lastupdate: x</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex columngap-10px">
+                <div class="box bordertop error fill indexbox boxfail" data-link="#">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulee</div>
+                        <div class="text max bold">未公布</div>
+                        <div class="text tiny">lastupdate: x</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <script src="../../../index.js"></script>
+
+        <div class="footer">
+            如果有遇到程式有問題請用DC找 chris0527 或 <a href="/anther/respond/" class="a">填寫此表單</a> 回報，<a href="list.html" class="a">完成程式列表</a>
+        </div>
+
+		<script>
+			// 沒有上傳程式的模組不提供連結
+			onclick(".indexbox",function(element,event){
+				if(element.dataset.link!="#"){
+					setTimeout(function(){
+						href(element.dataset.link)
+					},100)
+				}else{
+					alert("此模組尚未上傳程式")
+				}
+			})
+		</script>
     </body>
 </html>

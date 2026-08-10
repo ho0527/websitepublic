@@ -1,0 +1,308 @@
+/* speedtest.css - 速度競賽索引頁共用樣式(取自 56national/modulea) */
+:root {
+			--bg: #0f1216;
+			--panel: #161b22;
+			--panel-2: #1c232c;
+			--border: #2a313a;
+			--text: #e6edf3;
+			--muted: #8b949e;
+			--accent: #58a6ff;
+			--lvl1: #2ea043;
+			--lvl2: #d29922;
+			--lvl3: #da3633;
+			--shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+
+			--st-todo-bg: #3a1414;
+			--st-todo-bd: #6e2222;
+			--st-prog-bg: #3a3014;
+			--st-prog-bd: #7a5e1a;
+			--st-done-bg: #14391c;
+			--st-done-bd: #1f6b34;
+		}
+
+		@media (prefers-color-scheme: light) {
+			:root {
+				--bg: #f6f8fa;
+				--panel: #ffffff;
+				--panel-2: #f0f3f6;
+				--border: #d0d7de;
+				--text: #1f2328;
+				--muted: #59636e;
+				--accent: #0969da;
+				--shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+				--st-todo-bg: #ffe5e5;
+				--st-todo-bd: #ff9b9b;
+				--st-prog-bg: #fff3cf;
+				--st-prog-bd: #e3b341;
+				--st-done-bg: #d6f3dd;
+				--st-done-bd: #2da44e;
+			}
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			background: var(--bg);
+			color: var(--text);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
+				"Microsoft JhengHei", "Noto Sans TC", Roboto, sans-serif;
+			line-height: 1.5;
+		}
+
+		header {
+			padding: 32px 24px 12px;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		header h1 {
+			margin: 0 0 4px;
+			font-size: 26px;
+		}
+
+		header .subtitle {
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		.toolbar {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 8px 24px 16px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			align-items: center;
+		}
+
+		.search {
+			flex: 1;
+			min-width: 220px;
+			background: var(--panel);
+			border: 1px solid var(--border);
+			color: var(--text);
+			border-radius: 8px;
+			padding: 10px 12px;
+			font-size: 14px;
+			outline: none;
+		}
+
+		.search:focus {
+			border-color: var(--accent);
+		}
+
+		.filter-btn {
+			background: var(--panel);
+			border: 1px solid var(--border);
+			color: var(--text);
+			padding: 8px 12px;
+			border-radius: 8px;
+			cursor: pointer;
+			font-size: 13px;
+			white-space: nowrap;
+		}
+
+		.filter-btn:hover {
+			border-color: var(--accent);
+		}
+
+		.filter-btn.active {
+			background: var(--accent);
+			color: #fff;
+			border-color: var(--accent);
+		}
+
+		.stats {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 24px 8px;
+			color: var(--muted);
+			font-size: 12px;
+			display: flex;
+			gap: 14px;
+			flex-wrap: wrap;
+		}
+
+		.stats span b {
+			color: var(--text);
+			font-weight: 600;
+		}
+
+		main {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 8px 24px 64px;
+		}
+
+		section {
+			margin-top: 28px;
+		}
+
+		section h2 {
+			margin: 0 0 14px;
+			font-size: 18px;
+			padding-bottom: 8px;
+			border-bottom: 1px solid var(--border);
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		section h2 .count {
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: normal;
+		}
+
+		.main-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+			gap: 12px;
+		}
+
+		.card {
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-left: 4px solid var(--border);
+			border-radius: 10px;
+			padding: 12px 14px;
+			text-decoration: none;
+			color: var(--text);
+			transition: transform .15s ease, border-color .15s;
+			box-shadow: var(--shadow);
+		}
+
+		.card:hover {
+			transform: translateY(-2px);
+			border-color: var(--accent);
+		}
+
+		.card.status-todo {
+			background: var(--st-todo-bg);
+			border-left-color: var(--st-todo-bd);
+		}
+
+		.card.status-process {
+			background: var(--st-prog-bg);
+			border-left-color: var(--st-prog-bd);
+		}
+
+		.card.status-done {
+			background: var(--st-done-bg);
+			border-left-color: var(--st-done-bd);
+		}
+
+		.card-row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+		}
+
+		.card .info {
+			min-width: 0;
+			flex: 1;
+		}
+
+		.card .code {
+			font-weight: 700;
+			font-size: 14px;
+			color: var(--accent);
+		}
+
+		.card .title {
+			font-size: 13px;
+			margin-top: 2px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.badge {
+			flex-shrink: 0;
+			font-size: 11px;
+			font-weight: 600;
+			padding: 3px 8px;
+			border-radius: 999px;
+			color: #fff;
+		}
+
+		.badge.lvl-1 {
+			background: var(--lvl1);
+		}
+
+		.badge.lvl-2 {
+			background: var(--lvl2);
+		}
+
+		.badge.lvl-3 {
+			background: var(--lvl3);
+		}
+
+		.meta {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 11px;
+			color: var(--muted);
+			margin-top: 2px;
+		}
+
+		.status-pill {
+			display: inline-flex;
+			align-items: center;
+			gap: 5px;
+			font-weight: 600;
+		}
+
+		.status-dot {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #888;
+		}
+
+		.status-todo .status-dot {
+			background: #ff5c5c;
+		}
+
+		.status-process .status-dot {
+			background: #f0c419;
+		}
+
+		.status-done .status-dot {
+			background: #2ecc71;
+		}
+
+		.empty {
+			color: var(--muted);
+			font-size: 13px;
+			padding: 8px 0;
+		}
+
+		footer {
+			text-align: center;
+			color: var(--muted);
+			font-size: 12px;
+			padding: 24px;
+		}
+
+/* 沒有連結的題目：不做成 <a>，游標顯示為不可點選 */
+.card-nolink {
+	cursor: not-allowed;
+	opacity: 0.85;
+}
+
+.card-nolink:hover {
+	transform: none;
+	border-color: var(--border);
+}

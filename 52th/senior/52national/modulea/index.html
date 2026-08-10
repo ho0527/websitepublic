@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>第52屆全國技能競賽 - 模組A 速度競賽</title>
+	<link rel="stylesheet" href="/index.css">
+	<link rel="stylesheet" href="/indexindex.css">
+	<link rel="stylesheet" href="/speedtest/speedtest.css">
+</head>
+
+<body>
+	<div class="navigationbar">
+		<div class="navigationbarleft">
+			<img src="/material/icon/mainicon.png" class="logo">
+		</div>
+		<div class="navigationbarright">
+			<input type="button" class="navigationbarbutton" onclick="location.href='../'" value="返回">
+		</div>
+	</div>
+
+	<div style="height: 75px;"></div>
+
+	<header>
+		<h1 style="text-align: center;">第 52 屆全國技能競賽 — 網頁技術 模組 A 速度競賽</h1>
+	</header>
+
+	<div class="toolbar" id="toolbar"></div>
+	<div class="stats" id="stats"></div>
+	<main id="main"></main>
+
+	<footer>
+		如果有遇到程式有問題請用DC找 chris0527 或 <a href="/anther/respond/">填寫此表單</a> 回報
+	</footer>
+
+	<script>
+		/* ====================================================================
+		   在這裡手動編輯每一題：
+			 path    : 連結路徑(省略代表尚未上傳，卡片不可點)
+			 status  : "todo" | "process" | "done"   → 紅 / 黃 / 綠
+			 updated : 顯示在卡片右下角的更新時間
+		==================================================================== */
+		const SPEEDTEST_DATA = {
+			"速度競賽任務": [
+				{ code: "A01", title: "第 01 題", path: "/worldskill/2019/TaskA/B02/", status: "done", updated: "" },
+				{ code: "A02", title: "第 02 題", path: "/worldskill/2019/TaskA/B03/", status: "done", updated: "" },
+				{ code: "A03", title: "第 03 題", path: "03/", status: "done", updated: "" },
+				{ code: "A04", title: "第 04 題", path: "04/", status: "done", updated: "" },
+				{ code: "A05", title: "第 05 題", path: "/worldskill/2019/TaskA/D10/", status: "done", updated: "" },
+				{ code: "A06", title: "第 06 題", path: "/worldskill/2019/TaskA/A01/", status: "done", updated: "" },
+				{ code: "A07", title: "第 07 題", path: "07/", status: "done", updated: "" },
+				{ code: "A08", title: "第 08 題", path: "/worldskill/2019/TaskA/B04/", status: "done", updated: "" },
+				{ code: "A09", title: "第 09 題", path: "/worldskill/2019/TaskA/C16/", status: "done", updated: "" },
+				{ code: "A10", title: "第 10 題", path: "10/", status: "done", updated: "" },
+				{ code: "A11", title: "第 11 題", path: "11/", status: "todo", updated: "" },
+				{ code: "A12", title: "第 12 題", path: "12/", status: "done", updated: "" },
+				{ code: "A13", title: "第 13 題", path: "13/", status: "todo", updated: "" },
+				{ code: "A14", title: "第 14 題", path: "14/", status: "todo", updated: "" },
+				{ code: "A15", title: "第 15 題", path: "15/", status: "done", updated: "" },
+				{ code: "A16", title: "第 16 題", path: "/worldskill/2019/TaskA/D04/", status: "done", updated: "" },
+				{ code: "A17", title: "第 17 題", status: "done", updated: "" },
+				{ code: "A18", title: "第 18 題", status: "todo", updated: "" },
+				{ code: "A19", title: "第 19 題", path: "19/", status: "done", updated: "" },
+				{ code: "A20", title: "第 20 題", path: "/worldskill/2019/TaskA/B15/", status: "done", updated: "" },
+				{ code: "AFM10", title: "第 F1 題", status: "done", updated: "" },
+				{ code: "AFM11", title: "第 F2 題", status: "done", updated: "" },
+				{ code: "AFM12", title: "第 F3 題", status: "done", updated: "" },
+				{ code: "AFM13", title: "第 F4 題", path: "FM-13/", status: "done", updated: "" },
+				{ code: "AFM14", title: "第 F5 題", status: "done", updated: "" }
+			],
+			"任務 2": [
+				{ code: "A02", title: "第 01 題", path: "02%20copy/", status: "done", updated: "" },
+				{ code: "A02", title: "第 02 題", path: "02%20copy%202/", status: "done", updated: "" },
+				{ code: "A03kj", title: "第 03 題", path: "03kj/", status: "done", updated: "" },
+				{ code: "A05copy", title: "第 04 題", path: "05%20copy/", status: "done", updated: "" }
+			]
+		};
+	</script>
+	<script src="/speedtest/speedtest.js"></script>
+</body>
+
+</html>

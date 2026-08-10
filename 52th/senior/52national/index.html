@@ -3,15 +3,103 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../../../indexindex.css">
-        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
-        <script src="../../../plugin/js/chrisplugin.js"></script>
+        <title>第52屆全國技能競賽</title>
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/indexindex.css">
+        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
+        <script src="/chrisplugin/js/chrisplugin.js"></script>
     </head>
     <body id="body">
-        <div class="footer">
-            如果有遇到程式有問題請用DC找 chris0527 或 <a href="../../../anther/respond" class="a">填寫此表單</a> 回報
+		<div class="navigationbar">
+			<div class="navigationbarleft">
+				<img src="/material/icon/mainicon.png" class="logo">
+			</div>
+			<div class="navigationbarright">
+				<input type="button" class="navigationbarbutton" onclick="location.href='../../'" value="返回">
+			</div>
+		</div>
+		<div class="indexmain overflow-hidden_auto">
+            <div class="flex columngap-10px">
+                <div class="box bordertop success fill indexbox" data-link="modulea/">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulea</div>
+                        <div class="text max bold">速度競賽</div>
+                        <div class="text tiny">lastupdate: 20230610</div>
+                    </div>
+                </div>
+                <div class="box bordertop error fill indexbox boxfail" data-link="#">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">moduleb</div>
+                        <div class="text max bold">設計</div>
+                        <div class="text tiny">lastupdate: 20230423</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex columngap-10px">
+                <div class="box bordertop warn fill indexbox" data-link="modulec/">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulec</div>
+                        <div class="text max bold">CMS</div>
+                        <div class="text tiny">lastupdate: 20230609</div>
+                    </div>
+                </div>
+                <div class="box bordertop success fill indexbox" data-link="https://hiiamchris.ddns.net:444/website/52th/senior/52national/TaskD/">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">moduled</div>
+                        <div class="text max bold">後端</div>
+                        <div class="text tiny">lastupdate: 20231117</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex columngap-10px">
+                <div class="box bordertop warn fill indexbox" data-link="modulee/">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulee</div>
+                        <div class="text max bold">單頁式應用</div>
+                        <div class="text tiny">lastupdate: 20230609</div>
+                    </div>
+                </div>
+                <div class="box bordertop warn fill indexbox" data-link="modulee_old/">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulee</div>
+                        <div class="text max bold">單頁式應用(舊版)</div>
+                        <div class="text tiny">lastupdate: 20231114</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex columngap-10px">
+                <div class="box bordertop success fill indexbox boxfail" data-link="#">
+                    <img src="/material/icon/mainicon.png" class="boximage">
+                    <div class="content textcenter ycenter">
+                        <div class="text large bold">modulef</div>
+                        <div class="text max bold">演算法</div>
+                        <div class="text tiny">lastupdate: 20230511</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <script src="../../../index.js"></script>
+
+        <div class="footer">
+            如果有遇到程式有問題請用DC找 chris0527 或 <a href="/anther/respond/" class="a">填寫此表單</a> 回報，<a href="list.html" class="a">完成程式列表</a>
+        </div>
+
+		<script>
+			// 沒有上傳程式的模組不提供連結
+			onclick(".indexbox",function(element,event){
+				if(element.dataset.link!="#"){
+					setTimeout(function(){
+						href(element.dataset.link)
+					},100)
+				}else{
+					alert("此模組尚未上傳程式")
+				}
+			})
+		</script>
     </body>
 </html>

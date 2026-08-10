@@ -1,17 +1,132 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../../../indexindex.css">
-        <link rel="stylesheet" href="../../../plugin/css/chrisplugin.css">
-        <script src="../../../plugin/js/chrisplugin.js"></script>
-    </head>
-    <body id="body">
-        <div class="footer">
-            如果有遇到程式有問題請用DC找 chris0527 或 <a href="../../../anther/respond" class="a">填寫此表單</a> 回報
-        </div>
-        <script src="../../../index.js"></script>
-    </body>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>WorldSkills 2022 - ModuleA 速度競賽</title>
+	<link rel="stylesheet" href="/index.css">
+	<link rel="stylesheet" href="/indexindex.css">
+	<link rel="stylesheet" href="/speedtest/speedtest.css">
+</head>
+
+<body>
+	<div class="navigationbar">
+		<div class="navigationbarleft">
+			<img src="/material/icon/mainicon.png" class="logo">
+		</div>
+		<div class="navigationbarright">
+			<input type="button" class="navigationbarbutton" onclick="location.href='../'" value="返回">
+		</div>
+	</div>
+
+	<div style="height: 75px;"></div>
+
+	<header>
+		<h1 style="text-align: center;">WorldSkills 2022 — 模組 A 速度競賽</h1>
+	</header>
+
+	<div class="toolbar" id="toolbar"></div>
+	<div class="stats" id="stats"></div>
+	<main id="main"></main>
+
+	<footer>
+		如果有遇到程式有問題請用DC找 chris0527 或 <a href="/anther/respond/">填寫此表單</a> 回報
+	</footer>
+
+	<script>
+		/* ====================================================================
+		   在這裡手動編輯每一題：
+			 path    : 連結路徑(省略代表尚未上傳，卡片不可點)
+			 status  : "todo" | "process" | "done"   → 紅 / 黃 / 綠
+			 updated : 顯示在卡片右下角的更新時間
+		==================================================================== */
+		const SPEEDTEST_DATA = {
+			"設計實作任務 (Design)": [
+				{ code: "A01", title: "Masking Image", status: "todo", updated: "" },
+				{ code: "A02", title: "Vectored artwork", status: "todo", updated: "" },
+				{ code: "A03", title: "Double Exposure Effect", status: "todo", updated: "" },
+				{ code: "A04", title: "Instagram Grid", status: "todo", updated: "" },
+				{ code: "A05", title: "Resize and Grayscale Multiple Images", path: "A05/index.txt", status: "done", updated: "" },
+				{ code: "A06", title: "Spinning Globe Animation", status: "todo", updated: "" },
+				{ code: "A07", title: "Apply Background", status: "todo", updated: "" },
+				{ code: "A08", title: "Add a filter", path: "A08/index.txt", status: "done", updated: "" },
+				{ code: "A09", title: "Color Blending", path: "A09/A09.png", status: "done", updated: "" },
+				{ code: "A10", title: "Mosaic", status: "todo", updated: "" },
+				{ code: "A11", title: "Banner creation", status: "todo", updated: "" }
+			],
+			"刻板任務 (Layout)": [
+				{ code: "B01", title: "CSS Counter", path: "B01/", status: "done", updated: "" },
+				{ code: "B02", title: "TODO List", path: "B02/", status: "done", updated: "" },
+				{ code: "B03", title: "9-Images", path: "B03/", status: "done", updated: "" },
+				{ code: "B04", title: "Particle Button", path: "B04/", status: "todo", updated: "" },
+				{ code: "B05", title: "Flip Gradient Elements", path: "B05/", status: "todo", updated: "" },
+				{ code: "B06", title: "Sticky Footer", path: "B06/", status: "done", updated: "" },
+				{ code: "B07", title: "Korean flag", path: "B07/", status: "done", updated: "" },
+				{ code: "B08", title: "Rotating Star", path: "B08/", status: "done", updated: "" },
+				{ code: "B09", title: "Dice Roller", status: "todo", updated: "" },
+				{ code: "B10", title: "5 Stars Rating Animation", status: "todo", updated: "" },
+				{ code: "B11", title: "Sunrise and sunset", path: "B11/", status: "done", updated: "" },
+				{ code: "B12", title: "Rectangle rotation", path: "B12/", status: "done", updated: "" },
+				{ code: "B13", title: "Accessibility", status: "todo", updated: "" },
+				{ code: "B14", title: "CSS Animated Traffic Light", path: "B14/", status: "done", updated: "" },
+				{ code: "B15", title: "Responsive grid layout", path: "B15/", status: "done", updated: "" },
+				{ code: "B16", title: "CSS marquee effect", path: "B16/", status: "done", updated: "" },
+				{ code: "B17", title: "Pie charts", path: "B17/", status: "done", updated: "" }
+			],
+			"前端開發任務 (Frontend)": [
+				{ code: "C01", title: "Keyword Highlighter", path: "C01/", status: "todo", updated: "" },
+				{ code: "C02", title: "Spotlight", path: "C02/", status: "done", updated: "" },
+				{ code: "C03", title: "Get the data type", path: "C03/", status: "done", updated: "" },
+				{ code: "C04", title: "Notebook", path: "C04/", status: "todo", updated: "" },
+				{ code: "C05", title: "Color Transform", path: "C05/", status: "done", updated: "" },
+				{ code: "C06", title: "Deep Clone", path: "C06/", status: "done", updated: "" },
+				{ code: "C07", title: "Rainbow Trail", path: "C07/", status: "todo", updated: "" },
+				{ code: "C08", title: "Firework", path: "C08/", status: "todo", updated: "" },
+				{ code: "C09", title: "Particle Clock", path: "C09/", status: "todo", updated: "" },
+				{ code: "C10", title: "Text Ellipsis", path: "C10/", status: "todo", updated: "" },
+				{ code: "C11", title: "Like button", status: "todo", updated: "" },
+				{ code: "C12", title: "Native JavaScript Routing", status: "done", updated: "" },
+				{ code: "C13", title: "Markdown Preview", path: "C13/", status: "done", updated: "" },
+				{ code: "C14", title: "Image Colour Inspector", path: "C14/", status: "done", updated: "" },
+				{ code: "C15", title: "Night mode", path: "C15/", status: "done", updated: "" },
+				{ code: "C16", title: "Drawing tool", path: "C16/", status: "done", updated: "" },
+				{ code: "C17", title: "Ripple Effect", path: "C17/", status: "done", updated: "" },
+				{ code: "C18", title: "Image Preview Window", path: "C18/", status: "done", updated: "" },
+				{ code: "C19", title: "Roman Converter", path: "C19/", status: "done", updated: "" },
+				{ code: "C20", title: "Word Rank", path: "C20/", status: "todo", updated: "" },
+				{ code: "C21", title: "Random Bubbles", path: "C21/", status: "done", updated: "" },
+				{ code: "C22", title: "Kanban Board Sortable", path: "C22/", status: "done", updated: "" },
+				{ code: "C23", title: "Range Slider", path: "C23/layout/", status: "done", updated: "" },
+				{ code: "C24", title: "Piano", path: "C24/", status: "todo", updated: "" },
+				{ code: "C25", title: "Mouse style", path: "C25/", status: "done", updated: "" },
+				{ code: "C26", title: "Electronic Lock", path: "C26/", status: "done", updated: "" },
+				{ code: "C27", title: "Customer Reviews", path: "C27/", status: "done", updated: "" },
+				{ code: "C28", title: "Pixel editor", path: "C28/", status: "done", updated: "" },
+				{ code: "C29", title: "Create modal window.", path: "C29/", status: "done", updated: "" }
+			],
+			"後端開發任務 (Backend)": [
+				{ code: "D01", title: "Answer Checker", path: "D01/", status: "done", updated: "" },
+				{ code: "D01", title: "Array manipulation", path: "D01/", status: "done", updated: "" },
+				{ code: "D03", title: "Tic-Tac-Toe", path: "D03/", status: "done", updated: "" },
+				{ code: "D04", title: "Infinite scroll", path: "D04/", status: "done", updated: "" },
+				{ code: "D05", title: "Image Watermark", path: "D05/", status: "done", updated: "" },
+				{ code: "D06", title: "Live chat", path: "D06/", status: "done", updated: "" },
+				{ code: "D07", title: "Number of Days", path: "D07/", status: "done", updated: "" },
+				{ code: "D08", title: "RGB to HEX", path: "D08/", status: "done", updated: "" },
+				{ code: "D09", title: "PHP list of even numbers", path: "D09/", status: "done", updated: "" },
+				{ code: "D10", title: "PHP Remove numbers", path: "D10/", status: "done", updated: "" },
+				{ code: "D11", title: "Bar Chart", status: "todo", updated: "" },
+				{ code: "D12", title: "Video List Page", path: "D12/page-html/", status: "done", updated: "" },
+				{ code: "D13", title: "Generate image with Base64", path: "D13/", status: "done", updated: "" },
+				{ code: "D14", title: "Generate file DOC", path: "D14/", status: "done", updated: "" },
+				{ code: "D15", title: "Write a Secure Login", path: "D15/", status: "done", updated: "" },
+				{ code: "D16", title: "API Request Logger", status: "todo", updated: "" },
+				{ code: "D17", title: "Create simple noticeboard", path: "D17/", status: "todo", updated: "" }
+			]
+		};
+	</script>
+	<script src="/speedtest/speedtest.js"></script>
+</body>
+
 </html>
