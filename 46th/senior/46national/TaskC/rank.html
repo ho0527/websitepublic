@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>俄羅斯方塊 - 排行榜</title>
+        <link rel="icon" href="material/icon/mainicon.png">
+        <link rel="stylesheet" href="common.css">
+        <link rel="stylesheet" href="rank.css">
+    </head>
+    <body>
+        <main class="rankpage">
+            <h1 class="ranktitle">排行榜</h1>
+
+            <!-- 難度頁籤 -->
+            <div class="tabs" id="tabs">
+                <div class="tab" data-difficulty="normal">一般</div>
+                <div class="tab" data-difficulty="hard">困難</div>
+            </div>
+
+            <table class="ranktable">
+                <thead>
+                    <tr>
+                        <th>名次</th>
+                        <th>暱稱</th>
+                        <th>行數</th>
+                        <th>時間</th>
+                    </tr>
+                </thead>
+                <tbody id="rankBody"></tbody>
+            </table>
+
+            <a class="backlink" href="index.html">回到首頁</a>
+        </main>
+
+        <!-- 共用模組 -->
+        <script src="js/tetromino.js"></script>
+        <script src="js/storage.js"></script>
+        <script src="js/ranking.js"></script>
+        <!-- 排行榜頁控制器 -->
+        <script src="rank.js"></script>
+    </body>
+</html>

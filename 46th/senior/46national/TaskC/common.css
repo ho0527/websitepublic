@@ -1,0 +1,96 @@
+/* common.css - 各頁面共用的基礎樣式 */
+
+:root{
+    --background: #232323;
+    --panel: #2c2c2c;
+    --border: rgba(255, 255, 255, 0.25);
+    --text: #ffffff;
+    --sub-text: #b5b5b5;
+    --accent: #22d3ee;
+    --cell-size: 30px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    text-align: center;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1, h2, h3{
+    margin: 0px;
+    color: var(--text);
+}
+
+p{
+    margin: 8px 0px;
+}
+
+a{
+    color: var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* 通用按鈕 */
+.button{
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: inherit;
+    transition-duration: 0.3s;
+}
+
+.button:hover{
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--background);
+}
+
+/* 通用輸入框 */
+.input{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 20px;
+    font-family: inherit;
+    padding: 8px 12px;
+    outline: none;
+}
+
+.input:focus{
+    border-color: var(--accent);
+}
+
+/* 方塊格子(遊戲畫面、預覽、排行榜共用) */
+.cell{
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    background: transparent;
+}
+
+.cell.filled{
+    border-color: rgba(0, 0, 0, 0.35);
+    box-shadow: inset 0px 0px 0px 2px rgba(255, 255, 255, 0.2);
+}
+
+.hidden{
+    visibility: hidden;
+}

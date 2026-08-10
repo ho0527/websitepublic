@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>俄羅斯方塊</title>
+        <link rel="icon" href="material/icon/mainicon.png">
+        <link rel="stylesheet" href="common.css">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <div class="main">
-            <h1>俄羅斯方塊</h1><br>
-            <!-- <input type="text" class="input" id="username" value="username" placeholder="username"><br><br> user的名字 -->
-            <!-- 遊戲模式 START -->
-            <input type="button" class="button selectbutton" id="normal" value="一般">
-            <input type="button" class="button" id="hard" value="困難"><br>
-            <!-- 遊戲模式 END -->
-            <input type="button" class="button" id="startgame" value="開始遊戲">
+        <!-- 目前難度的最高行數 -->
+        <div class="bestbox">
+            <p class="bestline">最高行數: <span id="bestLines">0</span></p>
+            <a class="ranklink" href="rank.html">查看排行榜</a>
         </div>
 
-        <!-- js -->
+        <main class="startpage">
+            <h1 class="gametitle">俄羅斯方塊</h1>
+
+            <div class="levelrow">
+                <label for="difficulty">等級：</label>
+                <select id="difficulty" class="input select">
+                    <option value="normal">一般</option>
+                    <option value="hard">困難</option>
+                </select>
+            </div>
+
+            <input type="button" id="startButton" class="button startbutton" value="開始遊戲">
+
+            <!-- 有未完成的遊戲時才顯示 -->
+            <p class="continuehint" id="continueHint">
+                偵測到未完成的遊戲，<a id="continueLink">繼續上一局</a>
+            </p>
+        </main>
+
+        <!-- 共用模組 -->
+        <script src="js/tetromino.js"></script>
+        <script src="js/storage.js"></script>
+        <script src="js/ranking.js"></script>
+        <!-- 起始頁控制器 -->
         <script src="index.js"></script>
     </body>
 </html>

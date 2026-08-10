@@ -1,0 +1,82 @@
+/* rank.css - 排行榜頁面樣式 */
+
+.rankpage{
+    width: 720px;
+    max-width: 92%;
+    margin: 60px auto;
+}
+
+.ranktitle{
+    font-size: 44px;
+    margin-bottom: 24px;
+}
+
+/* 難度頁籤 */
+.tabs{
+    display: flex;
+    border-bottom: 2px solid var(--border);
+}
+
+.tab{
+    padding: 12px 40px;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--sub-text);
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-bottom: none;
+    border-radius: 8px 8px 0px 0px;
+    transition-duration: 0.3s;
+}
+
+.tab:hover{
+    color: var(--text);
+}
+
+/* 目前所在的頁籤 */
+.tab.active{
+    background: var(--panel);
+    border-color: var(--border);
+    color: var(--accent);
+    margin-bottom: -2px;
+}
+
+.ranktable{
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    font-size: 20px;
+}
+
+.ranktable th, .ranktable td{
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ranktable th{
+    color: var(--sub-text);
+    font-size: 18px;
+}
+
+/* 目前玩家的名次 */
+.ranktable tr.player{
+    background: rgba(34, 211, 238, 0.18);
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.ranktable td.empty{
+    color: var(--sub-text);
+    padding: 30px 0px;
+}
+
+.ranktable td.gap{
+    color: var(--sub-text);
+    letter-spacing: 4px;
+}
+
+.backlink{
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 20px;
+}

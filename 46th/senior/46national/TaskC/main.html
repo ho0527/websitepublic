@@ -1,34 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>俄羅斯方塊</title>
+        <title>俄羅斯方塊 - 遊戲中</title>
+        <link rel="icon" href="material/icon/mainicon.png">
+        <link rel="stylesheet" href="common.css">
         <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="plugin/css/chrisplugin.css">
-        <script src="plugin/js/chrisplugin.js"></script>
     </head>
     <body>
-        <div class="main grid" id="main">
-            <div class="left">
-                <div class="shownextdiv" id="shownext"></div>
-                <input type="button" class="bigbutton" id="share" value="畫面分享(s)"><br>
-                <input type="button" class="bigbutton" id="stop" value="暫停遊戲(p)"><br>
-                <input type="button" class="bigbutton" id="cancel" value="放棄遊戲(esc)"><br>
-            </div>
+        <main class="gamepage">
+            <!-- 遊戲畫面 -->
+            <section class="boardpanel">
+                <div class="board" id="board"></div>
 
-            <!-- 主程式 -->
-            <div class="app macossectiondiv" id="app"></div>
+                <!-- 暫停時顯示 -->
+                <div class="mask" id="pauseMask">暫停</div>
 
-            <!-- 下方區塊 -->
-            <div class="bottom grid">
-                <div class="time" id="time">時間: 00:00</div> <!-- 顯示時間 -->
-                <div class="difficulty" id="difficulty"></div> <!-- 顯示難易度   -->
-                <div class="line" id="line"></div> <!-- 顯示行數 -->
-            </div>
-        </div>
+                <!-- 遊戲結束時顯示 -->
+                <div class="mask gameovermask" id="gameOverMask">
+                    <h2>遊戲結束</h2>
+                    <p class="gameoverinfo">等級：<span id="overLevel"></span></p>
+                    <p class="gameoverinfo">行數：<span id="overLines"></span></p>
+                    <p class="gameoverinfo">時間：<span id="overTime"></span></p>
+                    <div class="nicknamerow">
+                        <label for="nickname">暱稱:</label>
+                        <input type="text" id="nickname" class="input" maxlength="10" placeholder="請輸入暱稱">
+                    </div>
+                    <input type="button" id="submitButton" class="button" value="送出">
+                </div>
+            </section>
 
-        <!-- js -->
+            <!-- 右側資訊與功能按鈕 -->
+            <aside class="sidepanel">
+                <div class="nextbox">
+                    <p class="nexttitle">下一個</p>
+                    <div class="nextpreview" id="nextPreview"></div>
+                </div>
+
+                <div class="infobox">
+                    <p>等級：<span id="levelText"></span></p>
+                    <p>行數：<span id="lineText">0</span></p>
+                    <p>時間:<span id="timeText">00:00</span></p>
+                </div>
+
+                <input type="button" id="shareButton" class="button bigbutton" value="畫面分享">
+                <input type="button" id="pauseButton" class="button bigbutton" value="暫停遊戲">
+                <input type="button" id="quitButton" class="button bigbutton" value="放棄遊戲">
+            </aside>
+        </main>
+
+        <!-- 共用模組 -->
+        <script src="js/tetromino.js"></script>
+        <script src="js/storage.js"></script>
+        <script src="js/ranking.js"></script>
+        <script src="js/gameengine.js"></script>
+        <script src="js/gameview.js"></script>
+        <!-- 遊戲頁控制器 -->
         <script src="main.js"></script>
     </body>
-</html> 
+</html>
