@@ -2,32 +2,33 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>Tic-Tac-Toe (smart)</title>
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
         <div class="center" id="main">
             <div class="gamebar">
-                <button class="button" onclick="location.reload()">重新開始</button>
+                <button class="button" id="reset">重新開始</button>
             </div>
             <table class="table">
                 <tr>
-                    <td class="td" id="td1"></td>
-                    <td class="td" id="td2"></td>
-                    <td class="td" id="td3"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
                 </tr>
                 <tr>
-                    <td class="td" id="td4"></td>
-                    <td class="td" id="td5"></td>
-                    <td class="td" id="td6"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
                 </tr>
                 <tr>
-                    <td class="td" id="td7"></td>
-                    <td class="td" id="td8"></td>
-                    <td class="td" id="td9"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
                 </tr>
             </table>
         </div>
+        <!-- 勝負提示，初始為空(隱藏) -->
         <div id="maskdiv"></div>
         <script src="index.js"></script>
     </body>

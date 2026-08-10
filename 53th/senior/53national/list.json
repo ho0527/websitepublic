@@ -83,7 +83,7 @@
                                     "no": "06",
                                     "description": "A06-Keyword Highlighter",
                                     "link": "/worldskill/2022/TaskA/C01/",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": [
                                         {
                                             "description": "在素材文件中，提供了一段文字給您。您需要將這段文字複製到您的 HTML 頁面中，並實現搜尋關鍵字功能",
@@ -277,21 +277,21 @@
                                     "no": "02",
                                     "description": "A09copy",
                                     "link": "TaskA/09/",
-                                    "statu": "FAILED",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "03",
                                     "description": "A13copy",
-                                    "link": "TaskA/11/",
+                                    "link": "TaskA/13",
                                     "statu": "SUCCESS",
                                     "data": []
                                 },
                                 {
                                     "no": "04",
                                     "description": "A17smart",
-                                    "link": "TaskA/A17smart/",
-                                    "statu": "FAILED",
+                                    "link": "TaskA/17smart",
+                                    "statu": "SUCCESS",
                                     "data": []
                                 }
                             ]
@@ -1090,7 +1090,7 @@
                                             "statu": "SUCCESS"
                                         }
                                     ]
-                                    },
+                                },
                                 {
                                     "no": "12",
                                     "description": "發布評論",

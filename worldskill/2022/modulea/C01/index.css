@@ -87,3 +87,40 @@ table{
     width: 0px;
     background: red;
 }
+/* 搜尋列與高亮樣式 */
+.input{
+    display: flex;
+    gap: 10px;
+}
+
+.input input[type="text"]{
+    flex: 1;
+    font-size: 22px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgb(30, 30, 34);
+    color: white;
+    outline: none;
+}
+
+.input input[type="button"]{
+    font-size: 22px;
+    padding: 6px 24px;
+    border-radius: 5px;
+    border: none;
+    background: rgb(70, 130, 220);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.input input[type="button"]:hover{
+    background: rgb(120, 170, 255);
+}
+
+.highlight{
+    border-radius: 3px;
+    padding: 0px 2px;
+}
