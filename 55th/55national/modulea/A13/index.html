@@ -1,37 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drip Effect</title>
+    <title>A13 - Drip 滴水效果</title>
     <style>
+        /* 只使用 HTML 與 CSS 完成循環的滴水動畫（參照 drip-sample.mp4） */
+
         body {
-            background: black;
+            background: #000000;
             height: 100vh;
+            margin: 0px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
+        /*
+         * 黏稠(gooey)效果的作法：
+         * 子元素全部加上 blur，容器再用高 contrast 把模糊的邊緣重新變銳利，
+         * 兩個模糊圖形靠近時邊緣會相黏，離開時會拉出水滴的絲狀。
+         */
         .main {
             position: relative;
             width: 300px;
             height: 250px;
-            filter: contrast(100);
-            background: black;
+            background: #000000;
             overflow: hidden;
+            filter: contrast(30);
         }
 
         .line {
             position: absolute;
             left: 0px;
             width: 100%;
-            height: 50px;
-            background: white;
+            height: 46px;
+            background: #ffffff;
             border-radius: 30px;
+            filter: blur(8px);
             z-index: 1;
-            filter: blur(6px);
         }
 
         .top {
@@ -44,21 +52,46 @@
 
         .ball {
             position: absolute;
-            top: 0px;
             left: 50%;
-            transform: translate(-50%, -0%);
-            width: 50px;
-            height: 50px;
-            background: white;
+            width: 44px;
+            height: 44px;
+            background: #ffffff;
             border-radius: 50%;
+            filter: blur(8px);
             z-index: 2;
-            animation: ball 3s linear infinite;
-            filter: blur(6px);
+            /* ease-in：離開上方橫條時慢，往下掉時逐漸加速，接近重力的感覺 */
+            animation: drip 2s ease-in infinite;
         }
 
-        @keyframes ball {
+        @keyframes drip {
+            /* 水滴還藏在上方橫條裡，被壓扁 */
+            0% {
+                top: 8px;
+                transform: translate(-50%, 0%) scale(0.55, 0.45);
+            }
+
+            /* 開始往下墜，與橫條之間拉出細絲 */
+            18% {
+                top: 26px;
+                transform: translate(-50%, 0%) scale(0.75, 1.15);
+            }
+
+            /* 脫離橫條，回彈成圓形 */
+            32% {
+                top: 52px;
+                transform: translate(-50%, 0%) scale(1, 0.92);
+            }
+
+            /* 自由落體，因為速度快而稍微拉長 */
+            75% {
+                top: 168px;
+                transform: translate(-50%, 0%) scale(0.92, 1.1);
+            }
+
+            /* 碰到下方橫條，被吸收並攤平 */
             100% {
-                top: 130%;
+                top: 206px;
+                transform: translate(-50%, 0%) scale(1.25, 0.5);
             }
         }
     </style>
