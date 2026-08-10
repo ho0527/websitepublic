@@ -1,0 +1,22 @@
+/*
+	主題 A：直接顯示照片與標題，沒有任何過場效果
+*/
+
+/* 離場的照片直接消失，不做任何動畫 */
+.theme-a .slide.is-leaving{
+	display: none;
+}
+
+.theme-a .slide.is-active .card,
+.theme-a .slide.is-active .frame,
+.theme-a .slide.is-active .caption{
+	animation: none;
+	transform: none;
+	opacity: 1;
+}
+
+/* 標題固定在照片下方，深色底白字 */
+.theme-a .caption{
+	background: #00000088;
+	color: #ffffff;
+}

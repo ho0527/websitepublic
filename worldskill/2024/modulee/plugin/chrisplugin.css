@@ -1,0 +1,493 @@
+/*
+    標題: 插件整合
+    參考:
+    作者: 小賀chris
+    製作及log:
+    2023/06/28  20:10:16 Bata 1.0.0 // 新增macosselection 以及 sort 函式
+    2023/07/05  19:45:17 Bata 1.0.1 // 修改命名
+    2023/07/25  22:12:42 Bata 1.0.2 // 修改lightbox css
+    2023/11/20  18:01:04 Bata 1.0.18 // 新增hintbox相關css
+
+        |-------    -----    -                     -     -----  -----  -----   -------|
+       |-------    -        -            - - -          -                     -------|
+      |-------    -        -------    -          -     -----    --       --  -------|
+     |-------    -        -     -    -          -         -      --     --  -------|
+    |-------    -----    -     -    -          -     -----         -----  -------|
+*/
+
+/* .macossectiondiv{
+    overflow: auto;
+}
+
+.macossectiondivy{
+    overflow: hidden auto;
+}
+
+.macossectiondivx{
+    overflow: auto hidden;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background: var(--stgray-400);
+    border-radius: 1000px;
+}
+
+body[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background: var(--stgray-400);
+    border-radius: 1000px;
+}
+
+.input:has(>textarea)[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background: var(--stgray-400);
+    border-radius: 1000px;
+}
+
+.macossectiondiv[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background: var(--stgray-400);
+    border-radius: 1000px;
+}
+
+.macossectiondivx[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background: var(--stgray-400);
+    border-radius: 1000px;
+}
+
+.macossectiondivy[scroll]::-webkit-scrollbar-thumb{
+    border: 5px transparent solid;
+    background-clip: content-box;
+    background: var(--stgray-400);
+    border-radius: 1000px;
+} */
+
+.divsortdragging{
+    opacity: 0.5;
+}
+
+.lightboxmask{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-100%);
+    z-index: 9999;
+    transition: transform 0.3s ease-in-out;
+}
+
+.lightboxmain{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(175, 175, 175);
+	color: black;
+	border-radius: 10px;
+    font-size: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.hintbox{
+    position: absolute;
+    top: -100px;
+    right: -170px;
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    background: rgb(32, 31, 31);
+    z-index: 99999;
+}
+
+.hiintboxclose{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hintboxbutton{
+    cursor: pointer;
+}
+
+.hiintboxbody{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 50px);
+    text-align: justify;
+    font-size: 15px;
+}
+
+.hiintboxbuttondiv{
+    position: absolute;
+    bottom: 0px;
+    left: 5px;
+    width: calc(100% - 10px);
+}
+
+.hintboxbuttonleft{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.hintboxbuttonright{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.tagdiv{
+    position: relative;
+    width: 70vw;
+}
+
+.tagcontrol{
+    border: 1px rgb(211, 211, 211) solid;
+    padding: 10px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tagwrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.selecttag .tag{
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #a0a0ff;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.taginput{
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    min-width: 100px;
+}
+
+.taglist{
+    border-top: 1px rgb(222, 222, 222) solid;
+    position: absolute;
+    top: 50px;
+    width: calc(100% + 20px);
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    display: none;
+}
+
+.tag{
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: default;
+}
+
+.tagdelete{
+    font-size: 20px;
+    margin-left: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rangecontainer{
+	font-family: Arial,Helvetica,sans-serif;
+	position: relative;
+	box-sizing: border-box;
+	height: 45px;
+	user-select: none;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+
+	& .rangebackground,& .rangeselected{
+		border: 1px rgb(237,237,237) solid;
+		position: absolute;
+		top: 5px;
+		left: 0px;
+		width: 100%;
+		height: 10px;
+		background: lightgray;
+		border-radius: 3px;
+	}
+
+	& .rangeselected{
+		border: 1px solid #3502c4;
+		width: 0px;
+		background: #3502c4;
+	}
+
+	&.disabled .rangeselected{
+		border-color: #bbbbbb;
+		background: rgb(204,204,204);
+	}
+
+	& .rangepointer{
+		border: 1px solid #bbb;
+		position: absolute;
+		left: -10px;
+		top: 0px;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: white;
+		box-shadow: inset 0 0 1px white,inset 0 1px 6px #ebebeb,1px 1px 4px rgba(0,0,0,0.1);
+		cursor: pointer;
+
+		& .rangetooltip{
+			border: 1px var(--rangeslider-border-color) solid;
+			position: absolute;
+			left: 15px;
+			transform: translate(-50%,-35px);
+			background: var(--stgray-75);
+			border-radius: 3px;
+			width: auto;
+			min-width: 50px;
+			color: var(--rangeslider-color);
+			font-size: 13px;
+			text-align: center;
+			padding: 5px 10px;
+		}
+	}
+
+	&.disabled .rangepointer{
+		border-color: rgb(204,204,204);
+		cursor: not-allowed;
+	}
+
+
+	&.sliding .rangeselected,&.sliding .rangepointer{
+		transition: none;
+	}
+
+	& .rangescale{
+        position: absolute;
+		top: 5px;
+		left: 0px;
+		white-space: nowrap;
+
+		& span{
+			position: relative;
+			float: left;
+		}
+
+		& span::before{
+			content: "";
+			background: rgb(237,237,237);
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			width: 1px;
+			height: 8px;
+		}
+	}
+
+
+	&.rangenoscale span::before{
+		display: none;
+	}
+
+	&.rangenoscale span:first-child::before,
+	&.rangenoscale span:last-child::before{
+		display: block;
+	}
+
+	& .rangescale span:last-child{
+		margin-left: -1px;
+		width: 0px;
+	}
+
+	& .rangescale span div{
+		color: var(--rangeslider-color);
+		display: inline-block;
+		font-size: 12px;
+		margin-top: 20px;
+		text-decoration: none;
+	}
+
+	&.disabled .rangescale span div{
+		color: #999999;
+		cursor: not-allowed;
+	}
+
+	&.disabled .rangetooltip{
+		border-color: #ccc;
+		color: #999999;
+		cursor: not-allowed;
+	}
+
+	/* 長方形樣式 */
+	&.rectanglestyle{
+		& .rangepointer{
+			width: 30px;
+			height: 20px;
+			border-radius: 5px;
+
+			&::before{
+				content: "";
+				position: absolute;
+				left: 12px;
+				top: 5px;
+				width: 1px;
+				height: 9px;
+				background: rgb(221,221,221);
+			}
+
+			&::after{
+				content: "";
+				position: absolute;
+				right: 12px;
+				top: 5px;
+				width: 1px;
+				height: 9px;
+				background: rgb(221,221,221);
+				left: auto;
+			}
+		}
+	}
+	/* 圓形樣式 */
+	&.roundstyle{
+		& .rangepointer{
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+
+			&::before{
+				content: "";
+				width: 0px;
+				height: 0px;
+			}
+
+			&::after{
+				content: "";
+				width: 0px;
+				height: 0px;
+			}
+		}
+	}
+}
+
+/* carousel */
+.carousel{
+	position: relative;
+}
+
+.carousebutton{
+	border: none;
+	position: absolute;
+	background: none;
+	border-radius: 10px;
+	font-size: 25px;
+	cursor: pointer;
+	z-index: 100;
+
+	&:hover{
+		opacity: 0.75;
+	}
+}
+
+.carouseprev{
+	top: 0px;
+	left: 0px;
+	width: 30px;
+	height: 100%;
+}
+
+.carousenext{
+	top: 0px;
+	right: 0px;
+	width: 30px;
+	height: 100%;
+}
+
+.carouselfunction{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 200;
+}
+
+.carouseldot{
+	border: 1px var(--stgray-400) solid;
+	background: var(--stgray-200);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin: 0px 10px;
+	cursor: pointer;
+	transition: 0.2 linear;
+
+	&:hover{
+		opacity: 0.75;
+	}
+}
+
+.carouselline{
+	border: 1px var(--stgray-400) solid;
+	background: var(--stgray-200);
+	width: 80px;
+	height: 10px;
+	margin: 0px 10px;
+	cursor: pointer;
+	transition: 0.2 linear;
+
+	&:hover{
+		opacity: 0.75;
+	}
+}
+
+.carouselimage{
+	border: 1px var(--stgray-100) solid;
+	background: none;
+	width: 80px;
+	height: 50px;
+	padding: 5px;
+	margin: 0px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: 0.2 linear;
+
+	&:hover{
+		opacity: 0.75;
+	}
+}

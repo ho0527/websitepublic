@@ -1,0 +1,57 @@
+/*
+	主題 D：照片由左方滑入停在畫面中央，之後的照片會疊在前一張之上，
+	        形成一疊照片的感覺。每張照片有 -5 ~ 5 度的隨機旋轉、
+	        3px 白色外框、5px 圓角，底部因為標題而看起來比較厚。
+*/
+
+/* 進場：從畫面左外側滑到中央（保留隨機旋轉角度） */
+@keyframes theme-d-slide-in{
+	from{
+		transform: translateX(-120vw) rotate(var(--rotation,0deg));
+		opacity: 0;
+	}
+	to{
+		transform: translateX(0px) rotate(var(--rotation,0deg));
+		opacity: 1;
+	}
+}
+
+/* 已經播過的照片留在畫面上堆疊，不做離場動畫 */
+.theme-d .slide.is-leaving{
+	opacity: 1;
+	visibility: visible;
+}
+
+/* 照片大約佔畫面 85%，維持堆疊感 */
+.theme-d .card{
+	max-width: 85%;
+	max-height: 85%;
+	gap: 0px;
+	padding: 3px;
+	box-sizing: border-box;
+	border: 3px solid #ffffff;
+	border-radius: 5px;
+	background: #ffffff;
+	box-shadow: 0px 12px 32px #00000073;
+	transform: rotate(var(--rotation,0deg));
+}
+
+.theme-d .photo{
+	max-height: 66vh;
+	border-radius: 2px;
+}
+
+/* 標題位於照片底部，背景與外框同為白色，使底邊看起來較厚 */
+.theme-d .caption{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.5em 0.4em 0.7em;
+	border-radius: 0px;
+	background: #ffffff;
+	color: #222222;
+	font-size: 17px;
+}
+
+.theme-d .slide.is-active .card{
+	animation: theme-d-slide-in 0.7s cubic-bezier(0.22,1,0.36,1) both;
+}

@@ -1,0 +1,45 @@
+/*
+	主題 B：照片由左向右滑入畫面中央，離場時再由中央向右滑出畫面
+	        標題跟著相同動畫，但延遲 300ms 才開始
+*/
+
+/* 進場：從畫面左側外滑到中央 */
+@keyframes theme-b-slide-in{
+	from{
+		transform: translateX(-120vw);
+		opacity: 0;
+	}
+	to{
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+/* 離場：從中央滑出到畫面右側外 */
+@keyframes theme-b-slide-out{
+	from{
+		transform: translateX(0px);
+		opacity: 1;
+	}
+	to{
+		transform: translateX(120vw);
+		opacity: 0;
+	}
+}
+
+.theme-b .slide.is-active .frame{
+	animation: theme-b-slide-in 0.8s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* 標題延遲 300ms 才開始跑相同的動畫 */
+.theme-b .slide.is-active .caption{
+	animation: theme-b-slide-in 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s both;
+}
+
+.theme-b .slide.is-leaving .frame{
+	animation: theme-b-slide-out 0.8s cubic-bezier(0.55,0,0.55,0.2) both;
+}
+
+.theme-b .slide.is-leaving .caption{
+	animation: theme-b-slide-out 0.8s cubic-bezier(0.55,0,0.55,0.2) 0.3s both;
+}

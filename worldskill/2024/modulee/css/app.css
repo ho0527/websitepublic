@@ -1,0 +1,475 @@
+/*
+	版面與介面樣式（不含任何主題動畫）
+	主題動畫請見 css/theme-a.css ~ css/theme-f.css
+*/
+
+/* ========================================================================== 基本版面 ========================================================================== */
+
+body{
+	min-height: 100vh;
+	background: var(--stgray-50);
+	color: var(--stgray-900);
+	overflow: hidden auto;
+}
+
+.app-bar{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 12px 20px;
+	border-bottom: 1px solid var(--stgray-200);
+	background: var(--stgray-75);
+}
+
+.app-title{
+	margin: 0px;
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--stgray-900);
+}
+
+.app-bar-actions{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.app-main{
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 16px 20px 24px;
+}
+
+/* ========================================================================== 照片載入區 ========================================================================== */
+
+.photo-loader{
+	border: 2px dashed var(--stgray-400);
+	border-radius: 0.6rem;
+	padding: 14px 18px;
+	text-align: center;
+	background: var(--stgray-75);
+	transition: 0.2s linear;
+}
+
+/* 拖曳檔案經過拖放區時的視覺回饋 */
+.photo-loader.is-dragover{
+	border-color: var(--stprimary-700, #005cde);
+	background: var(--sttonal-primary-400, #d9edff);
+}
+
+.photo-loader-title{
+	margin: 0px 0px 4px;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.photo-loader-hint{
+	margin: 0px 0px 8px;
+	font-size: 13px;
+	color: var(--stgray-700);
+}
+
+/* 使用 label 當作按鈕外觀，實際的 file input 仍存在於畫面上，
+   停用 CSS 時會恢復成原生檔案選擇欄位 */
+.photo-loader-label{
+	display: inline-flex;
+}
+
+.photo-loader input[type="file"]{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0px;
+	margin: -1px;
+	border: 0px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+/* ========================================================================== 幻燈片舞台 ========================================================================== */
+
+.stage-wrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.stage{
+	position: relative;
+	width: 100%;
+	height: 68vh;
+	border-radius: 0.6rem;
+	background: #101014;
+	overflow: hidden;
+	perspective: 1400px;
+}
+
+.stage:focus{
+	outline: 2px solid var(--stprimary-700, #005cde);
+	outline-offset: 2px;
+}
+
+/* 全螢幕時舞台填滿整個螢幕，其餘介面隱藏（設定面板與命令欄仍可使用） */
+body.is-fullscreen{
+	overflow: hidden;
+	background: #101014;
+}
+
+body.is-fullscreen .app-bar,
+body.is-fullscreen .photo-loader,
+body.is-fullscreen .stage-controls{
+	display: none;
+}
+
+body.is-fullscreen .app-main{
+	padding: 0px;
+}
+
+body.is-fullscreen .stage{
+	height: 100vh;
+	border-radius: 0px;
+}
+
+.stage-empty{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	margin: 0px;
+	color: #ffffffcc;
+	font-size: 15px;
+	text-align: center;
+	padding: 0px 20px;
+}
+
+.stage.has-photo .stage-empty{
+	display: none;
+}
+
+.stage-controls{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.stage-status{
+	font-size: 14px;
+	color: var(--stgray-700);
+	min-width: 260px;
+	text-align: center;
+}
+
+/* ========================================================================== 單張投影片的共用結構 ========================================================================== */
+
+.slide{
+	position: absolute;
+	inset: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0px;
+	opacity: 0;
+	visibility: hidden;
+}
+
+/* 正在播放與正在離場的投影片才需要顯示 */
+.slide.is-active,
+.slide.is-leaving{
+	opacity: 1;
+	visibility: visible;
+}
+
+/* 卡片：包住照片與標題，主題 D 會把它變成拍立得外觀 */
+.card{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	max-width: 86%;
+	max-height: 88%;
+}
+
+.frame{
+	position: relative;
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+	line-height: 0;
+}
+
+.photo{
+	display: block;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 62vh;
+}
+
+body.is-fullscreen .photo{
+	max-height: 80vh;
+}
+
+.caption{
+	padding: 0.35em 1em;
+	border-radius: 0.4rem;
+	background: #00000088;
+	color: #ffffff;
+	font-size: 18px;
+	letter-spacing: 0.02em;
+	text-align: center;
+}
+
+/* 標題會被拆成一個個單字，供主題 C、F 做逐字動畫 */
+.caption .word{
+	display: inline-block;
+}
+
+/* 主題 E 的門片：預設不顯示，只有主題 E 會啟用 */
+.door{
+	display: none;
+	position: absolute;
+	top: 0px;
+	width: 50%;
+	height: 100%;
+	background-image: var(--photo-url);
+	background-repeat: no-repeat;
+	background-size: 200% 100%;
+	backface-visibility: hidden;
+}
+
+.door-left{
+	left: 0px;
+	background-position: left center;
+	transform-origin: left center;
+}
+
+.door-right{
+	right: 0px;
+	background-position: right center;
+	transform-origin: right center;
+}
+
+/* ========================================================================== 設定面板 ========================================================================== */
+
+.config-panel{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 360px;
+	max-width: 90vw;
+	height: 100vh;
+	padding: 16px;
+	box-sizing: border-box;
+	background: var(--stgray-75);
+	border-left: 1px solid var(--stgray-200);
+	box-shadow: -6px 0px 24px #00000022;
+	overflow: hidden auto;
+	transform: translateX(100%);
+	transition: transform 0.25s ease;
+	z-index: 40;
+}
+
+.config-panel.is-open{
+	transform: translateX(0%);
+}
+
+.config-panel-head{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.config-panel-title{
+	margin: 0px;
+	font-size: 18px;
+	color: var(--stgray-900);
+}
+
+.config-section{
+	padding: 12px 0px;
+	border-top: 1px solid var(--stgray-200);
+}
+
+/* 面板寬度有限，讓 .selection 元件可以換行而不被裁切 */
+.config-section .selection{
+	height: auto;
+	max-width: 100%;
+	flex-wrap: wrap;
+	gap: 4px;
+	padding: 0.35rem;
+}
+
+.config-section-title{
+	margin: 0px 0px 8px;
+	font-size: 15px;
+	color: var(--stgray-900);
+}
+
+.config-section-hint{
+	margin: 0px 0px 8px;
+	font-size: 13px;
+	color: var(--stgray-700);
+}
+
+/* ---------- 照片排序清單（同時也是停用 CSS 時的照片列表） ---------- */
+
+.order-list{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.order-item{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 6px;
+	border: 1px solid var(--stgray-200);
+	border-radius: 0.4rem;
+	background: var(--stgray-50);
+	cursor: grab;
+	user-select: none;
+}
+
+.order-item.is-dragging{
+	opacity: 0.4;
+}
+
+.order-item.is-drop-target{
+	border-color: var(--stprimary-700, #005cde);
+	background: var(--sttonal-primary-400, #d9edff);
+}
+
+.order-item-index{
+	width: 22px;
+	text-align: center;
+	font-size: 13px;
+	color: var(--stgray-700);
+}
+
+.order-item-thumb{
+	width: 64px;
+	height: 48px;
+	object-fit: cover;
+	border-radius: 0.3rem;
+	background: var(--stgray-200);
+}
+
+.order-item-caption{
+	flex: 1;
+	font-size: 14px;
+	color: var(--stgray-900);
+	word-break: break-all;
+}
+
+/* ========================================================================== 命令欄 ========================================================================== */
+
+/* 命令欄關閉時整層不顯示；開啟時以半透明遮罩讓網頁其他部分變暗 */
+.command-bar{
+	display: none;
+	position: fixed;
+	inset: 0px;
+	background: #000000aa;
+	backdrop-filter: blur(2px);
+	z-index: 60;
+}
+
+.command-bar.is-open{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.command-bar-dialog{
+	width: 560px;
+	max-width: 92vw;
+	padding: 12px;
+	box-sizing: border-box;
+	border-radius: 0.7rem;
+	background: var(--stgray-50);
+	box-shadow: 0px 20px 60px #00000066;
+	animation: command-bar-appear 0.18s ease-out both;
+}
+
+@keyframes command-bar-appear{
+	from{
+		opacity: 0;
+		transform: translateY(-12px) scale(0.98);
+	}
+	to{
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.command-bar-input{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 12px;
+	border: 1px solid var(--stgray-300);
+	border-radius: 0.5rem;
+	background: var(--stgray-75);
+	color: var(--stgray-900);
+	font: inherit;
+	font-size: 16px;
+	outline: none;
+}
+
+.command-bar-input:focus{
+	border-color: var(--stprimary-700, #005cde);
+}
+
+.command-bar-options{
+	list-style: none;
+	padding: 0px;
+	margin: 10px 0px 0px;
+	max-height: 46vh;
+	overflow: hidden auto;
+}
+
+.command-bar-option{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 9px 12px;
+	border-radius: 0.4rem;
+	font-size: 15px;
+	color: var(--stgray-900);
+	cursor: pointer;
+}
+
+/* 目前選取的命令要明顯提亮，讓使用者知道按 Enter 會執行哪一個 */
+.command-bar-option.is-selected{
+	background: var(--stprimary-700, #005cde);
+	color: #ffffff;
+}
+
+.command-bar-option-key{
+	font-size: 12px;
+	opacity: 0.75;
+}
+
+.command-bar-empty{
+	padding: 9px 12px;
+	font-size: 14px;
+	color: var(--stgray-700);
+}
+
+.command-bar-hint{
+	margin: 10px 0px 2px;
+	font-size: 12px;
+	color: var(--stgray-700);
+	text-align: right;
+}

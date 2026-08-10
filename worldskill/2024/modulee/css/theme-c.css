@@ -1,0 +1,75 @@
+/*
+	主題 C：照片由下往上滑到畫面中央，離場時繼續往上滑出畫面
+	        標題被拆成一個個單字，每個單字往上滑入，彼此相差 300ms
+*/
+
+/* 進場：從畫面下方滑到中央 */
+@keyframes theme-c-slide-up-in{
+	from{
+		transform: translateY(110vh);
+		opacity: 0;
+	}
+	to{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+/* 離場：從中央往上滑出畫面 */
+@keyframes theme-c-slide-up-out{
+	from{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	to{
+		transform: translateY(-110vh);
+		opacity: 0;
+	}
+}
+
+/* 單字用的短距離上滑動畫 */
+@keyframes theme-c-word-in{
+	from{
+		transform: translateY(1.4em);
+		opacity: 0;
+	}
+	to{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes theme-c-word-out{
+	from{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	to{
+		transform: translateY(-1.4em);
+		opacity: 0;
+	}
+}
+
+.theme-c .slide.is-active .frame{
+	animation: theme-c-slide-up-in 0.8s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.theme-c .slide.is-leaving .frame{
+	animation: theme-c-slide-up-out 0.8s cubic-bezier(0.55,0,0.55,0.2) both;
+}
+
+/* 標題本身不動，交給裡面的單字逐一動畫 */
+.theme-c .caption{
+	overflow: hidden;
+}
+
+/* --word-index 由 JavaScript 依單字順序寫在每個 span 上，形成每字 300ms 的延遲 */
+.theme-c .slide.is-active .caption .word{
+	animation: theme-c-word-in 0.5s cubic-bezier(0.22,1,0.36,1) both;
+	animation-delay: calc(var(--word-index,0) * 300ms);
+}
+
+.theme-c .slide.is-leaving .caption .word{
+	animation: theme-c-word-out 0.5s ease-in both;
+	animation-delay: calc(var(--word-index,0) * 300ms);
+}

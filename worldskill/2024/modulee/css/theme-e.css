@@ -1,0 +1,79 @@
+/*
+	主題 E：目前的照片被切成左右兩半，兩半以 3D 透視向內旋轉，
+	        形成開門的效果；下一張照片則由後方往前浮現成為目前照片。
+	        此主題不顯示標題。
+*/
+
+/* 此主題不顯示照片標題 */
+.theme-e .caption{
+	display: none;
+}
+
+/* 建立 3D 空間（perspective 由 .stage 提供） */
+.theme-e .slide,
+.theme-e .card,
+.theme-e .frame{
+	transform-style: preserve-3d;
+}
+
+/* 正在開門的照片必須蓋在下一張照片之上 */
+.theme-e .slide.is-leaving{
+	z-index: 2;
+}
+
+.theme-e .slide.is-active{
+	z-index: 1;
+}
+
+/* 照片改由左右兩片門顯示，原本的 img 只用來撐出版面尺寸 */
+.theme-e .photo{
+	visibility: hidden;
+}
+
+.theme-e .door{
+	display: block;
+}
+
+/* 下一張照片由後方往前浮現 */
+@keyframes theme-e-photo-forward{
+	from{
+		transform: translateZ(-900px) scale(0.75);
+		opacity: 0;
+	}
+	to{
+		transform: translateZ(0px) scale(1);
+		opacity: 1;
+	}
+}
+
+/* 左半邊像門一樣往內開 */
+@keyframes theme-e-door-left-open{
+	from{
+		transform: rotateY(0deg);
+	}
+	to{
+		transform: rotateY(-105deg);
+	}
+}
+
+/* 右半邊往另一側開 */
+@keyframes theme-e-door-right-open{
+	from{
+		transform: rotateY(0deg);
+	}
+	to{
+		transform: rotateY(105deg);
+	}
+}
+
+.theme-e .slide.is-active .card{
+	animation: theme-e-photo-forward 0.9s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.theme-e .slide.is-leaving .door-left{
+	animation: theme-e-door-left-open 1s ease-in both;
+}
+
+.theme-e .slide.is-leaving .door-right{
+	animation: theme-e-door-right-open 1s ease-in both;
+}

@@ -1,140 +1,162 @@
-const WEBLSNAME="worldskill2024modulee-"
+/*
+	主程式：把照片來源、播放引擎、設定面板、命令欄組合起來
+*/
 
-let maindata={
-	"type": "manual", // manual auto random
-	"theme": "A" // A~F
+/** 預設設定 */
+const DEFAULT_SETTINGS = {
+	mode: "manual",
+	theme: "A"
+};
+
+/** 目前設定（會存進 localStorage） */
+const settings = loadSettings(DEFAULT_SETTINGS);
+
+/** 套用播放模式並記住設定 */
+function applyMode(mode){
+	settings.mode = mode;
+	saveSettings(settings);
+	ConfigPanel.syncSettings(settings);
+	Slideshow.setMode(mode);
 }
 
-if(weblsget(WEBLSNAME+"maindata")){
-	maindata=json(weblsget(WEBLSNAME+"maindata"))
+/** 套用主題並記住設定 */
+function applyTheme(theme){
+	settings.theme = theme;
+	saveSettings(settings);
+	ConfigPanel.syncSettings(settings);
+	Slideshow.setTheme(theme);
 }
 
-onclick("#carpark",function(element,event){
+/** 建立命令欄要用的命令清單（3 種播放模式 + 6 個主題） */
+function buildCommands(){
+	const commands = [
+		{
+			label: "Change to manual control mode",
+			keywords: "manual control mode 手動",
+			group: "模式",
+			run: function(){
+				applyMode("manual");
+			}
+		},
+		{
+			label: "Change to auto-playing mode",
+			keywords: "auto playing mode 自動",
+			group: "模式",
+			run: function(){
+				applyMode("auto");
+			}
+		},
+		{
+			label: "Change to random playing mode",
+			keywords: "random playing mode 隨機",
+			group: "模式",
+			run: function(){
+				applyMode("random");
+			}
+		}
+	];
 
-})
+	["A", "B", "C", "D", "E", "F"].forEach(function(themeName){
+		commands.push({
+			label: "Switch to theme " + themeName,
+			keywords: "switch theme " + themeName + " 主題",
+			group: "主題",
+			run: function(){
+				applyTheme(themeName);
+			}
+		});
+	});
 
-onclick("#event",function(element,event){
+	return commands;
+}
 
-})
+/** 綁定照片載入相關的操作：檔案輸入、拖放、範例照片 */
+function bindPhotoLoading(){
+	const dropAreaElement = selectElement("#drop-area");
+	const stageElement = selectElement("#stage");
 
-onclick("#weather",function(element,event){
+	// 檔案輸入（停用 CSS 時仍可使用）
+	selectElement("#photo-input").addEventListener("change", function(event){
+		PhotoStore.setFiles(event.target.files);
+	});
 
-})
+	// 載入題目提供的範例照片
+	selectElement("#sample-button").addEventListener("click", function(){
+		PhotoStore.loadSamplePhotos();
+	});
 
-onclick("#setting",function(element,event){
+	// 避免拖放到頁面其他地方時，瀏覽器直接開啟圖片檔
+	["dragover", "drop"].forEach(function(eventName){
+		document.addEventListener(eventName, function(event){
+			event.preventDefault();
+		});
+	});
 
-})
+	// 拖放區與舞台都可以接收拖入的照片檔案
+	[dropAreaElement, stageElement].forEach(function(targetElement){
+		targetElement.addEventListener("dragover", function(event){
+			event.preventDefault();
+			event.dataTransfer.dropEffect = "copy";
+			dropAreaElement.classList.add("is-dragover");
+		});
 
-onclick("#operating",function(element,event){
-	innerhtml("#main",`
-		<div class="selection">
-			<label class="item">
-				<input type="radio" name="type" value="manual">
-				<div class="text">manual</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="type" value="auto">
-				<div class="text">auto</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="type" value="random">
-				<div class="text">random</div>
-			</label>
-		</div>
-	`,false)
+		targetElement.addEventListener("dragleave", function(){
+			dropAreaElement.classList.remove("is-dragover");
+		});
 
-	domgetall("input[name='type'][value='"+maindata["type"]+"']")[0].checked=true
+		targetElement.addEventListener("drop", function(event){
+			event.preventDefault();
+			dropAreaElement.classList.remove("is-dragover");
 
-	onclick("input[name='type']",function(element,event){
-		maindata["type"]=element.value
-		weblsset(WEBLSNAME+"maindata",maindata)
-		innerhtml("#main",``,false)
-	})
-})
+			if(event.dataTransfer.files && event.dataTransfer.files.length > 0){
+				PhotoStore.setFiles(event.dataTransfer.files);
+			}
+		});
+	});
+}
 
-onclick("#theme",function(element,event){
-	innerhtml("#main",`
-		<div class="selection">
-			<label class="item">
-				<input type="radio" name="theme" value="A">
-				<div class="text">theme A</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="theme" value="B">
-				<div class="text">theme B</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="theme" value="C">
-				<div class="text">theme C</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="theme" value="D">
-				<div class="text">theme D</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="theme" value="E">
-				<div class="text">theme E</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="theme" value="F">
-				<div class="text">theme F</div>
-			</label>
-		</div>
-	`,false)
+/** 綁定舞台的上一張 / 下一張 / 全螢幕按鈕 */
+function bindStageControls(){
+	selectElement("#prev-button").addEventListener("click", function(){
+		Slideshow.showPrevious();
+	});
 
-	domgetall("input[name='theme'][value='"+maindata["theme"]+"']")[0].checked=true
+	selectElement("#next-button").addEventListener("click", function(){
+		Slideshow.showNext();
+	});
 
-	onclick("input[name='theme']",function(element,event){
-		maindata["theme"]=element.value
-		weblsset(WEBLSNAME+"maindata",maindata)
-		innerhtml("#main",``,false)
-	})
-})
+	selectElement("#fullscreen-button").addEventListener("click", function(){
+		Slideshow.toggleFullscreen();
+	});
+}
 
-onclick("#photo",function(element,event){
-	innerhtml("#main",`
-		<div class="selection">
-			<label class="item">
-				<input type="radio" name="type" value="manual">
-				<div class="text">manual</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="type" value="auto">
-				<div class="text">auto</div>
-			</label>
-			<label class="item">
-				<input type="radio" name="type" value="random">
-				<div class="text">random</div>
-			</label>
-		</div>
-	`,false)
+/** 啟動整個應用程式 */
+function startApplication(){
+	Slideshow.init(
+		selectElement("#stage"),
+		selectElement("#stage-status")
+	);
 
-	console.log(maindata)
-	domgetall("input[name='type'][value='"+maindata["type"]+"']")[0].checked=true
+	ConfigPanel.init({
+		onModeChange: applyMode,
+		onThemeChange: applyTheme
+	});
 
-	onclick("input[name='type']",function(element,event){
-		maindata["type"]=element.value
-		weblsset(WEBLSNAME+"maindata",maindata)
-		innerhtml("#main",``,false)
-	})
-})
+	CommandBar.init(buildCommands());
 
-// domgetid("mode").onclick=function(){
-//     if(!document.fullscreenElement){
-//         document.documentElement.requestFullscreen()
-//         domgetid("main").classList.remove("indexmain")
-//         domgetid("main").classList.remove("macossectiondivy")
-//         domgetid("main").classList.add("presentationmain")
-//         domgetid("main").classList.add("center")
-//         presentationmain(0)
-//         this.value="design mode"
-//     }else{
-//         document.exitFullscreen()
-//         domgetid("main").classList.add("indexmain")
-//         domgetid("main").classList.add("macossectiondivy")
-//         domgetid("main").classList.remove("presentationmain")
-//         domgetid("main").classList.remove("center")
-//         main()
-//         this.value="presentation mode"
-//     }
-// }
+	// 照片清單一有變動，就同時更新舞台與排序清單
+	PhotoStore.onChange(function(photos){
+		Slideshow.setPhotos(photos);
+		ConfigPanel.renderOrderList(photos);
+	});
+
+	bindPhotoLoading();
+	bindStageControls();
+
+	// 套用讀取到的設定
+	ConfigPanel.syncSettings(settings);
+	Slideshow.setMode(settings.mode);
+	Slideshow.setTheme(settings.theme);
+}
+
+startApplication();

@@ -1,0 +1,126 @@
+/*
+	主題 F：自訂主題
+	        照片以 3D 傾斜 + 模糊縮放的方式旋入畫面，並用圓形遮罩由中心展開；
+	        標題的每個單字由下方帶著模糊漸次浮現，形成流暢的層次感。
+*/
+
+.theme-f .slide,
+.theme-f .card,
+.theme-f .frame{
+	transform-style: preserve-3d;
+}
+
+/* 進場：由右後方旋入，同時以圓形遮罩由中心展開 */
+@keyframes theme-f-photo-in{
+	from{
+		transform: perspective(1200px) translate3d(18vw,6vh,-700px) rotateY(35deg) rotateZ(6deg);
+		clip-path: circle(0% at 50% 50%);
+		filter: blur(14px) saturate(1.6);
+		opacity: 0;
+	}
+	60%{
+		filter: blur(0px) saturate(1.15);
+		opacity: 1;
+	}
+	to{
+		transform: perspective(1200px) translate3d(0px,0px,0px) rotateY(0deg) rotateZ(0deg);
+		clip-path: circle(75% at 50% 50%);
+		filter: blur(0px) saturate(1);
+		opacity: 1;
+	}
+}
+
+/* 離場：往左後方旋出並淡化模糊 */
+@keyframes theme-f-photo-out{
+	from{
+		transform: perspective(1200px) translate3d(0px,0px,0px) rotateY(0deg) rotateZ(0deg);
+		filter: blur(0px);
+		opacity: 1;
+	}
+	to{
+		transform: perspective(1200px) translate3d(-18vw,-6vh,-700px) rotateY(-35deg) rotateZ(-6deg);
+		filter: blur(14px);
+		opacity: 0;
+	}
+}
+
+/* 標題單字：由下方帶著模糊浮現 */
+@keyframes theme-f-word-in{
+	from{
+		transform: translateY(0.9em) scale(0.92);
+		filter: blur(8px);
+		opacity: 0;
+	}
+	to{
+		transform: translateY(0px) scale(1);
+		filter: blur(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes theme-f-word-out{
+	from{
+		transform: translateY(0px);
+		filter: blur(0px);
+		opacity: 1;
+	}
+	to{
+		transform: translateY(-0.9em);
+		filter: blur(8px);
+		opacity: 0;
+	}
+}
+
+/* 標題底色淡入 */
+@keyframes theme-f-caption-in{
+	from{
+		transform: translateY(1.2em);
+		opacity: 0;
+	}
+	to{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.theme-f .frame{
+	border-radius: 0.8rem;
+	overflow: hidden;
+	box-shadow: 0px 24px 60px #000000a6;
+}
+
+.theme-f .caption{
+	background: linear-gradient(90deg,#ffffff1f,#ffffff40,#ffffff1f);
+	border: 1px solid #ffffff33;
+	color: #ffffff;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.theme-f .caption .word{
+	margin: 0px 0.15em;
+}
+
+.theme-f .slide.is-active .frame{
+	animation: theme-f-photo-in 1s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.theme-f .slide.is-leaving .frame{
+	animation: theme-f-photo-out 0.9s cubic-bezier(0.7,0,0.84,0) both;
+}
+
+.theme-f .slide.is-active .caption{
+	animation: theme-f-caption-in 0.6s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+}
+
+/* 每個單字延遲 90ms，形成逐字浮現的層次 */
+.theme-f .slide.is-active .caption .word{
+	animation: theme-f-word-in 0.6s cubic-bezier(0.16,1,0.3,1) both;
+	animation-delay: calc(0.35s + var(--word-index,0) * 90ms);
+}
+
+.theme-f .slide.is-leaving .caption .word{
+	animation: theme-f-word-out 0.45s ease-in both;
+	animation-delay: calc(var(--word-index,0) * 60ms);
+}

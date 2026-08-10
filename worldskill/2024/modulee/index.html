@@ -1,22 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-        <link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" href="https://chrisplugin.pages.dev/css/chrisplugin.css">
-		<script src="https://chrisplugin.pages.dev/js/chrisplugin.js"></script>
+		<title>Photos Slideshow - Module E</title>
+
+		<!-- 既有樣式框架（提供 .button、.selection 等元件與色彩變數） -->
+		<link rel="stylesheet" href="index.css">
+		<!-- 原本引用 CDN 的外掛樣式，改為放在專案資料夾內離線引用 -->
+		<link rel="stylesheet" href="plugin/chrisplugin.css">
+		<!-- 版面、設定面板、命令欄等介面樣式 -->
+		<link rel="stylesheet" href="css/app.css">
+		<!-- 各主題的樣式各自獨立一個檔案，方便維護（職責分離） -->
+		<link rel="stylesheet" href="css/theme-a.css">
+		<link rel="stylesheet" href="css/theme-b.css">
+		<link rel="stylesheet" href="css/theme-c.css">
+		<link rel="stylesheet" href="css/theme-d.css">
+		<link rel="stylesheet" href="css/theme-e.css">
+		<link rel="stylesheet" href="css/theme-f.css">
 	</head>
 	<body>
-		<div>
-			<input type="button" class="button outline" id="operating" value="operating">
-			<input type="button" class="button outline" id="theme" value="theme">
-			<input type="button" class="button outline" id="photo" value="photo">
+		<!-- ========== 頂部工具列 ========== -->
+		<header class="app-bar">
+			<h1 class="app-title">Photos Slideshow</h1>
+			<div class="app-bar-actions">
+				<button type="button" class="button outline" id="config-button">設定 Config</button>
+				<button type="button" class="button outline" id="sample-button">載入範例照片</button>
+				<button type="button" class="button outline" id="fullscreen-button">全螢幕</button>
+				<button type="button" class="button outline" id="command-button">命令欄 Ctrl+K</button>
+			</div>
+		</header>
+
+		<main class="app-main">
+			<!-- ========== 照片載入：拖放區 + 檔案輸入 ==========
+			     檔案輸入是原生 HTML 元素，即使停用 CSS 也能正常選擇檔案 -->
+			<section class="photo-loader" id="drop-area" aria-label="載入照片">
+				<p class="photo-loader-title">將照片檔案拖放到此處</p>
+				<p class="photo-loader-hint">或直接使用下方的檔案選擇，載入後照片會列在「照片排序」清單中</p>
+				<label class="button outline photo-loader-label" for="photo-input">選擇照片檔案</label>
+				<input type="file" id="photo-input" name="photos" accept="image/*" multiple>
+			</section>
+
+			<!-- ========== 幻燈片舞台 ========== -->
+			<section class="stage-wrapper" id="stage-wrapper">
+				<div class="stage theme-a" id="stage" tabindex="0" aria-label="幻燈片">
+					<p class="stage-empty" id="stage-empty">尚未載入照片，請拖放照片檔案或點選「載入範例照片」</p>
+				</div>
+
+				<div class="stage-controls">
+					<button type="button" class="button outline" id="prev-button">← 上一張</button>
+					<span class="stage-status" id="stage-status">尚未載入照片</span>
+					<button type="button" class="button outline" id="next-button">下一張 →</button>
+				</div>
+			</section>
+		</main>
+
+		<!-- ========== 設定面板：播放模式、主題、照片排序 ========== -->
+		<aside class="config-panel" id="config-panel" aria-label="設定面板">
+			<div class="config-panel-head">
+				<h2 class="config-panel-title">設定 Configuration</h2>
+				<button type="button" class="button outline" id="config-close-button">關閉</button>
+			</div>
+
+			<section class="config-section">
+				<h3 class="config-section-title">播放模式 Operating mode</h3>
+				<div class="selection" id="mode-selection">
+					<label class="item">
+						<input type="radio" name="operating-mode" value="manual">
+						<div class="text">手動 Manual</div>
+					</label>
+					<label class="item">
+						<input type="radio" name="operating-mode" value="auto">
+						<div class="text">自動 Auto</div>
+					</label>
+					<label class="item">
+						<input type="radio" name="operating-mode" value="random">
+						<div class="text">隨機 Random</div>
+					</label>
+				</div>
+			</section>
+
+			<section class="config-section">
+				<h3 class="config-section-title">主題 Theme</h3>
+				<div class="selection" id="theme-selection">
+					<label class="item">
+						<input type="radio" name="theme" value="A">
+						<div class="text">A</div>
+					</label>
+					<label class="item">
+						<input type="radio" name="theme" value="B">
+						<div class="text">B</div>
+					</label>
+					<label class="item">
+						<input type="radio" name="theme" value="C">
+						<div class="text">C</div>
+					</label>
+					<label class="item">
+						<input type="radio" name="theme" value="D">
+						<div class="text">D</div>
+					</label>
+					<label class="item">
+						<input type="radio" name="theme" value="E">
+						<div class="text">E</div>
+					</label>
+					<label class="item">
+						<input type="radio" name="theme" value="F">
+						<div class="text">F</div>
+					</label>
+				</div>
+			</section>
+
+			<section class="config-section">
+				<h3 class="config-section-title">照片排序 Ordering photos</h3>
+				<p class="config-section-hint">拖曳清單中的照片即可調整播放順序</p>
+				<ul class="order-list" id="order-list"></ul>
+			</section>
+		</aside>
+
+		<!-- ========== 命令欄（Ctrl+K 或 / 開啟，ESC 關閉） ========== -->
+		<div class="command-bar" id="command-bar">
+			<div class="command-bar-dialog" role="dialog" aria-modal="true" aria-label="命令欄">
+				<input type="text" class="command-bar-input" id="command-input" placeholder="輸入命令，例如：theme B" autocomplete="off">
+				<ul class="command-bar-options" id="command-options" role="listbox" aria-label="命令選項"></ul>
+				<p class="command-bar-hint">↑ ↓ 選擇 ・ Enter 執行 ・ ESC 關閉</p>
+			</div>
 		</div>
 
-		<div class="main center width-80vw height-70vh" id="main"></div>
-
+		<script src="js/utils.js"></script>
+		<script src="js/photos.js"></script>
+		<script src="js/slideshow.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/commandbar.js"></script>
 		<script src="index.js"></script>
 	</body>
 </html>
