@@ -1,0 +1,27 @@
+body{
+    font-family: Arial, "Microsoft JhengHei", Helvetica, sans-serif;
+    background: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 40px 20px;
+    margin: 0px;
+}
+
+h2{
+    margin: 0px 0px 10px 0px;
+}
+
+p{
+    color: rgb(190, 190, 190);
+}
+
+img{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    margin: 20px 0px;
+    max-width: 100%;
+}
+
+a{
+    color: rgb(120, 200, 255);
+}
