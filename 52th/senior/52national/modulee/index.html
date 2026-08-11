@@ -1,72 +1,123 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>學生資料管理系統</title>
-        <link rel="stylesheet" href="index.css">
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body class="bg-gray-100">
-        <header id="header" class="flex items-center justify-between bg-white shadow px-6 py-4">
-            <h1 id="logo" class="text-2xl font-bold">學生資料管理系統</h1>
-            <form id="searchForm" class="flex">
-                <input name="search" type="text" placeholder="搜尋學生..." class="border border-gray-300 rounded px-3 py-1">
-            </form>
-        </header>
-
-        <div class="flex h-[calc(100vh-80px)]">
-            <aside id="aside" class="w-64 bg-white shadow p-4 overflow-y-auto">
-                <button id="addStudent" class="w-full bg-blue-500 text-white py-2 rounded mb-4">新增學生</button>
-
-                <ul id="studentList" class="list mb-6">
-                    <li class="item current flex justify-between items-center py-2 px-2 hover:bg-gray-100 cursor-pointer">
-                        所有學生 <span class="num text-sm text-gray-500">0</span>
-                    </li>
-                </ul>
-
-                <ul id="classList" class="list mb-6">
-                    <li id="addClass" class="item flex justify-between items-center py-2 px-2 hover:bg-gray-100 cursor-pointer">
-                        建立班級
-                    </li>
-                </ul>
-
-                <ul id="trash" class="list mb-6">
-                    <li class="item flex justify-between items-center py-2 px-2 hover:bg-gray-100 cursor-pointer">
-                        垃圾桶
-                    </li>
-                </ul>
-
-                <button id="export_data" class="w-full bg-green-500 text-white py-2 rounded mb-2">匯出資料</button>
-                <button id="import_data" class="w-full bg-yellow-500 text-white py-2 rounded">匯入資料</button>
-            </aside>
-
-            <main id="main" class="flex-1 p-6 overflow-y-auto">
-                <div class="students space-y-4">
-                    <p class="message text-gray-500">目前還沒有任何學生</p>
-                    <!--
-                    <div class="student flex items-center justify-between bg-white shadow p-4 rounded hover:shadow-md">
-                        <div class="flex items-center space-x-4">
-                            <img src="icon.png" alt="avatar" class="avatar w-[56px] h-[56px] rounded-full">
-                            <div>
-                                <p class="fullname font-semibold">王小明</p>
-                                <p class="student_id text-sm text-gray-500">ID123456</p>
-                                <p class="email text-sm text-gray-500">test@example.com</p>
-                                <p class="phone text-sm text-gray-500">0912345678</p>
-                                <p class="class text-sm text-gray-500">三年甲班</p>
-                                <p class="address text-sm text-gray-500">台北市中山區</p>
-                            </div>
-                        </div>
-                        <div class="actions hidden space-x-2">
-                            <button class="edit text-blue-500">編輯</button>
-                            <button class="delete text-red-500">刪除</button>
-                        </div>
-                    </div>
-                    -->
-                </div>
-            </main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學生資料管理系統</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- ========== 標頭 ========== -->
+    <header id="header">
+        <div class="brand">
+            <!-- 網站圖示（內嵌 SVG，避免外連 CDN） -->
+            <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 1 8l11 5 9-4.09V17h2V8L12 3zM5 13.18v3.64L12 21l7-4.18v-3.64L12 17l-7-3.82z"/>
+            </svg>
+            <h1 id="logo">學生資料管理系統</h1>
         </div>
 
-        <script src="index.js"></script>
-    </body>
+        <form id="searchForm" autocomplete="off">
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+            </svg>
+            <input type="text" name="search" placeholder="搜尋姓名、學號、電子郵件、電話、地址…">
+            <button type="button" class="search-clear" title="清除搜尋">&times;</button>
+        </form>
+    </header>
+
+    <div class="layout">
+        <!-- ========== 側邊欄 ========== -->
+        <aside id="aside">
+            <button id="addStudent" type="button">
+                <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-9-1V8H4v3H1v2h3v3h2v-3h3v-2H6zm9 3c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                新增學生
+            </button>
+
+            <!-- 學生清單 -->
+            <ul id="studentList" class="list">
+                <li class="item current" data-view="all">
+                    <svg class="item-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-2.67 0-8 1.34-8 4v3h8v-3a4.7 4.7 0 0 1 2.2-3.87A13.4 13.4 0 0 0 8 13zm8 0c-.29 0-.62 0-.97.05A4.72 4.72 0 0 1 18 17v3h6v-3c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                    <span class="label">所有學生</span>
+                    <span class="num">0</span>
+                </li>
+            </ul>
+
+            <!-- 班級清單 -->
+            <p class="group-title">班級</p>
+            <ul id="classList" class="list">
+                <li id="addClass" class="item">
+                    <svg class="item-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    <span class="label">建立班級</span>
+                </li>
+            </ul>
+
+            <!-- 垃圾桶 -->
+            <ul id="trash" class="list">
+                <li class="item" data-view="trash">
+                    <svg class="item-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                    </svg>
+                    <span class="label">垃圾桶</span>
+                    <span class="num">0</span>
+                </li>
+            </ul>
+
+            <div class="aside-footer">
+                <button id="export_data" type="button">
+                    <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    匯出資料
+                </button>
+                <button id="import_data" type="button">
+                    <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 15h4v-6h4l-7-7-7 7h4v6zM5 18v2h14v-2H5z" transform="rotate(180 12 10)"/>
+                    </svg>
+                    匯入資料
+                </button>
+                <!-- 匯入用的隱藏檔案欄位 -->
+                <input type="file" id="importFile" accept=".csv,text/csv" hidden>
+            </div>
+        </aside>
+
+        <!-- ========== 主內容 ========== -->
+        <main id="main">
+            <div class="toolbar">
+                <h2 class="view-title">所有學生</h2>
+                <div class="sorter">
+                    <label for="sortField">排序</label>
+                    <select id="sortField">
+                        <option value="fullname">姓名</option>
+                        <option value="student_id">學號</option>
+                        <option value="email">電子郵件</option>
+                    </select>
+                    <button id="sortOrder" type="button" data-order="asc" title="切換升冪／降冪">
+                        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8 4l-4 6h3v10h2V10h3L8 4zm8 16l4-6h-3V4h-2v10h-3l4 6z"/>
+                        </svg>
+                        <span class="order-text">升冪</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 學生清單（虛擬捲動容器，.student 節點重複使用，總數不超過 20 個） -->
+            <div class="students">
+                <div class="scroller">
+                    <div class="phantom"></div>
+                    <div class="pool"></div>
+                </div>
+                <p class="message">目前還沒有任何學生</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
 </html>
