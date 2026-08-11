@@ -1,0 +1,806 @@
+/* =========================================================
+   個人聯絡人系統 — 樣式表
+   開發基準解析度 1366 x 768，放大時仍維持元件平衡。
+   所有圖示皆以行內 SVG (data URI) 提供，不引用任何外部資源。
+   ========================================================= */
+
+:root {
+    --color-text: #202124;
+    --color-sub: #5f6368;
+    --color-line: #e0e3e9;
+    --color-primary: #1a73e8;
+    --color-primary-soft: #e8f0fe;
+    --color-bg: #ffffff;
+    --color-hover: #f1f3f4;
+    --color-danger: #d93025;
+    --header-height: 64px;
+    --aside-width: 256px;
+    --row-height: 76px;
+    --radius: 8px;
+    --shadow: 0 1px 3px rgba(60, 64, 67, .18), 0 4px 12px rgba(60, 64, 67, .12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    color: var(--color-text);
+    background: var(--color-bg);
+    overflow: hidden;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+input, textarea {
+    font: inherit;
+    color: inherit;
+}
+
+/* ---------- 通用圖示按鈕 ---------- */
+
+.icon_btn {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 auto;
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+    transition: background-color .15s ease;
+}
+
+.icon_btn:hover {
+    background-color: var(--color-hover);
+}
+
+.icon_btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+}
+
+/* ---------- 標頭 ---------- */
+
+#header {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: var(--header-height);
+    padding: 0 16px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+}
+
+#menuToggle {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f6368'><rect x='3' y='6' width='18' height='2' rx='1'/><rect x='3' y='11' width='18' height='2' rx='1'/><rect x='3' y='16' width='18' height='2' rx='1'/></svg>");
+}
+
+#logo {
+    margin: 0 24px 0 4px;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    color: var(--color-sub);
+    white-space: nowrap;
+}
+
+#searchForm {
+    flex: 1 1 auto;
+    max-width: 720px;
+}
+
+#searchForm input[name="search"] {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px 0 46px;
+    border: 1px solid transparent;
+    border-radius: 22px;
+    background-color: var(--color-hover);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='2' stroke-linecap='round'><circle cx='11' cy='11' r='6'/><line x1='16' y1='16' x2='21' y2='21'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    background-size: 20px 20px;
+    outline: none;
+    transition: background-color .15s ease, box-shadow .15s ease;
+}
+
+#searchForm input[name="search"]:focus {
+    background-color: var(--color-bg);
+    border-color: var(--color-line);
+    box-shadow: var(--shadow);
+}
+
+/* ---------- 版面 ---------- */
+
+#layout {
+    display: flex;
+    height: calc(100% - var(--header-height));
+}
+
+/* ---------- 側邊欄 ---------- */
+
+#aside {
+    flex: 0 0 var(--aside-width);
+    width: var(--aside-width);
+    padding: 16px 8px 16px 0;
+    overflow-y: auto;
+    transition: margin-left .2s ease;
+}
+
+#layout.aside_hidden #aside {
+    margin-left: calc(var(--aside-width) * -1);
+}
+
+#addContact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+    margin: 0 8px 20px 16px;
+    padding: 0 24px 0 18px;
+    border: 1px solid var(--color-line);
+    border-radius: 24px;
+    background: var(--color-bg);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, .2);
+    font-size: 14px;
+    transition: box-shadow .15s ease, background-color .15s ease;
+}
+
+#addContact::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a73e8'><rect x='10.8' y='4' width='2.4' height='16' rx='1.2'/><rect x='4' y='10.8' width='16' height='2.4' rx='1.2'/></svg>") no-repeat center / contain;
+}
+
+#addContact:hover {
+    background: var(--color-hover);
+    box-shadow: var(--shadow);
+}
+
+.list {
+    margin: 0 0 6px;
+    padding: 0;
+    list-style: none;
+}
+
+.list_caption {
+    margin: 14px 0 4px 24px;
+    font-size: 12px;
+    color: var(--color-sub);
+    letter-spacing: 1px;
+}
+
+.list .item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 40px;
+    padding: 0 16px 0 24px;
+    border-radius: 0 20px 20px 0;
+    color: var(--color-sub);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color .12s ease;
+}
+
+.list .item:hover {
+    background: var(--color-hover);
+}
+
+.list .item.current {
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.item_icon {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.icon_contacts {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f6368'><circle cx='12' cy='8' r='3.6'/><path d='M4.5 20c0-4.1 3.4-6.5 7.5-6.5s7.5 2.4 7.5 6.5z'/></svg>");
+}
+
+.icon_tag {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='1.8' stroke-linejoin='round'><path d='M3.5 6.5h10.2l5.8 5.5-5.8 5.5H3.5z'/></svg>");
+}
+
+.list .item.current .item_icon {
+    filter: invert(35%) sepia(76%) saturate(2280%) hue-rotate(199deg) brightness(96%) contrast(94%);
+}
+
+.item_text {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item .num {
+    flex: 0 0 auto;
+    font-size: 12px;
+    color: inherit;
+    opacity: .85;
+}
+
+/* 建立標籤：以背景圖示呈現「+」，維持元素文字內容僅有「建立標籤」 */
+#addTag {
+    padding-left: 58px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f6368'><rect x='11' y='4.5' width='2' height='15' rx='1'/><rect x='4.5' y='11' width='15' height='2' rx='1'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 24px center;
+    background-size: 20px 20px;
+}
+
+/* ---------- 主內容 ---------- */
+
+#main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 0 24px 16px 8px;
+    overflow: hidden;
+}
+
+/* 清單欄位共用格線 */
+.contacts_head,
+.contact {
+    display: grid;
+    grid-template-columns: 56px minmax(120px, 1.2fr) minmax(150px, 1.6fr) minmax(120px, 1.1fr) minmax(110px, 1fr) 92px;
+    align-items: center;
+    column-gap: 12px;
+}
+
+.contacts_head {
+    flex: 0 0 auto;
+    height: 44px;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--color-line);
+    font-size: 12px;
+    color: var(--color-sub);
+    letter-spacing: .5px;
+}
+
+.contacts_head::before {
+    content: "";
+}
+
+.contacts_head .col_name {
+    grid-column: 2;
+}
+
+.contacts {
+    position: relative;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.contacts_scroller {
+    position: relative;
+    width: 100%;
+}
+
+.contacts_pool {
+    position: absolute;
+    inset: 0;
+}
+
+.contact {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--row-height);
+    padding: 0 12px;
+    border-bottom: 1px solid #f1f3f4;
+    border-radius: var(--radius);
+    will-change: transform;
+    transition: background-color .12s ease;
+}
+
+/*
+ * 作者樣式的 display:grid 會蓋過瀏覽器預設的 [hidden]{display:none}，
+ * 因此必須明確讓 hidden 的清單項目不佔畫面，避免殘留空白列。
+ */
+.contact[hidden] {
+    display: none;
+}
+
+.contact:hover {
+    background: var(--color-hover);
+    box-shadow: inset 0 0 0 1px var(--color-line);
+}
+
+.contact .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--color-hover);
+}
+
+.contact .fullname {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.contact .fullname .last_name + .first_name::before {
+    content: " ";
+    white-space: pre;
+}
+
+.contact .email,
+.contact .phone {
+    color: var(--color-sub);
+}
+
+.col {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contact .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    overflow: hidden;
+    max-height: var(--row-height);
+}
+
+.contact .tag {
+    padding: 2px 10px;
+    border-radius: 10px;
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* 功能按鈕區：滑鼠移入清單項目後才呈現 */
+.contact .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .12s ease;
+}
+
+.contact:hover .actions,
+.contact:focus-within .actions {
+    visibility: visible;
+    opacity: 1;
+}
+
+.contact .edit {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f6368'><path d='M3 17.25V21h3.75L17.8 9.94l-3.75-3.75zM20.7 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75z'/></svg>");
+}
+
+.contact .delete {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f6368'><path d='M6 7.5h12V20a2 2 0 01-2 2H8a2 2 0 01-2-2zM9 3h6l1 1.5h4v2H4v-2h4z'/></svg>");
+}
+
+.message {
+    margin: 48px auto;
+    text-align: center;
+    color: var(--color-sub);
+    font-size: 15px;
+}
+
+/* ---------- 對話框 ---------- */
+
+#backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: rgba(32, 33, 36, .45);
+}
+
+#dialog {
+    position: fixed;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px;
+    max-width: calc(100vw - 48px);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    padding: 24px;
+    border-radius: 12px;
+    background: var(--color-bg);
+    box-shadow: 0 8px 28px rgba(60, 64, 67, .3);
+}
+
+#dialog[hidden],
+#backdrop[hidden] {
+    display: none;
+}
+
+#dialog .title {
+    margin: 0 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+/* 共用按鈕外觀 */
+#dialog button.cancel,
+#dialog button.cancal,
+#dialog button.submit,
+#dialog button.delete {
+    height: 36px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 18px;
+    background: transparent;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#dialog button.cancel:hover,
+#dialog button.cancal:hover,
+#dialog button.submit:hover,
+#dialog button.delete:hover {
+    background: var(--color-primary-soft);
+}
+
+#dialog button.delete {
+    color: var(--color-danger);
+}
+
+#dialog button.delete:hover {
+    background: #fce8e6;
+}
+
+/* --- 建立標籤 --- */
+
+form.newTag {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px 8px;
+}
+
+form.newTag input[name="name"] {
+    grid-column: 1 / -1;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    outline: none;
+}
+
+form.newTag input[name="name"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+form.newTag input[name="name"].invalid {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 1px var(--color-danger);
+}
+
+form.newTag button.cancel {
+    grid-column: 2;
+}
+
+/* --- 聯絡人表單 --- */
+
+form.newContact,
+form.editContact {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 4px 8px;
+}
+
+form.newContact > .field,
+form.editContact > .field,
+form.newContact > .errors,
+form.editContact > .errors {
+    grid-column: 1 / -1;
+}
+
+.field {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: start;
+    gap: 8px 12px;
+    padding: 8px 0;
+}
+
+.field_icon {
+    width: 24px;
+    height: 24px;
+    margin-top: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+    opacity: .75;
+}
+
+.icon_person {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f6368'><circle cx='12' cy='8' r='3.6'/><path d='M4.5 20c0-4.1 3.4-6.5 7.5-6.5s7.5 2.4 7.5 6.5z'/></svg>");
+}
+
+.icon_mail {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='1.8' stroke-linejoin='round'><rect x='3' y='5.5' width='18' height='13' rx='2'/><path d='M3.8 7l8.2 6 8.2-6'/></svg>");
+}
+
+.icon_phone {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f6368'><path d='M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11 11 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.56 3.5 1 1 0 01-.25 1z'/></svg>");
+}
+
+.icon_note {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='1.8' stroke-linecap='round'><rect x='4' y='4' width='16' height='16' rx='2'/><path d='M8 9h8M8 13h8M8 17h5'/></svg>");
+}
+
+.field_avatar {
+    grid-template-columns: 72px 1fr;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* 大頭貼選取：檔案欄位透明覆蓋於預覽圖之上，點選頭像即可開啟檔案選取對話框 */
+.avatar_picker {
+    position: relative;
+    display: block;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+}
+
+.avatar_picker .avatar_preview {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--color-hover);
+    transition: filter .15s ease;
+}
+
+.avatar_picker:hover .avatar_preview {
+    filter: brightness(.9);
+}
+
+.avatar_picker .avatar {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.avatar_picker .avatar_badge {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-bg);
+    border-radius: 50%;
+    background: var(--color-primary) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'><path d='M4 8h3.2l1.4-2h6.8l1.4 2H20v11H4z'/><circle cx='12' cy='13' r='3.2'/></svg>") no-repeat center / 14px 14px;
+    pointer-events: none;
+}
+
+.field_avatar .avatar_hint {
+    font-size: 12px;
+    color: var(--color-sub);
+    line-height: 1.6;
+}
+
+.field_name {
+    grid-template-columns: 40px 1fr 1fr;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field textarea {
+    width: 100%;
+    padding: 10px 2px;
+    border: 0;
+    border-bottom: 1px solid var(--color-line);
+    background: transparent;
+    outline: none;
+    transition: border-color .15s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-bottom-color: var(--color-primary);
+    box-shadow: 0 1px 0 0 var(--color-primary);
+}
+
+.field textarea {
+    min-height: 44px;
+    resize: vertical;
+}
+
+.rows {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.del_email,
+.del_tel {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='2' stroke-linecap='round'><path d='M6 6l12 12M18 6L6 18'/></svg>");
+    background-size: 16px 16px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.del_email:hover,
+.del_tel:hover {
+    background-color: var(--color-hover);
+}
+
+.add_email,
+.add_tel {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 4px;
+    padding: 4px 10px 4px 4px;
+    border: 0;
+    border-radius: 14px;
+    background: transparent;
+    color: var(--color-primary);
+    font-size: 13px;
+}
+
+.add_email:hover,
+.add_tel:hover {
+    background: var(--color-primary-soft);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 6px 0;
+}
+
+form .tags .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px 6px 10px;
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color .12s ease, border-color .12s ease;
+}
+
+form .tags .tag:hover {
+    background: var(--color-hover);
+}
+
+form .tags .tag input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.tags_empty {
+    color: var(--color-sub);
+    font-size: 13px;
+}
+
+.errors {
+    margin: 4px 0 8px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background: #fce8e6;
+}
+
+.error {
+    margin: 2px 0;
+    color: var(--color-danger);
+    font-size: 13px;
+}
+
+form.newContact button.cancel,
+form.editContact button.cancel {
+    grid-column: 2;
+    margin-top: 12px;
+}
+
+form.newContact button.submit,
+form.editContact button.submit {
+    grid-column: 3;
+    margin-top: 12px;
+}
+
+/* --- 刪除確認 --- */
+
+#dialog.dialog_confirm {
+    width: 420px;
+}
+
+.confirm_text {
+    margin: 4px 0 28px;
+    font-size: 15px;
+    color: var(--color-text);
+}
+
+.confirm_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* ---------- 捲軸 ---------- */
+
+.contacts::-webkit-scrollbar,
+#aside::-webkit-scrollbar,
+#dialog::-webkit-scrollbar {
+    width: 10px;
+}
+
+.contacts::-webkit-scrollbar-thumb,
+#aside::-webkit-scrollbar-thumb,
+#dialog::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: 6px;
+    background-clip: content-box;
+    background-color: #c5c9d0;
+}
+
+.contacts::-webkit-scrollbar-thumb:hover,
+#aside::-webkit-scrollbar-thumb:hover,
+#dialog::-webkit-scrollbar-thumb:hover {
+    background-color: #9aa0a6;
+}
+
+/* ---------- 窄畫面調整 ---------- */
+
+@media (max-width: 1100px) {
+    .contacts_head .col_tags,
+    .contact .tags {
+        display: none;
+    }
+
+    .contacts_head,
+    .contact {
+        grid-template-columns: 56px minmax(120px, 1.2fr) minmax(150px, 1.6fr) minmax(120px, 1.1fr) 92px;
+    }
+}

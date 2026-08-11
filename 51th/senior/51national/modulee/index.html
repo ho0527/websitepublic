@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人聯絡人系統</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== 標頭 ===== -->
+<header id="header">
+    <button type="button" id="menuToggle" class="icon_btn" aria-label="切換側邊欄"></button>
+    <h1 id="logo">聯絡人</h1>
+    <form id="searchForm" autocomplete="off">
+        <input type="search" name="search" placeholder="搜尋" aria-label="搜尋聯絡人">
+    </form>
+</header>
+
+<div id="layout">
+
+    <!-- ===== 側邊欄 ===== -->
+    <aside id="aside">
+        <button type="button" id="addContact">建立聯絡人</button>
+
+        <!-- 清單一：聯絡人 (僅單一清單項目) -->
+        <ul class="list" id="contactsMenu">
+            <li class="item current" data-view="all">
+                <span class="item_icon icon_contacts"></span>
+                <span class="item_text">聯絡人</span>
+                <span class="num">0</span>
+            </li>
+        </ul>
+
+        <!-- 清單二：標籤 (清單項目由 JS 動態產生於 #addTag 之前) -->
+        <p class="list_caption">標籤</p>
+        <ul class="list" id="tagsList">
+            <li class="item" id="addTag">建立標籤</li>
+        </ul>
+    </aside>
+
+    <!-- ===== 主內容 ===== -->
+    <main id="main">
+        <div class="contacts_head">
+            <span class="col col_name">名稱</span>
+            <span class="col col_email">電子郵件</span>
+            <span class="col col_phone">電話號碼</span>
+            <span class="col col_tags">標籤</span>
+        </div>
+        <!-- 聯絡人清單：內部節點由 App.List 以回收 (RecyclerView) 方式重複使用 -->
+        <div class="contacts">
+            <div class="contacts_scroller"><div class="contacts_pool"></div></div>
+        </div>
+    </main>
+
+</div>
+
+<!-- ===== 對話框 (單一 #dialog 節點，內容依用途重建) ===== -->
+<div id="backdrop" hidden></div>
+<div id="dialog" role="dialog" aria-modal="true" hidden></div>
+
+<script src="js/db.js"></script>
+<script src="js/store.js"></script>
+<script src="js/avatar.js"></script>
+<script src="js/list.js"></script>
+<script src="js/dialog.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
