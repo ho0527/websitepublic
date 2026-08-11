@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" width="320" height="220" role="img" aria-label="賽事相片">
+  <defs><linearGradient id="s" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#8a4a2b"/><stop offset="1" stop-color="#0d2b45"/></linearGradient></defs>
+  <rect width="320" height="220" fill="url(#s)"/>
+  <ellipse cx="160" cy="188" rx="170" ry="52" fill="#ffffff" fill-opacity="0.12"/>
+  <g fill="#f4ecdc" fill-opacity="0.9">
+    <circle cx="148" cy="70" r="15"/>
+    <path d="M140 86h18l10 44h-16l-4-24-6 24h-14z"/>
+    <path d="M156 92l38-30 8 9-38 32z"/>
+  </g>
+  <circle cx="228" cy="52" r="10" fill="#c0392b" stroke="#f4ecdc" stroke-width="2"/>
+  <path d="M0 200h320" stroke="#d8b45a" stroke-width="4"/>
+</svg>

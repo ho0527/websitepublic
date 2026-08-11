@@ -1,0 +1,1665 @@
+@charset "utf-8";
+/* ==========================================================================
+   第 46 屆全國技能競賽 網頁技術 模組 B － 杜拜板球委員會 Dubai Cricket Council
+   website.css：本模組唯一的樣式檔（不引用任何第三方 CSS 或外部 CDN）
+   設計方向：古典（襯線標題、金色線條、對稱版面）＋ 摩登（大留白、卡片、動態回饋）
+   斷點：電腦版 900px~1200px、手機版 360px~899px（以 900px 為分界）
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 設計變數（品牌色票與尺度）
+   -------------------------------------------------------------------------- */
+:root {
+  /* 品牌色：杜拜夜空的深藍 ＋ 沙金 ＋ 球場綠 */
+  --navy-900: #071d31;
+  --navy-800: #0d2b45;
+  --navy-700: #14395a;
+  --navy-600: #1d4b73;
+  --gold-500: #d8b45a;
+  --gold-600: #b8933b;
+  --gold-100: #f6ecd4;
+  --green-600: #1b6b4c;
+  --red-600: #c0392b;
+
+  /* 中性色 */
+  --sand-50: #faf7f0;
+  --sand-100: #f2ece0;
+  --sand-200: #e4dccb;
+  --ink-900: #1e2530;
+  --ink-700: #414c5c;
+  --ink-500: #6c7787;
+  --white: #ffffff;
+
+  /* 字體：僅使用系統內建字體，避免連外 */
+  --font-display: Georgia, "Times New Roman", "Noto Serif TC", serif;
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+
+  /* 版面尺度 */
+  --page-max: 1160px;
+  --radius: 6px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(7, 29, 49, .10), 0 6px 16px rgba(7, 29, 49, .06);
+  --shadow-md: 0 6px 18px rgba(7, 29, 49, .14), 0 18px 40px rgba(7, 29, 49, .10);
+  --shadow-lg: 0 24px 60px rgba(7, 29, 49, .34);
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. 基礎重置與排版基調
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--sand-50);
+  /* 以 CSS 漸層做出淡淡的沙丘質感，不需要任何外部圖檔 */
+  background-image:
+    radial-gradient(circle at 12% -10%, rgba(216, 180, 90, .18), transparent 42%),
+    radial-gradient(circle at 92% 4%, rgba(29, 75, 115, .12), transparent 38%);
+  background-attachment: fixed;
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy-800);
+  margin: 0 0 .6em;
+}
+
+h1 { font-size: 2.125rem; letter-spacing: .01em; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
+h4 { font-size: 1rem; }
+
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--navy-600);
+  text-decoration: none;
+  transition: color .2s var(--ease);
+}
+
+a:hover { color: var(--gold-600); }
+
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold-500);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+del { color: var(--ink-500); }
+
+time {
+  display: block;
+  color: var(--ink-500);
+  font-size: .8125rem;
+  letter-spacing: .04em;
+}
+
+/* 僅供螢幕讀取器使用的文字 */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 區塊標題共用的金色細線裝飾（古典感） */
+main section > h1,
+main section > h2,
+aside section > h2,
+aside > div > h2 {
+  position: relative;
+  padding-bottom: .45em;
+}
+
+main section > h1::after,
+main section > h2::after,
+aside section > h2::after,
+aside > div > h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 62px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-500), rgba(216, 180, 90, 0));
+}
+
+/* --------------------------------------------------------------------------
+   3. 頁首與主導覽
+   -------------------------------------------------------------------------- */
+header {
+  background: linear-gradient(160deg, var(--navy-800) 0%, var(--navy-900) 100%);
+  border-bottom: 3px solid var(--gold-500);
+  box-shadow: var(--shadow-sm);
+}
+
+header::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header .logo {
+  margin: 0;
+  padding: 14px 20px;
+  float: left;
+}
+
+header .logo img {
+  width: 284px;
+  max-width: 62vw;
+  transition: transform .25s var(--ease), filter .25s var(--ease);
+}
+
+header .logo a:hover img {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 4px 10px rgba(216, 180, 90, .45));
+}
+
+.main-nav {
+  float: right;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: stretch;
+}
+
+.main-nav li { display: block; }
+
+.main-nav a {
+  position: relative;
+  display: block;
+  padding: 30px 18px;
+  color: var(--sand-100);
+  font-size: .9375rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+/* 導覽底線由中央展開，屬於「摩登」的細節回饋 */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 20px;
+  height: 2px;
+  background: var(--gold-500);
+  transition: left .25s var(--ease), right .25s var(--ease);
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+  color: var(--gold-500);
+}
+
+.main-nav a:hover::after,
+.main-nav a[aria-current="page"]::after {
+  left: 18px;
+  right: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   4. 主要內容容器（電腦版為 主內容 + 側欄 的兩欄式）
+   -------------------------------------------------------------------------- */
+.yield {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 34px 20px 56px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.yield > main {
+  flex: 1 1 620px;
+  min-width: 0;
+}
+
+.yield > aside {
+  flex: 0 1 320px;
+  min-width: 0;
+  /* 側欄在電腦版隨捲動固定，長頁面也能持續看到排名與評論 */
+  position: sticky;
+  top: 18px;
+}
+
+/* 沒有側欄的頁面（tickets、about、contact）主內容佔滿版面 */
+body.tickets .yield > main,
+body.about .yield > main,
+body.contact .yield > main {
+  flex: 1 1 100%;
+}
+
+main > section,
+aside > section,
+aside > div {
+  background: var(--white);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 26px 28px;
+  margin-bottom: 28px;
+}
+
+main > section:last-child,
+aside > section:last-child,
+aside > div:last-child {
+  margin-bottom: 0;
+}
+
+.lead {
+  color: var(--ink-700);
+  font-size: 1.0625rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. 首頁：DCC News（新聞）
+   -------------------------------------------------------------------------- */
+.news-lead {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--sand-200);
+  margin-bottom: 24px;
+}
+
+.news-lead > a {
+  flex: 0 0 46%;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--navy-800);
+}
+
+.news-lead img {
+  width: 100%;
+  transition: transform .5s var(--ease);
+}
+
+.news-lead > a:hover img { transform: scale(1.05); }
+
+.news-lead .info { flex: 1 1 auto; min-width: 0; }
+
+.news-lead .info h2 {
+  font-size: 1.4375rem;
+  margin-bottom: .4em;
+}
+
+.news-lead .info p { color: var(--ink-700); }
+
+/* 資訊清單（日期、場地等）採兩欄標籤式排版 */
+.meta {
+  margin: 0 0 1.1em;
+  border-top: 1px dashed var(--sand-200);
+}
+
+.meta li {
+  display: flex;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--sand-200);
+  font-size: .9375rem;
+  color: var(--ink-700);
+}
+
+.meta li b {
+  flex: 0 0 96px;
+  color: var(--navy-700);
+  font-weight: 600;
+}
+
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.news-list article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-list img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+
+.news-list a:hover img {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.news-list h3 {
+  font-size: 1.0625rem;
+  margin-bottom: .25em;
+}
+
+.news-list h3 a { color: var(--navy-800); }
+.news-list h3 a:hover { color: var(--gold-600); }
+
+.news-list p {
+  color: var(--ink-700);
+  font-size: .9375rem;
+  margin: .5em 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. 賽事卡片（首頁決賽、tickets 清單、crickets 詳情共用）
+   -------------------------------------------------------------------------- */
+.match-info {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.match-info > a {
+  flex: 0 0 42%;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--navy-800);
+}
+
+.match-info > a img {
+  width: 100%;
+  transition: transform .5s var(--ease);
+}
+
+.match-info > a:hover img { transform: scale(1.05); }
+
+.match-info .info { flex: 1 1 auto; min-width: 0; }
+
+.match-info .info p { color: var(--ink-700); }
+
+/* 票價：原價刪除線 ＋ 折扣價強調 */
+.price {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 6px 14px;
+  background: var(--gold-100);
+  border: 1px solid var(--gold-500);
+  border-radius: 999px;
+  color: var(--navy-800);
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
+.price del {
+  margin-right: 8px;
+  font-size: .875rem;
+  font-weight: 400;
+}
+
+/* 次要按鈕：More info / Buy tickets */
+.more-info-button,
+.browse-all-button {
+  display: inline-block;
+  padding: 9px 20px;
+  border: 1px solid var(--navy-700);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--navy-700);
+  font-size: .9375rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  transition: background-color .22s var(--ease), color .22s var(--ease),
+    transform .12s var(--ease), box-shadow .22s var(--ease);
+}
+
+.more-info-button:hover,
+.browse-all-button:hover {
+  background: var(--navy-700);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.more-info-button:active,
+.browse-all-button:active {
+  transform: translateY(1px);
+}
+
+/* --------------------------------------------------------------------------
+   7. 「Right Now（立即購買）」按鈕與購票對話框
+   -------------------------------------------------------------------------- */
+.rental {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.rent-now.button {
+  position: relative;
+  display: inline-block;
+  min-width: 240px;
+  padding: 15px 42px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold-500) 0%, var(--gold-600) 100%);
+  color: var(--navy-900);
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 0 #8d6f26, var(--shadow-sm);
+  overflow: hidden;
+  transition: transform .16s var(--ease), box-shadow .22s var(--ease), filter .22s var(--ease);
+}
+
+/* 滑入時的光暈掃過效果（hover 狀態） */
+.rent-now.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .55) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-20deg);
+  transition: left .55s var(--ease);
+}
+
+.rent-now.button:hover {
+  transform: translateY(-3px);
+  filter: saturate(1.15);
+  box-shadow: 0 9px 0 #8d6f26, var(--shadow-md);
+}
+
+.rent-now.button:hover::before { left: 130%; }
+
+/* 按下（active）狀態：按鈕壓下去 */
+.rent-now.button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #8d6f26, inset 0 3px 10px rgba(7, 29, 49, .3);
+  filter: brightness(.96);
+}
+
+/* 對話框：預設隱藏，JavaScript 加上 .show 後才顯示 */
+#rental-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 29, 49, .68);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .28s var(--ease), visibility .28s var(--ease);
+}
+
+#rental-dialog.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#rental-dialog .container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 780px;
+  max-height: 88vh;
+  overflow: auto;
+  text-align: left;
+  background: var(--white);
+  border-top: 5px solid var(--gold-500);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(24px) scale(.97);
+  opacity: 0;
+  transition: transform .32s var(--ease), opacity .32s var(--ease);
+}
+
+#rental-dialog.show .container {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* 關閉（X）按鈕 */
+#rental-dialog .ui {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#rental-dialog .ui a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--sand-200);
+  border-radius: 50%;
+  background: var(--sand-50);
+  color: var(--navy-700);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+}
+
+#rental-dialog .ui a:hover {
+  background: var(--red-600);
+  border-color: var(--red-600);
+  color: var(--white);
+  transform: rotate(90deg);
+}
+
+#rental-dialog .ui a:active { transform: rotate(90deg) scale(.92); }
+
+/* 左半：How to Buy（購票摘要與步驟） */
+#rental-dialog .rental-steps {
+  flex: 1 1 50%;
+  padding: 30px 28px;
+  background: linear-gradient(165deg, var(--navy-700), var(--navy-900));
+  color: var(--sand-100);
+  border-radius: 0 0 0 var(--radius-lg);
+}
+
+#rental-dialog .rental-steps h3 {
+  color: var(--gold-500);
+  font-size: 1.375rem;
+}
+
+#rental-dialog .rental-steps p {
+  color: rgba(242, 236, 224, .86);
+  font-size: .9375rem;
+}
+
+#rental-dialog .rental-steps ul {
+  counter-reset: step;
+  margin-top: 18px;
+}
+
+#rental-dialog .rental-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 14px 40px;
+  font-size: .9375rem;
+  line-height: 1.55;
+}
+
+#rental-dialog .rental-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--gold-500);
+  border-radius: 50%;
+  color: var(--gold-500);
+  font-family: var(--font-display);
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+}
+
+/* 右半：Login */
+#rental-dialog .login {
+  flex: 1 1 50%;
+  padding: 30px 28px;
+}
+
+#rental-dialog .login p {
+  color: var(--ink-700);
+  font-size: .9375rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. 表單元件（對話框、聯絡頁、頁尾共用）
+   -------------------------------------------------------------------------- */
+fieldset {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--navy-700);
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius);
+  background: var(--sand-50);
+  color: var(--ink-900);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease), background-color .2s var(--ease);
+}
+
+textarea {
+  min-height: 118px;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: var(--navy-600);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(29, 75, 115, .14);
+  outline: none;
+}
+
+/* 必填欄位若已填且格式正確／錯誤，即時以顏色回饋 */
+input:required:valid,
+textarea:required:valid {
+  border-color: var(--green-600);
+}
+
+input:required:focus:invalid,
+textarea:required:focus:invalid {
+  border-color: var(--red-600);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, .14);
+}
+
+input[type="range"] {
+  width: calc(100% - 54px);
+  vertical-align: middle;
+  accent-color: var(--navy-600);
+}
+
+output {
+  display: inline-block;
+  width: 44px;
+  margin-left: 8px;
+  padding: 2px 0;
+  border-radius: var(--radius);
+  background: var(--navy-700);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  padding: 11px 26px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--navy-700);
+  color: var(--white);
+  font-family: inherit;
+  font-size: .9375rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  cursor: pointer;
+  transition: background-color .22s var(--ease), transform .12s var(--ease), box-shadow .22s var(--ease);
+}
+
+input[type="submit"]:hover {
+  background: var(--navy-600);
+  box-shadow: var(--shadow-sm);
+}
+
+input[type="submit"]:active {
+  transform: translateY(2px);
+  background: var(--navy-800);
+}
+
+/* --------------------------------------------------------------------------
+   9. 成功／警告提示（JavaScript 以 .hidden 控制顯示）
+   -------------------------------------------------------------------------- */
+.label {
+  position: relative;
+  margin: 0 0 18px;
+  padding: 14px 18px 14px 52px;
+  border-radius: var(--radius);
+  border-left: 5px solid;
+  font-size: .9375rem;
+  font-weight: 600;
+  /* 由上方滑入的進場動畫，讓提示更明顯 */
+  animation: label-in .38s var(--ease) both;
+}
+
+.label::before {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: .875rem;
+  line-height: 22px;
+  text-align: center;
+}
+
+.success.label {
+  background: #e8f6ee;
+  border-color: var(--green-600);
+  color: #14503a;
+}
+
+.success.label::before {
+  content: "\2713";
+  background: var(--green-600);
+}
+
+.alert.label {
+  background: #fdecea;
+  border-color: var(--red-600);
+  color: #8c261b;
+}
+
+.alert.label::before {
+  content: "\0021";
+  background: var(--red-600);
+}
+
+/* JavaScript 加上 .hidden 時完全隱藏 */
+.label.hidden {
+  display: none;
+}
+
+@keyframes label-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* crickets.html 頁面頂端的說明提示，置於內容之上 */
+body.crickets .yield > .alert.label {
+  flex: 1 1 100%;
+  margin-bottom: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   10. 首頁：DCC Services（服務項目）
+   -------------------------------------------------------------------------- */
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.services-list li {
+  padding: 20px;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--white), var(--sand-50));
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+
+.services-list li:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-500);
+  box-shadow: var(--shadow-md);
+}
+
+.services-list img {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 10px;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--navy-800);
+}
+
+.services-list h3 { margin-bottom: .3em; }
+
+.services-list p {
+  margin: 0;
+  color: var(--ink-700);
+  font-size: .9375rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. 側欄：Ranking（球隊排名）與 Recent Comments（新評論）
+   -------------------------------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9375rem;
+}
+
+caption {
+  margin-bottom: 10px;
+  color: var(--ink-500);
+  font-size: .8125rem;
+  text-align: left;
+}
+
+thead th {
+  padding: 9px 8px;
+  background: var(--navy-800);
+  color: var(--gold-500);
+  font-family: var(--font-body);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+tbody th,
+tbody td {
+  padding: 9px 8px;
+  border-bottom: 1px solid var(--sand-200);
+  text-align: left;
+}
+
+tbody th {
+  font-family: var(--font-body);
+  font-size: .9375rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+tbody tr:nth-child(odd) { background: var(--sand-50); }
+
+tbody tr:hover { background: var(--gold-100); }
+
+/* 前三名以金色左邊線標示 */
+.ranking tbody tr:nth-child(-n + 3) td:first-child {
+  border-left: 3px solid var(--gold-500);
+  font-weight: 700;
+  color: var(--gold-600);
+}
+
+.ranking .browse-all-button { margin-top: 16px; }
+
+.recent-comments .comment {
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--sand-200);
+  font-size: .9375rem;
+  color: var(--ink-700);
+}
+
+.recent-comments .comment:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.recent-comments .name {
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.recent-comments .match-name a { font-weight: 600; }
+
+.recent-comments .content {
+  margin: 6px 0 4px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--gold-500);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--sand-50);
+}
+
+.recent-comments .content p { margin: 0; }
+
+/* --------------------------------------------------------------------------
+   12. tickets.html：賽事購票清單與分頁
+   -------------------------------------------------------------------------- */
+.matches-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.matches-list > li {
+  display: flex;
+  padding: 18px;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+
+.matches-list > li:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-500);
+  box-shadow: var(--shadow-md);
+}
+
+.matches-list .match-info {
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 賽事主視覺裁切成固定比例，讓每張卡片高度一致、版面更整齊 */
+.matches-list .match-info > a {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 8;
+}
+
+.matches-list .match-info > a img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.matches-list .match-info h2 { font-size: 1.125rem; }
+
+.matches-list .match-info .info > p { font-size: .9375rem; }
+
+.matches-list .meta li b { flex: 0 0 78px; }
+
+/* 分頁（上一頁／下一頁） */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 1px solid var(--sand-200);
+}
+
+.pagination ul {
+  display: flex;
+  gap: 6px;
+}
+
+.pagination a {
+  display: block;
+  min-width: 40px;
+  padding: 9px 14px;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius);
+  color: var(--navy-700);
+  font-size: .9375rem;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+
+.pagination a:hover {
+  background: var(--navy-700);
+  border-color: var(--navy-700);
+  color: var(--white);
+}
+
+.pagination a[aria-current="page"] {
+  background: var(--gold-500);
+  border-color: var(--gold-600);
+  color: var(--navy-900);
+}
+
+/* --------------------------------------------------------------------------
+   13. crickets.html：賽事詳情、比分表與相片集
+   -------------------------------------------------------------------------- */
+.scorecard { margin-top: 30px; }
+
+.scorecard h2 { font-size: 1.25rem; }
+
+.photo-gallery { margin-top: 30px; }
+
+.photo-gallery h2 { font-size: 1.25rem; }
+
+.photos-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.photos-list img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+
+.photos-list img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+.related-matches ul {
+  display: grid;
+  gap: 16px;
+}
+
+.match-cover {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.match-cover img { transition: transform .35s var(--ease); }
+
+.match-cover-link:hover img { transform: scale(1.06); }
+
+.match-cover figcaption {
+  padding: 9px 12px;
+  background: var(--navy-800);
+  color: var(--sand-100);
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+.match-cover-link:hover figcaption { color: var(--gold-500); }
+
+/* --------------------------------------------------------------------------
+   14. about.html：委員會簡介與分會據點
+   -------------------------------------------------------------------------- */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.facts li {
+  padding: 16px 12px;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius);
+  background: var(--sand-50);
+  text-align: center;
+}
+
+.facts b {
+  display: block;
+  color: var(--navy-800);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.facts span {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-500);
+  font-size: .8125rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.locations > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.branch-location {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+
+.branch-location:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-500);
+  box-shadow: var(--shadow-md);
+}
+
+.branch-location .map {
+  margin: 0;
+  overflow: hidden;
+  background: var(--sand-100);
+}
+
+.branch-location .map img {
+  width: 100%;
+  transition: transform .45s var(--ease);
+}
+
+.branch-location:hover .map img { transform: scale(1.05); }
+
+.branch-location h3 {
+  margin: 16px 18px 6px;
+  font-size: 1.0625rem;
+}
+
+.branch-location .address {
+  margin: 0 18px 10px;
+  color: var(--ink-700);
+  font-size: .9375rem;
+}
+
+.branch-location .tel {
+  margin: 0 18px 18px;
+}
+
+/* 電話以按鈕樣式呈現，方便手機直接撥號 */
+.branch-location .tel a {
+  display: inline-block;
+  padding: 8px 16px 8px 34px;
+  position: relative;
+  border: 1px solid var(--navy-700);
+  border-radius: 999px;
+  color: var(--navy-700);
+  font-size: .9375rem;
+  font-weight: 600;
+  transition: background-color .22s var(--ease), color .22s var(--ease);
+}
+
+.branch-location .tel a::before {
+  content: "\260E";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
+
+.branch-location .tel a:hover {
+  background: var(--navy-700);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   15. contact.html：頁籤（tabs）與表單
+   -------------------------------------------------------------------------- */
+.tab-panels { margin-top: 22px; }
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 2px solid var(--sand-200);
+}
+
+.tabs > a {
+  position: relative;
+  bottom: -2px;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: var(--radius) var(--radius) 0 0;
+  color: var(--ink-700);
+  font-size: .9375rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  transition: background-color .22s var(--ease), color .22s var(--ease), border-color .22s var(--ease);
+}
+
+.tabs > a:hover {
+  background: var(--sand-100);
+  color: var(--navy-800);
+}
+
+/* 作用中的頁籤（JavaScript 加上 .active） */
+.tabs > a.active {
+  background: var(--white);
+  border-color: var(--sand-200);
+  border-bottom-color: var(--gold-500);
+  color: var(--navy-800);
+}
+
+.tabs > a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-600));
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* 頁籤內容：預設隱藏，加上 .active 才顯示並淡入 */
+.tab-content {
+  display: none;
+  padding: 26px 4px 6px;
+}
+
+.tab-content.active {
+  display: block;
+  animation: tab-in .34s var(--ease) both;
+}
+
+@keyframes tab-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content h2 { font-size: 1.3125rem; }
+
+/* 電腦版將表單欄位排成兩欄，避免單欄過長、右側留白過多 */
+.tab-content form {
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.tab-content form > p,
+.tab-content form > input[type="submit"] {
+  grid-column: 1 / -1;
+}
+
+/* 每個表單的最後一個欄位（多行輸入或評分滑桿）獨佔整列 */
+.tab-content form fieldset:last-of-type {
+  grid-column: 1 / -1;
+}
+
+.tab-content form > input[type="submit"] {
+  justify-self: start;
+  margin-top: 6px;
+}
+
+.tab-content form > p {
+  color: var(--ink-500);
+  font-size: .875rem;
+}
+
+.tab-content label span {
+  color: var(--ink-500);
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   16. 頁尾
+   -------------------------------------------------------------------------- */
+footer {
+  background: linear-gradient(180deg, var(--navy-800), var(--navy-900));
+  color: rgba(242, 236, 224, .82);
+  border-top: 3px solid var(--gold-500);
+  font-size: .9375rem;
+}
+
+footer h4 {
+  margin-bottom: .35em;
+  color: var(--gold-500);
+  font-size: 1rem;
+  letter-spacing: .04em;
+}
+
+.footer-help {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 38px 20px 26px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr 1.15fr;
+  gap: 26px;
+}
+
+.footer-help form {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.footer-help input[type="email"],
+.footer-help input[type="text"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(216, 180, 90, .35);
+  color: var(--sand-50);
+  font-size: .875rem;
+}
+
+.footer-help input::placeholder { color: rgba(242, 236, 224, .5); }
+
+.footer-help input[type="email"]:focus,
+.footer-help input[type="text"]:focus {
+  background: rgba(255, 255, 255, .16);
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px rgba(216, 180, 90, .2);
+}
+
+.footer-help input[type="submit"] {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  background: var(--gold-500);
+  color: var(--navy-900);
+  font-size: .875rem;
+}
+
+.footer-help input[type="submit"]:hover { background: var(--gold-100); }
+
+.back-to-top {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 20px 18px;
+  text-align: right;
+}
+
+.back-to-top a {
+  color: var(--gold-500);
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.back-to-top a:hover { color: var(--sand-50); }
+
+.copyright,
+.footer-nav {
+  border-top: 1px solid rgba(242, 236, 224, .14);
+}
+
+.copyright {
+  padding: 16px 20px 6px;
+  text-align: center;
+  font-size: .8125rem;
+  letter-spacing: .05em;
+}
+
+.footer-nav {
+  border-top: 0;
+  padding: 0 20px 26px;
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 22px;
+}
+
+.footer-nav a {
+  color: rgba(242, 236, 224, .82);
+  font-size: .875rem;
+  letter-spacing: .04em;
+}
+
+.footer-nav a:hover { color: var(--gold-500); }
+
+/* --------------------------------------------------------------------------
+   17. 中型螢幕微調（平板橫向／小筆電）
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 1080px) {
+  .yield {
+    gap: 24px;
+  }
+
+  .locations > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .matches-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   18. 手機版（360px ~ 899px）：單欄、加大點擊區、導覽橫向捲動
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 899px) {
+  h1 { font-size: 1.625rem; }
+  h2 { font-size: 1.3125rem; }
+
+  /* 頁首改為上下排列，導覽列可橫向捲動且點擊區加大 */
+  header .logo,
+  .main-nav {
+    float: none;
+  }
+
+  header .logo {
+    padding: 14px 16px 10px;
+    text-align: center;
+  }
+
+  header .logo img {
+    width: 220px;
+    max-width: 78vw;
+    margin: 0 auto;
+  }
+
+  .main-nav {
+    border-top: 1px solid rgba(216, 180, 90, .28);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .main-nav ul {
+    justify-content: flex-start;
+    min-width: min-content;
+  }
+
+  .main-nav a {
+    padding: 15px 16px;
+    font-size: .875rem;
+    white-space: nowrap;
+  }
+
+  .main-nav a::after { bottom: 8px; }
+
+  .main-nav a:hover::after,
+  .main-nav a[aria-current="page"]::after {
+    left: 16px;
+    right: 16px;
+  }
+
+  /* 版面改為單欄 */
+  .yield {
+    padding: 20px 14px 40px;
+    gap: 20px;
+  }
+
+  .yield > main,
+  .yield > aside {
+    flex: 1 1 100%;
+    position: static;
+  }
+
+  main > section,
+  aside > section,
+  aside > div {
+    padding: 20px 16px;
+    margin-bottom: 20px;
+  }
+
+  /* 圖文卡片改為上下堆疊 */
+  .news-lead,
+  .match-info,
+  .matches-list .match-info {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .news-lead > a,
+  .match-info > a,
+  .matches-list .match-info > a {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .news-list,
+  .services-list,
+  .locations > ul,
+  .matches-list {
+    grid-template-columns: 1fr;
+  }
+
+  .facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photos-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 手機仍維持「標籤：內容」同一行，避免卡片過度拉長 */
+  .meta li {
+    padding: 6px 0;
+    font-size: .875rem;
+  }
+
+  .meta li b { flex: 0 0 74px; }
+
+  /* 立即購買按鈕在手機上滿版，方便單手點擊 */
+  .rent-now.button {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.0625rem;
+    letter-spacing: .08em;
+  }
+
+  /* 對話框改為全高卡片、單欄堆疊，並保留捲動 */
+  #rental-dialog {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  #rental-dialog .container {
+    flex-direction: column;
+    max-height: 92vh;
+  }
+
+  #rental-dialog .rental-steps,
+  #rental-dialog .login {
+    flex: 0 0 auto;
+    padding: 22px 18px;
+  }
+
+  #rental-dialog .rental-steps {
+    border-radius: 0;
+    padding-right: 56px;
+  }
+
+  #rental-dialog .ui a {
+    width: 42px;
+    height: 42px;
+  }
+
+  #rental-dialog .login input[type="submit"] { width: 100%; }
+
+  /* 頁籤在手機上左右捲動，避免文字擠壓 */
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabs > a {
+    flex: 0 0 auto;
+    padding: 13px 16px;
+    white-space: nowrap;
+  }
+
+  .tab-content { padding: 20px 0 4px; }
+
+  .tab-content form {
+    max-width: none;
+    grid-template-columns: 1fr;
+  }
+
+  .tab-content input[type="submit"] { width: 100%; }
+
+  /* 分頁列在手機上換行置中 */
+  .pagination {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pagination a {
+    padding: 11px 16px;
+  }
+
+  /* 表單元件加大，符合手機觸控 */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    padding: 12px 12px;
+    font-size: 1rem;
+  }
+
+  .branch-location .tel a { padding: 11px 18px 11px 36px; }
+
+  /* 頁尾改為單欄 */
+  .footer-help {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 26px 16px 20px;
+  }
+
+  .back-to-top { text-align: center; padding-bottom: 14px; }
+}
+
+/* 極小螢幕（約 360px）再收斂一次間距 */
+@media screen and (max-width: 400px) {
+  .yield { padding: 16px 10px 32px; }
+
+  main > section,
+  aside > section,
+  aside > div { padding: 16px 12px; }
+
+  .facts { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   19. 動態偏好與列印
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  header .main-nav,
+  footer,
+  .rental,
+  .pagination { display: none; }
+
+  body { background: var(--white); }
+
+  main > section { box-shadow: none; border: 0; }
+}

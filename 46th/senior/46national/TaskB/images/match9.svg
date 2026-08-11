@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320" role="img" aria-label="BAN vs SCO">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#8a3355"/><stop offset="1" stop-color="#331726"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0.5" cy="0.15" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="480" height="320" fill="url(#bg)"/>
+  <rect width="480" height="320" fill="url(#light)"/>
+  <ellipse cx="240" cy="212" rx="200" ry="92" fill="#ffffff" fill-opacity="0.10"/>
+  <ellipse cx="240" cy="212" rx="150" ry="68" fill="#ffffff" fill-opacity="0.10"/>
+  <rect x="222" y="182" width="36" height="60" fill="#e8dcc0" fill-opacity="0.65" rx="3"/>
+  <g stroke="#f4ecdc" stroke-opacity="0.75" stroke-width="2" stroke-linecap="round">
+    <path d="M232 190v20M240 190v20M248 190v20"/>
+    <path d="M232 218v20M240 218v20M248 218v20"/>
+  </g>
+  <circle cx="330" cy="122" r="9" fill="#c0392b" stroke="#f4ecdc" stroke-width="1.5"/>
+  <text x="240" y="86" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="700"
+        fill="#f4ecdc" letter-spacing="3">BAN</text>
+  <text x="240" y="116" text-anchor="middle" font-family="Georgia, serif" font-size="17"
+        fill="#d8b45a" letter-spacing="6">VERSUS</text>
+  <text x="240" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="700"
+        fill="#f4ecdc" letter-spacing="3">SCO</text>
+</svg>

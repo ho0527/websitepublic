@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" width="360" height="240" role="img" aria-label="Al Quoz 分會位置圖">
+  <rect width="360" height="240" fill="#eef1e8"/>
+  <path d="M0 168 C90 150 150 196 250 176 C300 166 330 178 360 170 L360 240 L0 240Z" fill="#cfe2ea"/>
+  <path d="M0 26h360" stroke="#dfd6c2" stroke-width="5"/><path d="M0 60h360" stroke="#dfd6c2" stroke-width="5"/><path d="M0 94h360" stroke="#dfd6c2" stroke-width="3"/><path d="M0 128h360" stroke="#dfd6c2" stroke-width="5"/><path d="M0 162h360" stroke="#dfd6c2" stroke-width="8"/><path d="M0 196h360" stroke="#dfd6c2" stroke-width="8"/><path d="M0 230h360" stroke="#dfd6c2" stroke-width="8"/><path d="M22 0v240" stroke="#dfd6c2" stroke-width="8"/><path d="M66 0v240" stroke="#dfd6c2" stroke-width="3"/><path d="M110 0v240" stroke="#dfd6c2" stroke-width="5"/><path d="M154 0v240" stroke="#dfd6c2" stroke-width="3"/><path d="M198 0v240" stroke="#dfd6c2" stroke-width="5"/><path d="M242 0v240" stroke="#dfd6c2" stroke-width="8"/><path d="M286 0v240" stroke="#dfd6c2" stroke-width="5"/><path d="M330 0v240" stroke="#dfd6c2" stroke-width="8"/>
+  <path d="M0 120 C120 96 200 150 360 118" stroke="#c9dcbe" stroke-width="16" fill="none"/>
+  <circle cx="196" cy="112" r="16" fill="#c0392b" fill-opacity="0.18"/>
+  <path d="M196 96a12 12 0 0 1 12 12c0 9-12 22-12 22s-12-13-12-22a12 12 0 0 1 12-12z" fill="#c0392b"/>
+  <circle cx="196" cy="108" r="4.5" fill="#fff"/>
+  <rect x="0" y="204" width="360" height="36" fill="#0d2b45" fill-opacity="0.86"/>
+  <text x="16" y="228" font-family="Georgia, serif" font-size="17" fill="#f4ecdc">Al Quoz</text>
+</svg>

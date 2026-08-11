@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 72" width="340" height="72" role="img" aria-label="Dubai Cricket Council">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8b45a"/><stop offset="1" stop-color="#a8842f"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(6,6)">
+    <circle cx="30" cy="30" r="29" fill="none" stroke="url(#g)" stroke-width="2"/>
+    <circle cx="30" cy="30" r="23" fill="#0d2b45"/>
+    <path d="M30 9a21 21 0 0 1 0 42" fill="none" stroke="#d8b45a" stroke-width="1.4"/>
+    <path d="M22 16 L38 44 M38 16 L22 44" stroke="#d8b45a" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="30" cy="30" r="4.5" fill="#c0392b" stroke="#f2e2bd" stroke-width="1"/>
+  </g>
+  <text x="76" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700"
+        letter-spacing="1.2" fill="#f4ecdc">DUBAI CRICKET</text>
+  <text x="77" y="55" font-family="Georgia, 'Times New Roman', serif" font-size="14"
+        letter-spacing="7.5" fill="#d8b45a">C O U N C I L</text>
+</svg>
