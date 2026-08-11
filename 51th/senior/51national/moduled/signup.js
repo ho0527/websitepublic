@@ -1,42 +1,47 @@
-onclick("#submit",function(element,event){
-	ajax("POST",AJAXURL+"user/register",function(event,data){
-		if(data["success"]){
-			weblsset("51nationalmoduled-userid",data["data"]["id"])
-			weblsset("51nationalmoduled-permission",data["data"]["role"])
-			weblsset("51nationalmoduled-token",data["data"]["token"])
-			href("index.html")
-		}else{
-			let errordata=[]
-			if(data["message"]=="MSG_MISSING_FIELD"){
-				if(domgetid("email").value==""){
-					errordata.push("email")
-					domgetid("email").parentNode.classList.add("error")
-				}
-				if(domgetid("password").value==""){
-					errordata.push("password")
-					domgetid("password").parentNode.classList.add("error")
-				}
-				if(domgetid("nickname").value==""){
-					errordata.push("nickname")
-					domgetid("nickname").parentNode.classList.add("error")
-				}
-			}
-			domgetid("error").innerHTML=`
-				${ERRORMESSAGE[data["message"]]}<br>
-				${errordata.join("、")}
-			`
-		}
-	},JSON.stringify({
-		"email": domgetid("email").value,
-		"password": domgetid("password").value,
-		"nickname": domgetid("nickname").value
-	}))
-})
+/* ==========================================================================
+   註冊頁
+   對應 API 3（會員註冊），註冊成功後自動登入
+   ========================================================================== */
 
-document.onkeydown=function(event){
-	if(event.key=="Enter"){
-		domgetid("submit").click()
-	}
+renderHeader("signup");
+
+// 已登入時直接回到首頁
+if (Session.user()) {
+	location.href = "index.html";
 }
 
-passwordshowhide()
+document.getElementById("signup-form").addEventListener("submit", async (event) => {
+	event.preventDefault();
+
+	const messageElement = document.getElementById("message");
+	const submitButton = document.getElementById("submit");
+	const email = document.getElementById("email").value;
+	const password = document.getElementById("password").value;
+
+	hideMessage(messageElement);
+	submitButton.disabled = true;
+
+	try {
+		await api("POST", "/user/register", {
+			auth: false,
+			json: {
+				email: email,
+				password: password,
+				nickname: document.getElementById("nickname").value,
+			},
+		});
+
+		// 註冊成功後直接登入，讓使用者可以立刻開始刊登房屋
+		const user = await api("POST", "/user/login", {
+			auth: false,
+			json: { email: email, password: password },
+		});
+
+		Session.save(user);
+		location.href = "index.html";
+	} catch (error) {
+		showMessage(messageElement, error.message);
+	} finally {
+		submitButton.disabled = false;
+	}
+});

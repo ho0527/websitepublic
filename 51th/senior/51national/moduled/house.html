@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<title>房屋交易平台</title>
-		<link rel="stylesheet" href="/website/index.css">
+		<title>查看房屋 - Best platform to deal the house</title>
 		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
-		<script src="/chrisplugin/js/chrisplugin.js"></script>
 	</head>
 	<body>
-		<div class="navigationbar" id="navigationbar"></div>
+		<header class="site-header" id="site-header"></header>
 
-		<div class="housediv grid" id="main"></div>
+		<main class="container">
+			<!-- 首頁連結 -->
+			<div class="breadcrumb">
+				<a href="index.html" id="home-link">Home</a>
+				<span> &gt; </span>
+				<span id="breadcrumb-house">House</span>
+			</div>
+
+			<div class="message" id="message"></div>
+
+			<!-- 房屋詳細資訊 -->
+			<section class="panel">
+				<div class="house-detail" id="house-detail"></div>
+			</section>
+		</main>
 
 		<script src="initialize.js"></script>
 		<script src="house.js"></script>

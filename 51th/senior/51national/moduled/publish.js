@@ -1,127 +1,131 @@
-let maxpage=0
-// search data START
-let title=""
-let minprice=""
-let maxprice=""
-let room=""
-let minage=""
-let maxage=""
-let sortby=""
-let order=""
-let page=0
-// search data END
+/* ==========================================================================
+   刊登列表：管理自己刊登的房屋
+   對應 API 6（自己的刊登列表）、API 9（刪除房屋）、
+   API 10（申請精選房屋）、API 11（取消申請）
+   ========================================================================== */
 
-// 查詢房屋
-function main(){
-	innerhtml("#houselist",`
-		<div id="adslist"></div>
-		<div id="normallist"></div>
-	`,false) // 初始化房屋
-	innerhtml("#page",``,false) // 初始化分頁切換器
+renderHeader("publish");
 
-	ajax("GET",AJAXURL+"user/house?title="+title+"&minprice="+minprice+"&maxprice="+maxprice+"&room="+room+"&minage="+minage+"&maxage="+maxage+"&sortby="+sortby+"&order="+order+"&page="+page,function(event,data){
-		if(data["success"]){
-			let row=data["data"]["houses"]
+/** 目前頁碼 */
+let currentPage = 1;
 
-			maxpage=Math.floor(data["data"]["total_count"]/10)
+/** 取得目前排序方向 */
+let getOrder = () => "desc";
 
-			// house顯示
-			for(let i=0;i<row.length;i=i+1){
-				let adsinnerhtml=``
-				let div=""
+/** 初始化頁面事件 */
+function init() {
+	getOrder = bindOrderToggle(() => {
+		currentPage = 1;
+		loadHouses();
+	});
 
-				if(row[i]["is_ads"]){
-					adsinnerhtml=`精選房屋`
-					div="#adslist"
-				}else{
-					adsinnerhtml=`一般房屋`
-					div="#normallist"
-				}
+	bindSearchEvents(() => {
+		currentPage = 1;
+		loadHouses();
+	});
 
-				innerhtml(div,`
-					<div class="house grid" data-id="${row[i]["id"]}">
-						<div class="houseimage"><img src="${row[i]["cover_image_url"]}" class="image"></div>
-						<div class="houseads">${adsinnerhtml}</div>
-						<div class="housetitle">${row[i]["title"]}</div>
-						<div class="houseprice">價格: ${row[i]["price"]} / 單價: ${row[i]["price"]/row[i]["square"]}</div>
-						<div class="housesquareroom">坪數: ${row[i]["square"]} / 房數: ${row[i]["room"]}</div>
-					</div>
-				`)
-			}
-
-			innerhtml("#houselist",`
-				${getinnerhtml("adslist")}
-				${getinnerhtml("normallist")}
-			`,false)
-
-			onclick(".house",function(element,event){
-				href("house.html?id="+dataset(element),"id")
-			})
-
-			// page控制
-			innerhtml("#page",`
-				<input type="button" class="buttonghost" id="prev" value="<">
-				${page+1}
-				<input type="button" class="buttonghost" id="next" value=">">
-			`)
-
-			onclick("prev",function(element,event){
-				if(0<page){
-					page=page-1
-					main()
-				}
-			})
-
-			onclick("next",function(element,event){
-				if(page<maxpage){
-					page=page+1
-					main()
-				}
-			})
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
-		}
-	},[],[
-		["Authorization","Bearer "+weblsget("51nationalmoduled-token")]
-	])
+	loadHouses();
 }
 
-main()
+/** 載入自己刊登的房屋 */
+async function loadHouses() {
+	const listElement = document.getElementById("house-list");
+	const messageElement = document.getElementById("message");
 
-onclick("#newhouse",function(element,event){
-	href("newhouse.html")
-})
+	hideMessage(messageElement);
+	listElement.innerHTML = '<div class="empty">載入中…</div>';
 
-onclick("#submit",function(element,event){
-	title=getvalue("keyword")
-	if(getvalue("minprice")>=0){
-		minprice=getvalue("minprice")
-	}
-	if(getvalue("maxprice")>=0){
-		maxprice=getvalue("maxprice")
-	}
-	room=getvalue("room")
-	if(getvalue("age")!=""){
-		minage=getvalue("age").split("~")[0]
-		maxage=getvalue("age").split("~")[1]
-	}
-	sortby=getvalue("sortby")
-	order=getvalue("order")
-	main()
-})
+	const query = readSearchConditions();
+	query.order = getOrder();
+	query.page = currentPage;
 
-onclick("#signout",function(element,event){
-	ajax("POST",AJAXURL+"user/logout",function(event,data){
-		if(data["success"]){
-			alert("登出成功")
-			weblsset("51nationalmoduled-userid",null)
-			weblsset("51nationalmoduled-permission",null)
-			weblsset("51nationalmoduled-token",null)
-			href("index.html")
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
+	try {
+		const data = await api("GET", "/user/house", { query });
+
+		document.getElementById("result-title").textContent = `Result（共 ${data.total_count} 筆）`;
+
+		if (data.houses.length === 0) {
+			listElement.innerHTML = '<div class="empty">尚未刊登任何房屋</div>';
+		} else {
+			listElement.innerHTML = data.houses.map((house) => houseCardHtml(house, {
+				extra: buildStatusHtml(house),
+				actions: buildActionsHtml(house),
+			})).join("");
 		}
-	},[],[
-		["Authorization","Bearer "+weblsget("51nationalmoduled-token")]
-	])
-})
+
+		bindCardActions();
+
+		renderPagination(document.getElementById("pagination"), currentPage, data.total_count, (page) => {
+			currentPage = page;
+			loadHouses();
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		});
+	} catch (error) {
+		listElement.innerHTML = "";
+		showMessage(messageElement, error.message);
+	}
+}
+
+/** 精選房屋申請狀態標示 */
+function buildStatusHtml(house) {
+	if (house.is_ad) {
+		return '<div><span class="badge-status">精選房屋展示中</span></div>';
+	}
+	if (house.application_id) {
+		return '<div><span class="badge-status">精選房屋申請審核中</span></div>';
+	}
+	return "";
+}
+
+/** 依照房屋狀態產生操作按鈕 */
+function buildActionsHtml(house) {
+	const buttons = [];
+
+	if (house.application_id) {
+		buttons.push(`<button type="button" class="button ghost small" data-action="cancel-application" data-application="${escapeHtml(house.application_id)}">Cancel the Application</button>`);
+	} else if (!house.is_ad) {
+		buttons.push(`<button type="button" class="button ghost small" data-action="apply" data-id="${escapeHtml(house.id)}">Apply to Ad</button>`);
+	}
+
+	buttons.push(`<button type="button" class="button danger small" data-action="delete" data-id="${escapeHtml(house.id)}">Delete</button>`);
+	buttons.push(`<a class="button small" href="newhouse.html?id=${encodeURIComponent(house.id)}">Edit</a>`);
+
+	return buttons.join("");
+}
+
+// 需要登入才能使用刊登列表
+if (requireLogin()) {
+	init();
+}
+
+/** 綁定卡片上的操作按鈕 */
+function bindCardActions() {
+	const messageElement = document.getElementById("message");
+
+	document.querySelectorAll("[data-action]").forEach((button) => {
+		button.addEventListener("click", async () => {
+			const action = button.dataset.action;
+			hideMessage(messageElement);
+
+			try {
+				if (action === "delete") {
+					if (!confirm("確定要刪除這間房屋嗎？")) {
+						return;
+					}
+					await api("DELETE", "/house/" + encodeURIComponent(button.dataset.id));
+					showMessage(messageElement, "已刪除房屋", "success");
+				} else if (action === "apply") {
+					await api("POST", "/application", { json: { house_id: Number(button.dataset.id) } });
+					showMessage(messageElement, "已送出精選房屋申請", "success");
+				} else if (action === "cancel-application") {
+					await api("DELETE", "/application/" + encodeURIComponent(button.dataset.application));
+					showMessage(messageElement, "已取消精選房屋申請", "success");
+				}
+
+				loadHouses();
+			} catch (error) {
+				showMessage(messageElement, error.message);
+			}
+		});
+	});
+}

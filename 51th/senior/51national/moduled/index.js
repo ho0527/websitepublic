@@ -1,121 +1,56 @@
-let maxpage=0
-// search data START
-let title=""
-let minprice=""
-let maxprice=""
-let room=""
-let minage=""
-let maxage=""
-let sortby=""
-let order=""
-let page=0
-// search data END
+/* ==========================================================================
+   首頁：瀏覽所有房屋
+   對應 API 4（取得房屋列表）
+   ========================================================================== */
 
-// 查詢房屋
-function main(){
-	innerhtml("#houselist",`
-		<div id="adslist"></div>
-		<div id="normallist"></div>
-	`,false) // 初始化房屋
-	innerhtml("#page",``,false) // 初始化分頁切換器
+renderHeader("index");
 
-	ajax("GET",AJAXURL+"house?title="+title+"&minprice="+minprice+"&maxprice="+maxprice+"&room="+room+"&minage="+minage+"&maxage="+maxage+"&sortby="+sortby+"&order="+order+"&page="+page,function(event,data){
-		if(data["success"]){
-			let row=data["data"]["houses"]
+/** 目前頁碼 */
+let currentPage = 1;
 
-			maxpage=Math.floor(data["data"]["total_count"]/10)
+/** 取得目前排序方向 */
+const getOrder = bindOrderToggle(() => {
+	currentPage = 1;
+	loadHouses();
+});
 
-			// house顯示
-			for(let i=0;i<row.length;i=i+1){
-				let adsinnerhtml=``
-				let div=""
+/** 載入房屋列表 */
+async function loadHouses() {
+	const listElement = document.getElementById("house-list");
+	const messageElement = document.getElementById("message");
 
-				if(row[i]["is_ads"]){
-					adsinnerhtml=`精選房屋`
-					div="#adslist"
-				}else{
-					adsinnerhtml=`一般房屋`
-					div="#normallist"
-				}
+	hideMessage(messageElement);
+	listElement.innerHTML = '<div class="empty">載入中…</div>';
 
-				innerhtml(div,`
-					<div class="house grid" data-id="${row[i]["id"]}">
-						<div class="houseimage"><img src="${row[i]["cover_image_url"]}" class="image"></div>
-						<div class="houseads">${adsinnerhtml}</div>
-						<div class="housetitle">${row[i]["title"]}</div>
-						<div class="houseprice">價格: ${row[i]["price"]} / 單價: ${row[i]["price"]/row[i]["square"]}</div>
-						<div class="housesquareroom">坪數: ${row[i]["square"]} / 房數: ${row[i]["room"]}</div>
-					</div>
-				`)
-			}
+	const query = readSearchConditions();
+	query.order = getOrder();
+	query.page = currentPage;
 
-			innerhtml("#houselist",`
-				${getinnerhtml("adslist")}
-				${getinnerhtml("normallist")}
-			`,false)
+	try {
+		const data = await api("GET", "/house", { query });
 
-			onclick(".house",function(element,event){
-				href("house.html?id="+dataset(element),"id")
-			})
+		document.getElementById("result-title").textContent = `Result（共 ${data.total_count} 筆）`;
 
-			// page控制
-			innerhtml("#page",`
-				<input type="button" class="buttonghost" id="prev" value="<">
-				${page+1}
-				<input type="button" class="buttonghost" id="next" value=">">
-			`)
-
-			onclick("prev",function(element,event){
-				if(0<page){
-					page=page-1
-					main()
-				}
-			})
-
-			onclick("next",function(element,event){
-				if(page<maxpage){
-					page=page+1
-					main()
-				}
-			})
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
+		if (data.houses.length === 0) {
+			listElement.innerHTML = '<div class="empty">查無符合條件的房屋</div>';
+		} else {
+			listElement.innerHTML = data.houses.map((house) => houseCardHtml(house)).join("");
 		}
-	})
+
+		renderPagination(document.getElementById("pagination"), currentPage, data.total_count, (page) => {
+			currentPage = page;
+			loadHouses();
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		});
+	} catch (error) {
+		listElement.innerHTML = "";
+		showMessage(messageElement, error.message);
+	}
 }
 
-main()
+bindSearchEvents(() => {
+	currentPage = 1;
+	loadHouses();
+});
 
-onclick("#submit",function(element,event){
-	title=getvalue("keyword")
-	if(getvalue("minprice")>=0){
-		minprice=getvalue("minprice")
-	}
-	if(getvalue("maxprice")>=0){
-		maxprice=getvalue("maxprice")
-	}
-	room=getvalue("room")
-	if(getvalue("age")!=""){
-		minage=getvalue("age").split("~")[0]
-		maxage=getvalue("age").split("~")[1]
-	}
-	sortby=getvalue("sortby")
-	order=getvalue("order")
-	main()
-})
-
-onclick("#signout",function(element,event){
-	ajax("POST",AJAXURL+"user/logout",function(event,data){
-		if(data["success"]){
-			alert("登出成功")
-			weblsset("51nationalmoduled-userid",null)
-			weblsset("51nationalmoduled-permission",null)
-			weblsset("51nationalmoduled-token",null)
-			href("index.html")
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
-		}
-	},[],[
-		["Authorization","Bearer "+weblsget("51nationalmoduled-token")]
-	])
-})
+loadHouses();

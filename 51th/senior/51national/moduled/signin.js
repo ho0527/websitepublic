@@ -1,37 +1,38 @@
-onclick("#submit",function(element,event){
-	ajax("POST",AJAXURL+"user/login",function(event,data){
-		if(data["success"]){
-			weblsset("51nationalmoduled-userid",data["data"]["id"])
-			weblsset("51nationalmoduled-permission",data["data"]["role"])
-			weblsset("51nationalmoduled-token",data["data"]["token"])
-			href("index.html")
-		}else{
-			let errordata=[]
-			if(data["message"]=="MSG_MISSING_FIELD"){
-				if(domgetid("email").value==""){
-					errordata.push("email")
-					domgetid("email").parentNode.classList.add("error")
-				}
-				if(domgetid("password").value==""){
-					errordata.push("password")
-					domgetid("password").parentNode.classList.add("error")
-				}
-			}
-			domgetid("error").innerHTML=`
-				${ERRORMESSAGE[data["message"]]}<br>
-				${errordata.join("、")}
-			`
-		}
-	},JSON.stringify({
-		"email": domgetid("email").value,
-		"password": domgetid("password").value
-	}))
-})
+/* ==========================================================================
+   登入頁
+   對應 API 1（會員登入）
+   ========================================================================== */
 
-document.onkeydown=function(event){
-	if(event.key=="Enter"){
-		domgetid("submit").click()
-	}
+renderHeader("signin");
+
+// 已登入時直接回到首頁
+if (Session.user()) {
+	location.href = "index.html";
 }
 
-passwordshowhide()
+document.getElementById("signin-form").addEventListener("submit", async (event) => {
+	event.preventDefault();
+
+	const messageElement = document.getElementById("message");
+	const submitButton = document.getElementById("submit");
+
+	hideMessage(messageElement);
+	submitButton.disabled = true;
+
+	try {
+		const user = await api("POST", "/user/login", {
+			auth: false,
+			json: {
+				email: document.getElementById("email").value,
+				password: document.getElementById("password").value,
+			},
+		});
+
+		Session.save(user);
+		location.href = "index.html";
+	} catch (error) {
+		showMessage(messageElement, error.message);
+	} finally {
+		submitButton.disabled = false;
+	}
+});

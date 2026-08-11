@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+	<head>
+		<meta charset="UTF-8">
+		<title>測試用登入輔助頁</title>
+	</head>
+	<body>
+		<!--
+			測試輔助頁：以 API 登入指定帳號後，將登入資訊寫入 localStorage 再導向目標頁面。
+			僅供 headless 瀏覽器截圖驗證使用，不屬於評分項目。
+			用法：!TEST/session.html?email=admin@localhost&password=adminpass&to=../index.html
+		-->
+		<p id="status">處理中…</p>
+		<script>
+			(async () => {
+				const params = new URLSearchParams(location.search);
+				const target = params.get("to") || "../index.html";
+
+				if (params.get("logout") !== null) {
+					localStorage.removeItem("51nationalmoduled-user");
+					location.href = target;
+					return;
+				}
+
+				const response = await fetch("../api/index.php/user/login", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						email: params.get("email"),
+						password: params.get("password"),
+					}),
+				});
+				const result = await response.json();
+
+				if (!result.success) {
+					document.getElementById("status").textContent = "登入失敗：" + result.message;
+					return;
+				}
+
+				localStorage.setItem("51nationalmoduled-user", JSON.stringify(result.data));
+				location.href = target;
+			})();
+		</script>
+	</body>
+</html>

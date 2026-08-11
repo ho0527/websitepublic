@@ -1,104 +1,97 @@
-let maxpage=0
-// search data START
-let title=""
-let minprice=""
-let maxprice=""
-let room=""
-let minage=""
-let maxage=""
-let sortby=""
-let order=""
-let page=0
-// search data END
+/* ==========================================================================
+   精選房屋列表（管理員）
+   對應 API 14（取得精選房屋列表）、API 15（取消精選房屋）
+   ========================================================================== */
 
-// 查詢房屋
-function main(){
-	innerhtml("#houselist",``,false) // 初始化房屋
-	innerhtml("#page",``,false) // 初始化分頁切換器
+renderHeader("ads");
 
-	ajax("GET",AJAXURL+"ads?title="+title+"&minprice="+minprice+"&maxprice="+maxprice+"&room="+room+"&minage="+minage+"&maxage="+maxage+"&sortby="+sortby+"&order="+order+"&page="+page,function(event,data){
-		if(data["success"]){
-			let row=data["data"]["ads"]
+/** 目前頁碼 */
+let currentPage = 1;
 
-			maxpage=Math.floor(data["data"]["total_count"]/10)
+/** 取得目前排序方向 */
+let getOrder = () => "desc";
 
-			// house顯示
-			for(let i=0;i<row.length;i=i+1){
-				innerhtml("#houselist",`
-					<div class="house grid" data-id="${row[i]["house"]["id"]}">
-						<div class="houseimage"><img src="${row[i]["house"]["cover_image_url"]}" class="image"></div>
-						<div class="houseads">精選房屋</div>
-						<div class="housetitle">${row[i]["house"]["title"]}</div>
-						<div class="houseprice">價格: ${row[i]["house"]["price"]} / 單價: ${row[i]["house"]["price"]/row[i]["house"]["square"]}</div>
-						<div class="housesquareroom">坪數: ${row[i]["house"]["square"]} / 房數: ${row[i]["house"]["room"]}</div>
-					</div>
-				`)
-			}
+/** 初始化頁面事件 */
+function init() {
+	getOrder = bindOrderToggle(() => {
+		currentPage = 1;
+		loadAds();
+	});
 
-			onclick(".house",function(element,event){
-				href("house.html?id="+dataset(element),"id")
-			})
+	bindSearchEvents(() => {
+		currentPage = 1;
+		loadAds();
+	});
 
-			// page控制
-			innerhtml("#page",`
-				<input type="button" class="buttonghost" id="prev" value="<">
-				${page+1}
-				<input type="button" class="buttonghost" id="next" value=">">
-			`)
-
-			onclick("prev",function(element,event){
-				if(0<page){
-					page=page-1
-					main()
-				}
-			})
-
-			onclick("next",function(element,event){
-				if(page<maxpage){
-					page=page+1
-					main()
-				}
-			})
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
-		}
-	},[],[
-		["Authorization","Bearer "+weblsget("51nationalmoduled-token")]
-	])
+	loadAds();
 }
 
-main()
+/** 載入精選房屋列表 */
+async function loadAds() {
+	const listElement = document.getElementById("house-list");
+	const messageElement = document.getElementById("message");
 
-onclick("#submit",function(element,event){
-	title=getvalue("keyword")
-	if(getvalue("minprice")>=0){
-		minprice=getvalue("minprice")
-	}
-	if(getvalue("maxprice")>=0){
-		maxprice=getvalue("maxprice")
-	}
-	room=getvalue("room")
-	if(getvalue("age")!=""){
-		minage=getvalue("age").split("~")[0]
-		maxage=getvalue("age").split("~")[1]
-	}
-	sortby=getvalue("sortby")
-	order=getvalue("order")
-	main()
-})
+	hideMessage(messageElement);
+	listElement.innerHTML = '<div class="empty">載入中…</div>';
 
-onclick("#signout",function(element,event){
-	ajax("POST",AJAXURL+"user/logout",function(event,data){
-		if(data["success"]){
-			alert("登出成功")
-			weblsset("51nationalmoduled-userid",null)
-			weblsset("51nationalmoduled-permission",null)
-			weblsset("51nationalmoduled-token",null)
-			href("index.html")
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
+	const query = readSearchConditions();
+	query.order = getOrder();
+	query.page = currentPage;
+
+	try {
+		const data = await api("GET", "/ads", { query });
+
+		document.getElementById("result-title").textContent = `Result（共 ${data.total_count} 筆）`;
+
+		if (data.ads.length === 0) {
+			listElement.innerHTML = '<div class="empty">目前沒有精選房屋</div>';
+		} else {
+			listElement.innerHTML = data.ads.map((ad) => {
+				const house = Object.assign({}, ad.house, { is_ad: true });
+				const extra = `<div class="expired-at">到期時間：${escapeHtml(ad.expired_at)}</div>`;
+				const actions = `<button type="button" class="button danger small" data-action="cancel" data-id="${escapeHtml(ad.id)}">Cancel</button>`;
+
+				return houseCardHtml(house, { extra: extra, actions: actions });
+			}).join("");
 		}
-	},[],[
-		["Authorization","Bearer "+weblsget("51nationalmoduled-token")]
-	])
-})
+
+		bindCancelActions();
+
+		renderPagination(document.getElementById("pagination"), currentPage, data.total_count, (page) => {
+			currentPage = page;
+			loadAds();
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		});
+	} catch (error) {
+		listElement.innerHTML = "";
+		showMessage(messageElement, error.message);
+	}
+}
+
+/** 綁定下架精選房屋按鈕 */
+function bindCancelActions() {
+	const messageElement = document.getElementById("message");
+
+	document.querySelectorAll('[data-action="cancel"]').forEach((button) => {
+		button.addEventListener("click", async () => {
+			if (!confirm("確定要下架這個精選房屋嗎？")) {
+				return;
+			}
+
+			hideMessage(messageElement);
+
+			try {
+				await api("DELETE", "/ads/" + encodeURIComponent(button.dataset.id));
+				showMessage(messageElement, "已下架精選房屋", "success");
+				loadAds();
+			} catch (error) {
+				showMessage(messageElement, error.message);
+			}
+		});
+	});
+}
+
+// 只有管理員可以瀏覽精選房屋列表
+if (requireAdmin()) {
+	init();
+}

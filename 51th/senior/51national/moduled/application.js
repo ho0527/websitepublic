@@ -1,104 +1,107 @@
-let maxpage=0
-// search data START
-let title=""
-let minprice=""
-let maxprice=""
-let room=""
-let minage=""
-let maxage=""
-let sortby=""
-let order=""
-let page=0
-// search data END
+/* ==========================================================================
+   申請列表（管理員）
+   對應 API 12（取得申請列表）、API 13（審核申請）
+   ========================================================================== */
 
-// 查詢房屋
-function main(){
-	innerhtml("#houselist",``,false) // 初始化房屋
-	innerhtml("#page",``,false) // 初始化分頁切換器
+renderHeader("application");
 
-	ajax("GET",AJAXURL+"application?title="+title+"&minprice="+minprice+"&maxprice="+maxprice+"&room="+room+"&minage="+minage+"&maxage="+maxage+"&sortby="+sortby+"&order="+order+"&page="+page,function(event,data){
-		if(data["success"]){
-			let row=data["data"]["applications"]
+/** 目前頁碼 */
+let currentPage = 1;
 
-			maxpage=Math.floor(data["data"]["total_count"]/10)
+/** 取得目前排序方向 */
+let getOrder = () => "desc";
 
-			// house顯示
-			for(let i=0;i<row.length;i=i+1){
-				innerhtml("#houselist",`
-					<div class="house grid" data-id="${row[i]["house"]["id"]}">
-						<div class="houseimage"><img src="${row[i]["house"]["cover_image_url"]}" class="image"></div>
-						<div class="houseads">一般房屋</div>
-						<div class="housetitle">${row[i]["house"]["title"]}</div>
-						<div class="houseprice">價格: ${row[i]["house"]["price"]} / 單價: ${row[i]["house"]["price"]/row[i]["house"]["square"]}</div>
-						<div class="housesquareroom">坪數: ${row[i]["house"]["square"]} / 房數: ${row[i]["house"]["room"]}</div>
-					</div>
-				`)
-			}
+/** 審核狀態對應的顯示文字 */
+const STATUS_TEXT = {
+	APPROVE: "已同意",
+	REJECT: "已拒絕",
+};
 
-			onclick(".house",function(element,event){
-				href("house.html?id="+dataset(element),"id")
-			})
+/** 初始化頁面事件 */
+function init() {
+	getOrder = bindOrderToggle(() => {
+		currentPage = 1;
+		loadApplications();
+	});
 
-			// page控制
-			innerhtml("#page",`
-				<input type="button" class="buttonghost" id="prev" value="<">
-				${page+1}
-				<input type="button" class="buttonghost" id="next" value=">">
-			`)
+	bindSearchEvents(() => {
+		currentPage = 1;
+		loadApplications();
+	});
 
-			onclick("prev",function(element,event){
-				if(0<page){
-					page=page-1
-					main()
-				}
-			})
-
-			onclick("next",function(element,event){
-				if(page<maxpage){
-					page=page+1
-					main()
-				}
-			})
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
-		}
-	},[],[
-		["Authorization","Bearer "+weblsget("51nationalmoduled-token")]
-	])
+	loadApplications();
 }
 
-main()
+/** 載入申請列表 */
+async function loadApplications() {
+	const listElement = document.getElementById("house-list");
+	const messageElement = document.getElementById("message");
 
-onclick("#submit",function(element,event){
-	title=getvalue("keyword")
-	if(getvalue("minprice")>=0){
-		minprice=getvalue("minprice")
-	}
-	if(getvalue("maxprice")>=0){
-		maxprice=getvalue("maxprice")
-	}
-	room=getvalue("room")
-	if(getvalue("age")!=""){
-		minage=getvalue("age").split("~")[0]
-		maxage=getvalue("age").split("~")[1]
-	}
-	sortby=getvalue("sortby")
-	order=getvalue("order")
-	main()
-})
+	hideMessage(messageElement);
+	listElement.innerHTML = '<div class="empty">載入中…</div>';
 
-onclick("#signout",function(element,event){
-	ajax("POST",AJAXURL+"user/logout",function(event,data){
-		if(data["success"]){
-			alert("登出成功")
-			weblsset("51nationalmoduled-userid",null)
-			weblsset("51nationalmoduled-permission",null)
-			weblsset("51nationalmoduled-token",null)
-			href("index.html")
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
+	const query = readSearchConditions({ sort: false, status: true });
+	query.order = getOrder();
+	query.page = currentPage;
+
+	try {
+		const data = await api("GET", "/application", { query });
+
+		document.getElementById("result-title").textContent = `Result（共 ${data.total_count} 筆）`;
+
+		if (data.applications.length === 0) {
+			listElement.innerHTML = '<div class="empty">目前沒有符合條件的申請</div>';
+		} else {
+			listElement.innerHTML = data.applications.map((application) => {
+				const statusText = application.status === null ? "審核中" : (STATUS_TEXT[application.status] || application.status);
+				const extra = `<div><span class="badge-status">${escapeHtml(statusText)}</span> <span class="meta">申請時間：${escapeHtml(application.applied_at)}</span></div>`;
+
+				// 只有審核中的申請可以進行審核
+				const actions = application.status === null
+					? `<button type="button" class="button ghost small" data-action="decline" data-id="${escapeHtml(application.id)}">Decline</button>
+					   <button type="button" class="button small" data-action="approve" data-id="${escapeHtml(application.id)}">Approve</button>`
+					: "";
+
+				return houseCardHtml(application.house, { extra: extra, actions: actions });
+			}).join("");
 		}
-	},[],[
-		["Authorization","Bearer "+weblsget("51nationalmoduled-token")]
-	])
-})
+
+		bindReviewActions();
+
+		renderPagination(document.getElementById("pagination"), currentPage, data.total_count, (page) => {
+			currentPage = page;
+			loadApplications();
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		});
+	} catch (error) {
+		listElement.innerHTML = "";
+		showMessage(messageElement, error.message);
+	}
+}
+
+/** 綁定審核按鈕 */
+function bindReviewActions() {
+	const messageElement = document.getElementById("message");
+
+	document.querySelectorAll("[data-action]").forEach((button) => {
+		button.addEventListener("click", async () => {
+			const approve = button.dataset.action === "approve";
+			hideMessage(messageElement);
+
+			try {
+				await api("PUT", "/application/" + encodeURIComponent(button.dataset.id), {
+					json: { approve: approve },
+				});
+				showMessage(messageElement, approve ? "已同意申請，房屋將展示為精選房屋 7 天" : "已拒絕申請", "success");
+				loadApplications();
+			} catch (error) {
+				showMessage(messageElement, error.message);
+			}
+		});
+	});
+}
+
+// 只有管理員可以瀏覽申請列表
+if (requireAdmin()) {
+	init();
+}

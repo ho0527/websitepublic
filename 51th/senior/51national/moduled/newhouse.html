@@ -1,84 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<title>房屋交易平台</title>
-		<link rel="stylesheet" href="/website/index.css">
+		<title>刊登房屋 - Best platform to deal the house</title>
 		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
-		<script src="/chrisplugin/js/chrisplugin.js"></script>
 	</head>
 	<body>
-		<div class="navigationbar" id="navigationbar"></div>
+		<header class="site-header" id="site-header"></header>
 
-		<div class="housediv grid" id="main">
-			<div class="housedivcarousel" id="carousel"></div>
-			<div class="housedivtitle textleft fontsize-init fontweight-init">
-				<span class="noselect">標題</span>
-				<div class="input">
-					<input type="text" id="title">
-				</div>
-			</div>
-			<div class="housedivdescription padding-0px">
-				<span class="noselect">description</span>
-				<div class="input height-75pre">
-					<textarea></textarea>
-				</div>
-			</div>
-			<div class="housedivprice">
-				<span class="noselect">價格</span>
-				<div class="input">
-					<input type="text" id="price">
-				</div>
-			</div>
-			<div class="housedivsquareroom">
-				<div class="flex">
-					<span class="noselect">坪數</span>
-					<div class="input">
-						<input type="text" id="square">
+		<main class="container">
+			<section class="panel">
+				<h1 class="panel-title" id="page-title">New House</h1>
+
+				<!-- 房屋資料表單 -->
+				<form id="house-form" novalidate>
+					<div class="form-grid">
+						<div class="full">
+							<label for="title">標題 Title</label>
+							<input type="text" id="title" name="title" placeholder="My adorable apartment">
+						</div>
+
+						<div>
+							<label for="price">價格 Price</label>
+							<input type="number" id="price" name="price" min="0" placeholder="10000000">
+						</div>
+						<div>
+							<label for="square">坪數 Square</label>
+							<input type="number" id="square" name="square" min="0" placeholder="20">
+						</div>
+						<div>
+							<label for="room">房數 Room</label>
+							<input type="number" id="room" name="room" min="0" placeholder="2">
+						</div>
+						<div>
+							<label for="floor">樓層 Floor</label>
+							<input type="number" id="floor" name="floor" placeholder="3">
+						</div>
+						<div>
+							<label for="total_floor">總樓層 Total floor</label>
+							<input type="number" id="total_floor" name="total_floor" placeholder="12">
+						</div>
+						<div>
+							<label for="age">屋齡 Age</label>
+							<input type="number" id="age" name="age" min="0" placeholder="3">
+						</div>
+
+						<div class="full">
+							<label for="address">地址 Address</label>
+							<input type="text" id="address" name="address" placeholder="桃園市中壢區萬能路 1 號">
+						</div>
+
+						<div class="full">
+							<label for="description">描述 Description</label>
+							<textarea id="description" name="description" placeholder="Write something ..."></textarea>
+						</div>
+
+						<div class="full">
+							<label for="images">圖片 Images（可多選，並可調整順序與指定封面）</label>
+							<input type="file" id="images" name="images" accept="image/*" multiple>
+							<div class="image-editor" id="image-editor"></div>
+						</div>
 					</div>
-					<span class="noselect"> / </span>
-					<span class="noselect">房數</span>
-					<div class="input">
-						<input type="text" id="room">
+
+					<div class="message" id="message"></div>
+
+					<div class="search-bar" style="margin-top:12px">
+						<!-- 送出按鈕 -->
+						<button type="submit" class="button" id="submit">Submit</button>
+						<a class="button ghost" href="publish.html">回到刊登列表</a>
 					</div>
-				</div>
-			</div>
-			<div class="housedivfloor">
-				<div class="flex">
-					<span class="noselect">樓層</span>
-					<div class="input">
-						<input type="text" id="floor">
-					</div>
-					<span class="noselect"> / </span>
-					<span class="noselect">總樓層</span>
-					<div class="input">
-						<input type="text" id="total_floor">
-					</div>
-				</div>
-				</div>
-			<div class="housedivage">
-				<div class="flex">
-					<span class="noselect">屋齡</span>
-					<div class="input">
-						<input type="text" id="age">
-					</div>
-				</div>
-			</div>
-			<div class="housedivaddress">
-				<div class="flex">
-					<span class="noselect">地址</span>
-					<div class="input">
-						<input type="text" id="address">
-					</div>
-				</div>
-			</div>
-			<div class="housedivpublishdate">
-				<div class="text error bold large textcenter"></div>
-				<input type="button" class="button outline fill" id="submit" value="送出">
-			</div>
-		</div>
+				</form>
+			</section>
+		</main>
 
 		<script src="initialize.js"></script>
 		<script src="newhouse.js"></script>

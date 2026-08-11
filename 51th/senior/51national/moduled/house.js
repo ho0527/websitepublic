@@ -1,116 +1,116 @@
-let id=getget("id")
+/* ==========================================================================
+   查看房屋：房屋詳細資訊與圖片輪播器
+   對應 API 5（查看房屋）
+   ========================================================================== */
 
-// 輪播器
-function carousel(id,carouselimageclass=".carouseimage",leftrightcontroller=true,indexcontroller="index",carouseltime=1500){
-	if(domgetid(id)){
-		if(typeof leftrightcontroller=="boolean"){
-			if(indexcontroller=="none"||indexcontroller=="index"||indexcontroller=="image"){
-				let count=0
-				let index=0
-				let totalindex=domgetall(carouselimageclass).length
+renderHeader("index");
 
-				// change image
-				function change(){
-					index=(index+1)%totalindex
+/** 網址上的房屋編號 */
+const houseId = queryParam("id");
 
-					// 將所有圖片隱藏
-					style(carouselimageclass,[
-						["display","none"]
-					])
+/** 輪播器目前顯示的圖片索引 */
+let carouselIndex = 0;
 
-					// 將index圖片顯示
-					style(domgetall(carouselimageclass)[index],[
-						["display","block"]
-					])
+/** 房屋的圖片清單 */
+let houseImages = [];
 
-					count=0
-				}
+/** 載入房屋詳細資料 */
+async function loadHouse() {
+	const detailElement = document.getElementById("house-detail");
+	const messageElement = document.getElementById("message");
 
-				change()
-				setInterval(function(){
-					count=count+1
-					if(carouseltime/10<=count){ change() } // 換圖片
-				},10)
-			}else{
-				console.error("[KEYTYPEIN ERROR]function carousel error: indexcontroller parameter KEYTYPEIN error(must be none|index|image)")
-			}
-		}else{
-			console.error("[KEYTYPEIN ERROR]function carousel error: leftrightcontroller is not boolean")
-		}
-	}else{
-		console.error("[DOM_NOTFOUND ERROR]function carousel error: dom id not found")
+	if (!houseId) {
+		location.href = "index.html";
+		return;
+	}
+
+	try {
+		const house = await api("GET", "/house/" + encodeURIComponent(houseId), { auth: false });
+
+		document.title = house.title + " - Best platform to deal the house";
+		document.getElementById("breadcrumb-house").textContent = `House (no.${house.id})`;
+
+		houseImages = Array.isArray(house.images) ? house.images : [];
+
+		detailElement.innerHTML = `
+			<div>
+				<!-- 圖片輪播器 -->
+				<div class="carousel" id="carousel">
+					<div class="stage" id="carousel-stage"></div>
+					<button type="button" class="arrow prev" id="carousel-prev" aria-label="上一張">‹</button>
+					<button type="button" class="arrow next" id="carousel-next" aria-label="下一張">›</button>
+				</div>
+				<div class="thumb-strip" id="carousel-thumbs"></div>
+			</div>
+			<div>
+				<h1>${escapeHtml(house.title)}</h1>
+				<div class="meta">${escapeHtml(house.published_at)}</div>
+				<div class="detail-price">${escapeHtml(formatMoney(house.price))}</div>
+				<div class="meta">${escapeHtml(house.square)} square(s) | ${escapeHtml(formatMoney(unitPrice(house.price, house.square)))} per square</div>
+				<div class="detail-specs">
+					<div>
+						<div class="value">${escapeHtml(house.room)}</div>
+						<div class="label">Rooms</div>
+					</div>
+					<div>
+						<div class="value">${escapeHtml(house.floor)}F/${escapeHtml(house.total_floor)}F</div>
+						<div class="label">Floor</div>
+					</div>
+					<div>
+						<div class="value">${escapeHtml(house.age)}</div>
+						<div class="label">Years</div>
+					</div>
+				</div>
+				<div>${escapeHtml(house.address)}</div>
+				<div class="publisher">
+					<div class="name">${escapeHtml(house.publisher.nickname)}</div>
+					<div><a href="mailto:${escapeHtml(house.publisher.email)}">${escapeHtml(house.publisher.email)}</a></div>
+				</div>
+			</div>
+			<div class="description">${escapeHtml(house.description)}</div>
+		`;
+
+		renderCarousel();
+
+		document.getElementById("carousel-prev").addEventListener("click", () => moveCarousel(-1));
+		document.getElementById("carousel-next").addEventListener("click", () => moveCarousel(1));
+	} catch (error) {
+		detailElement.innerHTML = "";
+		showMessage(messageElement, error.message);
 	}
 }
 
-if(!id){ location.href="index.html" }
+/** 繪製輪播器目前的圖片與縮圖列 */
+function renderCarousel() {
+	const stage = document.getElementById("carousel-stage");
+	const thumbs = document.getElementById("carousel-thumbs");
 
-ajax("GET",AJAXURL+"house/"+id,function(event,data){
-	if(data["success"]){
-		let image=``
-
-		for(let i=0;i<data["data"]["image"].length;i=i+1){
-			image=`
-				${image}
-				<img src="${data["data"]["image"][i]}" class="carouseimage image">
-			`
-		}
-
-		innerhtml("#main",`
-			<div class="housedivcarousel" id="carousel">${image}</div>
-			<div class="housedivtitle">${data["data"]["title"]}</div>
-			<div class="housedivdescription">
-				<span class="noselect">description:</span> ${data["data"]["description"]}
-			</div>
-			<div class="housedivprice">
-				<span class="noselect">價格:</span> ${data["data"]["price"]}
-				<span class="noselect"> / </span>
-				<span class="noselect">單價:</span> ${data["data"]["price"]/data["data"]["square"]}
-			</div>
-			<div class="housedivsquareroom">
-				<span class="noselect">坪數:</span> ${data["data"]["square"]}
-				<span class="noselect"> / </span>
-				<span class="noselect">房數:</span> ${data["data"]["room"]}
-			</div>
-			<div class="housedivfloor">
-				<span class="noselect">樓層:</span> ${data["data"]["floor"]}
-				<span class="noselect"> / </span>
-				<span class="noselect">總樓層:</span> ${data["data"]["total_floor"]}
-				</div>
-			<div class="housedivage">
-				<span class="noselect">屋齡:</span> ${data["data"]["age"]}
-			</div>
-			<div class="housedivaddress">
-				<span class="noselect">地址:</span> ${data["data"]["address"]}
-			</div>
-			<div class="housedivnickname">
-				<span class="noselect">發表者:</span> ${data["data"]["publisher"]["nickname"]}
-			</div>
-			<div class="housedivemail">
-				<span class="noselect">email:</span> ${data["data"]["publisher"]["email"]}
-			</div>
-			<div class="housedivpublishdate">
-				<span class="noselect">發表日期:</span> ${data["data"]["published_at"].split("T").join(" ")}
-			</div>
-		`,false)
-
-		carousel("carousel") // 開啟輪播器功能
-	}else{
-		alert(ERRORMESSAGE[data["message"]])
+	if (houseImages.length === 0) {
+		stage.innerHTML = '<span class="meta">沒有圖片</span>';
+		thumbs.innerHTML = "";
+		return;
 	}
-})
 
-onclick("#signout",function(element,event){
-	ajax("POST",AJAXURL+"user/logout",function(event,data){
-		if(data["success"]){
-			alert("登出成功")
-			weblsset("51nationalmoduled-userid",null)
-			weblsset("51nationalmoduled-permission",null)
-			weblsset("51nationalmoduled-token",null)
-			href("index.html")
-		}else{
-			alert(ERRORMESSAGE[data["message"]])
-		}
-	},[],[
-		["Authorization","Bearer "+weblsget("51nationalmoduled-token")]
-	])
-})
+	stage.innerHTML = `<img src="${escapeHtml(houseImages[carouselIndex])}" alt="房屋圖片 ${carouselIndex + 1}">`;
+	thumbs.innerHTML = houseImages
+		.map((image, index) => `<img src="${escapeHtml(image)}" data-index="${index}" class="${index === carouselIndex ? "active" : ""}" alt="縮圖 ${index + 1}">`)
+		.join("");
+
+	thumbs.querySelectorAll("img").forEach((thumb) => {
+		thumb.addEventListener("click", () => {
+			carouselIndex = Number(thumb.dataset.index);
+			renderCarousel();
+		});
+	});
+}
+
+/** 切換輪播器圖片 */
+function moveCarousel(step) {
+	if (houseImages.length === 0) {
+		return;
+	}
+	carouselIndex = (carouselIndex + step + houseImages.length) % houseImages.length;
+	renderCarousel();
+}
+
+loadHouse();
