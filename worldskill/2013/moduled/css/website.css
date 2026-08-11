@@ -1,0 +1,1324 @@
+@charset "UTF-8";
+
+/* =========================================================================
+   WorldSkills 2013 - Skill 17 Web Design / Module D
+   "Introducing Leipzig" 展覽網站樣式表
+   本檔案不修改 index.html，所有版面與互動皆由 CSS（搭配 website.js）完成。
+
+   目錄
+     1. 全域設定與色彩系統
+     2. 版面骨架（CSS Grid）
+     3. 頁首導覽與下拉選單、語言切換
+     4. 標題區與特色照片輪播
+     5. 主內容：引言、章節標題、內文
+     6. 聖多馬教堂圖片（邊框、陰影、滑入顯示說明）
+     7. 表格與統計圖
+     8. 相片藝廊
+     9. 側欄：小圖、影片、Twitter 動態
+    10. 頁尾
+    11. 非 HTML 檔案（PDF）連結圖示 — 純 CSS，不使用 JavaScript
+    12. 響應式版面
+    13. 列印樣式（省紙、易讀）
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. 全域設定與色彩系統
+       以萊比錫的古典音樂意象為主調：奶油底色 + 勃艮第紅 + 金銅色點綴
+   ------------------------------------------------------------------------- */
+:root {
+    --paper: #f6f3ec;
+    --paper-dark: #ece6da;
+    --ink: #33302b;
+    --ink-soft: #6b6459;
+    --wine: #7b2230;
+    --wine-light: #a6394a;
+    --gold: #c19a4b;
+    --line: #ded6c6;
+    --white: #ffffff;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--paper);
+    /* 細緻的紙紋底色，以漸層堆疊產生，不需外部圖檔 */
+    background-image:
+        -webkit-linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)),
+        -webkit-linear-gradient(135deg, #f8f5ee 0%, #f1ece1 100%);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)),
+        linear-gradient(135deg, #f8f5ee 0%, #f1ece1 100%);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+a {
+    color: var(--wine);
+    text-decoration: none;
+    -webkit-transition: color 0.2s ease, background-color 0.2s ease;
+            transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+    color: var(--wine-light);
+    text-decoration: underline;
+}
+
+p {
+    margin: 0 0 1.1em;
+}
+
+h1, h2, h3, h4 {
+    font-family: Georgia, "Times New Roman", "PMingLiU", serif;
+    font-weight: normal;
+    line-height: 1.25;
+    color: var(--ink);
+}
+
+::-moz-selection { background: var(--wine); color: #ffffff; }
+::selection { background: var(--wine); color: #ffffff; }
+
+/* -------------------------------------------------------------------------
+   2. 版面骨架
+       body 直接當作格線容器：header / .title / footer 橫跨整列，
+       .main 置於左欄、aside 置於右欄。
+   ------------------------------------------------------------------------- */
+body {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 660px) 34px 300px 1fr;
+    -webkit-column-gap: 0;
+            column-gap: 0;
+}
+
+body > header,
+body > .title,
+body > footer {
+    grid-column: 1 / -1;
+}
+
+body > .main {
+    grid-column: 2;
+    padding: 34px 0 40px;
+}
+
+body > aside {
+    grid-column: 4;
+    padding: 34px 0 40px;
+}
+
+/* -------------------------------------------------------------------------
+   3. 頁首導覽與下拉選單
+   ------------------------------------------------------------------------- */
+body > header {
+    position: relative;
+    z-index: 30;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 0 30px;
+    background: #2c1015;
+    background: -webkit-linear-gradient(top, #3a161c 0%, #240d11 100%);
+    background:         linear-gradient(to bottom, #3a161c 0%, #240d11 100%);
+    border-bottom: 3px solid var(--gold);
+    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body > header > nav > ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body > header > nav > ul > li {
+    position: relative;
+}
+
+body > header > nav > ul > li > a {
+    display: block;
+    padding: 18px 22px;
+    color: #f3e9d8;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+}
+
+body > header > nav > ul > li > a:hover,
+body > header > nav > ul > li:hover > a,
+body > header > nav > ul > li > a:focus {
+    background: var(--wine);
+    color: #ffffff;
+}
+
+/* 目前所在頁面（Leipzig）以金色底線標示 */
+body > header > nav > ul > li > a[title~="active"] {
+    -webkit-box-shadow: inset 0 -4px 0 var(--gold);
+            box-shadow: inset 0 -4px 0 var(--gold);
+    color: #ffffff;
+}
+
+/* 下拉子選單：預設收合，滑入或鍵盤聚焦時展開 */
+body > header nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #3a161c;
+    border: 1px solid var(--gold);
+    border-top: 0;
+    -webkit-box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-8px);
+        -ms-transform: translateY(-8px);
+            transform: translateY(-8px);
+    -webkit-transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+body > header nav ul li:hover > ul,
+body > header nav ul li:focus-within > ul {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+}
+
+body > header nav ul ul a {
+    display: block;
+    padding: 10px 18px;
+    color: #e8dcc7;
+    font-size: 14px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(193, 154, 75, 0.25);
+}
+
+body > header nav ul ul li:last-child a {
+    border-bottom: 0;
+}
+
+body > header nav ul ul a:hover {
+    background: var(--wine);
+    color: #ffffff;
+    padding-left: 24px;
+}
+
+/* 語言切換 */
+.language-switch p {
+    margin: 0;
+    color: #b9a68a;
+    font-size: 13px;
+}
+
+.language-switch span {
+    margin-left: 6px;
+}
+
+.language-switch .en a,
+.language-switch .de a {
+    display: inline-block;
+    width: 30px;
+    padding: 2px 0;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    color: #f0e6d4;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.language-switch .en a:hover,
+.language-switch .de a:hover {
+    background: var(--gold);
+    color: #2c1015;
+}
+
+/* -------------------------------------------------------------------------
+   4. 標題區與特色照片輪播
+   ------------------------------------------------------------------------- */
+body > .title {
+    position: relative;
+    padding: 0;
+    background: #1d1a17;
+    overflow: hidden;
+}
+
+body > .title h1,
+body > .title h2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 12;
+    margin: 0;
+    text-align: center;
+    pointer-events: none;
+}
+
+body > .title h1 {
+    top: 27%;
+    font-size: 54px;
+}
+
+body > .title h1 span {
+    display: inline-block;
+    padding: 10px 30px;
+    background: rgba(123, 34, 48, 0.82);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    color: #fff8ea;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+body > .title h2 {
+    top: 27%;
+    margin-top: 88px;
+    font-size: 21px;
+}
+
+body > .title h2 span {
+    display: inline-block;
+    padding: 5px 18px;
+    background: rgba(0, 0, 0, 0.45);
+    color: #f0e6d4;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* 輪播容器：高度固定，四張照片以絕對定位疊放 */
+.large-photos {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+}
+
+.large-photos > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+}
+
+.large-photos > ul > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 1s ease;
+            transition: opacity 1s ease;
+}
+
+.large-photos > ul > li img {
+    width: 100%;
+    height: 100%;
+    /* 保持比例填滿並置中，確保每張照片都完整呈現主體 */
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center 45%;
+       object-position: center 45%;
+}
+
+/* 4-1. 無 JavaScript 時的預設行為：CSS 動畫循環播放，12 秒內看完四張 */
+.large-photos > ul > li:nth-child(1) { -webkit-animation: photo-cycle 12s infinite; animation: photo-cycle 12s infinite; }
+.large-photos > ul > li:nth-child(2) { -webkit-animation: photo-cycle 12s infinite 3s; animation: photo-cycle 12s infinite 3s; }
+.large-photos > ul > li:nth-child(3) { -webkit-animation: photo-cycle 12s infinite 6s; animation: photo-cycle 12s infinite 6s; }
+.large-photos > ul > li:nth-child(4) { -webkit-animation: photo-cycle 12s infinite 9s; animation: photo-cycle 12s infinite 9s; }
+
+@-webkit-keyframes photo-cycle {
+    0%   { opacity: 0; -webkit-transform: scale(1.08); }
+    4%   { opacity: 1; }
+    25%  { opacity: 1; }
+    30%  { opacity: 0; }
+    100% { opacity: 0; -webkit-transform: scale(1); }
+}
+
+@keyframes photo-cycle {
+    0%   { opacity: 0; transform: scale(1.08); }
+    4%   { opacity: 1; }
+    25%  { opacity: 1; }
+    30%  { opacity: 0; }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+/* 4-2. JavaScript 啟用後改由 .is-current 控制，動畫停止以免互相干擾 */
+.js-slider .large-photos > ul > li {
+    -webkit-animation: none;
+            animation: none;
+    -webkit-transform: scale(1.06);
+        -ms-transform: scale(1.06);
+            transform: scale(1.06);
+    -webkit-transition: opacity 0.9s ease, -webkit-transform 6s linear;
+            transition: opacity 0.9s ease, transform 6s linear;
+}
+
+.js-slider .large-photos > ul > li.is-current {
+    opacity: 1;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+}
+
+/* 底部漸層，讓照片與控制鈕之間有層次 */
+.large-photos::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 130px;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    background:         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* 控制鈕：前四顆對應四張照片，第五顆為播放／暫停切換 */
+[id^="feature-control-"] {
+    position: absolute;
+    bottom: 24px;
+    z-index: 20;
+    width: 34px;
+    height: 34px;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: background 0.25s ease, transform 0.25s ease;
+            transition: background 0.25s ease, transform 0.25s ease;
+}
+
+[id^="feature-control-"]:hover {
+    background: var(--wine);
+    -webkit-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+            transform: scale(1.15);
+}
+
+[id^="feature-control-"].is-active {
+    background: var(--gold);
+    border-color: #ffffff;
+    color: #2c1015;
+}
+
+#feature-control-1 { left: 50%; margin-left: -95px; }
+#feature-control-2 { left: 50%; margin-left: -51px; }
+#feature-control-3 { left: 50%; margin-left: -7px; }
+#feature-control-4 { left: 50%; margin-left: 37px; }
+#feature-control-5 { left: 50%; margin-left: 87px; }
+
+/* 以 CSS 產生控制鈕上的文字（原始 HTML 中為空的 div） */
+#feature-control-1::after { content: "1"; }
+#feature-control-2::after { content: "2"; }
+#feature-control-3::after { content: "3"; }
+#feature-control-4::after { content: "4"; }
+#feature-control-5::after { content: "\275A\275A"; font-size: 11px; }
+#feature-control-5.is-paused::after { content: "\25B6"; }
+
+/* -------------------------------------------------------------------------
+   5. 主內容
+   ------------------------------------------------------------------------- */
+.quotes {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.quotes blockquote {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 45%;
+            flex: 1 1 45%;
+    position: relative;
+    margin: 0 12px 12px 0;
+    padding: 16px 18px 10px 46px;
+    background: var(--white);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    -webkit-transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quotes blockquote:hover {
+    -webkit-transform: translateY(-3px);
+        -ms-transform: translateY(-3px);
+            transform: translateY(-3px);
+    -webkit-box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.quotes blockquote::before {
+    content: "\201C";
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 52px;
+    line-height: 1;
+}
+
+.quotes blockquote p {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ink-soft);
+}
+
+.quotes .author {
+    margin-top: 6px;
+    font-size: 13px;
+    font-style: normal;
+    text-align: right;
+    color: #8b8377;
+}
+
+/* 章節標題：主標 + 副標（span / small） */
+.content-title {
+    margin: 42px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--line);
+    font-size: 30px;
+    color: var(--wine);
+}
+
+.content-title span,
+.content-title small {
+    display: block;
+    margin-top: 4px;
+    color: var(--ink-soft);
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.content h3 {
+    margin: 26px 0 10px;
+    font-size: 21px;
+}
+
+.content h3 span {
+    display: inline-block;
+    padding-left: 12px;
+    border-left: 4px solid var(--wine);
+}
+
+.content section {
+    margin-bottom: 10px;
+}
+
+/* -------------------------------------------------------------------------
+   6. 聖多馬教堂圖片：邊框 + 陰影，滑鼠移入時顯示說明文字
+       （figcaption 平時被覆蓋在圖片下方，滑入時滑出，文字仍存在於 DOM）
+   ------------------------------------------------------------------------- */
+#st-thomas-church figure {
+    position: relative;
+    float: right;
+    width: 200px;
+    margin: 4px 0 12px 22px;
+    padding: 6px;
+    background: var(--white);
+    border: 1px solid #cfc6b4;
+    -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+}
+
+#st-thomas-church figure img {
+    display: block;
+    width: 100%;
+}
+
+#st-thomas-church figcaption {
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    padding: 10px 12px;
+    background: rgba(44, 16, 21, 0.86);
+    color: #f5ece0;
+    font-size: 13px;
+    line-height: 1.45;
+    /* 預設下移隱藏；滑鼠移入圖片時滑入顯示 */
+    -webkit-transform: translateY(105%);
+        -ms-transform: translateY(105%);
+            transform: translateY(105%);
+    -webkit-transition: -webkit-transform 0.35s ease;
+            transition: transform 0.35s ease;
+}
+
+#st-thomas-church figure:hover figcaption,
+#st-thomas-church figure:focus-within figcaption {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+}
+
+/* -------------------------------------------------------------------------
+   7. 表格與統計圖
+       caption / thead / tbody 分別設計，奇偶列不同底色，滑過整列變色
+   ------------------------------------------------------------------------- */
+#id-for-title-3 table {
+    width: 100%;
+    margin: 14px 0 24px;
+    border-collapse: collapse;
+    background: var(--white);
+    font-size: 14px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+}
+
+#id-for-title-3 caption {
+    padding: 10px 12px;
+    background: var(--wine);
+    border-bottom: 3px solid var(--gold);
+    color: #fff6e7;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+#id-for-title-3 thead th {
+    padding: 10px 8px;
+    background: #4a2229;
+    background: -webkit-linear-gradient(top, #5a2a33 0%, #401d24 100%);
+    background:         linear-gradient(to bottom, #5a2a33 0%, #401d24 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f3e6d2;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#id-for-title-3 thead th:last-child {
+    border-right: 0;
+}
+
+#id-for-title-3 tbody td {
+    padding: 9px 8px;
+    border-bottom: 1px solid var(--line);
+    text-align: right;
+}
+
+#id-for-title-3 tbody td:first-child {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    text-align: left;
+    color: var(--wine);
+}
+
+/* 奇數列與偶數列底色不同 */
+#id-for-title-3 tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+#id-for-title-3 tbody tr:nth-child(even) {
+    background: #f4efe4;
+}
+
+/* 滑鼠移到列上時，文字與底色同時改變 */
+#id-for-title-3 tbody tr {
+    -webkit-transition: background-color 0.2s ease, color 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#id-for-title-3 tbody tr:hover {
+    background: var(--wine);
+    color: #fff4e4;
+}
+
+#id-for-title-3 tbody tr:hover td:first-child {
+    color: var(--gold);
+}
+
+/* 統計圖 */
+#diagram {
+    margin: 0 0 16px;
+    padding: 10px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+#diagram img {
+    display: block;
+    width: 100%;
+}
+
+/* -------------------------------------------------------------------------
+   8. 相片藝廊（.content .figures）
+   ------------------------------------------------------------------------- */
+.content .figures {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 0 -8px;
+}
+
+.content .figures figure {
+    position: relative;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 33.333%;
+            flex: 0 0 33.333%;
+    max-width: 33.333%;
+    margin: 0 0 16px;
+    padding: 0 8px;
+    overflow: hidden;
+}
+
+.content .figures figure img {
+    display: block;
+    width: 100%;
+    height: 130px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border: 3px solid var(--white);
+    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+    -webkit-filter: saturate(0.75);
+            filter: saturate(0.75);
+    -webkit-transition: transform 0.4s ease, filter 0.4s ease;
+            transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.content .figures figure:hover img {
+    -webkit-transform: scale(1.08);
+        -ms-transform: scale(1.08);
+            transform: scale(1.08);
+    -webkit-filter: saturate(1.15);
+            filter: saturate(1.15);
+}
+
+.content .figures figcaption {
+    padding: 6px 2px 0;
+    color: var(--ink-soft);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* -------------------------------------------------------------------------
+   9. 側欄
+   ------------------------------------------------------------------------- */
+body > aside h4 {
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--line);
+    font-size: 18px;
+    color: var(--wine);
+}
+
+body > aside .content-title {
+    margin-top: 34px;
+    font-size: 24px;
+}
+
+body > aside .figures {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+body > aside .figures h4 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+
+body > aside .figures figure {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 48%;
+            flex: 0 0 48%;
+    max-width: 48%;
+    margin: 0 0 14px;
+    overflow: hidden;
+}
+
+body > aside .figures figure img {
+    display: block;
+    width: 100%;
+    border: 3px solid var(--white);
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    -webkit-transition: -webkit-transform 0.4s ease;
+            transition: transform 0.4s ease;
+}
+
+body > aside .figures figure:hover img {
+    -webkit-transform: scale(1.12) rotate(-1.5deg);
+        -ms-transform: scale(1.12) rotate(-1.5deg);
+            transform: scale(1.12) rotate(-1.5deg);
+}
+
+body > aside .figures figcaption {
+    padding-top: 4px;
+    font-size: 11px;
+    color: var(--ink-soft);
+}
+
+/* 影片：完整顯示、可播放，寬度隨側欄縮放 */
+.videos video {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    background: #000000;
+    border: 3px solid var(--white);
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+
+/* Twitter 動態 */
+.tweets ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tweets li {
+    position: relative;
+    min-height: 62px;
+    margin-bottom: 12px;
+    padding: 12px 14px 12px 68px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* 互動效果：滑入時整張卡片浮起、頭像放大 */
+.tweets li:hover {
+    background: #fffaf0;
+    -webkit-transform: translateX(4px);
+        -ms-transform: translateX(4px);
+            transform: translateX(4px);
+    -webkit-box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+}
+
+.tweets .tweet-user-pic {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    -webkit-transition: -webkit-transform 0.35s ease;
+            transition: transform 0.35s ease;
+}
+
+.tweets li:hover .tweet-user-pic {
+    -webkit-transform: scale(1.35);
+        -ms-transform: scale(1.35);
+            transform: scale(1.35);
+}
+
+.tweets .tweet-user-name {
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--wine);
+}
+
+.tweets .tweet-user-name::before {
+    content: "@";
+    color: var(--gold);
+}
+
+.tweets .tweet-content {
+    margin: 2px 0 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    /* 預設僅顯示兩行，點擊後展開（JavaScript 加上 .is-open） */
+    max-height: 42px;
+    overflow: hidden;
+    -webkit-transition: max-height 0.4s ease;
+            transition: max-height 0.4s ease;
+}
+
+.tweets li.is-open .tweet-content {
+    max-height: 200px;
+}
+
+.tweets li.is-open {
+    background: #fdf3e2;
+    border-color: var(--gold);
+}
+
+/* 展開提示 */
+.tweets li::after {
+    content: "\25BC";
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    color: var(--gold);
+    font-size: 9px;
+    -webkit-transition: -webkit-transform 0.3s ease;
+            transition: transform 0.3s ease;
+}
+
+.tweets li.is-open::after {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+/* -------------------------------------------------------------------------
+   10. 頁尾
+   ------------------------------------------------------------------------- */
+body > footer {
+    padding: 24px 30px;
+    background: #2c1015;
+    border-top: 3px solid var(--gold);
+    color: #cbbba1;
+}
+
+body > footer nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 0 12px;
+    padding: 0;
+    list-style: none;
+}
+
+body > footer nav li + li::before {
+    content: "\2022";
+    margin: 0 12px;
+    color: var(--gold);
+}
+
+body > footer nav li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+body > footer nav a {
+    color: #e2d4bb;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+body > footer nav a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+body > footer .copyright p {
+    margin: 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* -------------------------------------------------------------------------
+   11. 非 HTML 檔案連結圖示（PDF）— 僅使用 CSS，未使用 JavaScript
+        以 data URI 內嵌 SVG 圖示，離線環境亦可正常顯示
+   ------------------------------------------------------------------------- */
+a[href$=".pdf"] {
+    padding: 2px 6px 2px 22px;
+    background-color: #fdeeee;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%23c0392b' d='M6 1h9l5 5v17H6z'/%3E%3Cpath fill='%23e6b0aa' d='M15 1l5 5h-5z'/%3E%3Ctext x='12' y='19' font-family='Arial' font-size='8' font-weight='bold' fill='%23fff' text-anchor='middle'%3EPDF%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 3px 50%;
+    background-size: 14px 14px;
+    border-radius: 3px;
+}
+
+a[href$=".pdf"]:hover {
+    background-color: #f7d7d7;
+}
+
+/* 外部連結（title 含 external link）加上箭頭符號 */
+a[title~="external"]:not([href$=".pdf"])::after {
+    content: "\2197";
+    margin-left: 3px;
+    font-size: 11px;
+    color: var(--gold);
+}
+
+/* -------------------------------------------------------------------------
+   12. 響應式版面
+   ------------------------------------------------------------------------- */
+@media screen and (max-width: 1040px) {
+
+    body {
+        grid-template-columns: 20px minmax(0, 1fr) 26px 280px 20px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+
+    /* 單欄堆疊：主內容在上、側欄在下 */
+    body {
+        display: block;
+    }
+
+    body > .main,
+    body > aside {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 24px 18px;
+    }
+
+    body > header {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        padding: 8px 14px;
+    }
+
+    body > header > nav > ul {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+
+    body > header > nav > ul > li > a {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    .large-photos {
+        height: 300px;
+    }
+
+    body > .title h1 {
+        font-size: 34px;
+    }
+
+    body > .title h2 {
+        margin-top: 62px;
+        font-size: 16px;
+    }
+
+    .content .figures figure {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+
+    .quotes blockquote {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+        margin-right: 0;
+    }
+
+    #st-thomas-church figure {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px;
+    }
+
+    .content .figures figure {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .large-photos {
+        height: 220px;
+    }
+}
+
+/* =========================================================================
+   13. 列印樣式
+        依評分要求：頁尾連結、語言切換與影片不列印；
+        取消底色與陰影以節省墨水，並補上連結網址方便閱讀。
+   ========================================================================= */
+@media print {
+
+    body {
+        display: block;
+        background: #ffffff;
+        color: #000000;
+        font-size: 11pt;
+        line-height: 1.45;
+    }
+
+    /* 不列印的元素：頁尾連結、語言切換、影片、輪播控制鈕、導覽列 */
+    body > footer nav,
+    .language-switch,
+    .videos,
+    body > header > nav,
+    [id^="feature-control-"] {
+        display: none !important;
+    }
+
+    body > header {
+        display: block;
+        padding: 0;
+        background: none;
+        border-bottom: 1px solid #000000;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+    }
+
+    /* 標題區改為單純文字，僅保留第一張照片，避免整頁滿版耗墨 */
+    body > .title {
+        background: none;
+        padding: 0 0 8px;
+    }
+
+    body > .title h1,
+    body > .title h2 {
+        position: static;
+        text-align: left;
+    }
+
+    body > .title h1 span,
+    body > .title h2 span {
+        padding: 0;
+        background: none;
+        border: 0;
+        color: #000000;
+        text-shadow: none;
+    }
+
+    body > .title h1 { font-size: 20pt; }
+    body > .title h2 { margin-top: 0; font-size: 12pt; }
+
+    .large-photos {
+        height: auto;
+        page-break-inside: avoid;
+    }
+
+    .large-photos > ul {
+        height: auto;
+    }
+
+    .large-photos > ul > li {
+        position: static;
+        display: none;
+        opacity: 1;
+        -webkit-animation: none;
+                animation: none;
+        -webkit-transform: none;
+                transform: none;
+    }
+
+    .large-photos > ul > li:first-child {
+        display: block;
+    }
+
+    .large-photos > ul > li img {
+        width: 55%;
+        height: auto;
+    }
+
+    .large-photos::after {
+        display: none;
+    }
+
+    /* 移除底色與陰影 */
+    .quotes blockquote,
+    .tweets li,
+    #diagram,
+    #id-for-title-3 table,
+    body > aside .figures figure img,
+    .content .figures figure img,
+    #st-thomas-church figure {
+        background: #ffffff !important;
+        color: #000000 !important;
+        -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+    }
+
+    #id-for-title-3 caption,
+    #id-for-title-3 thead th {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-bottom: 1px solid #000000;
+    }
+
+    #id-for-title-3 tbody tr:nth-child(even) {
+        background: #f2f2f2 !important;
+    }
+
+    /* 說明文字在列印時直接展開，不需互動 */
+    #st-thomas-church figcaption,
+    .tweets .tweet-content {
+        position: static;
+        max-height: none;
+        background: none !important;
+        color: #000000 !important;
+        -webkit-transform: none;
+                transform: none;
+    }
+
+    .tweets li::after {
+        display: none;
+    }
+
+    /* 相片藝廊縮小尺寸，節省紙張 */
+    .content .figures figure {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .content .figures figure img {
+        height: 70px;
+    }
+
+    /* 側欄小圖列印時維持原比例，避免被裁切變形 */
+    body > aside .figures figure {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 120px;
+                flex: 0 0 120px;
+        max-width: 120px;
+    }
+
+    body > aside .figures figure img {
+        width: 110px;
+        height: auto;
+        -o-object-fit: contain;
+           object-fit: contain;
+    }
+
+    body > aside .figures {
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
+
+    /* 列印時顯示連結網址 */
+    .content a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+    }
+
+    /* 僅對表格、圖與引言避免跨頁，section 不設限以免產生大片空白 */
+    table, figure, blockquote {
+        page-break-inside: avoid;
+    }
+
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+    /* 壓縮列印時的留白，減少頁數 */
+    .content-title {
+        margin: 16pt 0 8pt;
+        font-size: 16pt;
+    }
+
+    .content h3 {
+        margin: 12pt 0 5pt;
+        font-size: 13pt;
+    }
+
+    .quotes {
+        margin-bottom: 12pt;
+    }
+
+    .quotes blockquote {
+        padding: 4pt 6pt 2pt 22pt;
+        border-left-width: 2pt;
+    }
+
+    body > .main,
+    body > aside {
+        padding: 0;
+    }
+
+    body > aside {
+        margin-top: 12pt;
+    }
+
+    #diagram {
+        padding: 0;
+        border: 0;
+    }
+
+    #diagram img {
+        width: 75%;
+    }
+}
