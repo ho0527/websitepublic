@@ -1,38 +1,51 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>WorldSkills</title>
+		<meta name="viewport" content="width=1024">
+		<link rel="icon" href="material/icon/mainicon.png">
 		<link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
-        <script src="/chrisplugin/js/chrisplugin.js"></script>
 	</head>
-	<body>
-		<div class="nav">
-			<div class="logodiv">
-				<div class="logotop"></div>
-				<div class="logobottom"></div>
-			</div>
-			<div class="navright">
-				<a href="#" class="nava" onclick="smoothscroll('about')">About</a>
-				<a href="#" class="nava" onclick="smoothscroll('competition41')">41<sup class="navsup">st</sup> Competition</a>
-				<a href="#" class="nava" onclick="smoothscroll('competition40')">40<sup class="navsup">th</sup> Competition</a>
-				<a href="#" class="nava" onclick="smoothscroll('result')">Result</a>
-			</div>
-		</div>
+	<body id="top">
 
+		<!-- WorldSkills 手勢標誌：固定在畫面上，依捲動位置移動到 A / B / C 三點 -->
+		<img id="handsymbol" src="material/Layout/i/handsymbol.png" alt="WorldSkills hand symbol" title="Back to top">
+
+		<header class="nav">
+			<div class="navinner">
+				<a class="logolink" href="#top">
+					<img src="material/Layout/i/worlskills.png" alt="WorldSkills">
+				</a>
+				<nav class="navright">
+					<button type="button" class="navbtn" data-target="about">About</button>
+					<button type="button" class="navbtn" data-target="competition41">41<sup class="navsup">st</sup> Competition</button>
+					<button type="button" class="navbtn" data-target="competition40">40<sup class="navsup">th</sup> Competition</button>
+					<button type="button" class="navbtn" data-target="result">Result</button>
+				</nav>
+			</div>
+		</header>
+
+		<!-- 輪播：3 張圖循環，每 5 秒自動切換，左右各一顆自製按鈕 -->
 		<section id="slider">
-			<div>
-				<div class="silderbutton" id="prev">&lt;</div>
-				<div>
-					<img src="material/Layout/i/Slide1.jpg" class="image" id="sliderimage">
+			<div class="sliderframe">
+				<button type="button" class="sliderbutton" id="prev" aria-label="Previous slide"></button>
+				<div class="sliderstage">
+					<img src="material/Layout/i/Slide1.jpg" class="slide is-active" alt="Slide 1">
+					<img src="material/Layout/i/Slide2.jpg" class="slide" alt="Slide 2">
+					<img src="material/Layout/i/Slide3.jpg" class="slide" alt="Slide 3">
+					<div class="sliderdots">
+						<button type="button" class="dot is-active" data-index="0" aria-label="Slide 1"></button>
+						<button type="button" class="dot" data-index="1" aria-label="Slide 2"></button>
+						<button type="button" class="dot" data-index="2" aria-label="Slide 3"></button>
+					</div>
 				</div>
-				<div class="silderbutton" id="next">&gt;</div>
+				<button type="button" class="sliderbutton" id="next" aria-label="Next slide"></button>
 				<span class="c"></span>
 			</div>
 		</section>
 
-		<section id="about">
+<section id="about">
 			<div>
 				<img src="material/Layout/i/p1.jpg" alt="About">
 				<div>
@@ -44,7 +57,7 @@
 						<p>WorldSkills International provides a unique means of exchange and comparison of world-class competency standards in the industrial trades and service sectors of the global economy. The continued growth of WorldSkills International attests to the fact that traditional trade and craft skills along with the newer technology multi-skilled vocations make an essential contribution to the economic and social well being of peoples everywhere.</p>
 						<p>As a free standing, non-political organisation WorldSkills International provides a cost effective means for international government and industry cooperation in achieving higher standards and status for vocational education and training on a worldwide basis.</p>
 					</div>
-					<div class="showall" onclick="showall('abouttext')">Continue reading...</div>
+					<button type="button" class="showall" data-target="abouttext">Continue reading...</button>
 				</div>
 				<span class="c"></span>
 			</div>
@@ -64,7 +77,7 @@
 						<p>Schools, colleges, parents and employers came from across the UK and from around the world with over 200,000 visitors and participants taking part - and research indicates that 70% of young people and 67% of adults agreed that the event had impacted positively on their attitudes towards skills-based education. </p>
 					</div>
 				</div>
-				<div class="showall" onclick="showall('competition41text')">Continue reading...</div>
+				<button type="button" class="showall" data-target="competition41text">Continue reading...</button>
 				<span class="c"></span>
 			</div>
 		</section>
@@ -82,13 +95,34 @@
 						<p>More than 55 Calgary schools participated in the One School One Country program, where elementary schools adopted a team and learned about the culture of their country prior to meeting their team’s Competitors at their school prior to competition.</p>
 					</div>
 				</div>
-				<div class="showall" onclick="showall('competition40text')">Continue reading...</div>
+				<button type="button" class="showall" data-target="competition40text">Continue reading...</button>
 			</div>
 		</section>
 
 		<section id="result">
-			<div>
-				<h1>Results</h1>
+			<div class="resultinner">
+				<h1 id="resulttitle">Results</h1>
+
+				<!-- 搜尋列：即時篩選、大小寫選項、自動完成 -->
+				<div class="resulttools">
+					<div class="searchwrap">
+						<input type="text" id="searchbox" autocomplete="off" spellcheck="false"
+							placeholder="Search by name, country, skill or medal ( use + for AND )">
+						<ul id="autocomplete"></ul>
+					</div>
+					<label class="casebox"><input type="checkbox" id="casesensitive"> Case Sensitive</label>
+					<span id="resultcount"></span>
+				</div>
+				<p class="searchhelp">
+					Click any value to search it &middot; SHIFT + click to add it with &ldquo;+&rdquo; &middot;
+					press CTRL + S in the search box to remember the phrase
+				</p>
+
+				<!-- 依搜尋結果動態產生的新版清單 -->
+				<div id="resultview"></div>
+
+				<!-- 原始資料（由 JavaScript 讀取後轉成上方清單） -->
+				<div id="resultdata" hidden>
 				<div>
 					<h2>2011 - UK</h2>
 					<ul>
@@ -921,8 +955,10 @@
 								<li data-country="KOREA" title="SILVER">Tae Yang Jung</li>
 								<li data-country="AUSTRALIA" title="BRONZE">Daniel Karanges</li>
 							</ul>
+						</li>
 					</ul>
 
+				</div>
 				</div>
 				<span class="c"></span>
 			</div>

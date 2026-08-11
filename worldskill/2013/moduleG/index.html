@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>German Car Dealer &mdash; Showroom Simulator</title>
+<meta name="viewport" content="width=1280">
+<link rel="icon" href="material/icon/mainicon.png">
+<link rel="stylesheet" href="dealer.css">
+<!-- 本機端的 jQuery / jQuery UI（題目提供的素材，離線可用） -->
+<script src="plugin/js/jquery-1.8.3.js"></script>
+<script src="plugin/js/jquery-ui-1.9.2.custom.js"></script>
+<script src="dealer.js"></script>
+</head>
+<body>
+
+<div id="salon">
+
+	<!-- 頁首：店名與營運統計（Statistic Display） -->
+	<header id="topbar">
+		<h1>
+			<img src="material/icon/mainicon.png" alt="" class="brandicon">
+			German Car Dealer <small>Showroom Simulator</small>
+		</h1>
+		<div id="display">
+			<ul>
+				<li id="clients_served"><b>0</b><span>Clients served</span></li>
+				<li id="cars_sold"><b>0</b><span>Cars sold</span></li>
+				<li id="amount"><b>&euro; 0,00</b><span>Amount collected</span></li>
+			</ul>
+		</div>
+	</header>
+
+	<div id="stage">
+
+		<!-- 左側：展場，四個品牌各自一列 -->
+		<div id="cars_place">
+			<div id="porsche" class="place" data-brand="Porsche">
+				<div class="place_head">
+					<img src="material/picture/images/Porsche-logo.jpg" alt="Porsche">
+					<span class="place_name">Porsche</span>
+					<span class="place_price">&euro; 72.500,00</span>
+					<span class="place_stock"><b>4</b>/4</span>
+				</div>
+				<div class="slots"></div>
+			</div>
+			<div id="volkswagen" class="place" data-brand="Volkswagen">
+				<div class="place_head">
+					<img src="material/picture/images/volkswagen-logo.jpg" alt="Volkswagen">
+					<span class="place_name">Volkswagen</span>
+					<span class="place_price">&euro; 23.930,00</span>
+					<span class="place_stock"><b>6</b>/6</span>
+				</div>
+				<div class="slots"></div>
+			</div>
+			<div id="audi" class="place" data-brand="Audi">
+				<div class="place_head">
+					<img src="material/picture/images/audi-logo.jpg" alt="Audi">
+					<span class="place_name">Audi</span>
+					<span class="place_price">&euro; 31.260,00</span>
+					<span class="place_stock"><b>5</b>/5</span>
+				</div>
+				<div class="slots"></div>
+			</div>
+			<div id="bmw" class="place" data-brand="BMW">
+				<div class="place_head">
+					<img src="material/picture/images/bmw-logo.jpg" alt="BMW">
+					<span class="place_name">BMW</span>
+					<span class="place_price">&euro; 43.990,00</span>
+					<span class="place_stock"><b>3</b>/3</span>
+				</div>
+				<div class="slots"></div>
+			</div>
+
+			<!-- 底部：收銀台與出口兩個放置區 -->
+			<div id="zones">
+				<div id="cashier" class="dropzone">
+					<img src="material/picture/images/cashier.jpg" alt="">
+					<div class="zone_text">
+						<b>Cashier</b>
+						<span>Drop a customer here to close the deal</span>
+					</div>
+				</div>
+				<div id="exit" class="dropzone">
+					<img src="material/picture/images/exit.jpg" alt="">
+					<div class="zone_text">
+						<b>Exit</b>
+						<span>Drop a customer here to leave the store</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 右側：等候佇列，最多同時 10 位客戶 -->
+		<div id="queue_panel">
+			<div class="panel_head">
+				Queue of customers
+				<span id="queue_count">0/10</span>
+			</div>
+			<div id="clients_queue"></div>
+			<p class="hint">只有佇列中的第一位客戶可以被拖曳。<br>Only the first customer can be dragged.</p>
+		</div>
+
+	</div>
+</div>
+
+<!-- 收銀台詢問對話框 -->
+<div id="modal_mask">
+	<div id="modal_box">
+		<p id="modal_text">Would you like to purchase the car?</p>
+		<div id="modal_car"></div>
+		<div class="modal_btns">
+			<button type="button" id="btn_yes">YES</button>
+			<button type="button" id="btn_no">NO</button>
+		</div>
+	</div>
+</div>
+
+<!-- 操作回饋訊息 -->
+<div id="toaster"></div>
+
+</body>
+</html>

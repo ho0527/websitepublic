@@ -1,89 +1,396 @@
-* {margin:0; padding:0;}
-html, body {width:100%; height:100%; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:center;}
+@charset "utf-8";
+/* ==========================================================================
+   Module G - 汽車經銷商展場模擬器樣式
+   佈局：頁首統計列 + 左側展場（四個品牌）+ 右側客戶佇列 + 底部收銀/出口
+   ========================================================================== */
 
-#salon{
-	width:800px;
-	height:600px;
-	border:10px solid;
-	border-color:#CCC;
-	margin:0 auto; 
-	margin-top:50px;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+	font-family: "Segoe UI", Arial, Helvetica, "Microsoft JhengHei", sans-serif;
+	font-size: 13px;
+	color: #e8edf5;
+	background: #10151d url(material/picture/images/background_5.jpg) center top / cover fixed no-repeat;
+	padding: 18px 0 40px;
 }
-#display{
-	margin-left:500px;
-	position:absolute;
-	width:260px;
-	margin-top:10px;
-}
-#display ul{padding:0px;}
-#display ul li{
-	border:1px solid;
-	display:inline-block;
-	padding:10px;
-}
-#clients_queue,#cashier,#exit{border:1px solid; border-color:#666;}
-.client{
-	width:80px; 
-	height:80px;
-	position:absolute;
-	line-height:80px;
-	font-size:10px;
-	border:1px solid	
-}
-#clients_queue{
-	width:200px;
-	height: 500px;
-	position: absolute;
-	margin-left:590px;
-	margin-top:90px;
-	text-align:center;
-}
-#cashier{
-	width:150px;
-	height:200px;
-	position:absolute;
-	margin-top:390px;
-	margin-left:420px;
-}
-#exit{
-	width:150px;
-	height:200px;
-	position:absolute;
-	margin-top:180px;
-	margin-left:420px;
-}
-.client{
+
+/* ---------- 外框 ---------- */
+#salon {
+	width: 1240px;
 	margin: 0 auto;
-	background-color:#FFF;
-	line-height:10px;
-	background-position:bottom;
-	background-repeat:no-repeat;
-    position:relative;
-	margin-top:10px;
 }
-.place{
-	position: absolute;
-	width: 400px;
-	height: 140px;
-	border:1px solid;
-}
-#volkswagen{
-	margin-top:150px;
-}
-#audi{
-	margin-top:300px;
-}
-#bmw{
-	margin-top:460px;
-}
-.client_1{background-image:url(images/client_1.jpg);}
-.client_2{background-image:url(images/client_2.jpg);}
-.client_3{background-image:url(images/client_3.jpg);}
-.client_4{background-image:url(images/client_4.jpg);}
-.client_5{background-image:url(images/client_5.jpg);}
-.client_6{background-image:url(images/client_6.jpg);}
-.client_7{background-image:url(images/client_7.jpg);}
-.client_8{background-image:url(images/client_8.jpg);}
-.client_9{background-image:url(images/client_9.jpg);}
-.client_10{background-image:url(images/client_10.jpg);}
 
+/* ---------- 頁首與統計顯示 ---------- */
+#topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 12px 18px;
+	margin-bottom: 14px;
+	background: rgba(12, 18, 28, .78);
+	border: 1px solid rgba(255, 255, 255, .12);
+	border-radius: 10px;
+	box-shadow: 0 6px 22px rgba(0, 0, 0, .45);
+}
+
+#topbar h1 {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 21px;
+	font-weight: 600;
+	letter-spacing: .4px;
+}
+
+#topbar h1 small {
+	font-size: 12px;
+	font-weight: 400;
+	color: #8fa4c0;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+}
+
+.brandicon { width: 30px; height: 30px; }
+
+#display ul { list-style: none; display: flex; gap: 10px; }
+
+#display li {
+	min-width: 150px;
+	padding: 8px 14px;
+	text-align: center;
+	background: linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .03));
+	border: 1px solid rgba(255, 255, 255, .16);
+	border-radius: 8px;
+}
+
+#display li b {
+	display: block;
+	font-size: 20px;
+	line-height: 1.2;
+	color: #ffd479;
+	font-variant-numeric: tabular-nums;
+}
+
+#display li span {
+	display: block;
+	font-size: 10px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #93a6c0;
+}
+
+/* 統計數字更新時的閃爍提示 */
+#display li.bump b { animation: bump .55s ease; }
+@keyframes bump {
+	0% { transform: scale(1); color: #ffd479; }
+	40% { transform: scale(1.28); color: #7dffa6; }
+	100% { transform: scale(1); color: #ffd479; }
+}
+
+/* ---------- 主要版面 ---------- */
+#stage { display: flex; gap: 14px; align-items: flex-start; }
+
+#cars_place { flex: 1 1 auto; }
+
+/* ---------- 品牌展區 ---------- */
+.place {
+	display: flex;
+	align-items: stretch;
+	margin-bottom: 10px;
+	padding: 8px;
+	background: rgba(14, 21, 33, .74);
+	border: 1px solid rgba(255, 255, 255, .10);
+	border-radius: 10px;
+}
+
+.place_head {
+	width: 118px;
+	flex: 0 0 118px;
+	margin-right: 10px;
+	padding: 6px;
+	text-align: center;
+	background: rgba(255, 255, 255, .06);
+	border-radius: 8px;
+}
+
+.place_head img {
+	width: 46px;
+	height: 46px;
+	object-fit: contain;
+	background: #fff;
+	border-radius: 50%;
+	padding: 3px;
+}
+
+.place_name { display: block; font-weight: 600; font-size: 13px; margin-top: 2px; }
+.place_price { display: block; font-size: 11px; color: #ffd479; }
+.place_stock { display: block; font-size: 10px; color: #8fa4c0; letter-spacing: .5px; }
+
+.slots { display: flex; gap: 6px; flex-wrap: nowrap; }
+
+/* 單一車位 */
+.car {
+	position: relative;
+	width: 126px;
+	height: 98px;
+	border-radius: 8px;
+	overflow: hidden;
+	background: #0b1017 center / cover no-repeat;
+	border: 1px solid rgba(255, 255, 255, .14);
+	box-shadow: inset 0 -28px 34px rgba(0, 0, 0, .6);
+}
+
+.car .car_label {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 3px 6px;
+	font-size: 10px;
+	letter-spacing: .5px;
+	background: rgba(0, 0, 0, .55);
+}
+
+/* 可放置狀態的高亮提示 */
+.car.ready { border-color: #6ee38a; box-shadow: 0 0 0 2px rgba(110, 227, 138, .45); }
+.car.hover { border-color: #7dffa6; box-shadow: 0 0 0 3px rgba(125, 255, 166, .6); }
+
+/* 已售出的車輛：貼上 SOLD 印章並降低亮度 */
+.car.sold { filter: grayscale(.55) brightness(.6); }
+.car.sold:after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 108px;
+	height: 108px;
+	margin: -54px 0 0 -54px;
+	background: url(material/picture/images/sold.gif) center / contain no-repeat;
+	animation: stamp .45s ease-out;
+}
+@keyframes stamp {
+	0% { transform: scale(2.4) rotate(-18deg); opacity: 0; }
+	100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ---------- 收銀台與出口 ---------- */
+#zones { display: flex; gap: 10px; margin-top: 12px; }
+
+.dropzone {
+	flex: 1 1 50%;
+	height: 116px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 14px;
+	border-radius: 10px;
+	background: rgba(14, 21, 33, .74);
+	border: 1px dashed rgba(255, 255, 255, .28);
+}
+
+.dropzone img {
+	width: 78px;
+	height: 78px;
+	object-fit: cover;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.zone_text b { display: block; font-size: 16px; letter-spacing: .5px; }
+.zone_text span { font-size: 11px; color: #8fa4c0; }
+
+#cashier.ready { border-color: #6ee38a; background: rgba(30, 66, 42, .7); }
+#exit.ready { border-color: #ffb36b; background: rgba(74, 46, 22, .7); }
+.dropzone.hover { border-style: solid; box-shadow: 0 0 0 3px rgba(255, 255, 255, .35); }
+
+/* ---------- 客戶佇列 ---------- */
+#queue_panel {
+	flex: 0 0 250px;
+	padding: 10px;
+	background: rgba(14, 21, 33, .78);
+	border: 1px solid rgba(255, 255, 255, .10);
+	border-radius: 10px;
+}
+
+.panel_head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 600;
+	letter-spacing: .5px;
+	padding-bottom: 8px;
+	margin-bottom: 8px;
+	border-bottom: 1px solid rgba(255, 255, 255, .14);
+}
+
+.panel_head span { font-size: 11px; color: #ffd479; }
+
+#clients_queue { min-height: 470px; }
+
+.hint {
+	margin-top: 8px;
+	font-size: 10px;
+	line-height: 1.6;
+	color: #7d90ab;
+	text-align: center;
+}
+
+/* 單一客戶卡片 */
+.client {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	height: 46px;
+	margin-bottom: 6px;
+	padding: 4px 6px;
+	background: rgba(255, 255, 255, .07);
+	border: 1px solid rgba(255, 255, 255, .12);
+	border-radius: 8px;
+	opacity: .55;
+	cursor: default;
+}
+
+.client .face {
+	width: 40px;
+	height: 36px;
+	flex: 0 0 40px;
+	border-radius: 5px;
+	background: #223 center / cover no-repeat;
+}
+
+.client .preference { font-size: 11px; line-height: 1.3; }
+.client .preference b { display: block; color: #ffd479; font-size: 12px; }
+
+/* 佇列中的第一位客戶：可拖曳 */
+.client.first {
+	opacity: 1;
+	cursor: move;
+	background: rgba(125, 255, 166, .14);
+	border-color: rgba(125, 255, 166, .55);
+	box-shadow: 0 0 12px rgba(125, 255, 166, .2);
+}
+
+/* 新客戶進場動畫 */
+.client.enter { animation: slidein .4s ease; }
+@keyframes slidein {
+	from { transform: translateX(40px); opacity: 0; }
+	to { transform: translateX(0); opacity: .55; }
+}
+
+/* 已進入車位的客戶：覆蓋在車輛圖片左上角 */
+.car .client {
+	position: absolute;
+	left: 4px;
+	top: 4px;
+	width: 108px;
+	height: 40px;
+	margin: 0;
+	opacity: 1;
+	cursor: move;
+	background: rgba(6, 10, 16, .82);
+	border-color: rgba(255, 255, 255, .35);
+}
+
+.car .client .face { width: 34px; height: 32px; flex: 0 0 34px; }
+.car .client .preference { font-size: 10px; }
+
+/* 拖曳時的分身樣式 */
+.client.ui-draggable-dragging {
+	width: 190px;
+	height: 46px;
+	opacity: 1;
+	background: rgba(6, 10, 16, .92);
+	border-color: #7dffa6;
+	box-shadow: 0 10px 24px rgba(0, 0, 0, .6);
+	z-index: 9999;
+}
+
+/* 客戶離場動畫（結帳或說不買） */
+.client.leaving { animation: leave .6s ease forwards; }
+@keyframes leave {
+	0% { transform: translate(0, 0) scale(1) rotate(0); opacity: 1; }
+	100% { transform: translate(80px, -180px) scale(.2) rotate(28deg); opacity: 0; }
+}
+
+/* ---------- 收銀台確認對話框 ---------- */
+#modal_mask {
+	display: none;
+	position: fixed;
+	left: 0; top: 0; right: 0; bottom: 0;
+	background: rgba(4, 7, 12, .72);
+	z-index: 10000;
+}
+
+#modal_mask.show { display: flex; align-items: center; justify-content: center; }
+
+#modal_box {
+	width: 380px;
+	padding: 22px;
+	text-align: center;
+	background: #16202e;
+	border: 1px solid rgba(255, 255, 255, .18);
+	border-radius: 12px;
+	box-shadow: 0 20px 50px rgba(0, 0, 0, .7);
+	animation: pop .25s ease;
+}
+
+@keyframes pop {
+	from { transform: translateY(18px) scale(.94); opacity: 0; }
+	to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+#modal_text { font-size: 17px; margin-bottom: 12px; }
+
+#modal_car {
+	font-size: 12px;
+	color: #ffd479;
+	margin-bottom: 18px;
+}
+
+.modal_btns { display: flex; gap: 12px; justify-content: center; }
+
+.modal_btns button {
+	min-width: 110px;
+	padding: 10px 0;
+	font: 600 14px/1 "Segoe UI", Arial, sans-serif;
+	letter-spacing: 1px;
+	color: #08121a;
+	border: 0;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+#btn_yes { background: linear-gradient(180deg, #8ef0a8, #4fc97a); }
+#btn_no { background: linear-gradient(180deg, #f3b1a3, #dd7a63); }
+.modal_btns button:hover { filter: brightness(1.1); }
+.modal_btns button:active { transform: translateY(1px); }
+
+/* ---------- 操作回饋訊息 ---------- */
+#toaster {
+	position: fixed;
+	right: 18px;
+	bottom: 18px;
+	width: 300px;
+	z-index: 10001;
+}
+
+.toast {
+	margin-top: 8px;
+	padding: 10px 12px;
+	font-size: 12px;
+	border-radius: 8px;
+	background: rgba(20, 30, 44, .95);
+	border-left: 4px solid #6ea8e3;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, .5);
+	animation: toastin .3s ease;
+}
+
+.toast.ok { border-left-color: #6ee38a; }
+.toast.warn { border-left-color: #ffb36b; }
+.toast.bad { border-left-color: #ef7f7f; }
+
+@keyframes toastin {
+	from { transform: translateX(30px); opacity: 0; }
+	to { transform: translateX(0); opacity: 1; }
+}
