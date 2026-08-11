@@ -1,56 +1,90 @@
-const parkingLots = [
-    { id: "p1", name: "南港展覽館一館地下停車場", available: 126, total: 620, latitude: 25.0561, longitude: 121.6178 },
-    { id: "p2", name: "南港展覽館二館停車場", available: 74, total: 320, latitude: 25.0581, longitude: 121.6162 },
-    { id: "p3", name: "南港車站轉乘停車場", available: 212, total: 540, latitude: 25.0526, longitude: 121.6078 },
-    { id: "p4", name: "經貿二路平面停車場", available: 38, total: 96, latitude: 25.0595, longitude: 121.6145 },
-    { id: "p5", name: "中信金融園區停車場", available: 91, total: 260, latitude: 25.0592, longitude: 121.6157 },
-    { id: "p6", name: "南港軟體園區停車場", available: 57, total: 180, latitude: 25.0572, longitude: 121.6127 }
-];
+/**
+ * 模組 C - 南港展覽館服務行動網頁（前端）
+ * 資料全部來自 api/ 目錄下的 PHP 後端，前端只負責呈現與互動。
+ */
 
-const eventSeed = [
-    ["2026 台北國際電腦展", "2026-06-02", "科技產業展示與新品發表", "#1c3e60"],
-    ["智慧城市應用展", "2026-06-10", "城市服務、交通與資料應用", "#217453"],
-    ["亞洲生技論壇", "2026-06-18", "生技新創、醫療器材與研討會", "#b3542f"],
-    ["設計品牌週", "2026-06-24", "生活風格、設計選物與講座", "#8c5a2b"],
-    ["國際旅遊展", "2026-07-03", "旅遊產品、航空與城市推廣", "#315f75"],
-    ["電動車與能源展", "2026-07-12", "車用科技、充電與儲能方案", "#7c6c2d"],
-    ["動漫創作博覽會", "2026-07-20", "IP 展示、舞台活動與簽名會", "#7d4e8a"],
-    ["台灣美食嘉年華", "2026-07-27", "地方料理與餐飲品牌展售", "#a05b08"],
-    ["資安技術大會", "2026-08-04", "攻防演練、資安治理與雲端安全", "#305c86"],
-    ["國際教育展", "2026-08-15", "海外留學、語言學習與學程諮詢", "#675f9b"],
-    ["永續材料展", "2026-08-22", "循環材料、綠建材與 ESG 方案", "#2f7557"],
-    ["運動健康產業展", "2026-09-02", "健身設備、運動科技與健康管理", "#b45f3b"],
-    ["寵物用品博覽會", "2026-09-11", "生活用品、食品與品牌活動", "#7d6848"],
-    ["食品加工設備展", "2026-09-19", "智慧製造、包裝與食品安全", "#596d34"],
-    ["創新創業媒合日", "2026-09-26", "新創展示、投資媒合與講座", "#465f8d"],
-    ["文具禮品採購展", "2026-10-04", "文創商品、商務禮品與通路採購", "#9b536c"],
-    ["AI 應用開發日", "2026-10-13", "企業 AI、模型應用與工作坊", "#245b69"],
-    ["國際家具家飾展", "2026-10-21", "居家設計、家具與照明品牌", "#6a5739"]
-];
+/* ------------------------------------------------------------------ */
+/* 常數與狀態                                                          */
+/* ------------------------------------------------------------------ */
 
-const weatherData = [
-    { date: "2026-05-29", condition: "晴時多雲", icon: "sunny", high: 31, low: 25, rain: 10 },
-    { date: "2026-05-30", condition: "多雲", icon: "cloudy", high: 30, low: 24, rain: 20 },
-    { date: "2026-05-31", condition: "短暫雨", icon: "rainy", high: 28, low: 23, rain: 60 },
-    { date: "2026-06-01", condition: "多雲", icon: "cloudy", high: 29, low: 24, rain: 30 },
-    { date: "2026-06-02", condition: "晴朗", icon: "sunny", high: 32, low: 25, rain: 10 },
-    { date: "2026-06-03", condition: "午後雷雨", icon: "rainy", high: 30, low: 24, rain: 70 },
-    { date: "2026-06-04", condition: "晴時多雲", icon: "sunny", high: 31, low: 25, rain: 20 }
-];
+const API_BASE = "api/";
+const DEFAULT_LOCATION = { latitude: 25.0561, longitude: 121.6178 };
+const EVENT_PAGE_SIZE = 8;
+const DETAIL_REFRESH_MS = 10000;
+
+const STORAGE_KEYS = {
+    theme: "modulec-theme",
+    sort: "modulec-sort",
+    pinned: "modulec-pinned"
+};
+
+/** 天氣圖示的路徑資料（取自題目素材 svn icons/*.svg，viewBox 0 0 96 96） */
+const WEATHER_ICON_PATHS = {
+    sunny: [
+        "M62.142,35.858c0.512,0,1.024-0.195,1.414-0.586l2.829-2.829c0.781-0.781,0.781-2.047,0-2.828c-0.781-0.781-2.048-0.781-2.828,0l-2.829,2.829c-0.781,0.781-0.781,2.047,0,2.828C61.118,35.663,61.63,35.858,62.142,35.858z",
+        "M30,48c0-1.104-0.896-2-2-2h-4c-1.104,0-2,0.896-2,2s0.896,2,2,2h4C29.104,50,30,49.104,30,48z",
+        "M32.444,60.728l-2.829,2.829c-0.781,0.781-0.781,2.047,0,2.828c0.39,0.391,0.902,0.586,1.414,0.586c0.512,0,1.024-0.195,1.414-0.586l2.829-2.829c0.781-0.781,0.781-2.047,0-2.828C34.492,59.947,33.224,59.947,32.444,60.728z",
+        "M32.444,35.272c0.39,0.391,0.902,0.586,1.414,0.586s1.024-0.195,1.414-0.586c0.781-0.781,0.781-2.047,0-2.828l-2.829-2.829c-0.78-0.781-2.048-0.781-2.828,0c-0.781,0.781-0.781,2.047,0,2.828L32.444,35.272z",
+        "M48,30c1.104,0,2-0.896,2-2v-4c0-1.104-0.896-2-2-2s-2,0.896-2,2v4C46,29.104,46.896,30,48,30z",
+        "M72,46h-4c-1.104,0-2,0.896-2,2s0.896,2,2,2h4c1.104,0,2-0.896,2-2S73.104,46,72,46z",
+        "M63.556,60.728c-0.78-0.781-2.048-0.781-2.828,0c-0.781,0.781-0.781,2.047,0,2.828l2.829,2.829c0.39,0.391,0.902,0.586,1.414,0.586c0.512,0,1.023-0.195,1.414-0.586c0.781-0.781,0.781-2.047,0-2.828L63.556,60.728z",
+        "M48,66c-1.104,0-2,0.896-2,2v4c0,1.104,0.896,2,2,2s2-0.896,2-2v-4C50,66.896,49.104,66,48,66z",
+        "M48,34c-7.72,0-14,6.28-14,14s6.28,14,14,14s14-6.28,14-14S55.72,34,48,34z M48,58c-5.514,0-10-4.486-10-10s4.486-10,10-10s10,4.486,10,10S53.514,58,48,58z"
+    ],
+    cloudy: [
+        "M66,40c-0.507,0-1.112,0.079-1.688,0.184C62.218,33.012,55.663,28,48,28c-7.664,0-14.218,5.012-16.312,12.184C31.112,40.079,30.507,40,30,40c-6.065,0-11,4.935-11,11s4.935,11,11,11h36c6.065,0,11-4.935,11-11S72.065,40,66,40z M66,58H30c-3.86,0-7-3.141-7-7s3.14-7,7-7c0.277,0,0.723,0.068,1.194,0.162V46c0,1.104,0.896,2,2,2s2-0.896,2-2v-3.226C36.27,36.524,41.632,32,48,32c6.371,0,11.735,4.529,12.808,10.784V46c0,1.104,0.896,2,2,2c1.105,0,2-0.896,2-2v-1.837C65.278,44.069,65.726,44,66,44c3.859,0,7,3.141,7,7S69.859,58,66,58z"
+    ],
+    rainy: [
+        "M66,40c-0.507,0-1.112,0.079-1.688,0.184C62.217,33.012,55.663,28,48,28s-14.218,5.012-16.311,12.184C31.112,40.079,30.507,40,30,40c-6.065,0-11,4.935-11,11s4.935,11,11,11c1.104,0,2-0.896,2-2s-0.896-2-2-2c-3.86,0-7-3.141-7-7s3.14-7,7-7c0.277,0,0.723,0.068,1.193,0.162V46c0,1.104,0.896,2,2,2s2-0.896,2-2v-3.221C36.267,36.527,41.63,32,48,32s11.732,4.527,12.807,10.779V46c0,1.104,0.896,2,2,2s2-0.896,2-2v-1.838C65.277,44.068,65.722,44,66,44c3.859,0,7,3.141,7,7s-3.141,7-7,7c-1.104,0-2,0.896-2,2s0.896,2,2,2c6.065,0,11-4.935,11-11S72.065,40,66,40z",
+        "M49.485,52.06c-1.073-0.27-2.158,0.384-2.426,1.455l-6,24c-0.268,1.072,0.384,2.157,1.455,2.426C42.677,79.981,42.84,80,43.001,80c0.896,0,1.711-0.606,1.939-1.515l6-24C51.208,53.413,50.557,52.328,49.485,52.06z",
+        "M57.484,58.06c-1.072-0.271-2.157,0.384-2.425,1.455l-3,12c-0.268,1.072,0.384,2.158,1.456,2.426c0.163,0.041,0.326,0.06,0.486,0.06c0.896,0,1.712-0.606,1.939-1.515l2.999-12C59.208,59.413,58.556,58.327,57.484,58.06z",
+        "M38.484,58.06c-1.069-0.271-2.157,0.384-2.425,1.455l-3,12c-0.268,1.072,0.384,2.158,1.456,2.426c0.163,0.041,0.326,0.06,0.486,0.06c0.896,0,1.712-0.606,1.939-1.515l3-12C40.208,59.413,39.556,58.327,38.484,58.06z"
+    ]
+};
 
 const state = {
-    view: location.hash.substring(1)??"parking",
-    previousView: null,
+    view: "parking",
+    previousView: "parking",
+    parkingLots: [],
     selectedParkingId: null,
-    sortMode: localStorage.getItem("modulec-sort") || "alphabet",
-    pinned: new Set(JSON.parse(localStorage.getItem("modulec-pinned") || "[]")),
-    theme: localStorage.getItem("modulec-theme") || "system",
-    location: { latitude: 25.0561, longitude: 121.6178, source: "預設位置" },
-    eventPage: 0,
-    eventPageSize: 5,
-    filteredEvents: [],
-    loadingEvents: false,
-    detailTimer: null
+    detailTimer: null,
+    sortMode: readStorage(STORAGE_KEYS.sort, "alphabet"),
+    theme: readStorage(STORAGE_KEYS.theme, "system"),
+    pinned: new Set(readJsonStorage(STORAGE_KEYS.pinned, [])),
+    location: { ...DEFAULT_LOCATION, source: "預設位置（南港展覽館）" },
+    events: {
+        offset: 0,
+        total: 0,
+        hasMore: true,
+        loading: false,
+        loadedIds: new Set()
+    }
+};
+
+/* ------------------------------------------------------------------ */
+/* DOM 參照                                                            */
+/* ------------------------------------------------------------------ */
+
+const dom = {
+    main: document.querySelector("#appMain"),
+    title: document.querySelector("#viewTitle"),
+    backButton: document.querySelector("#backButton"),
+    locationText: document.querySelector("#locationText"),
+    settingsLocation: document.querySelector("#settingsLocation"),
+    requestLocation: document.querySelector("#requestLocation"),
+    parkingList: document.querySelector("#parkingList"),
+    parkingStatus: document.querySelector("#parkingStatus"),
+    parkingDetail: document.querySelector("#parkingDetail"),
+    eventList: document.querySelector("#eventList"),
+    eventStatus: document.querySelector("#eventStatus"),
+    eventSentinel: document.querySelector("#eventSentinel"),
+    startDate: document.querySelector("#startDate"),
+    endDate: document.querySelector("#endDate"),
+    resetFilter: document.querySelector("#resetFilter"),
+    sortToggle: document.querySelector("#sortToggle"),
+    weatherTrack: document.querySelector("#weatherTrack"),
+    weatherStatus: document.querySelector("#weatherStatus"),
+    tabButtons: [...document.querySelectorAll(".tab-button")]
 };
 
 const views = {
@@ -61,7 +95,7 @@ const views = {
     settings: document.querySelector("#settingsView")
 };
 
-const titles = {
+const viewTitles = {
     parking: "停車場",
     parkingDetail: "停車場詳情",
     events: "活動",
@@ -69,361 +103,39 @@ const titles = {
     settings: "設定"
 };
 
-const main = document.querySelector("#appMain");
-const title = document.querySelector("#viewTitle");
-const backButton = document.querySelector(".back-button");
-const locationText = document.querySelector("#locationText");
-const parkingList = document.querySelector("#parkingList");
-const parkingDetail = document.querySelector("#parkingDetail");
-const eventList = document.querySelector("#eventList");
-const eventStatus = document.querySelector("#eventStatus");
-const startDate = document.querySelector("#startDate");
-const endDate = document.querySelector("#endDate");
-const sortToggle = document.querySelector("#sortToggle");
-const weatherTrack = document.querySelector("#weatherTrack");
+/* ------------------------------------------------------------------ */
+/* 共用小工具                                                          */
+/* ------------------------------------------------------------------ */
 
-document.addEventListener("DOMContentLoaded", init);
-
-function init() {
-    setTheme(state.theme);
-    initSettings();
-    resolveLocation();
-    renderParkingList();
-    resetEvents();
-    renderWeather();
-    bindEvents();
-    switchView(state.view);
-    registerServiceWorker();
+function readStorage(key, fallback) {
+    return localStorage.getItem(key) ?? fallback;
 }
 
-function bindEvents() {
-    document.querySelectorAll(".tab-button").forEach((button) => {
-        button.addEventListener("click", () => {
-            switchView(button.dataset.view)
-            location.href="#"+button.dataset.view
-        });
-    });
-
-    backButton.addEventListener("click", () => {
-        switchView(state.previousView || "parking");
-        location.href="#"+state.previousView
-    });
-
-    sortToggle.addEventListener("change", () => {
-        state.sortMode = sortToggle.checked ? "distance" : "alphabet";
-        localStorage.setItem("modulec-sort", state.sortMode);
-        renderParkingList();
-    });
-
-    document.querySelectorAll("input[name='theme']").forEach((input) => {
-        input.addEventListener("change", () => setTheme(input.value));
-    });
-
-    startDate.addEventListener("change", resetEvents);
-    endDate.addEventListener("change", resetEvents);
-    main.addEventListener("scroll", handleInfiniteScroll, { passive: true });
-}
-
-function initSettings() {
-    sortToggle.checked = state.sortMode === "distance";
-    const themeInput = document.querySelector(`input[name='theme'][value='${state.theme}']`);
-    if (themeInput) themeInput.checked = true;
-}
-
-function switchView(nextView, options = {}) {
-    Object.values(views).forEach((view) => view.classList.remove("active"));
-    views[nextView].classList.add("active");
-    title.textContent = titles[nextView];
-    state.view = nextView;
-    backButton.hidden = nextView !== "parkingDetail";
-    document.querySelectorAll(".tab-button").forEach((button) => {
-        button.classList.toggle("active", button.dataset.view === nextView);
-    });
-    if (!options.keepScroll) main.scrollTop = 0;
-    if (nextView !== "parkingDetail") stopDetailUpdates();
-}
-
-function resolveLocation() {
-    const params = new URLSearchParams(location.search);
-    const queryLatitude = Number(params.get("latitude"));
-    const queryLongitude = Number(params.get("longitude"));
-
-    if (Number.isFinite(queryLatitude) && Number.isFinite(queryLongitude)) {
-        setLocation(queryLatitude, queryLongitude, "URL 參數");
-        return;
-    }
-
-    if (!navigator.geolocation) {
-        updateLocationText();
-        return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-        (position) => setLocation(position.coords.latitude, position.coords.longitude, "目前位置"),
-        () => updateLocationText(),
-        { enableHighAccuracy: true, timeout: 5000, maximumAge: 60000 }
-    );
-}
-
-function setLocation(latitude, longitude, source) {
-    state.location = { latitude, longitude, source };
-    updateLocationText();
-    renderParkingList();
-}
-
-function updateLocationText(){
-    return ;
-}
-
-function getSortedParkingLots() {
-    return [...parkingLots].sort((a, b) => {
-        const pinnedA = state.pinned.has(a.id) ? 0 : 1;
-        const pinnedB = state.pinned.has(b.id) ? 0 : 1;
-        if (pinnedA !== pinnedB) return pinnedA - pinnedB;
-        if (state.sortMode === "distance") return getDistance(a) - getDistance(b);
-        return a.name.localeCompare(b.name, "zh-Hant");
-    });
-}
-
-function renderParkingList() {
-    parkingList.innerHTML = "";
-    getSortedParkingLots().forEach((lot) => {
-        const card = document.createElement("article");
-        card.className = "card";
-        card.tabIndex = 0;
-        card.setAttribute("role", "button");
-        card.setAttribute("aria-label", `查看 ${lot.name} 詳情`);
-        card.innerHTML = `
-            <div class="card-main">
-                <h3 class="card-title">${lot.name}</h3>
-                <div class="meta-row">
-                    <span>${formatDistance(getDistance(lot))}</span>
-                    <span>${lot.available} / ${lot.total} 格</span>
-                </div>
-                <span class="badge">${lot.available > 80 ? "空位充足" : lot.available > 40 ? "尚有空位" : "車位偏少"}</span>
-            </div>
-            <button class="pin-button ${state.pinned.has(lot.id) ? "active" : ""}" type="button" aria-label="${state.pinned.has(lot.id) ? "取消置頂" : "置頂"} ${lot.name}">
-                ${state.pinned.has(lot.id) ? "★" : "☆"}
-            </button>
-        `;
-        card.addEventListener("click", () => openParkingDetail(lot.id));
-        card.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                openParkingDetail(lot.id);
-            }
-        });
-        card.querySelector(".pin-button").addEventListener("click", (event) => {
-            event.stopPropagation();
-            togglePin(lot.id);
-        });
-        parkingList.append(card);
-    });
-}
-
-function togglePin(id) {
-    if (state.pinned.has(id)) {
-        state.pinned.delete(id);
-    } else {
-        state.pinned.add(id);
-    }
-    localStorage.setItem("modulec-pinned", JSON.stringify([...state.pinned]));
-    renderParkingList();
-}
-
-function openParkingDetail(id) {
-    state.previousView = "parking";
-    state.selectedParkingId = id;
-    renderParkingDetail();
-    switchView("parkingDetail");
-    startDetailUpdates();
-}
-
-function renderParkingDetail() {
-    const lot = parkingLots.find((item) => item.id === state.selectedParkingId);
-    if (!lot) return;
-    parkingDetail.innerHTML = `
-        <h2>${lot.name}</h2>
-        <div class="detail-grid">
-            <div class="detail-item">
-                <span>距離</span>
-                <strong>${formatDistance(getDistance(lot))}</strong>
-            </div>
-            <div class="detail-item">
-                <span>可用停車位</span>
-                <strong>${lot.available}</strong>
-            </div>
-            <div class="detail-item">
-                <span>總車位</span>
-                <strong>${lot.total}</strong>
-            </div>
-            <div class="detail-item">
-                <span>更新時間</span>
-                <strong>${new Date().toLocaleTimeString("zh-TW", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}</strong>
-            </div>
-        </div>
-    `;
-}
-
-function startDetailUpdates() {
-    stopDetailUpdates();
-    state.detailTimer = window.setInterval(() => {
-        const lot = parkingLots.find((item) => item.id === state.selectedParkingId);
-        if (!lot) return;
-        const delta = Math.floor(Math.random() * 7) - 3;
-        lot.available = Math.max(0, Math.min(lot.total, lot.available + delta));
-        renderParkingDetail();
-        renderParkingList();
-    }, 10000);
-}
-
-function stopDetailUpdates() {
-    if (state.detailTimer) {
-        clearInterval(state.detailTimer);
-        state.detailTimer = null;
+function readJsonStorage(key, fallback) {
+    try {
+        return JSON.parse(localStorage.getItem(key)) ?? fallback;
+    } catch {
+        return fallback;
     }
 }
 
-function getDistance(lot) {
-    return distanceBetween(state.location.latitude, state.location.longitude, lot.latitude, lot.longitude);
-}
-
-function distanceBetween(lat1, lon1, lat2, lon2) {
-    const earthRadius = 6371000;
-    const toRad = (degree) => degree * Math.PI / 180;
-    const dLat = toRad(lat2 - lat1);
-    const dLon = toRad(lon2 - lon1);
-    const a = Math.sin(dLat / 2) ** 2 +
-        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-        Math.sin(dLon / 2) ** 2;
-    return earthRadius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
-
-function formatDistance(meters) {
-    return meters >= 1000 ? `${(meters / 1000).toFixed(1)} km` : `${Math.round(meters)} m`;
-}
-
-function buildEvents() {
-    return eventSeed.map(([titleText, date, description, color], index) => ({
-        id: `e${index + 1}`,
-        title: titleText,
-        date,
-        description,
-        image: makeEventImage(titleText, date, color)
-    }));
-}
-
-function resetEvents() {
-    state.filteredEvents = buildEvents().filter((event) => {
-        const afterStart = !startDate.value || event.date >= startDate.value;
-        const beforeEnd = !endDate.value || event.date <= endDate.value;
-        return afterStart && beforeEnd;
+/** 呼叫後端 API 並回傳 JSON，失敗時丟出可讀的錯誤訊息 */
+async function requestApi(path, params = {}) {
+    const url = new URL(API_BASE + path, location.href);
+    Object.entries(params).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== "") {
+            url.searchParams.set(key, value);
+        }
     });
-    state.eventPage = 0;
-    eventList.innerHTML = "";
-    eventStatus.textContent = "";
-    loadMoreEvents();
-}
 
-function handleInfiniteScroll() {
-    if (state.view !== "events" || state.loadingEvents) return;
-    const distanceToBottom = main.scrollHeight - main.scrollTop - main.clientHeight;
-    if (distanceToBottom < 220) loadMoreEvents();
-}
+    const response = await fetch(url, { headers: { Accept: "application/json" } });
+    const payload = await response.json().catch(() => ({}));
 
-function loadMoreEvents() {
-    if (state.loadingEvents) return;
-    const start = state.eventPage * state.eventPageSize;
-    const batch = state.filteredEvents.slice(start, start + state.eventPageSize);
-
-    if (batch.length === 0) {
-        eventStatus.textContent = state.filteredEvents.length ? "已載入全部活動" : "查無符合條件的活動";
-        return;
+    if (!response.ok) {
+        throw new Error(payload.error || `HTTP ${response.status}`);
     }
 
-    state.loadingEvents = true;
-    eventStatus.textContent = "載入中";
-    window.setTimeout(() => {
-        batch.forEach((event) => eventList.append(renderEventCard(event)));
-        state.eventPage += 1;
-        state.loadingEvents = false;
-        eventStatus.textContent = state.eventPage * state.eventPageSize >= state.filteredEvents.length ? "已載入全部活動" : "";
-    }, 180);
-}
-
-function renderEventCard(event) {
-    const article = document.createElement("article");
-    article.className = "event-card";
-    article.innerHTML = `
-        <img src="${event.image}" alt="">
-        <div class="event-card-body">
-            <h3>${event.title}</h3>
-            <div class="event-date">${formatDate(event.date)}</div>
-            <p>${event.description}</p>
-        </div>
-    `;
-    return article;
-}
-
-function makeEventImage(titleText, date, color) {
-    const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
-            <rect width="800" height="400" fill="${color}"/>
-            <path d="M0 318 C150 250 220 370 385 292 C552 214 604 326 800 232 L800 400 L0 400 Z" fill="rgba(255,255,255,.18)"/>
-            <circle cx="664" cy="98" r="56" fill="rgba(255,255,255,.18)"/>
-            <text x="48" y="250" fill="#fff" font-family="Microsoft JhengHei, sans-serif" font-size="42" font-weight="700">${escapeSvg(titleText)}</text>
-            <text x="52" y="306" fill="rgba(255,255,255,.82)" font-family="Arial, sans-serif" font-size="28">${date}</text>
-        </svg>
-    `;
-    return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-}
-
-function renderWeather() {
-    weatherTrack.innerHTML = "";
-    weatherData.forEach((day) => {
-        const article = document.createElement("article");
-        article.className = "weather-card";
-        article.tabIndex = 0;
-        article.innerHTML = `
-            <div>
-                <div class="weather-date">${formatDate(day.date)}</div>
-                <h3>${day.condition}</h3>
-                <div class="weather-temp">${day.high}°</div>
-                <p>${day.low}° 低溫 · 降雨 ${day.rain}%</p>
-            </div>
-            ${weatherIcon(day.icon)}
-        `;
-        weatherTrack.append(article);
-    });
-}
-
-function weatherIcon(type) {
-    const common = `class="weather-svg" viewBox="0 0 120 120" aria-hidden="true" focusable="false"`;
-    if (type === "rainy") {
-        return `<svg ${common}>
-            <path d="M35 72h48a18 18 0 0 0 1-36 26 26 0 0 0-48-8 22 22 0 0 0-1 44Z"/>
-            <path d="M42 84l-8 16M62 84l-8 16M82 84l-8 16"/>
-        </svg>`;
-    }
-    if (type === "cloudy") {
-        return `<svg ${common}>
-            <path d="M28 78h58a20 20 0 0 0 2-40 30 30 0 0 0-56-8 24 24 0 0 0-4 48Z"/>
-            <path d="M22 92h72"/>
-        </svg>`;
-    }
-    return `<svg ${common}>
-        <circle cx="60" cy="60" r="22"/>
-        <path d="M60 12v18M60 90v18M12 60h18M90 60h18M26 26l13 13M81 81l13 13M94 26 81 39M39 81 26 94"/>
-    </svg>`;
-}
-
-function setTheme(theme) {
-    state.theme = theme;
-    document.documentElement.dataset.theme = theme;
-    localStorage.setItem("modulec-theme", theme);
-    document.querySelectorAll("input[name='theme']").forEach((input) => {
-        input.checked = input.value === theme;
-    });
+    return payload;
 }
 
 function formatDate(value) {
@@ -434,18 +146,529 @@ function formatDate(value) {
     });
 }
 
-function escapeSvg(text) {
-    return text.replace(/[&<>"']/g, (char) => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        "\"": "&quot;",
-        "'": "&apos;"
-    }[char]));
+function formatDistance(meters) {
+    return meters >= 1000 ? `${(meters / 1000).toFixed(1)} 公里` : `${Math.round(meters)} 公尺`;
 }
 
-function registerServiceWorker() {
-    if ("serviceWorker" in navigator && location.protocol !== "file:") {
-        navigator.serviceWorker.register("sw.js").catch(() => {});
+/** Haversine 公式：計算兩組經緯度之間的地表距離（公尺） */
+function distanceBetween(latitude1, longitude1, latitude2, longitude2) {
+    const earthRadius = 6371000;
+    const toRadian = (degree) => (degree * Math.PI) / 180;
+    const deltaLatitude = toRadian(latitude2 - latitude1);
+    const deltaLongitude = toRadian(longitude2 - longitude1);
+    const a =
+        Math.sin(deltaLatitude / 2) ** 2 +
+        Math.cos(toRadian(latitude1)) * Math.cos(toRadian(latitude2)) * Math.sin(deltaLongitude / 2) ** 2;
+
+    return earthRadius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function distanceToLot(lot) {
+    return distanceBetween(state.location.latitude, state.location.longitude, lot.latitude, lot.longitude);
+}
+
+/* ------------------------------------------------------------------ */
+/* 檢視切換與頁首                                                      */
+/* ------------------------------------------------------------------ */
+
+function switchView(nextView) {
+    if (!views[nextView]) {
+        nextView = "parking";
+    }
+
+    Object.values(views).forEach((view) => view.classList.remove("active"));
+    views[nextView].classList.add("active");
+
+    state.view = nextView;
+    dom.title.textContent = viewTitles[nextView];
+    dom.backButton.hidden = nextView !== "parkingDetail";
+
+    dom.tabButtons.forEach((button) => {
+        const isActive = button.dataset.view === nextView;
+        button.classList.toggle("active", isActive);
+        if (isActive) {
+            button.setAttribute("aria-current", "page");
+        } else {
+            button.removeAttribute("aria-current");
+        }
+    });
+
+    if (nextView !== "parkingDetail") {
+        stopDetailRefresh();
+    }
+
+    dom.main.scrollTop = 0;
+}
+
+function navigate(nextView) {
+    if (nextView !== "parkingDetail") {
+        state.previousView = nextView;
+        location.hash = nextView;
+    }
+    switchView(nextView);
+}
+
+/* ------------------------------------------------------------------ */
+/* 地理位置                                                            */
+/* ------------------------------------------------------------------ */
+
+/** 依序嘗試：網址查詢參數 → 瀏覽器定位 → 預設位置 */
+function resolveLocation() {
+    const params = new URLSearchParams(location.search);
+    const latitude = Number(params.get("latitude"));
+    const longitude = Number(params.get("longitude"));
+
+    if (params.has("latitude") && params.has("longitude") && Number.isFinite(latitude) && Number.isFinite(longitude)) {
+        setLocation(latitude, longitude, "URL 查詢參數");
+        return;
+    }
+
+    requestBrowserLocation();
+}
+
+function requestBrowserLocation() {
+    if (!navigator.geolocation) {
+        renderLocation();
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        (position) => setLocation(position.coords.latitude, position.coords.longitude, "瀏覽器目前位置"),
+        () => renderLocation(),
+        { enableHighAccuracy: true, timeout: 5000, maximumAge: 60000 }
+    );
+}
+
+function setLocation(latitude, longitude, source) {
+    state.location = { latitude, longitude, source };
+    renderLocation();
+    renderParkingList();
+    if (state.view === "parkingDetail") {
+        renderParkingDetail();
     }
 }
+
+function renderLocation() {
+    const { latitude, longitude, source } = state.location;
+    const coordinate = `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
+    dom.locationText.textContent = coordinate;
+    dom.locationText.title = `${source}：${coordinate}`;
+    dom.settingsLocation.textContent = `${source}：緯度 ${latitude.toFixed(6)}、經度 ${longitude.toFixed(6)}`;
+}
+
+/* ------------------------------------------------------------------ */
+/* 停車場                                                              */
+/* ------------------------------------------------------------------ */
+
+async function loadParkingLots() {
+    try {
+        const payload = await requestApi("parking.php");
+        state.parkingLots = payload.data;
+        dom.parkingStatus.textContent = "";
+        renderParkingList();
+    } catch (error) {
+        dom.parkingStatus.textContent = `停車場資料載入失敗：${error.message}`;
+    }
+}
+
+/** 置頂的停車場永遠排在最前面，其餘再依目前排序模式排列 */
+function sortedParkingLots() {
+    return [...state.parkingLots].sort((a, b) => {
+        const pinnedA = state.pinned.has(a.id) ? 0 : 1;
+        const pinnedB = state.pinned.has(b.id) ? 0 : 1;
+        if (pinnedA !== pinnedB) {
+            return pinnedA - pinnedB;
+        }
+        if (state.sortMode === "distance") {
+            return distanceToLot(a) - distanceToLot(b);
+        }
+        return a.name.localeCompare(b.name, "zh-Hant");
+    });
+}
+
+function availabilityLabel(lot) {
+    if (lot.available === 0) {
+        return "已滿";
+    }
+    return lot.available > 80 ? "空位充足" : lot.available > 40 ? "尚有空位" : "車位偏少";
+}
+
+function renderParkingList() {
+    dom.parkingList.textContent = "";
+
+    sortedParkingLots().forEach((lot) => {
+        const isPinned = state.pinned.has(lot.id);
+
+        const item = document.createElement("li");
+        item.className = "list-item";
+
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "card";
+        card.addEventListener("click", () => openParkingDetail(lot.id));
+        card.innerHTML = `
+            <span class="card-main">
+                <span class="card-title">${isPinned ? "<span class=\"pin-mark\" aria-hidden=\"true\">★</span>" : ""}${lot.name}</span>
+                <span class="meta-row">
+                    <span>${formatDistance(distanceToLot(lot))}</span>
+                    <span>可用 ${lot.available} / ${lot.total} 格</span>
+                </span>
+                <span class="badge">${availabilityLabel(lot)}</span>
+            </span>
+        `;
+
+        const pinButton = document.createElement("button");
+        pinButton.type = "button";
+        pinButton.className = `pin-button${isPinned ? " active" : ""}`;
+        pinButton.textContent = isPinned ? "★" : "☆";
+        pinButton.setAttribute("aria-pressed", String(isPinned));
+        pinButton.setAttribute("aria-label", `${isPinned ? "取消置頂" : "置頂"} ${lot.name}`);
+        pinButton.addEventListener("click", () => togglePin(lot.id));
+
+        item.append(card, pinButton);
+        dom.parkingList.append(item);
+    });
+}
+
+function togglePin(id) {
+    if (state.pinned.has(id)) {
+        state.pinned.delete(id);
+    } else {
+        state.pinned.add(id);
+    }
+    localStorage.setItem(STORAGE_KEYS.pinned, JSON.stringify([...state.pinned]));
+    renderParkingList();
+}
+
+function openParkingDetail(id) {
+    state.selectedParkingId = id;
+    renderParkingDetail();
+    switchView("parkingDetail");
+    startDetailRefresh();
+    refreshParkingDetail();
+}
+
+function renderParkingDetail() {
+    const lot = state.parkingLots.find((item) => item.id === state.selectedParkingId);
+    if (!lot) {
+        return;
+    }
+
+    dom.parkingDetail.innerHTML = `
+        <h3>${lot.name}</h3>
+        <p class="detail-address">${lot.address}</p>
+        <dl class="detail-grid">
+            <div class="detail-item">
+                <dt>距離</dt>
+                <dd>${formatDistance(distanceToLot(lot))}</dd>
+            </div>
+            <div class="detail-item">
+                <dt>可用停車位</dt>
+                <dd>${lot.available}</dd>
+            </div>
+            <div class="detail-item">
+                <dt>總車位</dt>
+                <dd>${lot.total}</dd>
+            </div>
+            <div class="detail-item">
+                <dt>資料更新時間</dt>
+                <dd>${new Date().toLocaleTimeString("zh-TW", { hour12: false })}</dd>
+            </div>
+        </dl>
+        <p class="setting-hint">此頁每 ${DETAIL_REFRESH_MS / 1000} 秒自動向後端重新取得最新空位。</p>
+    `;
+}
+
+/** 詳情頁每 10 秒向後端重新取得該停車場的即時資料 */
+function startDetailRefresh() {
+    stopDetailRefresh();
+    state.detailTimer = window.setInterval(refreshParkingDetail, DETAIL_REFRESH_MS);
+}
+
+function stopDetailRefresh() {
+    if (state.detailTimer) {
+        window.clearInterval(state.detailTimer);
+        state.detailTimer = null;
+    }
+}
+
+async function refreshParkingDetail() {
+    if (state.selectedParkingId === null) {
+        return;
+    }
+
+    try {
+        const payload = await requestApi("parking.php", { id: state.selectedParkingId });
+        const index = state.parkingLots.findIndex((item) => item.id === payload.data.id);
+        if (index >= 0) {
+            state.parkingLots[index] = payload.data;
+        }
+        if (state.view === "parkingDetail") {
+            renderParkingDetail();
+        }
+        renderParkingList();
+    } catch {
+        /* 忽略單次輪詢失敗，下一次會再嘗試 */
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* 活動（日期篩選 + 無限捲動）                                          */
+/* ------------------------------------------------------------------ */
+
+function resetEvents() {
+    state.events.offset = 0;
+    state.events.total = 0;
+    state.events.hasMore = true;
+    state.events.loading = false;
+    state.events.loadedIds.clear();
+    dom.eventList.textContent = "";
+    dom.eventStatus.textContent = "";
+    loadMoreEvents();
+}
+
+async function loadMoreEvents() {
+    if (state.events.loading || !state.events.hasMore) {
+        return;
+    }
+
+    state.events.loading = true;
+    dom.eventStatus.textContent = "載入中…";
+
+    try {
+        const payload = await requestApi("events.php", {
+            start: dom.startDate.value,
+            end: dom.endDate.value,
+            offset: state.events.offset,
+            limit: EVENT_PAGE_SIZE
+        });
+
+        payload.data.forEach((event) => {
+            // 以 id 去重，確保無限捲動不會出現重複記錄
+            if (state.events.loadedIds.has(event.id)) {
+                return;
+            }
+            state.events.loadedIds.add(event.id);
+            dom.eventList.append(renderEventCard(event));
+        });
+
+        state.events.offset += payload.data.length;
+        state.events.total = payload.total;
+        state.events.hasMore = payload.has_more;
+
+        if (payload.total === 0) {
+            dom.eventStatus.textContent = "查無符合條件的活動";
+        } else if (!state.events.hasMore) {
+            dom.eventStatus.textContent = `已載入全部 ${payload.total} 筆活動`;
+        } else {
+            dom.eventStatus.textContent = `已載入 ${state.events.offset} / ${payload.total} 筆`;
+        }
+    } catch (error) {
+        dom.eventStatus.textContent = `活動資料載入失敗：${error.message}`;
+        state.events.hasMore = false;
+    } finally {
+        state.events.loading = false;
+        // 若清單仍未填滿可視範圍，立刻補上下一頁，避免無法觸發捲動
+        if (state.events.hasMore && dom.main.scrollHeight <= dom.main.clientHeight + 40 && state.view === "events") {
+            loadMoreEvents();
+        }
+    }
+}
+
+function renderEventCard(event) {
+    const item = document.createElement("li");
+    item.className = "event-card";
+
+    const image = document.createElement("img");
+    image.src = event.image_url || eventPlaceholder(event);
+    image.alt = "";
+    image.loading = "lazy";
+    image.width = 800;
+    image.height = 400;
+
+    const body = document.createElement("div");
+    body.className = "event-card-body";
+
+    const title = document.createElement("h3");
+    title.textContent = event.title;
+
+    const date = document.createElement("p");
+    date.className = "event-date";
+    date.textContent = event.start_date === event.end_date
+        ? formatDate(event.start_date)
+        : `${formatDate(event.start_date)} － ${formatDate(event.end_date)}`;
+
+    const description = document.createElement("p");
+    description.className = "event-description";
+    description.textContent = event.description;
+
+    body.append(title, date, description);
+    item.append(image, body);
+
+    return item;
+}
+
+/** 活動若沒有指定圖片，用主題色即時產生一張 SVG 佔位圖 */
+function eventPlaceholder(event) {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+        <rect width="800" height="400" fill="${event.image_color}"/>
+        <path d="M0 318 C150 250 220 370 385 292 C552 214 604 326 800 232 L800 400 L0 400 Z" fill="rgba(255,255,255,.18)"/>
+        <circle cx="664" cy="98" r="56" fill="rgba(255,255,255,.18)"/>
+    </svg>`;
+
+    return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+}
+
+/** 用 IntersectionObserver 監看清單底部的哨兵元素，捲動到底前先載入下一頁 */
+function observeEventSentinel() {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries.some((entry) => entry.isIntersecting) && state.view === "events") {
+                loadMoreEvents();
+            }
+        },
+        { root: dom.main, rootMargin: "240px 0px" }
+    );
+
+    observer.observe(dom.eventSentinel);
+}
+
+/* ------------------------------------------------------------------ */
+/* 天氣                                                                */
+/* ------------------------------------------------------------------ */
+
+async function loadWeather() {
+    try {
+        const payload = await requestApi("weather.php");
+        renderWeather(payload.data);
+        dom.weatherStatus.textContent = "";
+    } catch (error) {
+        dom.weatherStatus.textContent = `天氣資料載入失敗：${error.message}`;
+    }
+}
+
+function renderWeather(days) {
+    dom.weatherTrack.textContent = "";
+
+    days.forEach((day) => {
+        const item = document.createElement("li");
+        item.className = "weather-card";
+        item.innerHTML = `
+            <div class="weather-head">
+                <p class="weather-date">${formatDate(day.date)}</p>
+                <h3>${day.condition}</h3>
+                <p class="weather-temp">${day.high}°</p>
+                <p class="weather-meta">最低 ${day.low}° ・ 降雨機率 ${day.rain_chance}%</p>
+            </div>
+            ${weatherIconMarkup(day.icon, day.condition)}
+        `;
+        dom.weatherTrack.append(item);
+    });
+}
+
+/** 依天氣狀況輸出素材提供的 SVG 圖示（無填色、僅描邊，供 hover 描邊動畫使用） */
+function weatherIconMarkup(icon, condition) {
+    const paths = WEATHER_ICON_PATHS[icon] || WEATHER_ICON_PATHS.sunny;
+    const shapes = paths.map((path) => `<path d="${path}"/>`).join("");
+
+    return `<svg class="weather-svg" viewBox="0 0 96 96" role="img" aria-label="${condition}">
+        <title>${condition}</title>
+        ${shapes}
+    </svg>`;
+}
+
+/* ------------------------------------------------------------------ */
+/* 設定                                                                */
+/* ------------------------------------------------------------------ */
+
+function applyTheme(theme) {
+    state.theme = theme;
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem(STORAGE_KEYS.theme, theme);
+
+    document.querySelectorAll("input[name='theme']").forEach((input) => {
+        input.checked = input.value === theme;
+    });
+
+    // 讓瀏覽器 UI 的主題色與目前配色一致
+    const dark = theme === "dark" || (theme === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+    document.querySelector("meta[name='theme-color']").content = dark ? "#15191d" : "#f7f5ef";
+}
+
+function applySortMode(mode) {
+    state.sortMode = mode;
+    localStorage.setItem(STORAGE_KEYS.sort, mode);
+    dom.sortToggle.checked = mode === "distance";
+    dom.sortToggle.setAttribute("aria-checked", String(mode === "distance"));
+    dom.sortToggle.setAttribute("aria-label", mode === "distance" ? "目前為按距離排序" : "目前為按字母排序");
+    renderParkingList();
+}
+
+/* ------------------------------------------------------------------ */
+/* 事件綁定與啟動                                                      */
+/* ------------------------------------------------------------------ */
+
+function bindEvents() {
+    dom.tabButtons.forEach((button) => {
+        button.addEventListener("click", () => navigate(button.dataset.view));
+    });
+
+    dom.backButton.addEventListener("click", () => navigate(state.previousView || "parking"));
+
+    dom.sortToggle.addEventListener("change", () => {
+        applySortMode(dom.sortToggle.checked ? "distance" : "alphabet");
+    });
+
+    document.querySelectorAll("input[name='theme']").forEach((input) => {
+        input.addEventListener("change", () => applyTheme(input.value));
+    });
+
+    dom.requestLocation.addEventListener("click", requestBrowserLocation);
+
+    dom.startDate.addEventListener("change", resetEvents);
+    dom.endDate.addEventListener("change", resetEvents);
+    dom.resetFilter.addEventListener("click", () => {
+        dom.startDate.value = "";
+        dom.endDate.value = "";
+        resetEvents();
+    });
+
+    // 捲動事件作為 IntersectionObserver 的備援
+    dom.main.addEventListener("scroll", () => {
+        if (state.view !== "events") {
+            return;
+        }
+        const remaining = dom.main.scrollHeight - dom.main.scrollTop - dom.main.clientHeight;
+        if (remaining < 240) {
+            loadMoreEvents();
+        }
+    }, { passive: true });
+
+    window.addEventListener("hashchange", () => {
+        switchView(location.hash.slice(1) || "parking");
+    });
+
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+        if (state.theme === "system") {
+            applyTheme("system");
+        }
+    });
+}
+
+function init() {
+    applyTheme(state.theme);
+    applySortMode(state.sortMode);
+    renderLocation();
+    bindEvents();
+    observeEventSentinel();
+
+    switchView(location.hash.slice(1) || "parking");
+    state.previousView = state.view === "parkingDetail" ? "parking" : state.view;
+
+    resolveLocation();
+    loadParkingLots();
+    resetEvents();
+    loadWeather();
+}
+
+document.addEventListener("DOMContentLoaded", init);

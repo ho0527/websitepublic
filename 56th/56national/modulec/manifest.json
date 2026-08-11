@@ -1,19 +1,29 @@
 {
+    "id": "/56th/56national/modulec/",
     "name": "南港展覽館服務",
     "short_name": "南港服務",
-    "description": "停車場、活動與天氣資訊行動網頁",
-    "start_url": "./index.html",
+    "description": "南港展覽館停車場空位、活動行事曆與一週天氣的行動網頁應用程式。",
+    "lang": "zh-Hant",
+    "dir": "ltr",
+    "start_url": "./",
     "scope": "./",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#f7f5ef",
     "theme_color": "#f7f5ef",
+    "categories": ["travel", "utilities"],
     "icons": [
         {
             "src": "icon.svg",
-            "sizes": "192x192",
+            "sizes": "any",
             "type": "image/svg+xml",
-            "purpose": "any maskable"
+            "purpose": "any"
+        },
+        {
+            "src": "icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "maskable"
         }
     ]
 }

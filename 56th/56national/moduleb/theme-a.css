@@ -1,3 +1,8 @@
+/*
+ * 主題 A：直接顯示相片與字幕，不包含任何特效。
+ * 因此進場只保持不透明度 1，離場層完全不顯示。
+ */
+
 .slideshow.theme-a .slide.active {
   animation: theme-a-still var(--speed) ease both;
 }
@@ -6,10 +11,15 @@
   animation: theme-a-still calc(var(--speed) * 0.7) ease both;
 }
 
+.slideshow.theme-a .slide-outgoing.leaving {
+  display: none;
+}
+
 @keyframes theme-a-still {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 1;
   }

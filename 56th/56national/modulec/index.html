@@ -1,98 +1,139 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <meta name="theme-color" content="#f7f5ef">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        <meta name="apple-mobile-web-app-title" content="南港服務">
-        <title>南港展覽館服務</title>
-        <link rel="manifest" href="manifest.json">
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div class="app-shell">
-            <header class="topbar">
-                <button class="back-button" type="button" aria-label="返回" hidden>
-                    <span aria-hidden="true">‹</span>
-                </button>
-                <h1 id="viewTitle">停車場</h1>
-            </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="南港展覽館停車場空位、活動行事曆與一週天氣的行動網頁應用程式。">
+    <meta name="theme-color" content="#f7f5ef">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="南港服務">
+    <title>南港展覽館服務</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="stylesheet" href="index.css?v=20260811">
+</head>
+<body>
+    <a class="skip-link" href="#appMain">跳到主要內容</a>
 
-            <main id="appMain" class="content" tabindex="-1">
-                <section id="parkingView" class="view active" aria-labelledby="parkingTitle">
-                    <h2 id="parkingTitle" class="sr-only">停車場空位清單</h2>
-                    <div id="parkingList" class="list" aria-live="polite"></div>
-                </section>
+    <div class="app-shell">
+        <!-- 頁首欄：固定於畫面頂端，顯示目前檢視標題並提供返回功能 -->
+        <header class="topbar">
+            <button class="back-button" id="backButton" type="button" aria-label="返回上一層" hidden>
+                <span aria-hidden="true">&#8249;</span>
+            </button>
+            <h1 id="viewTitle">停車場</h1>
+            <p class="location-pill" id="locationText">定位中</p>
+        </header>
 
-                <section id="parkingDetailView" class="view" aria-labelledby="parkingDetailTitle">
-                    <h2 id="parkingDetailTitle" class="sr-only">停車場詳細資訊</h2>
-                    <article id="parkingDetail" class="detail-panel"></article>
-                </section>
+        <!-- 主內容：唯一可捲動的區域 -->
+        <main id="appMain" class="content" tabindex="-1">
+            <section id="parkingView" class="view active" aria-labelledby="parkingTitle">
+                <h2 id="parkingTitle" class="sr-only">停車場空位清單</h2>
+                <p class="status-text" id="parkingStatus" role="status">載入中</p>
+                <ul id="parkingList" class="list"></ul>
+            </section>
 
-                <section id="eventsView" class="view" aria-labelledby="eventsTitle">
-                    <h2 id="eventsTitle" class="sr-only">活動清單</h2>
-                    <form class="filter-bar" id="eventFilter">
-                        <label>
-                            開始日期
-                            <input id="startDate" type="date" autocomplete="off">
+            <section id="parkingDetailView" class="view" aria-labelledby="parkingDetailTitle">
+                <h2 id="parkingDetailTitle" class="sr-only">停車場詳細資訊</h2>
+                <article id="parkingDetail" class="detail-panel" aria-live="polite"></article>
+            </section>
+
+            <section id="eventsView" class="view" aria-labelledby="eventsTitle">
+                <h2 id="eventsTitle" class="sr-only">活動清單</h2>
+                <form class="filter-bar" id="eventFilter">
+                    <label for="startDate">開始日期
+                        <input id="startDate" name="startDate" type="date" autocomplete="off">
+                    </label>
+                    <label for="endDate">結束日期
+                        <input id="endDate" name="endDate" type="date" autocomplete="off">
+                    </label>
+                    <button class="reset-button" id="resetFilter" type="button">清除日期條件</button>
+                </form>
+                <ul id="eventList" class="event-list"></ul>
+                <p id="eventStatus" class="status-text" role="status"></p>
+                <div id="eventSentinel" class="sentinel" aria-hidden="true"></div>
+            </section>
+
+            <section id="weatherView" class="view" aria-labelledby="weatherTitle">
+                <h2 id="weatherTitle" class="sr-only">未來一週天氣</h2>
+                <p class="section-hint">左右滑動可查看未來 7 天，卡片會自動對齊到當日。</p>
+                <ul id="weatherTrack" class="weather-track" tabindex="0" aria-label="未來一週天氣，可左右捲動"></ul>
+                <p class="status-text" id="weatherStatus" role="status"></p>
+            </section>
+
+            <section id="settingsView" class="view" aria-labelledby="settingsTitle">
+                <h2 id="settingsTitle" class="sr-only">設定</h2>
+                <div class="settings-stack">
+                    <fieldset class="setting-group">
+                        <legend>佈景主題</legend>
+                        <label><input type="radio" name="theme" value="light"> 淺色</label>
+                        <label><input type="radio" name="theme" value="dark"> 深色</label>
+                        <label><input type="radio" name="theme" value="system"> 跟隨系統</label>
+                    </fieldset>
+
+                    <fieldset class="setting-group">
+                        <legend>停車場排序方式</legend>
+                        <label class="switch-row" for="sortToggle">
+                            <span>按字母排序</span>
+                            <input id="sortToggle" type="checkbox" role="switch">
+                            <span>按距離排序</span>
                         </label>
-                        <label>
-                            結束日期
-                            <input id="endDate" type="date" autocomplete="off">
-                        </label>
-                    </form>
-                    <div id="eventList" class="event-list" aria-live="polite"></div>
-                    <p id="eventStatus" class="status-text" role="status"></p>
-                </section>
+                        <p class="setting-hint">開啟後依目前位置與各停車場的距離由近到遠排序。</p>
+                    </fieldset>
 
-                <section id="weatherView" class="view" aria-labelledby="weatherTitle">
-                    <h2 id="weatherTitle" class="sr-only">未來一週天氣</h2>
-                    <div id="weatherTrack" class="weather-track" aria-label="未來一週天氣"></div>
-                </section>
+                    <fieldset class="setting-group">
+                        <legend>目前定位</legend>
+                        <p class="setting-hint" id="settingsLocation">定位中</p>
+                        <p class="setting-hint">
+                            可於網址加入 <code>?latitude=25.0561&amp;longitude=121.6178</code> 手動模擬地理位置。
+                        </p>
+                        <button class="reset-button" id="requestLocation" type="button">重新取得目前位置</button>
+                    </fieldset>
 
-                <section id="settingsView" class="view" aria-labelledby="settingsTitle">
-                    <h2 id="settingsTitle" class="sr-only">設定</h2>
-                    <div class="settings-stack">
-                        <fieldset class="setting-group">
-                            <legend>佈景主題</legend>
-                            <label><input type="radio" name="theme" value="light"> 淺色</label>
-                            <label><input type="radio" name="theme" value="dark"> 深色</label>
-                            <label><input type="radio" name="theme" value="system"> 跟隨系統</label>
-                        </fieldset>
-                        <fieldset class="setting-group">
-                            <legend>停車場排序方式</legend>
-                            <label class="switch-row">
-                                <span>按字母排序</span>
-                                <input id="sortToggle" type="checkbox" role="switch" aria-label="切換停車場排序方式">
-                                <span>按距離排序</span>
-                            </label>
-                        </fieldset>
-                    </div>
-                </section>
-            </main>
+                    <fieldset class="setting-group">
+                        <legend>後台管理</legend>
+                        <p class="setting-hint">停車場、活動與天氣資料皆由後端資料庫提供。</p>
+                        <a class="reset-button" href="admin/">開啟後台管理</a>
+                    </fieldset>
+                </div>
+            </section>
+        </main>
 
-            <nav class="tabbar" aria-label="主要導覽">
-                <button class="tab-button active" type="button" data-view="parking">
-                    <span aria-hidden="true">P</span>
-                    停車場
-                </button>
-                <button class="tab-button" type="button" data-view="events">
-                    <span aria-hidden="true">E</span>
-                    活動
-                </button>
-                <button class="tab-button" type="button" data-view="weather">
-                    <span aria-hidden="true">W</span>
-                    天氣
-                </button>
-                <button class="tab-button" type="button" data-view="settings">
-                    <span aria-hidden="true">S</span>
-                    設定
-                </button>
-            </nav>
-        </div>
-        <script src="index.js"></script>
-    </body>
+        <!-- 導覽列：固定於畫面底部 -->
+        <nav class="tabbar" aria-label="主要導覽">
+            <button class="tab-button active" type="button" data-view="parking" aria-current="page">
+                <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                    <path d="M9.5 17V7.5h3.2a3 3 0 0 1 0 6H9.5"></path>
+                </svg>
+                停車場
+            </button>
+            <button class="tab-button" type="button" data-view="events">
+                <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+                    <path d="M3 10h18M8 3v4M16 3v4"></path>
+                </svg>
+                活動
+            </button>
+            <button class="tab-button" type="button" data-view="weather">
+                <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M7 18h10a4 4 0 0 0 .4-8 6 6 0 0 0-11.2-1.6A4.2 4.2 0 0 0 7 18Z"></path>
+                </svg>
+                天氣
+            </button>
+            <button class="tab-button" type="button" data-view="settings">
+                <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="3.2"></circle>
+                    <path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2M6 6l1.5 1.5M16.5 16.5 18 18M18 6l-1.5 1.5M7.5 16.5 6 18"></path>
+                </svg>
+                設定
+            </button>
+        </nav>
+    </div>
+
+    <script src="index.js?v=20260811"></script>
+</body>
 </html>

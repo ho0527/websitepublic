@@ -1,18 +1,25 @@
+/*
+ * 主題 D（自行設計）：相片以「開窗」方式由中央向外展開進場，
+ * 離場時再向內收攏並輕微旋轉淡出，字幕同步上下浮動。
+ */
+
 .slideshow.theme-d {
   background:
     linear-gradient(135deg, rgba(31, 111, 109, 0.28), rgba(238, 178, 95, 0.18)),
     #0a0f12;
 }
 
+/* ---------- 進場 ---------- */
+
 .slideshow.theme-d .slide.active img {
-  animation: theme-d-photo var(--speed) ease both;
+  animation: theme-d-photo-in var(--speed) ease both;
   filter: saturate(1.08) contrast(1.02);
 }
 
 .slideshow.theme-d .slide.active figcaption {
   background: rgba(255, 255, 255, 0.9);
   color: #14201f;
-  animation: theme-d-caption calc(var(--speed) * 0.72) ease both;
+  animation: theme-d-caption-in calc(var(--speed) * 0.72) ease both;
 }
 
 body.dark .slideshow.theme-d .slide.active figcaption {
@@ -20,12 +27,31 @@ body.dark .slideshow.theme-d .slide.active figcaption {
   color: #f7f4ed;
 }
 
-@keyframes theme-d-photo {
+/* ---------- 離場 ---------- */
+
+.slideshow.theme-d .slide-outgoing.leaving img {
+  animation: theme-d-photo-out var(--speed) ease both;
+  filter: saturate(1.08) contrast(1.02);
+}
+
+.slideshow.theme-d .slide-outgoing.leaving figcaption {
+  background: rgba(255, 255, 255, 0.9);
+  color: #14201f;
+  animation: theme-d-caption-out calc(var(--speed) * 0.72) ease both;
+}
+
+body.dark .slideshow.theme-d .slide-outgoing.leaving figcaption {
+  background: rgba(20, 32, 31, 0.88);
+  color: #f7f4ed;
+}
+
+@keyframes theme-d-photo-in {
   0% {
     opacity: 0;
     clip-path: inset(14% 14% 14% 14%);
     transform: scale(1.08) rotate(-1deg);
   }
+
   100% {
     opacity: 1;
     clip-path: inset(0 0 0 0);
@@ -33,13 +59,40 @@ body.dark .slideshow.theme-d .slide.active figcaption {
   }
 }
 
-@keyframes theme-d-caption {
+@keyframes theme-d-photo-out {
+  0% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: scale(1) rotate(0);
+  }
+
+  100% {
+    opacity: 0;
+    clip-path: inset(14% 14% 14% 14%);
+    transform: scale(0.92) rotate(1deg);
+  }
+}
+
+@keyframes theme-d-caption-in {
   0% {
     opacity: 0;
     transform: translate(-50%, 20px) scale(0.96);
   }
+
   100% {
     opacity: 1;
     transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@keyframes theme-d-caption-out {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -20px) scale(0.96);
   }
 }

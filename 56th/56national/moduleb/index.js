@@ -19,12 +19,18 @@ let currentIndex = 0;
 let settings = loadSettings();
 let timer = null;
 let commandIndex = 0;
+// 等待播放離場動畫的相片（切換相片時由 goToIndex 設定，renderSlide 取用）
+let pendingExitPhoto = null;
+let exitTimer = null;
 
 const $ = (selector) => document.querySelector(selector);
 const slideshow = $("#slideshow");
 const slide = $("#slide");
 const slideImage = $("#slideImage");
 const slideCaption = $("#slideCaption");
+const slideOutgoing = $("#slideOutgoing");
+const slideOutgoingImage = $("#slideOutgoingImage");
+const slideOutgoingCaption = $("#slideOutgoingCaption");
 const emptyState = $("#emptyState");
 const counter = $("#counter");
 const photoList = $("#photoList");
@@ -36,6 +42,15 @@ const commandInput = $("#commandInput");
 const commandList = $("#commandList");
 const loadStatus = $("#loadStatus");
 const playIcon = $("#playIcon");
+const panelBackdrop = $("#panelBackdrop");
+
+/**
+ * 開啟或關閉設定視窗（含背景遮罩）。
+ */
+function toggleSettings(open) {
+  settingsPanel.classList.toggle("open", open);
+  panelBackdrop.hidden = !open;
+}
 
 const commands = [
   ["Switch to manual mode", () => setMode("manual")],
@@ -198,24 +213,50 @@ function clampNumbers() {
   settings.speed = Math.min(5, Math.max(0.2, Number(settings.speed) || defaultSettings.speed));
 }
 
+/**
+ * 切換到指定索引，並記錄上一張相片以便播放離場動畫。
+ */
+function goToIndex(nextIndex) {
+  if (photos.length === 0 || nextIndex === currentIndex) return;
+  pendingExitPhoto = photos[currentIndex] || null;
+  currentIndex = nextIndex;
+  renderAll(false);
+  schedule();
+}
+
 function nextPhoto() {
   if (photos.length === 0) return;
   if (settings.mode === "random" && photos.length > 1) {
     let next = currentIndex;
     while (next === currentIndex) next = Math.floor(Math.random() * photos.length);
-    currentIndex = next;
-  } else {
-    currentIndex = (currentIndex + 1) % photos.length;
+    goToIndex(next);
+    return;
   }
-  renderAll(false);
-  schedule();
+  goToIndex((currentIndex + 1) % photos.length);
 }
 
 function previousPhoto() {
   if (photos.length === 0) return;
-  currentIndex = (currentIndex - 1 + photos.length) % photos.length;
-  renderAll(false);
-  schedule();
+  goToIndex((currentIndex - 1 + photos.length) % photos.length);
+}
+
+/**
+ * 將上一張相片放到離場層並播放離場動畫，動畫結束後隱藏該層。
+ */
+function playExitAnimation(photo) {
+  if (!photo) return;
+  slideOutgoingImage.src = photo.src;
+  slideOutgoingImage.alt = "";
+  slideOutgoingCaption.textContent = photo.caption;
+  slideOutgoing.classList.remove("leaving");
+  void slideOutgoing.offsetWidth;
+  slideOutgoing.classList.add("leaving");
+
+  clearTimeout(exitTimer);
+  exitTimer = setTimeout(() => {
+    slideOutgoing.classList.remove("leaving");
+    slideOutgoingImage.removeAttribute("src");
+  }, settings.speed * 1000 + 400);
 }
 
 function schedule() {
@@ -239,6 +280,12 @@ function renderSlide() {
     slideCaption.textContent = "";
     counter.textContent = "0 / 0";
     return;
+  }
+
+  // 先播放上一張相片的離場動畫，再顯示新的相片
+  if (pendingExitPhoto) {
+    playExitAnimation(pendingExitPhoto);
+    pendingExitPhoto = null;
   }
 
   const photo = photos[currentIndex];
@@ -330,9 +377,7 @@ function renderPhotoList() {
 
     item.addEventListener("click", (event) => {
       if (event.target === input || event.target === remove) return;
-      currentIndex = index;
-      renderAll(false);
-      schedule();
+      goToIndex(index);
     });
     item.addEventListener("dragstart", (event) => {
       item.classList.add("dragging");
@@ -435,9 +480,17 @@ function runCommand(index = commandIndex) {
 function bindEvents() {
   $("#uploadButton").addEventListener("click", () => fileInput.click());
   $("#sampleButton").addEventListener("click", loadSamples);
-  $("#settingsButton").addEventListener("click", () => settingsPanel.classList.add("open"));
-  $("#closeSettingsButton").addEventListener("click", () => settingsPanel.classList.remove("open"));
-  $("#fullscreenButton").addEventListener("click", () => slideshow.requestFullscreen?.());
+  $("#settingsButton").addEventListener("click", () => toggleSettings(!settingsPanel.classList.contains("open")));
+  $("#closeSettingsButton").addEventListener("click", () => toggleSettings(false));
+  panelBackdrop.addEventListener("click", () => toggleSettings(false));
+  // 全螢幕瀏覽：對根元素要求全螢幕，瀏覽器工具列與系統工作列都會隱藏
+  $("#fullscreenButton").addEventListener("click", () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.();
+    } else {
+      document.documentElement.requestFullscreen?.();
+    }
+  });
   $("#previousButton").addEventListener("click", previousPhoto);
   $("#nextButton").addEventListener("click", nextPhoto);
   $("#playButton").addEventListener("click", () => setPlaying(!settings.playing));
@@ -504,6 +557,10 @@ function bindEvents() {
     if ((event.ctrlKey && event.key.toLowerCase() === "k") || (!typing && event.key === "/")) {
       event.preventDefault();
       openPalette();
+      return;
+    }
+    if (event.key === "Escape" && settingsPanel.classList.contains("open")) {
+      toggleSettings(false);
       return;
     }
     if (typing) return;

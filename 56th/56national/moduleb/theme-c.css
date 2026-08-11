@@ -1,32 +1,75 @@
+/*
+ * 主題 C：相片由畫面下方移入中央，再由中央向上移出畫面。
+ * 字幕逐字向上顯示，每個單字之間延遲 300 毫秒（延遲由 JavaScript 逐字設定）。
+ */
+
+/* ---------- 進場（由下方移入中央） ---------- */
+
 .slideshow.theme-c .slide.active img {
-  animation: theme-c-photo var(--speed) cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: theme-c-photo-in var(--speed) cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-.slideshow.theme-c .caption-word {
+.slideshow.theme-c .slide.active .caption-word {
   display: inline-block;
   margin: 0 3px;
   opacity: 0;
-  animation: theme-c-word calc(var(--speed) * 0.7) ease both;
+  animation: theme-c-word-in calc(var(--speed) * 0.7) ease both;
 }
 
-@keyframes theme-c-photo {
+/* ---------- 離場（由中央向上移出） ---------- */
+
+.slideshow.theme-c .slide-outgoing.leaving img {
+  animation: theme-c-photo-out var(--speed) cubic-bezier(0.6, 0, 0.8, 0.2) both;
+}
+
+.slideshow.theme-c .slide-outgoing.leaving figcaption {
+  animation: theme-c-caption-out calc(var(--speed) * 0.7) ease both;
+}
+
+@keyframes theme-c-photo-in {
   0% {
     opacity: 0;
     transform: translateY(110%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes theme-c-word {
+@keyframes theme-c-photo-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-110%);
+  }
+}
+
+@keyframes theme-c-word-in {
   0% {
     opacity: 0;
     transform: translateY(24px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes theme-c-caption-out {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -40px);
   }
 }

@@ -95,9 +95,7 @@ button {
 }
 
 .workspace {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 20px;
+  display: block;
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -142,6 +140,11 @@ button {
   border-radius: var(--radius);
 }
 
+/* hidden 屬性必須勝過上方的 display: grid，否則載入相片後提示文字仍會殘留 */
+.empty-state[hidden] {
+  display: none;
+}
+
 .empty-state strong {
   font-size: clamp(28px, 5vw, 60px);
 }
@@ -158,6 +161,17 @@ button {
 }
 
 .slide.active {
+  display: block;
+  z-index: 2;
+}
+
+/* 離場層：僅在切換相片的當下顯示，播完離場動畫即隱藏 */
+.slide.slide-outgoing {
+  display: none;
+  z-index: 1;
+}
+
+.slide.slide-outgoing.leaving {
   display: block;
 }
 
@@ -262,11 +276,29 @@ body.processing .slideshow::after {
   transform: translateX(-50%);
 }
 
+/* 設定面板：一律以抽屜視窗呈現，點擊工具列的設定按鈕才會開啟 */
 .side-panel {
-  height: calc(100vh - 118px);
-  min-height: 640px;
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: 900;
+  width: min(420px, 92vw);
+  height: 100vh;
   padding: 18px;
   overflow: auto;
+  border-radius: 0;
+  transform: translateX(105%);
+  transition: transform 0.22s ease;
+}
+
+.side-panel.open {
+  transform: translateX(0);
+}
+
+.panel-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 880;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .panel-heading {
@@ -279,7 +311,8 @@ body.processing .slideshow::after {
 }
 
 .panel-close {
-  display: none;
+  display: inline-grid;
+  place-items: center;
 }
 
 .control-group {
@@ -484,33 +517,6 @@ input[type="range"] {
 :fullscreen .slideshow {
   height: 100vh;
   border-radius: 0;
-}
-
-@media (max-width: 980px) {
-  .workspace {
-    grid-template-columns: 1fr;
-  }
-
-  .side-panel {
-    position: fixed;
-    inset: 0 0 0 auto;
-    z-index: 900;
-    width: min(420px, 92vw);
-    height: 100vh;
-    min-height: 0;
-    border-radius: 0;
-    transform: translateX(105%);
-    transition: transform 0.2s ease;
-  }
-
-  .side-panel.open {
-    transform: translateX(0);
-  }
-
-  .panel-close {
-    display: inline-grid;
-    place-items: center;
-  }
 }
 
 @media (max-width: 640px) {

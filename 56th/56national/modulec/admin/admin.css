@@ -1,0 +1,205 @@
+/* 模組 C - 後台管理樣式 */
+
+:root {
+    --bg: #f4f1ea;
+    --panel: #ffffff;
+    --line: #d8d1c2;
+    --text: #18222c;
+    --muted: #64717d;
+    --accent: #1c3e60;
+    --danger: #a33a26;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+.admin-header {
+    padding: 18px 24px;
+    background: var(--accent);
+    color: #fff;
+}
+
+.admin-header h1 {
+    margin: 0 0 12px;
+    font-size: 1.25rem;
+}
+
+.admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.admin-nav a {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .16);
+    color: #fff;
+    text-decoration: none;
+}
+
+.admin-nav a.active {
+    background: #fff;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.admin-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+    display: grid;
+    gap: 20px;
+}
+
+.flash {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #e2eee6;
+    border: 1px solid #9dc4ac;
+}
+
+.flash.error {
+    background: #f7e2de;
+    border-color: #d09a8c;
+}
+
+.panel {
+    padding: 18px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.panel h2 {
+    margin: 0 0 14px;
+    font-size: 1.05rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.form-grid label {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+.form-grid input,
+.form-grid select {
+    min-height: 40px;
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text);
+}
+
+.form-actions,
+.inline-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    grid-column: 1 / -1;
+}
+
+button,
+.button-link {
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    line-height: 38px;
+    cursor: pointer;
+}
+
+.button-link {
+    background: #fff;
+    color: var(--accent);
+}
+
+button.danger {
+    background: var(--danger);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+}
+
+.data-table th {
+    background: #ece7dc;
+    font-size: .88rem;
+}
+
+.data-table small {
+    color: var(--muted);
+}
+
+.row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.row-actions form {
+    margin: 0;
+}
+
+.row-actions a,
+.row-actions button {
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: .82rem;
+    line-height: 30px;
+}
+
+.row-actions a {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.swatch {
+    display: inline-block;
+    width: 28px;
+    height: 20px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
