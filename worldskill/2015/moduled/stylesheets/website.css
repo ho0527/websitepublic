@@ -1,0 +1,1445 @@
+@charset "utf-8";
+/* =============================================================
+   São Paulo Movie Store - Layout B
+   行動優先（Mobile First）的樣式表，僅使用純 CSS，無任何第三方程式碼
+   斷點：480px / 768px / 1024px / 1280px
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   1. 設計變數（色彩、間距、圓角、陰影、動畫曲線）
+   ------------------------------------------------------------- */
+:root {
+  /* 電影院意象：深夜黑幕 + 銀幕金光 + 售票紅 */
+  --color-bg: #0e0f16;
+  --color-bg-soft: #171926;
+  --color-surface: #1d2031;
+  --color-surface-2: #262a3d;
+  --color-line: rgba(255, 255, 255, .10);
+  --color-text: #eceef7;
+  --color-muted: #a3a8c0;
+  --color-gold: #ffb23f;
+  --color-gold-deep: #f08a1c;
+  --color-red: #e2464a;
+  --color-green: #35c48b;
+
+  --space-xs: .4rem;
+  --space-sm: .8rem;
+  --space-md: 1.2rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, .35);
+  --shadow-md: 0 10px 26px rgba(0, 0, 0, .45);
+  --shadow-glow: 0 8px 24px rgba(255, 178, 63, .35);
+
+  /* 統一的動畫曲線，讓所有互動有一致的節奏 */
+  --ease-out: cubic-bezier(.22, .84, .36, 1);
+  --ease-back: cubic-bezier(.34, 1.56, .64, 1);
+
+  --page-max: 1240px;
+}
+
+/* -------------------------------------------------------------
+   2. 基礎重置與版面基礎
+   ------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  /* 不連外：僅使用系統內建字體堆疊 */
+  font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans TC",
+    "Microsoft JhengHei", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: var(--color-bg);
+  /* 背景加上柔和光暈，模擬放映機的光線 */
+  background-image:
+    radial-gradient(60rem 30rem at 50% -10rem, rgba(255, 178, 63, .16), transparent 70%),
+    radial-gradient(40rem 26rem at 110% 30%, rgba(226, 70, 74, .10), transparent 70%);
+  background-attachment: fixed;
+  /* 防止任何元素造成非預期的水平捲動 */
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color .2s var(--ease-out);
+}
+
+a:hover,
+a:focus {
+  color: #fff;
+}
+
+/* 鍵盤操作時的可見焦點框（無障礙） */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-sm);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+h1 {
+  font-size: 1.7rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 var(--space-sm);
+}
+
+/* -------------------------------------------------------------
+   3. 頁首與主導覽
+   ------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(14, 15, 22, .96);
+  border-bottom: 1px solid var(--color-line);
+}
+
+header .logo {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+header .logo img {
+  width: auto;
+  height: 40px;
+  /* 原始 logo 為黑字透明底，反轉為白字才能在深色背景上辨識 */
+  filter: invert(1);
+  transition: transform .3s var(--ease-back), filter .3s var(--ease-out);
+}
+
+header .logo a:hover img {
+  transform: scale(1.06);
+  filter: invert(1) drop-shadow(0 4px 12px rgba(255, 178, 63, .7));
+}
+
+header .main-nav {
+  flex: 1 1 100%;
+}
+
+/* 小螢幕：四個項目等寬平均分配，一列放得下且不需橫向捲動 */
+header .main-nav ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header .main-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: .5rem .3rem;
+  /* 手指可輕鬆點擊的最小高度 */
+  min-height: 44px;
+  line-height: 1.3;
+  text-align: center;
+  font-weight: 600;
+  font-size: .8rem;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  transition: background .25s var(--ease-out), color .25s var(--ease-out),
+    transform .25s var(--ease-back);
+}
+
+header .main-nav a:hover,
+header .main-nav a:focus {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
+  color: #17181f;
+  transform: translateY(-2px);
+}
+
+header .main-nav a:active {
+  transform: translateY(0) scale(.97);
+}
+
+/* 目前所在頁面在導覽列上高亮 */
+body.index header .main-nav li:nth-child(1) a,
+body.all-movies header .main-nav li:nth-child(2) a,
+body.about header .main-nav li:nth-child(3) a,
+body.contact header .main-nav li:nth-child(4) a {
+  color: var(--color-gold);
+  box-shadow: inset 0 -3px 0 var(--color-gold);
+}
+
+/* -------------------------------------------------------------
+   4. 主要內容容器
+   ------------------------------------------------------------- */
+.yield {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-md) var(--space-xl);
+}
+
+main section {
+  margin-bottom: var(--space-xl);
+}
+
+/* 區塊標題底部的金色短線 */
+main section > h1,
+main section > h2,
+aside section > h2,
+aside .related-movies > h2 {
+  position: relative;
+  padding-bottom: .5rem;
+  margin-bottom: var(--space-md);
+}
+
+main section > h1::after,
+main section > h2::after,
+aside section > h2::after,
+aside .related-movies > h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-red));
+}
+
+/* -------------------------------------------------------------
+   5. 電影資訊卡（index / all-movies / movie）
+   ------------------------------------------------------------- */
+.movie-info- {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  background: linear-gradient(160deg, var(--color-surface), var(--color-bg-soft));
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out),
+    border-color .3s var(--ease-out);
+}
+
+.movie-info-:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 178, 63, .45);
+  box-shadow: var(--shadow-md);
+}
+
+/* 海報：手機時置中並限制寬度，避免過大佔滿畫面 */
+.movie-info- > a {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.movie-info- > a img {
+  width: 150px;
+  transition: transform .4s var(--ease-out);
+}
+
+.movie-info- > a:hover img {
+  transform: scale(1.05);
+}
+
+.movie-info- .info {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.movie-info- .info h2 {
+  font-size: 1.35rem;
+  color: #fff;
+}
+
+.movie-info- .info > p {
+  color: var(--color-muted);
+  font-size: .95rem;
+}
+
+/* 價格：原價刪除線 + 特價金色 */
+.price {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.price del {
+  margin-right: .4rem;
+  font-size: .95rem;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+/* 影片詮釋資料清單：兩欄式的標籤／內容排版 */
+.movie-info- .info ul {
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-line);
+}
+
+.movie-info- .info ul li {
+  padding: .35rem 0;
+  font-size: .9rem;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.movie-info- .info ul li b {
+  display: inline-block;
+  min-width: 5.5rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------
+   6. 按鈕（共用外觀 + hover / active 動態）
+   ------------------------------------------------------------- */
+.button,
+.rent-now,
+.more-info-button,
+.browse-all-movies-button,
+input[type="submit"] {
+  display: inline-block;
+  padding: .75rem 1.6rem;
+  min-height: 46px;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: #17181f;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s var(--ease-back), box-shadow .25s var(--ease-out),
+    filter .25s var(--ease-out);
+}
+
+/* 滑過時的光暈掃過效果 */
+.button::after,
+.rent-now::after,
+.more-info-button::after,
+.browse-all-movies-button::after,
+input[type="submit"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
+  transform: skewX(-20deg);
+  transition: left .55s var(--ease-out);
+}
+
+.button:hover,
+.rent-now:hover,
+.more-info-button:hover,
+.browse-all-movies-button:hover,
+input[type="submit"]:hover,
+.button:focus,
+.rent-now:focus,
+.more-info-button:focus,
+.browse-all-movies-button:focus,
+input[type="submit"]:focus {
+  color: #17181f;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: var(--shadow-glow);
+  filter: brightness(1.06);
+}
+
+.button:hover::after,
+.rent-now:hover::after,
+.more-info-button:hover::after,
+.browse-all-movies-button:hover::after,
+input[type="submit"]:hover::after {
+  left: 130%;
+}
+
+/* 按下（active）：明顯下沉回饋 */
+.button:active,
+.rent-now:active,
+.more-info-button:active,
+.browse-all-movies-button:active,
+input[type="submit"]:active {
+  transform: translateY(1px) scale(.95);
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, .4);
+  filter: brightness(.94);
+  transition-duration: .08s;
+}
+
+/* 次要按鈕：更多資訊 */
+.more-info-button {
+  padding: .55rem 1.2rem;
+  min-height: 40px;
+  color: var(--color-gold);
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--color-gold);
+}
+
+.more-info-button:hover,
+.more-info-button:focus {
+  color: #17181f;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
+}
+
+/* -------------------------------------------------------------
+   7. 首頁「Featured」區塊與租片按鈕列
+   ------------------------------------------------------------- */
+.featured .rental {
+  margin-top: calc(var(--space-md) * -.5);
+  text-align: center;
+}
+
+.featured .rent-now,
+.movie .rental .rent-now {
+  width: 100%;
+  max-width: 24rem;
+  font-size: 1.1rem;
+  letter-spacing: .04em;
+}
+
+/* -------------------------------------------------------------
+   8. 電影海報清單（即將上映 / 相關電影 / 全部電影）
+   ------------------------------------------------------------- */
+.movies-list,
+.related-movies ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.movie-cover-link {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+}
+
+.movie-cover-link:hover,
+.movie-cover-link:focus {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow);
+}
+
+.movie-cover {
+  position: relative;
+  margin: 0;
+}
+
+.movie-cover img {
+  width: 100%;
+  aspect-ratio: 214 / 317;
+  object-fit: cover;
+  transition: transform .45s var(--ease-out);
+}
+
+.movie-cover-link:hover .movie-cover img {
+  transform: scale(1.07);
+}
+
+.movie-cover figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.6rem .7rem .6rem;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .88));
+}
+
+/* all-movies.html：所有電影卡片皆在單一 li 內，改以格線排列 */
+body.all-movies .movies-list {
+  display: block;
+}
+
+body.all-movies .movies-list > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-md);
+}
+
+body.all-movies .movie-info- {
+  margin-bottom: 0;
+  height: 100%;
+}
+
+/* -------------------------------------------------------------
+   9. 側欄：最新留言 / 在家看片
+   ------------------------------------------------------------- */
+aside section,
+aside .related-movies {
+  margin-bottom: var(--space-xl);
+}
+
+.recent-comments .comment {
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
+  font-size: .92rem;
+  color: var(--color-muted);
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  transition: transform .25s var(--ease-out), border-color .25s var(--ease-out);
+}
+
+.recent-comments .comment:hover {
+  transform: translateX(4px);
+  border-left-color: var(--color-red);
+}
+
+.recent-comments .name {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.recent-comments .movie-name a {
+  font-weight: 600;
+}
+
+.recent-comments .content p {
+  margin: .3rem 0;
+  color: var(--color-text);
+}
+
+.recent-comments time {
+  font-size: .8rem;
+  color: var(--color-muted);
+  opacity: .8;
+}
+
+.watch-at-home {
+  padding: var(--space-md);
+  background: linear-gradient(160deg, rgba(255, 178, 63, .16), rgba(226, 70, 74, .12));
+  border: 1px solid rgba(255, 178, 63, .3);
+  border-radius: var(--radius-md);
+}
+
+.watch-at-home h2::after {
+  display: none;
+}
+
+.watch-at-home p {
+  font-size: .95rem;
+  color: var(--color-text);
+}
+
+.browse-all-movies-button {
+  width: 100%;
+}
+
+/* -------------------------------------------------------------
+   10. 租片對話框（Rental dialog）
+   ------------------------------------------------------------- */
+#rental-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background: rgba(6, 7, 12, .85);
+  /* 預設隱藏：不可見、不可點、也不被螢幕閱讀器讀到 */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .35s var(--ease-out), visibility 0s linear .35s;
+}
+
+#rental-dialog.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity .35s var(--ease-out), visibility 0s linear 0s;
+}
+
+#rental-dialog .container {
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  text-align: left;
+  background: linear-gradient(165deg, var(--color-surface-2), var(--color-bg-soft));
+  border: 1px solid rgba(255, 178, 63, .35);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .6);
+  /* 進場動畫：由下方縮小飛入 */
+  opacity: 0;
+  transform: translateY(40px) scale(.9);
+  transition: transform .45s var(--ease-back), opacity .35s var(--ease-out);
+}
+
+#rental-dialog.show .container {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 關閉按鈕 */
+#rental-dialog .ui {
+  position: absolute;
+  top: .7rem;
+  right: .7rem;
+}
+
+#rental-dialog .ui a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+  transition: transform .3s var(--ease-back), background .25s var(--ease-out),
+    color .25s var(--ease-out), box-shadow .25s var(--ease-out);
+}
+
+#rental-dialog .ui a:hover,
+#rental-dialog .ui a:focus {
+  color: #fff;
+  background: var(--color-red);
+  transform: rotate(90deg) scale(1.12);
+  box-shadow: 0 8px 20px rgba(226, 70, 74, .5);
+}
+
+#rental-dialog .ui a:active {
+  transform: rotate(90deg) scale(.85);
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, .45);
+  transition-duration: .08s;
+}
+
+#rental-dialog h3 {
+  color: var(--color-gold);
+}
+
+.rental-steps {
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* 租片步驟：以數字圓標呈現 */
+.rental-steps ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.rental-steps li {
+  position: relative;
+  padding: .3rem 0 .3rem 2.4rem;
+  font-size: .92rem;
+  color: var(--color-muted);
+  counter-increment: step;
+}
+
+.rental-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: .35rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: .85rem;
+  color: #17181f;
+  background: var(--color-gold);
+  border-radius: 50%;
+}
+
+#rental-dialog .login p {
+  font-size: .9rem;
+  color: var(--color-muted);
+}
+
+/* -------------------------------------------------------------
+   11. 表單元件
+   ------------------------------------------------------------- */
+fieldset {
+  margin: 0 0 var(--space-sm);
+  padding: 0;
+  border: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: .7rem .9rem;
+  min-height: 46px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: rgba(0, 0, 0, .3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  transition: border-color .25s var(--ease-out), box-shadow .25s var(--ease-out),
+    background .25s var(--ease-out);
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(163, 168, 192, .7);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  background: rgba(0, 0, 0, .5);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(255, 178, 63, .25);
+}
+
+/* 評分滑桿 */
+input[type="range"] {
+  width: calc(100% - 4.2rem);
+  max-width: 28rem;
+  vertical-align: middle;
+  accent-color: var(--color-gold);
+  height: 40px;
+}
+
+output {
+  display: inline-block;
+  width: 3rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+/* -------------------------------------------------------------
+   12. 成功／警告標籤（含進出場動畫）
+   ------------------------------------------------------------- */
+.label {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid currentColor;
+  /* 顯示狀態：滑入並帶有輕微彈跳 */
+  opacity: 1;
+  max-height: 12rem;
+  transform: translateY(0);
+  transition: opacity .4s var(--ease-out), transform .5s var(--ease-back),
+    max-height .4s var(--ease-out), margin .4s var(--ease-out),
+    padding .4s var(--ease-out);
+}
+
+.success.label {
+  color: var(--color-green);
+  background: rgba(53, 196, 139, .14);
+}
+
+.alert.label {
+  color: var(--color-red);
+  background: rgba(226, 70, 74, .14);
+}
+
+/* 標籤內的橫向掃光，讓出現的瞬間更有存在感 */
+.label::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .22), transparent);
+  transform: skewX(-20deg);
+  animation: label-sweep 1.6s var(--ease-out) .15s;
+}
+
+/* 隱藏狀態：向上收合並淡出 */
+.label.hidden {
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transform: translateY(-1rem);
+  border-width: 0 0 0 4px;
+}
+
+.label.hidden::after {
+  animation: none;
+}
+
+@keyframes label-sweep {
+  from {
+    left: -60%;
+  }
+  to {
+    left: 160%;
+  }
+}
+
+/* -------------------------------------------------------------
+   13. 頁籤（contact.html）
+   ------------------------------------------------------------- */
+.tab-panels {
+  position: relative;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.tabs > a {
+  position: relative;
+  flex: 1 1 auto;
+  padding: .7rem 1rem;
+  min-height: 46px;
+  text-align: center;
+  font-weight: 600;
+  font-size: .95rem;
+  color: var(--color-muted);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: color .3s var(--ease-out), background .3s var(--ease-out),
+    transform .3s var(--ease-back);
+}
+
+/* 頁籤底部的滑動指示條 */
+.tabs > a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-red));
+  transition: left .35s var(--ease-out), right .35s var(--ease-out);
+}
+
+.tabs > a:hover,
+.tabs > a:focus {
+  color: var(--color-text);
+  background: var(--color-surface-2);
+  transform: translateY(-2px);
+}
+
+.tabs > a:active {
+  transform: translateY(0) scale(.97);
+}
+
+.tabs > a.active {
+  color: var(--color-gold);
+  background: var(--color-surface-2);
+}
+
+.tabs > a.active::after {
+  left: 8%;
+  right: 8%;
+}
+
+/* 頁籤內容：非作用中的內容以絕對定位疊放，保留轉場動畫 */
+.tab-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(24px) scale(.98);
+  transition: opacity .35s var(--ease-out), transform .45s var(--ease-back),
+    visibility 0s linear .35s;
+}
+
+.tab-content.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition: opacity .35s var(--ease-out) .05s,
+    transform .45s var(--ease-back) .05s, visibility 0s linear 0s;
+}
+
+.tab-content {
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
+}
+
+/* 表單欄位不要無限拉寬，維持舒適的閱讀行長 */
+.tab-content input[type="text"],
+.tab-content input[type="email"],
+.tab-content textarea {
+  max-width: 32rem;
+}
+
+.tab-content > p:first-of-type {
+  font-size: .85rem;
+  color: var(--color-muted);
+}
+
+.tab-content input[type="submit"] {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+/* -------------------------------------------------------------
+   14. 關於我們 / 門市地點（about.html）
+   ------------------------------------------------------------- */
+.about article {
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-line);
+}
+
+.about article p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.locations > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.store-location {
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out),
+    border-color .3s var(--ease-out);
+}
+
+.store-location:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 178, 63, .45);
+  box-shadow: var(--shadow-md);
+}
+
+.store-location .map {
+  margin: 0;
+  overflow: hidden;
+}
+
+.store-location .map img {
+  width: 100%;
+  aspect-ratio: 1024 / 538;
+  object-fit: cover;
+  transition: transform .5s var(--ease-out);
+}
+
+.store-location:hover .map img {
+  transform: scale(1.06);
+}
+
+.store-location .address {
+  margin: 0;
+  padding: var(--space-sm) var(--space-md) 0;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* 地址前的定位圖示（純 CSS，不需外部圖檔） */
+.store-location .address::before {
+  content: "◉";
+  margin-right: .45rem;
+  color: var(--color-gold);
+}
+
+.store-location .tel {
+  margin: 0;
+  padding: .3rem var(--space-md) var(--space-md);
+}
+
+/* 電話做成可點的膠囊按鈕，方便手機直接撥號 */
+.store-location .tel a {
+  display: inline-block;
+  padding: .45rem 1rem;
+  min-height: 40px;
+  line-height: 1.9;
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--color-gold);
+  border: 1px solid rgba(255, 178, 63, .5);
+  border-radius: 999px;
+  transition: background .25s var(--ease-out), color .25s var(--ease-out),
+    transform .25s var(--ease-back);
+}
+
+.store-location .tel a::before {
+  content: "✆";
+  margin-right: .4rem;
+}
+
+.store-location .tel a:hover,
+.store-location .tel a:focus {
+  color: #17181f;
+  background: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.store-location .tel a:active {
+  transform: scale(.96);
+}
+
+/* -------------------------------------------------------------
+   15. 電影頁的劇照集（movie.html）
+   ------------------------------------------------------------- */
+.photo-gallery {
+  margin-top: var(--space-lg);
+}
+
+.photos-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.photos-list li {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.photos-list img {
+  width: 100%;
+  aspect-ratio: 500 / 303;
+  object-fit: cover;
+  transition: transform .5s var(--ease-out), filter .4s var(--ease-out);
+}
+
+.photos-list li:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.2);
+}
+
+/* -------------------------------------------------------------
+   16. 頁尾
+   ------------------------------------------------------------- */
+footer {
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .55));
+  border-top: 1px solid var(--color-line);
+}
+
+.footer-help {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-md);
+  max-width: var(--page-max);
+  margin: 0 auto var(--space-lg);
+  font-size: .88rem;
+  color: var(--color-muted);
+}
+
+.footer-help > div {
+  padding: var(--space-md);
+  background: rgba(29, 32, 49, .55);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+
+.footer-help h4 {
+  color: var(--color-gold);
+}
+
+.footer-help form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.footer-help form input[type="email"],
+.footer-help form input[type="text"] {
+  flex: 1 1 10rem;
+}
+
+.footer-help form input[type="submit"] {
+  flex: 0 0 auto;
+  padding: .7rem 1.2rem;
+  font-size: .9rem;
+  text-transform: capitalize;
+}
+
+.back-to-top,
+.copyright {
+  text-align: center;
+}
+
+.back-to-top a {
+  display: inline-block;
+  padding: .5rem 1.2rem;
+  min-height: 44px;
+  line-height: 2.1;
+  font-size: .9rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  transition: transform .25s var(--ease-back), background .25s var(--ease-out);
+}
+
+.back-to-top a:hover,
+.back-to-top a:focus {
+  background: var(--color-surface);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  margin: var(--space-sm) 0;
+  font-size: .82rem;
+  color: var(--color-muted);
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs) var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-nav a {
+  display: inline-block;
+  padding: .4rem .2rem;
+  font-size: .88rem;
+  color: var(--color-muted);
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: var(--color-gold);
+}
+
+/* =============================================================
+   17. 響應式斷點
+   ============================================================= */
+
+/* --- 480px 以上：海報與資訊並排、頁尾兩欄 --- */
+@media (min-width: 480px) {
+  .movie-info- > a {
+    margin: 0;
+  }
+
+  .movie-info- > a img {
+    width: 130px;
+  }
+
+  .footer-help {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --- 768px（平板）：三欄海報、門市兩欄、標題加大 --- */
+@media (min-width: 768px) {
+  .yield {
+    padding: var(--space-lg) var(--space-lg) var(--space-xl);
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  header {
+    flex-wrap: nowrap;
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  header .logo img {
+    height: 48px;
+  }
+
+  header .main-nav {
+    flex: 1 1 auto;
+  }
+
+  header .main-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+  }
+
+  header .main-nav a {
+    padding: .55rem 1rem;
+    font-size: .95rem;
+    white-space: nowrap;
+  }
+
+  .movie-info- > a img {
+    width: 170px;
+  }
+
+  .movies-list,
+  .related-movies ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .locations > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photos-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .featured .rent-now,
+  .movie .rental .rent-now {
+    width: auto;
+    min-width: 18rem;
+  }
+
+  .tabs > a {
+    flex: 0 1 auto;
+    min-width: 10rem;
+  }
+
+  .tab-content input[type="submit"] {
+    width: auto;
+    min-width: 14rem;
+  }
+
+  .footer-help {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  body.all-movies .movies-list > li {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #rental-dialog .container {
+    padding: var(--space-lg);
+  }
+}
+
+/* --- 1024px（桌機）：主內容與側欄雙欄排版 --- */
+@media (min-width: 1024px) {
+  .yield {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  /* movie.html 的提示標籤需橫跨兩欄 */
+  .yield > .label {
+    grid-column: 1 / -1;
+  }
+
+  /* 只有一個 main（about / contact / all-movies）時佔滿整個寬度 */
+  .yield > main:only-child {
+    grid-column: 1 / -1;
+    max-width: 60rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  aside {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .movie-info- {
+    padding: var(--space-lg);
+    gap: var(--space-lg);
+  }
+
+  .movie-info- > a img {
+    width: 214px;
+  }
+
+  /* 側欄較窄，相關電影改成兩欄小卡 */
+  .related-movies ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .movies-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* 桌機空間充足，劇照放大成兩欄 */
+  .photos-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-md);
+  }
+
+  .featured .rental {
+    text-align: left;
+  }
+
+  /* 全部電影頁：桌機維持海報與資訊左右並排 */
+  body.all-movies .movie-info- > a img {
+    width: 140px;
+  }
+
+  body.all-movies .movie-info- .info {
+    flex: 1 1 180px;
+  }
+}
+
+/* --- 1280px 以上（設計目標桌機解析度）：放大留白與字級 --- */
+@media (min-width: 1280px) {
+  .yield {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    gap: var(--space-xl);
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  .movie-info- .info > p {
+    font-size: 1rem;
+  }
+
+  body.all-movies .movies-list > li {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photos-list {
+    gap: var(--space-md);
+  }
+}
+
+/* --- 極小螢幕（320px 級距）微調，避免元素過擠 --- */
+@media (max-width: 359px) {
+  .yield {
+    padding: var(--space-sm);
+  }
+
+  .movie-info- {
+    padding: var(--space-sm);
+  }
+
+  /* 320px 仍維持兩欄海報，避免頁面過長不易瀏覽 */
+  .movies-list,
+  .related-movies ul {
+    gap: var(--space-sm);
+  }
+}
+
+/* --- 尊重使用者的「減少動態效果」偏好設定 --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
