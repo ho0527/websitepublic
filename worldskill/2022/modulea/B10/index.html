@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Stars Rating Animation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="page">
+    <h1 class="heading">5 Stars Rating</h1>
+
+    <!-- 評分元件：
+         .rating-hit  10 個感應區（每顆星左右半邊各一個，對應 0.5 分）
+         .rating-fill 由左往右填滿的彩色星星（寬度以 transition 產生平滑動畫）
+         .rating-base 主辦單位提供的 stars.png（空心星，作為底圖）
+         感應區放在 DOM 最前面，才能用「~」選到後面的填色層與分數文字。 -->
+    <div class="rating">
+        <span class="rating-hit hit-1"></span>
+        <span class="rating-hit hit-2"></span>
+        <span class="rating-hit hit-3"></span>
+        <span class="rating-hit hit-4"></span>
+        <span class="rating-hit hit-5"></span>
+        <span class="rating-hit hit-6"></span>
+        <span class="rating-hit hit-7"></span>
+        <span class="rating-hit hit-8"></span>
+        <span class="rating-hit hit-9"></span>
+        <span class="rating-hit hit-10"></span>
+
+        <img class="rating-base" src="stars.png" alt="5 star rating">
+
+        <div class="rating-fill">
+            <div class="rating-solid">
+                <i class="star"></i>
+                <i class="star"></i>
+                <i class="star"></i>
+                <i class="star"></i>
+                <i class="star"></i>
+            </div>
+        </div>
+
+        <p class="rating-score"></p>
+    </div>
+</main>
+
+</body>
+</html>

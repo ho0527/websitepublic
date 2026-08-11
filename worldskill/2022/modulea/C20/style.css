@@ -1,0 +1,114 @@
+/* Word Rank 頁面樣式 */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 32px 16px;
+	background: #f2f4f8;
+	color: #22262e;
+	font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
+	line-height: 1.6;
+}
+
+.page {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+h1 {
+	margin: 0 0 8px;
+	font-size: 28px;
+}
+
+h2 {
+	margin: 0 0 12px;
+	font-size: 18px;
+}
+
+.intro {
+	margin: 0 0 24px;
+	color: #55606f;
+}
+
+/* 各區塊卡片 */
+.card {
+	background: #fff;
+	border: 1px solid #dfe3ea;
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: 600;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid #c6ccd6;
+	border-radius: 6px;
+	font-size: 15px;
+}
+
+button {
+	margin-top: 12px;
+	padding: 10px 18px;
+	border: 0;
+	border-radius: 6px;
+	background: #2f6fed;
+	color: #fff;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #2559c4;
+}
+
+/* 最高分單字 */
+.result {
+	margin: 0;
+	font-size: 26px;
+	font-weight: 700;
+	color: #2f6fed;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+th,
+td {
+	padding: 8px 10px;
+	border-bottom: 1px solid #e6e9ef;
+	text-align: left;
+}
+
+th {
+	background: #f6f8fb;
+}
+
+/* 得分表中最高分的那一列 */
+tr.winner td {
+	background: #eaf1ff;
+	font-weight: 700;
+}
+
+/* 測試案例通過 / 失敗 */
+tr.pass td:last-child {
+	color: #1a7f4b;
+	font-weight: 700;
+}
+
+tr.fail td:last-child {
+	color: #c62828;
+	font-weight: 700;
+}

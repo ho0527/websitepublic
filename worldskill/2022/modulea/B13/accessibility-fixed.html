@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--
+    ================================================================
+    B13 - Accessibility（修正版）
+    原始檔案：accessibility.html
+    以下逐條標示本檔修正的無障礙問題（共 6 項，題目要求至少 5 項）：
+
+    1. 缺少文件宣告與語言、標題
+       原檔沒有 <!DOCTYPE html>、<html lang>、<meta charset> 與 <title>，
+       螢幕閱讀器無法判斷語言、瀏覽器進入相容模式、分頁沒有可辨識名稱。
+       → 補上 <!DOCTYPE html>、lang="en"、charset、viewport 與 <title>。
+
+    2. 用 div 假裝標題（.header1 / .header2 / .header3）
+       只有字體大小變化、沒有語意，輔助科技無法建立標題大綱、無法跳讀。
+       → 改為真正的 <h1> / <h2> / <h3>，並以 CSS 維持原本的視覺大小。
+
+    3. 圖片沒有替代文字
+       <img src="images/web-tech.jpeg"> 沒有 alt，視障使用者得不到任何資訊。
+       → 補上具描述性的 alt。
+
+    4. 表單輸入欄位沒有 label
+       原檔只用一段文字「Search」當視覺標題，input 本身沒有任何名稱，
+       送出按鈕也只顯示瀏覽器預設的「Submit」。
+       → 加上 <label for="site-search"> 與對應的 id，並將送出按鈕的 value
+         改為有意義的「Search」，表單也補上 role="search" 地標。
+
+    5. 文字對比度不足
+       原本 #444444 背景搭配 #888888 文字，對比度僅約 1.9:1，
+       遠低於 WCAG 2.1 AA 對一般文字要求的 4.5:1。
+       → 改為 #1f2933 背景 + #f0f4f8 文字（對比度約 14:1），
+         連結色也改成在深色底上足夠亮的 #7fd0ff（對比度約 9:1）。
+
+    6. 連結文字沒有意義（"click here"）
+       以連結列表瀏覽時完全無法判斷目的地。
+       → 改為描述性文字「WorldSkills Web Technologies skill page」，
+         並補上 rel 與外開連結的說明。
+
+    另外：原檔透過 CDN 載入 Bootstrap，離線環境無法取得，
+    版面會整個跑掉。本檔已移除 CDN 連結，改用自行撰寫的少量 CSS，
+    不依賴任何外部資源。
+    ================================================================
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technologies - WorldSkills 2022 SE</title>
+
+    <style>
+        /* 修正 5：足夠的前景／背景對比度（約 14:1，符合 WCAG AA / AAA） */
+        body {
+            margin: 0;
+            background-color: #1f2933;
+            color: #f0f4f8;
+            font-family: "Segoe UI", "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        /* 修正 2：語意標題保留原本的視覺大小 */
+        h1 {
+            font-size: 3em;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 400;
+            margin: .2em 0;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin: 0 0 .4em;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #6b7b8c;
+            margin: 18px 0 24px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .col-main {
+            flex: 3 1 420px;
+        }
+
+        .col-side {
+            flex: 1 1 220px;
+        }
+
+        .col-main img {
+            float: left;
+            width: 300px;
+            max-width: 100%;
+            height: auto;
+            margin: 0 16px 8px 0;
+        }
+
+        /* 修正 6：連結在深色底上有足夠對比，並保留底線以免只靠顏色辨識 */
+        a {
+            color: #7fd0ff;
+            text-decoration: underline;
+        }
+
+        a:hover,
+        a:focus {
+            color: #ffffff;
+        }
+
+        /* 鍵盤操作時看得見的焦點指示 */
+        a:focus-visible,
+        input:focus-visible {
+            outline: 3px solid #ffd166;
+            outline-offset: 2px;
+        }
+
+        /* 修正 4：表單欄位與標籤 */
+        .search-form label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .search-form input[type="text"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #9aa5b1;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #1f2933;
+            font-size: 1em;
+        }
+
+        .search-form input[type="submit"] {
+            margin-top: 10px;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 4px;
+            background-color: #7fd0ff;
+            color: #10202b;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .search-form input[type="submit"]:hover {
+            background-color: #b7e5ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- 修正 2：div.header1 / header2 → h1 / h2 -->
+    <h1>World Skills 2022 SE</h1>
+
+    <h2>Web Technologies</h2>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-main">
+            <!-- 修正 3：補上具描述性的替代文字 -->
+            <img src="images/web-tech.jpeg"
+                 alt="A web developer writing code on a laptop while designing a website layout"
+                 width="300">
+
+            <p>Working with web technologies is a key skill in a world that increasingly places the web at the heart of a
+                modern platform. It is also one of the most complex and diverse of all skills.</p>
+
+            <p>Web designers and developers will first establish a professional relationship with clients to develop a
+                deep understanding of the requirements for their website. Strong design and communication skills,
+                coupled with a grasp of target audiences, markets, and trends are all essential. During the development
+                process, web designers and developers create databases, build programmes, as well as test and debug
+                websites.</p>
+
+            <!-- 修正 6：把 "click here" 換成描述目的地的連結文字 -->
+            <p>To learn more, visit the
+                <a href="https://worldskills.org/skills/id/127/"
+                   rel="noopener noreferrer"
+                   target="_blank">WorldSkills Web Technologies skill page (opens in a new tab)</a>.
+            </p>
+
+        </div>
+        <div class="col-side">
+            <!-- 修正 2：div.header3 → h3 -->
+            <h3>Search</h3>
+            <!-- 修正 4：輸入欄位有對應的 label，送出按鈕有明確名稱 -->
+            <form class="search-form" action="#" method="get" role="search">
+                <label for="site-search">Search this site</label>
+                <input type="text" id="site-search" name="q">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

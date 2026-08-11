@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments - Like button</title>
+    <!-- 全部資源皆為資料夾內的本地檔案，離線環境不引用任何 CDN -->
+    <link rel="stylesheet" href="bootstrap-5.2.0-dist/css/bootstrap.min.css">
+    <script src="jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/all.min.css">
+    <style>
+        /* 每則留言的投票區塊靠右排列 */
+        .vote-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: .5rem;
+        }
+
+        /* 被選取的按鈕加上外框強調，提供更明顯的視覺回饋 */
+        .vote-btn.active {
+            box-shadow: 0 0 0 .2rem rgba(0, 0, 0, .15);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container ">
+    <div class="row">
+        <h1>Comments</h1>
+
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat, nibh eu varius mollis,
+                nibh sem viverra risus, in cursus erat nibh consectetur lacus. Nam blandit lectus non turpis lacinia
+                sollicitudin. Vivamus volutpat lobortis dolor in auctor. Proin auctor erat non pretium laoreet. Interdum
+                et malesuada fames ac ante ipsum primis in faucibus. Sed mattis eros mauris. Praesent a lacus sit amet
+                urna pellentesque posuere ac et erat. Suspendisse elementum sit amet odio quis vulputate. Maecenas
+                hendrerit elit velit, eu pellentesque diam fringilla at. In blandit lacus id leo vulputate condimentum.
+                Integer tempus fermentum ultrices. Mauris rutrum enim sed neque interdum, in semper velit eleifend.
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <div class="float-right vote-group">
+                <!-- data-vote 標示按鈕種類：up = 讚、down = 倒讚 -->
+                <button type="button" class="btn btn-light vote-btn" data-vote="up"><i class="far fa-thumbs-up"></i></button>
+                <button type="button" class="btn btn-light vote-btn" data-vote="down"><i class="far fa-thumbs-down"></i></button>
+            </div>
+        </div>
+
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <p>Vestibulum sollicitudin scelerisque mi, rhoncus finibus ex accumsan quis. Quisque vel mollis magna, non
+                bibendum orci. Cras nec purus et massa tempor porttitor. Maecenas sem erat, placerat sed neque eget,
+                pulvinar molestie enim. Sed arcu urna, consequat ac tellus facilisis, porttitor rutrum enim. Nunc a
+                mauris porta, gravida nulla vitae, sollicitudin lorem. Curabitur sed vestibulum lectus. In eu ipsum
+                purus.</p>
+            <div class="float-right vote-group">
+                <!-- data-vote 標示按鈕種類：up = 讚、down = 倒讚 -->
+                <button type="button" class="btn btn-light vote-btn" data-vote="up"><i class="far fa-thumbs-up"></i></button>
+                <button type="button" class="btn btn-light vote-btn" data-vote="down"><i class="far fa-thumbs-down"></i></button>
+            </div>
+        </div>
+
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <p>Maecenas elementum porta lorem in vestibulum. Mauris tincidunt ac odio imperdiet malesuada. Cras eget
+                congue lorem, ac commodo sapien. Nullam ultricies velit sit amet venenatis luctus. Ut metus dolor,
+                elementum eu aliquam pretium, cursus eget metus. Nunc purus quam, blandit et arcu sit amet, suscipit
+                finibus nunc. Praesent convallis, eros non posuere aliquet, leo risus facilisis turpis, et pretium erat
+                nibh quis sapien. Vestibulum erat magna, commodo vitae bibendum quis, ornare id lorem.</p>
+            <div class="float-right vote-group">
+                <!-- data-vote 標示按鈕種類：up = 讚、down = 倒讚 -->
+                <button type="button" class="btn btn-light vote-btn" data-vote="up"><i class="far fa-thumbs-up"></i></button>
+                <button type="button" class="btn btn-light vote-btn" data-vote="down"><i class="far fa-thumbs-down"></i></button>
+            </div>
+        </div>
+
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <p>Donec aliquam fringilla ipsum quis accumsan. Sed consequat, justo quis vehicula faucibus, felis libero
+                feugiat odio, at fringilla leo est id metus. In euismod orci libero, vitae aliquet urna gravida
+                volutpat. Ut a urna velit. Quisque non elit maximus, ultrices nibh sed, facilisis risus. Nulla at
+                fermentum diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. In lobortis metus nec diam
+                sollicitudin, quis ultrices nibh mattis. Maecenas leo quam, iaculis sed venenatis nec, ullamcorper in
+                justo. Integer sit amet pellentesque metus. Nulla molestie leo egestas mauris pellentesque sagittis.
+                Donec sed justo dui. Nullam ut dolor convallis, consectetur metus in, dapibus felis. In hac habitasse
+                platea dictumst. Pellentesque vel ultrices massa, nec mattis nulla. Aenean et ornare mauris.</p>
+            <div class="float-right vote-group">
+                <!-- data-vote 標示按鈕種類：up = 讚、down = 倒讚 -->
+                <button type="button" class="btn btn-light vote-btn" data-vote="up"><i class="far fa-thumbs-up"></i></button>
+                <button type="button" class="btn btn-light vote-btn" data-vote="down"><i class="far fa-thumbs-down"></i></button>
+            </div>
+        </div>
+
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <p>Donec aliquam fringilla ipsum quis accumsan. Sed consequat, justo quis vehicula faucibus, felis libero
+                feugiat odio, at fringilla leo est id metus. In euismod orci libero, vitae aliquet urna gravida
+                volutpat. Ut a urna velit. Quisque non elit maximus, ultrices nibh sed, facilisis risus. Nulla at
+                fermentum diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. In lobortis metus nec diam
+                sollicitudin, quis ultrices nibh mattis. Maecenas leo quam, iaculis sed venenatis nec, ullamcorper in
+                justo. Integer sit amet pellentesque metus. Nulla molestie leo egestas mauris pellentesque sagittis.
+                Donec sed justo dui. Nullam ut dolor convallis, consectetur metus in, dapibus felis. In hac habitasse
+                platea dictumst. Pellentesque vel ultrices massa, nec mattis nulla. Aenean et ornare mauris.</p>
+            <div class="float-right vote-group">
+                <!-- data-vote 標示按鈕種類：up = 讚、down = 倒讚 -->
+                <button type="button" class="btn btn-light vote-btn" data-vote="up"><i class="far fa-thumbs-up"></i></button>
+                <button type="button" class="btn btn-light vote-btn" data-vote="down"><i class="far fa-thumbs-down"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        <button type="button" class="btn btn-primary" id="check-ratings">check ratings</button>
+    </p>
+</div>
+
+<!-- 統計結果的 Bootstrap Modal -->
+<div class="modal fade" id="ratings-modal" tabindex="-1" aria-labelledby="ratings-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ratings-modal-label">Ratings summary</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-thumbs-up text-primary"></i> Thumbs up</span>
+                        <span class="badge bg-primary rounded-pill" id="summary-up">0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-thumbs-down text-danger"></i> Thumbs down</span>
+                        <span class="badge bg-danger rounded-pill" id="summary-down">0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>No selection</span>
+                        <span class="badge bg-secondary rounded-pill" id="summary-none">0</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    /**
+     * Like button 功能
+     * 規則：
+     * 1. 每則留言只能選一個按鈕（讚或倒讚，不可同時）
+     * 2. 可以在兩個按鈕之間來回切換
+     * 3. 被選取的按鈕會變色 + 圖示由外框（far）換成實心（fas）
+     * 4. 再次點擊同一個按鈕會取消選取
+     * 5. check ratings 會統計目前所有留言的選取結果
+     */
+    $(function () {
+        // 依投票種類決定要套用的樣式
+        var VOTE_STYLE = {
+            up: 'btn-primary',
+            down: 'btn-danger'
+        };
+
+        /**
+         * 將單一按鈕還原成未選取狀態
+         */
+        function clearButton($button) {
+            $button
+                .removeClass('active btn-primary btn-danger')
+                .addClass('btn-light')
+                .attr('aria-pressed', 'false')
+                .find('i')
+                .removeClass('fas')
+                .addClass('far');
+        }
+
+        /**
+         * 將單一按鈕設定成選取狀態
+         */
+        function selectButton($button) {
+            $button
+                .removeClass('btn-light')
+                .addClass('active ' + VOTE_STYLE[$button.data('vote')])
+                .attr('aria-pressed', 'true')
+                .find('i')
+                .removeClass('far')
+                .addClass('fas');
+        }
+
+        // 點擊投票按鈕
+        $('.vote-btn').on('click', function () {
+            var $button = $(this);
+            var isSelected = $button.hasClass('active');
+
+            // 先清掉同一則留言內的兩個按鈕（確保一次只有一個被選取）
+            $button.closest('.vote-group').find('.vote-btn').each(function () {
+                clearButton($(this));
+            });
+
+            // 若原本沒被選取，才設定為選取（原本已選取即代表取消選取）
+            if (!isSelected) {
+                selectButton($button);
+            }
+        });
+
+        // 點擊 check ratings：統計並以 Modal 顯示
+        var ratingsModal = new bootstrap.Modal(document.getElementById('ratings-modal'));
+
+        $('#check-ratings').on('click', function () {
+            var upCount = $('.vote-btn.active[data-vote="up"]').length;
+            var downCount = $('.vote-btn.active[data-vote="down"]').length;
+            var totalComments = $('.vote-group').length;
+
+            $('#summary-up').text(upCount);
+            $('#summary-down').text(downCount);
+            $('#summary-none').text(totalComments - upCount - downCount);
+
+            ratingsModal.show();
+        });
+    });
+</script>
+
+</body>
+</html>

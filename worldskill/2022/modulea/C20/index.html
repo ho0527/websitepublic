@@ -1,10 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-	<title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Word Rank</title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
+
+	<main class="page">
+		<h1>Word Rank</h1>
+		<p class="intro">
+			輸入一串單字，計算每個單字的分數（a/A = 1、b/B = 2 … z/Z = 26），並找出分數最高的單字。
+			同分時取最先出現者；回傳結果只保留英文字母並保留原本大小寫。
+		</p>
+
+		<form id="word-rank-form" class="card">
+			<label for="sentence">句子</label>
+			<input type="text" id="sentence" name="sentence" value="what time are we climbing up the volcano" autocomplete="off">
+			<button type="submit">計算最高分單字</button>
+		</form>
+
+		<section class="card">
+			<h2>結果</h2>
+			<p id="result" class="result">-</p>
+		</section>
+
+		<section class="card">
+			<h2>各單字得分</h2>
+			<table id="score-table">
+				<thead>
+					<tr>
+						<th>原始單字</th>
+						<th>只取字母</th>
+						<th>分數</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</section>
+
+		<section class="card">
+			<h2>測試案例</h2>
+			<table id="test-table">
+				<thead>
+					<tr>
+						<th>輸入</th>
+						<th>預期</th>
+						<th>實際</th>
+						<th>結果</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</section>
+	</main>
 
 	<script src="script.js"></script>
 </body>

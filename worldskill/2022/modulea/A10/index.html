@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>A10: Mosaic</title>
+	<style>
+		/* 成品展示頁的共用樣式：深色底、置中卡片 */
+		body {
+			margin: 0;
+			padding: 30px 20px 60px;
+			background: rgb(15, 15, 17);
+			color: rgb(240, 240, 245);
+			font-family: "Microsoft JhengHei", "Segoe UI", Arial, sans-serif;
+			line-height: 1.7;
+		}
+
+		.wrapper {
+			max-width: 960px;
+			margin: 0 auto;
+		}
+
+		h1 {
+			font-size: 28px;
+			margin: 0 0 6px;
+		}
+
+		h2 {
+			font-size: 20px;
+			margin: 32px 0 10px;
+			padding-left: 10px;
+			border-left: 5px solid rgb(90, 160, 250);
+		}
+
+		.subtitle {
+			color: rgb(160, 165, 180);
+			margin: 0 0 24px;
+		}
+
+		.card {
+			background: rgb(26, 26, 32);
+			border: 1px solid rgb(52, 52, 62);
+			border-radius: 10px;
+			padding: 18px;
+		}
+
+		.preview {
+			display: block;
+			max-width: 100%;
+			height: auto;
+			margin: 0 auto;
+			border-radius: 6px;
+			background: rgb(255, 255, 255);
+		}
+
+		.gallery {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 14px;
+			justify-content: center;
+		}
+
+		.gallery figure {
+			margin: 0;
+			flex: 0 1 260px;
+			text-align: center;
+		}
+
+		.gallery img {
+			width: 100%;
+			height: auto;
+			border-radius: 6px;
+			background: rgb(255, 255, 255);
+		}
+
+		figcaption {
+			font-size: 13px;
+			color: rgb(160, 165, 180);
+			margin-top: 6px;
+		}
+
+		ol, ul {
+			padding-left: 22px;
+		}
+
+		code {
+			background: rgb(40, 40, 48);
+			padding: 2px 6px;
+			border-radius: 4px;
+			font-size: 14px;
+		}
+
+		a {
+			color: rgb(120, 180, 255);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<h1>A10: Mosaic</h1>
+		<p class="subtitle">對提供的圖片加上馬賽克效果，存成 a10.jpg。</p>
+
+		<h2>成品</h2>
+		<div class="card">
+			<div class="gallery">
+				<figure><img src="a10.jpg" alt="成品：16px 方塊馬賽克"><figcaption>成品：16px 方塊馬賽克</figcaption></figure>
+				<figure><img src="mosaic.png" alt="原始圖片"><figcaption>原始圖片</figcaption></figure>
+			</div>
+		</div>
+
+		<h2>製作方式</h2>
+		<div class="card">
+			<ol>
+				<li>馬賽克的原理是「先降解析度、再用最近鄰放大」。</li>
+				<li>用 <code>Image.BOX</code> 把圖片縮成 1/16（每個方塊取區域平均色）。</li>
+				<li>再用 <code>Image.NEAREST</code> 放大回原尺寸，讓每個方塊維持單一色塊、邊緣不被內插模糊。</li>
+				<li>輸出為 a10.jpg。</li>
+			</ol>
+			<p>產生成品的完整程式：<a href="build.py">build.py</a>（Python + Pillow）</p>
+		</div>
+
+		<h2>使用素材</h2>
+		<div class="card">
+			<ul>
+				<li><code>mosaic.png</code>：原始圖片（800×600）</li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>

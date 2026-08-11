@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>A06: Spinning Globe Animation</title>
+	<style>
+		/* 成品展示頁的共用樣式：深色底、置中卡片 */
+		body {
+			margin: 0;
+			padding: 30px 20px 60px;
+			background: rgb(15, 15, 17);
+			color: rgb(240, 240, 245);
+			font-family: "Microsoft JhengHei", "Segoe UI", Arial, sans-serif;
+			line-height: 1.7;
+		}
+
+		.wrapper {
+			max-width: 960px;
+			margin: 0 auto;
+		}
+
+		h1 {
+			font-size: 28px;
+			margin: 0 0 6px;
+		}
+
+		h2 {
+			font-size: 20px;
+			margin: 32px 0 10px;
+			padding-left: 10px;
+			border-left: 5px solid rgb(90, 160, 250);
+		}
+
+		.subtitle {
+			color: rgb(160, 165, 180);
+			margin: 0 0 24px;
+		}
+
+		.card {
+			background: rgb(26, 26, 32);
+			border: 1px solid rgb(52, 52, 62);
+			border-radius: 10px;
+			padding: 18px;
+		}
+
+		.preview {
+			display: block;
+			max-width: 100%;
+			height: auto;
+			margin: 0 auto;
+			border-radius: 6px;
+			background: rgb(255, 255, 255);
+		}
+
+		.gallery {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 14px;
+			justify-content: center;
+		}
+
+		.gallery figure {
+			margin: 0;
+			flex: 0 1 260px;
+			text-align: center;
+		}
+
+		.gallery img {
+			width: 100%;
+			height: auto;
+			border-radius: 6px;
+			background: rgb(255, 255, 255);
+		}
+
+		figcaption {
+			font-size: 13px;
+			color: rgb(160, 165, 180);
+			margin-top: 6px;
+		}
+
+		ol, ul {
+			padding-left: 22px;
+		}
+
+		code {
+			background: rgb(40, 40, 48);
+			padding: 2px 6px;
+			border-radius: 4px;
+			font-size: 14px;
+		}
+
+		a {
+			color: rgb(120, 180, 255);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<h1>A06: Spinning Globe Animation</h1>
+		<p class="subtitle">用 world-map.png 製作 3D 旋轉地球的動畫 GIF，旋轉方式參考 sample.gif。</p>
+
+		<h2>成品</h2>
+		<div class="card">
+			<div class="gallery">
+				<figure><img src="a06.gif" alt="成品：48 張、無縫循環的旋轉地球"><figcaption>成品：48 張、無縫循環的旋轉地球</figcaption></figure>
+				<figure><img src="sample.gif" alt="題目提供的參考動畫"><figcaption>題目提供的參考動畫</figcaption></figure>
+			</div>
+		</div>
+
+		<h2>製作方式</h2>
+		<div class="card">
+			<ol>
+				<li>把 world-map.png 的透明底換成海洋藍，得到完整的等距圓柱投影世界地圖。</li>
+				<li>對畫布上圓形範圍內的每個像素，用正射投影反算球面法線，換算成經緯度後去地圖上取樣。</li>
+				<li>每一張把經度整體偏移 <code>360° / 張數</code>，48 張剛好轉滿一圈，因此循環播放時完全無縫。</li>
+				<li>加上左上前方的簡易光照與邊緣柔化營造立體感，並以 2 倍超取樣後縮圖做抗鋸齒，最後輸出 GIF。</li>
+			</ol>
+			<p>產生成品的完整程式：<a href="build.py">build.py</a>（Python + NumPy + Pillow）</p>
+		</div>
+
+		<h2>使用素材</h2>
+		<div class="card">
+			<ul>
+				<li><code>world-map.png</code>：世界地圖（等距圓柱投影）</li>
+				<li><code>sample.gif</code>：題目提供的參考動畫</li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>

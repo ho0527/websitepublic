@@ -1,50 +1,203 @@
-body{
-    font-family: "Consolas";
-    background: rgb(15, 15, 17);
-    color: white;
-    padding: 0px;
-    margin: 0px;
+/* =========================================================
+   B05 - Flip Gradient Elements
+   依照 flipping-card-effect.mp4 與 front.png / back.png 重建：
+   深色背景、三張漸層卡片，滑鼠移入時沿 Y 軸做 3D 翻面。
+   純 HTML + CSS，未使用任何 JavaScript 與外部（CDN）資源。
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
 }
 
-.title{
+body {
+    margin: 0;
+    padding: 0 0 60px;
+    background: #000;
+    color: #fff;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+}
+
+/* ---------- 標題 ---------- */
+.title {
+    margin: 46px 0 40px;
     text-align: center;
-    font-size: 50px;
-    font-weight: bold;
-    margin: 50px 0px;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 3px;
 }
 
-.card{
-    border: 1px black solid;
+/* ---------- 卡片排版 ---------- */
+.plans {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+}
+
+/* .card 提供 3D 透視，.card-inner 才是實際旋轉的元素 */
+.card {
+    width: 280px;
+    height: 430px;
+    perspective: 1200px;
+}
+
+.card-inner {
     position: relative;
-    width: 250px;
-    height: 330px;
-}
-
-.font,.back{
-    position: absolute;
     width: 100%;
     height: 100%;
-    font-size: 40px;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s;
+    transform-style: preserve-3d;                       /* 保留子元素的 3D 空間 */
+    transition: transform .8s cubic-bezier(.4, .2, .2, 1);
 }
 
-.font{
-    background: red;
-}
-
-.back{
-    background: blue;
-    transform: rotateY(-180deg);
-}
-
-.card>.font:active{
+/* 滑鼠移入卡片 → 翻到背面 */
+.card:hover .card-inner {
     transform: rotateY(180deg);
 }
 
-.card>.back:active{
-    transform: rotateY(0);
+/* ---------- 卡片的兩個面 ---------- */
+.card-face {
+    position: absolute;
+    inset: 0;
+    padding: 26px 22px;
+    border-radius: 4px;
+    backface-visibility: hidden;                        /* 背對鏡頭的那一面隱藏 */
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 背面預先轉 180 度，翻面後才會正對使用者 */
+.card-back {
+    transform: rotateY(180deg);
+    justify-content: center;
+}
+
+/* ---------- 三種漸層（顏色取樣自 front.png / back.png） ----------
+   背面因為被 rotateY(180deg) 水平鏡射，
+   所以角度改用 225deg，畫出來才會與設計稿的 135deg 方向一致。 */
+.card-front.basic {
+    background: linear-gradient(135deg, #67b3f6, #f206d2);
+}
+
+.card-back.basic {
+    background: linear-gradient(225deg, #f206d2, #67b3f6);
+}
+
+.card-front.plus {
+    background: linear-gradient(135deg, #ffe963, #f324d6);
+}
+
+.card-back.plus {
+    background: linear-gradient(225deg, #f324d6, #ffe963);
+}
+
+.card-front.pro {
+    background: linear-gradient(135deg, #9951fd, #26fc74);
+}
+
+.card-back.pro {
+    background: linear-gradient(225deg, #26fc74, #9951fd);
+}
+
+/* ---------- 正面內容 ---------- */
+.plan-icon {
+    width: 52px;
+    height: 52px;
+    margin: 18px 0 6px;
+    /* 提供的 svg 為黑色圖形，用濾鏡轉成白色 */
+    filter: brightness(0) invert(1);
+}
+
+.plan-name {
+    margin: 6px 0 26px;
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.plan-features {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    text-align: center;
+}
+
+.plan-features li {
+    padding: 12px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, .55);
+}
+
+/* 最後一列不畫分隔線 */
+.plan-features li:last-child {
+    border-bottom: none;
+}
+
+/* ---------- 背面內容 ---------- */
+.only {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.price {
+    margin: 0 0 58px;
+    font-size: 42px;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.price sup {
+    font-size: .55em;
+    top: -.6em;
+}
+
+.select-btn {
+    display: inline-block;
+    padding: 14px 34px;
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+    transition: transform .2s ease;
+}
+
+.select-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ---------- 底部行動呼籲按鈕 ---------- */
+.cta-wrap {
+    margin-top: 54px;
+    text-align: center;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 42px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #e8407a, #3b4fd8);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+/* ---------- 小螢幕 ---------- */
+@media (max-width: 720px) {
+    .title {
+        font-size: 26px;
+    }
+
+    .plans {
+        gap: 34px;
+    }
 }

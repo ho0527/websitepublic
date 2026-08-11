@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Random Dice Roller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+    B09 - 3D Random Dice Roller（純 HTML + CSS，未使用 JavaScript）
+
+    ‧ 12 個隱藏的 radio 代表 12 種擲骰結果（點數 1~6 各兩份，
+      兩份是為了讓「連續擲出同一點數」時 CSS 動畫仍能重新播放）。
+    ‧ 12 個 .picker 標籤覆蓋整個畫面，靠 CSS 動畫輪流開啟 pointer-events，
+      同一時間只有一個標籤可被點擊；使用者按下滑鼠的「時間點」決定
+      落在哪一個標籤上 → 達成偽隨機（詳細說明見 style.css 註解）。
+    ‧ 點擊後骰子在 x / y / z 三軸各旋轉至少三圈，停下後於骰子上方顯示點數。
+-->
+<div class="app">
+
+    <!-- 擲骰結果（點數 1~6，各兩組） -->
+    <input class="dice-state" type="radio" name="dice" id="r1">
+    <input class="dice-state" type="radio" name="dice" id="r2">
+    <input class="dice-state" type="radio" name="dice" id="r3">
+    <input class="dice-state" type="radio" name="dice" id="r4">
+    <input class="dice-state" type="radio" name="dice" id="r5">
+    <input class="dice-state" type="radio" name="dice" id="r6">
+    <input class="dice-state" type="radio" name="dice" id="r7">
+    <input class="dice-state" type="radio" name="dice" id="r8">
+    <input class="dice-state" type="radio" name="dice" id="r9">
+    <input class="dice-state" type="radio" name="dice" id="r10">
+    <input class="dice-state" type="radio" name="dice" id="r11">
+    <input class="dice-state" type="radio" name="dice" id="r12">
+
+    <!-- 骰子上方的結果數字 -->
+    <p class="result"></p>
+
+    <!-- 3D 骰子 -->
+    <div class="stage">
+        <div class="tilt">
+            <div class="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <p class="hint">Click anywhere to roll the dice</p>
+
+    <!-- 覆蓋全畫面的點擊區（輪流啟用，決定隨機結果） -->
+    <label class="picker p1" for="r1"></label>
+    <label class="picker p2" for="r2"></label>
+    <label class="picker p3" for="r3"></label>
+    <label class="picker p4" for="r4"></label>
+    <label class="picker p5" for="r5"></label>
+    <label class="picker p6" for="r6"></label>
+    <label class="picker p7" for="r7"></label>
+    <label class="picker p8" for="r8"></label>
+    <label class="picker p9" for="r9"></label>
+    <label class="picker p10" for="r10"></label>
+    <label class="picker p11" for="r11"></label>
+    <label class="picker p12" for="r12"></label>
+
+</div>
+
+</body>
+</html>

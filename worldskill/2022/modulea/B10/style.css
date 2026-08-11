@@ -1,0 +1,180 @@
+/* =========================================================
+   B10 - 5 Stars Rating Animation
+   使用主辦單位提供的 stars.png（空心星）作為底圖，
+   上層疊一組以 clip-path 畫出的實心星星，
+   由左往右以 width 的 transition 產生平滑填色動畫。
+   以 0.5 顆星為單位，共 0 / 0.5 / 1 ... / 5 十一種分數。
+   純 HTML + CSS，無 JavaScript、無外部資源。
+   ========================================================= */
+
+:root {
+    /* 單顆星的尺寸（stars.png 為 750 x 150，剛好 5 顆各 150px） */
+    --star-size: 150px;
+    --rating-width: 750px;
+    /* 星星顏色，取樣自 stars.png */
+    --star-color: #e5ba41;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdfdfb;
+    color: #333;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+}
+
+.page {
+    text-align: center;
+    padding: 20px;
+}
+
+.heading {
+    margin: 0 0 28px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #555;
+}
+
+/* ---------- 評分元件容器 ---------- */
+.rating {
+    position: relative;
+    width: var(--rating-width);
+    max-width: 100%;
+    height: var(--star-size);
+    margin: 0 auto;
+}
+
+/* 底圖：空心星 */
+.rating-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 填色層：以 overflow:hidden + width 控制填滿到哪裡 */
+.rating-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;                                   /* 預設 0 分 */
+    overflow: hidden;
+    z-index: 2;
+    pointer-events: none;
+    transition: width .45s cubic-bezier(.35, .8, .35, 1);   /* 平滑填色動畫 */
+}
+
+/* 填色層內部維持完整寬度，才不會被壓縮變形 */
+.rating-solid {
+    display: flex;
+    width: var(--rating-width);
+    height: 100%;
+}
+
+/* 實心星：座標由 stars.png 量測而得，與底圖的空心星完全重合 */
+.star {
+    flex: 0 0 auto;
+    width: var(--star-size);
+    height: var(--star-size);
+    background: var(--star-color);
+    clip-path: polygon(
+            49.67% 6%,
+            61.33% 38.67%,
+            96% 39.67%,
+            68.53% 60.87%,
+            78.33% 94.13%,
+            49.67% 74.6%,
+            21% 94.13%,
+            30.8% 60.87%,
+            3.33% 39.67%,
+            38% 38.67%
+    );
+}
+
+/* ---------- 10 個 hover 感應區（每 0.5 顆星一個） ---------- */
+.rating-hit {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 10%;                                 /* 750px 的 10% = 75px = 半顆星 */
+    z-index: 3;
+    cursor: pointer;
+}
+
+.hit-1  { left: 0; }
+.hit-2  { left: 10%; }
+.hit-3  { left: 20%; }
+.hit-4  { left: 30%; }
+.hit-5  { left: 40%; }
+.hit-6  { left: 50%; }
+.hit-7  { left: 60%; }
+.hit-8  { left: 70%; }
+.hit-9  { left: 80%; }
+.hit-10 { left: 90%; }
+
+/* hover 到第 n 個感應區 → 填色層寬度變成 n * 10% */
+.hit-1:hover  ~ .rating-fill { width: 10%; }
+.hit-2:hover  ~ .rating-fill { width: 20%; }
+.hit-3:hover  ~ .rating-fill { width: 30%; }
+.hit-4:hover  ~ .rating-fill { width: 40%; }
+.hit-5:hover  ~ .rating-fill { width: 50%; }
+.hit-6:hover  ~ .rating-fill { width: 60%; }
+.hit-7:hover  ~ .rating-fill { width: 70%; }
+.hit-8:hover  ~ .rating-fill { width: 80%; }
+.hit-9:hover  ~ .rating-fill { width: 90%; }
+.hit-10:hover ~ .rating-fill { width: 100%; }
+
+/* ---------- 分數文字 ---------- */
+.rating-score {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 14px 0 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #a8842a;
+    letter-spacing: 1px;
+}
+
+.rating-score::after {
+    content: "0";                               /* 未 hover 時為 0 分 */
+}
+
+.hit-1:hover  ~ .rating-score::after { content: "0.5"; }
+.hit-2:hover  ~ .rating-score::after { content: "1"; }
+.hit-3:hover  ~ .rating-score::after { content: "1.5"; }
+.hit-4:hover  ~ .rating-score::after { content: "2"; }
+.hit-5:hover  ~ .rating-score::after { content: "2.5"; }
+.hit-6:hover  ~ .rating-score::after { content: "3"; }
+.hit-7:hover  ~ .rating-score::after { content: "3.5"; }
+.hit-8:hover  ~ .rating-score::after { content: "4"; }
+.hit-9:hover  ~ .rating-score::after { content: "4.5"; }
+.hit-10:hover ~ .rating-score::after { content: "5"; }
+
+/* ---------- 小螢幕時等比例縮小 ---------- */
+@media (max-width: 800px) {
+    :root {
+        --star-size: 96px;
+        --rating-width: 480px;
+    }
+}
+
+@media (max-width: 520px) {
+    :root {
+        --star-size: 60px;
+        --rating-width: 300px;
+    }
+}

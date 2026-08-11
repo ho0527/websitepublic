@@ -15,6 +15,12 @@
             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
         }
 
+        /* 文字永遠保持單行，超出的部分由 JS 於中間插入省略號 */
+        .wrap {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
     </style>
 </head>
 <body>
@@ -25,5 +31,6 @@
     </div>
 </div>
 
+<script src="main.js"></script>
 </body>
 </html>

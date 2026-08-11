@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
+	<!-- A02 Vectored artwork：依 icons_sample.jpg 重繪的向量圖示
+	     版面為 3 欄 x 4 列，每格 200x200；欄位由左到右分別是
+	     「線框」「實心」「圓底反白」三種樣式 -->
+	<defs>
+		<!-- 信封：外框 + 封口摺線 -->
+		<g id="shape-envelope">
+			<rect x="18" y="30" width="64" height="42" rx="6" ry="6" />
+			<polyline points="18,36 50,58 82,36" />
+		</g>
+		<!-- 滑鼠游標箭頭 -->
+		<g id="shape-cursor">
+			<path d="M28 20 L74 60 L52 62 L64 84 L52 90 L40 68 L28 82 Z" />
+		</g>
+		<!-- 地圖定位標記(水滴形，中間有圓孔) -->
+		<g id="shape-pin">
+			<path d="M50 18 C33 18 20 31 20 47 C20 66 42 80 50 90 C58 80 80 66 80 47 C80 31 67 18 50 18 Z" />
+			<circle cx="50" cy="46" r="12" />
+		</g>
+		<!-- 地球：外圓 + 經線橢圓 + 赤道線 -->
+		<g id="shape-globe">
+			<circle cx="50" cy="54" r="34" />
+			<ellipse cx="50" cy="54" rx="15" ry="34" />
+			<line x1="16" y1="54" x2="84" y2="54" />
+		</g>
+	</defs>
+
+	<rect width="600" height="800" fill="#ffffff" />
+
+	<!-- 第一列：信封(紫) -->
+	<g transform="translate(50,10)">
+		<use href="#shape-envelope" transform="translate(0,0)" fill="none" stroke="#9b2fd6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+	</g>
+	<g transform="translate(250,10)">
+		<rect x="18" y="30" width="64" height="42" rx="6" ry="6" fill="#9b2fd6" />
+		<polyline points="18,36 50,58 82,36" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+	</g>
+	<g transform="translate(450,10)">
+		<circle cx="50" cy="50" r="48" fill="#9b2fd6" />
+		<rect x="24" y="34" width="52" height="34" rx="5" ry="5" fill="#ffffff" />
+		<polyline points="24,39 50,57 76,39" fill="none" stroke="#9b2fd6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+	</g>
+
+	<!-- 第二列：游標(綠) -->
+	<g transform="translate(50,210)">
+		<use href="#shape-cursor" fill="none" stroke="#12c25a" stroke-width="6" stroke-linejoin="round" />
+	</g>
+	<g transform="translate(250,210)">
+		<use href="#shape-cursor" fill="#12c25a" />
+	</g>
+	<g transform="translate(450,210)">
+		<circle cx="50" cy="50" r="48" fill="#12c25a" />
+		<path d="M34 24 L72 56 L54 58 L64 76 L54 81 L44 63 L34 74 Z" fill="#ffffff" />
+	</g>
+
+	<!-- 第三列：定位標記(紅) -->
+	<g transform="translate(50,410)">
+		<path d="M50 18 C33 18 20 31 20 47 C20 66 42 80 50 90 C58 80 80 66 80 47 C80 31 67 18 50 18 Z" fill="none" stroke="#f20d1a" stroke-width="6" stroke-linejoin="round" />
+		<circle cx="50" cy="46" r="12" fill="none" stroke="#f20d1a" stroke-width="6" />
+	</g>
+	<g transform="translate(250,410)">
+		<path d="M50 18 C33 18 20 31 20 47 C20 66 42 80 50 90 C58 80 80 66 80 47 C80 31 67 18 50 18 Z" fill="#f20d1a" />
+	</g>
+	<g transform="translate(450,410)">
+		<circle cx="50" cy="50" r="48" fill="#f20d1a" />
+		<path d="M50 22 C39 22 30 31 30 42 C30 55 44 66 50 78 C56 66 70 55 70 42 C70 31 61 22 50 22 Z" fill="#ffffff" />
+	</g>
+
+	<!-- 第四列：地球(藍) -->
+	<g transform="translate(50,610)">
+		<use href="#shape-globe" fill="none" stroke="#1fbdf0" stroke-width="6" />
+	</g>
+	<g transform="translate(250,610)">
+		<circle cx="50" cy="54" r="34" fill="#1fbdf0" />
+		<ellipse cx="50" cy="54" rx="15" ry="34" fill="none" stroke="#ffffff" stroke-width="6" />
+		<line x1="16" y1="54" x2="84" y2="54" stroke="#ffffff" stroke-width="6" />
+	</g>
+	<g transform="translate(450,610)">
+		<circle cx="50" cy="50" r="48" fill="#1fbdf0" />
+		<ellipse cx="50" cy="50" rx="17" ry="38" fill="none" stroke="#ffffff" stroke-width="6" />
+		<line x1="12" y1="50" x2="88" y2="50" stroke="#ffffff" stroke-width="6" />
+	</g>
+</svg>

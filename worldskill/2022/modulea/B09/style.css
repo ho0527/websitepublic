@@ -1,0 +1,579 @@
+/* =========================================================
+   B09 - 3D Random Dice Roller
+   純 HTML + CSS（完全沒有 JavaScript）的 3D 隨機骰子。
+
+   【隨機性如何達成】
+   CSS 本身沒有亂數，這裡採用常見的「時間輪替 + 使用者點擊時機」偽隨機：
+   12 個 .picker 標籤鋪滿整個畫面，各自套用同一個 pick-cycle 動畫但
+   animation-delay 相差 0.6 秒，因此任一瞬間「只有一個」標籤的
+   pointer-events 是 auto。使用者按下滑鼠的時間點無法精確控制，
+   落在哪一個標籤上等同於擲出對應的點數，藉此得到接近均勻的偽隨機結果。
+   （已知限制：若按下與放開滑鼠剛好跨越兩個標籤的切換瞬間，
+     瀏覽器會把 click 派送到共同祖先，該次點擊不會生效，再點一次即可。）
+
+   【動畫如何做到「從目前點數開始翻滾」】
+   每一次翻滾的結束姿態都是 360 度的整數倍（視覺上等同於原始姿態），
+   起始姿態也是原始姿態，所以前一次結束與下一次開始完全銜接、不會跳動；
+   而「擲出的點數」則是由被選中的 radio 決定六個面各自要顯示哪個點數
+   （利用 dice.png 的 background-position 切換），因此每次都能滾出隨機點數。
+   每個 roll 動畫在 x、y、z 三軸的旋轉量都 >= 1080 度（三圈以上）。
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 35%, #33405c, #141a28 70%);
+    color: #fff;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+    overflow: hidden;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 隱藏用來記錄結果的 radio */
+.dice-state {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------- 骰子上方的結果數字 ---------- */
+.result {
+    height: 84px;
+    margin: 0 0 24px;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 84px;
+    letter-spacing: 2px;
+    color: #ffd460;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, .5);
+    opacity: 0;                       /* 尚未擲骰前不顯示 */
+}
+
+/* ---------- 3D 舞台與骰子 ---------- */
+.stage {
+    perspective: 900px;
+}
+
+/* 固定的視角傾斜，讓骰子看起來有立體感 */
+.tilt {
+    transform: rotateX(-20deg) rotateY(-24deg);
+    transform-style: preserve-3d;
+}
+
+.cube {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    transform-style: preserve-3d;
+}
+
+.face {
+    position: absolute;
+    inset: 0;
+    background-color: #fff;
+    background-image: url("dice.png");
+    /* dice.png 是 3 欄 x 4 列的骰面展開圖，放大成 300% x 400% 後
+       再用 background-position 切出需要的那一面 */
+    background-size: 300% 400%;
+    background-repeat: no-repeat;
+    border-radius: 14px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+}
+
+/* 六個面在立方體上的位置（邊長 160px，因此位移 80px） */
+.front  { transform: translateZ(80px); }
+.back   { transform: rotateY(180deg) translateZ(80px); }
+.right  { transform: rotateY(90deg) translateZ(80px); }
+.left   { transform: rotateY(-90deg) translateZ(80px); }
+.top    { transform: rotateX(90deg) translateZ(80px); }
+.bottom { transform: rotateX(-90deg) translateZ(80px); }
+
+/* ---------- 預設骰面（尚未擲骰：正面為 1 點） ---------- */
+.front { background-position: 50% 33.3333%; }
+.back { background-position: 50% 100%; }
+.right { background-position: 0% 33.3333%; }
+.left { background-position: 100% 33.3333%; }
+.top { background-position: 50% 0%; }
+.bottom { background-position: 50% 66.6667%; }
+
+/* ---------- 提示文字 ---------- */
+.hint {
+    margin: 60px 0 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, .55);
+}
+
+/* ---------- 覆蓋全畫面的點擊區 ---------- */
+.picker {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: none;
+    /* 12 個標籤共用同一個循環，週期 7.2 秒、每個標籤各開啟 0.6 秒 */
+    animation: pick-cycle 7.2s step-end infinite;
+}
+
+@keyframes pick-cycle {
+    0% {
+        pointer-events: auto;
+    }
+
+    8.3333% {
+        pointer-events: none;
+    }
+
+    100% {
+        pointer-events: none;
+    }
+}
+
+/* 各標籤錯開 0.6 秒，確保同一時間只有一個可以被點擊 */
+.p1 { animation-delay: -0.0s; }
+.p2 { animation-delay: -0.6s; }
+.p3 { animation-delay: -1.2s; }
+.p4 { animation-delay: -1.8s; }
+.p5 { animation-delay: -2.4s; }
+.p6 { animation-delay: -3.0s; }
+.p7 { animation-delay: -3.6s; }
+.p8 { animation-delay: -4.2s; }
+.p9 { animation-delay: -4.8s; }
+.p10 { animation-delay: -5.4s; }
+.p11 { animation-delay: -6.0s; }
+.p12 { animation-delay: -6.6s; }
+
+/* ---------- 擲出結果後：六個面重新對應點數 ---------- */
+/* 結果 1 點 */
+#r1:checked ~ .stage .front { background-position: 50% 33.3333%; }
+#r1:checked ~ .stage .back { background-position: 50% 100%; }
+#r1:checked ~ .stage .right { background-position: 0% 33.3333%; }
+#r1:checked ~ .stage .left { background-position: 100% 33.3333%; }
+#r1:checked ~ .stage .top { background-position: 50% 0%; }
+#r1:checked ~ .stage .bottom { background-position: 50% 66.6667%; }
+
+/* 結果 2 點 */
+#r2:checked ~ .stage .front { background-position: 50% 0%; }
+#r2:checked ~ .stage .back { background-position: 50% 66.6667%; }
+#r2:checked ~ .stage .right { background-position: 0% 33.3333%; }
+#r2:checked ~ .stage .left { background-position: 100% 33.3333%; }
+#r2:checked ~ .stage .top { background-position: 50% 100%; }
+#r2:checked ~ .stage .bottom { background-position: 50% 33.3333%; }
+
+/* 結果 3 點 */
+#r3:checked ~ .stage .front { background-position: 0% 33.3333%; }
+#r3:checked ~ .stage .back { background-position: 100% 33.3333%; }
+#r3:checked ~ .stage .right { background-position: 50% 100%; }
+#r3:checked ~ .stage .left { background-position: 50% 33.3333%; }
+#r3:checked ~ .stage .top { background-position: 50% 0%; }
+#r3:checked ~ .stage .bottom { background-position: 50% 66.6667%; }
+
+/* 結果 4 點 */
+#r4:checked ~ .stage .front { background-position: 100% 33.3333%; }
+#r4:checked ~ .stage .back { background-position: 0% 33.3333%; }
+#r4:checked ~ .stage .right { background-position: 50% 33.3333%; }
+#r4:checked ~ .stage .left { background-position: 50% 100%; }
+#r4:checked ~ .stage .top { background-position: 50% 0%; }
+#r4:checked ~ .stage .bottom { background-position: 50% 66.6667%; }
+
+/* 結果 5 點 */
+#r5:checked ~ .stage .front { background-position: 50% 66.6667%; }
+#r5:checked ~ .stage .back { background-position: 50% 0%; }
+#r5:checked ~ .stage .right { background-position: 0% 33.3333%; }
+#r5:checked ~ .stage .left { background-position: 100% 33.3333%; }
+#r5:checked ~ .stage .top { background-position: 50% 33.3333%; }
+#r5:checked ~ .stage .bottom { background-position: 50% 100%; }
+
+/* 結果 6 點 */
+#r6:checked ~ .stage .front { background-position: 50% 100%; }
+#r6:checked ~ .stage .back { background-position: 50% 33.3333%; }
+#r6:checked ~ .stage .right { background-position: 0% 33.3333%; }
+#r6:checked ~ .stage .left { background-position: 100% 33.3333%; }
+#r6:checked ~ .stage .top { background-position: 50% 66.6667%; }
+#r6:checked ~ .stage .bottom { background-position: 50% 0%; }
+
+/* 結果 1 點 */
+#r7:checked ~ .stage .front { background-position: 50% 33.3333%; }
+#r7:checked ~ .stage .back { background-position: 50% 100%; }
+#r7:checked ~ .stage .right { background-position: 0% 33.3333%; }
+#r7:checked ~ .stage .left { background-position: 100% 33.3333%; }
+#r7:checked ~ .stage .top { background-position: 50% 0%; }
+#r7:checked ~ .stage .bottom { background-position: 50% 66.6667%; }
+
+/* 結果 2 點 */
+#r8:checked ~ .stage .front { background-position: 50% 0%; }
+#r8:checked ~ .stage .back { background-position: 50% 66.6667%; }
+#r8:checked ~ .stage .right { background-position: 0% 33.3333%; }
+#r8:checked ~ .stage .left { background-position: 100% 33.3333%; }
+#r8:checked ~ .stage .top { background-position: 50% 100%; }
+#r8:checked ~ .stage .bottom { background-position: 50% 33.3333%; }
+
+/* 結果 3 點 */
+#r9:checked ~ .stage .front { background-position: 0% 33.3333%; }
+#r9:checked ~ .stage .back { background-position: 100% 33.3333%; }
+#r9:checked ~ .stage .right { background-position: 50% 100%; }
+#r9:checked ~ .stage .left { background-position: 50% 33.3333%; }
+#r9:checked ~ .stage .top { background-position: 50% 0%; }
+#r9:checked ~ .stage .bottom { background-position: 50% 66.6667%; }
+
+/* 結果 4 點 */
+#r10:checked ~ .stage .front { background-position: 100% 33.3333%; }
+#r10:checked ~ .stage .back { background-position: 0% 33.3333%; }
+#r10:checked ~ .stage .right { background-position: 50% 33.3333%; }
+#r10:checked ~ .stage .left { background-position: 50% 100%; }
+#r10:checked ~ .stage .top { background-position: 50% 0%; }
+#r10:checked ~ .stage .bottom { background-position: 50% 66.6667%; }
+
+/* 結果 5 點 */
+#r11:checked ~ .stage .front { background-position: 50% 66.6667%; }
+#r11:checked ~ .stage .back { background-position: 50% 0%; }
+#r11:checked ~ .stage .right { background-position: 0% 33.3333%; }
+#r11:checked ~ .stage .left { background-position: 100% 33.3333%; }
+#r11:checked ~ .stage .top { background-position: 50% 33.3333%; }
+#r11:checked ~ .stage .bottom { background-position: 50% 100%; }
+
+/* 結果 6 點 */
+#r12:checked ~ .stage .front { background-position: 50% 100%; }
+#r12:checked ~ .stage .back { background-position: 50% 33.3333%; }
+#r12:checked ~ .stage .right { background-position: 0% 33.3333%; }
+#r12:checked ~ .stage .left { background-position: 100% 33.3333%; }
+#r12:checked ~ .stage .top { background-position: 50% 66.6667%; }
+#r12:checked ~ .stage .bottom { background-position: 50% 0%; }
+
+/* ---------- 翻滾動畫（三軸皆 >= 三圈） ---------- */
+#r1:checked ~ .stage .cube { animation: roll-1 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r2:checked ~ .stage .cube { animation: roll-2 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r3:checked ~ .stage .cube { animation: roll-3 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r4:checked ~ .stage .cube { animation: roll-4 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r5:checked ~ .stage .cube { animation: roll-5 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r6:checked ~ .stage .cube { animation: roll-6 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r7:checked ~ .stage .cube { animation: roll-7 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r8:checked ~ .stage .cube { animation: roll-8 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r9:checked ~ .stage .cube { animation: roll-9 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r10:checked ~ .stage .cube { animation: roll-10 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r11:checked ~ .stage .cube { animation: roll-11 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+#r12:checked ~ .stage .cube { animation: roll-12 1.5s cubic-bezier(.15, .62, .27, 1) forwards; }
+
+@keyframes roll-1 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(1080deg) rotateY(1440deg) rotateZ(-1080deg);
+    }
+}
+
+@keyframes roll-2 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(-1440deg) rotateY(1080deg) rotateZ(1080deg);
+    }
+}
+
+@keyframes roll-3 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(1080deg) rotateY(-1080deg) rotateZ(1440deg);
+    }
+}
+
+@keyframes roll-4 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(1440deg) rotateY(1440deg) rotateZ(1080deg);
+    }
+}
+
+@keyframes roll-5 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(-1080deg) rotateY(1440deg) rotateZ(-1440deg);
+    }
+}
+
+@keyframes roll-6 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(1800deg) rotateY(-1080deg) rotateZ(1080deg);
+    }
+}
+
+@keyframes roll-7 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(1080deg) rotateY(1080deg) rotateZ(1080deg);
+    }
+}
+
+@keyframes roll-8 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(-1080deg) rotateY(-1440deg) rotateZ(1080deg);
+    }
+}
+
+@keyframes roll-9 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(1440deg) rotateY(-1440deg) rotateZ(-1080deg);
+    }
+}
+
+@keyframes roll-10 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(1080deg) rotateY(1800deg) rotateZ(1440deg);
+    }
+}
+
+@keyframes roll-11 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(-1440deg) rotateY(1080deg) rotateZ(-1080deg);
+    }
+}
+
+@keyframes roll-12 {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(1440deg) rotateY(1080deg) rotateZ(1800deg);
+    }
+}
+
+/* ---------- 結果數字：翻滾結束後才浮現 ---------- */
+#r1:checked ~ .result { animation: reveal-1 1.8s ease forwards; }
+#r2:checked ~ .result { animation: reveal-2 1.8s ease forwards; }
+#r3:checked ~ .result { animation: reveal-3 1.8s ease forwards; }
+#r4:checked ~ .result { animation: reveal-4 1.8s ease forwards; }
+#r5:checked ~ .result { animation: reveal-5 1.8s ease forwards; }
+#r6:checked ~ .result { animation: reveal-6 1.8s ease forwards; }
+#r7:checked ~ .result { animation: reveal-7 1.8s ease forwards; }
+#r8:checked ~ .result { animation: reveal-8 1.8s ease forwards; }
+#r9:checked ~ .result { animation: reveal-9 1.8s ease forwards; }
+#r10:checked ~ .result { animation: reveal-10 1.8s ease forwards; }
+#r11:checked ~ .result { animation: reveal-11 1.8s ease forwards; }
+#r12:checked ~ .result { animation: reveal-12 1.8s ease forwards; }
+
+#r1:checked ~ .result::after { content: "1"; }
+#r2:checked ~ .result::after { content: "2"; }
+#r3:checked ~ .result::after { content: "3"; }
+#r4:checked ~ .result::after { content: "4"; }
+#r5:checked ~ .result::after { content: "5"; }
+#r6:checked ~ .result::after { content: "6"; }
+#r7:checked ~ .result::after { content: "1"; }
+#r8:checked ~ .result::after { content: "2"; }
+#r9:checked ~ .result::after { content: "3"; }
+#r10:checked ~ .result::after { content: "4"; }
+#r11:checked ~ .result::after { content: "5"; }
+#r12:checked ~ .result::after { content: "6"; }
+
+@keyframes reveal-1 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-2 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-3 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-4 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-5 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-6 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-7 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-8 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-9 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-10 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-11 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes reveal-12 {
+    0%, 80% {
+        opacity: 0;
+        transform: translateY(14px) scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------- 小螢幕 ---------- */
+@media (max-width: 480px) {
+    .cube {
+        width: 120px;
+        height: 120px;
+    }
+
+    .front  { transform: translateZ(60px); }
+    .back   { transform: rotateY(180deg) translateZ(60px); }
+    .right  { transform: rotateY(90deg) translateZ(60px); }
+    .left   { transform: rotateY(-90deg) translateZ(60px); }
+    .top    { transform: rotateX(90deg) translateZ(60px); }
+    .bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+    .result {
+        font-size: 48px;
+    }
+}
+

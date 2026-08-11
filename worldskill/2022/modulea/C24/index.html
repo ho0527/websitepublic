@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+    <style>
+        /* ---------- 版面 ---------- */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            background: #3a3a3a;
+            color: #f0efe9;
+            font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
+        }
+
+        .hint {
+            margin: 0;
+            font-size: 15px;
+            color: #d8d3c7;
+        }
+
+        /* ---------- 琴身（木頭外框） ---------- */
+        .piano {
+            position: relative;
+            padding: 26px 24px;
+            border-radius: 10px;
+            background: #64492c;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .45);
+        }
+
+        /* ---------- 鍵盤 ---------- */
+        .keyboard {
+            position: relative;
+            display: flex;
+            height: 280px;
+            user-select: none;
+        }
+
+        /* 白鍵：Do Re Mi Fa Sol La Si */
+        .white-key {
+            position: relative;
+            width: 78px;
+            height: 100%;
+            margin-right: 2px;
+            border: 1px solid #b9b9b9;
+            border-radius: 0 0 6px 6px;
+            background: #fdfdfb;
+            color: #222;
+            cursor: pointer;
+            transition: background .06s linear;
+        }
+
+        .white-key:last-child {
+            margin-right: 0;
+        }
+
+        /* 黑鍵：僅作為外觀裝飾，不發聲（題目只要求 7 個音） */
+        .black-key {
+            position: absolute;
+            top: 0;
+            width: 44px;
+            height: 62%;
+            border-radius: 0 0 4px 4px;
+            background: #111;
+            pointer-events: none;
+            z-index: 2; /* 疊在右側白鍵之上 */
+        }
+
+        /* 鍵面上的標示（音名 + 對應鍵盤按鍵） */
+        .key-label {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 14px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.25;
+            pointer-events: none;
+        }
+
+        .key-label .keycap {
+            display: block;
+            font-size: 15px;
+            color: #6b6b6b;
+        }
+
+        /* 按下時的視覺回饋 */
+        .white-key.active {
+            background: #cfe0ff;
+        }
+    </style>
+</head>
+<body>
+
+    <p class="hint">用滑鼠點擊琴鍵，或按下鍵盤 A S D F J K L 演奏 Do Re Mi Fa Sol La Si</p>
+
+    <div class="piano">
+        <!-- data-note 為音名、data-key 為對應的鍵盤按鍵 -->
+        <div class="keyboard" id="keyboard">
+            <div class="white-key" data-note="C" data-key="A">
+                <span class="key-label">Do<span class="keycap">A</span></span>
+                <span class="black-key" style="right: -22px;"></span>
+            </div>
+            <div class="white-key" data-note="D" data-key="S">
+                <span class="key-label">Re<span class="keycap">S</span></span>
+                <span class="black-key" style="right: -22px;"></span>
+            </div>
+            <div class="white-key" data-note="E" data-key="D">
+                <span class="key-label">Mi<span class="keycap">D</span></span>
+            </div>
+            <div class="white-key" data-note="F" data-key="F">
+                <span class="key-label">Fa<span class="keycap">F</span></span>
+                <span class="black-key" style="right: -22px;"></span>
+            </div>
+            <div class="white-key" data-note="G" data-key="J">
+                <span class="key-label">Sol<span class="keycap">J</span></span>
+                <span class="black-key" style="right: -22px;"></span>
+            </div>
+            <div class="white-key" data-note="A" data-key="K">
+                <span class="key-label">La<span class="keycap">K</span></span>
+                <span class="black-key" style="right: -22px;"></span>
+            </div>
+            <div class="white-key" data-note="B" data-key="L">
+                <span class="key-label">Si<span class="keycap">L</span></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * 互動式鋼琴
+         *
+         * 發聲方式說明：
+         * 資料夾內雖然附有 audiosynth.js，但它需要即時合成整段 WAV 並透過 Blob URL 播放，
+         * 首次觸發時有明顯延遲；此處改用瀏覽器原生的 Web Audio API
+         * （AudioContext + OscillatorNode + GainNode），零外部相依、離線可用且反應即時。
+         */
+
+        // 七個音對應的頻率（第 4 八度）
+        var NOTE_FREQUENCIES = {
+            C: 261.63, // Do
+            D: 293.66, // Re
+            E: 329.63, // Mi
+            F: 349.23, // Fa
+            G: 392.00, // Sol
+            A: 440.00, // La
+            B: 493.88  // Si
+        };
+
+        var audioContext = null;
+
+        /**
+         * 取得（或延遲建立）AudioContext
+         * 瀏覽器政策要求必須由使用者操作觸發，因此在第一次彈奏時才建立
+         */
+        function getAudioContext() {
+            if (audioContext === null) {
+                var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                audioContext = new AudioContextClass();
+            }
+
+            // 若被瀏覽器暫停（autoplay 政策），重新恢復
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+
+            return audioContext;
+        }
+
+        /**
+         * 播放指定音名
+         * @param {string} note 音名（C D E F G A B）
+         */
+        function playNote(note) {
+            var frequency = NOTE_FREQUENCIES[note];
+            if (!frequency) {
+                return;
+            }
+
+            var context = getAudioContext();
+            var oscillator = context.createOscillator();
+            var gain = context.createGain();
+            var now = context.currentTime;
+            var duration = 1.2;
+
+            // 三角波音色較接近鋼琴的柔和感
+            oscillator.type = 'triangle';
+            oscillator.frequency.value = frequency;
+
+            // 以指數衰減模擬鋼琴的自然放音，避免爆音
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.exponentialRampToValueAtTime(0.35, now + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+            oscillator.connect(gain);
+            gain.connect(context.destination);
+            oscillator.start(now);
+            oscillator.stop(now + duration);
+        }
+
+        var keyboard = document.getElementById('keyboard');
+        var keys = keyboard.querySelectorAll('.white-key');
+
+        // 建立「鍵盤按鍵 → 琴鍵元素」的對照表
+        var keyMap = {};
+        Array.prototype.forEach.call(keys, function (keyElement) {
+            keyMap[keyElement.dataset.key] = keyElement;
+        });
+
+        /**
+         * 觸發琴鍵：發聲 + 視覺回饋
+         */
+        function pressKey(keyElement) {
+            playNote(keyElement.dataset.note);
+            keyElement.classList.add('active');
+        }
+
+        /**
+         * 放開琴鍵：移除視覺回饋
+         */
+        function releaseKey(keyElement) {
+            keyElement.classList.remove('active');
+        }
+
+        // ---------- 滑鼠操作 ----------
+        Array.prototype.forEach.call(keys, function (keyElement) {
+            keyElement.addEventListener('mousedown', function () {
+                pressKey(keyElement);
+            });
+            keyElement.addEventListener('mouseup', function () {
+                releaseKey(keyElement);
+            });
+            keyElement.addEventListener('mouseleave', function () {
+                releaseKey(keyElement);
+            });
+        });
+
+        // ---------- 鍵盤操作（A S D F J K L）----------
+        // 記錄目前按住的按鍵，避免長按時的自動重複觸發連續發聲
+        var pressedKeys = {};
+
+        document.addEventListener('keydown', function (event) {
+            var pressed = event.key.toUpperCase();
+            var keyElement = keyMap[pressed];
+
+            if (keyElement && !pressedKeys[pressed]) {
+                pressedKeys[pressed] = true;
+                pressKey(keyElement);
+            }
+        });
+
+        document.addEventListener('keyup', function (event) {
+            var released = event.key.toUpperCase();
+            var keyElement = keyMap[released];
+
+            if (keyElement) {
+                pressedKeys[released] = false;
+                releaseKey(keyElement);
+            }
+        });
+    </script>
+
+</body>
+</html>

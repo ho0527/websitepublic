@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B13 - Accessibility 無障礙修正說明</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fa;
+            color: #1f2933;
+            font-family: "Segoe UI", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.75;
+        }
+
+        .wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 28px;
+        }
+
+        .lead {
+            margin: 0 0 28px;
+            color: #52606d;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 34px;
+        }
+
+        .links a {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 6px;
+            background: #1f6feb;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .links a.secondary {
+            background: #52606d;
+        }
+
+        .links a:hover {
+            filter: brightness(1.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+        }
+
+        caption {
+            text-align: left;
+            padding: 12px 14px;
+            font-weight: 700;
+            background: #e4e7eb;
+        }
+
+        th,
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e4e7eb;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            width: 30%;
+            color: #323f4b;
+        }
+
+        code {
+            background: #eef1f5;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: .92em;
+        }
+
+        .note {
+            margin-top: 26px;
+            padding: 14px 16px;
+            border-left: 4px solid #1f6feb;
+            background: #eaf1fd;
+            color: #243b53;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>B13 - Accessibility（無障礙修正）</h1>
+    <p class="lead">
+        主辦單位提供的 <code>accessibility.html</code> 內含五個常見的無障礙問題，
+        以下列出找到的問題與對應的修正方式，修正後的版本為 <code>accessibility-fixed.html</code>。
+    </p>
+
+    <div class="links">
+        <a href="accessibility-fixed.html">開啟修正後版本 accessibility-fixed.html</a>
+        <a class="secondary" href="accessibility.html">開啟原始版本 accessibility.html</a>
+    </div>
+
+    <table>
+        <caption>問題與修正對照表</caption>
+        <thead>
+        <tr>
+            <th scope="col">問題</th>
+            <th scope="col">修正方式</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1. 缺少文件宣告、語言與頁面標題</th>
+            <td>
+                原檔沒有 <code>&lt;!DOCTYPE html&gt;</code>、<code>lang</code> 屬性、
+                <code>&lt;meta charset&gt;</code> 與 <code>&lt;title&gt;</code>，
+                螢幕閱讀器無法判斷朗讀語言、分頁也沒有可辨識的名稱。<br>
+                → 補上 <code>&lt;!DOCTYPE html&gt;</code>、<code>&lt;html lang="en"&gt;</code>、
+                <code>charset</code>、<code>viewport</code> 與具描述性的 <code>&lt;title&gt;</code>。
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2. 用 <code>div</code> 假裝標題</th>
+            <td>
+                <code>div.header1 / .header2 / .header3</code> 只有字體大小的差異、沒有語意，
+                輔助科技無法建立標題大綱，使用者也無法用標題快速跳讀。<br>
+                → 改為真正的 <code>&lt;h1&gt;</code>、<code>&lt;h2&gt;</code>、<code>&lt;h3&gt;</code>，
+                並用 CSS 維持原本的視覺大小。
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3. 圖片沒有替代文字</th>
+            <td>
+                <code>&lt;img src="images/web-tech.jpeg"&gt;</code> 缺少 <code>alt</code>，
+                視障使用者完全得不到圖片資訊。<br>
+                → 補上具描述性的 <code>alt</code> 說明圖片內容。
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">4. 表單欄位沒有 <code>label</code></th>
+            <td>
+                搜尋欄位只靠旁邊的文字「Search」表示用途，輸入框本身沒有可及名稱；
+                送出鈕也只顯示瀏覽器預設文字。<br>
+                → 加上 <code>&lt;label for="site-search"&gt;</code> 與對應的
+                <code>id</code>、<code>name</code>，送出鈕 <code>value</code> 改為「Search」，
+                表單並加上 <code>role="search"</code> 地標。
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">5. 文字對比度不足</th>
+            <td>
+                原本背景 <code>#444444</code> 搭配文字 <code>#888888</code>，
+                對比度僅約 1.9:1，遠低於 WCAG 2.1 AA 對一般文字要求的 4.5:1。<br>
+                → 改為背景 <code>#1f2933</code> + 文字 <code>#f0f4f8</code>（約 14:1），
+                連結色改為 <code>#7fd0ff</code>（約 9:1），並保留底線與可見的鍵盤焦點框。
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">6. 連結文字「click here」沒有意義</th>
+            <td>
+                以連結清單方式瀏覽時，「click here」完全無法判斷目的地。<br>
+                → 改為描述性文字「WorldSkills Web Technologies skill page」，
+                並註明會在新分頁開啟。
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p class="note">
+        補充：原始檔案透過 CDN 載入 Bootstrap，在離線環境無法取得而導致版面錯亂，
+        修正版已移除該 CDN 連結，改以自行撰寫的少量 CSS 呈現相同版面，不依賴任何外部資源。
+    </p>
+</div>
+
+</body>
+</html>

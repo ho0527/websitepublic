@@ -1,17 +1,94 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Document</title>
-		<link rel="stylesheet" type="text/css" href="style.css" />
-	</head>
-	<body>
-		<div class="title">HOSTING PLANS</div>
-		<div class="card">
-			<div class="font">Font</div>
-			<div class="back">Back</div>
-		</div>
-		<!-- <img src="paper-plane.svg">
-		<img src="plane.svg">
-		<img src="rocket.svg"> -->
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Gradient Elements</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h1 class="title">HOSTING PLANS</h1>
+
+<!-- 三張方案卡片：滑鼠移入時以 Y 軸做 3D 翻面，背面顯示價格與 SELECT 按鈕 -->
+<div class="plans">
+
+    <!-- BASIC 方案 -->
+    <div class="card">
+        <div class="card-inner">
+            <!-- 正面 -->
+            <div class="card-face card-front basic">
+                <img class="plan-icon" src="paper-plane.svg" alt="Paper plane icon">
+                <h2 class="plan-name">BASIC</h2>
+                <ul class="plan-features">
+                    <li>1 Website</li>
+                    <li>50 GB SSD Storage</li>
+                    <li>Unmetered Bandwidth</li>
+                    <li>Free SSL Certificate</li>
+                    <li>1 Included Domain</li>
+                    <li>1 Included Domain</li>
+                </ul>
+            </div>
+            <!-- 背面 -->
+            <div class="card-face card-back basic">
+                <p class="only">ONLY</p>
+                <p class="price">$2.95/mo<sup>*</sup></p>
+                <a class="select-btn" href="#">SELECT</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLUS 方案 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-face card-front plus">
+                <img class="plan-icon" src="plane.svg" alt="Airplane icon">
+                <h2 class="plan-name">PLUS</h2>
+                <ul class="plan-features">
+                    <li>Includes Basic Package Features</li>
+                    <li>Unlimited Websites</li>
+                    <li>Unlimited SSD Storage</li>
+                    <li>Unlimited Domains</li>
+                    <li>Unlimited Parked Domains</li>
+                    <li>Unlimited Sub Domains</li>
+                </ul>
+            </div>
+            <div class="card-face card-back plus">
+                <p class="only">ONLY</p>
+                <p class="price">$5.45/mo<sup>*</sup></p>
+                <a class="select-btn" href="#">SELECT</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRO 方案 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-face card-front pro">
+                <img class="plan-icon" src="rocket.svg" alt="Rocket icon">
+                <h2 class="plan-name">PRO</h2>
+                <ul class="plan-features">
+                    <li>Includes Plus Plan Features</li>
+                    <li>High Performance</li>
+                    <li>2 Spam Experts</li>
+                    <li>Free SSL Certificate</li>
+                    <li>Domain Privacy</li>
+                    <li>Site Backup - CodeGuard Basic</li>
+                </ul>
+            </div>
+            <div class="card-face card-back pro">
+                <p class="only">ONLY</p>
+                <p class="price">$13.95/mo</p>
+                <a class="select-btn" href="#">SELECT</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="cta-wrap">
+    <a class="cta-btn" href="#">GET STARTED</a>
+</div>
+
+</body>
 </html>

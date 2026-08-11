@@ -1,149 +1,161 @@
+/* =========================================================
+   B04 - Particle Button
+   純 CSS 互動動畫：點擊「Click Me!」按鈕後，
+   按鈕四周會噴出許多粒子並向外擴散、淡出。
+   （只允許修改本檔案，index.html 維持原樣）
+   ========================================================= */
+
+/* ---------- 按鈕本體 ---------- */
 .particle-btn {
-    position: relative;
-    padding: 20px;
+    position: relative;                 /* 作為粒子（偽元素）的定位基準 */
+    background: #ff598c;                /* 與參考動畫相同的粉紅色 */
+    color: #fff;
     border: none;
-    background-color: #007bff;
-    color: white;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    border-radius: 5px;
     cursor: pointer;
-    overflow: hidden; /* 防止泡泡超出按鈕範圍 */
-  }
-  
-  /* 定義泡泡出現和消失的動畫 */
-  @keyframes bubble-move {
-    0% {
-      opacity: 1;
-      transform: scale(0.5);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(2) translate(0, -20px);
-    }
-  }
-  
-  @keyframes bubble-move-opposite {
-    0% {
-      opacity: 1;
-      transform: scale(0.5);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(2) translate(0, 20px);
-    }
-  }
-  
-  .particle-btn::before, .particle-btn::after {
-    content: '';
+    outline: none;
+    overflow: visible;                  /* 粒子必須能超出按鈕範圍 */
+    transition: transform .15s ease, box-shadow .25s ease;
+}
+
+/* 滑鼠移入時的細微回饋 */
+.particle-btn:hover {
+    box-shadow: 0 6px 18px rgba(255, 89, 140, .45);
+}
+
+/* 按住的瞬間按鈕輕微縮小，模擬「被按下」 */
+.particle-btn:active {
+    transform: scale(.94);
+}
+
+/* 鍵盤操作時保留可見的焦點框（無障礙） */
+.particle-btn:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 89, 140, .5);
+}
+
+/* ---------- 粒子層 ----------
+   ::before 與 ::after 各自是一個位於按鈕正中央的小圓點，
+   再利用「多重 box-shadow」各複製出十幾顆粒子，
+   總共 26 顆粒子，靠動畫改變 box-shadow 的位移量向外擴散。 */
+.particle-btn::before,
+.particle-btn::after {
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.6);
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;              /* 讓圓點的中心對齊按鈕中心 */
     border-radius: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-  }
-  
-  .particle-btn:active::before {
-    animation: bubble-move 0.5s forwards;
-  }
-  
-  .particle-btn:active::after {
-    animation: bubble-move-opposite 0.5s forwards;
-  }
-
-
-
-
-
-
-
-
-
-
-/* .particle-btn {
-    position: relative;
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    overflow: hidden;
+    background: transparent;            /* 本體透明，只顯示 box-shadow 產生的粒子 */
+    pointer-events: none;               /* 粒子不攔截滑鼠事件 */
+    opacity: 0;                         /* 平常完全隱藏 */
+    z-index: -1;                        /* 粒子在按鈕底下飛出，不遮住文字 */
 }
 
-.particle-btn::before,
-.particle-btn::after {
-    content: '';
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    transform: translateX(-50%);
-    animation: bubble-up 2s ease-out infinite;
+/* ---------- 觸發方式 ----------
+   按鈕被點擊後會取得 focus，因此用 :focus 播放完整動畫；
+   而 :active（按住的期間）先把動畫關掉，
+   放開滑鼠時動畫名稱重新生效 → 每一次點擊都會重新播放一遍。 */
+.particle-btn:active::before,
+.particle-btn:active::after {
+    animation: none;
 }
 
-@keyframes bubble-up {
+.particle-btn:focus::before {
+    animation: particle-burst-inner .75s cubic-bezier(.15, .75, .35, 1) forwards;
+}
+
+.particle-btn:focus::after {
+    animation: particle-burst-outer .95s cubic-bezier(.15, .75, .35, 1) forwards;
+}
+
+/* ---------- 內圈 14 顆粒子：擴散半徑較小、速度較快 ---------- */
+@keyframes particle-burst-inner {
     0% {
-        bottom: 10px;
+        opacity: 1;
+        box-shadow:
+                15px 1px 0 -1px #ff598c,
+                15px 6px 0 -1px #ff8fb4,
+                11px 14px 0 0px #ff2f74,
+                4px 11px 0 0px #ffc2d6,
+                -1px 11px 0 0px #ff598c,
+                -6px 8px 0 0px #ff8fb4,
+                -12px 7px 0 -1px #ff2f74,
+                -16px -1px 0 0px #ffc2d6,
+                -10px -4px 0 1px #ff598c,
+                -9px -11px 0 -1px #ff8fb4,
+                -3px -13px 0 -1px #ff2f74,
+                3px -16px 0 0px #ffc2d6,
+                10px -12px 0 1px #ff598c,
+                16px -6px 0 0px #ff8fb4;
+    }
+
+    70% {
         opacity: 1;
     }
 
     100% {
-        bottom: 100%;
         opacity: 0;
+        box-shadow:
+                85px 6px 0 -5px #ff598c,
+                93px 40px 0 -5px #ff8fb4,
+                52px 68px 0 -4px #ff2f74,
+                33px 99px 0 -4px #ffc2d6,
+                -13px 111px 0 -4px #ff598c,
+                -67px 89px 0 -4px #ff8fb4,
+                -93px 55px 0 -5px #ff2f74,
+                -87px -4px 0 -4px #ffc2d6,
+                -96px -44px 0 -3px #ff598c,
+                -81px -92px 0 -5px #ff8fb4,
+                -23px -90px 0 -5px #ff2f74,
+                16px -92px 0 -4px #ffc2d6,
+                60px -69px 0 -3px #ff598c,
+                79px -29px 0 -4px #ff8fb4;
     }
 }
 
-.particle-btn::before {
-    animation-delay: 0s;
-}
+/* ---------- 外圈 12 顆粒子：擴散半徑較大、時間較長 ---------- */
+@keyframes particle-burst-outer {
+    0% {
+        opacity: 1;
+        box-shadow:
+                8px 3px 0 -1px #ff598c,
+                9px 7px 0 -1px #ff8fb4,
+                2px 7px 0 1px #ff2f74,
+                -2px 13px 0 1px #ffc2d6,
+                -8px 9px 0 -1px #ff598c,
+                -11px 3px 0 1px #ff8fb4,
+                -9px -2px 0 -1px #ff2f74,
+                -7px -6px 0 1px #ffc2d6,
+                -3px -12px 0 1px #ff598c,
+                4px -13px 0 0px #ff8fb4,
+                6px -7px 0 1px #ff2f74,
+                10px -4px 0 0px #ffc2d6;
+    }
 
-.particle-btn::after {
-    animation-delay: 1s;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-/* .particle-btn{
-    position: relative;
-}
-
-.particle-btn:active::before, .particle-btn:active::after{
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    height: 10px;
-    width: 10px;
-    background: #ff598c;
-    border-radius: 50%;
-    transform: translate(-50%,-0%);
-    animation: bubble 0.5s ease-out forwards;
-}
-
-.particle-btn:active::after{
-    animation-delay: 0.2s;
-}
-
-@keyframes bubble{
-    0%{
-        bottom: 20px;
+    65% {
         opacity: 1;
     }
-    100%{
-        bottom: 200px;
+
+    100% {
         opacity: 0;
+        box-shadow:
+                137px 43px 0 -5px #ff598c,
+                113px 94px 0 -5px #ff8fb4,
+                42px 139px 0 -3px #ff2f74,
+                -25px 137px 0 -3px #ffc2d6,
+                -99px 119px 0 -5px #ff598c,
+                -156px 43px 0 -3px #ff8fb4,
+                -135px -25px 0 -5px #ff2f74,
+                -111px -97px 0 -3px #ffc2d6,
+                -29px -142px 0 -3px #ff598c,
+                36px -125px 0 -4px #ff8fb4,
+                92px -106px 0 -3px #ff2f74,
+                134px -53px 0 -4px #ffc2d6;
     }
-} */
+}
