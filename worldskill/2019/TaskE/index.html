@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="/index.css">
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="/chrisplugin/css/chrisplugin.css">
-        <script src="/chrisplugin/js/chrisplugin.js"></script>
-    </head>
-    <body>
-        <input type="button" class="stbutton outline modebutton" id="mode" value="presentation mode">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldSkills Event Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-        <div class="main macossectiondiv indexmain" id="main"></div>
+<!-- 頁首導覽列：未登入顯示 Login，登入後顯示使用者名稱與 Logout -->
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="#/">
+            <span class="brand-mark">WS</span>
+            <span class="brand-text">Event Platform</span>
+        </a>
+        <nav class="site-nav" id="nav"></nav>
+    </div>
+</header>
 
-        <div id="lightbox"></div>
+<!-- 全域提示訊息（成功／錯誤） -->
+<div class="container"><div id="flash" class="flash" hidden></div></div>
 
-        <script src="index.js"></script>
-    </body>
+<!-- 路由渲染區 -->
+<main class="container" id="app"></main>
+
+<footer class="site-footer">
+    <div class="container">WorldSkills Conferences &middot; Attendee interface</div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+</body>
 </html>

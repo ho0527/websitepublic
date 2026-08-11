@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="760" viewBox="0 0 1180 760" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+    <!-- WorldSkills 2019 TP17 / Task C 資料庫 ERD
+         灰底＝主辦單位提供、不可修改的資料表；綠底＝本專案新增的評分資料表 -->
+    <rect width="1180" height="760" fill="#ffffff"/>
+    <text x="24" y="34" font-size="18" font-weight="600" fill="#1f2933">worldskill2019_taskc – Entity Relationship Diagram</text>
+    <text x="24" y="54" fill="#6b7280">灰色：題目提供的資料表（未修改）　綠色：新增的資料表（第三正規化）</text>
+
+    <g stroke="#94a3b8" stroke-width="1.5" fill="none">
+        <path d="M204 148 L300 148"/>          <!-- organizers -> events -->
+        <path d="M420 190 L420 232"/>          <!-- events -> channels -->
+        <path d="M420 320 L420 362"/>          <!-- channels -> rooms -->
+        <path d="M420 450 L420 492"/>          <!-- rooms -> sessions -->
+        <path d="M540 148 L660 148 L660 232"/> <!-- events -> event_tickets -->
+        <path d="M780 300 L780 362"/>          <!-- event_tickets -> registrations -->
+        <path d="M204 470 L300 470 L300 560"/> <!-- attendees -> registrations(id) -->
+        <path d="M660 470 L560 470"/>          <!-- registrations -> session_registrations -->
+        <path d="M560 560 L620 560 L620 540"/>
+        <path d="M204 300 L204 240"/>
+    </g>
+
+    <!-- organizers -->
+    <g>
+        <rect x="24" y="100" width="180" height="96" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="24" y="100" width="180" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="34" y="117" font-weight="600">organizers</text>
+        <text x="34" y="138">PK id</text>
+        <text x="34" y="154">name, slug</text>
+        <text x="34" y="170">email</text>
+        <text x="34" y="186">password_hash</text>
+    </g>
+
+    <!-- events -->
+    <g>
+        <rect x="300" y="100" width="240" height="90" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="300" y="100" width="240" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="310" y="117" font-weight="600">events</text>
+        <text x="310" y="138">PK id</text>
+        <text x="310" y="154">FK organizer_id → organizers.id</text>
+        <text x="310" y="170">name, slug, date</text>
+    </g>
+
+    <!-- channels -->
+    <g>
+        <rect x="300" y="232" width="240" height="88" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="300" y="232" width="240" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="310" y="249" font-weight="600">channels</text>
+        <text x="310" y="270">PK id</text>
+        <text x="310" y="286">FK event_id → events.id</text>
+        <text x="310" y="302">name</text>
+    </g>
+
+    <!-- rooms -->
+    <g>
+        <rect x="300" y="362" width="240" height="88" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="300" y="362" width="240" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="310" y="379" font-weight="600">rooms</text>
+        <text x="310" y="400">PK id</text>
+        <text x="310" y="416">FK channel_id → channels.id</text>
+        <text x="310" y="432">name, capacity</text>
+    </g>
+
+    <!-- sessions -->
+    <g>
+        <rect x="300" y="492" width="240" height="120" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="300" y="492" width="240" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="310" y="509" font-weight="600">sessions</text>
+        <text x="310" y="530">PK id</text>
+        <text x="310" y="546">FK room_id → rooms.id</text>
+        <text x="310" y="562">title, description, speaker</text>
+        <text x="310" y="578">start, end</text>
+        <text x="310" y="594">type (talk|workshop), cost</text>
+    </g>
+
+    <!-- event_tickets -->
+    <g>
+        <rect x="660" y="232" width="240" height="88" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="660" y="232" width="240" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="670" y="249" font-weight="600">event_tickets</text>
+        <text x="670" y="270">PK id　FK event_id → events.id</text>
+        <text x="670" y="286">name, cost</text>
+        <text x="670" y="302">special_validity (JSON)</text>
+    </g>
+
+    <!-- registrations -->
+    <g>
+        <rect x="660" y="362" width="240" height="88" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="660" y="362" width="240" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="670" y="379" font-weight="600">registrations</text>
+        <text x="670" y="400">PK id</text>
+        <text x="670" y="416">FK attendee_id → attendees.id</text>
+        <text x="670" y="432">FK ticket_id → event_tickets.id</text>
+    </g>
+
+    <!-- session_registrations -->
+    <g>
+        <rect x="660" y="492" width="240" height="88" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="660" y="492" width="240" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="670" y="509" font-weight="600">session_registrations</text>
+        <text x="670" y="530">PK id</text>
+        <text x="670" y="546">FK registration_id → registrations.id</text>
+        <text x="670" y="562">FK session_id → sessions.id</text>
+    </g>
+
+    <!-- attendees -->
+    <g>
+        <rect x="24" y="400" width="180" height="120" rx="6" fill="#eef2f7" stroke="#94a3b8"/>
+        <rect x="24" y="400" width="180" height="24" rx="6" fill="#cbd5e1" stroke="#94a3b8"/>
+        <text x="34" y="417" font-weight="600">attendees</text>
+        <text x="34" y="438">PK id</text>
+        <text x="34" y="454">firstname, lastname</text>
+        <text x="34" y="470">username, email</text>
+        <text x="34" y="486">registration_code</text>
+        <text x="34" y="502">login_token</text>
+    </g>
+
+    <!-- event_ratings（新增） -->
+    <g>
+        <rect x="940" y="100" width="220" height="120" rx="6" fill="#e7f5eb" stroke="#2f9e44"/>
+        <rect x="940" y="100" width="220" height="24" rx="6" fill="#b7e0c4" stroke="#2f9e44"/>
+        <text x="950" y="117" font-weight="600">event_ratings（新增）</text>
+        <text x="950" y="138">PK id</text>
+        <text x="950" y="154">FK attendee_id → attendees.id</text>
+        <text x="950" y="170">FK event_id → events.id</text>
+        <text x="950" y="186">rating (1–5), comment</text>
+        <text x="950" y="202">rated_at</text>
+    </g>
+
+    <!-- session_ratings（新增） -->
+    <g>
+        <rect x="940" y="260" width="220" height="120" rx="6" fill="#e7f5eb" stroke="#2f9e44"/>
+        <rect x="940" y="260" width="220" height="24" rx="6" fill="#b7e0c4" stroke="#2f9e44"/>
+        <text x="950" y="277" font-weight="600">session_ratings（新增）</text>
+        <text x="950" y="298">PK id</text>
+        <text x="950" y="314">FK attendee_id → attendees.id</text>
+        <text x="950" y="330">FK session_id → sessions.id</text>
+        <text x="950" y="346">rating (1–5), comment</text>
+        <text x="950" y="362">rated_at</text>
+    </g>
+
+    <g stroke="#2f9e44" stroke-width="1.5" fill="none" stroke-dasharray="4 3">
+        <path d="M940 160 L916 160 L916 470 L900 470"/>  <!-- event_ratings 關聯 -->
+        <path d="M940 320 L924 320 L924 536 L900 536"/>  <!-- session_ratings 關聯 -->
+    </g>
+</svg>
