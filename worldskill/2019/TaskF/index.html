@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Explorer － Choose your way to learn Kazan</title>
+  <meta name="description" content="Knowledge Explorer 是喀山旅遊互動簡報服務：路線編輯器讓你創作，查看模式讓訪客自選路線探索千年古都。">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+
+  <!-- ===================== 頁首導覽 ===================== -->
+  <header class="site-header" id="site-header">
+    <div class="wrap site-header__inner">
+      <a class="logo" href="#top">
+        <img src="logo.png" alt="Knowledge Explorer 標誌">
+        <span class="logo__text">
+          <strong>Knowledge&nbsp;Explorer</strong>
+          <small>Choose your way to learn Kazan</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="主要導覽">
+        <ul>
+          <li><a href="#modes">兩種模式</a></li>
+          <li><a href="#features">服務特色</a></li>
+          <li><a href="#how">如何運作</a></li>
+          <li><a href="#kazan">探索喀山</a></li>
+          <li><a href="#feedback">建議與回饋</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--primary site-header__cta" href="../TaskD/?view=1">立即體驗</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== 主視覺 ===================== -->
+    <section class="hero" id="top">
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow">Kazan · Tatarstan · 千年古都</p>
+          <h1 class="hero__title">
+            Choose your way<br><span class="hero__title-accent">to learn Kazan</span>
+          </h1>
+          <p class="hero__lead">
+            Knowledge Explorer 以互動簡報的形式，帶訪客認識韃靼斯坦千年首都的歷史、文化與氛圍。
+            每一張投影片都有 4 個選擇，讓每個人走出自己的探索路線。
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="../TaskD/?view=1">
+              體驗查看模式 <span aria-hidden="true">▶</span>
+            </a>
+            <a class="btn btn--outline btn--lg" href="../TaskD/">開啟路線編輯器</a>
+          </div>
+          <ul class="hero__stats">
+            <li><strong>2</strong><span>種操作模式</span></li>
+            <li><strong>4</strong><span>個分支選項</span></li>
+            <li><strong>0</strong><span>行程式碼</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <figure class="browser browser--main">
+            <figcaption class="browser__bar" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <em>knowledge-explorer / view mode</em>
+            </figcaption>
+            <img src="screenshots/viewer.png" alt="查看模式畫面：投影片下方有 4 個帶標題的導覽按鈕">
+          </figure>
+          <figure class="browser browser--float">
+            <figcaption class="browser__bar" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <em>route editor</em>
+            </figcaption>
+            <img src="screenshots/editor.png" alt="路線編輯器畫面：以節點與連接線組成的路線圖">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 兩種模式 ===================== -->
+    <section class="section modes" id="modes">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">About editor and view mode</p>
+        <h2 class="section__title">不只是簡報編輯器</h2>
+        <p class="section__lead">選擇您感興趣的內容以供進一步參考。一個服務、兩種角色：創作者用「路線編輯器」編織故事，訪客用「查看模式」自由探索。</p>
+
+        <div class="tabs">
+          <div class="tabs__list" role="tablist" aria-label="兩種操作模式">
+            <button class="tabs__tab is-active" role="tab" id="tab-editor"
+                    aria-selected="true" aria-controls="panel-editor">
+              <span class="tabs__num">01</span> 路線編輯器
+            </button>
+            <button class="tabs__tab" role="tab" id="tab-viewer"
+                    aria-selected="false" aria-controls="panel-viewer" tabindex="-1">
+              <span class="tabs__num">02</span> 查看模式
+            </button>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-editor" aria-labelledby="tab-editor">
+            <div class="tabs__grid">
+              <div class="tabs__text">
+                <h3>為創作者：把想法連成一條路線</h3>
+                <p>每個元素就是一張投影片。滑鼠移上去會出現 4 個互動區域，點一下就能往那個方向長出新的一張，並自動建立連接。</p>
+                <ul class="ticks">
+                  <li>拖曳即可重新排列，連接線自動跟隨</li>
+                  <li>內建所見即所得編輯器，可放文字與照片</li>
+                  <li>為 4 個區域各自命名，成為訪客看到的選項</li>
+                  <li>所有變更自動儲存，重新整理不遺失</li>
+                </ul>
+                <a class="btn btn--outline" href="../TaskD/">開啟路線編輯器</a>
+              </div>
+              <figure class="browser">
+                <figcaption class="browser__bar" aria-hidden="true">
+                  <span></span><span></span><span></span><em>route editor</em>
+                </figcaption>
+                <img src="screenshots/editor.png" alt="路線編輯器的使用者介面截圖">
+              </figure>
+            </div>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-viewer" aria-labelledby="tab-viewer" hidden>
+            <div class="tabs__grid">
+              <div class="tabs__text">
+                <h3>為訪客：想看什麼，自己決定</h3>
+                <p>全螢幕播放，畫面下方永遠有帶著標題的方向按鈕；鍵盤按 1 至 4 也能移動，過場動畫會沿著你選擇的方向前進。</p>
+                <ul class="ticks">
+                  <li>從根元素開始，隨時知道自己走到哪裡</li>
+                  <li>方向性過場動畫，上下左右一目了然</li>
+                  <li>桌機、平板與觸控裝置皆適用</li>
+                  <li>可隨時開啟路線圖跳到任一主題</li>
+                </ul>
+                <a class="btn btn--outline" href="../TaskD/?view=1">體驗查看模式</a>
+              </div>
+              <figure class="browser">
+                <figcaption class="browser__bar" aria-hidden="true">
+                  <span></span><span></span><span></span><em>view mode</em>
+                </figcaption>
+                <img src="screenshots/viewer.png" alt="查看模式的使用者介面截圖">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 服務與特色 ===================== -->
+    <section class="section section--sand" id="features">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">About service and features</p>
+        <h2 class="section__title">Knowledge Explorer 能為你做什麼</h2>
+        <p class="section__lead">喀山旅遊互動簡報服務的原型：把城市的歷史、文化與氛圍，變成一段可以自己選擇的旅程。</p>
+
+        <ul class="cards">
+          <li class="card">
+            <span class="card__icon" aria-hidden="true">◧</span>
+            <h3>兩種操作模式</h3>
+            <p>路線編輯器負責創作，查看模式負責呈現，同一份內容兩種面貌。</p>
+          </li>
+          <li class="card">
+            <span class="card__icon" aria-hidden="true">✦</span>
+            <h3>4 個分支選項</h3>
+            <p>每張投影片可延伸出 4 條路線，訪客依當下的興趣決定下一步。</p>
+          </li>
+          <li class="card">
+            <span class="card__icon" aria-hidden="true">✎</span>
+            <h3>所見即所得編輯</h3>
+            <p>內建文字編輯器，標題、段落、清單與照片都能直接排版。</p>
+          </li>
+          <li class="card">
+            <span class="card__icon" aria-hidden="true">◎</span>
+            <h3>不需要寫程式</h3>
+            <p>每個人都能建立自己的互動式簡報，不必學習任何程式語言。</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 如何運作（互動） ===================== -->
+    <section class="section how" id="how">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">How it works</p>
+        <h2 class="section__title">如何運作</h2>
+        <p class="section__lead">選擇下方任一步驟，右側會即時切換到對應的操作畫面。</p>
+
+        <div class="how__grid">
+          <ol class="how__steps" id="how-steps">
+            <li>
+              <button type="button" class="step is-active" data-step="1"
+                      aria-describedby="how-caption">
+                <span class="step__num">1</span>
+                <span class="step__body">
+                  <strong>建立投影片並填滿內容</strong>
+                  <small>在編輯器中新增元素，用所見即所得編輯器寫下故事。</small>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step" data-step="2" aria-describedby="how-caption">
+                <span class="step__num">2</span>
+                <span class="step__body">
+                  <strong>把投影片連在一起</strong>
+                  <small>點擊 4 個互動區域或按住 Shift 拖曳，就能建立連接。</small>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step" data-step="3" aria-describedby="how-caption">
+                <span class="step__num">3</span>
+                <span class="step__body">
+                  <strong>線上查看你的成果</strong>
+                  <small>切換到查看模式，訪客即可依照指示自由探索。</small>
+                </span>
+              </button>
+            </li>
+          </ol>
+
+          <figure class="how__preview">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true">
+                <span></span><span></span><span></span><em id="how-mode">route editor</em>
+              </div>
+              <img id="how-image" src="screenshots/editor.png"
+                   alt="步驟 1：在路線編輯器中建立投影片並填入內容">
+              <!-- 提示圈：指出該步驟操作的位置 -->
+              <span class="how__spot" id="how-spot" aria-hidden="true"></span>
+            </div>
+            <figcaption id="how-caption" class="how__caption" aria-live="polite">
+              步驟 1：在路線編輯器中新增元素，並用所見即所得編輯器填入內容。
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 探索喀山（媒體） ===================== -->
+    <section class="section section--dark" id="kazan">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">Kazan</p>
+        <h2 class="section__title">一座值得慢慢說的城市</h2>
+        <p class="section__lead">克里姆林宮、清真寺、博物館與甜點——把它們接成一條路線，讓訪客自己挑。</p>
+
+        <ul class="gallery">
+          <li class="gallery__item gallery__item--wide">
+            <img src="Photo/Destination-Kazan.jpg" alt="喀山克里姆林宮與卡贊卡河沿岸全景">
+            <span class="gallery__caption">喀山克里姆林宮 · 世界文化遺產</span>
+          </li>
+          <li class="gallery__item">
+            <img src="Photo/museum-of-islamic-culture-1.jpg" alt="伊斯蘭文化博物館內部">
+            <span class="gallery__caption">伊斯蘭文化博物館</span>
+          </li>
+          <li class="gallery__item">
+            <img src="Photo/national-museum-of-the-republic-of-tatarstan-1.jpg" alt="韃靼斯坦共和國國家博物館展廳">
+            <span class="gallery__caption">國家博物館</span>
+          </li>
+          <li class="gallery__item">
+            <img src="Photo/chak-chak-museum-2.png" alt="恰克恰博物館的木造老屋外觀">
+            <span class="gallery__caption">恰克恰博物館 · 韃靼甜點</span>
+          </li>
+          <li class="gallery__item">
+            <img src="Photo/kzn-3.jpg" alt="夜間點燈的喀山家庭中心建築">
+            <span class="gallery__caption">喀山家庭中心「大鍋」</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 行動呼籲 ===================== -->
+    <section class="cta" id="try">
+      <div class="wrap cta__inner">
+        <div>
+          <h2 class="cta__title">您知道喀山的一些有趣的事嗎？<br>建立您的互動式簡報！</h2>
+          <p class="cta__lead">厭倦了無聊的旅行？選擇你自己感興趣的。現在就打開編輯器，把你的喀山說給別人聽。</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn--primary btn--lg" href="../TaskD/">免費開始創作</a>
+          <a class="btn btn--ghost btn--lg" href="../TaskD/?view=1">先看看成品</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== 頁尾 ===================== -->
+  <footer class="site-footer" id="feedback">
+    <div class="wrap site-footer__inner">
+      <div class="site-footer__brand">
+        <img src="logo.png" alt="Knowledge Explorer 標誌">
+        <p>Knowledge Explorer<br><small>Choose your way to learn Kazan</small></p>
+      </div>
+
+      <nav class="site-footer__links" aria-label="頁尾導覽">
+        <h2>網站</h2>
+        <ul>
+          <li><a href="#modes">兩種模式</a></li>
+          <li><a href="#features">服務特色</a></li>
+          <li><a href="#how">如何運作</a></li>
+          <li><a href="#try">立即體驗</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer__feedback">
+        <h2>建議與回饋</h2>
+        <p>我們想聽聽你的想法，一起把這個服務做得更好。</p>
+        <a class="btn btn--outline" href="feedback.html">前往「建議與回饋」</a>
+      </div>
+
+      <div class="site-footer__social">
+        <h2>分享這個服務</h2>
+        <ul class="social">
+          <li><a href="#" aria-label="分享到 Facebook"><img src="assets/social/facebook.png" alt=""></a></li>
+          <li><a href="#" aria-label="分享到 Twitter"><img src="assets/social/twitter.png" alt=""></a></li>
+          <li><a href="#" aria-label="分享到 Tumblr"><img src="assets/social/tumblr.png" alt=""></a></li>
+          <li><a href="#" aria-label="分享到 YouTube"><img src="assets/social/youtube.png" alt=""></a></li>
+          <li><a href="#" aria-label="訂閱 RSS"><img src="assets/social/rss.png" alt=""></a></li>
+          <li><a href="#" aria-label="分享到 Pinterest"><img src="assets/social/pinterest.png" alt=""></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap site-footer__bottom">
+      <p>© 2019 Knowledge Explorer · WorldSkills Kazan 2019 Test Project</p>
+      <button type="button" class="guide-toggle" id="guide-toggle" aria-pressed="false">
+        顯示 1440 × 900 設計邊界
+      </button>
+    </div>
+  </footer>
+
+  <!-- 1440 × 900 設計解析度邊界（3px 紅框），供設計審查對照用 -->
+  <div class="design-guide" id="design-guide" hidden aria-hidden="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

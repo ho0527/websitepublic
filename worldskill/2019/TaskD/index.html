@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Explorer － 路線編輯器 / 查看模式</title>
+  <meta name="description" content="Knowledge Explorer 互動式簡報原型：路線編輯器與查看模式。">
+  <link rel="icon" href="assets/logo.png">
+  <!-- 所見即所得編輯器（題目提供之 Trix，離線本機檔） -->
+  <link rel="stylesheet" href="vendor/trix/trix.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 跳至主要內容：無障礙捷徑 -->
+  <a class="skip-link" href="#editor-canvas">跳至編輯區</a>
+
+  <header class="app-header">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Knowledge Explorer 標誌" class="brand__logo">
+      <div class="brand__text">
+        <strong>Knowledge Explorer</strong>
+        <span>Choose your way to learn Kazan</span>
+      </div>
+    </div>
+
+    <nav class="toolbar" aria-label="編輯器工具列">
+      <button type="button" id="btn-add" class="btn">
+        <span aria-hidden="true">＋</span> 新增元素
+      </button>
+      <button type="button" id="btn-clear" class="btn">
+        <span aria-hidden="true">⟳</span> 清空編輯器
+      </button>
+      <button type="button" id="btn-sample" class="btn">
+        <span aria-hidden="true">★</span> 載入範例路線
+      </button>
+      <button type="button" id="btn-view" class="btn btn--primary">
+        <span aria-hidden="true">▶</span> 進入查看模式
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===================== 路線編輯器 ===================== -->
+  <main id="editor" class="editor">
+    <div id="editor-canvas" class="canvas" tabindex="0"
+         role="application"
+         aria-label="路線編輯器畫布，可拖曳元素、點擊區域 1 至 4 建立連接">
+      <!-- 連接線圖層（SVG，置於節點之下） -->
+      <svg class="canvas__links" id="links-layer" aria-hidden="true">
+        <defs>
+          <marker id="arrow-head" markerWidth="10" markerHeight="10"
+                  refX="9" refY="3" orient="auto">
+            <path d="M0,0 L9,3 L0,6 Z" class="arrow"></path>
+          </marker>
+        </defs>
+      </svg>
+      <!-- 元素節點由 JavaScript 動態產生 -->
+    </div>
+
+    <aside class="hint" aria-label="操作說明">
+      <h2 class="hint__title">操作說明</h2>
+      <ul>
+        <li>滑鼠移到元素上會顯示 <b>4 個互動區域</b>（1 上、2 右、3 下、4 左）與編輯／刪除按鈕。</li>
+        <li>點擊區域即可在該方向<b>建立新元素與連接</b>。</li>
+        <li>直接拖曳元素可移動，連接線會跟隨。</li>
+        <li>按住 <kbd>Shift</kbd> 由一個區域拖到另一元素的區域，可<b>連接兩個既有元素</b>。</li>
+        <li>點選連接線後按 <kbd>Delete</kbd> / <kbd>Backspace</kbd> 可刪除連接。</li>
+        <li>所有變更會<b>自動儲存</b>，重新整理後仍會保留。</li>
+      </ul>
+      <p class="hint__status" id="save-status" role="status" aria-live="polite">已自動儲存</p>
+    </aside>
+  </main>
+
+  <!-- ===================== 元素編輯對話框 ===================== -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close="1"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 class="modal__title" id="modal-title">編輯元素內容</h2>
+
+      <label class="field">
+        <span class="field__label">元素標題</span>
+        <input type="text" id="field-title" class="field__input" placeholder="例如：喀山克里姆林宮">
+      </label>
+
+      <div class="field">
+        <span class="field__label">投影片內容（所見即所得編輯器）</span>
+        <input id="trix-input" type="hidden" name="content">
+        <trix-toolbar id="trix-toolbar"></trix-toolbar>
+        <trix-editor input="trix-input" toolbar="trix-toolbar" class="trix-content"
+                     aria-label="投影片內容編輯器"></trix-editor>
+      </div>
+
+      <fieldset class="field captions">
+        <legend class="field__label">各區域標題（於查看模式顯示為導覽按鈕文字）</legend>
+        <label class="captions__item"><span>區域 1（上）</span><input type="text" id="cap-1" class="field__input"></label>
+        <label class="captions__item"><span>區域 2（右）</span><input type="text" id="cap-2" class="field__input"></label>
+        <label class="captions__item"><span>區域 3（下）</span><input type="text" id="cap-3" class="field__input"></label>
+        <label class="captions__item"><span>區域 4（左）</span><input type="text" id="cap-4" class="field__input"></label>
+      </fieldset>
+
+      <div class="modal__actions">
+        <button type="button" class="btn" data-close="1">取消</button>
+        <button type="button" class="btn btn--primary" id="btn-save">儲存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== 查看模式 ===================== -->
+  <section class="viewer" id="viewer" hidden aria-label="查看模式">
+    <div class="viewer__stage" id="viewer-stage">
+      <!-- 投影片由 JavaScript 動態產生 -->
+    </div>
+
+    <header class="viewer__bar">
+      <img src="assets/logo.png" alt="" class="viewer__logo">
+      <p class="viewer__where" id="viewer-where" role="status" aria-live="polite"></p>
+      <div class="viewer__bar-actions">
+        <button type="button" class="btn btn--ghost" id="btn-map" aria-expanded="false">路線圖</button>
+        <button type="button" class="btn btn--ghost" id="btn-fullscreen">全螢幕</button>
+        <button type="button" class="btn btn--ghost" id="btn-exit">離開查看模式</button>
+      </div>
+    </header>
+
+    <!-- 目前位置指示器（麵包屑） -->
+    <ol class="viewer__trail" id="viewer-trail" aria-label="瀏覽路徑"></ol>
+
+    <!-- 導覽控制：對應區域 1~4 的連接 -->
+    <nav class="viewer__nav" id="viewer-nav" aria-label="投影片導覽控制"></nav>
+
+    <!-- 路線圖：可直接跳至任一元素 -->
+    <div class="viewer__map" id="viewer-map" hidden>
+      <h2 class="viewer__map-title">選擇要前往的元素</h2>
+      <ul id="viewer-map-list"></ul>
+    </div>
+  </section>
+
+  <script src="vendor/trix/trix.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/viewer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

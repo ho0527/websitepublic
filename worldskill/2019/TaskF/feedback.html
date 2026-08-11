@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>建議與回饋 － Knowledge Explorer</title>
+  <meta name="description" content="告訴我們你對 Knowledge Explorer 的想法：功能建議、使用問題或合作提案。">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 本頁專用：簡潔的表單版面 */
+    .page-head { padding: 8rem 0 3rem; background: var(--deep-dark); color: var(--white); }
+    .page-head h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 0.4rem; }
+    .page-head p { margin: 0; color: #c6ddd7; }
+    .form { display: grid; gap: 1.1rem; max-width: 44rem; }
+    .form label { display: grid; gap: 0.35rem; font-weight: 700; font-size: 0.92rem; }
+    .form input, .form select, .form textarea {
+      font: inherit;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--ink);
+    }
+    .form textarea { min-height: 160px; resize: vertical; }
+    .form__note { color: var(--ink-soft); font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+
+  <header class="site-header is-stuck">
+    <div class="wrap site-header__inner">
+      <a class="logo" href="index.html">
+        <img src="logo.png" alt="Knowledge Explorer 標誌">
+        <span class="logo__text">
+          <strong>Knowledge&nbsp;Explorer</strong>
+          <small>Choose your way to learn Kazan</small>
+        </span>
+      </a>
+      <a class="btn btn--outline site-header__cta" href="index.html" style="margin-left:auto">回到首頁</a>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Suggestions and Feedback</p>
+      <h1>建議與回饋</h1>
+      <p>你的每一則意見，都會讓 Knowledge Explorer 更好用。</p>
+    </div>
+  </div>
+
+  <main id="main" class="section">
+    <div class="wrap">
+      <!-- 原型階段的靜態表單：僅示範欄位與版面 -->
+      <form class="form" action="#" method="post">
+        <label>
+          你的姓名
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>
+          電子郵件
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>
+          回饋類型
+          <select name="topic">
+            <option>功能建議</option>
+            <option>使用上的問題</option>
+            <option>內容或翻譯錯誤</option>
+            <option>合作提案</option>
+          </select>
+        </label>
+        <label>
+          想告訴我們的事
+          <textarea name="message" required></textarea>
+        </label>
+        <p class="form__note">送出後我們會在 3 個工作天內回覆。</p>
+        <div>
+          <button type="submit" class="btn btn--primary btn--lg">送出回饋</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__bottom" style="margin-top:0;border-top:0">
+      <p>© 2019 Knowledge Explorer · WorldSkills Kazan 2019 Test Project</p>
+      <p><a href="index.html">回到單頁行銷網站</a></p>
+    </div>
+  </footer>
+</body>
+</html>

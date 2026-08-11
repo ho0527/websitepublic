@@ -1,0 +1,533 @@
+/* =========================================================
+   Knowledge Explorer － 路線編輯器 / 查看模式
+   1. 設計變數
+   2. 基礎與無障礙
+   3. 頁首與工具列
+   4. 編輯器畫布（節點、互動區域、連接線）
+   5. 編輯對話框
+   6. 查看模式（投影片、過場、導覽、指示器）
+   7. 響應式
+   ========================================================= */
+
+/* ---------- 1. 設計變數 ---------- */
+:root {
+  --ink: #12211f;
+  --ink-soft: #4a5b58;
+  --deep: #0e4f46;          /* 主色：喀山克里姆林宮的深綠 */
+  --deep-dark: #0a3a34;
+  --deep-light: #e6efec;
+  --gold: #c9821b;          /* 輔色：韃靼裝飾的金 */
+  --gold-light: #f5e7cf;
+  --sand: #f7f4ec;
+  --white: #ffffff;
+  --line: #d8ded9;
+  --radius: 12px;
+  --shadow: 0 6px 20px rgba(10, 58, 52, 0.12);
+  --node-size: 132px;
+  --font: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---------- 2. 基礎與無障礙 ---------- */
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;   /* 任何寬度都不出現整頁水平捲軸 */
+}
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--sand);
+  line-height: 1.6;              /* 符合 WCAG 可讀性建議 */
+  display: flex;
+  flex-direction: column;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* 統一且明顯的焦點樣式 */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+  background: var(--deep);
+  color: var(--white);
+  padding: 0.6rem 1rem;
+}
+.skip-link:focus { left: 0; }
+
+/* ---------- 3. 頁首與工具列 ---------- */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.25rem;
+  background: var(--deep);
+  color: var(--white);
+}
+
+.brand { display: flex; align-items: center; gap: 0.75rem; }
+.brand__logo { width: 40px; height: 40px; object-fit: contain; background: var(--white); border-radius: 8px; padding: 4px; }
+.brand__text { display: flex; flex-direction: column; line-height: 1.3; }
+.brand__text span { font-size: 0.8rem; color: #cfe3de; }
+
+.toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.btn {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn:hover { background: rgba(255, 255, 255, 0.28); }
+.btn:active { transform: translateY(1px); }
+
+.btn--primary { background: var(--gold); color: #2b1a00; font-weight: 700; }
+.btn--primary:hover { background: #e0a03a; }
+
+.btn--ghost { border-color: rgba(255, 255, 255, 0.5); }
+
+/* ---------- 4. 編輯器畫布 ---------- */
+.editor {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  min-height: 0;
+}
+
+.canvas {
+  position: relative;
+  overflow: auto;
+  background-color: var(--white);
+  /* 方格底紋，協助對齊 */
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  outline-offset: -3px;
+}
+.canvas.is-linking { cursor: crosshair; }
+
+.canvas__links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.canvas__links .link-group { pointer-events: auto; }
+
+.link-line {
+  fill: none;
+  stroke: var(--deep);
+  stroke-width: 2.5;
+  transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+.link-line.is-selected { stroke: #c0392b; stroke-width: 5; }
+.link-hit { fill: none; stroke: transparent; stroke-width: 16; cursor: pointer; }
+.link-temp { fill: none; stroke: var(--gold); stroke-width: 3; stroke-dasharray: 7 5; }
+.link-label {
+  fill: var(--deep-dark);
+  font-size: 13px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: var(--white);
+  stroke-width: 4px;
+}
+.arrow { fill: var(--deep); }
+
+/* 節點：以中心點定位 */
+.node {
+  position: absolute;
+  width: var(--node-size);
+  height: var(--node-size);
+  margin-left: calc(var(--node-size) / -2);
+  margin-top: calc(var(--node-size) / -2);
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--deep);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.node:hover { box-shadow: 0 10px 26px rgba(10, 58, 52, 0.25); transform: scale(1.03); }
+.node.is-dragging { cursor: grabbing; transform: scale(1.06); z-index: 5; }
+.node--root { border-color: var(--gold); background: var(--gold-light); }
+
+.node__title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0 0.6rem;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  max-height: 4.5em;
+}
+
+/* 4 個互動區域：預設隱藏，hover 或鍵盤聚焦時才顯示 */
+.node__sectors {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease;
+}
+.node:hover .node__sectors,
+.node:focus-within .node__sectors { opacity: 1; visibility: visible; }
+/* 顯示互動區域時淡出標題，避免文字與區域編號互相干擾 */
+.node__title { transition: opacity 0.18s ease; }
+.node:hover .node__title,
+.node:focus-within .node__title { opacity: 0; }
+
+.sector {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(14, 79, 70, 0.82);
+  color: var(--white);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+.sector:hover { background: var(--gold); color: #2b1a00; }
+.sector--1 { clip-path: polygon(50% 50%, 0 0, 100% 0); }
+.sector--2 { clip-path: polygon(50% 50%, 100% 0, 100% 100%); }
+.sector--3 { clip-path: polygon(50% 50%, 100% 100%, 0 100%); }
+.sector--4 { clip-path: polygon(50% 50%, 0 100%, 0 0); }
+
+.sector__num { position: absolute; }
+.sector--1 .sector__num { top: 10%; }
+.sector--2 .sector__num { right: 10%; }
+.sector--3 .sector__num { bottom: 10%; }
+.sector--4 .sector__num { left: 10%; }
+
+/* 編輯／刪除按鈕：同樣只在 hover / 聚焦時顯示 */
+.node__tools {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.35rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease;
+  z-index: 4;
+}
+.node:hover .node__tools,
+.node:focus-within .node__tools { opacity: 1; visibility: visible; }
+
+.node__tool {
+  font: inherit;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--deep);
+  background: var(--white);
+  color: var(--deep);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.node__tool:hover { background: var(--deep); color: var(--white); }
+.node__tool--delete { border-color: #c0392b; color: #c0392b; }
+.node__tool--delete:hover { background: #c0392b; color: var(--white); }
+
+/* 側邊操作說明 */
+.hint {
+  background: var(--white);
+  border-left: 1px solid var(--line);
+  padding: 1.1rem 1.2rem;
+  overflow: auto;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.hint__title { margin: 0 0 0.6rem; font-size: 1rem; color: var(--ink); }
+.hint ul { margin: 0; padding-left: 1.1rem; }
+.hint li { margin-bottom: 0.5rem; }
+.hint kbd {
+  background: var(--deep-light);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+  font-size: 0.8rem;
+}
+.hint__status {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--line);
+  color: var(--deep);
+  font-weight: 600;
+}
+
+/* ---------- 5. 編輯對話框 ---------- */
+.modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; }
+.modal[hidden] { display: none; }
+.modal__backdrop { position: absolute; inset: 0; background: rgba(10, 33, 30, 0.55); }
+
+.modal__dialog {
+  position: relative;
+  width: min(720px, calc(100vw - 2rem));
+  max-height: calc(100vh - 3rem);
+  overflow: auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+.modal__title { margin: 0 0 1rem; font-size: 1.15rem; color: var(--deep-dark); }
+.modal__actions { display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 1.2rem; }
+.modal__actions .btn { background: var(--deep-light); color: var(--deep-dark); }
+.modal__actions .btn--primary { background: var(--deep); color: var(--white); }
+
+.field { display: block; margin-bottom: 1rem; border: 0; padding: 0; }
+.field__label { display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.35rem; }
+.field__input {
+  width: 100%;
+  font: inherit;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+}
+.captions { display: block; }
+.captions__item { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.45rem; }
+.captions__item span { flex: 0 0 6.5rem; font-size: 0.85rem; }
+
+trix-editor {
+  min-height: 180px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+/* ---------- 6. 查看模式 ---------- */
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--deep-dark);
+  color: var(--white);
+  overflow: hidden;
+}
+.viewer[hidden] { display: none; }
+body.is-viewing { overflow: hidden; }
+
+.viewer__stage { position: absolute; inset: 0; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 5.5rem 2rem 11rem;
+  overflow: auto;
+  background: radial-gradient(circle at 20% 0%, #12695c 0%, var(--deep-dark) 60%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+.slide__inner { width: min(900px, 100%); }
+.slide__title { font-size: clamp(1.6rem, 4vw, 2.6rem); margin: 0 0 1rem; color: #ffdca6; }
+.slide__content { font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.7; }
+.slide__content img { border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 1rem; }
+.slide__content figure { margin: 1rem 0 0; }
+.slide:focus { outline: none; }
+
+/* 過場動畫的起始／結束位置，方向與移動方向一致 */
+.slide--enter { z-index: 2; }
+.slide--leave { z-index: 1; }
+.from-top { transform: translateY(-100%); }
+.from-bottom { transform: translateY(100%); }
+.from-left { transform: translateX(-100%); }
+.from-right { transform: translateX(100%); }
+.to-top { transform: translateY(-100%); }
+.to-bottom { transform: translateY(100%); }
+.to-left { transform: translateX(-100%); }
+.to-right { transform: translateX(100%); }
+.from-fade { opacity: 0; }
+.to-fade { opacity: 0; }
+
+.viewer__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 1.1rem;
+  background: rgba(6, 30, 27, 0.75);
+  backdrop-filter: blur(4px);
+}
+.viewer__logo { width: 32px; height: 32px; background: var(--white); border-radius: 6px; padding: 3px; }
+.viewer__where { margin: 0; font-size: 0.9rem; color: #d6e8e4; flex: 1; }
+.viewer__bar-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* 目前位置指示器 */
+.viewer__trail {
+  position: absolute;
+  top: 3.5rem;
+  left: 1.1rem;
+  right: 1.1rem;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.viewer__trail-item button {
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #d6e8e4;
+  cursor: pointer;
+}
+.viewer__trail-item.is-current button {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #2b1a00;
+  font-weight: 700;
+}
+.viewer__trail-item + .viewer__trail-item::before {
+  content: "›";
+  color: rgba(255, 255, 255, 0.5);
+  margin-right: 0.3rem;
+}
+.viewer__trail-item { display: flex; align-items: center; }
+
+/* 導覽控制 */
+.viewer__nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  padding: 1rem 1.2rem 1.4rem;
+  background: linear-gradient(to top, rgba(6, 30, 27, 0.92), transparent);
+}
+.navbtn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;              /* 觸控友善的點擊面積 */
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.navbtn:hover { background: var(--gold); border-color: var(--gold); color: #2b1a00; transform: translateY(-2px); }
+.navbtn__key {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #2b1a00;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.navbtn:hover .navbtn__key { background: #2b1a00; color: var(--gold); }
+.navbtn__caption { max-width: 16rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.viewer__end { margin: 0; color: #d6e8e4; }
+
+/* 路線圖 */
+.viewer__map {
+  position: absolute;
+  z-index: 6;
+  top: 4.5rem;
+  right: 1.1rem;
+  width: min(320px, calc(100vw - 2.2rem));
+  max-height: 60vh;
+  overflow: auto;
+  background: var(--white);
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+.viewer__map[hidden] { display: none; }
+.viewer__map-title { margin: 0 0 0.6rem; font-size: 0.95rem; }
+.viewer__map ul { list-style: none; margin: 0; padding: 0; }
+.viewer__map-btn {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.6rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.viewer__map-btn:hover { background: var(--deep-light); }
+.viewer__map-btn.is-current { background: var(--gold-light); font-weight: 700; }
+
+/* ---------- 7. 響應式 ---------- */
+@media (max-width: 1024px) {
+  .editor { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+  .hint { border-left: 0; border-top: 1px solid var(--line); max-height: 34vh; }
+}
+
+@media (max-width: 640px) {
+  .app-header { flex-direction: column; align-items: flex-start; }
+  .toolbar { width: 100%; }
+  .btn { font-size: 0.82rem; padding: 0.45rem 0.7rem; }
+
+  /* 查看模式：工具列改為換行排列，避免產生整頁水平捲軸 */
+  .viewer__bar { flex-wrap: wrap; gap: 0.5rem; }
+  .viewer__where { order: 3; flex: 1 0 100%; font-size: 0.8rem; }
+  .viewer__bar-actions { flex: 1; justify-content: flex-end; }
+  .viewer__bar-actions .btn { font-size: 0.75rem; padding: 0.35rem 0.6rem; }
+  .viewer__trail { top: 5.6rem; }
+  .slide { padding: 8rem 1.1rem 14rem; }
+  .navbtn { width: 100%; }
+  .navbtn__caption { max-width: none; flex: 1; }
+}
+
+/* 尊重使用者的減少動態偏好設定 */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
