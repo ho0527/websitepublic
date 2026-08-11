@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1440">
+<title>EnviroFund — Crowd funding for the planet | WSC2013 Module A · Front page</title>
+<meta name="description" content="EnviroFund front page design concept — WorldSkills 2013 Skill 17 Module A.">
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/design.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+<!-- ===== 頂部工具列：標語 + 登入功能（帳號／密碼／登入鈕） ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar__claim">Together we have funded <strong>1,284 projects</strong> in 63 countries.</div>
+    <form class="login" action="#" method="post">
+      <label for="login-user">Sign in</label>
+      <input id="login-user" type="text" name="username" placeholder="Username" autocomplete="username">
+      <input id="login-pass" type="password" name="password" placeholder="Password" autocomplete="current-password">
+      <button class="login__btn" type="submit">LOG IN</button>
+      <a class="login__link" href="#">Create account</a>
+    </form>
+  </div>
+</div>
+
+<!-- ===== 主導覽列：Logo + 選單 + 專案登錄入口 ===== -->
+<header class="masthead">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="assets/img/logo.svg" alt="EnviroFund"></a>
+    <nav class="nav">
+      <a class="is-active" href="index.html">Discover</a>
+      <a href="#projects">Projects</a>
+      <a href="project-presentation.html">How it works</a>
+      <a href="#impact">Our impact</a>
+    </nav>
+    <!-- 專案登錄頁連結（Project enrollment link） -->
+    <a class="btn" href="project-enrollment.html">Start a project</a>
+  </div>
+</header>
+
+<!-- ===== 主視覺 ===== -->
+<section class="hero">
+  <img class="hero__bg" src="assets/img/hero-forest.jpg" alt="Rainforest canopy">
+  <div class="hero__veil"></div>
+  <div class="wrap hero__inner">
+    <p class="hero__eyebrow">Crowd funding for the environment</p>
+    <h1 class="hero__title">Small amounts.<br>Big change for the planet.</h1>
+    <p class="hero__text">
+      Thousands of people give a few euros each — together they finance the environmental
+      projects that big investors never look at. Pick a project you believe in and fund it today.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--lg" href="#projects">Browse projects</a>
+      <a class="btn btn--lg btn--ghost hero__ghost" href="project-enrollment.html">Enroll your project</a>
+    </div>
+  </div>
+
+  <!-- 成效數據列 -->
+  <div class="wrap">
+    <ul class="stats">
+      <li><b>€ 4.9 M</b><span>Raised so far</span></li>
+      <li><b>1,284</b><span>Funded projects</span></li>
+      <li><b>96,430</b><span>Young backers</span></li>
+      <li><b>63</b><span>Countries</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 專案列表（至少三個，含圖片／標題／說明／資助按鈕） ===== -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section__head projects__head">
+      <div>
+        <span class="section__eyebrow">Open for funding</span>
+        <h2 class="section__title">Projects that need you this month</h2>
+      </div>
+      <div class="chips">
+        <a class="chip chip--on" href="#">All</a>
+        <a class="chip" href="#">Wildlife</a>
+        <a class="chip" href="#">Water</a>
+        <a class="chip" href="#">Energy</a>
+        <a class="chip" href="#">Forests</a>
+      </div>
+    </div>
+
+    <div class="cards">
+
+      <!-- 專案 1 -->
+      <article class="card">
+        <a class="card__media" href="project-presentation.html">
+          <img src="assets/img/projects/polar-bear.jpg" alt="Polar bear on sea ice">
+          <span class="tag tag--urgent">12 days left</span>
+        </a>
+        <div class="card__body">
+          <span class="card__cat">Wildlife</span>
+          <h3 class="card__title"><a href="project-presentation.html">Project 1 — Save the polar bears</a></h3>
+          <p class="card__text">
+            Sea ice is disappearing faster than the models predicted. We fund GPS collars and
+            three field stations so researchers can protect the last stable dens in Svalbard.
+          </p>
+          <div class="progress"><div class="progress__bar" style="width:78%"></div></div>
+          <div class="card__meta"><b>€ 39,120</b> raised of € 50,000 <span>·  78%</span></div>
+          <a class="btn btn--block" href="project-presentation.html">FUND THIS PROJECT</a>
+        </div>
+      </article>
+
+      <!-- 專案 2 -->
+      <article class="card">
+        <a class="card__media" href="project-presentation.html">
+          <img src="assets/img/projects/river.jpg" alt="Clean mountain river">
+          <span class="tag">34 days left</span>
+        </a>
+        <div class="card__body">
+          <span class="card__cat">Water</span>
+          <h3 class="card__title"><a href="project-presentation.html">Project 7 — Clean rivers, fresh water</a></h3>
+          <p class="card__text">
+            Two portable filtration units and a volunteer clean-up programme give four villages
+            drinkable water and give the river back its fish.
+          </p>
+          <div class="progress"><div class="progress__bar" style="width:52%"></div></div>
+          <div class="card__meta"><b>€ 15,600</b> raised of € 30,000 <span>·  52%</span></div>
+          <a class="btn btn--block" href="project-presentation.html">FUND THIS PROJECT</a>
+        </div>
+      </article>
+
+      <!-- 專案 3 -->
+      <article class="card">
+        <a class="card__media" href="project-presentation.html">
+          <img src="assets/img/projects/windfarm.jpg" alt="Wind turbine in a green field">
+          <span class="tag">21 days left</span>
+        </a>
+        <div class="card__body">
+          <span class="card__cat">Energy</span>
+          <h3 class="card__title"><a href="project-presentation.html">Project 5 — Building green energy plants</a></h3>
+          <p class="card__text">
+            A community-owned turbine for a village of 900 people. Every backer becomes a
+            co-owner and shares the electricity it produces for the next twenty years.
+          </p>
+          <div class="progress"><div class="progress__bar" style="width:64%"></div></div>
+          <div class="card__meta"><b>€ 76,800</b> raised of € 120,000 <span>·  64%</span></div>
+          <a class="btn btn--block" href="project-presentation.html">FUND THIS PROJECT</a>
+        </div>
+      </article>
+
+      <!-- 專案 4 -->
+      <article class="card">
+        <a class="card__media" href="project-presentation.html">
+          <img src="assets/img/projects/rainforest.jpg" alt="Fresh green leaves">
+          <span class="tag">45 days left</span>
+        </a>
+        <div class="card__body">
+          <span class="card__cat">Forests</span>
+          <h3 class="card__title"><a href="project-presentation.html">Project 6 — Plant trees in the rainforest</a></h3>
+          <p class="card__text">
+            €3 plants one tree and pays a local family to look after it for five years.
+            Our goal for this season is one hundred thousand trees.
+          </p>
+          <div class="progress"><div class="progress__bar" style="width:41%"></div></div>
+          <div class="card__meta"><b>€ 12,300</b> raised of € 30,000 <span>·  41%</span></div>
+          <a class="btn btn--block" href="project-presentation.html">FUND THIS PROJECT</a>
+        </div>
+      </article>
+
+      <!-- 專案 5 -->
+      <article class="card">
+        <a class="card__media" href="project-presentation.html">
+          <img src="assets/img/projects/coral.jpg" alt="Coral reef">
+          <span class="tag tag--urgent">6 days left</span>
+        </a>
+        <div class="card__body">
+          <span class="card__cat">Oceans</span>
+          <h3 class="card__title"><a href="project-presentation.html">Project 4 — Support wildlife reservations</a></h3>
+          <p class="card__text">
+            A coral nursery on the reef edge. Divers replant heat-resistant fragments and
+            monitor them with the low-cost sensors your money buys.
+          </p>
+          <div class="progress"><div class="progress__bar" style="width:88%"></div></div>
+          <div class="card__meta"><b>€ 22,000</b> raised of € 25,000 <span>·  88%</span></div>
+          <a class="btn btn--block" href="project-presentation.html">FUND THIS PROJECT</a>
+        </div>
+      </article>
+
+      <!-- 專案 6 -->
+      <article class="card">
+        <a class="card__media" href="project-presentation.html">
+          <img src="assets/img/projects/elephant.jpg" alt="African elephant">
+          <span class="tag">28 days left</span>
+        </a>
+        <div class="card__body">
+          <span class="card__cat">Wildlife</span>
+          <h3 class="card__title"><a href="project-presentation.html">Project 3 — Adopt an elephant</a></h3>
+          <p class="card__text">
+            Rangers, radio equipment and one water hole. Adopt an elephant for €9 a month and
+            follow your animal on the live herd map.
+          </p>
+          <div class="progress"><div class="progress__bar" style="width:33%"></div></div>
+          <div class="card__meta"><b>€ 9,900</b> raised of € 30,000 <span>·  33%</span></div>
+          <a class="btn btn--block" href="project-presentation.html">FUND THIS PROJECT</a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="cards__more"><a class="btn btn--ghost btn--lg" href="#">Show all 128 open projects</a></p>
+  </div>
+</section>
+
+<!-- ===== 運作方式 ===== -->
+<section class="section section--tight howto" id="impact">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="section__eyebrow">How EnviroFund works</span>
+      <h2 class="section__title">Three steps, no middlemen</h2>
+      <p class="section__lead">
+        Instead of a handful of large investors, thousands of people finance a project with a few
+        euros each. 100&nbsp;% of your contribution reaches the project team.
+      </p>
+    </div>
+    <ol class="steps">
+      <li><span class="steps__no">01</span><h3>Pick a project</h3>
+        <p>Filter by cause, country or how urgent the deadline is. Every page shows exactly what your money buys.</p></li>
+      <li><span class="steps__no">02</span><h3>Fund it in 30 seconds</h3>
+        <p>From €3 upwards. You are only charged when the project reaches its target amount.</p></li>
+      <li><span class="steps__no">03</span><h3>Watch it happen</h3>
+        <p>Teams post photo updates every month, and you can ask them anything in the comments.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 專案登錄行動呼籲（Project enrollment link） ===== -->
+<section class="cta">
+  <div class="wrap cta__inner">
+    <div>
+      <h2 class="cta__title">Got an environmental project of your own?</h2>
+      <p class="cta__text">Enroll it in ten minutes. Our team reviews every submission within two working days.</p>
+    </div>
+    <a class="btn btn--lg btn--dark" href="project-enrollment.html">Enroll your project</a>
+  </div>
+</section>
+
+<!-- ===== 頁尾 ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="assets/img/logo-white.svg" alt="EnviroFund">
+        <p class="footer__about">
+          EnviroFund is a non-profit crowd funding platform for environmental projects.
+          Registered in the EU, audited yearly, zero platform fee.
+        </p>
+      </div>
+      <div>
+        <h4>Discover</h4>
+        <ul><li><a href="#projects">Open projects</a></li><li><a href="#">Funded projects</a></li>
+            <li><a href="#">Categories</a></li><li><a href="#">Countries</a></li></ul>
+      </div>
+      <div>
+        <h4>Start</h4>
+        <ul><li><a href="project-enrollment.html">Enroll a project</a></li><li><a href="#">Guidelines</a></li>
+            <li><a href="#">Fees &amp; payouts</a></li><li><a href="#">Success stories</a></li></ul>
+      </div>
+      <div>
+        <h4>Follow us</h4>
+        <!-- 社群圖示：使用題目提供的 .eps 素材轉出 -->
+        <div class="share">
+          <a href="#" title="Facebook"><img src="assets/img/social/facebook.png" alt="Facebook"></a>
+          <a href="#" title="Twitter"><img src="assets/img/social/twitter.png" alt="Twitter"></a>
+          <a href="#" title="Google+"><img src="assets/img/social/gplus.png" alt="Google+"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2013 EnviroFund. All rights reserved.</span>
+      <span>Privacy · Terms · Press · Contact</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 三張設計稿之間的瀏覽捷徑（僅為方便評審檢視，非設計本身元素） -->
+<nav class="docknav">
+  <a class="is-active" href="index.html">Front page</a>
+  <a href="project-enrollment.html">Project enrollment</a>
+  <a href="project-presentation.html">Project presentation</a>
+</nav>
+
+<script src="assets/js/export-mode.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1440">
+<title>Enroll your project — EnviroFund | WSC2013 Module A · Project enrollment</title>
+<meta name="description" content="EnviroFund project enrollment page design concept — WorldSkills 2013 Skill 17 Module A.">
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/design.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+<!-- ===== 頂部工具列（含登入功能） ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar__claim">Reviewed within <strong>2 working days</strong> · No platform fee, ever.</div>
+    <form class="login" action="#" method="post">
+      <label for="login-user">Sign in</label>
+      <input id="login-user" type="text" name="username" placeholder="Username" autocomplete="username">
+      <input id="login-pass" type="password" name="password" placeholder="Password" autocomplete="current-password">
+      <button class="login__btn" type="submit">LOG IN</button>
+      <a class="login__link" href="#">Create account</a>
+    </form>
+  </div>
+</div>
+
+<!-- ===== 主導覽列 ===== -->
+<header class="masthead">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="assets/img/logo.svg" alt="EnviroFund"></a>
+    <nav class="nav">
+      <a href="index.html">Discover</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="project-presentation.html">How it works</a>
+      <a href="index.html#impact">Our impact</a>
+    </nav>
+    <a class="btn btn--ghost" href="#form">Save draft</a>
+  </div>
+</header>
+
+<!-- ===== 頁面標題 ===== -->
+<section class="pagehead">
+  <div class="wrap">
+    <p class="crumbs"><a href="index.html">Home</a> &nbsp;›&nbsp; Project enrollment</p>
+    <h1 class="pagehead__title">Enroll your project</h1>
+    <p class="pagehead__lead">
+      Tell us what you want to change and how much it costs. If it protects the environment
+      and the numbers add up, it goes live on EnviroFund within two working days.
+    </p>
+  </div>
+</section>
+
+<!-- ===== 登錄表單 ===== -->
+<section class="enroll" id="form">
+  <div class="wrap enroll__grid">
+
+    <!-- 左：表單本體 -->
+    <form class="panel" action="#" method="post" enctype="multipart/form-data">
+
+      <ol class="stepbar">
+        <li class="is-on"><b>STEP 1</b>Your project</li>
+        <li><b>STEP 2</b>Funding goal</li>
+        <li><b>STEP 3</b>Review &amp; publish</li>
+      </ol>
+
+      <h2 class="panel__title">Tell us about your project</h2>
+      <p class="panel__sub">All fields are required. You can edit everything until the project goes live.</p>
+
+      <!-- 專案標題 -->
+      <div class="field">
+        <label class="field__label" for="project-title">Project title</label>
+        <input class="input" id="project-title" name="project_title" type="text"
+               placeholder="e.g. Plant trees in the rainforest">
+        <p class="field__hint">Keep it under 60 characters — it is what backers see first.</p>
+      </div>
+
+      <!-- 專案圖片 -->
+      <div class="field">
+        <label class="field__label" for="project-image">Project image</label>
+        <div class="filefield">
+          <span class="filefield__thumb" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/>
+            </svg>
+          </span>
+          <div class="filefield__text">
+            <b>Drag a photo here, or choose a file</b>
+            JPG or PNG, at least 1200 × 800 px, max 5 MB.
+          </div>
+          <input id="project-image" name="project_image" type="file" accept="image/*" hidden>
+          <label class="btn btn--sm btn--ghost" for="project-image" style="margin-left:auto">Choose file</label>
+        </div>
+      </div>
+
+      <!-- 專案說明 -->
+      <div class="field">
+        <label class="field__label" for="project-description">Project description</label>
+        <textarea class="textarea" id="project-description" name="project_description"
+                  placeholder="What is the problem, what will you do about it, and what exactly does the money pay for?"></textarea>
+        <p class="field__hint">Minimum 400 characters. Photos and updates can be added after approval.</p>
+      </div>
+
+      <!-- 聯絡帳號 -->
+      <div class="formrow">
+        <div class="field">
+          <label class="field__label" for="email">Email address</label>
+          <input class="input" id="email" name="email" type="email" placeholder="you@organisation.org">
+        </div>
+        <div class="field">
+          <label class="field__label" for="password">Password</label>
+          <input class="input" id="password" name="password" type="password" placeholder="At least 8 characters">
+        </div>
+      </div>
+
+      <div class="formfoot">
+        <button class="btn btn--lg" type="submit">SUBMIT PROJECT</button>
+        <p>By submitting you accept the EnviroFund project guidelines<br>and our fair-use of donations policy.</p>
+      </div>
+    </form>
+
+    <!-- 右：輔助資訊 -->
+    <aside>
+      <div class="aside__media">
+        <img src="assets/img/enroll-side.jpg" alt="A single tree on a green field">
+      </div>
+
+      <div class="aside__box">
+        <h3>What makes a project succeed</h3>
+        <ul class="tips">
+          <li>One clear photograph beats five average ones.</li>
+          <li>Say what €10, €50 and €200 actually buy.</li>
+          <li>Keep the funding goal realistic — small goals get funded fastest.</li>
+          <li>Promise a monthly update, then keep the promise.</li>
+        </ul>
+      </div>
+
+      <div class="aside__box">
+        <h3>Need a hand?</h3>
+        <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+          Our project team answers every question within one working day.
+          Write to <a href="#">projects@envirofund.org</a> or read the
+          <a href="#">enrollment guide</a>.
+        </p>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ===== 頁尾 ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="assets/img/logo-white.svg" alt="EnviroFund">
+        <p class="footer__about">
+          EnviroFund is a non-profit crowd funding platform for environmental projects.
+          Registered in the EU, audited yearly, zero platform fee.
+        </p>
+      </div>
+      <div>
+        <h4>Discover</h4>
+        <ul><li><a href="index.html#projects">Open projects</a></li><li><a href="#">Funded projects</a></li>
+            <li><a href="#">Categories</a></li><li><a href="#">Countries</a></li></ul>
+      </div>
+      <div>
+        <h4>Start</h4>
+        <ul><li><a href="project-enrollment.html">Enroll a project</a></li><li><a href="#">Guidelines</a></li>
+            <li><a href="#">Fees &amp; payouts</a></li><li><a href="#">Success stories</a></li></ul>
+      </div>
+      <div>
+        <h4>Follow us</h4>
+        <div class="share">
+          <a href="#" title="Facebook"><img src="assets/img/social/facebook.png" alt="Facebook"></a>
+          <a href="#" title="Twitter"><img src="assets/img/social/twitter.png" alt="Twitter"></a>
+          <a href="#" title="Google+"><img src="assets/img/social/gplus.png" alt="Google+"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2013 EnviroFund. All rights reserved.</span>
+      <span>Privacy · Terms · Press · Contact</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="docknav">
+  <a href="index.html">Front page</a>
+  <a class="is-active" href="project-enrollment.html">Project enrollment</a>
+  <a href="project-presentation.html">Project presentation</a>
+</nav>
+
+<script src="assets/js/export-mode.js"></script>
+</body>
+</html>

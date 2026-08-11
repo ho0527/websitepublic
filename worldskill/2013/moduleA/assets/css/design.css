@@ -1,0 +1,333 @@
+@charset "utf-8";
+/* =========================================================================
+   WorldSkills 2013 · Skill 17 Web Design · Module A
+   EnviroFund 網站設計稿共用樣式
+   設計稿寬度：1440px（真實像素），三頁共用同一套視覺語言
+   ========================================================================= */
+
+/* ---------- 設計代幣（色彩、字級、圓角、陰影） ---------- */
+:root {
+  --ink:        #0E2A22;   /* 主要文字（深墨綠） */
+  --ink-soft:   #4B6A60;   /* 次要文字 */
+  --ink-faint:  #86A093;   /* 輔助說明文字 */
+
+  --green:      #1FA97A;   /* 品牌主色 */
+  --green-dark: #12805E;   /* 主色加深（hover／深底） */
+  --green-deep: #0B3B2C;   /* 深綠底 */
+  --lime:       #C2E86B;   /* 亮點色（進度、強調） */
+  --amber:      #FFB347;   /* 次強調色（倒數、警示） */
+
+  --paper:      #F4F8F5;   /* 頁面底色 */
+  --card:       #FFFFFF;
+  --line:       #E1EAE4;   /* 分隔線 */
+
+  --radius-s:   6px;
+  --radius-m:   12px;
+  --radius-l:   20px;
+
+  --shadow-s:   0 2px 6px rgba(14,42,34,.06);
+  --shadow-m:   0 10px 28px rgba(14,42,34,.10);
+  --shadow-l:   0 24px 60px rgba(14,42,34,.16);
+
+  --page:       1440px;    /* 設計稿總寬 */
+  --wrap:       1180px;    /* 內容欄寬 */
+}
+
+/* ---------- 基礎重置 ---------- */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: var(--page);
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a   { color: var(--green-dark); text-decoration: none; }
+a:hover { color: var(--green); }
+
+h1, h2, h3, h4 { margin: 0; line-height: 1.2; letter-spacing: -.01em; }
+p { margin: 0 0 1em; }
+
+.wrap {
+  width: var(--wrap);
+  margin: 0 auto;
+}
+
+/* ---------- 通用按鈕 ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--green);
+  color: #fff;
+  font: 600 15px/1 "Segoe UI", Arial, sans-serif;
+  letter-spacing: .01em;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(31,169,122,.28);
+}
+.btn:hover  { background: var(--green-dark); color: #fff; }
+.btn--lg    { height: 54px; padding: 0 32px; font-size: 17px; }
+.btn--sm    { height: 36px; padding: 0 16px; font-size: 14px; }
+.btn--block { display: flex; width: 100%; }
+.btn--ghost {
+  background: transparent;
+  color: var(--green-dark);
+  border: 2px solid var(--green);
+  box-shadow: none;
+}
+.btn--ghost:hover { background: rgba(31,169,122,.10); color: var(--green-dark); }
+.btn--dark  { background: var(--green-deep); box-shadow: none; }
+.btn--dark:hover { background: #06251B; }
+
+/* ---------- 頂部工具列（含登入功能） ---------- */
+.topbar {
+  background: var(--green-deep);
+  color: #BFD9CE;
+  font-size: 13px;
+}
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 46px;
+}
+.topbar__claim { letter-spacing: .02em; }
+.topbar__claim strong { color: var(--lime); font-weight: 600; }
+
+/* 登入表單：帳號、密碼、登入鈕 */
+.login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.login label { color: #8FB3A5; font-size: 12px; }
+.login input {
+  height: 30px;
+  width: 132px;
+  padding: 0 10px;
+  border: 1px solid #2C5A48;
+  border-radius: var(--radius-s);
+  background: #0A3325;
+  color: #EAF4EF;
+  font-size: 13px;
+}
+.login input::placeholder { color: #6E8F81; }
+.login input:focus { outline: 2px solid var(--green); outline-offset: 0; }
+.login__btn {
+  height: 30px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: var(--green);
+  color: #fff;
+  font: 600 13px/1 "Segoe UI", Arial, sans-serif;
+  cursor: pointer;
+}
+.login__btn:hover { background: #24C48D; }
+.login__link { color: #8FB3A5; margin-left: 6px; }
+
+/* ---------- 主導覽列 ---------- */
+.masthead {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.masthead .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 92px;
+}
+.logo img { width: 268px; height: 56px; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
+  margin-right: 26px;
+}
+.nav a {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover,
+.nav a.is-active { color: var(--green-dark); border-bottom-color: var(--green); }
+
+/* ---------- 區塊標頭 ---------- */
+.section { padding: 76px 0; }
+.section--tight { padding: 56px 0; }
+.section__head { margin-bottom: 34px; }
+.section__eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.section__title { font-size: 36px; font-weight: 700; }
+.section__lead  { max-width: 680px; margin-top: 12px; color: var(--ink-soft); font-size: 17px; }
+
+/* ---------- 進度條 ---------- */
+.progress {
+  height: 8px;
+  border-radius: 999px;
+  background: #E6EFE9;
+  overflow: hidden;
+}
+.progress__bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--green) 0%, var(--lime) 100%);
+}
+
+/* ---------- 表單元件 ---------- */
+.field { margin-bottom: 22px; }
+.field__label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.field__hint { margin-top: 6px; font-size: 12.5px; color: var(--ink-faint); }
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: #fff;
+  color: var(--ink);
+  font: 15px/1.5 "Segoe UI", Arial, sans-serif;
+}
+.input::placeholder,
+.textarea::placeholder { color: #A9BDB3; }
+.input:focus,
+.textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(31,169,122,.15); }
+.textarea { resize: vertical; min-height: 132px; }
+
+/* 檔案上傳（專案圖片） */
+.filefield {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border: 2px dashed #C6DAD0;
+  border-radius: var(--radius-m);
+  background: #FAFDFB;
+}
+.filefield__thumb {
+  width: 74px;
+  height: 74px;
+  flex: 0 0 74px;
+  border-radius: var(--radius-s);
+  background: #E9F3ED center/28px no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-dark);
+}
+.filefield__text { font-size: 14px; color: var(--ink-soft); }
+.filefield__text b { display: block; color: var(--ink); font-size: 15px; }
+
+/* ---------- 頁尾 ---------- */
+.footer {
+  background: var(--green-deep);
+  color: #A9C6BA;
+  padding: 56px 0 28px;
+  font-size: 14px;
+}
+.footer a { color: #D5E8DF; }
+.footer a:hover { color: #fff; }
+.footer__grid {
+  display: grid;
+  grid-template-columns: 320px repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 34px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.footer__logo { width: 244px; height: auto; }
+.footer h4 {
+  margin-bottom: 14px;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.footer ul { margin: 0; padding: 0; list-style: none; }
+.footer li { margin-bottom: 9px; }
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 22px;
+  font-size: 13px;
+  color: #8AAA9C;
+}
+
+/* ---------- 社群分享（使用題目提供之 .eps 轉出圖檔） ---------- */
+.share { display: flex; align-items: center; gap: 12px; }
+.share__label {
+  margin-right: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.share a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-s);
+}
+.share img { width: 40px; height: 40px; }
+.share a:hover { transform: translateY(-2px); box-shadow: var(--shadow-m); }
+
+/* ---------- 設計稿導覽（僅供瀏覽三張稿件，非設計的一部分） ---------- */
+.docknav {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 99;
+  display: flex;
+  gap: 6px;
+  padding: 7px;
+  border-radius: 999px;
+  background: rgba(14,42,34,.90);
+  box-shadow: var(--shadow-m);
+}
+.docknav a {
+  padding: 7px 14px;
+  border-radius: 999px;
+  color: #CFE4DA;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.docknav a:hover { background: rgba(255,255,255,.10); color: #fff; }
+.docknav a.is-active { background: var(--green); color: #fff; }
+/* 匯出 PNG 時不顯示導覽列（由 assets/js/export-mode.js 加上 .is-export） */
+.is-export .docknav { display: none; }

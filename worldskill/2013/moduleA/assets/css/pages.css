@@ -1,0 +1,394 @@
+@charset "utf-8";
+/* =========================================================================
+   Module A · 各頁專屬版面
+   1) 首頁 hero／專案卡片／流程／CTA
+   2) 專案登錄頁 enrollment
+   3) 專案展示頁 presentation
+   ========================================================================= */
+
+/* =========================================================================
+   1) 首頁
+   ========================================================================= */
+
+/* ---- 主視覺 ---- */
+.hero {
+  position: relative;
+  padding: 96px 0 0;
+  color: #fff;
+  overflow: hidden;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+}
+/* 深色遮罩：確保文字對比度足夠 */
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  height: 620px;
+  background: linear-gradient(105deg, rgba(8,42,30,.88) 0%, rgba(8,42,30,.62) 46%, rgba(8,42,30,.20) 100%);
+}
+.hero__inner { position: relative; padding-bottom: 92px; }
+.hero__eyebrow {
+  margin: 0 0 14px;
+  color: var(--lime);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.hero__title { max-width: 720px; font-size: 58px; font-weight: 700; letter-spacing: -.02em; }
+.hero__text  { max-width: 540px; margin-top: 20px; font-size: 18px; color: #D8E9E1; }
+.hero__actions { display: flex; gap: 14px; margin-top: 32px; }
+.hero__ghost { border-color: rgba(255,255,255,.65); color: #fff; }
+.hero__ghost:hover { background: rgba(255,255,255,.14); color: #fff; }
+
+/* ---- 成效數據列：壓在主視覺下緣的白卡 ---- */
+.stats {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 30px 0;
+  list-style: none;
+  background: #fff;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-l);
+}
+.stats li { text-align: center; border-right: 1px solid var(--line); }
+.stats li:last-child { border-right: 0; }
+.stats b    { display: block; color: var(--ink); font-size: 32px; line-height: 1.1; }
+.stats span { color: var(--ink-faint); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+
+/* ---- 專案區標頭與篩選籤 ---- */
+.projects__head { display: flex; align-items: flex-end; justify-content: space-between; }
+.chips { display: flex; gap: 8px; }
+.chip {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+}
+.chip:hover { border-color: var(--green); color: var(--green-dark); }
+.chip--on { background: var(--green-deep); border-color: var(--green-deep); color: #fff; }
+.chip--on:hover { color: #fff; }
+
+/* ---- 專案卡片 ---- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+  overflow: hidden;
+}
+.card:hover { box-shadow: var(--shadow-m); }
+.card__media { position: relative; display: block; height: 210px; }
+.card__media img { width: 100%; height: 210px; object-fit: cover; }
+.tag {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(8,42,30,.78);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.tag--urgent { background: var(--amber); color: #4A2E00; }
+.card__body { display: flex; flex-direction: column; flex: 1; padding: 22px 24px 26px; }
+.card__cat {
+  margin-bottom: 8px;
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.card__title { font-size: 21px; font-weight: 700; }
+.card__title a { color: var(--ink); }
+.card__title a:hover { color: var(--green-dark); }
+.card__text { margin: 12px 0 20px; color: var(--ink-soft); font-size: 14.5px; }
+.card__meta { margin: 12px 0 20px; font-size: 14px; color: var(--ink-soft); }
+.card__meta b { color: var(--ink); font-size: 17px; }
+.card__meta span { color: var(--ink-faint); }
+.card .btn { margin-top: auto; }
+.cards__more { margin: 40px 0 0; text-align: center; }
+
+/* ---- 運作方式 ---- */
+.howto { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.steps li { padding: 30px 30px 26px; background: var(--paper); border-radius: var(--radius-l); }
+.steps__no {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--green);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -.03em;
+}
+.steps h3 { margin-bottom: 8px; font-size: 20px; }
+.steps p  { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+/* ---- CTA 帶狀區 ---- */
+.cta { padding: 62px 0; background: linear-gradient(90deg, var(--lime) 0%, #7FD9A6 100%); }
+.cta__inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.cta__title { font-size: 30px; font-weight: 700; color: var(--green-deep); }
+.cta__text  { margin: 8px 0 0; color: #17513E; font-size: 16px; }
+
+.footer__about { margin-top: 18px; font-size: 13.5px; line-height: 1.7; }
+
+/* =========================================================================
+   2) 專案登錄頁
+   ========================================================================= */
+.pagehead {
+  padding: 46px 0 40px;
+  background: var(--green-deep);
+  color: #fff;
+}
+.crumbs { margin-bottom: 12px; color: #8FB3A5; font-size: 13px; }
+.crumbs a { color: #BFD9CE; }
+.pagehead__title { font-size: 40px; font-weight: 700; }
+.pagehead__lead  { max-width: 640px; margin: 12px 0 0; color: #B9D5C9; font-size: 16.5px; }
+
+.enroll { padding: 56px 0 76px; }
+.enroll__grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+}
+.panel {
+  padding: 36px 40px 40px;
+  background: #fff;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+}
+.panel__title { font-size: 24px; font-weight: 700; }
+.panel__sub { margin: 6px 0 28px; color: var(--ink-faint); font-size: 14.5px; }
+.formrow { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
+.formfoot {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.formfoot p { margin: 0; font-size: 13px; color: var(--ink-faint); }
+
+/* 步驟指示 */
+.stepbar { display: flex; gap: 10px; margin-bottom: 30px; }
+.stepbar li {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  color: var(--ink-faint);
+  font-size: 13.5px;
+  font-weight: 600;
+  list-style: none;
+}
+.stepbar li b { display: block; color: var(--ink-soft); font-size: 12px; letter-spacing: .1em; }
+.stepbar li.is-on { background: var(--green-deep); color: #fff; }
+.stepbar li.is-on b { color: var(--lime); }
+.stepbar { margin-left: 0; padding-left: 0; }
+
+/* 右側輔助欄 */
+.aside__media {
+  height: 260px;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-s);
+}
+.aside__media img { width: 100%; height: 260px; object-fit: cover; }
+.aside__box {
+  margin-top: 24px;
+  padding: 28px 30px 30px;
+  background: #fff;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+}
+.aside__box h3 { margin-bottom: 14px; font-size: 18px; }
+.tips { margin: 0; padding: 0; list-style: none; }
+.tips li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 26px;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+}
+.tips li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: inset 0 0 0 3px var(--green);
+}
+
+/* =========================================================================
+   3) 專案展示頁
+   ========================================================================= */
+.showcase { position: relative; }
+.showcase__media { height: 420px; overflow: hidden; }
+.showcase__media img { width: 100%; height: 420px; object-fit: cover; }
+
+.project { padding: 0 0 80px; }
+.project__grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 44px;
+  align-items: start;
+  margin-top: -86px;
+}
+.project__main {
+  padding: 40px 46px 46px;
+  background: #fff;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-m);
+}
+.project__cat {
+  color: var(--green-dark);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+/* 內容區主標題 32px、次標題 22px（差距遠大於 4px 要求） */
+.project__title { margin: 10px 0 6px; font-size: 34px; font-weight: 700; }
+.project__by { color: var(--ink-faint); font-size: 14.5px; }
+.project__body { margin-top: 26px; font-size: 16px; color: var(--ink-soft); }
+.project__body h2 { margin: 34px 0 12px; font-size: 28px; color: var(--ink); }
+.project__body h3 { margin: 26px 0 10px; font-size: 20px; color: var(--ink); }
+.project__body p { margin-bottom: 1.1em; }
+.project__figure { margin: 28px 0 8px; }
+.project__figure img { width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-m); }
+.project__figure figcaption { margin-top: 8px; color: var(--ink-faint); font-size: 13px; }
+
+.sharebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.sharebar__count { color: var(--ink-faint); font-size: 14px; }
+
+/* ---- 右側摘要盒：累積金額、剩餘天數、資助按鈕 ---- */
+.summary {
+  position: sticky;
+  top: 20px;
+  padding: 30px 32px 32px;
+  background: #fff;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-m);
+}
+.summary__raised { font-size: 38px; font-weight: 700; line-height: 1.05; }
+.summary__goal { margin: 6px 0 16px; color: var(--ink-faint); font-size: 14px; }
+.summary__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0 22px;
+}
+.summary__facts div {
+  padding: 14px 16px;
+  border-radius: var(--radius-m);
+  background: var(--paper);
+}
+.summary__facts b { display: block; font-size: 24px; line-height: 1.1; }
+.summary__facts span { color: var(--ink-faint); font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; }
+.summary__note { margin: 14px 0 0; color: var(--ink-faint); font-size: 12.5px; text-align: center; }
+.summary__amounts { display: flex; gap: 8px; margin-bottom: 14px; }
+.summary__amounts a {
+  flex: 1;
+  padding: 9px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.summary__amounts a.is-on,
+.summary__amounts a:hover { border-color: var(--green); background: rgba(31,169,122,.08); color: var(--green-dark); }
+
+.owner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: #fff;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+}
+.owner img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; }
+.owner b { display: block; font-size: 15px; }
+.owner span { color: var(--ink-faint); font-size: 13px; }
+
+/* ---- 留言功能 ---- */
+/* 左右對齊的資料列（資金用途、贊助者） */
+.split { margin: 0; padding: 0; list-style: none; }
+.split li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+.split li:last-child { border-bottom: 0; }
+.split b { color: var(--ink); font-size: 15px; }
+
+.comments { margin-top: 40px; }
+.comments__title { font-size: 24px; font-weight: 700; }
+.comments__form {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 20px 0 30px;
+  padding: 22px 24px;
+  background: #fff;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+}
+.comments__form img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+.comments__form .textarea { min-height: 92px; }
+.comments__submit { margin-top: 12px; }
+.comment {
+  display: flex;
+  gap: 14px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.comment img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex: 0 0 46px; }
+.comment b { font-size: 15px; }
+.comment time { margin-left: 8px; color: var(--ink-faint); font-size: 13px; }
+.comment p { margin: 4px 0 0; color: var(--ink-soft); font-size: 15px; }

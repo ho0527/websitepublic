@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FASHION4YOU — Responsive mock-ups | WSC2013 Module B</title>
+<meta name="description" content="Computer / Tablet / Smartphone mock-ups at real pixel size with screen-resolution border.">
+<link rel="icon" href="assets/img/logo.svg">
+<style>
+/* =========================================================================
+   Module B 交付說明頁：三種裝置的實際像素尺寸稿件
+   每個框以 3px 紅色外框標示該裝置的螢幕解析度（page fold）
+   ========================================================================= */
+:root {
+  --blue: #126080;
+  --sky:  #AFE1F2;
+  --red:  #CD4D58;
+  --ink:  #17323C;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 34px 24px 70px;
+  background: #EDF4F7;
+  color: var(--ink);
+  font: 15px/1.6 "Segoe UI", Arial, sans-serif;
+}
+h1 { margin: 0 0 6px; font-size: 26px; color: var(--blue); }
+.lead { max-width: 900px; margin: 0 0 8px; color: #47646E; }
+.note {
+  max-width: 900px;
+  margin: 0 0 30px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--sky);
+  background: #fff;
+  font-size: 14px;
+  color: #47646E;
+}
+.rack {
+  display: flex;
+  align-items: flex-start;
+  gap: 46px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+.device { flex: 0 0 auto; }
+.device__label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.device__label span { display: block; font-weight: 400; letter-spacing: 0; text-transform: none; color: #6B858F; }
+
+/* 3px 紅色外框 = 該裝置的螢幕解析度框（< 4px，符合題目要求） */
+.device__screen {
+  border: 3px solid var(--red);
+  background: #fff;
+  line-height: 0;
+}
+.device__screen iframe { display: block; border: 0; }
+
+.device--pc     .device__screen iframe { width: 1440px; height: 900px; }
+.device--tablet .device__screen iframe { width: 768px;  height: 1024px; }
+.device--phone  .device__screen iframe { width: 320px;  height: 480px; }
+
+.device__links { margin-top: 10px; font-size: 13px; }
+.device__links a { color: var(--blue); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>FASHION4YOU — responsive mock-ups</h1>
+<p class="lead">
+  The same single responsive page rendered at the three required resolutions, in real pixel size.
+  Each frame carries a 3&nbsp;px red border marking the device screen resolution — everything below
+  that line is the page fold.
+</p>
+<p class="note">
+  The frames below are live: they contain the actual <code>index.html</code>, so the layout you see is
+  produced by the real CSS breakpoints, not by a flattened picture. Exported PNG versions of the same
+  three views are in the <code>export/</code> folder.
+</p>
+
+<div class="rack">
+
+  <section class="device device--pc">
+    <h2 class="device__label">Computer <span>1440 × 900</span></h2>
+    <div class="device__screen"><iframe src="index.html" title="Computer view 1440 x 900" scrolling="no"></iframe></div>
+    <p class="device__links"><a href="export/TW_Computer_mockup.png">TW_Computer_mockup.png</a></p>
+  </section>
+
+  <section class="device device--tablet">
+    <h2 class="device__label">Tablet <span>768 × 1024</span></h2>
+    <div class="device__screen"><iframe src="index.html" title="Tablet view 768 x 1024" scrolling="no"></iframe></div>
+    <p class="device__links"><a href="export/TW_Tablet_mockup.png">TW_Tablet_mockup.png</a></p>
+  </section>
+
+  <section class="device device--phone">
+    <h2 class="device__label">Smartphone <span>320 × 480</span></h2>
+    <div class="device__screen"><iframe src="index.html" title="Smartphone view 320 x 480" scrolling="no"></iframe></div>
+    <p class="device__links"><a href="export/TW_Smartphone_mockup.png">TW_Smartphone_mockup.png</a></p>
+  </section>
+
+</div>
+
+<p><a href="index.html">← Back to the live responsive page</a></p>
+
+</body>
+</html>

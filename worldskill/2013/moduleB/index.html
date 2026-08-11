@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FASHION4YOU — Online Fashion Shop | WSC2013 Module B</title>
+<meta name="description" content="FASHION4YOU responsive redesign — WorldSkills 2013 Skill 17 Module B.">
+<meta name="theme-color" content="#126080">
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<!-- ===== 頂端工具列：top menu（home / sitemap / contact us）＋ 購物車 ===== -->
+<div class="utility">
+  <div class="shell">
+    <p class="utility__note" style="margin:0">Free delivery on every order over € 99</p>
+    <nav class="topmenu" aria-label="Top menu">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 11h2v9h5v-6h4v6h5v-9h2z"/></svg>home</a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v4H9zM3 17h6v4H3zm12 0h6v4h-6zM11 7h2v4h6v3h-2v-1H7v1H5v-3h6z"/></svg>sitemap</a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7 8-5H4z"/></svg>contact us</a>
+    </nav>
+    <!-- 購物車：Items in Bag - 0 Item(s) -->
+    <a class="cart" href="#">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h13l-1.5 9H8.2L7.6 15H19v2H6L4.3 6H2V4h3.2L6 8zM8 18a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
+      <span class="cart__label">Items in Bag —</span>
+      <span class="cart__count">0 Item(s)</span>
+    </a>
+  </div>
+</div>
+
+<!-- ===== 頁首：標誌 + 搜尋 ===== -->
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="FASHION4YOU" width="230" height="26"></a>
+
+    <button class="burger" type="button" id="menu-toggle" aria-expanded="false" aria-controls="main-menu">
+      <span class="visually-hidden">Menu</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </button>
+
+    <!-- 搜尋：文字輸入 + 搜尋按鈕 -->
+    <form class="search" action="#" method="get" role="search">
+      <label class="visually-hidden" for="q">Search the shop</label>
+      <input class="search__input" id="q" name="q" type="search" placeholder="Search dresses, shoes, brands…">
+      <button class="btn search__btn" type="submit">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 1 1-4.9 14.3l-3.4 3.4-1.4-1.4 3.4-3.4A8 8 0 0 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg>
+        <span>Search</span>
+      </button>
+    </form>
+  </div>
+</header>
+
+<!-- ===== 主選單：5 個連結 ===== -->
+<nav class="mainmenu" id="main-menu" aria-label="Main menu">
+  <div class="shell">
+    <ul class="mainmenu__list">
+      <li><a class="is-active" href="#categories">Categories</a></li>
+      <li><a href="#new-products">New products</a></li>
+      <li><a href="#featured-products">Popular products</a></li>
+      <li><a href="#">Sale items</a></li>
+      <li><a href="#about">About us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== 主視覺：文字 + 照片 ===== -->
+<section class="hero">
+  <div class="shell hero__inner">
+    <div class="hero__text">
+      <span class="hero__kicker">New arrival — check it out!</span>
+      <h1 class="hero__title">Summer<br>Fashions</h1>
+      <p class="hero__sub">New collection 2013</p>
+      <p class="hero__copy">
+        Dresses, skirts and shoes for the warm months — hand-picked by our stylists
+        and delivered to your door within two working days.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--red" href="#new-products">Shop the collection</a>
+        <a class="btn btn--ghost" href="#featured-products">See what is popular</a>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <img src="assets/img/hero-model.png" alt="Model carrying FASHION4YOU shopping bags" width="759" height="947">
+    </div>
+  </div>
+</section>
+
+<!-- ===== 歡迎區：標題、文字、2 張圖 ===== -->
+<section class="sect" id="about">
+  <div class="shell">
+    <div class="sect__head">
+      <h2 class="sect__title">Welcome to our site</h2>
+      <a class="sect__link" href="#">More about FASHION4YOU →</a>
+    </div>
+
+    <div class="welcome__grid">
+      <div class="welcome__text">
+        <p><strong>Lorem ipsum dolor sit amet,</strong> consectetuer adipiscing elit.
+           Praese vestibulum molestie lacus.</p>
+        <p>Aenean nonummy hendrerit mauris. Lorem ipsum dolor sit amet, consectetuer adipiscing
+           eln nonummy heit. Praese vestibulum molestie lacus. Aenean nonu n nonummy he mmy
+           hendrerit mauris.</p>
+        <p style="margin-bottom:0">Praese vestibulum molestie lacus..</p>
+      </div>
+      <div class="welcome__pics">
+        <figure><img src="assets/img/welcome-1.png" alt="Model in a denim skirt" width="296" height="735"></figure>
+        <figure><img src="assets/img/welcome-2.png" alt="Model in a striped dress" width="252" height="610"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 新品：圖片、價格、文字、Buy now、NEW 強調 ===== -->
+<section class="sect" id="new-products" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="shell">
+    <div class="sect__head">
+      <h2 class="sect__title">New products</h2>
+      <a class="sect__link" href="#">View all new arrivals →</a>
+    </div>
+    <p class="products__hint">Swipe sideways to see all 4 new arrivals →</p>
+
+    <div class="products">
+      <article class="product">
+        <span class="product__flag">NEW</span>
+        <a class="product__media" href="#"><img src="assets/img/products/sample-1.jpg" alt="Red evening dress" width="520" height="720"></a>
+        <div class="product__body">
+          <p class="product__price">$99.99</p>
+          <p class="product__text">Lorem ipsum dolor etuer adipiscing elit. lacus.</p>
+          <div class="product__actions">
+            <a class="btn btn--sm btn--red" href="#">Buy Now</a>
+            <a class="product__info" href="#">Info</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <span class="product__flag">NEW</span>
+        <a class="product__media" href="#"><img src="assets/img/products/sample-2.jpg" alt="Ochre knitted dress" width="520" height="720"></a>
+        <div class="product__body">
+          <p class="product__price">$99.99</p>
+          <p class="product__text">Lorem ipsum dolor etuer adipiscing elit. lacus.</p>
+          <div class="product__actions">
+            <a class="btn btn--sm btn--red" href="#">Buy Now</a>
+            <a class="product__info" href="#">Info</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <span class="product__flag">NEW</span>
+        <a class="product__media" href="#"><img src="assets/img/products/sample-3.jpg" alt="Blue pleated top" width="520" height="720"></a>
+        <div class="product__body">
+          <p class="product__price">$99.99</p>
+          <p class="product__text">Lorem ipsum dolor etuer adipiscing elit. lacus.</p>
+          <div class="product__actions">
+            <a class="btn btn--sm btn--red" href="#">Buy Now</a>
+            <a class="product__info" href="#">Info</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <span class="product__flag">NEW</span>
+        <a class="product__media" href="#"><img src="assets/img/products/sample-4.jpg" alt="Turquoise summer top" width="520" height="720"></a>
+        <div class="product__body">
+          <p class="product__price">$99.99</p>
+          <p class="product__text">Lorem ipsum dolor etuer adipiscing elit. lacus.</p>
+          <div class="product__actions">
+            <a class="btn btn--sm btn--red" href="#">Buy Now</a>
+            <a class="product__info" href="#">Info</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 精選商品：圖片、價格、文字、Buy now ===== -->
+<section class="sect" id="featured-products">
+  <div class="shell">
+    <div class="sect__head">
+      <h2 class="sect__title">Featured products</h2>
+      <a class="sect__link" href="#">View all popular items →</a>
+    </div>
+    <p class="products__hint">Swipe sideways to see all 4 featured items →</p>
+
+    <div class="products">
+      <article class="product">
+        <a class="product__media" href="#"><img src="assets/img/products/sample-1.jpg" alt="Red evening dress" width="520" height="720"></a>
+        <div class="product__body">
+          <p class="product__price">$99.99 <s>$129.99</s></p>
+          <p class="product__text">Lorem ipsum dolor etuer adipiscing elit. lacus.</p>
+          <div class="product__actions">
+            <a class="btn btn--sm" href="#">Buy Now</a>
+            <a class="product__info" href="#">Info</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <a class="product__media" href="#"><img src="assets/img/products/sample-2.jpg" alt="Ochre knitted dress" width="520" height="720"></a>
+        <div class="product__body">
+          <p class="product__price">$99.99 <s>$129.99</s></p>
+          <p class="product__text">Lorem ipsum dolor etuer adipiscing elit. lacus.</p>
+          <div class="product__actions">
+            <a class="btn btn--sm" href="#">Buy Now</a>
+            <a class="product__info" href="#">Info</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <a class="product__media" href="#"><img src="assets/img/products/sample-3.jpg" alt="Blue pleated top" width="520" height="720"></a>
+        <div class="product__body">
+          <p class="product__price">$99.99 <s>$129.99</s></p>
+          <p class="product__text">Lorem ipsum dolor etuer adipiscing elit. lacus.</p>
+          <div class="product__actions">
+            <a class="btn btn--sm" href="#">Buy Now</a>
+            <a class="product__info" href="#">Info</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <a class="product__media" href="#"><img src="assets/img/products/sample-4.jpg" alt="Turquoise summer top" width="520" height="720"></a>
+        <div class="product__body">
+          <p class="product__price">$99.99 <s>$129.99</s></p>
+          <p class="product__text">Lorem ipsum dolor etuer adipiscing elit. lacus.</p>
+          <div class="product__actions">
+            <a class="btn btn--sm" href="#">Buy Now</a>
+            <a class="product__info" href="#">Info</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 依分類選購：連結 ===== -->
+<section class="sect" id="categories" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="shell">
+    <div class="sect__head">
+      <h2 class="sect__title">Shop by category</h2>
+      <a class="sect__link" href="#">All 24 categories →</a>
+    </div>
+    <ul class="categories__list">
+      <li><a href="#">Accessorries</a></li>
+      <li><a href="#">ActiveWear</a></li>
+      <li><a href="#">Beauty</a></li>
+      <li><a href="#">Jewelry</a></li>
+      <li><a href="#">Shoes</a></li>
+      <li><a href="#">Teenagers</a></li>
+      <li><a href="#">Kids</a></li>
+      <li><a href="#">Skirts</a></li>
+      <li><a href="#">Jeans</a></li>
+      <li><a href="#">Sweater</a></li>
+      <li><a href="#">SportWear</a></li>
+      <li><a href="#">Sale items</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 社群 + 電子報 ===== -->
+<section class="social">
+  <div class="shell social__inner">
+    <div>
+      <h2 class="social__title">Social</h2>
+      <div class="social__links">
+        <a href="#" title="FASHION4YOU on Facebook"><img src="assets/img/social/facebook.png" alt="Facebook" width="48" height="48"></a>
+        <a href="#" title="FASHION4YOU on Twitter"><img src="assets/img/social/twitter.png" alt="Twitter" width="48" height="48"></a>
+        <a href="#" title="FASHION4YOU on YouTube"><img src="assets/img/social/youtube.png" alt="YouTube" width="48" height="48"></a>
+      </div>
+    </div>
+    <form class="newsletter" action="#" method="post">
+      <label class="visually-hidden" for="nl">Your e-mail address</label>
+      <input id="nl" name="email" type="email" placeholder="Your e-mail for new arrivals">
+      <button class="btn" type="submit">Sign up</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== 頁尾：公司資訊 + 版權 ===== -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="assets/img/logo-white.svg" alt="FASHION4YOU" width="200" height="23">
+        <p class="footer__company">
+          FASHION4YOU — ONLINE SHOP LTD<br>
+          No Name Street, n° 99 — 12345 678 Leipzig, Germany<br>
+          <a href="mailto:info@fashion4you.wsc">info@fashion4you.wsc</a> · (+123) 123456789
+        </p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#new-products">New products</a></li>
+          <li><a href="#featured-products">Popular products</a></li>
+          <li><a href="#">Sale items</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#">Delivery &amp; returns</a></li>
+          <li><a href="#">Size guide</a></li>
+          <li><a href="#">Payment methods</a></li>
+          <li><a href="#">Track my order</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Terms &amp; privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__copy">Copyright © 2013 — All Rights Reserved</p>
+  </div>
+</footer>
+
+<!-- ===== 手機／平板固定底部操作列（觸控最佳化） ===== -->
+<nav class="tabbar" aria-label="Quick actions">
+  <a class="is-active" href="index.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 11h2v9h5v-6h4v6h5v-9h2z"/></svg>Home</a>
+  <a href="#categories">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/></svg>Shop</a>
+  <a href="#q">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 1 1-4.9 14.3l-3.4 3.4-1.4-1.4 3.4-3.4A8 8 0 0 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg>Search</a>
+  <a href="#">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h13l-1.5 9H8.2L7.6 15H19v2H6L4.3 6H2V4h3.2L6 8zM8 18a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>Bag · 0</a>
+</nav>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
