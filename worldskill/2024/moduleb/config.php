@@ -99,7 +99,7 @@ function detectPublicBasePath(): string
 }
 
 /** 是否使用「乾淨網址」模式（PATH 形式的路由） */
-define('USE_CLEAN_URL', PHP_SAPI === 'cli-server');
+define('USE_CLEAN_URL', true);
 
 /** 對外網址前綴，結尾不含斜線 */
 define('PUBLIC_BASE_PATH', detectPublicBasePath());

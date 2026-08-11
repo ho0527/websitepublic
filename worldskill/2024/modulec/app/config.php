@@ -37,7 +37,7 @@ define('MC_SITE_DESCRIPTION', 'A file based heritage site guide for Lyon, France
  * 目前這台練習機的 nginx 沒有替本目錄設定重寫規則，因此預設使用 false，
  * 讓所有頁面在未改動伺服器設定的情況下都能正常瀏覽。README.md 附有啟用乾淨網址的設定片段。
  */
-define('MC_CLEAN_URL', false);
+define('MC_CLEAN_URL', true);
 
 /** 可被視為文章的副檔名 */
 define('MC_PAGE_EXTENSIONS', ['html', 'txt']);
