@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olímpia Trucks — Responsive Re-design (WSC2015 Design B)</title>
+<!--
+  Design B 可編輯原始檔。
+  以真正的 RWD 實作，再用 headless Chrome 於 1440 / 768 / 320 三種寬度輸出 mock-up PNG。
+  網址加上 ?state=menu 可顯示行動版選單展開狀態；?state=login 顯示登入面板。
+-->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ 頂部聯絡資訊列（保留舊站的電話／傳真／Email／社群） ============ -->
+<div class="utility">
+  <div class="wrap utility-inner">
+    <ul class="contact">
+      <li class="ic ic-phone">Tel 00 5511 111111111</li>
+      <li class="ic ic-fax">Fax 00 5511 222222222</li>
+      <li class="ic ic-mail"><a href="mailto:olimpia@trucks.com">olimpia@trucks.com</a></li>
+    </ul>
+    <ul class="social">
+      <li><a class="sic sic-fb" href="#" aria-label="Facebook"></a></li>
+      <li><a class="sic sic-gp" href="#" aria-label="Google+"></a></li>
+      <li><a class="sic sic-tw" href="#" aria-label="Twitter"></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ 主標頭：Logo / 主選單 / 搜尋 / 登入 ============ -->
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="logo" href="#top">
+      <img src="assets/img/logo-olimpia.png" alt="Olímpia Trucks 標誌">
+    </a>
+
+    <button class="burger" type="button" aria-label="Menu"><span></span></button>
+
+    <nav class="mainnav" id="mainnav">
+      <ul>
+        <li><a class="is-current" href="#top">Start</a></li>
+        <!-- hover 狀態：下拉子選單展開（對應舊站 Fast / Slow / Big Trucks） -->
+        <li class="has-sub is-hover">
+          <a href="#trucks">Our Trucks</a>
+          <ul class="sub">
+            <li><a href="#fast">Fast Trucks</a></li>
+            <li><a class="is-hover" href="#slow">Slow Trucks</a></li>
+            <li><a href="#big">Big Trucks</a></li>
+          </ul>
+        </li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#impressum">Impressum</a></li>
+      </ul>
+    </nav>
+
+    <form class="search" role="search">
+      <label class="sr-only" for="search">Search</label>
+      <input id="search" type="search" placeholder="Search trucks, parts, dealers…">
+      <button type="button" class="search-btn" aria-label="Search"></button>
+    </form>
+
+    <a class="btn btn-line login-link" href="#login">Login</a>
+  </div>
+
+  <!-- 登入面板（?state=login 時展開） -->
+  <div class="login-panel" id="login">
+    <div class="wrap login-inner">
+      <h3>Customer login</h3>
+      <form>
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="your username">
+        <label for="pass">Password</label>
+        <input id="pass" type="password" placeholder="••••••••">
+        <button type="button" class="btn btn-solid">Login</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 主視覺 ============ -->
+<section class="hero" id="top">
+  <picture>
+    <source media="(max-width:479px)" srcset="assets/img/hero-truck-phone.jpg">
+    <source media="(max-width:1023px)" srcset="assets/img/hero-truck-tablet.jpg">
+    <img class="hero-bg" src="assets/img/hero-truck.jpg" alt="夜間高速公路上的 Olímpia 卡車">
+  </picture>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Since 1965 · São Paulo</p>
+    <h1>Transport is a<br>trust business.</h1>
+    <p class="hero-lead">People count on you to get there on time, day in and day out. But reliability
+      and uptime don’t come out of thin air. They come from Olímpia’s long tradition of delivering
+      exactly what your business needs.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid is-hover" href="#trucks">Explore our trucks</a>
+      <a class="btn btn-line btn-line--light" href="#find">Find a dealer</a>
+    </div>
+  </div>
+  <ul class="hero-facts">
+    <li><b>50</b><span>years on the road</span></li>
+    <li><b>3%</b><span>less consumption</span></li>
+    <li><b>24/7</b><span>service network</span></li>
+  </ul>
+</section>
+
+<!-- ============ 車款（舊站的三則產品內容） ============ -->
+<section class="section trucks" id="trucks">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker">Our Trucks</p>
+      <h2>Endless possibilities, modular by design</h2>
+      <p class="lead">With a wealth of choices and an array of modular configurations, the
+        possibilities are endless.</p>
+    </header>
+
+    <div class="cards">
+      <article class="card">
+        <a class="card-media" href="#"><img src="assets/img/old-truck-1.jpg" alt="Great efficiency 車款"></a>
+        <div class="card-body">
+          <h3>Great efficiency</h3>
+          <p>Excellent benefit from even good efficiency – 3% less consumption than our old model,
+            many thanks to consistent very advanced development.</p>
+          <a class="more" href="#">More information</a>
+        </div>
+      </article>
+
+      <!-- hover 狀態：卡片上浮、圖片放大、連結變色 -->
+      <article class="card is-hover">
+        <a class="card-media" href="#"><img src="assets/img/old-truck-3.jpg" alt="Trailer concepts 車款"></a>
+        <div class="card-body">
+          <h3>Trailer concepts</h3>
+          <p>Olímpia semitrailer combinations provide you the top most driving dynamics and optimum
+            transport efficiency. Any time now you can cope with the extra challenges of our times.</p>
+          <a class="more" href="#">More information</a>
+        </div>
+        <span class="cursor"></span>
+      </article>
+
+      <article class="card">
+        <a class="card-media" href="#"><img src="assets/img/old-truck-2.jpg" alt="History 車款"></a>
+        <div class="card-body">
+          <h3>History</h3>
+          <p>The history of Olímpia trucks began 50 years ago – a reason to celebrate for the
+            São&nbsp;Paulo-based company. Exciting stories about 50 years of Olímpia trucks on.</p>
+          <a class="more" href="#">More information</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 車系分類（對應舊站的 Fast / Slow / Big Trucks 子選單） ============ -->
+<section class="section ranges">
+  <div class="wrap">
+    <header class="sec-head sec-head--center">
+      <p class="kicker">The range</p>
+      <h2>Three families, one promise</h2>
+    </header>
+    <div class="range-grid">
+      <a class="range" id="fast" href="#">
+        <img src="assets/img/range-fast.jpg" alt="Fast Trucks 車系">
+        <div><b>Fast Trucks</b><span>Long haul · up to 520 hp</span></div>
+      </a>
+      <a class="range" id="slow" href="#">
+        <img src="assets/img/range-slow.jpg" alt="Slow Trucks 車系">
+        <div><b>Slow Trucks</b><span>Urban distribution · low emission</span></div>
+      </a>
+      <a class="range" id="big" href="#">
+        <img src="assets/img/range-big.jpg" alt="Big Trucks 車系">
+        <div><b>Big Trucks</b><span>Heavy duty · 60 t GCW</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 關於我們 ============ -->
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <figure class="about-media">
+      <img src="assets/img/history.jpg" alt="Olímpia Trucks 早期車輛">
+    </figure>
+    <div class="about-copy">
+      <p class="kicker">About us</p>
+      <h2>Fifty years of keeping São&nbsp;Paulo moving</h2>
+      <p>The history of Olímpia trucks began 50 years ago – a reason to celebrate for the
+        São&nbsp;Paulo-based company. From a single workshop on Rua Olimpíadas to a nationwide
+        service network, one thing never changed: transport is a trust business.</p>
+      <ul class="ticks">
+        <li>Modular configurations for every kind of load</li>
+        <li>Reliability and uptime engineered in, not bolted on</li>
+        <li>Service partners across Brazil, open 24/7</li>
+      </ul>
+      <a class="more" href="#">More information</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 據點地圖（舊站 "Where you can find us"） ============ -->
+<section class="section find" id="find">
+  <div class="wrap find-grid">
+    <div class="find-copy">
+      <p class="kicker">Where you can find us</p>
+      <h2>Head office &amp; showroom</h2>
+      <address>
+        <b>Olímpia Trucks</b><br>
+        Rua Olimpíadas 135<br>
+        01033-001 São Paulo<br><br>
+        Tel 00 5511 111111111<br>
+        Fax 00 5511 222222222<br>
+        <a href="mailto:olimpia@trucks.com">olimpia@trucks.com</a>
+      </address>
+      <a class="btn btn-solid" href="#">Get directions</a>
+    </div>
+    <figure class="find-map">
+      <img src="assets/img/map.jpg" alt="Olímpia Trucks 位置地圖">
+      <span class="pin"></span>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 電子報訂閱 ============ -->
+<section class="newsletter">
+  <div class="wrap news-inner">
+    <div>
+      <h2>Newsletter</h2>
+      <p>New models, service offers and 50th anniversary stories — once a month, no spam.</p>
+    </div>
+    <form class="news-form">
+      <label class="sr-only" for="newsletter">Email</label>
+      <input id="newsletter" type="email" placeholder="Email">
+      <button type="button" class="btn btn-solid">Send</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ 頁尾 ============ -->
+<footer class="footer" id="impressum">
+  <div class="wrap footer-grid">
+    <div class="f-brand">
+      <img src="assets/img/logo-olimpia-white.png" alt="Olímpia Trucks 標誌">
+      <p>Transport is a trust business.<br>Since 1965 in São Paulo, Brazil.</p>
+      <ul class="social">
+        <li><a class="sic sic-fb" href="#" aria-label="Facebook"></a></li>
+        <li><a class="sic sic-gp" href="#" aria-label="Google+"></a></li>
+        <li><a class="sic sic-tw" href="#" aria-label="Twitter"></a></li>
+      </ul>
+    </div>
+    <nav class="f-col">
+      <b>Our Trucks</b>
+      <a href="#fast">Fast Trucks</a>
+      <a href="#slow">Slow Trucks</a>
+      <a href="#big">Big Trucks</a>
+    </nav>
+    <nav class="f-col">
+      <b>Company</b>
+      <a href="#about">About us</a>
+      <a href="#impressum">Impressum</a>
+      <a href="#find">Where you can find us</a>
+      <a href="#login">Customer login</a>
+    </nav>
+    <div class="f-col f-contact">
+      <b>Contact</b>
+      <p>Rua Olimpíadas 135<br>01033-001 São Paulo</p>
+      <p>Tel 00 5511 111111111<br>Fax 00 5511 222222222</p>
+      <p><a href="mailto:olimpia@trucks.com">olimpia@trucks.com</a></p>
+    </div>
+  </div>
+  <div class="wrap legal">
+    Olímpia Trucks, Rua Olimpíadas 135, 01033-001 São Paulo, Tel 00 5511 111111111,
+    Fax 00 5511 222222222, olimpia@trucks.com
+  </div>
+</footer>
+
+<!-- 行動版選單覆蓋層（?state=menu 時顯示） -->
+<div class="mobile-menu" id="mobilemenu">
+  <div class="mm-head">
+    <img src="assets/img/logo-olimpia-white.png" alt="Olímpia Trucks 標誌">
+    <button class="mm-close" type="button" aria-label="Close"></button>
+  </div>
+  <form class="mm-search">
+    <input type="search" placeholder="Search trucks, parts, dealers…">
+    <button type="button" class="search-btn" aria-label="Search"></button>
+  </form>
+  <nav>
+    <a class="is-current" href="#top">Start</a>
+    <a class="is-open" href="#trucks">Our Trucks</a>
+    <a class="mm-sub" href="#fast">Fast Trucks</a>
+    <a class="mm-sub" href="#slow">Slow Trucks</a>
+    <a class="mm-sub" href="#big">Big Trucks</a>
+    <a href="#about">About us</a>
+    <a href="#impressum">Impressum</a>
+  </nav>
+  <a class="btn btn-solid mm-login" href="#login">Login</a>
+  <ul class="social">
+    <li><a class="sic sic-fb" href="#" aria-label="Facebook"></a></li>
+    <li><a class="sic sic-gp" href="#" aria-label="Google+"></a></li>
+    <li><a class="sic sic-tw" href="#" aria-label="Twitter"></a></li>
+  </ul>
+</div>
+
+<!-- 行動版底部快捷列（device specific element） -->
+<nav class="quickbar">
+  <a href="#trucks"><i class="qi qi-truck"></i>Trucks</a>
+  <a href="tel:005511111111111"><i class="qi qi-phone"></i>Call</a>
+  <a href="#find"><i class="qi qi-pin"></i>Dealer</a>
+  <a href="#login"><i class="qi qi-user"></i>Login</a>
+</nav>
+
+<script>
+  /* 以網址參數切換要呈現的介面狀態，方便輸出額外的 mock-up 圖 */
+  var state = new URLSearchParams(location.search).get('state');
+  if (state) { document.body.classList.add('state-' + state); }
+</script>
+</body>
+</html>

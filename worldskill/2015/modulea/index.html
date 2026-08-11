@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Community Plumbing Challenge 2015 — One Page Design (WSC2015 Design A)</title>
+<!-- 本檔為 Design A 的「可編輯原始檔」，固定 1366px 寬，用來輸出 XX_onepage.png -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ 全域導覽列（一頁式：以錨點捲動代替子頁） ============ -->
+  <header class="topbar">
+    <a class="brand" href="#hero">
+      <img src="assets/img/cpc-emblem.png" alt="Community Plumbing Challenge 官方 emblem">
+      <span class="brand-text">
+        <b>Community Plumbing Challenge</b>
+        <i>WorldSkills Foundation</i>
+      </span>
+    </a>
+    <nav class="mainnav">
+      <a href="#about" class="is-active">The Challenge</a>
+      <a href="#videos">Videos</a>
+      <!-- 展示 hover 互動狀態 -->
+      <a href="#photos" class="is-hover">Photos<span class="cursor"></span></a>
+      <a href="#team">Team</a>
+      <a href="#resources">Resources</a>
+      <a href="#social">Social</a>
+      <a href="#partners">Partners</a>
+    </nav>
+    <a class="btn btn-ghost" href="#join">Join us</a>
+  </header>
+
+  <!-- ============ 主視覺 ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-rays"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">WorldSkills Foundation · IAPMO · World Plumbing Council</p>
+        <h1>Community<br>Plumbing<br>Challenge<br><em>2015</em></h1>
+        <p class="tagline">Design, Construction, Education:<br>Action for Public Health</p>
+        <div class="hero-meta">
+          <div>
+            <b>2&ndash;5 November, 2015</b>
+            <span>Maha Nagar Palika School No&nbsp;&ndash;&nbsp;125<br>Mukti Dham, Nashik, India</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#join">Join us on the front line</a>
+          <a class="btn btn-outline is-hover" href="#videos">Watch the film<span class="cursor"></span></a>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <img src="assets/img/hero-hand.jpg" alt="CPC 視覺識別：手握水龍頭">
+      </figure>
+    </div>
+    <div class="scroll-hint"><span></span>scroll</div>
+  </section>
+
+  <!-- ============ 關於／數據 ============ -->
+  <section class="section about" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">The Challenge</p>
+        <h2>Bringing WorldSkills to the heart of a community in need</h2>
+        <p class="lead">The Community Plumbing Challenge is a combined initiative of the WorldSkills
+          Foundation, IAPMO and the World Plumbing Council. It brings passion, creativity and skilled
+          expertise directly to communities, achieving small but sustainable results that empower and
+          improve living conditions.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>2015&ndash;16</b><span>Nashik, India &rarr; South&nbsp;Africa</span></div>
+        <div class="stat"><b>3</b><span>Global partner organizations</span></div>
+        <div class="stat"><b>2.4bn</b><span>People without safe sanitation</span></div>
+        <div class="stat"><b>1</b><span>Annual event, worldwide</span></div>
+      </div>
+
+      <div class="cards3">
+        <article class="card">
+          <img src="assets/img/story-water.jpg" alt="洗手：公共衛生">
+          <h3>Public health</h3>
+          <p>Raising awareness around sanitation issues, from safe water to hand washing, with the
+            people who live with the problem every day.</p>
+          <a class="link" href="#resources">Read the brief &rarr;</a>
+        </article>
+        <article class="card">
+          <img src="assets/img/story-pipes.jpg" alt="管路施作：安裝與維護">
+          <h3>Installation &amp; maintenance</h3>
+          <p>Multimedia resources explaining how wastewater systems are installed, repaired and kept
+            running long after the event closes.</p>
+          <a class="link" href="#videos">See how it works &rarr;</a>
+        </article>
+        <article class="card">
+          <img src="assets/img/story-school.jpg" alt="學校孩童：知識傳承">
+          <h3>Knowledge transfer</h3>
+          <p>Champions and Experts work side by side with local tradespeople and students &mdash;
+            everybody teaches, everybody learns.</p>
+          <a class="link" href="#team">Meet the team &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 影片藝廊 ============ -->
+  <section class="section videos" id="videos">
+    <div class="wrap">
+      <div class="sec-head sec-head--light">
+        <p class="kicker">Video gallery</p>
+        <h2>Watch the Challenge unfold</h2>
+      </div>
+      <div class="video-layout">
+        <figure class="video-main">
+          <img src="assets/img/video-1.jpg" alt="主要影片：CPC 2015 官方影片">
+          <button class="play play-lg" type="button" aria-label="Play"></button>
+          <figcaption>
+            <b>CPC 2015 &mdash; the official film</b>
+            <span>08:24 · Nashik, India</span>
+          </figcaption>
+          <div class="video-bar"><i style="width:38%"></i></div>
+        </figure>
+        <ul class="video-list">
+          <li>
+            <img src="assets/img/video-2.jpg" alt="影片：現場工作日誌 Day 1">
+            <button class="play" type="button" aria-label="Play"></button>
+            <div><b>Day 1 &mdash; Site survey</b><span>04:12</span></div>
+          </li>
+          <li class="is-hover">
+            <img src="assets/img/video-3.jpg" alt="影片：污水系統安裝教學">
+            <button class="play" type="button" aria-label="Play"></button>
+            <div><b>How to install a wastewater trap</b><span>06:47</span></div>
+            <span class="cursor"></span>
+          </li>
+          <li>
+            <img src="assets/img/video-4.jpg" alt="影片：社區論壇">
+            <button class="play" type="button" aria-label="Play"></button>
+            <div><b>Community Forum highlights</b><span>11:05</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 照片藝廊 ============ -->
+  <section class="section photos" id="photos">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Photo gallery</p>
+        <h2>From the front line</h2>
+        <div class="filters">
+          <button class="chip is-on" type="button">All</button>
+          <button class="chip" type="button">School</button>
+          <button class="chip" type="button">Projects</button>
+          <button class="chip" type="button">Community</button>
+        </div>
+      </div>
+      <div class="grid-photos">
+        <figure class="ph ph-a"><img src="assets/img/photo-1.jpg" alt="工地照片：新增衛生設施"></figure>
+        <figure class="ph ph-b"><img src="assets/img/photo-2.jpg" alt="工地照片：排水管線"></figure>
+        <!-- 展示 hover：出現放大鏡遮罩與說明 -->
+        <figure class="ph ph-c is-hover">
+          <img src="assets/img/photo-3.jpg" alt="工地照片：安裝新立管">
+          <figcaption><b>Fitting the new stack</b><span>Nashik · Day 3</span></figcaption>
+          <span class="zoom"></span>
+          <span class="cursor"></span>
+        </figure>
+        <figure class="ph ph-d"><img src="assets/img/photo-4.jpg" alt="工地照片：Expert 現場示範"></figure>
+        <figure class="ph ph-e"><img src="assets/img/photo-5.jpg" alt="工地照片：工具與零件"></figure>
+        <figure class="ph ph-f"><img src="assets/img/photo-6.jpg" alt="工地照片：學童彩繪手印"></figure>
+        <figure class="ph ph-g"><img src="assets/img/photo-7.jpg" alt="工地照片：Champion 施作水槽"></figure>
+        <figure class="ph ph-h"><img src="assets/img/photo-8.jpg" alt="工地照片：社區共同施工"></figure>
+      </div>
+      <p class="more"><a class="btn btn-outline" href="#photos">Load more photos</a></p>
+    </div>
+  </section>
+
+  <!-- ============ 團隊資訊 ============ -->
+  <section class="section team" id="team">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Team information</p>
+        <h2>Champions, Experts and local heroes</h2>
+      </div>
+      <div class="grid-team">
+        <article class="member">
+          <img src="assets/img/team-1.jpg" alt="團隊成員 Priya Menon">
+          <h3>Priya Menon</h3>
+          <p class="role">Team leader · Plumbing &amp; Heating</p>
+          <p class="bio">WorldSkills Champion 2013. Leads the site survey and the wastewater design
+            for Maha Nagar Palika School No&nbsp;125.</p>
+          <p class="social-mini"><i class="ic ic-tw"></i><i class="ic ic-in"></i></p>
+        </article>
+        <article class="member">
+          <img src="assets/img/team-2.jpg" alt="團隊成員 Lucas Ferreira">
+          <h3>Lucas Ferreira</h3>
+          <p class="role">Expert · Sanitary systems</p>
+          <p class="bio">Twelve years on IAPMO code committees. Runs the Open Studio sessions with
+            local tradespeople every afternoon.</p>
+          <p class="social-mini"><i class="ic ic-tw"></i><i class="ic ic-in"></i></p>
+        </article>
+        <article class="member">
+          <img src="assets/img/team-3.jpg" alt="團隊成員 Ama Owusu">
+          <h3>Ama Owusu</h3>
+          <p class="role">Champion · Water supply</p>
+          <p class="bio">Responsible for the rainwater harvesting tanks and for training the school
+            caretakers in routine maintenance.</p>
+          <p class="social-mini"><i class="ic ic-tw"></i><i class="ic ic-in"></i></p>
+        </article>
+        <article class="member is-hover">
+          <img src="assets/img/team-4.jpg" alt="團隊成員 Rohan Deshpande">
+          <h3>Rohan Deshpande</h3>
+          <p class="role">Community liaison · Nashik</p>
+          <p class="bio">Connects the CPC team with families, teachers and the municipality so the
+            work keeps living after we leave.</p>
+          <p class="social-mini"><i class="ic ic-tw"></i><i class="ic ic-in"></i></p>
+          <span class="cursor"></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 資源下載 ============ -->
+  <section class="section resources" id="resources">
+    <div class="wrap res-layout">
+      <div class="res-intro">
+        <p class="kicker kicker--light">Resource downloads</p>
+        <h2>Take the Challenge home</h2>
+        <p>Every CPC event delivers a package of open multimedia resources. Download them, translate
+          them, print them and use them in your own community.</p>
+        <a class="btn btn-solid btn-solid--alt" href="#resources">Download all (48&nbsp;MB)</a>
+      </div>
+      <ul class="res-list">
+        <li>
+          <span class="ext ext-pdf">PDF</span>
+          <div><b>CPC 2015 Project Brief</b><span>2.4 MB · 24 pages · EN / PT / HI</span></div>
+          <span class="dl"></span>
+        </li>
+        <li class="is-hover">
+          <span class="ext ext-zip">ZIP</span>
+          <div><b>Wastewater installation drawings</b><span>18.6 MB · DWG + PDF</span></div>
+          <span class="dl"></span>
+          <span class="cursor"></span>
+        </li>
+        <li>
+          <span class="ext ext-mp4">MP4</span>
+          <div><b>Maintenance training films (4)</b><span>21.0 MB · subtitles included</span></div>
+          <span class="dl"></span>
+        </li>
+        <li>
+          <span class="ext ext-png">PNG</span>
+          <div><b>CPC identity &amp; emblem pack</b><span>6.1 MB · logo, poster, colours</span></div>
+          <span class="dl"></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 社群動態牆 ============ -->
+  <section class="section social" id="social">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Social media feed</p>
+          <h2>#CommunityPlumbingChallenge</h2>
+        </div>
+        <div class="follow">
+          <a class="ic-btn ic-tw" href="#social" aria-label="Twitter"></a>
+          <a class="ic-btn ic-fb" href="#social" aria-label="Facebook"></a>
+          <a class="ic-btn ic-in" href="#social" aria-label="Instagram"></a>
+          <a class="ic-btn ic-yt is-hover" href="#social" aria-label="YouTube"><span class="cursor"></span></a>
+        </div>
+      </div>
+      <div class="feed">
+        <article class="post">
+          <header><i class="ic ic-tw"></i><b>@WorldSkills</b><span>· 2h</span></header>
+          <p>Day 3 in Nashik: the new sanitary block is watertight and the school is back in
+            business. #CommunityPlumbingChallenge</p>
+          <footer><span>142</span><span>68</span><span>9</span></footer>
+        </article>
+        <article class="post post--photo">
+          <header><i class="ic ic-in"></i><b>@cpc_nashik</b><span>· 5h</span></header>
+          <img src="assets/img/photo-4.jpg" alt="社群貼文照片">
+          <p>Open Studio is full again. Everybody teaches, everybody learns.</p>
+          <footer><span>903</span><span>24</span><span>12</span></footer>
+        </article>
+        <article class="post">
+          <header><i class="ic ic-fb"></i><b>World Plumbing Council</b><span>· 1d</span></header>
+          <p>Proud to stand with WorldSkills Foundation and IAPMO. Safe plumbing protects the health
+            of the nation &mdash; and it starts in schools.</p>
+          <footer><span>318</span><span>77</span><span>31</span></footer>
+        </article>
+        <article class="post post--live">
+          <header><i class="ic ic-yt"></i><b>CPC Live</b><span>· now</span></header>
+          <p><b>Community Forum</b> streaming from Mukti Dham.</p>
+          <a class="btn btn-outline btn-sm" href="#videos">Watch live</a>
+          <footer><span>1.2k watching</span></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 夥伴標誌（需有標題、尺寸一致） ============ -->
+  <section class="section partners" id="partners">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Our partners</p>
+        <h2>The Community Plumbing Challenge is delivered by</h2>
+      </div>
+      <ul class="partner-logos">
+        <li><img src="assets/img/partner-worldskills.png" alt="WorldSkills Foundation 標誌"></li>
+        <li><img src="assets/img/partner-iapmo.png" alt="IAPMO 標誌"></li>
+        <li><img src="assets/img/partner-wpc.png" alt="World Plumbing Council 標誌"></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 行動呼籲 ============ -->
+  <section class="join" id="join">
+    <div class="wrap join-inner">
+      <div>
+        <h2>Join us on the front line</h2>
+        <p>Open Studio: 2&ndash;5 November 2015 &nbsp;·&nbsp; Community Forum: 5 November 2015</p>
+      </div>
+      <form class="signup">
+        <label for="email">Get CPC updates</label>
+        <div class="field">
+          <input id="email" type="email" placeholder="your@email.com">
+          <button type="button" class="btn btn-solid">Sign up</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ 頁尾 ============ -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="f-brand">
+        <img src="assets/img/cpc-emblem.png" alt="CPC emblem">
+        <p>Community Plumbing Challenge<br><span>www.worldskills.org/cpc</span></p>
+      </div>
+      <nav class="f-nav">
+        <b>Explore</b>
+        <a href="#about">The Challenge</a>
+        <a href="#videos">Video gallery</a>
+        <a href="#photos">Photo gallery</a>
+        <a href="#team">Team</a>
+      </nav>
+      <nav class="f-nav">
+        <b>Get involved</b>
+        <a href="#resources">Downloads</a>
+        <a href="#social">Social feed</a>
+        <a href="#partners">Partners</a>
+        <a href="#join">Contact</a>
+      </nav>
+      <div class="f-social">
+        <b>Follow</b>
+        <p>
+          <i class="ic ic-tw"></i><i class="ic ic-fb"></i><i class="ic ic-in"></i><i class="ic ic-yt"></i>
+        </p>
+        <small>&copy; 2015 WorldSkills Foundation, IAPMO and the World Plumbing Council.</small>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
