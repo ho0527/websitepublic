@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img"
+     aria-labelledby="featureRankingTitle featureRankingDesc">
+    <title id="featureRankingTitle">Games ranking 功能示意圖</title>
+    <desc id="featureRankingDesc">
+        遊戲排名示意畫面，以橫向長條圖比較五款遊戲本週的遊玩次數，
+        由高至低分別為 Neon Racer、Block Fall、Sky Diver、Cube Rush 與 Word Dash。
+    </desc>
+
+    <rect width="800" height="500" rx="18" fill="#151B33"/>
+    <rect x="0" y="0" width="800" height="64" rx="18" fill="#1E2647"/>
+    <rect x="0" y="46" width="800" height="18" fill="#1E2647"/>
+    <text x="34" y="39" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">
+        Games ranking — most played this week
+    </text>
+
+    <!-- 第 1 名 -->
+    <text x="34" y="128" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#FFD166">#1</text>
+    <text x="86" y="128" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">Neon Racer</text>
+    <rect x="34" y="142" width="732" height="30" rx="15" fill="#1B2340"/>
+    <rect x="34" y="142" width="700" height="30" rx="15" fill="#6E4AF7"/>
+    <text x="754" y="164" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">
+        1.42M plays
+    </text>
+
+    <!-- 第 2 名 -->
+    <text x="34" y="212" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#B9C0DA">#2</text>
+    <text x="86" y="212" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">Block Fall</text>
+    <rect x="34" y="226" width="732" height="30" rx="15" fill="#1B2340"/>
+    <rect x="34" y="226" width="560" height="30" rx="15" fill="#22D3EE"/>
+    <text x="614" y="248" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#F5F7FF">1.13M plays</text>
+
+    <!-- 第 3 名 -->
+    <text x="34" y="296" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#B9C0DA">#3</text>
+    <text x="86" y="296" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">Sky Diver</text>
+    <rect x="34" y="310" width="732" height="30" rx="15" fill="#1B2340"/>
+    <rect x="34" y="310" width="430" height="30" rx="15" fill="#4ADE80"/>
+    <text x="484" y="332" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#F5F7FF">870K plays</text>
+
+    <!-- 第 4 名 -->
+    <text x="34" y="380" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#B9C0DA">#4</text>
+    <text x="86" y="380" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">Cube Rush</text>
+    <rect x="34" y="394" width="732" height="30" rx="15" fill="#1B2340"/>
+    <rect x="34" y="394" width="300" height="30" rx="15" fill="#FFD166"/>
+    <text x="354" y="416" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#F5F7FF">612K plays</text>
+
+    <!-- 第 5 名 -->
+    <text x="34" y="464" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#B9C0DA">#5</text>
+    <text x="86" y="464" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">Word Dash</text>
+    <rect x="34" y="478" width="732" height="18" rx="9" fill="#1B2340"/>
+    <rect x="34" y="478" width="210" height="18" rx="9" fill="#FF8FA3"/>
+    <text x="264" y="493" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#F5F7FF">418K plays</text>
+</svg>

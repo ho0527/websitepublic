@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img"
+     aria-labelledby="featureVersionsTitle featureVersionsDesc">
+    <title id="featureVersionsTitle">Game versions 功能示意圖</title>
+    <desc id="featureVersionsDesc">
+        遊戲版本清單示意畫面，顯示同一款遊戲的 v1.3、v1.2、v1.0 三個版本，
+        每個版本都有發佈日期、更新說明與「PLAY」按鈕。
+    </desc>
+
+    <!-- 底板 -->
+    <rect width="800" height="500" rx="18" fill="#151B33"/>
+    <rect x="0" y="0" width="800" height="64" rx="18" fill="#1E2647"/>
+    <rect x="0" y="46" width="800" height="18" fill="#1E2647"/>
+
+    <!-- 視窗列 -->
+    <circle cx="34" cy="32" r="8" fill="#FF6B81"/>
+    <circle cx="60" cy="32" r="8" fill="#FFD166"/>
+    <circle cx="86" cy="32" r="8" fill="#4ADE80"/>
+    <text x="120" y="39" font-family="Segoe UI, sans-serif" font-size="22" fill="#F5F7FF" font-weight="600">
+        Neon Racer — Game versions
+    </text>
+
+    <!-- 版本卡片 1（最新版） -->
+    <g>
+        <rect x="28" y="92" width="744" height="118" rx="14" fill="#1B2340" stroke="#7C5CFF" stroke-width="3"/>
+        <rect x="48" y="112" width="120" height="78" rx="10" fill="#0B1020"/>
+        <path d="M78 132 L138 151 L78 170 Z" fill="#22D3EE"/>
+        <text x="190" y="140" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#F5F7FF">v1.3</text>
+        <rect x="252" y="118" width="96" height="28" rx="14" fill="#6E4AF7"/>
+        <text x="266" y="138" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">LATEST</text>
+        <text x="190" y="172" font-family="Segoe UI, sans-serif" font-size="18" fill="#B9C0DA">
+            2023-01-08 ・ 8 new tracks, live leaderboard sync
+        </text>
+        <rect x="628" y="126" width="120" height="48" rx="24" fill="#22D3EE"/>
+        <text x="668" y="157" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#06202B">PLAY</text>
+    </g>
+
+    <!-- 版本卡片 2 -->
+    <g>
+        <rect x="28" y="226" width="744" height="118" rx="14" fill="#1B2340" stroke="#2B3560" stroke-width="2"/>
+        <rect x="48" y="246" width="120" height="78" rx="10" fill="#0B1020"/>
+        <path d="M78 266 L138 285 L78 304 Z" fill="#7C5CFF"/>
+        <text x="190" y="274" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#F5F7FF">v1.2</text>
+        <text x="190" y="306" font-family="Segoe UI, sans-serif" font-size="18" fill="#B9C0DA">
+            2022-11-20 ・ Fixed touch input latency on mobile
+        </text>
+        <rect x="628" y="260" width="120" height="48" rx="24" fill="#2B3560"/>
+        <text x="668" y="291" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#F5F7FF">PLAY</text>
+    </g>
+
+    <!-- 版本卡片 3 -->
+    <g>
+        <rect x="28" y="360" width="744" height="118" rx="14" fill="#1B2340" stroke="#2B3560" stroke-width="2"/>
+        <rect x="48" y="380" width="120" height="78" rx="10" fill="#0B1020"/>
+        <path d="M78 400 L138 419 L78 438 Z" fill="#FFD166"/>
+        <text x="190" y="408" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#F5F7FF">v1.0</text>
+        <text x="190" y="440" font-family="Segoe UI, sans-serif" font-size="18" fill="#B9C0DA">
+            2022-09-30 ・ First public release
+        </text>
+        <rect x="628" y="394" width="120" height="48" rx="24" fill="#2B3560"/>
+        <text x="668" y="425" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#F5F7FF">PLAY</text>
+    </g>
+</svg>

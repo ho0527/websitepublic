@@ -1,366 +1,461 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 允許使用者縮放（WCAG 1.4.4 文字可放大至 200%） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>頂尖網頁遊戲平台</title>
+    <title>頂尖網頁遊戲平台 The next generation web game platform</title>
     <meta name="description" content="頂尖網頁遊戲平台 - 開發商、廣告商、玩家都賺到">
-    <meta property="og:image" content="http://localhost/International47/Module_D/05_Module_D/ogImage.png">
+    <!-- 社群分享圖：改為相對路徑，避免指向其他模組的本機網址 -->
+    <meta property="og:title" content="頂尖網頁遊戲平台 The next generation web game platform">
+    <meta property="og:description" content="win-win-win for developers, advertisers, players.">
+    <meta property="og:image" content="social-network.png">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-dark text-white">
-<header>
-    <nav class="navbar" style="background-color: darkmagenta;">
-        <div class="container">
-            <a href="" class="navbar-brand text-white"><span class="fw-bold">頂尖網頁遊戲平台</span> - <span style="font-size: 16px">開發商、廣告商、玩家都賺到</span></a>
-        </div>
-    </nav>
-</header>
-<main>
-    <section>
-        <img src="banner.jpg" alt="banner" class="w-100">
-    </section>
-    <section class="container" style="margin-top: 100px;">
-        <div class="row">
-            <div class="col-12">
-                <input type="radio" name="function" id="function-1" class="function" checked="checked">
-                <label for="function-1" class="tab" style="margin-left: 20px;">遊戲版本</label>
-                <input type="radio" name="function" id="function-2" class="function">
-                <label for="function-2" class="tab">高分排行榜</label>
-                <input type="radio" name="function" id="function-3" class="function">
-                <label for="function-3" class="tab">個人資料頁面</label>
-                <input type="radio" name="function" id="function-4" class="function">
-                <label for="function-4" class="tab">遊戲排名</label>
+    <!-- 跳至主要內容，方便鍵盤使用者略過導覽 -->
+    <a href="#main-content" class="skip-link">跳至主要內容</a>
+
+    <!-- ===== 頁首導覽 ===== -->
+    <header>
+        <nav class="navbar navbar-brand-bar">
+            <div class="container">
+                <a href="#top" class="navbar-brand text-white">
+                    <span class="fw-bold">頂尖網頁遊戲平台</span>
+                    <span class="brand-tagline">開發商、廣告商、玩家都賺到</span>
+                </a>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="#features">四大特色</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#roadmap">2023 路線圖</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#company">關於 P-Media</a></li>
+                </ul>
             </div>
-            <div class="col-12 content-box p-3">
-                <div class="bg-white text-dark p-3" id="game-version-container">
-                    <h2>遊戲版本</h2>
-                    <div class="card mt-3">
-                        <div class="row">
-                            <img src="./imgs/img101.png" alt="game-img" class="img-fluid rounded-start col-md-3">
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h3 class="card-title">天命2</h3>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aliquam architecto at cum cupiditate dolor dolorum eum expedita ipsam libero necessitatibus neque nobis nulla odit officiis, repellat unde veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-3">
-                        <div class="row">
-                            <img src="./imgs/img101.png" alt="game-img" class="img-fluid rounded-start col-md-3">
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h3 class="card-title">天命2</h3>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aliquam architecto at cum cupiditate dolor dolorum eum expedita ipsam libero necessitatibus neque nobis nulla odit officiis, repellat unde veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-3">
-                        <div class="row">
-                            <img src="./imgs/img101.png" alt="game-img" class="img-fluid rounded-start col-md-3">
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h3 class="card-title">天命2</h3>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aliquam architecto at cum cupiditate dolor dolorum eum expedita ipsam libero necessitatibus neque nobis nulla odit officiis, repellat unde veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-3">
-                        <div class="row">
-                            <img src="./imgs/img101.png" alt="game-img" class="img-fluid rounded-start col-md-3">
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h3 class="card-title">天命2</h3>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aliquam architecto at cum cupiditate dolor dolorum eum expedita ipsam libero necessitatibus neque nobis nulla odit officiis, repellat unde veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-3">
-                        <div class="row">
-                            <img src="./imgs/img101.png" alt="game-img" class="img-fluid rounded-start col-md-3">
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h3 class="card-title">天命2</h3>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aliquam architecto at cum cupiditate dolor dolorum eum expedita ipsam libero necessitatibus neque nobis nulla odit officiis, repellat unde veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- ===== 首發宣傳橫幅：標題、副標題與行動呼籲 ===== -->
+        <section id="top" class="hero">
+            <img src="banner.jpg" class="hero-image"
+                 alt="平台首發宣傳橫幅：深色底搭配桃紅色遊戲手把，文字寫著「註冊即送新手大禮包 首抽五星SSR限定角」">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <p class="hero-badge">平台首次亮相 ・ 2023 年 1 月</p>
+                <h1 class="hero-title">
+                    頂尖網頁遊戲平台
+                    <span class="hero-title-en" lang="en">The next generation web game platform</span>
+                </h1>
+                <p class="hero-subtitle" lang="en">win-win-win for developers, advertisers, players.</p>
+                <p class="hero-lead">開發商上架、廣告商曝光、玩家開心破紀錄——打開瀏覽器就能玩，不必下載、不必安裝。</p>
+                <p class="hero-actions">
+                    <a href="#features" class="btn btn-magenta btn-lg">看看平台特色</a>
+                    <a href="#roadmap" class="btn btn-outline-light btn-lg">2023 生態路線圖</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== 四大特色：純 CSS 分頁切換（無 JavaScript 也可運作） ===== -->
+        <section class="container section" id="features">
+            <h2 class="section-title">四大特色</h2>
+            <p class="section-intro">點選標籤即可切換預覽。以下分頁僅使用 HTML 與 CSS 完成，關閉 JavaScript 也能正常切換。</p>
+
+            <div class="row">
+                <!-- 分頁狀態：radio 置於標籤與內容之前，僅用一般兄弟選擇器即可切換（不依賴 :has()）；
+                     radio 只做視覺隱藏，保留鍵盤操作 -->
+                <input type="radio" name="function" id="function-1" class="function" checked="checked">
+                <input type="radio" name="function" id="function-2" class="function">
+                <input type="radio" name="function" id="function-3" class="function">
+                <input type="radio" name="function" id="function-4" class="function">
+
+                <div class="col-12 tab-bar" role="group" aria-label="選擇要預覽的功能">
+                    <label for="function-1" class="tab">遊戲版本</label>
+                    <label for="function-2" class="tab">高分排行榜</label>
+                    <label for="function-3" class="tab">個人資料頁面</label>
+                    <label for="function-4" class="tab">遊戲排名</label>
                 </div>
-                <div class="bg-white text-dark p-3" id="score-board-container">
-                    <h2>高分排行榜</h2>
-                    <div class="row">
-                        <table class="table table-striped">
-                            <thead class="table-dark">
-                                <tr>
-                                    <td>Rank</td>
-                                    <td>Name</td>
-                                    <td>Game</td>
-                                    <td>Score</td>
-                                </tr>
-                            </thead>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>天命2</td>
-                                <td>100.5</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="bg-white text-dark p-3" id="user-profile-container">
-                    <h2>個人資料頁面</h2>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="./imgs/img104.jpg" alt="user-profile-img" class="card-img-top">
-                                <div class="card-body">
-                                    <h3 class="card-title">Username</h3>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dignissimos id impedit minus nam, quo reprehenderit? Aliquid at dolorem id itaque libero maiores quidem repellat soluta ullam! Ea, ipsam voluptatem?</p>
+
+                <div class="col-12 content-box p-3">
+                    <!-- 特色一：遊戲版本 -->
+                    <div class="bg-white text-dark p-3" id="game-version-container">
+                        <h3>遊戲版本</h3>
+                        <p class="feature-desc">每次上傳都會產生新的版本並保留舊版連結，玩家可以隨時回到自己熟悉的版本，開發商更新也不會弄丟任何分數。</p>
+
+                        <div class="card mt-3">
+                            <div class="row g-0 align-items-center">
+                                <img src="./imgs/img101.png" alt="天命2 v1.3 版遊戲畫面：飛行器俯瞰海島群"
+                                     class="img-fluid rounded-start col-md-3">
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h4 class="card-title">天命2 <span class="badge-latest">最新版 v1.3</span></h4>
+                                        <p class="card-text">2023-01-08 發佈：新增 8 張地圖，並支援排行榜即時同步。</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8 mt-md-0 mt-5">
+
+                        <div class="card mt-3">
+                            <div class="row g-0 align-items-center">
+                                <img src="./imgs/img102.jpg" alt="天命2 v1.2 版遊戲畫面：藍色冰洞場景"
+                                     class="img-fluid rounded-start col-md-3">
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h4 class="card-title">天命2 v1.2</h4>
+                                        <p class="card-text">2022-11-20 發佈：修正手機觸控延遲，載入速度提升 35%。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="row g-0 align-items-center">
+                                <img src="./imgs/img100.jpg" alt="天命2 v1.0 版遊戲畫面：海蝕洞與沙灘"
+                                     class="img-fluid rounded-start col-md-3">
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h4 class="card-title">天命2 v1.0</h4>
+                                        <p class="card-text">2022-09-30 發佈：首次上線版本，永久保留可遊玩。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 特色二：高分排行榜 -->
+                    <div class="bg-white text-dark p-3" id="score-board-container">
+                        <h3>高分排行榜</h3>
+                        <p class="feature-desc">所有分數都在伺服器端驗證後即時公佈，一款遊戲一張全球榜單，讓玩家一直想再玩一場。</p>
+                        <div class="table-responsive">
                             <table class="table table-striped">
+                                <caption class="visually-hidden">全球高分排行榜前十名</caption>
                                 <thead class="table-dark">
-                                <tr>
-                                    <td>Rank</td>
-                                    <td>Game</td>
-                                    <td>Score</td>
-                                </tr>
+                                    <tr>
+                                        <th scope="col">名次</th>
+                                        <th scope="col">玩家</th>
+                                        <th scope="col">遊戲</th>
+                                        <th scope="col">分數</th>
+                                    </tr>
                                 </thead>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>天命2</td>
-                                    <td>100.5</td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>NovaKite</td>
+                                        <td>天命2</td>
+                                        <td>98,540</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>小雨 Rin</td>
+                                        <td>方塊墜落</td>
+                                        <td>91,220</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Aki_Lo</td>
+                                        <td>天空跳傘</td>
+                                        <td>88,010</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Mika99</td>
+                                        <td>天命2</td>
+                                        <td>80,764</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>deepFry</td>
+                                        <td>方塊衝刺</td>
+                                        <td>77,432</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>阿賢</td>
+                                        <td>天命2</td>
+                                        <td>72,118</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">7</th>
+                                        <td>Luna.Z</td>
+                                        <td>文字快打</td>
+                                        <td>69,905</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">8</th>
+                                        <td>KOROmi</td>
+                                        <td>天空跳傘</td>
+                                        <td>64,300</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">9</th>
+                                        <td>大資料</td>
+                                        <td>方塊墜落</td>
+                                        <td>61,047</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">10</th>
+                                        <td>xiao_he</td>
+                                        <td>方塊衝刺</td>
+                                        <td>58,622</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 特色三：個人資料頁面 -->
+                    <div class="bg-white text-dark p-3" id="user-profile-container">
+                        <h3>個人資料頁面</h3>
+                        <p class="feature-desc">每位玩家都有一頁公開檔案，收錄最佳成績、徽章與世界排名，一個連結就能到處炫耀。</p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="./imgs/img104.jpg" alt="玩家 NovaKite 的個人檔案封面照：雲海上的登山者"
+                                         class="card-img-top">
+                                    <div class="card-body">
+                                        <h4 class="card-title">NovaKite</h4>
+                                        <p class="card-text">2022 年加入 ・ 臺灣<br>累積總分 268,334 分，拿下 12 次冠軍、3 次世界紀錄。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 mt-md-0 mt-5">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <caption class="visually-hidden">NovaKite 的個人最佳成績</caption>
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col">世界排名</th>
+                                                <th scope="col">遊戲</th>
+                                                <th scope="col">最佳分數</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>天命2</td>
+                                                <td>98,540</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>方塊墜落</td>
+                                                <td>84,120</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">24</th>
+                                                <td>天空跳傘</td>
+                                                <td>61,908</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">58</th>
+                                                <td>方塊衝刺</td>
+                                                <td>43,220</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">96</th>
+                                                <td>文字快打</td>
+                                                <td>31,004</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 特色四：遊戲排名 -->
+                    <div class="bg-white text-dark p-3" id="game-ranking-container">
+                        <h3>遊戲排名</h3>
+                        <p class="feature-desc">每週依遊玩次數、留存率與評分重新排名，小工作室的好作品第一個週末就有機會登上首頁。</p>
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle">
+                                <caption class="visually-hidden">本週遊戲排名</caption>
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">名次</th>
+                                        <th scope="col">遊戲</th>
+                                        <th scope="col">售價</th>
+                                        <th scope="col">本週遊玩次數</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td><img src="./imgs/img101.png" alt="" class="rank-thumb"> 天命2</td>
+                                        <td>免費</td>
+                                        <td>1,420,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td><img src="./imgs/img102.jpg" alt="" class="rank-thumb"> 方塊墜落</td>
+                                        <td>$2.99</td>
+                                        <td>1,130,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td><img src="./imgs/img103.png" alt="" class="rank-thumb"> 天空跳傘</td>
+                                        <td>免費</td>
+                                        <td>870,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td><img src="./imgs/img100.jpg" alt="" class="rank-thumb"> 方塊衝刺</td>
+                                        <td>$1.99</td>
+                                        <td>612,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td><img src="./imgs/img104.jpg" alt="" class="rank-thumb"> 文字快打</td>
+                                        <td>免費</td>
+                                        <td>418,000</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white text-dark p-3" id="game-ranking-container">
-                    <h2>遊戲排名</h2>
-                    <table class="table table-striped">
-                        <thead class="table-dark">
-                        <tr>
-                            <td>Rank</td>
-                            <td>Game</td>
-                            <td></td>
-                            <td>Price</td>
-                            <td>Score</td>
-                        </tr>
-                        </thead>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2">
-                                <img src="./imgs/img104.jpg" alt="game-ranking-img" style="width: 70px">
-                                天命2
-                            </td>
-                            <td>$100.5</td>
-                            <td>100.5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2">
-                                <img src="./imgs/img104.jpg" alt="game-ranking-img" style="width: 70px">
-                                天命2
-                            </td>
-                            <td>$100.5</td>
-                            <td>100.5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2">
-                                <img src="./imgs/img104.jpg" alt="game-ranking-img" style="width: 70px">
-                                天命2
-                            </td>
-                            <td>$100.5</td>
-                            <td>100.5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2">
-                                <img src="./imgs/img104.jpg" alt="game-ranking-img" style="width: 70px">
-                                天命2
-                            </td>
-                            <td>$100.5</td>
-                            <td>100.5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2">
-                                <img src="./imgs/img104.jpg" alt="game-ranking-img" style="width: 70px">
-                                天命2
-                            </td>
-                            <td>$100.5</td>
-                            <td>100.5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2">
-                                <img src="./imgs/img104.jpg" alt="game-ranking-img" style="width: 70px">
-                                天命2
-                            </td>
-                            <td>$100.5</td>
-                            <td>100.5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2">
-                                <img src="./imgs/img104.jpg" alt="game-ranking-img" style="width: 70px">
-                                天命2
-                            </td>
-                            <td>$100.5</td>
-                            <td>100.5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2">
-                                <img src="./imgs/img104.jpg" alt="game-ranking-img" style="width: 70px">
-                                天命2
-                            </td>
-                            <td>$100.5</td>
-                            <td>100.5</td>
-                        </tr>
-                    </table>
+            </div>
+        </section>
+
+        <!-- ===== 2023 生態系路線圖：依題目草圖繪製 ===== -->
+        <section class="container section" id="roadmap">
+            <h2 class="section-title">2023 生態系路線圖</h2>
+            <p class="section-intro">
+                2023 年，平台、開發商、廣告商與玩家會被串成同一個價值循環。下圖的每一支箭頭，都是我們今年要兌現的承諾。
+            </p>
+
+            <figure class="roadmap-figure">
+                <svg class="roadmap-svg" viewBox="0 0 900 620" role="img"
+                     aria-labelledby="ujRoadmapTitle ujRoadmapDesc">
+                    <title id="ujRoadmapTitle">2023 年遊戲平台生態系路線圖</title>
+                    <desc id="ujRoadmapDesc">
+                        以廣告平台為中心的循環圖。廣告平台向上把 $$ 收益交給遊戲平台，遊戲平台回饋主機服務與 API；
+                        左側開發商提供遊戲，取得 $$ 收益與獎勵；右側玩家獲得樂趣，回饋評分與遊玩數據；
+                        下方廣告商投入促銷預算，換得玩家的注意力。
+                    </desc>
+
+                    <defs>
+                        <marker id="ujArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7"
+                                orient="auto-start-reverse">
+                            <path d="M0 0 L12 6 L0 12 z" fill="#FF6BFF"></path>
+                        </marker>
+                        <radialGradient id="ujCore" cx="50%" cy="50%" r="60%">
+                            <stop offset="0%" stop-color="#C71FC7"></stop>
+                            <stop offset="100%" stop-color="#8B008B"></stop>
+                        </radialGradient>
+                    </defs>
+
+                    <!-- 連線 -->
+                    <g class="roadmap-flows" fill="none" stroke="#FF6BFF" stroke-width="3" marker-end="url(#ujArrow)">
+                        <path d="M420 258 L420 96"></path>
+                        <path d="M480 96 L480 256"></path>
+                        <path d="M236 302 L326 302"></path>
+                        <path d="M326 344 L236 344"></path>
+                        <path d="M574 302 L664 302"></path>
+                        <path d="M664 344 L574 344"></path>
+                        <path d="M420 516 L420 376"></path>
+                        <path d="M480 376 L480 516"></path>
+                    </g>
+
+                    <!-- 連線標籤 -->
+                    <g font-size="19" font-weight="700" fill="#FFFFFF">
+                        <text x="404" y="182" text-anchor="end">$$ 收益</text>
+                        <text x="496" y="182">主機服務 &amp; API</text>
+                        <text x="281" y="288" text-anchor="middle">遊戲</text>
+                        <text x="281" y="376" text-anchor="middle">$$ 收益</text>
+                        <text x="281" y="400" text-anchor="middle">與獎勵</text>
+                        <text x="619" y="288" text-anchor="middle">樂趣</text>
+                        <text x="619" y="376" text-anchor="middle">評分與</text>
+                        <text x="619" y="400" text-anchor="middle">遊玩數據</text>
+                        <text x="404" y="452" text-anchor="end">促銷投放</text>
+                        <text x="496" y="452">注意力</text>
+                    </g>
+
+                    <!-- 節點 -->
+                    <g font-weight="700" fill="#FFFFFF">
+                        <rect x="340" y="26" width="220" height="70" rx="18" fill="#2A0B2A" stroke="#FF6BFF"
+                              stroke-width="3"></rect>
+                        <text x="450" y="69" text-anchor="middle" font-size="24">遊戲平台</text>
+
+                        <g class="roadmap-core">
+                            <rect x="326" y="256" width="248" height="120" rx="24" fill="url(#ujCore)"
+                                  stroke="#FFB3FF" stroke-width="3"></rect>
+                            <text x="450" y="308" text-anchor="middle" font-size="26">廣告平台</text>
+                            <text x="450" y="342" text-anchor="middle" font-size="18" font-weight="400"
+                                  fill="#FFE3FF">循環的引擎
+                            </text>
+                        </g>
+
+                        <rect x="36" y="286" width="200" height="74" rx="18" fill="#2A0B2A" stroke="#FF6BFF"
+                              stroke-width="3"></rect>
+                        <text x="136" y="331" text-anchor="middle" font-size="24">開發商</text>
+
+                        <rect x="664" y="286" width="200" height="74" rx="18" fill="#2A0B2A" stroke="#FF6BFF"
+                              stroke-width="3"></rect>
+                        <text x="764" y="331" text-anchor="middle" font-size="24">玩家</text>
+
+                        <rect x="340" y="516" width="220" height="74" rx="18" fill="#2A0B2A" stroke="#FF6BFF"
+                              stroke-width="3"></rect>
+                        <text x="450" y="561" text-anchor="middle" font-size="24">廣告商</text>
+                    </g>
+                </svg>
+                <figcaption class="roadmap-caption">2023 生態系路線圖——這是未來計畫，不是已完成的功能清單。</figcaption>
+            </figure>
+
+            <!-- 路線圖的文字版本，兼顧螢幕閱讀器與小螢幕 -->
+            <ul class="timeline mt-5">
+                <li class="event">
+                    <h3>遊戲平台</h3>
+                    <p>提供主機服務與 API 給廣告平台，並取回 $$ 收益。</p>
+                </li>
+                <li class="event">
+                    <h3>開發商</h3>
+                    <p>把遊戲上架到平台，換得 $$ 收益與開發獎勵。</p>
+                </li>
+                <li class="event">
+                    <h3>廣告商</h3>
+                    <p>投入促銷預算，換得真正在玩的玩家注意力。</p>
+                </li>
+                <li class="event">
+                    <h3>玩家</h3>
+                    <p>免費得到樂趣，回饋評分與遊玩數據讓推薦更準。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ===== 母公司 P-Media ===== -->
+        <section class="container section" id="company">
+            <h2 class="section-title">關於母公司 P-Media</h2>
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <p lang="en" class="company-quote">
+                        P-Media was initially an Animation Studio. P-Media is Entertainment now with HTML5 Games.
+                    </p>
+                    <p>P-Media 起家於動畫工作室，如今是一間以 HTML5 遊戲為核心的娛樂公司。二十年說故事的功夫，現在全都對準了瀏覽器。</p>
+                    <ul class="milestones">
+                        <li><span class="milestone-year">過去</span>一格一格畫出故事的動畫工作室。</li>
+                        <li><span class="milestone-year">現在</span>發行 HTML5 遊戲的娛樂公司。</li>
+                        <li><span class="milestone-year">2023</span>讓每一方都賺到的網頁遊戲平台。</li>
+                    </ul>
+                </div>
+                <div class="col-md-5 mt-4 mt-md-0">
+                    <figure class="company-figure">
+                        <img src="./imgs/img103.png" alt="峽灣湖泊倒映著山脈的攝影作品，象徵 P-Media 的影像製作實力"
+                             class="img-fluid rounded" loading="lazy">
+                        <figcaption>從動畫桌走到瀏覽器——P-Media 的製作實力。</figcaption>
+                    </figure>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <p class="mb-0 fw-bold">頂尖網頁遊戲平台 ・ 開發商、廣告商、玩家都賺到</p>
+            <p class="mb-0">&copy; 2023 P-Media Entertainment</p>
         </div>
-    </section>
-    <section class="container" style="margin-top: 100px;">
-        <h2 class="text-center" style="color: darkmagenta">Ecosystem Roadmap for 2023</h2>
-        <ul class="timeline mt-5">
-            <li class="event">
-                <h3>廣告平台</h3>
-                <p>與開發商、廣告商、玩家以及遊戲平台做連結互動</p>
-            </li>
-            <li class="event">
-                <h3>開發商</h3>
-                <p>透過開發遊戲與廣告平台做結合，得到他們需要的收入</p>
-            </li>
-            <li class="event">
-                <h3>廣告商</h3>
-                <p>透過廣告平台從他們所投放(關注)的廣告中，獲得更好的曝光率</p>
-            </li>
-            <li class="event">
-                <h3>玩家</h3>
-                <p>透過廣告平台做遊戲互動，給予對該廣告的反饋</p>
-            </li>
-            <li class="event">
-                <h3>API</h3>
-                <p>透過 API 的串接進而達到廣告營收</p>
-            </li>
-        </ul>
-    </section>
-</main>
-<footer class="bg-dark d-flex justify-content-center align-items-center" style="height: 100px; margin-top: 100px;">
-    &copy; Copyright 頂尖網頁遊戲平台
-</footer>
+    </footer>
 </body>
+
 </html>

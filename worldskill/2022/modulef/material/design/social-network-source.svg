@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  social-network.png 的設計原始檔（可編輯向量檔）
+  圖層（<g> 皆已命名並依邏輯分組，可直接在 Illustrator / Inkscape / Figma 開啟編輯）：
+    layer-background   底色與品牌色帶
+    layer-typography   網站標題、副標題與說明文字
+    layer-palette      主色盤色票與色碼
+    layer-screenshots  桌面版長頁截圖（左右兩欄）
+    layer-footnote     底部註記
+-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1400" height="1620" viewBox="0 0 1400 1620"
+     font-family="Segoe UI, Microsoft JhengHei UI, sans-serif">
+
+    <g id="layer-background" aria-label="背景">
+        <rect x="0" y="0" width="1400" height="1620" fill="#0B1020"/>
+        <rect x="0" y="0" width="1400" height="10" fill="#7C5CFF"/>
+    </g>
+
+    <g id="layer-typography" aria-label="標題文字">
+        <text x="70" y="90" font-size="18" font-weight="700" fill="#22D3EE" letter-spacing="1.5">
+            P-MEDIA PLAY · MARKETING PAGE · 2023 DEBUT
+        </text>
+        <text x="70" y="188" font-size="62" font-weight="800" fill="#F5F7FF">The next generation</text>
+        <text x="70" y="266" font-size="62" font-weight="800" fill="#F5F7FF">web game platform</text>
+        <text x="70" y="322" font-size="30" font-weight="700" fill="#FFD166">
+            win-win-win for developers, advertisers, players.
+        </text>
+        <text x="70" y="376" font-size="22" fill="#B9C0DA">
+            Desktop marketing page for the P-Media HTML5 game platform.
+        </text>
+    </g>
+
+    <g id="layer-palette" aria-label="主色盤">
+        <text x="70" y="414" font-size="18" font-weight="700" fill="#22D3EE" letter-spacing="1.5">
+            MAIN COLOR PALETTE
+        </text>
+        <g id="swatch-base">
+            <rect x="70" y="434" width="120" height="84" rx="12" fill="#0B1020" stroke="#2B3560" stroke-width="2"/>
+            <text x="70" y="546" font-size="18" font-weight="700" fill="#F5F7FF">#0B1020</text>
+            <text x="70" y="570" font-size="17" fill="#B9C0DA">Base</text>
+        </g>
+        <g id="swatch-surface">
+            <rect x="210" y="434" width="120" height="84" rx="12" fill="#151B33" stroke="#2B3560" stroke-width="2"/>
+            <text x="210" y="546" font-size="18" font-weight="700" fill="#F5F7FF">#151B33</text>
+            <text x="210" y="570" font-size="17" fill="#B9C0DA">Surface</text>
+        </g>
+        <g id="swatch-primary">
+            <rect x="350" y="434" width="120" height="84" rx="12" fill="#7C5CFF" stroke="#2B3560" stroke-width="2"/>
+            <text x="350" y="546" font-size="18" font-weight="700" fill="#F5F7FF">#7C5CFF</text>
+            <text x="350" y="570" font-size="17" fill="#B9C0DA">Primary</text>
+        </g>
+        <g id="swatch-accent">
+            <rect x="490" y="434" width="120" height="84" rx="12" fill="#22D3EE" stroke="#2B3560" stroke-width="2"/>
+            <text x="490" y="546" font-size="18" font-weight="700" fill="#F5F7FF">#22D3EE</text>
+            <text x="490" y="570" font-size="17" fill="#B9C0DA">Accent</text>
+        </g>
+        <g id="swatch-highlight">
+            <rect x="630" y="434" width="120" height="84" rx="12" fill="#FFD166" stroke="#2B3560" stroke-width="2"/>
+            <text x="630" y="546" font-size="18" font-weight="700" fill="#F5F7FF">#FFD166</text>
+            <text x="630" y="570" font-size="17" fill="#B9C0DA">Highlight</text>
+        </g>
+        <g id="swatch-text">
+            <rect x="770" y="434" width="120" height="84" rx="12" fill="#F5F7FF" stroke="#2B3560" stroke-width="2"/>
+            <text x="770" y="546" font-size="18" font-weight="700" fill="#F5F7FF">#F5F7FF</text>
+            <text x="770" y="570" font-size="17" fill="#B9C0DA">Text</text>
+        </g>
+    </g>
+
+    <g id="layer-screenshots" aria-label="桌面版長頁截圖">
+        <text x="80" y="600" font-size="18" font-weight="700" fill="#22D3EE" letter-spacing="1.5">
+            DESKTOP VIEW — FULL PAGE (BOTTOM CROPPED)
+        </text>
+        <!-- 左欄：頁面上半部 -->
+        <g id="screenshot-column-top">
+            <clipPath id="clipTop">
+                <rect x="80" y="620" width="600" height="900"/>
+            </clipPath>
+            <image xlink:href="desktop-fullpage.png" x="80" y="620" width="600" height="1792"
+                   clip-path="url(#clipTop)" preserveAspectRatio="xMidYMin slice"/>
+            <rect x="76" y="616" width="608" height="908" rx="10" fill="none" stroke="#2B3560" stroke-width="3"/>
+        </g>
+        <!-- 右欄：頁面下半部（往上位移 900px 顯示接續內容） -->
+        <g id="screenshot-column-bottom">
+            <clipPath id="clipBottom">
+                <rect x="720" y="620" width="600" height="900"/>
+            </clipPath>
+            <image xlink:href="desktop-fullpage.png" x="720" y="-280" width="600" height="1792"
+                   clip-path="url(#clipBottom)" preserveAspectRatio="xMidYMin slice"/>
+            <rect x="716" y="616" width="608" height="908" rx="10" fill="none" stroke="#2B3560" stroke-width="3"/>
+        </g>
+    </g>
+
+    <g id="layer-footnote" aria-label="底部註記">
+        <text x="80" y="1580" font-size="17" fill="#B9C0DA">
+            P-Media Entertainment · social-network showcase
+        </text>
+    </g>
+</svg>

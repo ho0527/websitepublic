@@ -1,108 +1,485 @@
-* {
-    font-family: Unispace, "Microsoft JhengHei UI";
+/* ==========================================================================
+   頂尖網頁遊戲平台 — 行銷頁樣式（搭配本機 bootstrap.min.css）
+   目錄：
+     1. 全域設定與共用工具
+     2. 頁首與首發橫幅
+     3. 四大特色分頁（純 CSS 切換）
+     4. 2023 生態系路線圖
+     5. 母公司 P-Media
+     6. 頁尾
+     7. 響應式與減少動態偏好
+   ========================================================================== */
+
+/* ===== 1. 全域設定與共用工具 ===== */
+:root {
+    --color-magenta: #8B008B;
+    --color-magenta-light: #C71FC7;
+    --color-magenta-glow: #FF6BFF;
+    --color-panel: #2A0B2A;
+    --color-muted: #D8D2E4;
 }
 
+* {
+    font-family: Unispace, "Microsoft JhengHei UI", "Segoe UI", sans-serif;
+}
+
+body {
+    /* 以 rem 為單位，瀏覽器文字縮放 50%～200% 都能等比放大 */
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.25;
+}
+
+/* 鍵盤焦點提示 */
+a:focus-visible,
+#function-1:focus-visible ~ .tab-bar [for="function-1"],
+#function-2:focus-visible ~ .tab-bar [for="function-2"],
+#function-3:focus-visible ~ .tab-bar [for="function-3"],
+#function-4:focus-visible ~ .tab-bar [for="function-4"] {
+    outline: 3px solid var(--color-magenta-glow);
+    outline-offset: 3px;
+}
+
+/* 跳至主要內容 */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #FFFFFF;
+    color: var(--color-magenta);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+.section {
+    margin-top: 5rem;
+}
+
+.section-title {
+    color: var(--color-magenta-glow);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.section-intro {
+    max-width: 46rem;
+    color: var(--color-muted);
+}
+
+.btn-magenta {
+    background-color: var(--color-magenta-light);
+    border: 2px solid var(--color-magenta-light);
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.btn-magenta:hover,
+.btn-magenta:focus {
+    background-color: var(--color-magenta);
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+/* ===== 2. 頁首與首發橫幅 ===== */
+.navbar-brand-bar {
+    background-color: var(--color-magenta);
+}
+
+.navbar-brand-bar .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.brand-tagline {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: 4.5rem;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 深色遮罩：確保橫幅上的文字對比度足夠 */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(95deg, rgba(15, 8, 20, 0.95) 0%, rgba(15, 8, 20, 0.86) 50%, rgba(15, 8, 20, 0.55) 100%);
+}
+
+.hero-content {
+    max-width: 56rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    padding: 0.35rem 1rem;
+    border: 1px solid var(--color-magenta-glow);
+    border-radius: 999px;
+    color: var(--color-magenta-glow);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.hero-title-en {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.hero-subtitle {
+    margin-top: 1rem;
+    color: #FFD9FF;
+    font-size: 1.375rem;
+    font-weight: 700;
+}
+
+.hero-lead {
+    max-width: 42rem;
+    color: var(--color-muted);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+/* ===== 3. 四大特色分頁 ===== */
+.tab-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+/* radio 僅做視覺隱藏，保留 Tab 焦點與螢幕閱讀器可存取性 */
 .function {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
 
 .tab {
-    padding: 10px;
-    background-color: darkmagenta;
-    border-top: 2px solid white;
     position: relative;
+    padding: 0.625rem;
+    background-color: var(--color-magenta);
+    border-top: 2px solid white;
+    color: #FFFFFF;
+    font-weight: 700;
     cursor: pointer;
 }
 
-.tab::before, .tab::after {
-    width: 20px;
-    height: calc(100% + 2px);
-    top: -2px;
+.tab::before,
+.tab::after {
     position: absolute;
-    background-color: darkmagenta;
+    top: -2px;
+    width: 1.25rem;
+    height: calc(100% + 2px);
+    background-color: var(--color-magenta);
     border-top: 2px solid white;
     content: '';
 }
 
 .tab::before {
-    left: -10px;
+    left: -0.625rem;
     border-left: 2px solid white;
     border-radius: 5px 0 0 0;
     transform: skew(-15deg);
 }
 
-
 .tab::after {
-    right: -10px;
+    right: -0.625rem;
     border-right: 2px solid white;
     border-radius: 0 5px 0 0;
     transform: skew(15deg);
 }
 
-.function:checked + label {
+/* 目前選取的分頁 */
+#function-1:checked ~ .tab-bar [for="function-1"],
+#function-1:checked ~ .tab-bar [for="function-1"]::before,
+#function-1:checked ~ .tab-bar [for="function-1"]::after,
+#function-2:checked ~ .tab-bar [for="function-2"],
+#function-2:checked ~ .tab-bar [for="function-2"]::before,
+#function-2:checked ~ .tab-bar [for="function-2"]::after,
+#function-3:checked ~ .tab-bar [for="function-3"],
+#function-3:checked ~ .tab-bar [for="function-3"]::before,
+#function-3:checked ~ .tab-bar [for="function-3"]::after,
+#function-4:checked ~ .tab-bar [for="function-4"],
+#function-4:checked ~ .tab-bar [for="function-4"]::before,
+#function-4:checked ~ .tab-bar [for="function-4"]::after {
+    background-color: var(--color-magenta-light);
     z-index: 50;
+}
+
+.content-box {
+    background-color: var(--color-magenta);
+    border: 2px solid white;
+    margin-top: -2px;
+    z-index: 30;
 }
 
 .content-box > div {
     display: none;
 }
 
-body:has(#function-1:checked) #game-version-container {
+#function-1:checked ~ .content-box #game-version-container,
+#function-2:checked ~ .content-box #score-board-container,
+#function-3:checked ~ .content-box #user-profile-container,
+#function-4:checked ~ .content-box #game-ranking-container {
     display: block;
 }
 
-body:has(#function-2:checked) #score-board-container {
-    display: block;
+.feature-desc {
+    max-width: 46rem;
+    color: #4A2A4A;
 }
 
-body:has(#function-3:checked) #user-profile-container {
-    display: block;
+.badge-latest {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    background-color: var(--color-magenta);
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    vertical-align: middle;
 }
 
-body:has(#function-4:checked) #game-ranking-container {
-    display: block;
+.rank-thumb {
+    width: 4.375rem;
+    height: 2.75rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
 }
-.content-box {
-    background-color: darkmagenta;
-    border: 2px solid white;
-    margin-top: -2px;
-    z-index: 30;
+
+/* ===== 4. 2023 生態系路線圖 ===== */
+.roadmap-figure {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 107, 255, 0.4);
+    border-radius: 1.25rem;
+    background-color: rgba(139, 0, 139, 0.18);
+}
+
+.roadmap-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 流動虛線：傳達持續運轉的循環 */
+.roadmap-flows path {
+    stroke-dasharray: 10 8;
+    animation: roadmap-flow 1.6s linear infinite;
+}
+
+@keyframes roadmap-flow {
+    to {
+        stroke-dashoffset: -18;
+    }
+}
+
+.roadmap-core rect {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: roadmap-breathe 4s ease-in-out infinite;
+}
+
+@keyframes roadmap-breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+.roadmap-caption {
+    margin-top: 0.75rem;
+    color: var(--color-muted);
+    text-align: center;
 }
 
 .timeline {
+    padding-left: 1rem;
     list-style: none;
 }
 
 .event {
-    background-color: rgba(139, 0, 139, 0.3);
-    padding: 30px;
-    border-left: 3px solid darkmagenta;
-    border-bottom: 1px dashed black;
-    cursor: pointer;
-    transition: .2s;
     position: relative;
+    padding: 1.5rem;
+    background-color: rgba(139, 0, 139, 0.3);
+    border-left: 3px solid var(--color-magenta);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+    transition: 0.2s;
 }
 
 .event:hover {
-    background-color: darkmagenta;
+    background-color: var(--color-magenta);
     border-left: 3px solid white;
 }
 
+.event h3 {
+    font-size: 1.25rem;
+}
+
+.event p {
+    margin-bottom: 0;
+    color: var(--color-muted);
+}
+
 .event::before {
-    content: '';
-    width: 20px;
-    height: 20px;
-    border: 5px solid darkmagenta;
-    background-color: white;
-    transition: .2s;
-    border-radius: 50%;
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(calc(-50% - 1.5px), 30px);
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 5px solid var(--color-magenta);
+    border-radius: 50%;
+    background-color: white;
+    transform: translate(calc(-50% - 1.5px), 1.5rem);
+    transition: 0.2s;
+    content: '';
 }
 
 .event:hover::before {
-    background-color: darkmagenta;
+    background-color: var(--color-magenta);
     border: 5px solid white;
+}
+
+/* ===== 5. 母公司 P-Media ===== */
+.company-quote {
+    padding-left: 1rem;
+    border-left: 4px solid var(--color-magenta-glow);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.milestones {
+    margin-top: 1.5rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+.milestones li {
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-muted);
+}
+
+.milestone-year {
+    display: inline-block;
+    min-width: 4.5rem;
+    color: var(--color-magenta-glow);
+    font-weight: 700;
+}
+
+.company-figure {
+    margin: 0;
+}
+
+.company-figure figcaption {
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+
+/* ===== 6. 頁尾 ===== */
+.site-footer {
+    margin-top: 5rem;
+    padding-block: 1.75rem;
+    background-color: var(--color-magenta);
+}
+
+.site-footer p {
+    color: #FFFFFF;
+}
+
+/* ===== 7. 響應式與減少動態偏好 ===== */
+@media (max-width: 48rem) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-title-en {
+        font-size: 1.125rem;
+    }
+
+    .section {
+        margin-top: 3rem;
+    }
+
+    /* 手機版分頁改為直向堆疊，觸控目標維持足夠大小 */
+    .tab-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .tab {
+        min-height: 3rem;
+        border: 2px solid white;
+        border-radius: 0.5rem;
+        text-align: center;
+    }
+
+    .tab::before,
+    .tab::after {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .roadmap-flows path,
+    .roadmap-core rect,
+    .event {
+        animation: none;
+        transition: none;
+    }
 }

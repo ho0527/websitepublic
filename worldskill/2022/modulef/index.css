@@ -1,203 +1,704 @@
-.maindiv {
-    width: 100vw;
-    height: 100vh;
+/* ==========================================================================
+   The next generation web game platform — 行銷單頁樣式
+   目錄：
+     1. 設計變數（色彩、間距、字級）
+     2. 基礎重置與共用元件
+     3. 頁首導覽
+     4. 首發宣傳橫幅 Hero
+     5. 前四大特色（純 CSS 分頁）
+     6. 2023 生態系路線圖
+     7. 母公司 P-Media
+     8. 結尾行動呼籲與頁尾
+     9. 響應式調整（平板 / 手機）
+    10. 減少動態偏好設定
+   ========================================================================== */
+
+/* ===== 1. 設計變數 =====
+   主色盤（social-network.png 中呈現的同一組顏色）：
+   #0B1020 深空藍（底色） / #151B33 面板 / #7C5CFF 品牌紫（主色）
+   #22D3EE 電光青（輔色） / #FFD166 冠軍金（強調） / #F5F7FF 主要文字 */
+:root {
+    --color-base: #0B1020;
+    --color-surface: #151B33;
+    --color-surface-raised: #1B2340;
+    --color-line: #2B3560;
+    --color-primary: #7C5CFF;
+    /* 承載白色文字的互動元件用色（白字對比 5.27:1，符合 WCAG AA） */
+    --color-primary-ui: #6E4AF7;
+    --color-primary-strong: #4B32C3;
+    --color-accent: #22D3EE;
+    --color-highlight: #FFD166;
+    --color-text: #F5F7FF;
+    --color-text-muted: #B9C0DA;
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.75rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.75rem;
+
+    --wrap-width: 75rem;
+    --font-body: "Segoe UI", "Microsoft JhengHei UI", system-ui, sans-serif;
 }
 
-.titlediv {
-    position: absolute;
+/* ===== 2. 基礎重置與共用元件 ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-base);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    /* 以 rem 為主的字級，瀏覽器文字縮放 50%～200% 都能等比放大 */
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    /* 避免任何元素造成整頁水平捲軸 */
+    overflow-x: hidden;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-sm);
+}
+
+p {
+    margin: 0 0 var(--space-sm);
+}
+
+a {
+    color: var(--color-accent);
+}
+
+/* 鍵盤焦點提示（WCAG 2.4.7） */
+a:focus-visible,
+label:focus-visible,
+#feature-versions:focus-visible ~ .tabs__controls [for="feature-versions"],
+#feature-leaderboard:focus-visible ~ .tabs__controls [for="feature-leaderboard"],
+#feature-profile:focus-visible ~ .tabs__controls [for="feature-profile"],
+#feature-ranking:focus-visible ~ .tabs__controls [for="feature-ranking"] {
+    outline: 3px solid var(--color-highlight);
+    outline-offset: 3px;
+}
+
+/* 內容置中容器 */
+.wrap {
     width: 100%;
-    text-align: center;
-    z-index: 999;
+    max-width: var(--wrap-width);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
 }
 
-.title {
-    font-size: 45px;
-    font-weight: bold;
-}
-
-.subtitle {
-    font-size: 25px;
-    font-style: normal;
-}
-
-.indexdiv {
-    display: none;
-}
-
-.featurediv {
-    display: none;
-}
-
-.informationdiv {
-    display: none;
-}
-
-.roadmapdiv {
-    display: none;
-}
-
-.radio {
-    display: none;
-    cursor: pointer;
-}
-
-.banner {
-    width: 100%;
-    height: 100vh;
+/* 跳至主要內容連結：僅在取得焦點時顯示 */
+.skip-link {
     position: absolute;
-    left: 0px;
-    top: 0px;
-    opacity: 0.75;
+    left: var(--space-sm);
+    top: -100%;
+    z-index: 100;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-highlight);
+    color: #241A00;
+    font-weight: 700;
+    text-decoration: none;
 }
 
-.feature {
-    display: none;
+.skip-link:focus {
+    top: var(--space-sm);
 }
 
-.maindiv:has(.indexradio:checked)>.indexdiv {
-    display: block;
+/* 通用區塊 */
+.section {
+    padding-block: var(--space-xl);
 }
 
-.maindiv:has(.featureradio:checked)>.featurediv {
-    display: block;
+.section__eyebrow {
+    margin-bottom: var(--space-xs);
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
 }
 
-.maindiv:has(.informationradio:checked)>.informationdiv {
-    display: block;
+.section__title {
+    font-size: 2.25rem;
 }
 
-.maindiv:has(.roadmapradio:checked)>.roadmapdiv {
-    display: block;
+.section__intro {
+    max-width: 46rem;
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
 }
 
-/* indexradio change START */
-.radiodiv:has(.indexradio:checked) {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-}
-
-.radiodiv:has(.featureradio:checked) {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-}
-
-.radiodiv:has(.informationradio:checked) {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-}
-
-.radiodiv:has(.roadmapradio:checked) {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-}
-
-/* indexradio change END */
-
-.labeldiv {
+/* 按鈕 */
+.button {
     display: inline-block;
-    width: 15vw;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
 }
 
-.label {
-    color: white;
-    line-height: 1.5;
+.button--primary {
+    background-color: var(--color-primary-ui);
+    color: #FFFFFF;
+}
+
+.button--primary:hover {
+    background-color: var(--color-primary-strong);
+}
+
+.button--ghost {
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+}
+
+.button--ghost:hover {
+    background-color: rgba(34, 211, 238, 0.14);
+}
+
+/* ===== 3. 頁首導覽 ===== */
+.site-header {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(11, 16, 32, 0.92);
+    border-bottom: 1px solid var(--color-line);
+}
+
+.site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding-block: var(--space-sm);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-decoration: none;
+}
+
+.brand__mark {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.site-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-nav__list a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.site-nav__list a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+/* ===== 4. 首發宣傳橫幅 Hero ===== */
+.hero {
+    position: relative;
+    isolation: isolate;
+    padding-block: var(--space-xl);
+    overflow: hidden;
+}
+
+.hero__photo {
     position: absolute;
-    left: 0px;
+    inset: 0;
+    z-index: -2;
     width: 100%;
     height: 100%;
-    font-size: 20px;
+    object-fit: cover;
+}
+
+/* 深色漸層遮罩：讓橫幅文字與底圖維持足夠對比 */
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(100deg, rgba(11, 16, 32, 0.97) 0%, rgba(11, 16, 32, 0.88) 45%, rgba(11, 16, 32, 0.62) 100%),
+        radial-gradient(60% 80% at 15% 30%, rgba(124, 92, 255, 0.45) 0%, transparent 70%);
+}
+
+.hero__content {
+    max-width: 58rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.badge__dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: scale(0.7);
+    }
+}
+
+.hero__title {
+    max-width: 20ch;
+    font-size: 3.25rem;
+    font-weight: 800;
+}
+
+.hero__subtitle {
+    margin-bottom: var(--space-md);
+    color: var(--color-highlight);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.hero__lead {
+    max-width: 44rem;
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-block: var(--space-md);
+}
+
+/* 首發數據 */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0 0;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-line);
+}
+
+.stats__label {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.stats__value {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* ===== 5. 前四大特色（純 CSS 分頁） ===== */
+.tabs {
+    margin-top: var(--space-lg);
+}
+
+.tabs__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+/* 視覺上隱藏 radio，但保留在無障礙樹與 Tab 焦點順序中 */
+.tabs__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.tabs__label {
+    display: inline-block;
+    padding: 0.75rem 1.4rem;
+    border: 2px solid var(--color-line);
+    border-bottom: none;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    font-weight: 700;
     cursor: pointer;
 }
 
-.featureimage {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+.tabs__label:hover {
+    color: var(--color-text);
+    background-color: var(--color-surface-raised);
 }
 
-/* feature change START */
-
-.featurediv {
-    position: absolute;
-    top: calc(50% + 30px);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 75vh;
-    padding: 5px 20px;
+/* 被選取的分頁標籤 */
+#feature-versions:checked ~ .tabs__controls [for="feature-versions"],
+#feature-leaderboard:checked ~ .tabs__controls [for="feature-leaderboard"],
+#feature-profile:checked ~ .tabs__controls [for="feature-profile"],
+#feature-ranking:checked ~ .tabs__controls [for="feature-ranking"] {
+    border-color: var(--color-primary-ui);
+    background-color: var(--color-primary-ui);
+    color: #FFFFFF;
 }
 
-.featuremaindiv {
-    border: 1px gray solid;
-    width: 95vw;
-    height: 65vh;
-    margin-top: 15px;
-    overflow: hidden auto;
+.tabs__panels {
+    border: 2px solid var(--color-primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
+    background-color: var(--color-surface);
+    padding: var(--space-md);
 }
 
-.featurelabeldiv {
-    display: inline-block;
-    width: 20vw;
-}
-
-.featuremain {
+.panel {
     display: none;
+    gap: var(--space-md);
+    align-items: center;
 }
 
-.featurediv:has(.feature1:checked)>.featuremaindiv>.feature1div {
+.panel__title {
+    font-size: 1.5rem;
+}
+
+.panel__text p {
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+.panel__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+/* 依 radio 狀態切換面板：不需要 JavaScript */
+#feature-versions:checked ~ .tabs__panels .panel--versions,
+#feature-leaderboard:checked ~ .tabs__panels .panel--leaderboard,
+#feature-profile:checked ~ .tabs__panels .panel--profile,
+#feature-ranking:checked ~ .tabs__panels .panel--ranking {
+    display: grid;
+    grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.6fr);
+}
+
+/* ===== 6. 2023 生態系路線圖 ===== */
+.section--roadmap {
+    background:
+        radial-gradient(70% 60% at 50% 0%, rgba(124, 92, 255, 0.22) 0%, transparent 70%),
+        var(--color-base);
+    border-block: 1px solid var(--color-line);
+}
+
+.roadmap {
+    margin: var(--space-lg) 0 0;
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background-color: rgba(21, 27, 51, 0.75);
+}
+
+.roadmap__svg {
     display: block;
+    width: 100%;
+    height: auto;
+    font-family: var(--font-body);
 }
 
-.feature1image {
-    max-width: 100%;
+/* 連線以流動虛線呈現，傳達「持續運轉的循環」 */
+.roadmap__flows path {
+    stroke-dasharray: 10 8;
+    animation: flow 1.6s linear infinite;
 }
 
-.feature1title {
-    font-size: 40px;
-    font-weight: bold;
+@keyframes flow {
+    to {
+        stroke-dashoffset: -18;
+    }
 }
 
-.feature1description {
-    font-size: 15px;
-    text-align: justify;
+/* 中央節點的呼吸光暈，強化自信與未來感 */
+.roadmap__node--core rect {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+.roadmap__caption {
+    margin-top: var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.roadmap__legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-lg) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.roadmap__legend li {
+    padding: var(--space-sm) var(--space-md);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background-color: var(--color-surface);
+}
+
+.roadmap__legend-title {
+    font-size: 1.25rem;
+}
+
+.roadmap__legend p {
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+}
+
+/* ===== 7. 母公司 P-Media ===== */
+.company {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.company__text p {
+    color: var(--color-text-muted);
+    max-width: 44rem;
+}
+
+.milestones {
+    margin: var(--space-md) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.milestones__item {
     display: flex;
-    align-items: start;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--color-line);
 }
 
-.featurediv:has(.feature2:checked)>.featuremaindiv>.feature2div {
-    display: block;
+.milestones__year {
+    min-width: 5rem;
+    color: var(--color-highlight);
+    font-weight: 800;
 }
 
-.feature2table {
-    font-size: 20px;
+.milestones__text {
+    color: var(--color-text-muted);
 }
 
-.featurediv:has(.feature3:checked)>.featuremaindiv>.feature3div {
-    display: block;
+.company__figure {
+    margin: 0;
 }
 
-.feature3image {
-    max-width: 100%;
-    max-height: 30vh;
+.company__image {
+    width: 100%;
+    height: 26rem;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
 }
 
-.featurediv:has(.feature4:checked)>.featuremaindiv>.feature4div {
-    display: block;
+.company__figure figcaption {
+    margin-top: var(--space-xs);
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
 }
 
-/* feature change END */
-
-.featureradiodiv {
+/* ===== 8. 結尾行動呼籲與頁尾 ===== */
+.section--cta {
     position: relative;
-    z-index: 999;
+    isolation: isolate;
+    overflow: hidden;
+    text-align: center;
+    background-color: var(--color-base);
+}
+
+.cta__photo {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 深色遮罩：維持標題與按鈕的文字對比度 */
+.cta__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(180deg, rgba(11, 16, 32, 0.9) 0%, rgba(11, 16, 32, 0.82) 100%),
+        radial-gradient(60% 100% at 50% 0%, rgba(124, 92, 255, 0.4) 0%, transparent 70%);
+}
+
+.cta .section__intro {
+    margin-inline: auto;
+}
+
+.cta .hero__actions {
+    justify-content: center;
+}
+
+.site-footer {
+    border-top: 1px solid var(--color-line);
+    background-color: var(--color-surface);
+}
+
+.site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding-block: var(--space-md);
+}
+
+.site-footer__brand {
+    margin: 0;
+    font-weight: 700;
+}
+
+.site-footer__note {
+    margin: 0;
+    color: var(--color-text-muted);
+}
+
+/* ===== 9. 響應式調整 ===== */
+@media (max-width: 62rem) {
+    .company {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #feature-versions:checked ~ .tabs__panels .panel--versions,
+    #feature-leaderboard:checked ~ .tabs__panels .panel--leaderboard,
+    #feature-profile:checked ~ .tabs__panels .panel--profile,
+    #feature-ranking:checked ~ .tabs__panels .panel--ranking {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* 手機版：分頁標籤改為滿版堆疊，觸控目標維持足夠大小 */
+@media (max-width: 48rem) {
+    :root {
+        --space-xl: 3.25rem;
+        --space-lg: 2rem;
+    }
+
+    .hero__title {
+        font-size: 2.25rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.25rem;
+    }
+
+    .section__title {
+        font-size: 1.75rem;
+    }
+
+    .stats {
+        gap: var(--space-md);
+    }
+
+    .tabs__controls {
+        gap: var(--space-xs);
+    }
+
+    .tabs__label {
+        flex: 1 1 100%;
+        min-height: 3rem;
+        border: 2px solid var(--color-line);
+        border-radius: var(--radius-sm);
+        text-align: center;
+    }
+
+    .tabs__panels {
+        border-radius: var(--radius-md);
+        padding: var(--space-sm);
+    }
+
+    .company__image {
+        height: 18rem;
+    }
+
+    .site-footer__inner {
+        flex-direction: column;
+    }
+}
+
+/* ===== 10. 減少動態偏好設定（WCAG 2.3.3） ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    .badge__dot,
+    .roadmap__flows path,
+    .roadmap__node--core rect {
+        animation: none;
+    }
 }

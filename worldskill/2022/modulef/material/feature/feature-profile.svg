@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img"
+     aria-labelledby="featureProfileTitle featureProfileDesc">
+    <title id="featureProfileTitle">User profile 功能示意圖</title>
+    <desc id="featureProfileDesc">
+        玩家個人檔案示意畫面，左側是玩家頭像、名稱與成就徽章，
+        右側列出該玩家在三款遊戲中的最佳成績與名次。
+    </desc>
+
+    <rect width="800" height="500" rx="18" fill="#151B33"/>
+    <rect x="0" y="0" width="800" height="64" rx="18" fill="#1E2647"/>
+    <rect x="0" y="46" width="800" height="18" fill="#1E2647"/>
+    <text x="34" y="39" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">
+        Player profile — NovaKite
+    </text>
+
+    <!-- 左側：玩家名片 -->
+    <rect x="28" y="92" width="286" height="380" rx="16" fill="#1B2340" stroke="#2B3560" stroke-width="2"/>
+    <circle cx="171" cy="176" r="52" fill="#7C5CFF"/>
+    <circle cx="171" cy="160" r="20" fill="#0B1020"/>
+    <path d="M135 210 Q171 176 207 210 Z" fill="#0B1020"/>
+    <text x="171" y="264" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#F5F7FF">
+        NovaKite
+    </text>
+    <text x="171" y="294" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" fill="#B9C0DA">
+        Joined 2022 ・ Taiwan
+    </text>
+
+    <!-- 成就徽章 -->
+    <rect x="52" y="318" width="108" height="40" rx="20" fill="#22D3EE"/>
+    <text x="106" y="345" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="17" font-weight="700" fill="#06202B">
+        12 wins
+    </text>
+    <rect x="176" y="318" width="118" height="40" rx="20" fill="#FFD166"/>
+    <text x="235" y="345" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="17" font-weight="700" fill="#3A2B00">
+        3 records
+    </text>
+    <text x="52" y="398" font-family="Segoe UI, sans-serif" font-size="18" fill="#B9C0DA">Total score</text>
+    <text x="52" y="434" font-family="Segoe UI, sans-serif" font-size="34" font-weight="700" fill="#F5F7FF">268,334</text>
+
+    <!-- 右側：個人最佳成績 -->
+    <text x="344" y="118" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#22D3EE">
+        MY BEST SCORES
+    </text>
+
+    <rect x="344" y="136" width="428" height="100" rx="14" fill="#1B2340" stroke="#2B3560" stroke-width="2"/>
+    <text x="368" y="176" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">Neon Racer</text>
+    <text x="368" y="208" font-family="Segoe UI, sans-serif" font-size="18" fill="#B9C0DA">World rank #1</text>
+    <text x="748" y="190" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#FFD166">98,540</text>
+
+    <rect x="344" y="248" width="428" height="100" rx="14" fill="#1B2340" stroke="#2B3560" stroke-width="2"/>
+    <text x="368" y="288" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">Block Fall</text>
+    <text x="368" y="320" font-family="Segoe UI, sans-serif" font-size="18" fill="#B9C0DA">World rank #7</text>
+    <text x="748" y="302" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#F5F7FF">84,120</text>
+
+    <rect x="344" y="360" width="428" height="100" rx="14" fill="#1B2340" stroke="#2B3560" stroke-width="2"/>
+    <text x="368" y="400" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#F5F7FF">Sky Diver</text>
+    <text x="368" y="432" font-family="Segoe UI, sans-serif" font-size="18" fill="#B9C0DA">World rank #24</text>
+    <text x="748" y="414" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#F5F7FF">61,908</text>
+</svg>

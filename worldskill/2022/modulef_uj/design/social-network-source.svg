@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  social-network.png 的設計原始檔（可編輯向量檔）
+  圖層（<g> 皆已命名並依邏輯分組）：
+    layer-background   底色與品牌色帶
+    layer-typography   網站標題、副標題與說明
+    layer-palette      主色盤色票與色碼
+    layer-screenshots  桌面版整頁截圖（左右兩欄）
+    layer-footnote     底部註記
+  註：另有 banner.ai 為首發橫幅的原始設計檔。
+-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1400" height="1620" viewBox="0 0 1400 1620"
+     font-family="Microsoft JhengHei UI, Segoe UI, sans-serif">
+
+    <g id="layer-background" aria-label="背景">
+        <rect x="0" y="0" width="1400" height="1620" fill="#1A0C1C"/>
+        <rect x="0" y="0" width="1400" height="10" fill="#8B008B"/>
+    </g>
+
+    <g id="layer-typography" aria-label="標題文字">
+        <text x="70" y="86" font-size="19" font-weight="700" fill="#FF6BFF">平台首次亮相 ・ 2023 年 1 月 ・ 行銷頁</text>
+        <text x="70" y="188" font-size="66" font-weight="800" fill="#FFFFFF">頂尖網頁遊戲平台</text>
+        <text x="70" y="248" font-size="36" font-weight="700" fill="#FFFFFF">The next generation web game platform</text>
+        <text x="70" y="300" font-size="30" font-weight="700" fill="#FFD9FF">
+            win-win-win for developers, advertisers, players.
+        </text>
+        <text x="70" y="350" font-size="22" fill="#D8D2E4">開發商上架、廣告商曝光、玩家開心破紀錄——打開瀏覽器就能玩。</text>
+    </g>
+
+    <g id="layer-palette" aria-label="主色盤">
+        <text x="70" y="420" font-size="19" font-weight="700" fill="#FF6BFF">主色盤 MAIN COLOR PALETTE</text>
+        <g id="swatch-base">
+            <rect x="70" y="438" width="120" height="84" rx="12" fill="#1A0C1C" stroke="#5A325C" stroke-width="2"/>
+            <text x="70" y="550" font-size="19" font-weight="700" fill="#FFFFFF">#1A0C1C</text>
+            <text x="70" y="576" font-size="17" fill="#D8D2E4">底色 Base</text>
+        </g>
+        <g id="swatch-panel">
+            <rect x="210" y="438" width="120" height="84" rx="12" fill="#212529" stroke="#5A325C" stroke-width="2"/>
+            <text x="210" y="550" font-size="19" font-weight="700" fill="#FFFFFF">#212529</text>
+            <text x="210" y="576" font-size="17" fill="#D8D2E4">深色面板</text>
+        </g>
+        <g id="swatch-magenta">
+            <rect x="350" y="438" width="120" height="84" rx="12" fill="#8B008B" stroke="#5A325C" stroke-width="2"/>
+            <text x="350" y="550" font-size="19" font-weight="700" fill="#FFFFFF">#8B008B</text>
+            <text x="350" y="576" font-size="17" fill="#D8D2E4">品牌洋紅</text>
+        </g>
+        <g id="swatch-magenta-light">
+            <rect x="490" y="438" width="120" height="84" rx="12" fill="#C71FC7" stroke="#5A325C" stroke-width="2"/>
+            <text x="490" y="550" font-size="19" font-weight="700" fill="#FFFFFF">#C71FC7</text>
+            <text x="490" y="576" font-size="17" fill="#D8D2E4">亮洋紅</text>
+        </g>
+        <g id="swatch-glow">
+            <rect x="630" y="438" width="120" height="84" rx="12" fill="#FF6BFF" stroke="#5A325C" stroke-width="2"/>
+            <text x="630" y="550" font-size="19" font-weight="700" fill="#FFFFFF">#FF6BFF</text>
+            <text x="630" y="576" font-size="17" fill="#D8D2E4">螢光粉</text>
+        </g>
+        <g id="swatch-white">
+            <rect x="770" y="438" width="120" height="84" rx="12" fill="#FFFFFF" stroke="#5A325C" stroke-width="2"/>
+            <text x="770" y="550" font-size="19" font-weight="700" fill="#FFFFFF">#FFFFFF</text>
+            <text x="770" y="576" font-size="17" fill="#D8D2E4">文字白</text>
+        </g>
+    </g>
+
+    <g id="layer-screenshots" aria-label="桌面版整頁截圖">
+        <text x="80" y="604" font-size="19" font-weight="700" fill="#FF6BFF">桌面版整頁畫面（下方裁切）</text>
+        <g id="screenshot-column-top">
+            <clipPath id="ujClipTop">
+                <rect x="80" y="620" width="600" height="900"/>
+            </clipPath>
+            <image xlink:href="desktop-fullpage.png" x="80" y="620" width="600" height="1792"
+                   clip-path="url(#ujClipTop)" preserveAspectRatio="xMidYMin slice"/>
+            <rect x="76" y="616" width="608" height="908" rx="10" fill="none" stroke="#8B008B" stroke-width="3"/>
+        </g>
+        <g id="screenshot-column-bottom">
+            <clipPath id="ujClipBottom">
+                <rect x="720" y="620" width="600" height="900"/>
+            </clipPath>
+            <image xlink:href="desktop-fullpage.png" x="720" y="-280" width="600" height="1792"
+                   clip-path="url(#ujClipBottom)" preserveAspectRatio="xMidYMin slice"/>
+            <rect x="716" y="616" width="608" height="908" rx="10" fill="none" stroke="#8B008B" stroke-width="3"/>
+        </g>
+    </g>
+
+    <g id="layer-footnote" aria-label="底部註記">
+        <text x="80" y="1580" font-size="17" fill="#D8D2E4">P-Media Entertainment ・ social-network 展示圖</text>
+    </g>
+</svg>
