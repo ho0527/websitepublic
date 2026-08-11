@@ -1,0 +1,16 @@
+To: jimmy.hendrix@example.com
+Subject: WorldSkills Restaurant Service - status of your booking request(s)
+==============================================================================
+
+Dear Jimmy Hendrix,
+
+Below you find the current status of every guest of your booking request(s):
+
+C2 - 05.08.2015, Casual Dining 10:50 - 12:30
+    [requested ] Jimmy Hendrix (United States) - booking no 201500001
+
+Guests on the waiting list will be called as soon as a cancellation occurs.
+
+Kind regards,
+WorldSkills International - Restaurant Service
+Generated at 2026-08-11 17:25:13

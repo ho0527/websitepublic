@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Booking request - Guests for Restaurant Service</title>
+        <meta name="description" content="WorldSkills Restaurant Service booking request system">
+
+        <!-- Bootstrap core CSS（官方樣板提供，全部為本機檔案，不使用 CDN） -->
+        <link href="/worldskill/2015/moduleh/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="/worldskill/2015/moduleh/assets/restaurantapp.css" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+          <script src="/worldskill/2015/moduleh/assets/dist/js/html5shiv.3.7.0.js"></script>
+          <script src="/worldskill/2015/moduleh/assets/dist/js/respond.min.1.3.0.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <a class="sr-only sr-only-focusable" href="#content" tabindex="1"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+        <div class="navbar navbar-worldskills navbar-static-top">
+            <div class="cube-container">
+                <div class="cube-right-bottom-blue">&nbsp;</div>
+            </div>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/worldskill/2015/moduleh/index.php">Reservations</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/worldskill/2015/moduleh/index.php">Information</a></li>
+                        <li><a href="/worldskill/2015/moduleh/index.php/booking/contact">Booking</a></li>
+                        <li><a href="/worldskill/2015/moduleh/management/ReservationManagement.php">Management</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <ol class="breadcrumb">
+                <li><a href="/worldskill/2015/moduleh/index.php">Home</a></li>
+                                    <li>Booking</li>
+                                    <li class="active">Group</li>
+                            </ol>
+
+            <div id="content">
+                <div id="booking_request">
+                    <h1 class="page-header">Booking request</h1>
+
+                    <form action="/worldskill/2015/moduleh/index.php/booking/group" method="post">
+                        <fieldset>
+                            <legend>Group</legend>
+                            <p>Booking a group for
+                                <strong>Sarah Rogers</strong>
+                                (WSI)                                &ndash; the booking contact does not request a seat.</p>
+
+                                                            <div class="alert alert-danger error-message">
+                                    <strong>Too many guests</strong>
+                                                                            <div>from country FR for Bar Service on C2 - 05.08.2015, 13:15 - 14:45 (maximum 30 guests per country, 4 already requested)</div>
+                                                                        <div>Please edit your booking request.</div>
+                                </div>
+                            
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                                                    <li role="presentation">
+                                        <a href="#c1" aria-controls="c1" role="tab" data-toggle="tab">C1 - 04.08.2015</a>
+                                    </li>
+                                                                    <li role="presentation" class="active">
+                                        <a href="#c2" aria-controls="c2" role="tab" data-toggle="tab">C2 - 05.08.2015</a>
+                                    </li>
+                                                                    <li role="presentation">
+                                        <a href="#c3" aria-controls="c3" role="tab" data-toggle="tab">C3 - 06.08.2015</a>
+                                    </li>
+                                                                    <li role="presentation">
+                                        <a href="#c4" aria-controls="c4" role="tab" data-toggle="tab">C4 - 07.08.2015</a>
+                                    </li>
+                                                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                                                    <div role="tabpanel" class="tab-pane" id="c1">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Dining experience</th>
+                                                        <th>Number of seats available<br/>Number of guests to be seated</th>
+                                                        <th>Guest names (if known)</th>
+                                                        <th>Guest country*</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Casual Dining<br/>
+                                                                10:50 - 12:30                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c1-d1">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c1-d1-n">
+                                                                                                                            </td>
+                                                            <td id="c1-d1-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Casual Dining<br/>
+                                                                13:30 - 14:40                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c1-d2">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c1-d2-n">
+                                                                                                                            </td>
+                                                            <td id="c1-d2-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Bar Service<br/>
+                                                                13:15 - 14:45                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c1-d3">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c1-d3-n">
+                                                                                                                            </td>
+                                                            <td id="c1-d3-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Fine Dining<br/>
+                                                                13:00 - 15:15                                                            </td>
+                                                            <td>
+                                                                available: 24<br/>
+                                                                <small class="text-muted">max. 20 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c1-d4">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c1-d4-n">
+                                                                                                                            </td>
+                                                            <td id="c1-d4-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Banquet Dining<br/>
+                                                                12:45 - 15:00                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c1-d5">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c1-d5-n">
+                                                                                                                            </td>
+                                                            <td id="c1-d5-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                    </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                                                    <div role="tabpanel" class="tab-pane active" id="c2">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Dining experience</th>
+                                                        <th>Number of seats available<br/>Number of guests to be seated</th>
+                                                        <th>Guest names (if known)</th>
+                                                        <th>Guest country*</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Casual Dining<br/>
+                                                                10:50 - 12:30                                                            </td>
+                                                            <td>
+                                                                available: 32<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c2-d1">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c2-d1-n">
+                                                                                                                                    <p><input type="text" id="c2-d1-n1" name="c2-d1-n1" class="form-control" value="Simon Bartley"></p>
+                                                                                                                                    <p><input type="text" id="c2-d1-n2" name="c2-d1-n2" class="form-control" value="David Hoey"></p>
+                                                                                                                                    <p><input type="text" id="c2-d1-n3" name="c2-d1-n3" class="form-control" value="Jane Stokie"></p>
+                                                                                                                                    <p><input type="text" id="c2-d1-n4" name="c2-d1-n4" class="form-control" value="Brigitte Collins"></p>
+                                                                                                                            </td>
+                                                            <td id="c2-d1-o">
+                                                                                                                                    <p>
+                                                                        <select id="c2-d1-o1" name="c2-d1-o1" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR">FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK" selected>UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d1-o2" name="c2-d1-o2" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU" selected>AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR">FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d1-o3" name="c2-d1-o3" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU" selected>AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR">FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d1-o4" name="c2-d1-o4" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU" selected>AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR">FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Casual Dining<br/>
+                                                                13:30 - 14:40                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c2-d2">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c2-d2-n">
+                                                                                                                            </td>
+                                                            <td id="c2-d2-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Bar Service<br/>
+                                                                13:15 - 14:45                                                            </td>
+                                                            <td>
+                                                                available: 31<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c2-d3">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c2-d3-n">
+                                                                                                                                    <p><input type="text" id="c2-d3-n1" name="c2-d3-n1" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n2" name="c2-d3-n2" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n3" name="c2-d3-n3" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n4" name="c2-d3-n4" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n5" name="c2-d3-n5" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n6" name="c2-d3-n6" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n7" name="c2-d3-n7" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n8" name="c2-d3-n8" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n9" name="c2-d3-n9" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n10" name="c2-d3-n10" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n11" name="c2-d3-n11" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n12" name="c2-d3-n12" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n13" name="c2-d3-n13" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n14" name="c2-d3-n14" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n15" name="c2-d3-n15" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n16" name="c2-d3-n16" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n17" name="c2-d3-n17" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n18" name="c2-d3-n18" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n19" name="c2-d3-n19" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n20" name="c2-d3-n20" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n21" name="c2-d3-n21" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n22" name="c2-d3-n22" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n23" name="c2-d3-n23" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n24" name="c2-d3-n24" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n25" name="c2-d3-n25" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n26" name="c2-d3-n26" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n27" name="c2-d3-n27" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n28" name="c2-d3-n28" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n29" name="c2-d3-n29" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n30" name="c2-d3-n30" class="form-control" value="WS france sponsor"></p>
+                                                                                                                                    <p><input type="text" id="c2-d3-n31" name="c2-d3-n31" class="form-control" value="WS france sponsor"></p>
+                                                                                                                            </td>
+                                                            <td id="c2-d3-o">
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o1" name="c2-d3-o1" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o2" name="c2-d3-o2" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o3" name="c2-d3-o3" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o4" name="c2-d3-o4" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o5" name="c2-d3-o5" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o6" name="c2-d3-o6" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o7" name="c2-d3-o7" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o8" name="c2-d3-o8" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o9" name="c2-d3-o9" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o10" name="c2-d3-o10" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o11" name="c2-d3-o11" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o12" name="c2-d3-o12" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o13" name="c2-d3-o13" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o14" name="c2-d3-o14" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o15" name="c2-d3-o15" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o16" name="c2-d3-o16" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o17" name="c2-d3-o17" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o18" name="c2-d3-o18" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o19" name="c2-d3-o19" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o20" name="c2-d3-o20" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o21" name="c2-d3-o21" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o22" name="c2-d3-o22" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o23" name="c2-d3-o23" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o24" name="c2-d3-o24" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o25" name="c2-d3-o25" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o26" name="c2-d3-o26" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o27" name="c2-d3-o27" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o28" name="c2-d3-o28" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o29" name="c2-d3-o29" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o30" name="c2-d3-o30" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                                    <p>
+                                                                        <select id="c2-d3-o31" name="c2-d3-o31" class="form-control">
+                                                                            <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR" selected>FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                                                                        </select>
+                                                                    </p>
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Fine Dining<br/>
+                                                                13:00 - 15:15                                                            </td>
+                                                            <td>
+                                                                available: 24<br/>
+                                                                <small class="text-muted">max. 20 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c2-d4">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c2-d4-n">
+                                                                                                                            </td>
+                                                            <td id="c2-d4-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Banquet Dining<br/>
+                                                                12:45 - 15:00                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c2-d5">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c2-d5-n">
+                                                                                                                            </td>
+                                                            <td id="c2-d5-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                    </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                                                    <div role="tabpanel" class="tab-pane" id="c3">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Dining experience</th>
+                                                        <th>Number of seats available<br/>Number of guests to be seated</th>
+                                                        <th>Guest names (if known)</th>
+                                                        <th>Guest country*</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Casual Dining<br/>
+                                                                10:50 - 12:30                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c3-d1">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c3-d1-n">
+                                                                                                                            </td>
+                                                            <td id="c3-d1-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Casual Dining<br/>
+                                                                13:30 - 14:40                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c3-d2">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c3-d2-n">
+                                                                                                                            </td>
+                                                            <td id="c3-d2-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Bar Service<br/>
+                                                                13:15 - 14:45                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c3-d3">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c3-d3-n">
+                                                                                                                            </td>
+                                                            <td id="c3-d3-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Fine Dining<br/>
+                                                                13:00 - 15:15                                                            </td>
+                                                            <td>
+                                                                available: 24<br/>
+                                                                <small class="text-muted">max. 20 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c3-d4">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c3-d4-n">
+                                                                                                                            </td>
+                                                            <td id="c3-d4-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Banquet Dining<br/>
+                                                                12:45 - 15:00                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c3-d5">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c3-d5-n">
+                                                                                                                            </td>
+                                                            <td id="c3-d5-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                    </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                                                    <div role="tabpanel" class="tab-pane" id="c4">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Dining experience</th>
+                                                        <th>Number of seats available<br/>Number of guests to be seated</th>
+                                                        <th>Guest names (if known)</th>
+                                                        <th>Guest country*</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Casual Dining<br/>
+                                                                10:50 - 12:30                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c4-d1">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c4-d1-n">
+                                                                                                                            </td>
+                                                            <td id="c4-d1-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Casual Dining<br/>
+                                                                13:30 - 14:40                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c4-d2">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c4-d2-n">
+                                                                                                                            </td>
+                                                            <td id="c4-d2-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Bar Service<br/>
+                                                                13:15 - 14:45                                                            </td>
+                                                            <td>
+                                                                available: 33<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c4-d3">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c4-d3-n">
+                                                                                                                            </td>
+                                                            <td id="c4-d3-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Fine Dining<br/>
+                                                                13:00 - 15:15                                                            </td>
+                                                            <td>
+                                                                available: 24<br/>
+                                                                <small class="text-muted">max. 20 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c4-d4">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c4-d4-n">
+                                                                                                                            </td>
+                                                            <td id="c4-d4-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                                                                                    <tr>
+                                                            <td>
+                                                                Banquet Dining<br/>
+                                                                12:45 - 15:00                                                            </td>
+                                                            <td>
+                                                                available: 36<br/>
+                                                                <small class="text-muted">max. 30 per country</small><br/>
+                                                                <button type="button" class="btn btn-default addguest" id="c4-d5">+ Add guest</button>
+                                                            </td>
+                                                            <td id="c4-d5-n">
+                                                                                                                            </td>
+                                                            <td id="c4-d5-o">
+                                                                                                                            </td>
+                                                        </tr>
+                                                                                                    </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                                            </div>
+                            <p>Please note that most seating take place at the same time and you are not allowed to change once seated.<br />For a seating that is full, you will be waitlisted.<br />* Guests must be identified by their country at a minimum &ndash; rows without a country are ignored.</p>
+                        </fieldset>
+                        <button class="btn btn-primary" type="submit" name="book-group">Submit booking request</button>
+                    </form>
+
+                    <!-- 國家清單樣板：restaurantapp.js 動態新增欄位時會複製這裡的選項 -->
+                    <select id="guest-country-template" class="hidden" aria-hidden="true" tabindex="-1">
+                        <option value="">choose a country</option><option value="AU">AU - Australia</option><option value="BE">BE - Belgium</option><option value="BR">BR - Brasil</option><option value="CA">CA - Canada</option><option value="CH">CH - Switzerland</option><option value="CN">CN - China</option><option value="DE">DE - Germany</option><option value="FR">FR - France</option><option value="IN">IN - India</option><option value="JP">JP - Japan</option><option value="KR">KR - Korea</option><option value="AE">AE - United Arab Emirates</option><option value="UK">UK - United Kingdom</option><option value="US">US - United States</option>                    </select>
+                </div>
+            </div>
+
+            <footer>
+                <hr class="hr-extended" />
+                <p>&copy; 2015 WorldSkills</p>
+            </footer>
+
+        </div>
+
+        <!-- Bootstrap core JS（本機檔案） -->
+        <script src="/worldskill/2015/moduleh/assets/dist/js/jquery.min.1.11.1.js"></script>
+        <script src="/worldskill/2015/moduleh/assets/dist/js/bootstrap.min.js"></script>
+        <script src="/worldskill/2015/moduleh/assets/restaurantapp.js"></script>
+    </body>
+</html>

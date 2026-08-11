@@ -1,0 +1,27 @@
+# =====================================================================
+# Apache 用的乾淨網址設定（此環境使用 nginx，本檔僅作為對照／可攜性）
+# nginx 的等效設定片段請見 README.md
+#
+# 注意：本專案「不需要」rewrite 也能運作，預設使用
+#       index.php/booking/individual（PATH_INFO）這種等效寫法。
+# =====================================================================
+
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /worldskill/2015/moduleh/
+
+    # 已存在的檔案或目錄（assets、management、emails …）直接放行
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 其餘全部交給前端控制器處理
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
+# 保護不應被直接下載的目錄
+<FilesMatch "\.(sql|py)$">
+    Require all denied
+</FilesMatch>
