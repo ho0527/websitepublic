@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Star Battle - a browser space shooting game. Destroy asteroids and enemy spaceships, collect fuel and go beyond all limits.">
+    <title>Star Battle</title>
+    <link rel="icon" href="material/icon/mainicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= 共用向量圖示（自行設計，以 <use> 重複使用） ================= -->
+<svg class="svg-defs" width="0" height="0" aria-hidden="true">
+    <defs>
+        <!-- 玩家主飛船 -->
+        <symbol id="icon-player-ship" viewBox="0 0 128 72">
+            <g>
+                <!-- 尾焰 -->
+                <path class="ship-flame" d="M6 36 L26 27 L26 45 Z"></path>
+                <!-- 機身 -->
+                <path d="M22 36 C40 14 74 6 118 36 C74 66 40 58 22 36 Z" fill="#dfe8f5"></path>
+                <path d="M22 36 C40 44 74 52 118 36 C74 66 40 58 22 36 Z" fill="#9db2cc"></path>
+                <!-- 機翼 -->
+                <path d="M44 30 L34 8 L60 24 Z" fill="#e2622a"></path>
+                <path d="M44 42 L34 64 L60 48 Z" fill="#c14b1c"></path>
+                <!-- 駕駛艙 -->
+                <ellipse cx="82" cy="34" rx="15" ry="10" fill="#2fa8e0"></ellipse>
+                <ellipse cx="79" cy="31" rx="7" ry="4" fill="#bdeaff"></ellipse>
+                <!-- 機鼻 -->
+                <path d="M112 36 L126 36 L112 41 Z" fill="#f19e0d"></path>
+            </g>
+        </symbol>
+
+        <!-- 燃料圖示（掉落物與燃料計數器共用） -->
+        <symbol id="icon-fuel" viewBox="0 0 48 48">
+            <rect x="8" y="10" width="24" height="32" rx="4" fill="#f19e0d"></rect>
+            <rect x="12" y="14" width="16" height="12" rx="2" fill="#fff3d8"></rect>
+            <rect x="14" y="4" width="12" height="7" rx="2" fill="#c97f06"></rect>
+            <path d="M32 18 L40 18 L40 38 A4 4 0 0 1 32 38 Z" fill="#c97f06"></path>
+            <path d="M20 30 L26 30 L22 38 L28 38 L18 46 L21 36 L16 36 Z" fill="#e2622a"></path>
+        </symbol>
+
+        <!-- 計時器圖示 -->
+        <symbol id="icon-timer" viewBox="0 0 48 48">
+            <circle cx="24" cy="27" r="17" fill="none" stroke="currentColor" stroke-width="4"></circle>
+            <path d="M24 17 L24 27 L31 32" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+            <rect x="18" y="3" width="12" height="5" rx="2" fill="currentColor"></rect>
+            <rect x="22" y="7" width="4" height="4" fill="currentColor"></rect>
+        </symbol>
+
+        <!-- 分數圖示 -->
+        <symbol id="icon-score" viewBox="0 0 48 48">
+            <path d="M24 4 L30 18 L45 20 L34 30 L37 45 L24 38 L11 45 L14 30 L3 20 L18 18 Z" fill="currentColor"></path>
+        </symbol>
+
+        <!-- 音效開啟 -->
+        <symbol id="icon-sound-on" viewBox="0 0 48 48">
+            <path d="M6 18 L14 18 L24 8 L24 40 L14 30 L6 30 Z" fill="currentColor"></path>
+            <path d="M30 18 A9 9 0 0 1 30 30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+            <path d="M36 12 A17 17 0 0 1 36 36" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+        </symbol>
+
+        <!-- 音效關閉 -->
+        <symbol id="icon-sound-off" viewBox="0 0 48 48">
+            <path d="M6 18 L14 18 L24 8 L24 40 L14 30 L6 30 Z" fill="currentColor"></path>
+            <path d="M31 18 L43 30 M43 18 L31 30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+        </symbol>
+
+        <!-- 放大字級 -->
+        <symbol id="icon-font-up" viewBox="0 0 48 48">
+            <text x="2" y="38" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="currentColor">A</text>
+            <path d="M36 16 L36 32 M28 24 L44 24" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+        </symbol>
+
+        <!-- 縮小字級 -->
+        <symbol id="icon-font-down" viewBox="0 0 48 48">
+            <text x="6" y="36" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="currentColor">A</text>
+            <path d="M28 24 L44 24" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+        </symbol>
+
+        <!-- 暫停 -->
+        <symbol id="icon-pause" viewBox="0 0 48 48">
+            <rect x="13" y="9" width="8" height="30" rx="2" fill="currentColor"></rect>
+            <rect x="27" y="9" width="8" height="30" rx="2" fill="currentColor"></rect>
+        </symbol>
+
+        <!-- 繼續 -->
+        <symbol id="icon-play" viewBox="0 0 48 48">
+            <path d="M15 9 L38 24 L15 39 Z" fill="currentColor"></path>
+        </symbol>
+
+        <!-- 方向鍵箭頭 -->
+        <symbol id="icon-arrow" viewBox="0 0 32 32">
+            <path d="M16 6 L27 24 L5 24 Z" fill="currentColor"></path>
+        </symbol>
+    </defs>
+</svg>
+
+<!-- ================= 遊戲容器（960 x 600，於畫面正中央） ================= -->
+<main id="game" class="game" aria-label="Star Battle game">
+
+    <!-- 背景：星空與行星視差層 -->
+    <div class="backdrop" aria-hidden="true">
+        <div class="backdrop__stars"></div>
+        <div id="planetLayer" class="backdrop__planets"></div>
+    </div>
+
+    <!-- ---------- 畫面 1：遊戲說明 ---------- -->
+    <section id="screenInstructions" class="screen screen--instructions is-active" aria-labelledby="instructionsTitle">
+        <img class="logo logo--large" src="material/icon/logo-01.png" width="219" height="153" alt="Star Battle logo">
+        <h1 id="instructionsTitle" class="screen__title">How to Play Star Battle</h1>
+
+        <ol class="instructions" id="instructionList">
+            <li>Move the spaceship using the sensible areas in the screen.</li>
+            <li>The timer present the time lapsed.</li>
+            <li>The fuel counter show the remain fuel.</li>
+            <li>During the flight, destroy the asteroids and the enemy spaceships.</li>
+            <li>You can shoot pressing <kbd>Space</kbd> bar.</li>
+            <li>Hitting an asteroid or a spaceship costs 15 points of fuel.</li>
+            <li>Enemy spaceship needs 1 shot to be destroyed: +5 points.</li>
+            <li>Asteroid needs 2 shots to be destroyed: +10 points.</li>
+            <li>If you destroy a friendly spaceship you lose 10 points.</li>
+            <li>During the flight, collect the fuel in the space.</li>
+            <li>Pause the game with the pause button or the letter <kbd>P</kbd>.</li>
+            <li>Go beyond all limits!</li>
+        </ol>
+
+        <p class="tagline">Battle in Space with Star Battle Championship&hellip;</p>
+
+        <button type="button" class="btn btn--start" data-action="start-game">Start Game</button>
+    </section>
+
+    <!-- ---------- 畫面 2：遊戲畫面 ---------- -->
+    <section id="screenBoard" class="screen screen--board" aria-labelledby="boardTitle">
+        <h2 id="boardTitle" class="visually-hidden">Game board</h2>
+
+        <!-- 固定資訊列 -->
+        <header class="hud">
+            <img class="logo logo--small" src="material/icon/logo-02.png" width="242" height="162" alt="Star Battle logo">
+
+            <div class="hud__counters">
+                <!-- 計時器 -->
+                <p class="counter counter--timer">
+                    <svg class="counter__icon" viewBox="0 0 48 48" role="img" aria-label="Timer"><use href="#icon-timer"></use></svg>
+                    <span class="counter__value" id="timerValue" aria-live="off">0</span><span class="counter__unit">s</span>
+                </p>
+                <!-- 分數 -->
+                <p class="counter counter--score">
+                    <svg class="counter__icon" viewBox="0 0 48 48" role="img" aria-label="Score"><use href="#icon-score"></use></svg>
+                    <span class="counter__value" id="scoreValue" aria-live="off">0</span>
+                </p>
+                <!-- 燃料：數字 + 圖形化長條（減少與補充時都有動畫） -->
+                <p class="counter counter--fuel">
+                    <svg class="counter__icon" viewBox="0 0 48 48" role="img" aria-label="Fuel"><use href="#icon-fuel"></use></svg>
+                    <span class="counter__value" id="fuelValue">15</span>
+                    <span class="fuel-bar">
+                        <span class="fuel-bar__level" id="fuelBar"></span>
+                    </span>
+                </p>
+            </div>
+
+            <div class="hud__buttons">
+                <button type="button" class="btn-icon" id="fontDownButton" title="Decrease font size">
+                    <svg viewBox="0 0 48 48" role="img" aria-label="Decrease font size"><use href="#icon-font-down"></use></svg>
+                </button>
+                <button type="button" class="btn-icon" id="fontUpButton" title="Increase font size">
+                    <svg viewBox="0 0 48 48" role="img" aria-label="Increase font size"><use href="#icon-font-up"></use></svg>
+                </button>
+                <button type="button" class="btn-icon" id="soundButton" title="Sound on/off" aria-pressed="true">
+                    <svg viewBox="0 0 48 48" role="img" aria-label="Sound on or off"><use href="#icon-sound-on" id="soundIcon"></use></svg>
+                </button>
+                <button type="button" class="btn-icon" id="pauseButton" title="Pause / continue">
+                    <svg viewBox="0 0 48 48" role="img" aria-label="Pause or continue"><use href="#icon-pause" id="pauseIcon"></use></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- 遊戲場地：所有飛行中的元素都由 JavaScript 產生於此 -->
+        <div class="field" id="field">
+            <!-- 玩家主飛船 -->
+            <svg class="player" id="player" viewBox="0 0 128 72" role="img" aria-label="Your spaceship">
+                <use href="#icon-player-ship"></use>
+            </svg>
+        </div>
+
+        <!-- 感應區（十字分佈，滑鼠移入啟動、移出停止） -->
+        <div class="dpad" id="dpad">
+            <div class="dpad__area dpad__area--up" data-direction="up" title="Move up">
+                <svg viewBox="0 0 32 32" role="img" aria-label="Move up"><use href="#icon-arrow"></use></svg>
+            </div>
+            <div class="dpad__area dpad__area--left" data-direction="left" title="Move left">
+                <svg viewBox="0 0 32 32" role="img" aria-label="Move left"><use href="#icon-arrow"></use></svg>
+            </div>
+            <div class="dpad__area dpad__area--center" aria-hidden="true"></div>
+            <div class="dpad__area dpad__area--right" data-direction="right" title="Move right">
+                <svg viewBox="0 0 32 32" role="img" aria-label="Move right"><use href="#icon-arrow"></use></svg>
+            </div>
+            <div class="dpad__area dpad__area--down" data-direction="down" title="Move down">
+                <svg viewBox="0 0 32 32" role="img" aria-label="Move down"><use href="#icon-arrow"></use></svg>
+            </div>
+        </div>
+
+        <!-- 暫停遮罩 -->
+        <div class="overlay overlay--pause" id="pauseOverlay" hidden>
+            <p class="overlay__text">PAUSED</p>
+            <p class="overlay__hint">Press <kbd>P</kbd> or the pause button to continue</p>
+        </div>
+
+        <!-- 遊戲結束：收集玩家名稱 -->
+        <div class="overlay overlay--gameover" id="gameOverOverlay" hidden>
+            <h3 class="overlay__text">GAME OVER</h3>
+            <p class="overlay__summary">
+                Score <strong id="finalScore">0</strong> &middot; Time <strong id="finalTime">0</strong>s
+            </p>
+            <form class="gameover-form" id="gameOverForm">
+                <label class="gameover-form__label" for="playerName">Name</label>
+                <input class="gameover-form__input" type="text" id="playerName" name="name" maxlength="20"
+                       autocomplete="off" placeholder="Type your name" required>
+                <button type="submit" class="btn btn--start" id="continueButton" disabled>Continue</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ---------- 畫面 3：排行榜 ---------- -->
+    <section id="screenRanking" class="screen screen--ranking" aria-labelledby="rankingTitle">
+        <img class="logo logo--medium" src="material/icon/logo-01.png" width="219" height="153" alt="Star Battle logo">
+        <h2 id="rankingTitle" class="screen__title">Ranking</h2>
+
+        <div class="ranking-wrapper">
+            <table class="ranking">
+                <caption class="visually-hidden">Star Battle ranking ordered by score and time</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Position</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Time</th>
+                    </tr>
+                </thead>
+                <tbody id="rankingBody">
+                    <tr><td colspan="4">No data.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="ranking-message" id="rankingMessage"></p>
+
+        <button type="button" class="btn btn--start" data-action="start-game">Start Game</button>
+    </section>
+</main>
+
+<!-- ================= 由 JavaScript 複製使用的元素樣板 ================= -->
+<template id="tplEnemy">
+    <div class="sprite sprite--enemy" data-kind="enemy"></div>
+</template>
+<template id="tplFriend">
+    <div class="sprite sprite--friend" data-kind="friend"></div>
+</template>
+<template id="tplAsteroid">
+    <div class="sprite sprite--asteroid" data-kind="asteroid">
+        <img class="sprite__art" src="material/picture/aestroid_gray.png" alt="">
+    </div>
+</template>
+<template id="tplFuel">
+    <div class="sprite sprite--fuel" data-kind="fuel">
+        <svg class="sprite__art" viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-fuel"></use></svg>
+    </div>
+</template>
+<template id="tplShot">
+    <div class="shot" data-kind="shot"></div>
+</template>
+<template id="tplExplosion">
+    <div class="explosion"></div>
+</template>
+
+<!-- ================= 音效 ================= -->
+<audio id="soundBackground" src="material/audio/background.mp3" loop preload="auto"></audio>
+<audio id="soundDestroy" src="material/audio/destroy.m4a" preload="auto"></audio>
+<audio id="soundShoot" src="material/audio/shoot.mp3" preload="auto"></audio>
+
+<script src="js/audio.js"></script>
+<script src="js/ranking.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

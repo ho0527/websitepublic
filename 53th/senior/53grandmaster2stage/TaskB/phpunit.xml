@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="bootstrap.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache"
+         displayDetailsOnTestsThatTriggerWarnings="true">
+    <testsuites>
+        <!-- 測試項目 1：訪客登入 -->
+        <testsuite name="Login">
+            <file>tests/LoginTest.php</file>
+        </testsuite>
+        <!-- 測試項目 2：訪客登出 -->
+        <testsuite name="Logout">
+            <file>tests/LogoutTest.php</file>
+        </testsuite>
+        <!-- 測試項目 3：訪客註冊 -->
+        <testsuite name="Register">
+            <file>tests/RegisterTest.php</file>
+        </testsuite>
+        <!-- 測試項目 4：取得會員本身資料 -->
+        <testsuite name="GetUser">
+            <file>tests/GetUserTest.php</file>
+        </testsuite>
+    </testsuites>
+
+    <!-- 涵蓋率統計範圍：模組 A 的應用程式原始碼 -->
+    <source>
+        <include>
+            <directory suffix=".php">../TaskA/src</directory>
+        </include>
+    </source>
+</phpunit>
