@@ -1,0 +1,491 @@
+/*
+ * 後台樣式（含白標登入頁）
+ * Kazan MuseumTour — WorldSkills 2019 Skill 17 模組 B
+ */
+
+/* ---------- 變數與重置 ---------- */
+:root {
+    --admin-bg:      #f1f3f6;
+    --admin-panel:   #ffffff;
+    --admin-ink:     #1a1d23;
+    --admin-soft:    #565f6c;
+    --admin-line:    #dde1e8;
+    --admin-brand:   #0f5f57;
+    --admin-brand-d: #0a423d;
+    --admin-gold:    #9a6212;
+    --admin-danger:  #9c2028;
+    --radius:        12px;
+    --radius-sm:     8px;
+    --shadow:        0 12px 30px -22px rgba(20, 24, 32, .55);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body, h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+
+ul { list-style: none; }
+
+img { max-width: 100%; display: block; }
+
+body {
+    background: var(--admin-bg);
+    color: var(--admin-ink);
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+a { color: var(--admin-brand-d); }
+
+:focus-visible {
+    outline: 3px solid var(--admin-brand);
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+.screen-reader-text {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1rem; top: -4rem;
+    z-index: 200;
+    padding: .7rem 1.2rem;
+    background: var(--admin-brand-d);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    transition: top .2s ease;
+}
+
+.skip-link:focus { top: 0; }
+
+code {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: .86em;
+    background: #eef1f5;
+    padding: .1em .35em;
+    border-radius: 4px;
+}
+
+/* ---------- 版面 ---------- */
+.admin-shell {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+.admin-sidebar {
+    background: #10151c;
+    color: #cfd6e0;
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.admin-brand { display: grid; gap: .1rem; padding: .25rem .5rem 1rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+.admin-brand__title { font-size: 1.05rem; font-weight: 700; color: #fff; }
+.admin-brand__sub   { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: #7f8b9c; }
+
+.admin-nav ul { display: grid; gap: .15rem; }
+
+.admin-nav a {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    padding: .6rem .75rem;
+    border-radius: var(--radius-sm);
+    color: #cfd6e0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .92rem;
+}
+
+.admin-nav a:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+
+.admin-nav a[aria-current="page"] { background: var(--admin-brand); color: #fff; }
+
+.admin-nav__icon { width: 1.2rem; text-align: center; opacity: .9; }
+
+.admin-user {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    font-size: .86rem;
+}
+
+.admin-user__name  { font-weight: 700; color: #fff; }
+.admin-user__role  { color: #7f8b9c; }
+.admin-user__actions { display: flex; gap: 1rem; margin-top: .5rem; }
+.admin-user__actions a { color: #9fd6cd; }
+
+.admin-content { display: flex; flex-direction: column; min-width: 0; }
+
+.admin-header {
+    background: var(--admin-panel);
+    border-bottom: 1px solid var(--admin-line);
+    padding: 1.1rem clamp(1rem, 3vw, 2rem);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.admin-header__title { font-size: 1.4rem; }
+
+.admin-main { padding: clamp(1rem, 3vw, 2rem); display: grid; gap: 1.25rem; align-content: start; }
+
+/* ---------- 元件 ---------- */
+.panel {
+    background: var(--admin-panel);
+    border: 1px solid var(--admin-line);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+}
+
+.panel__title { font-size: 1.1rem; margin-bottom: .9rem; }
+.panel__foot  { margin-top: .8rem; font-size: .9rem; }
+
+.notice {
+    border-radius: var(--radius-sm);
+    padding: .8rem 1.1rem;
+    border: 1px solid;
+    font-weight: 600;
+}
+
+.notice--success { background: #e6f4f1; border-color: #63a99e; color: #0a423d; }
+.notice--error   { background: #fdeff0; border-color: #d59aa0; color: #7c1a21; }
+.notice--info    { background: #eef2fb; border-color: #a9bbe0; color: #23375f; }
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.toolbar__info { color: var(--admin-soft); font-size: .92rem; }
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    padding: .65rem 1.2rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: .92rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color .18s ease, transform .18s ease;
+}
+
+.button:hover { transform: translateY(-1px); }
+.button--primary { background: var(--admin-brand-d); color: #fff; }
+.button--primary:hover { background: var(--admin-brand); }
+.button--primary:disabled { background: #8c9aa6; cursor: not-allowed; transform: none; }
+.button--ghost { background: transparent; border-color: var(--admin-brand-d); color: var(--admin-brand-d); }
+.button--ghost:hover { background: #e6f4f1; }
+.button--small { padding: .45rem .95rem; font-size: .86rem; }
+.button--block { width: 100%; }
+
+.link-button {
+    border: 0;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: underline;
+    color: var(--admin-brand-d);
+}
+
+.link-button--danger { color: var(--admin-danger); }
+
+.tag {
+    display: inline-block;
+    padding: .15rem .6rem;
+    border-radius: 999px;
+    font-size: .74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    background: #eef1f5;
+    color: var(--admin-soft);
+}
+
+.tag--published, .tag--selected, .tag--admin { background: #e0f0ec; color: #0a423d; }
+.tag--draft,     .tag--editor              { background: #fbf0dc; color: #7a4d0b; }
+.tag--danger                               { background: #fdeff0; color: #7c1a21; }
+
+/* ---------- 表格 ---------- */
+.table-wrap {
+    background: var(--admin-panel);
+    border: 1px solid var(--admin-line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+}
+
+.table { width: 100%; border-collapse: collapse; min-width: 46rem; }
+
+.table th, .table td {
+    text-align: left;
+    padding: .8rem 1rem;
+    border-bottom: 1px solid var(--admin-line);
+    vertical-align: top;
+    font-weight: 400;
+}
+
+.table thead th {
+    font-size: .76rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--admin-soft);
+    font-weight: 700;
+    background: #f7f9fb;
+}
+
+.table tbody tr:hover { background: #f7f9fb; }
+
+.table__title { display: block; font-weight: 700; }
+.table__sub   { display: block; font-size: .82rem; color: var(--admin-soft); }
+.table__ua    { font-size: .82rem; color: var(--admin-soft); }
+
+.table__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    align-items: center;
+    font-size: .88rem;
+}
+
+/* ---------- 表單 ---------- */
+.form-row { margin-bottom: 1rem; }
+
+.form-label { display: block; font-weight: 600; font-size: .88rem; margin-bottom: .3rem; }
+
+.form-input {
+    width: 100%;
+    padding: .6rem .75rem;
+    border: 1px solid var(--admin-line);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    font: inherit;
+}
+
+.form-input:focus {
+    border-color: var(--admin-brand);
+    box-shadow: 0 0 0 3px #dcece9;
+    outline: none;
+}
+
+.form-input--textarea { resize: vertical; min-height: 5rem; }
+.form-input--tall     { min-height: 18rem; }
+
+.form-hint  { display: block; font-size: .82rem; color: var(--admin-soft); margin-top: .3rem; }
+.form-error { display: none; font-size: .84rem; color: var(--admin-danger); font-weight: 600; margin-top: .3rem; }
+.form-error.is-visible { display: block; }
+
+.checkbox { display: flex; align-items: center; gap: .5rem; font-size: .92rem; margin-bottom: .4rem; }
+.checkbox input { width: 1.05rem; height: 1.05rem; }
+
+.form-grid { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
+
+@media (min-width: 1000px) {
+    .form-grid { grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); align-items: start; }
+}
+
+.form-aside { display: grid; gap: 1.25rem; align-content: start; }
+
+.image-preview {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    background: #eef1f5;
+    margin-top: .5rem;
+}
+
+.split-layout { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); align-items: start; }
+
+@media (min-width: 1000px) {
+    .split-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+}
+
+.settings-form { display: grid; gap: 1.25rem; }
+.settings-form__actions { position: sticky; bottom: 1rem; }
+
+/* ---------- 儀表板 ---------- */
+.screen-options {
+    background: var(--admin-panel);
+    border: 1px solid var(--admin-line);
+    border-radius: var(--radius);
+    padding: .75rem 1.1rem;
+}
+
+.screen-options summary { cursor: pointer; font-weight: 600; }
+.screen-options__form { margin-top: .8rem; display: grid; gap: .35rem; justify-items: start; }
+.screen-options__hint { font-size: .86rem; color: var(--admin-soft); }
+
+.widget-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    align-items: start;
+}
+
+.widget {
+    background: var(--admin-panel);
+    border: 1px solid var(--admin-line);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+}
+
+.widget__title {
+    font-size: 1.05rem;
+    margin-bottom: .8rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--admin-line);
+}
+
+.widget__note { font-size: .86rem; color: var(--admin-soft); margin-top: .8rem; }
+
+.glance-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .5rem 1rem;
+    font-size: .92rem;
+}
+
+.glance-list strong {
+    display: inline-block;
+    min-width: 2ch;
+    color: var(--admin-brand-d);
+    font-size: 1.05rem;
+}
+
+.activity-list { display: grid; gap: .7rem; font-size: .9rem; }
+
+.activity-list li {
+    display: grid;
+    gap: .15rem;
+    padding-bottom: .6rem;
+    border-bottom: 1px dashed var(--admin-line);
+}
+
+.activity-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.activity-list__date { font-size: .78rem; color: var(--admin-soft); }
+.activity-list__meta { font-size: .8rem; color: var(--admin-soft); }
+
+/* ---------- 媒體庫 ---------- */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: .85rem;
+}
+
+.media-grid__item {
+    background: var(--admin-panel);
+    border: 1px solid var(--admin-line);
+    border-radius: var(--radius-sm);
+    padding: .5rem;
+    display: grid;
+    gap: .4rem;
+}
+
+.media-grid__item img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; width: 100%; }
+.media-grid__path { font-size: .7rem; word-break: break-all; }
+
+/* ---------- 白標登入頁 ---------- */
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.login-background {
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.login-scrim {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(140deg, rgba(9, 20, 18, .78), rgba(9, 20, 18, .55));
+    z-index: -1;
+}
+
+.login-card {
+    width: min(26rem, 100%);
+    background: rgba(255, 255, 255, .96);
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 30px 70px -30px rgba(0, 0, 0, .8);
+}
+
+.login-card__title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.login-card__sub {
+    text-align: center;
+    color: var(--admin-soft);
+    font-size: .88rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.login-form { margin-top: 1rem; }
+.login-form .button { margin-top: .5rem; }
+
+.login-note {
+    margin-top: 1rem;
+    font-size: .8rem;
+    color: var(--admin-soft);
+    text-align: center;
+}
+
+.login-card__back { margin-top: 1rem; text-align: center; font-size: .88rem; }
+
+.login-card .notice { margin-bottom: 1rem; }
+
+/* ---------- 小螢幕 ---------- */
+@media (max-width: 860px) {
+    .admin-shell { grid-template-columns: minmax(0, 1fr); }
+
+    .admin-sidebar {
+        position: static;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .admin-nav ul {
+        grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+        display: grid;
+    }
+
+    .admin-user { margin-top: 1rem; }
+}

@@ -1,0 +1,78 @@
+/*
+Theme Name: BlankSlate
+Theme URI: https://github.com/tidythemes/blankslate
+Author: TidyThemes
+Version: 2019.1
+Description: 起始（父）主題：只提供最基本的重置與版面骨架，不含任何設計。
+             本專案的所有設計與版面修改都放在子主題 Kazan_MuseumTour。
+*/
+
+/* ---------- 基本重置 ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+/* 讓鍵盤操作者永遠看得到焦點位置（WCAG 2.4.7） */
+:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* 只提供給螢幕報讀器的文字 */
+.screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* 尊重使用者的「減少動態效果」偏好設定 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
