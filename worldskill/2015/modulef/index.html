@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title>Olympic Race - Brazil 2015</title>
+</head>
+<body>
+	<!-- 歡迎視窗 -->
+	<div id="start">
+		<div class="box">
+			<h3>Welcome!</h3>
+			<p>
+				Welcome to the Olympic Race! In this game you will visit many beautiful places from Brazil!
+			</p>
+			<p>
+				You must use the keys <strong>"UP"</strong> and <strong>"DOWN"</strong> to change the runway
+			</p>
+			<p>
+				You must use the <strong>"SPACE"</strong> button to jump
+			</p>
+			<p>
+				Your goal is to reach the end of the ride, dodging all the obstacles (jumping or changing the runway)
+			</p>
+			<form action="#" method="post">
+				<button type="submit" class="btn btn-start" id="startButton">START</button>
+			</form>
+		</div>
+	</div><!-- END START -->
+
+	<!-- 結束視窗（失敗 / 成功共用） -->
+	<div id="end" class="hide">
+		<div class="box">
+			<div class="error hide">
+				<h3>Game Over!</h3>
+				<p>You didn't visited all the places... try again!</p>
+			</div>
+			<div class="success hide">
+				<h3>Welcome to Rio 2016 &ndash; Olympic Games</h3>
+				<p>You already visited beautifuls places from BRAZIL!</p>
+				<p>You can visit again pressing the Restart Button!</p>
+			</div>
+			<form action="#" method="post">
+				<button type="submit" class="btn btn-start" id="restartButton">RESTART</button>
+			</form>
+		</div>
+	</div><!-- END END -->
+
+	<!-- 進度列（跑者在整段賽道上的位置） -->
+	<div id="hud">
+		<div id="progressTrack"><div id="progressBar"></div></div>
+		<span id="hudLabel">RIO 2016</span>
+	</div>
+
+	<!-- GAME -->
+	<section id="game">
+		<!-- 地標背景 -->
+		<div id="points">
+
+			<!-- INIT -->
+			<section id="init">
+				<img src="imgs/sky.svg" alt="sky" />
+			</section><!-- END INIT -->
+
+			<!-- AMAZON -->
+			<section id="amazon" class="landmark">
+				<img src="imgs/amazon.svg" alt="Amazon Rainforest" />
+			</section><!-- END AMAZON -->
+
+			<!-- BAHIA -->
+			<section id="bahia" class="landmark">
+				<img src="imgs/bahia.svg" alt="Lacerda Elevator" />
+			</section><!-- END BAHIA -->
+
+			<!-- PARANA -->
+			<section id="parana" class="landmark">
+				<img src="imgs/parana.svg" alt="Iguacu Falls" />
+			</section><!-- END PARANA -->
+
+			<!-- SAOPAULO -->
+			<section id="saopaulo" class="landmark">
+				<img src="imgs/saopaulo.svg" alt="Cable-Stayed Bridge" />
+			</section><!-- END SAOPAULO -->
+
+			<!-- RIO -->
+			<section id="rio" class="landmark">
+				<img src="imgs/rio.svg" alt="Christ the Redeemer" />
+			</section><!-- END RIO -->
+
+		</div><!-- END POINTS -->
+
+		<!-- 聖火台：全程可見 -->
+		<section id="pyre">
+			<img src="imgs/pyre.svg" alt="Olympic cauldron" />
+			<img src="imgs/pyre_fire.svg" alt="Olympic flame" id="pyreFire" />
+			<div class="panel">
+				Olympic Games &ndash; Rio 2016
+			</div>
+		</section><!-- END PYRE -->
+
+		<!-- 賽道 -->
+		<div id="playground">
+			<!-- 地標招牌 -->
+			<div id="panels">
+				<h4 id="amazonPanel" class="panel">Amazon Rainforest &ndash; Manaus &ndash; AM</h4>
+				<h4 id="bahiaPanel" class="panel">Lacerda Elevator &ndash; Salvador &ndash; BA</h4>
+				<h4 id="paranaPanel" class="panel">Igua&ccedil;u Falls &ndash; Foz do Igua&ccedil;u &ndash; PR</h4>
+				<h4 id="saopauloPanel" class="panel">Cable-Stayed Bridge &ndash; S&atilde;o Paulo &ndash; SP</h4>
+				<h4 id="rioPanel" class="panel">Christ the Redeemer &ndash; Rio de Janeiro &ndash; RJ</h4>
+			</div><!-- END PANELS -->
+
+			<!-- 跑者 -->
+			<div id="runner">
+				<div id="runnerSprite"></div>
+			</div><!-- END RUNNER -->
+
+			<!-- 三條跑道（障礙物由 JavaScript 隨機放置） -->
+			<div id="runways">
+				<div id="runway1" class="runway"></div>
+				<div id="runway2" class="runway"></div>
+				<div id="runway3" class="runway"></div>
+			</div><!-- END RUNWAYS -->
+
+		</div><!-- END PLAYGROUND -->
+
+	</section><!-- END GAME -->
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/runner.js"></script>
+	<script type="text/javascript" src="js/obstacle.js"></script>
+	<script type="text/javascript" src="js/landmark.js"></script>
+	<script type="text/javascript" src="js/game.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>

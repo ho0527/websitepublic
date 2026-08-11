@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title>Custom Puzzle - WorldSkills 2015</title>
+</head>
+<body>
+
+	<!-- 開始視窗（Start Modal）：輸入名稱、難度、拖放圖片 -->
+	<div id="start">
+		<div class="box">
+			<h2>Welcome to Custom Puzzle!</h2>
+			<p>This game consists in you make your puzzle game</p>
+			<form action="#" method="post" id="startForm" novalidate>
+				<div class="group">
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" autocomplete="off" placeholder="Type your name" />
+					<span class="field-error" id="nameError"></span>
+				</div>
+				<div class="group">
+					<label for="difficult">Difficult</label>
+					<select name="difficult" id="difficult">
+						<option value="">-- SELECT A LEVEL --</option>
+						<option value="1">EASY</option>
+						<option value="2">MEDIUM</option>
+						<option value="3">HARD</option>
+					</select>
+					<span class="field-error" id="difficultError"></span>
+				</div>
+
+				<!-- 圖片拖放區：同時作為預覽區 -->
+				<div class="group" id="dropGroup">
+					<label for="fileInput">Image</label>
+					<div id="drop">
+						<div class="preview" id="preview-thumb"></div>
+						<p id="dropText">Drop your photo here! <br><small>(JPG only &mdash; or click to browse)</small></p>
+					</div>
+					<input type="file" id="fileInput" accept="image/jpeg" class="visually-hidden" />
+					<span class="field-error" id="imageError"></span>
+				</div>
+
+				<div class="group">
+					<button type="submit" class="btn btn-start" id="startButton">START</button>
+				</div>
+			</form>
+		</div>
+	</div><!-- END START -->
+
+	<!-- 結果視窗（Result Modal）：恭喜訊息與排行榜 -->
+	<div id="end" class="hide">
+		<div class="box">
+			<h3>Congratulations! You have solved the puzzle!</h3>
+			<p id="endSummary">You did it!</p>
+			<table id="rankTable">
+				<thead>
+					<tr>
+						<th>POSITION</th>
+						<th>LEVEL</th>
+						<th>NAME</th>
+						<th>TIME</th>
+					</tr>
+				</thead>
+				<tbody id="rankBody">
+				</tbody>
+			</table>
+			<p class="rank-message" id="rankMessage"></p>
+			<button class="btn btn-restart" id="restartApplication">RESTART APPLICATION</button>
+		</div>
+	</div><!-- END END -->
+
+	<!-- 遊戲主畫面 -->
+	<div id="gameContainer" class="hide">
+		<div class="container">
+
+			<!-- 玩家名稱 -->
+			<span id="playername">John Doe</span>
+			<!-- 計時器 -->
+			<div id="timer">
+				<span id="clock">00:00</span>
+			</div>
+
+			<!-- 目標原圖縮圖（提供的版面中預留的 #preview） -->
+			<div id="preview" title="Original image"></div>
+
+			<div id="puzzleContainer">
+				<!-- 起始區：打散後的碎片 -->
+				<div id="puzzle"></div>
+				<!-- 目標區：半透明原圖 + 拼放位置 -->
+				<div id="puzzleDestination"></div>
+			</div>
+
+			<div class="buttons">
+				<button class="btn btn-pause" id="pauseButton">PAUSE</button>
+				<button class="btn btn-restart" id="restartButton">RESTART</button>
+			</div>
+
+			<p class="hint">Click a piece to select it &middot; &larr; / &rarr; rotate 90&deg; &middot; drag it into the right slot</p>
+		</div>
+	</div><!-- END GAMECONTAINER -->
+
+	<!-- 暫停遮罩 -->
+	<div id="pauseOverlay" class="hide"><span>PAUSED</span></div>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/imageslicer.js"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
+	<script type="text/javascript" src="js/storage.js"></script>
+	<script type="text/javascript" src="js/ranking.js"></script>
+	<script type="text/javascript" src="js/piece.js"></script>
+	<script type="text/javascript" src="js/puzzle.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+</html>

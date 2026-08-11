@@ -1,0 +1,470 @@
+/* =========================================================
+   Custom Puzzle - WorldSkills 2015 Client Side A
+   基底樣式沿用主辦單位提供的 media/WebApplication/css/main.css，
+   下半部（GAME LAYER 之後）為本次開發追加的樣式。
+   ========================================================= */
+
+/* ---------- 提供的基底樣式 ---------- */
+*{
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+	font-family: "Arial",sans-serif;
+	color: #282828;
+	text-decoration: none;
+	list-style-type: none;
+	box-sizing: border-box;
+}
+body{
+	background: #009BBC;
+	width: 100%;
+	min-height: 100%;
+	overflow-x: hidden;
+}
+.group{
+	margin-bottom: 10px;
+}
+.group input,
+.group select{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+}
+.group label{
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 13px;
+}
+.group *{
+	display: block;
+}
+.box,
+.container{
+	width: 1140px;
+	margin: auto;
+}
+.box{
+	margin-top: 100px;
+	background: white;
+	border-radius: 4px;
+	padding: 30px;
+}
+button{
+	width: 100%;
+	height: 60px;
+}
+#start,
+#end{
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	background: rgba(0,0,0,0.9);
+	z-index: 999999;
+	overflow: auto;
+}
+.hide{
+	display: none !important;
+}
+#gameContainer .container{
+	padding-top: 70px;
+	display: block;
+	position: relative;
+}
+#preview{
+	position: absolute;
+	display: block;
+	width: 165px;
+	height: 165px;
+	bottom: 394px;
+	right: -175px;
+	background: white;
+}
+#drop .preview{
+	float: left;
+	margin-right: 10px;
+	height: 100px;
+	width: 100px;
+	background: rgba(0,0,0,0.2);
+}
+#drop{
+	display: block;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	border: dotted 1px rgba(0,0,0,0.2);
+}
+p{
+	text-align: center;
+}
+h3{
+	text-align: center;
+}
+table th,
+table td{
+	padding: 10px;
+	border: solid 1px rgba(0,0,0,0.2);
+}
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+#playername,
+#timer{
+	display: block;
+	text-align: center;
+}
+#playername{
+	background: white;
+	height: 40px;
+	line-height: 40px;
+	font-size: 22px;
+	font-weight: bold;
+}
+#timer span{
+	color: white;
+}
+#timer{
+	background: rgba(0,0,0,0.5);
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px;
+	color: white;
+}
+h2{
+	text-align: center;
+}
+#puzzleContainer > div{
+	float: left;
+	width: 500px;
+	height: 500px;
+	margin-right: 139px;
+}
+#puzzleContainer > div:last-child{
+	margin-right: 0px;
+}
+
+/* =========================================================
+   以下為本次開發追加 / 覆寫的樣式
+   ========================================================= */
+
+/* ---------- 開始視窗 ---------- */
+.box{
+	margin-bottom: 60px;
+}
+#start h2{
+	margin-bottom: 6px;
+}
+#start form{
+	margin-top: 20px;
+}
+.group input,
+.group select{
+	border: solid 1px rgba(0,0,0,0.25);
+	border-radius: 3px;
+	padding: 0 10px;
+	font-size: 15px;
+	background: #fff;
+}
+.group input:focus,
+.group select:focus{
+	border-color: #009BBC;
+	box-shadow: 0 0 0 3px rgba(0,155,188,0.18);
+}
+.btn{
+	border: none;
+	border-radius: 3px;
+	background: #009BBC;
+	color: #fff;
+	font-size: 17px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: background .2s ease, transform .12s ease;
+}
+.btn:hover{ background: #007e99; }
+.btn:active{ transform: translateY(1px); }
+.btn-restart{ background: #444; }
+.btn-restart:hover{ background: #222; }
+.btn-pause{ background: #f5a623; color: #282828; }
+.btn-pause:hover{ background: #dd9110; }
+
+/* 錯誤訊息（友善提示） */
+.field-error{
+	display: none;
+	color: #c0392b;
+	font-size: 13px;
+	font-weight: bold;
+	margin-top: 4px;
+}
+.field-error.show{
+	display: block;
+	animation: shake .35s ease;
+}
+.group.invalid input,
+.group.invalid select,
+.group.invalid #drop{
+	border-color: #c0392b;
+}
+@keyframes shake{
+	0%,100%{ transform: translateX(0); }
+	25%{ transform: translateX(-5px); }
+	75%{ transform: translateX(5px); }
+}
+
+/* 拖放區 */
+#drop{
+	cursor: pointer;
+	transition: background .2s ease, border-color .2s ease;
+	background: transparent;
+}
+#drop.dragover{
+	background: rgba(0,155,188,0.12);
+	border-color: #009BBC;
+}
+#drop p{
+	line-height: 1.35;
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: 30px;
+}
+#drop small{ color: #777; font-size: 11px; }
+/* 覆寫提供樣式中寫死的示範圖 */
+#drop .preview{
+	background: rgba(0,0,0,0.2) no-repeat center center;
+	background-size: cover;
+	border-radius: 3px;
+}
+/* 原圖縮圖：放在兩個遊戲區域中間的空白處 */
+#preview{
+	background: #fff no-repeat center center;
+	background-size: cover;
+	border-radius: 3px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+	width: 119px;
+	height: 119px;
+	left: 510px;
+	top: 555px;
+	right: auto;
+	bottom: auto;
+	border: solid 3px #fff;
+}
+#preview:before{
+	content: "GOAL";
+	position: absolute;
+	top: -22px;
+	left: 0;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: #fff;
+}
+.visually-hidden{
+	position: absolute !important;
+	width: 1px; height: 1px;
+	overflow: hidden; clip: rect(0 0 0 0);
+}
+
+/* ---------- 遊戲畫面 ---------- */
+#gameContainer .container{
+	padding-bottom: 60px;
+}
+#playername{ border-radius: 3px 3px 0 0; }
+#timer{
+	border-radius: 0 0 3px 3px;
+	margin-bottom: 24px;
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 2px;
+}
+#puzzleContainer{
+	position: relative;
+}
+#puzzleContainer:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+#puzzle,
+#puzzleDestination{
+	position: relative;
+	border-radius: 3px;
+	background: rgba(255,255,255,0.18);
+	box-shadow: inset 0 0 0 2px rgba(255,255,255,0.35);
+}
+#puzzleDestination{
+	background: rgba(255,255,255,0.30);
+}
+/* 起始區 / 目標區的區塊標題 */
+#puzzle:before,
+#puzzleDestination:before{
+	content: attr(data-label);
+	position: absolute;
+	top: -24px;
+	left: 0;
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+/* 目標區的半透明預覽格 */
+.slot{
+	position: absolute;
+	background-repeat: no-repeat;
+	opacity: .28;
+	transition: opacity .45s ease;
+}
+.slot.filled{ opacity: 0; }
+
+/* 拼圖碎片 */
+.piece{
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-radius: 2px;
+	cursor: grab;
+	/* 起始區的碎片先降低彩度，放對位置時再「顯色」 */
+	filter: saturate(.45) brightness(.92);
+	transition: transform .28s cubic-bezier(.34,1.56,.64,1),
+	            filter .3s ease,
+	            box-shadow .25s ease,
+	            left .3s ease,
+	            top .3s ease;
+	touch-action: none;
+	will-change: transform;
+}
+.piece.selected{
+	z-index: 500;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.45);
+	filter: saturate(.75) brightness(1);
+}
+.piece.dragging{
+	position: fixed;
+	z-index: 999998;
+	cursor: grabbing;
+	transition: transform .18s ease, filter .3s ease;
+	pointer-events: none;
+}
+/* 放錯時：以動畫飛回起始區原本的位置 */
+.piece.returning{
+	transition: left .32s cubic-bezier(.4,0,.2,1),
+	            top .32s cubic-bezier(.4,0,.2,1),
+	            transform .32s ease,
+	            filter .3s ease;
+}
+/* 放錯時彈回起點的動畫 */
+.piece.rejected{
+	animation: rejectFlash .45s ease;
+}
+@keyframes rejectFlash{
+	0%{ box-shadow: 0 0 0 0 rgba(192,57,43,.9); }
+	50%{ box-shadow: 0 0 0 8px rgba(192,57,43,0); }
+	100%{ box-shadow: 0 0 0 0 rgba(192,57,43,0); }
+}
+/* 放對位置：吸附 + 顯色動畫 */
+.piece.placed{
+	cursor: default;
+	filter: none;
+	box-shadow: none;
+}
+.piece.revealing{
+	animation: revealColor .65s ease forwards;
+}
+@keyframes revealColor{
+	0%{   filter: saturate(.45) brightness(.92); transform: scale(1.14) rotate(var(--rot,0deg)); }
+	45%{  filter: saturate(1.6) brightness(1.35); }
+	100%{ filter: saturate(1) brightness(1);      transform: scale(1) rotate(var(--rot,0deg)); }
+}
+
+/* 按鈕列 */
+#gameContainer .buttons{
+	margin-top: 28px;
+	display: flex;
+	gap: 20px;
+}
+#gameContainer .buttons .btn{ height: 52px; }
+.hint{
+	margin-top: 14px;
+	color: rgba(255,255,255,0.9);
+	font-size: 13px;
+}
+
+/* 暫停時隱藏兩個區域 */
+#puzzleContainer.paused #puzzle,
+#puzzleContainer.paused #puzzleDestination{
+	visibility: hidden;
+}
+#pauseOverlay{
+	position: fixed;
+	left: 0; top: 0; right: 0; bottom: 0;
+	background: rgba(0,0,0,0.55);
+	z-index: 900;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+}
+#pauseOverlay span{
+	color: #fff;
+	font-size: 46px;
+	font-weight: bold;
+	letter-spacing: 8px;
+	animation: pausePulse 1.6s ease-in-out infinite;
+}
+@keyframes pausePulse{
+	0%,100%{ opacity: .35; }
+	50%{ opacity: 1; }
+}
+
+/* ---------- 結果視窗 ---------- */
+#end .box{
+	animation: modalIn .55s cubic-bezier(.22,1.4,.36,1) both;
+}
+@keyframes modalIn{
+	0%{   opacity: 0; transform: translateY(-60px) scale(.85); }
+	60%{  opacity: 1; }
+	100%{ opacity: 1; transform: translateY(0) scale(1); }
+}
+#end h3{
+	font-size: 26px;
+	margin-bottom: 8px;
+	color: #009BBC;
+}
+#end table{ margin-top: 18px; }
+#end th{
+	background: #009BBC;
+	color: #fff;
+	font-size: 13px;
+	letter-spacing: 1px;
+}
+#end td{ text-align: center; }
+#end tr.you td{
+	background: #fff4c8;
+	font-weight: bold;
+}
+.rank-message{
+	margin: 12px 0 18px;
+	font-size: 13px;
+	color: #666;
+}
+#end .btn-restart{ margin-top: 6px; }
+
+/* ---------- 響應式：小螢幕時縮放拼圖區 ---------- */
+@media (max-width: 1200px){
+	.box,
+	.container{ width: 96%; }
+	#preview{ display: none; }
+	#puzzleContainer{
+		display: flex;
+		gap: 24px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	#puzzleContainer > div{
+		float: none;
+		margin-right: 0;
+	}
+}
