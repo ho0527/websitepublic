@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xsi:type="ns2:list" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.mytest.com/WSCstats">
+	<countrys xsi:type="ns2:countrys">
+		<country xsi:type="ns2:country" iso="AE">United Arab Emirates</country>
+		<country xsi:type="ns2:country" iso="AT">Austria</country>
+		<country xsi:type="ns2:country" iso="BR">Brazil</country>
+		<country xsi:type="ns2:country" iso="CA">Canada</country>
+		<country xsi:type="ns2:country" iso="CH">Switzerland</country>
+		<country xsi:type="ns2:country" iso="DE">Germany</country>
+		<country xsi:type="ns2:country" iso="ES">Spain</country>
+		<country xsi:type="ns2:country" iso="FI">Finland</country>
+		<country xsi:type="ns2:country" iso="HK">Hong Kong, China</country>
+		<country xsi:type="ns2:country" iso="HR">Croatia</country>
+		<country xsi:type="ns2:country" iso="IE">Ireland</country>
+		<country xsi:type="ns2:country" iso="IN">India</country>
+		<country xsi:type="ns2:country" iso="JP">Japan</country>
+		<country xsi:type="ns2:country" iso="KR">Korea</country>
+		<country xsi:type="ns2:country" iso="LI">Principality of Liechtenstein</country>
+		<country xsi:type="ns2:country" iso="MO">Macao, China</country>
+		<country xsi:type="ns2:country" iso="NL">Netherlands</country>
+		<country xsi:type="ns2:country" iso="NO">Norway</country>
+		<country xsi:type="ns2:country" iso="NZ">New Zealand</country>
+		<country xsi:type="ns2:country" iso="PT">Portugal</country>
+		<country xsi:type="ns2:country" iso="SE">Sweden</country>
+		<country xsi:type="ns2:country" iso="SG">Singapore</country>
+		<country xsi:type="ns2:country" iso="TH">Thailand</country>
+		<country xsi:type="ns2:country" iso="TW">Chinese Taipei</country>
+		<country xsi:type="ns2:country" iso="VN">Vietnam</country>
+	</countrys>
+</list>

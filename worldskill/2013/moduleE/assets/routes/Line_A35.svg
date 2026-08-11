@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="svg2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="Strassenbahnnetz-Leipzig_20101010.svg" inkscape:version="0.48.2 r9819"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="2064.678px"
+	 height="1472.279px" viewBox="0 0 2064.678 1472.279" enable-background="new 0 0 2064.678 1472.279" xml:space="preserve">
+<sodipodi:namedview  inkscape:cy="1372.3533" inkscape:cx="938.2838" inkscape:zoom="1.3693053" showgrid="false" guidetolerance="10" gridtolerance="10" pagecolor="#ffffff" borderopacity="1" bordercolor="#666666" objecttolerance="10" id="namedview5803" inkscape:pageshadow="2" inkscape:pageopacity="0" inkscape:current-layer="layer2" inkscape:window-maximized="1" inkscape:window-width="1280" inkscape:window-height="738" inkscape:window-y="-8" inkscape:window-x="-8">
+	<inkscape:grid  type="xygrid" id="grid4993"></inkscape:grid>
+</sodipodi:namedview>
+<defs>
+	
+	
+		<inkscape:perspective  inkscape:vp_z="2064.6777 : 736.13971 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 736.13971 : 1" sodipodi:type="inkscape:persp3d" id="perspective5807" inkscape:persp3d-origin="1032.3389 : 490.75981 : 1">
+		</inkscape:perspective>
+	
+		<inkscape:perspective  inkscape:vp_z="1 : 0.5 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 0.5 : 1" sodipodi:type="inkscape:persp3d" id="perspective5817" inkscape:persp3d-origin="0.5 : 0.33333333 : 1">
+		</inkscape:perspective>
+	
+		<inkscape:perspective  inkscape:vp_z="1 : 0.5 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 0.5 : 1" sodipodi:type="inkscape:persp3d" id="perspective5839" inkscape:persp3d-origin="0.5 : 0.33333333 : 1">
+		</inkscape:perspective>
+	
+		<inkscape:perspective  inkscape:vp_z="1 : 0.5 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 0.5 : 1" sodipodi:type="inkscape:persp3d" id="perspective10851" inkscape:persp3d-origin="0.5 : 0.33333333 : 1">
+		</inkscape:perspective>
+	
+		<inkscape:perspective  inkscape:vp_z="1 : 0.5 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 0.5 : 1" sodipodi:type="inkscape:persp3d" id="perspective10877" inkscape:persp3d-origin="0.5 : 0.33333333 : 1">
+		</inkscape:perspective>
+</defs>
+<g id="layer1" transform="translate(508.66943,360.60033)">
+	
+		<path id="path3162" sodipodi:nodetypes="csssssssssssssssssssssssc" inkscape:connector-curvature="0" fill="none" stroke="#225599" stroke-width="6" d="
+		M517.192-138.929c0,0,33.45,20.59,39.139,35.355c14.395,37.356,52.223,99.526,57.027,124.45c4.438,23.007-1.555,64.309-7.07,77.782
+		c-2.736,6.686-19.594-4.279-24.042,1.412c-4.253,5.441,7.973,16.813,4.242,22.628c-3.776,5.892-18.052,0.362-22.627,5.656
+		c-5.576,6.451,1.737,21.082-2.829,28.284c-7.947,12.536-36.119,12.021-42.426,25.456c-4.742,10.103,0.382,26.934,5.657,36.771
+		c17.892,33.359,31.142,99.835,50.618,111.258c9.137,5.356,47.24-22.313,69.761-26.577c18.645-3.531,44.569-5.297,63.226-1.828
+		c9.337,1.736,29.708,2.927,29.906,9.399c0.278,9.141-8.941,35.389-3.72,44.195c6.051,10.207,22.312,12.832,35.782,13.833
+		c27.939,2.077,63.368-17.986,91.353-19.433c8.269-0.427,19.39,1.001,27.44,2.933c17.817,4.276,49.351,5.161,57.067,21.781
+		c15.146,32.614-55.22,80.747-39.599,113.137c12.883,26.709,68.869,15.777,93.338,32.527c12.418,8.5,23.355,26.252,32.527,38.184
+		c2.438,3.175,3.811,9.646,7.586,10.973c9.456,3.32,21.997-9.935,32.012-9.559c15.433,0.58,48.084,18.387,48.084,18.387"/>
+	<path id="path3430" fill="#225599" stroke="#225599" stroke-width="6.0273" d="M527.581-145.1c0,8.008-6.49,14.5-14.5,14.5
+		c-8.008,0-14.5-6.492-14.5-14.5c0-8.009,6.492-14.5,14.5-14.5C521.089-159.6,527.581-153.109,527.581-145.1z"/>
+	<text transform="matrix(1 0 0 1 507.8833 -138.5457)" fill="#FFFFFF" font-family="'Arial-BoldMT'" font-size="18">4</text>
+	<path id="path3436" fill="#225599" stroke="#225599" stroke-width="6.0273" d="M1142.339,580.149c0,8.009-6.492,14.5-14.5,14.5
+		c-8.011,0-14.5-6.491-14.5-14.5c0-8.008,6.489-14.5,14.5-14.5C1135.847,565.649,1142.339,572.141,1142.339,580.149z"/>
+	<text transform="matrix(1 0 0 1 1122.6421 586.7053)" fill="#FFFFFF" font-family="'Arial-BoldMT'" font-size="18">4</text>
+	<text transform="matrix(1 0 0 1 764.6382 405.9114)" fill="#FFFFFF" font-family="'Arial-BoldMT'" font-size="18">12</text>
+</g>
+<path id="rect2845" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="1" d="M1280.646,747.386l6.939-27.426
+	c0.271-1.071,1.359-1.72,2.43-1.448l0,0c1.071,0.271,1.722,1.358,1.448,2.432l-6.938,27.426c-0.271,1.071-1.359,1.719-2.432,1.448
+	l0,0C1281.024,749.545,1280.376,748.457,1280.646,747.386z"/>
+<path id="rect2859" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="1" d="M1032.906,224.69h1.102
+	c0.801,0,1.449,0.648,1.449,1.449v1.101c0,0.801-0.648,1.45-1.449,1.45h-1.102c-0.801,0-1.449-0.649-1.449-1.45v-1.101
+	C1031.457,225.338,1032.105,224.69,1032.906,224.69z"/>
+<path id="rect3005" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="1" d="M1585.339,919.354h1.104
+	c0.801,0,1.447,0.648,1.447,1.448v1.104c0,0.801-0.646,1.448-1.447,1.448h-1.104c-0.8,0-1.449-0.647-1.449-1.448v-1.104
+	C1583.89,920.002,1584.539,919.354,1585.339,919.354z"/>
+<path id="rect3009" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="1" d="M1521.346,891.835h1.104
+	c0.801,0,1.447,0.649,1.447,1.449v1.102c0,0.802-0.646,1.449-1.447,1.449h-1.104c-0.801,0-1.449-0.648-1.449-1.449v-1.102
+	C1519.896,892.485,1520.545,891.835,1521.346,891.835z"/>
+<path id="rect3045" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="1" d="M1449.928,763.436h1.104
+	c0.801,0,1.447,0.648,1.447,1.449v1.104c0,0.801-0.646,1.447-1.447,1.447h-1.104c-0.8,0-1.449-0.646-1.449-1.447v-1.104
+	C1448.479,764.084,1449.128,763.436,1449.928,763.436z"/>
+<path id="rect3481" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="1" d="M1100.424,329.414h1.104
+	c0.801,0,1.447,0.648,1.447,1.449v1.101c0,0.801-0.646,1.45-1.447,1.45h-1.104c-0.8,0-1.449-0.649-1.449-1.45v-1.101
+	C1098.975,330.063,1099.624,329.414,1100.424,329.414z"/>
+<text transform="matrix(0.9659 -0.2588 0.2588 0.9659 1028.8584 353.6582)" font-family="'ArialMT'" font-size="12">Viertelsweg</text>
+<text transform="matrix(1 0 0 1 1039.9141 210.8203)" font-family="'Arial-BoldMT'" font-size="16">Gohlis,</text>
+<text transform="matrix(1 0 0 1 1039.9141 224.29)" font-family="'ArialMT'" font-size="12">Landsberger Str.</text>
+<text transform="matrix(0.9659 -0.2588 0.2588 0.9659 1285.5781 702.2798)" font-family="'Arial-BoldMT'" font-size="12">Augustus-</text>
+<text transform="matrix(0.9659 -0.2588 0.2588 0.9659 1288.6846 713.8711)" font-family="'Arial-BoldMT'" font-size="12">platz</text>
+<text transform="matrix(1 0 0 1 1457.9033 772.1533)" font-family="'ArialMT'" font-size="12">Breite</text>
+<text transform="matrix(1 0 0 1 1457.9033 784.1533)" font-family="'ArialMT'" font-size="12">Str.</text>
+<text transform="matrix(0.7071 -0.7071 0.7071 0.7071 1481.7783 940.833)" font-family="'ArialMT'" font-size="12">Weißestr.</text>
+<text transform="matrix(1 0 0 1 1632.0791 921.835)" font-family="'Arial-BoldMT'" font-size="16">Stötteritz</text>
+<text transform="matrix(0.7071 -0.7071 0.7071 0.7071 1591.8047 918.0869)" font-family="'ArialMT'" font-size="12">Kolmstr.</text>
+<g id="layer2" transform="translate(508.66943,360.60033)">
+	<text transform="matrix(1 0 0 1 -210.2256 -269.4929)" font-family="'ArialMT'" font-size="40">Liniennetz der Straßenbahn Leipzig</text>
+</g>
+</svg>

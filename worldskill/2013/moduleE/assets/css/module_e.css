@@ -1,0 +1,259 @@
+/* --------------------------------------------------------------------------
+   Module E 追加樣式
+   延續題目提供的 LVB 識別色（深藍 #14429c、灰 #84817d），
+   僅補足題目 UI 樣板未涵蓋的清單、報表與訊息區塊。
+   -------------------------------------------------------------------------- */
+
+/* 清單／報表頁需要較寬的內容區 */
+#content.wide {
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* 沒有側欄時內容置中並加寬 */
+#content.full {
+    width: 908px;
+}
+
+/* ---------- 資料表格 ---------- */
+table.items {
+    width: 100%;
+    border: 1px solid #cfcfcf;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 0.95em;
+}
+
+table.items caption {
+    background: #14429c;
+    color: #fff;
+    font-weight: bold;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+table.items th {
+    background: #84817d;
+    color: #fff;
+    font-weight: bold;
+    padding: 6px 8px;
+    border: 1px solid #cfcfcf;
+    white-space: nowrap;
+}
+
+table.items td {
+    padding: 5px 8px;
+    border: 1px solid #e2e2e2;
+    vertical-align: middle;
+}
+
+table.items tbody tr:nth-child(even) {
+    background: #f4f6fa;
+}
+
+table.items tbody tr:hover {
+    background: #e5ecf9;
+}
+
+table.items td.actions {
+    white-space: nowrap;
+}
+
+/* 第一欄通常是名稱／識別碼，避免不必要的換行 */
+table.items td:first-child {
+    white-space: nowrap;
+}
+
+table.items td.empty {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 16px;
+}
+
+/* ---------- 詳細資料表 ---------- */
+table.detail {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+}
+
+table.detail th {
+    width: 190px;
+    background: #ececeb;
+    border: 1px solid #dcdcdc;
+    padding: 5px 8px;
+    font-weight: bold;
+}
+
+table.detail td {
+    border: 1px solid #dcdcdc;
+    padding: 5px 8px;
+}
+
+/* ---------- 按鈕 ---------- */
+a.button,
+input[type="submit"],
+button {
+    display: inline-block;
+    background: #14429c;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    padding: 5px 12px;
+    font: bold 12px Arial, sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.button:hover,
+input[type="submit"]:hover,
+button:hover {
+    background: #0f3178;
+    color: #fff;
+}
+
+a.button.secondary {
+    background: #84817d;
+}
+
+a.button.danger,
+input.danger {
+    background: #a01414;
+}
+
+/* ---------- 標籤（車種／位置） ---------- */
+span.tag {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 9px;
+    font-size: 0.85em;
+    color: #fff;
+    background: #84817d;
+}
+
+span.tag.START { background: #4a8b23; }
+span.tag.INTER { background: #6399cd; }
+span.tag.END   { background: #a01414; }
+
+/* ---------- 路線圖與大頭貼 ---------- */
+img.map-preview {
+    max-width: 100%;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    padding: 4px;
+}
+
+img.avatar {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    vertical-align: middle;
+}
+
+img.avatar-large {
+    width: 140px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    padding: 4px;
+}
+
+/* ---------- 站點指派表單 ---------- */
+ul.station-slots {
+    list-style: none;
+    margin: 0 0 12px 0;
+    padding: 0;
+}
+
+ul.station-slots li {
+    margin-bottom: 6px;
+}
+
+ul.station-slots label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* ---------- 車輛指派清單 ---------- */
+ul.vehicle-picker {
+    list-style: none;
+    margin: 0 0 12px 0;
+    padding: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid #dcdcdc;
+    background: #fafafa;
+    columns: 2;
+}
+
+ul.vehicle-picker li {
+    padding: 2px 0;
+}
+
+ul.vehicle-picker label {
+    display: inline;
+    font-weight: normal;
+}
+
+/* ---------- 提示訊息 ---------- */
+p.hint-text {
+    color: #777;
+    font-style: italic;
+    margin: 0 0 10px;
+}
+
+/* ---------- 首頁摘要卡 ---------- */
+ul.summary {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+    overflow: hidden;
+}
+
+ul.summary li {
+    float: left;
+    width: 140px;
+    margin-right: 10px;
+    padding: 10px;
+    background: #ececeb;
+    border-left: 5px solid #14429c;
+    text-align: center;
+}
+
+ul.summary li strong {
+    display: block;
+    font-size: 1.8em;
+    color: #14429c;
+}
+
+/* ---------- XML 預覽 ---------- */
+pre.xml-preview {
+    max-height: 480px;
+    overflow: auto;
+    background: #fbfbfb;
+    border: 1px solid #dcdcdc;
+    padding: 10px;
+    font-size: 12px;
+    white-space: pre;
+}
+
+/* 版型層級的一次性訊息置於內容區上方 */
+#page > .span-19 > div.flash-success,
+#page > .span-19 > div.flash-notice,
+#page > .span-19 > div.flash-error,
+#page > div.flash-success,
+#page > div.flash-notice,
+#page > div.flash-error {
+    margin: 17px auto 0;
+    width: 656px;
+}
+
+/* 覆寫 core.css 讓表單按鈕不被撐滿 */
+div.form .row.buttons {
+    margin-top: 12px;
+}

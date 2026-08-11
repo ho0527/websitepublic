@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WSC Statistics - central web service</title>
+    <style>
+        body { font: 14px/1.6 Arial, Helvetica, sans-serif; margin: 30px; color: #222; }
+        h1 { font-size: 22px; }
+        code { background: #f2f2f2; padding: 1px 4px; }
+        li { margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+<h1>WSC Statistics &ndash; central web service</h1>
+
+<p>This folder simulates the central server described in Module F
+    (<code>vhost32.skill17.local/Module_F/</code>). The Module F front-end reads its data from here
+    over SOAP at request time, so any change made to the XML files below is immediately visible
+    in the front-end.</p>
+
+<h2>SOAP endpoint</h2>
+<ul>
+    <li><a href="WSC_Statistics.php?wsdl">WSC_Statistics.php?wsdl</a> &ndash; service description</li>
+    <li><code>getList('countrys')</code>, <code>getList('skills')</code>, <code>getResults()</code></li>
+</ul>
+
+<h2>Plain XML (data source of the SOAP body)</h2>
+<ul>
+    <li><a href="data/WSC-Countrys.xml">data/WSC-Countrys.xml</a></li>
+    <li><a href="data/WSC-Skills.xml">data/WSC-Skills.xml</a></li>
+    <li><a href="data/WSC-Results.xml">data/WSC-Results.xml</a></li>
+</ul>
+
+<h2>Sample subsets for trade 01 and 02</h2>
+<ul>
+    <li><a href="data/WSC-Countrys_trade01_02.xml">data/WSC-Countrys_trade01_02.xml</a></li>
+    <li><a href="data/WSC-Skills_trade01_02.xml">data/WSC-Skills_trade01_02.xml</a></li>
+    <li><a href="data/WSC-Results_trade01_02.xml">data/WSC-Results_trade01_02.xml</a></li>
+</ul>
+
+<p><a href="../">&laquo; back to the Module F front-end</a></p>
+</body>
+</html>

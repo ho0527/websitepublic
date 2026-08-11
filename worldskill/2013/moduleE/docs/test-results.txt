@@ -1,0 +1,71 @@
+WorldSkills 2013 - Module E functional test
+----------------------------------------------------------------------
+
+== 1. Authentication
+  [PASS] A guest is redirected to the login page -> HTTP 302
+  [PASS] A wrong password is rejected
+  [PASS] webmaster / leipzig can log in
+  [PASS] The main menu is visible once logged in
+
+== 2. Create stations and a vehicle
+  [PASS] 8 new stations created -> 8 stations
+  [PASS] A new vehicle created -> TEST-BUS-CB651A (id 68)
+  [PASS] A tram created for the type-mismatch test
+
+== 3. Create an Intermediate Line with a route map
+  [PASS] The line was created and the user sent to the stations form -> TEST Line CC1664 (id 16)
+  [PASS] The uploaded route map is stored on the server -> Line_A33_1.svg
+  [PASS] A duplicated line name is rejected
+
+== 4. Assign exactly seven stations
+  [PASS] An incomplete selection is rejected (all 7 at the same time)
+  [PASS] The same station twice in one line is rejected
+  [PASS] A station that already belongs to another line is rejected
+  [PASS] Seven free stations are accepted
+  [PASS] The line now has exactly 7 stations
+  [PASS] The start station is stored with position START
+  [PASS] The end station is stored with position END
+  [PASS] Five intermediate stations are stored
+  [PASS] An unused station stays free
+
+== 5. Assign vehicles
+  [PASS] A vehicle of another type is rejected
+  [PASS] Selecting more than ten vehicles is rejected -> 11 selected
+  [PASS] A free vehicle of the right type is accepted
+  [PASS] A vehicle already assigned is not offered to another line
+
+== 6. Line view shows map, stations and vehicles
+  [PASS] The route map is shown on the line view
+  [PASS] All seven stations are listed -> 7 stations shown
+  [PASS] The assigned vehicle is listed
+
+== 7. Drivers
+  [PASS] A driver was created and assigned to the vehicle
+  [PASS] The uploaded avatar is stored on the server -> driver.png
+  [PASS] A driver cannot be assigned to a vehicle of another type
+  [PASS] An invalid birth date is rejected
+  [PASS] The drivers report shows the new driver and its avatar
+
+== 8. XML export
+  [PASS] The generated XML validates against lvb_system.xsd
+  [PASS] The XML contains the new line (data comes from the database)
+  [PASS] The XML contains the assigned vehicle and its driver
+  [PASS] count_vehicles matches the number of vehicles
+
+== 9. Administrator users
+  [PASS] A new administrator was created -> testadmin4cc5a
+  [PASS] The password is stored as md5
+  [PASS] The new administrator can log in
+
+== 10. Update and delete
+  [PASS] The line can be modified
+  [PASS] The line was deleted
+  [PASS] Its stations are free again
+  [PASS] Its vehicles are free again
+  [PASS] Deleting a vehicle frees its drivers
+
+== 11. Clean-up
+  [PASS] All test records removed
+
+----------------------------------------------------------------------
+PASSED: 44   FAILED: 0

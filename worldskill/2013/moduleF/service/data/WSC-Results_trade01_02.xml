@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xsi:type="ns2:list" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.mytest.com/WSCstats">
+	<results xsi:type="ns2:results">
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">TW</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">GOLD</award>
+				<points xsi:type="xsd:int">544</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">AT</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">SILVER</award>
+				<points xsi:type="xsd:int">538</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">CH</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">BRONZE</award>
+				<points xsi:type="xsd:int">522</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">BR</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion For Excellence</award>
+				<points xsi:type="xsd:int">513</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">KR</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">499</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">NZ</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">496</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">JP</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">494</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">LI</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">471</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">PT</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">468</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">DE</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">466</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">FI</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">457</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">JP</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">GOLD</award>
+				<points xsi:type="xsd:int">556</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">NO</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">SILVER</award>
+				<points xsi:type="xsd:int">534</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">SE</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">BRONZE</award>
+				<points xsi:type="xsd:int">511</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">SG</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">498</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">KR</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">486</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">NL</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">485</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">CA</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">466</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2009</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">TH</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">465</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">JP</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">GOLD</award>
+				<points xsi:type="xsd:int">541</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">KR</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">SILVER</award>
+				<points xsi:type="xsd:int">533</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">TW</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">BRONZE</award>
+				<points xsi:type="xsd:int">521</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">BR</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">BRONZE</award>
+				<points xsi:type="xsd:int">521</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">NZ</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">BRONZE</award>
+				<points xsi:type="xsd:int">519</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">CH</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion For Excellence</award>
+				<points xsi:type="xsd:int">511</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">AT</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion For Excellence</award>
+				<points xsi:type="xsd:int">508</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">PT</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion For Excellence</award>
+				<points xsi:type="xsd:int">506</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">DE</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">490</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">LI</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">483</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">IE</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">481</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">FI</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">448</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">HR</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">437</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">JP</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">GOLD</award>
+				<points xsi:type="xsd:int">562</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">TW</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">SILVER</award>
+				<points xsi:type="xsd:int">533</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">NO</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">BRONZE</award>
+				<points xsi:type="xsd:int">504</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">KR</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">494</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">SG</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">486</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">SE</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">479</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">NL</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">475</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2007</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">BR</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">468</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">KR</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">GOLD</award>
+				<points xsi:type="xsd:int">537</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">DE</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">SILVER</award>
+				<points xsi:type="xsd:int">528</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">BR</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">SILVER</award>
+				<points xsi:type="xsd:int">527</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">JP</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">SILVER</award>
+				<points xsi:type="xsd:int">526</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">AT</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion for Excellence</award>
+				<points xsi:type="xsd:int">523</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">NL</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion for Excellence</award>
+				<points xsi:type="xsd:int">517</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">CH</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion for Excellence</award>
+				<points xsi:type="xsd:int">516</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">LI</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion for Excellence</award>
+				<points xsi:type="xsd:int">512</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">FI</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion for Excellence</award>
+				<points xsi:type="xsd:int">500</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">TW</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">484</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">IN</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">467</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">PT</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">466</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">NZ</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">452</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">01</skill_number>
+			<country_iso xsi:type="xsd:string">ES</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">445</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">JP</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">GOLD</award>
+				<points xsi:type="xsd:int">569</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">KR</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">SILVER</award>
+				<points xsi:type="xsd:int">536</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">SG</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">BRONZE</award>
+				<points xsi:type="xsd:int">517</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">VN</country_iso>
+			<score xsi:type="ns2:score">
+				<award xsi:type="xsd:string">Medallion for Excellence</award>
+				<points xsi:type="xsd:int">510</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">HK</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">499</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">SE</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">488</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">TH</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">487</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">MO</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">484</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">NO</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">478</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">AE</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">466</points>
+			</score>
+		</result>
+		<result xsi:type="ns2:result">
+			<year xsi:type="xsd:int">2011</year>
+			<skill_number xsi:type="xsd:string">02</skill_number>
+			<country_iso xsi:type="xsd:string">BR</country_iso>
+			<score xsi:type="ns2:score">
+				<points xsi:type="xsd:int">465</points>
+			</score>
+		</result>
+	</results>
+</list>

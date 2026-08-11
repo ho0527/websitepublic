@@ -1,0 +1,61 @@
+WorldSkills 2013 - Module F test suite
+----------------------------------------------------------------------
+
+== 1. SOAP round-trip
+  [PASS] Transport used -> SOAP web service, in-process call (C:/nginx/skill/worldskill/2013/moduleF/service)
+  [PASS] Countries received over SOAP -> 50 countries
+  [PASS] Skills received over SOAP -> 52 trades
+  [PASS] Results received over SOAP -> 2491 results (XML file contains 2491)
+  [PASS] First 50 results identical to the XML source -> 0 mismatches
+
+== 2. Dropdown content and sorting
+  [PASS] Countries sorted by ISO code -> AE, AT, AU, BE, BR, CA ...
+  [PASS] Country label shows "ISO - name" -> AU - Australia
+  [PASS] Trades sorted by trade number -> 01, 02, 03, 04, 05, 06 ...
+  [PASS] Trade label shows "number - name" -> 17 - Web Design
+  [PASS] Duplicated trade numbers removed -> 52 unique trade numbers
+
+== 3. Table: medals by country
+  [PASS] AU: number of awards matches the XML source -> 65 awards (expected 65)
+  [PASS] AU: every award value matches
+  [PASS] AU: rows sorted by trade number -> 03, 09, 10, 12, 13, 15, 17, 18 ...
+  [PASS] CH: number of awards matches the XML source -> 91 awards (expected 91)
+  [PASS] CH: every award value matches
+  [PASS] CH: rows sorted by trade number -> 01, 04, 05, 06, 07, 09, 11, 12 ...
+  [PASS] TW: number of awards matches the XML source -> 81 awards (expected 81)
+  [PASS] TW: every award value matches
+  [PASS] TW: rows sorted by trade number -> 01, 02, 03, 04, 05, 06, 07, 08 ...
+  [PASS] Unknown country returns an empty table
+
+== 4. Diagram: performance by trade
+  [PASS] Trade 17 / 2007: average is correct -> got 500.0, expected 500.0 (19 competitors)
+  [PASS] Trade 17 / 2009: average is correct -> got 500.0, expected 500.0 (25 competitors)
+  [PASS] Trade 17 / 2011: average is correct -> got 500.0, expected 500.0 (27 competitors)
+  [PASS] Trade 17: every country data point is correct -> 31 countries, 0 wrong values
+  [PASS] Trade 13 / 2007: average is correct -> got 500.1, expected 500.1 (17 competitors)
+  [PASS] Trade 13 / 2009: average is correct -> got 499.9, expected 499.9 (17 competitors)
+  [PASS] Trade 13 / 2011: average is correct -> got 500.1, expected 500.1 (15 competitors)
+  [PASS] Trade 13: every country data point is correct -> 19 countries, 0 wrong values
+  [PASS] Trade 01 / 2007: average is correct -> got 499.9, expected 499.9 (13 competitors)
+  [PASS] Trade 01 / 2009: average is correct -> got 497.1, expected 497.1 (11 competitors)
+  [PASS] Trade 01 / 2011: average is correct -> got 500.0, expected 500.0 (14 competitors)
+  [PASS] Trade 01: every country data point is correct -> 16 countries, 0 wrong values
+  [PASS] Filtering by one country returns exactly that country -> AU
+  [PASS] Average is identical for "one country" and "all countrys" -> {"2007":500,"2009":500,"2011":500}
+  [PASS] Unknown trade returns no series
+
+== 5. Changes on the central server propagate to the front-end
+  [PASS] A score changed on the central server is visible immediately -> before 490.0, after 999.0
+  [PASS] A result added on the central server appears in the diagram data -> ZW 2011 = 600.0
+  [PASS] Central data restored
+
+== 6. Error handling
+  [PASS] Unknown operation returns a SOAP fault
+  [PASS] Malformed request returns a SOAP fault
+  [PASS] Unknown listType returns a SOAP fault
+  [PASS] Client converts a SOAP fault into an exception
+  [PASS] Client reports an unreachable service as a transport error
+  [PASS] A corrupt data file produces a readable error message -> The XML data source WSC-Skills.xml is not well-formed.
+
+----------------------------------------------------------------------
+PASSED: 44   FAILED: 0

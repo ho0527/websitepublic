@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wsc-skills xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<skill>
+		<number>D1</number>
+		<name-en>Aircraft Maintenance</name-en>
+	</skill>
+	<skill>
+		<number>13</number>
+		<name-en>Autobody Repair</name-en>
+	</skill>
+	<skill>
+		<number>33</number>
+		<name-en>Automobile Technology</name-en>
+	</skill>
+	<skill>
+		<number>D4</number>
+		<name-en>Bakery</name-en>
+	</skill>
+	<skill>
+		<number>30</number>
+		<name-en>Beauty Therapy</name-en>
+	</skill>
+	<skill>
+		<number>20</number>
+		<name-en>Bricklaying</name-en>
+	</skill>
+	<skill>
+		<number>24</number>
+		<name-en>Cabinetmaking</name-en>
+	</skill>
+	<skill>
+		<number>36</number>
+		<name-en>Car Painting</name-en>
+	</skill>
+	<skill>
+		<number>41</number>
+		<name-en>Caring</name-en>
+	</skill>
+	<skill>
+		<number>D1</number>
+		<name-en>Caring</name-en>
+	</skill>
+	<skill>
+		<number>26</number>
+		<name-en>Carpentry</name-en>
+	</skill>
+	<skill>
+		<number>07</number>
+		<name-en>CNC Milling</name-en>
+	</skill>
+	<skill>
+		<number>06</number>
+		<name-en>CNC Turning</name-en>
+	</skill>
+	<skill>
+		<number>32</number>
+		<name-en>Confectioner/Pastry Cook</name-en>
+	</skill>
+	<skill>
+		<number>42</number>
+		<name-en>Construction Metal Work</name-en>
+	</skill>
+	<skill>
+		<number>D2</number>
+		<name-en>Construction Metal Works</name-en>
+	</skill>
+	<skill>
+		<number>HM2</number>
+		<name-en>Construction Metal Works</name-en>
+	</skill>
+	<skill>
+		<number>34</number>
+		<name-en>Cooking</name-en>
+	</skill>
+	<skill>
+		<number>18</number>
+		<name-en>Electrical Installations</name-en>
+	</skill>
+	<skill>
+		<number>16</number>
+		<name-en>Electronics</name-en>
+	</skill>
+	<skill>
+		<number>31</number>
+		<name-en>Fashion Technology</name-en>
+	</skill>
+	<skill>
+		<number>28</number>
+		<name-en>Floristry</name-en>
+	</skill>
+	<skill>
+		<number>40</number>
+		<name-en>Graphic Design Technology</name-en>
+	</skill>
+	<skill>
+		<number>19</number>
+		<name-en>Industrial Control</name-en>
+	</skill>
+	<skill>
+		<number>02</number>
+		<name-en>Information Network Cabling</name-en>
+	</skill>
+	<skill>
+		<number>39</number>
+		<name-en>IT PC/Network Support</name-en>
+	</skill>
+	<skill>
+		<number>09</number>
+		<name-en>IT/Software Applications</name-en>
+	</skill>
+	<skill>
+		<number>27</number>
+		<name-en>Jewellery</name-en>
+	</skill>
+	<skill>
+		<number>25</number>
+		<name-en>Joinery</name-en>
+	</skill>
+	<skill>
+		<number>29</number>
+		<name-en>Ladies/Mens Hairdressing</name-en>
+	</skill>
+	<skill>
+		<number>37</number>
+		<name-en>Landscape Gardening</name-en>
+	</skill>
+	<skill>
+		<number>03</number>
+		<name-en>Manufacturing Team Challenge</name-en>
+	</skill>
+	<skill>
+		<number>HM1</number>
+		<name-en>Mechanical Device Control</name-en>
+	</skill>
+	<skill>
+		<number>05</number>
+		<name-en>Mechanical Engineering Design - CAD</name-en>
+	</skill>
+	<skill>
+		<number>04</number>
+		<name-en>Mechatronics</name-en>
+	</skill>
+	<skill>
+		<number>14</number>
+		<name-en>Metal Roofing</name-en>
+	</skill>
+	<skill>
+		<number>23</number>
+		<name-en>Mobile Robotics</name-en>
+	</skill>
+	<skill>
+		<number>D2</number>
+		<name-en>Mobile Robotics</name-en>
+	</skill>
+	<skill>
+		<number>08</number>
+		<name-en>Mould Making</name-en>
+	</skill>
+	<skill>
+		<number>D3</number>
+		<name-en>Mould Making</name-en>
+	</skill>
+	<skill>
+		<number>11</number>
+		<name-en>Offset Printing</name-en>
+	</skill>
+	<skill>
+		<number>22</number>
+		<name-en>Painting &amp; Decorating</name-en>
+	</skill>
+	<skill>
+		<number>HM3</number>
+		<name-en>Pattern Making</name-en>
+	</skill>
+	<skill>
+		<number>HM4</number>
+		<name-en>Plastering</name-en>
+	</skill>
+	<skill>
+		<number>D3</number>
+		<name-en>Plastering and Drywall Systems</name-en>
+	</skill>
+	<skill>
+		<number>15</number>
+		<name-en>Plumbing and Heating</name-en>
+	</skill>
+	<skill>
+		<number>01</number>
+		<name-en>Polymechanics/Automation</name-en>
+	</skill>
+	<skill>
+		<number>38</number>
+		<name-en>Refrigeration</name-en>
+	</skill>
+	<skill>
+		<number>35</number>
+		<name-en>Restaurant Service</name-en>
+	</skill>
+	<skill>
+		<number>43</number>
+		<name-en>Sheet Metal Technology</name-en>
+	</skill>
+	<skill>
+		<number>HM1</number>
+		<name-en>Sheet Metal Technology</name-en>
+	</skill>
+	<skill>
+		<number>HM5</number>
+		<name-en>Sheet Metal Technology</name-en>
+	</skill>
+	<skill>
+		<number>21</number>
+		<name-en>Stonemasonry</name-en>
+	</skill>
+	<skill>
+		<number>12</number>
+		<name-en>Wall &amp; Floor Tiling</name-en>
+	</skill>
+	<skill>
+		<number>17</number>
+		<name-en>Web Design</name-en>
+	</skill>
+	<skill>
+		<number>10</number>
+		<name-en>Welding</name-en>
+	</skill>
+</wsc-skills>

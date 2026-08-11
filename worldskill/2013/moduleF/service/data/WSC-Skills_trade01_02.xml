@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xsi:type="ns2:list" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.mytest.com/WSCstats">
+	<skills xsi:type="ns2:skills">
+		<skill number="02" xsi:type="ns2:skill">
+			<name_en xsi:type="xsd:string">Information Network Cabling</name_en>
+		</skill>
+		<skill number="01" xsi:type="ns2:skill">
+			<name_en xsi:type="xsd:string">Polymechanics/Automation</name_en>
+		</skill>
+	</skills>
+</list>

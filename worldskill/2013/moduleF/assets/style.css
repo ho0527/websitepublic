@@ -1,0 +1,133 @@
+/* --------------------------------------------------------------------------
+   Module F 樣式
+   保留題目樣板 StatisticsTemplate.html 的 .ok / .error 訊息樣式與整體結構，
+   另補上表格交錯底色與版面間距。
+   -------------------------------------------------------------------------- */
+
+body {
+    margin: 24px;
+    color: #222;
+    font: 14px/1.5 Arial, Helvetica, sans-serif;
+    background: #fff;
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: normal;
+    margin: 0 0 18px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 10px;
+}
+
+/* ---------- 區塊 ---------- */
+#MedalsByCountry,
+#PerformanceOverYears {
+    margin-bottom: 34px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+form {
+    margin-bottom: 12px;
+}
+
+select {
+    padding: 3px;
+    font-size: 14px;
+    max-width: 320px;
+}
+
+button {
+    padding: 4px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ---------- 題目樣板提供的訊息樣式 ---------- */
+.ok {
+    background-color: #e8ffd8;
+    border: 1px solid #006d00;
+    padding: 5px 10px;
+}
+
+.error {
+    background-color: #ffd8d8;
+    border: 1px solid #e50000;
+    padding: 5px 10px;
+}
+
+.warning {
+    background-color: #fff6bf;
+    border: 1px solid #ffd324;
+    padding: 5px 10px;
+    max-width: 900px;
+}
+
+p.error,
+p.warning {
+    display: block;
+    margin-bottom: 14px;
+}
+
+span.message {
+    margin-left: 10px;
+}
+
+span.message .ok,
+span.message .error {
+    display: inline-block;
+    font-size: 13px;
+}
+
+.hint {
+    color: #777;
+    font-style: italic;
+}
+
+/* ---------- 獎牌表 ---------- */
+#MedalsByCountryTable {
+    border-collapse: collapse;
+    border: 1px solid #999;
+    max-width: 780px;
+}
+
+#MedalsByCountryTable caption {
+    text-align: left;
+    font-weight: bold;
+    padding: 4px 0;
+}
+
+#MedalsByCountryTable th {
+    background: #cccccc;
+    border: 1px solid #999;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+#MedalsByCountryTable td {
+    border: 1px solid #bbb;
+    padding: 4px 10px;
+}
+
+/* 交錯的列底色，與樣板一致 */
+#MedalsByCountryTable tbody tr:nth-child(even) {
+    background: #eeeeee;
+}
+
+/* ---------- 圖表 ---------- */
+img.diagram {
+    display: block;
+    margin-top: 10px;
+    border: 1px solid #d0d0d0;
+    max-width: 100%;
+}
+
+/* ---------- 頁尾 ---------- */
+p.source {
+    color: #888;
+    font-size: 12px;
+}
