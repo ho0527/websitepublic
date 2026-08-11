@@ -1,0 +1,445 @@
+/* ==========================================================================
+   A07 Messenger 設計稿：兩張 360 x 640 的手機畫面
+   ========================================================================== */
+
+:root {
+	--brand: #2f6bff;
+	--brand-soft: #eaf0ff;
+	--text: #16202c;
+	--muted: #8b95a3;
+	--line: #e6eaef;
+	--bg: #ffffff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 32px 16px 56px;
+	background: #eef1f5;
+	color: var(--text);
+	font-family: "Microsoft JhengHei", "Segoe UI", system-ui, sans-serif;
+}
+
+.intro {
+	max-width: 880px;
+	margin: 0 auto 28px;
+}
+
+.intro h1 {
+	margin: 0 0 6px;
+	font-size: 26px;
+}
+
+.intro p {
+	margin: 0;
+	color: #6b7a89;
+	font-size: 14px;
+}
+
+.mockups {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 48px;
+	justify-content: center;
+}
+
+.screen-wrap {
+	margin: 0;
+	text-align: center;
+}
+
+.screen-wrap figcaption {
+	margin-top: 12px;
+	font-size: 13px;
+	color: #6b7a89;
+}
+
+/* 畫面本體固定 360 x 640 */
+.screen {
+	position: relative;
+	width: 360px;
+	height: 640px;
+	background: var(--bg);
+	border-radius: 18px;
+	box-shadow: 0 10px 30px rgba(22, 32, 44, .18);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+   共用：圖示、頭像
+   -------------------------------------------------------------------------- */
+.icon {
+	width: 22px;
+	height: 22px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.icon--sm {
+	width: 16px;
+	height: 16px;
+}
+
+.icon--filled {
+	fill: currentColor;
+	stroke: none;
+}
+
+.icon-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	flex: none;
+	padding: 0;
+	color: inherit;
+	background: transparent;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.icon-btn:hover {
+	background: rgba(22, 32, 44, .06);
+}
+
+/* 以文字縮寫呈現的頭像 */
+.avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: .5px;
+}
+
+.avatar--sm {
+	width: 34px;
+	height: 34px;
+	font-size: 12px;
+}
+
+.avatar--xs {
+	width: 26px;
+	height: 26px;
+	font-size: 10px;
+	align-self: flex-end;
+}
+
+.avatar--a { background: linear-gradient(135deg, #ff7a59, #ff4f81); }
+.avatar--b { background: linear-gradient(135deg, #3ec5ff, #2f6bff); }
+.avatar--c { background: linear-gradient(135deg, #43cea2, #1c9c76); }
+.avatar--d { background: linear-gradient(135deg, #f7b733, #f25f4c); }
+.avatar--e { background: linear-gradient(135deg, #9b6bff, #5b3bd6); }
+.avatar--f { background: linear-gradient(135deg, #56ccf2, #6fcf97); }
+
+/* --------------------------------------------------------------------------
+   標題列
+   -------------------------------------------------------------------------- */
+.topbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	height: 56px;
+	padding: 0 12px;
+	flex: none;
+	border-bottom: 1px solid var(--line);
+	background: #fff;
+}
+
+.topbar__title {
+	flex: 1;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.topbar--chat {
+	box-shadow: 0 1px 6px rgba(22, 32, 44, .06);
+}
+
+.chat-head {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	line-height: 1.25;
+	min-width: 0;
+}
+
+.chat-head__name {
+	font-size: 15px;
+	font-weight: 700;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.chat-head__status {
+	font-size: 12px;
+	color: #22b573;
+}
+
+/* 三點選單 */
+.menu-btn {
+	flex-direction: column;
+	gap: 3px;
+}
+
+.menu-btn .dot {
+	width: 4px;
+	height: 4px;
+	background: var(--text);
+	border-radius: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   畫面一：搜尋框與對話清單
+   -------------------------------------------------------------------------- */
+.searchbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 12px 16px 4px;
+	padding: 9px 12px;
+	flex: none;
+	color: var(--muted);
+	background: #f1f3f6;
+	border-radius: 20px;
+	font-size: 14px;
+}
+
+.dialogs {
+	flex: 1;
+	margin: 0;
+	padding: 4px 0 76px;
+	list-style: none;
+	overflow: hidden;
+}
+
+.dialog {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 11px 16px;
+}
+
+.dialog + .dialog {
+	border-top: 1px solid var(--line);
+}
+
+.dialog__body {
+	flex: 1;
+	min-width: 0;
+}
+
+.dialog__row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.dialog__name {
+	flex: 1;
+	font-size: 15px;
+	font-weight: 700;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.dialog__time {
+	font-size: 12px;
+	color: var(--muted);
+	flex: none;
+}
+
+.dialog__preview {
+	flex: 1;
+	font-size: 13px;
+	color: var(--muted);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* 未讀數量 */
+.badge {
+	flex: none;
+	min-width: 20px;
+	height: 20px;
+	padding: 0 6px;
+	background: var(--brand);
+	color: #fff;
+	border-radius: 10px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 20px;
+	text-align: center;
+}
+
+/* 新增對話按鈕 */
+.fab {
+	position: absolute;
+	right: 18px;
+	bottom: 18px;
+	width: 54px;
+	height: 54px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	background: var(--brand);
+	border: none;
+	border-radius: 50%;
+	box-shadow: 0 6px 16px rgba(47, 107, 255, .45);
+	cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   畫面二：訊息與輸入列
+   -------------------------------------------------------------------------- */
+.messages {
+	flex: 1;
+	padding: 14px 12px;
+	background: #f5f7fa;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	overflow: hidden;
+}
+
+.day-divider {
+	align-self: center;
+	padding: 3px 12px;
+	background: #e2e7ee;
+	color: var(--muted);
+	border-radius: 12px;
+	font-size: 11px;
+}
+
+.msg {
+	display: flex;
+	align-items: flex-end;
+	gap: 8px;
+	max-width: 84%;
+}
+
+.msg--in {
+	align-self: flex-start;
+}
+
+.msg--out {
+	align-self: flex-end;
+}
+
+.bubble {
+	position: relative;
+	padding: 8px 12px 18px;
+	background: #fff;
+	border-radius: 14px 14px 14px 4px;
+	box-shadow: 0 1px 3px rgba(22, 32, 44, .1);
+}
+
+.bubble p {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.bubble--out {
+	background: var(--brand);
+	color: #fff;
+	border-radius: 14px 14px 4px 14px;
+}
+
+.bubble__time {
+	position: absolute;
+	right: 10px;
+	bottom: 4px;
+	font-size: 10px;
+	color: var(--muted);
+}
+
+.bubble--out .bubble__time {
+	color: rgba(255, 255, 255, .8);
+}
+
+/* 對方輸入中的三個點 */
+.bubble--typing {
+	display: flex;
+	gap: 4px;
+	padding: 12px;
+}
+
+.typing {
+	width: 6px;
+	height: 6px;
+	background: var(--muted);
+	border-radius: 50%;
+	animation: typing 1.2s infinite ease-in-out;
+}
+
+.typing:nth-child(2) {
+	animation-delay: .2s;
+}
+
+.typing:nth-child(3) {
+	animation-delay: .4s;
+}
+
+@keyframes typing {
+	0%, 60%, 100% { opacity: .3; transform: translateY(0); }
+	30% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* 輸入列 */
+.composer {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 12px;
+	flex: none;
+	background: #fff;
+	border-top: 1px solid var(--line);
+}
+
+.composer__field {
+	flex: 1;
+	padding: 10px 14px;
+	color: var(--muted);
+	background: #f1f3f6;
+	border-radius: 20px;
+	font-size: 14px;
+}
+
+.send-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	flex: none;
+	color: #fff;
+	background: var(--brand);
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.send-btn:hover {
+	background: #2455d8;
+}

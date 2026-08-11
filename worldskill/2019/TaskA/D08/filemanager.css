@@ -1,0 +1,304 @@
+/* ==========================================================================
+   D08 File manager 版面樣式
+   ========================================================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 28px 20px 56px;
+	background: #eef1f5;
+	color: #26313d;
+	font-family: "Microsoft JhengHei", "Segoe UI", system-ui, sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.app {
+	max-width: 1180px;
+	margin: 0 auto;
+}
+
+.app__head h1 {
+	margin: 0 0 4px;
+	font-size: 24px;
+}
+
+.app__head p {
+	margin: 0 0 16px;
+	color: #6f7b88;
+	font-size: 13px;
+}
+
+code {
+	background: #dfe4ea;
+	padding: 1px 6px;
+	border-radius: 4px;
+	font-family: Consolas, "Courier New", monospace;
+}
+
+/* 操作結果訊息 */
+.flash {
+	margin: 0 0 14px;
+	padding: 9px 14px;
+	border-radius: 6px;
+	font-size: 13px;
+}
+
+.flash--ok {
+	background: #e2f6ea;
+	color: #1d7a45;
+	border: 1px solid #b7e6c9;
+}
+
+.flash--err {
+	background: #fdeaea;
+	color: #b02a25;
+	border: 1px solid #f4c4c2;
+}
+
+/* 麵包屑 */
+.crumbs {
+	margin-bottom: 12px;
+	font-size: 14px;
+}
+
+.crumbs a {
+	color: #2f6bff;
+	text-decoration: none;
+}
+
+.crumbs a:hover {
+	text-decoration: underline;
+}
+
+.crumbs__sep {
+	margin: 0 6px;
+	color: #9aa3ac;
+}
+
+/* --------------------------------------------------------------------------
+   左右面板
+   -------------------------------------------------------------------------- */
+.panels {
+	display: flex;
+	gap: 18px;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+.panel {
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 12px rgba(38, 49, 61, .08);
+	overflow: hidden;
+}
+
+.panel--list {
+	flex: 1 1 520px;
+	min-width: 420px;
+}
+
+.panel--editor {
+	flex: 1 1 460px;
+	min-width: 380px;
+}
+
+.panel__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 12px 16px;
+	background: #f7f9fb;
+	border-bottom: 1px solid #e2e7ec;
+	font-size: 13px;
+	font-weight: 700;
+	color: #55606c;
+}
+
+.panel__ops {
+	display: flex;
+	gap: 8px;
+}
+
+.hint {
+	margin: 0;
+	padding: 28px 16px;
+	color: #99a2ab;
+	text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   檔案清單
+   -------------------------------------------------------------------------- */
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table th,
+.table td {
+	padding: 9px 14px;
+	border-bottom: 1px solid #eef1f4;
+	text-align: left;
+}
+
+.table th {
+	font-size: 12px;
+	color: #8a939d;
+	font-weight: 700;
+}
+
+.table tr.is-open {
+	background: #eef4ff;
+}
+
+.table .num {
+	color: #7b848d;
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.table__ops {
+	text-align: right;
+	white-space: nowrap;
+}
+
+.table__empty {
+	text-align: center;
+	color: #a4acb4;
+	padding: 26px 0;
+}
+
+.name {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: #26313d;
+	text-decoration: none;
+}
+
+.name:hover {
+	color: #2f6bff;
+}
+
+.name--plain {
+	color: #97a0a9;
+}
+
+/* 以純 CSS 畫出的小圖示 */
+.ico {
+	width: 16px;
+	height: 14px;
+	flex: none;
+	border-radius: 2px;
+}
+
+.ico--dir {
+	background: #f6c453;
+	border-top: 4px solid #e0a92f;
+}
+
+.ico--file {
+	background: #cfe0ff;
+	border-left: 4px solid #2f6bff;
+}
+
+.ico--bin {
+	background: #e3e7eb;
+	border-left: 4px solid #aab3bc;
+}
+
+/* --------------------------------------------------------------------------
+   按鈕
+   -------------------------------------------------------------------------- */
+.btn {
+	display: inline-block;
+	padding: 6px 14px;
+	font: inherit;
+	font-size: 13px;
+	color: #3c4854;
+	background: #eef1f5;
+	border: 1px solid #d7dde3;
+	border-radius: 6px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: #e3e8ee;
+}
+
+.btn--sm {
+	padding: 4px 10px;
+	font-size: 12px;
+}
+
+.btn--primary {
+	background: #2f6bff;
+	border-color: #2f6bff;
+	color: #fff;
+}
+
+.btn--primary:hover {
+	background: #2455d8;
+}
+
+.btn--danger {
+	color: #c23b34;
+	border-color: #f0c3c0;
+	background: #fdf0ef;
+}
+
+.btn--danger:hover {
+	background: #fbdedc;
+}
+
+/* --------------------------------------------------------------------------
+   新增項目
+   -------------------------------------------------------------------------- */
+.creators {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	padding: 14px 16px;
+	background: #fafbfc;
+	border-top: 1px solid #e8ecf0;
+}
+
+.creators form {
+	display: flex;
+	gap: 8px;
+}
+
+.creators input {
+	padding: 6px 10px;
+	font: inherit;
+	font-size: 13px;
+	border: 1px solid #d7dde3;
+	border-radius: 6px;
+	min-width: 170px;
+}
+
+/* --------------------------------------------------------------------------
+   編輯器
+   -------------------------------------------------------------------------- */
+.editor {
+	display: block;
+	width: 100%;
+	height: 430px;
+	padding: 14px 16px;
+	border: none;
+	outline: none;
+	resize: vertical;
+	font-family: Consolas, "Courier New", monospace;
+	font-size: 13px;
+	line-height: 1.6;
+	color: #26313d;
+	background: #fff;
+	white-space: pre;
+	overflow: auto;
+}

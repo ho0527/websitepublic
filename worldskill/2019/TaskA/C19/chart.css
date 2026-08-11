@@ -1,0 +1,227 @@
+/* ==========================================================================
+   C19 Chart from data：堆疊面積圖版面樣式
+   ========================================================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 32px 16px 56px;
+	background: #f2f4f7;
+	color: #2c3742;
+	font-family: "Microsoft JhengHei", "Segoe UI", system-ui, sans-serif;
+}
+
+.board {
+	max-width: 1040px;
+	margin: 0 auto;
+	padding: 28px 32px 32px;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 3px 16px rgba(44, 55, 66, .1);
+}
+
+.board__head h1 {
+	margin: 0 0 6px;
+	font-size: 26px;
+	font-weight: 600;
+	color: #464b4f;
+}
+
+.board__sub {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #7c858e;
+}
+
+/* --------------------------------------------------------------------------
+   工具列
+   -------------------------------------------------------------------------- */
+.toolbar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 20px 0 4px;
+	flex-wrap: wrap;
+}
+
+.toolbar__label {
+	font-size: 13px;
+	font-weight: 700;
+	color: #6b737b;
+}
+
+.toolbar select {
+	padding: 7px 12px;
+	font: inherit;
+	font-size: 14px;
+	color: #2c3742;
+	background: #fff;
+	border: 1px solid #d5dae0;
+	border-radius: 6px;
+	min-width: 260px;
+}
+
+.toolbar__hint {
+	font-size: 12px;
+	color: #9aa2ab;
+}
+
+/* --------------------------------------------------------------------------
+   圖表本體
+   -------------------------------------------------------------------------- */
+.chart {
+	position: relative;
+	margin: 8px 0 0;
+}
+
+.chart svg {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* 座標軸與格線 */
+.axis-line {
+	stroke: #b9c0c7;
+	stroke-width: 1;
+}
+
+.grid-line {
+	stroke: #dfe3e8;
+	stroke-width: 1;
+	stroke-dasharray: 4 4;
+}
+
+.tick-text {
+	fill: #7c858e;
+	font-size: 14px;
+}
+
+.tick-text--x {
+	text-anchor: middle;
+}
+
+.tick-text--y {
+	text-anchor: end;
+	dominant-baseline: middle;
+}
+
+.axis-title {
+	fill: #7c858e;
+	font-size: 13px;
+}
+
+/* 各資料層 */
+.area {
+	transition: opacity .2s;
+}
+
+.area-label {
+	font-size: 14px;
+	dominant-baseline: middle;
+}
+
+/* 滑鼠導引線與標記點 */
+.hover-line {
+	stroke: #46505a;
+	stroke-width: 1;
+	stroke-dasharray: 3 3;
+}
+
+.hover-dot {
+	stroke: #fff;
+	stroke-width: 2;
+}
+
+/* --------------------------------------------------------------------------
+   提示框
+   -------------------------------------------------------------------------- */
+.tooltip {
+	position: absolute;
+	min-width: 210px;
+	padding: 10px 12px;
+	background: rgba(30, 38, 46, .94);
+	color: #fff;
+	border-radius: 8px;
+	font-size: 13px;
+	line-height: 1.6;
+	pointer-events: none;
+	transform: translate(-50%, -110%);
+	white-space: nowrap;
+	z-index: 5;
+}
+
+.tooltip__year {
+	font-weight: 700;
+	font-size: 14px;
+	margin-bottom: 4px;
+	display: block;
+}
+
+.tooltip__row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.tooltip__swatch {
+	width: 10px;
+	height: 10px;
+	border-radius: 2px;
+	flex: none;
+}
+
+.tooltip__name {
+	flex: 1;
+}
+
+.tooltip__value {
+	font-variant-numeric: tabular-nums;
+	font-weight: 700;
+}
+
+.tooltip__total {
+	margin-top: 4px;
+	padding-top: 4px;
+	border-top: 1px solid rgba(255, 255, 255, .25);
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   圖例
+   -------------------------------------------------------------------------- */
+.legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+	margin: 18px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.legend__item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.legend__item.is-off {
+	opacity: .35;
+	text-decoration: line-through;
+}
+
+.legend__swatch {
+	width: 14px;
+	height: 14px;
+	border-radius: 3px;
+	flex: none;
+}

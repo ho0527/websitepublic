@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>C19 - Chart from data</title>
+	<link rel="stylesheet" href="chart.css">
+</head>
+
+<body>
+	<main class="board">
+		<header class="board__head">
+			<h1 id="chart-title">Death rates from air pollution, All countries</h1>
+			<p class="board__sub">Age-standardized death rates from outdoor ozone, particulates, and indoor fuel
+				pollution per 100,000 individuals. 資料來源：death-rate-by-source-from-air-pollution.csv（1990–2017）</p>
+		</header>
+
+		<!-- 資料範圍選擇：預設為所有國家的平均值 -->
+		<div class="toolbar">
+			<label class="toolbar__label" for="scope">資料範圍</label>
+			<select id="scope"></select>
+			<span class="toolbar__hint" id="scope-hint"></span>
+		</div>
+
+		<!-- 圖表繪製區（純 SVG，由 chart.js 產生） -->
+		<figure class="chart">
+			<svg id="chart-svg" viewBox="0 0 960 520" role="img" aria-label="空氣污染死亡率堆疊面積圖"></svg>
+			<div class="tooltip" id="tooltip" hidden></div>
+		</figure>
+
+		<!-- 圖例：可點擊切換各項目顯示 -->
+		<ul class="legend" id="legend"></ul>
+	</main>
+
+	<script src="chart.js"></script>
+</body>
+
+</html>

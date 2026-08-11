@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A07 - Messenger</title>
+	<link rel="stylesheet" href="messenger.css">
+</head>
+
+<body>
+	<header class="intro">
+		<h1>A07：Messenger 畫面設計稿</h1>
+		<p>兩張 360 × 640 的手機畫面：左為對話列表、右為與使用者的聊天室。</p>
+	</header>
+
+	<div class="mockups">
+
+		<!-- ============ 畫面一：對話列表（頭像、全名、訊息預覽） ============ -->
+		<figure class="screen-wrap">
+			<div class="screen" id="screen-dialogs">
+				<!-- 標題列 -->
+				<div class="topbar">
+					<span class="topbar__title">Messages</span>
+					<button class="icon-btn" type="button" aria-label="搜尋">
+						<svg viewBox="0 0 24 24" class="icon">
+							<circle cx="11" cy="11" r="6.5" />
+							<line x1="16" y1="16" x2="21" y2="21" />
+						</svg>
+					</button>
+				</div>
+
+				<!-- 搜尋框 -->
+				<div class="searchbar">
+					<svg viewBox="0 0 24 24" class="icon icon--sm">
+						<circle cx="11" cy="11" r="6.5" />
+						<line x1="16" y1="16" x2="21" y2="21" />
+					</svg>
+					<span class="searchbar__text">Search messages</span>
+				</div>
+
+				<!-- 對話清單 -->
+				<ul class="dialogs">
+					<li class="dialog">
+						<span class="avatar avatar--a">EC</span>
+						<div class="dialog__body">
+							<div class="dialog__row">
+								<span class="dialog__name">Emma Carter</span>
+								<span class="dialog__time">09:41</span>
+							</div>
+							<div class="dialog__row">
+								<span class="dialog__preview">明天的排版會議改到十點好嗎？</span>
+								<span class="badge">2</span>
+							</div>
+						</div>
+					</li>
+					<li class="dialog">
+						<span class="avatar avatar--b">LW</span>
+						<div class="dialog__body">
+							<div class="dialog__row">
+								<span class="dialog__name">Liam Wang</span>
+								<span class="dialog__time">09:02</span>
+							</div>
+							<div class="dialog__row">
+								<span class="dialog__preview">已經把設計稿放到共用資料夾了</span>
+							</div>
+						</div>
+					</li>
+					<li class="dialog">
+						<span class="avatar avatar--c">SN</span>
+						<div class="dialog__body">
+							<div class="dialog__row">
+								<span class="dialog__name">Sofia Nowak</span>
+								<span class="dialog__time">昨天</span>
+							</div>
+							<div class="dialog__row">
+								<span class="dialog__preview">你：收到，我今晚會處理完</span>
+							</div>
+						</div>
+					</li>
+					<li class="dialog">
+						<span class="avatar avatar--d">KT</span>
+						<div class="dialog__body">
+							<div class="dialog__row">
+								<span class="dialog__name">Kenji Tanaka</span>
+								<span class="dialog__time">昨天</span>
+							</div>
+							<div class="dialog__row">
+								<span class="dialog__preview">照片我傳到相簿了 📷</span>
+								<span class="badge">5</span>
+							</div>
+						</div>
+					</li>
+					<li class="dialog">
+						<span class="avatar avatar--e">MR</span>
+						<div class="dialog__body">
+							<div class="dialog__row">
+								<span class="dialog__name">Marco Rossi</span>
+								<span class="dialog__time">週一</span>
+							</div>
+							<div class="dialog__row">
+								<span class="dialog__preview">下週的機票已經訂好囉</span>
+							</div>
+						</div>
+					</li>
+					<li class="dialog">
+						<span class="avatar avatar--f">AH</span>
+						<div class="dialog__body">
+							<div class="dialog__row">
+								<span class="dialog__name">Aisha Hassan</span>
+								<span class="dialog__time">週一</span>
+							</div>
+							<div class="dialog__row">
+								<span class="dialog__preview">謝謝你的幫忙！</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+
+				<!-- 新增對話的浮動按鈕 -->
+				<button class="fab" type="button" aria-label="建立新對話">
+					<svg viewBox="0 0 24 24" class="icon">
+						<line x1="12" y1="5" x2="12" y2="19" />
+						<line x1="5" y1="12" x2="19" y2="12" />
+					</svg>
+				</button>
+			</div>
+			<figcaption>Screen 1 － 對話列表（360 × 640）</figcaption>
+		</figure>
+
+		<!-- ============ 畫面二：聊天室 ============ -->
+		<figure class="screen-wrap">
+			<div class="screen" id="screen-chat">
+				<!-- 聊天室標題列：返回、頭像、全名、三點選單 -->
+				<div class="topbar topbar--chat">
+					<button class="icon-btn" type="button" aria-label="返回">
+						<svg viewBox="0 0 24 24" class="icon">
+							<polyline points="14,5 7,12 14,19" />
+						</svg>
+					</button>
+					<span class="avatar avatar--a avatar--sm">EC</span>
+					<div class="chat-head">
+						<span class="chat-head__name">Emma Carter</span>
+						<span class="chat-head__status">上線中</span>
+					</div>
+					<button class="icon-btn menu-btn" type="button" aria-label="更多選項">
+						<span class="dot"></span>
+						<span class="dot"></span>
+						<span class="dot"></span>
+					</button>
+				</div>
+
+				<!-- 訊息列表 -->
+				<div class="messages">
+					<div class="day-divider">今天</div>
+
+					<div class="msg msg--in">
+						<span class="avatar avatar--a avatar--xs">EC</span>
+						<div class="bubble">
+							<p>早安！速度競賽的版面你看過了嗎？</p>
+							<span class="bubble__time">09:12</span>
+						</div>
+					</div>
+
+					<div class="msg msg--out">
+						<div class="bubble bubble--out">
+							<p>看過了，A 到 D 部分我都掃過一遍。</p>
+							<span class="bubble__time">09:15</span>
+						</div>
+					</div>
+
+					<div class="msg msg--in">
+						<span class="avatar avatar--a avatar--xs">EC</span>
+						<div class="bubble">
+							<p>太好了，那明天的排版會議改到十點好嗎？</p>
+							<span class="bubble__time">09:38</span>
+						</div>
+					</div>
+
+					<div class="msg msg--out">
+						<div class="bubble bubble--out">
+							<p>沒問題，我把行事曆改一下 👍</p>
+							<span class="bubble__time">09:41</span>
+						</div>
+					</div>
+
+					<div class="msg msg--in">
+						<span class="avatar avatar--a avatar--xs">EC</span>
+						<div class="bubble bubble--typing">
+							<span class="typing"></span>
+							<span class="typing"></span>
+							<span class="typing"></span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 輸入列：文字欄位 + 送出按鈕 -->
+				<div class="composer">
+					<button class="icon-btn" type="button" aria-label="附加檔案">
+						<svg viewBox="0 0 24 24" class="icon">
+							<path d="M20 11l-8.5 8.5a4.5 4.5 0 0 1-6.4-6.4L13 4.8a3 3 0 0 1 4.2 4.2l-8 8a1.5 1.5 0 0 1-2.1-2.1l7.4-7.4" />
+						</svg>
+					</button>
+					<div class="composer__field">Type a message…</div>
+					<button class="send-btn" type="button" aria-label="送出">
+						<svg viewBox="0 0 24 24" class="icon icon--filled">
+							<polygon points="3,20 22,12 3,4 3,10 16,12 3,14" />
+						</svg>
+					</button>
+				</div>
+			</div>
+			<figcaption>Screen 2 － 聊天室（360 × 640）</figcaption>
+		</figure>
+	</div>
+</body>
+
+</html>

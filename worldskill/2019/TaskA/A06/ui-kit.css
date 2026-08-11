@@ -1,0 +1,522 @@
+/* ==========================================================================
+   A06 UI-kit：整套元件共用的設計變數與樣式
+   ========================================================================== */
+
+:root {
+	--color-primary: #3b6ef5;
+	--color-primary-dark: #2b56cc;
+	--color-danger: #f0453a;
+	--color-text: #1f2a37;
+	--color-muted: #7d8794;
+	--color-border: #d3d9e0;
+	--color-surface: #ffffff;
+	--color-page: #eef1f5;
+	--radius: 8px;
+	--shadow: 0 2px 10px rgba(31, 42, 55, .08);
+	--focus-ring: 0 0 0 3px rgba(59, 110, 245, .25);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 32px 16px 64px;
+	background: var(--color-page);
+	color: var(--color-text);
+	font-family: "Microsoft JhengHei", "Segoe UI", system-ui, sans-serif;
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.page {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.page__head h1 {
+	margin: 0 0 6px;
+	font-size: 28px;
+	letter-spacing: 1px;
+}
+
+.page__head p {
+	margin: 0 0 28px;
+	color: var(--color-muted);
+	font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   元件展示區塊
+   -------------------------------------------------------------------------- */
+.kit {
+	background: var(--color-surface);
+	border-radius: 12px;
+	box-shadow: var(--shadow);
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.kit__title {
+	margin: 0;
+	padding: 14px 20px;
+	font-size: 15px;
+	font-weight: 700;
+	border-bottom: 1px solid var(--color-border);
+	background: #f7f9fb;
+}
+
+.kit__body {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.kit__body--row {
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.kit__body--middle {
+	align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   欄位容器
+   -------------------------------------------------------------------------- */
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 220px;
+	max-width: 360px;
+}
+
+.field__label {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   1. 文字框
+   -------------------------------------------------------------------------- */
+.input {
+	width: 100%;
+	padding: 10px 12px;
+	font: inherit;
+	color: var(--color-text);
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	outline: none;
+	transition: border-color .15s, box-shadow .15s;
+}
+
+.input::placeholder {
+	color: #aeb6c0;
+}
+
+.input:focus,
+.input.is-focus {
+	border-color: var(--color-primary);
+	box-shadow: var(--focus-ring);
+}
+
+.input:disabled {
+	background: #f1f3f6;
+	color: var(--color-muted);
+	cursor: not-allowed;
+}
+
+.input--area {
+	resize: vertical;
+}
+
+.input--date {
+	max-width: 240px;
+}
+
+/* --------------------------------------------------------------------------
+   2. 按鈕
+   -------------------------------------------------------------------------- */
+.btn {
+	padding: 10px 20px;
+	font: inherit;
+	font-weight: 600;
+	border: 1px solid transparent;
+	border-radius: var(--radius);
+	cursor: pointer;
+	transition: background-color .15s, box-shadow .15s, color .15s;
+}
+
+.btn:focus-visible {
+	box-shadow: var(--focus-ring);
+	outline: none;
+}
+
+.btn--primary {
+	background: var(--color-primary);
+	color: #fff;
+}
+
+.btn--primary:hover:not(:disabled) {
+	background: var(--color-primary-dark);
+}
+
+.btn--ghost {
+	background: #fff;
+	color: var(--color-primary);
+	border-color: var(--color-primary);
+}
+
+.btn--ghost:hover {
+	background: rgba(59, 110, 245, .08);
+}
+
+.btn--danger {
+	background: var(--color-danger);
+	color: #fff;
+}
+
+.btn--danger:hover {
+	background: #cf372e;
+}
+
+.btn:disabled {
+	background: #c8cdd4;
+	color: #f2f4f6;
+	cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   3. 下拉選單（自繪箭頭）
+   -------------------------------------------------------------------------- */
+.select {
+	position: relative;
+}
+
+.select::after {
+	content: "";
+	position: absolute;
+	top: 18px;
+	right: 14px;
+	width: 8px;
+	height: 8px;
+	border-right: 2px solid var(--color-muted);
+	border-bottom: 2px solid var(--color-muted);
+	transform: rotate(45deg);
+	pointer-events: none;
+}
+
+/* 多選清單不需要下拉箭頭 */
+.select:has(select[multiple])::after {
+	display: none;
+}
+
+.select select {
+	width: 100%;
+	min-width: 220px;
+	padding: 10px 36px 10px 12px;
+	font: inherit;
+	color: var(--color-text);
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	appearance: none;
+	outline: none;
+}
+
+.select select:focus {
+	border-color: var(--color-primary);
+	box-shadow: var(--focus-ring);
+}
+
+.select select[multiple] {
+	padding-right: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   4 / 6. 核取方塊
+   -------------------------------------------------------------------------- */
+.checkbox {
+	appearance: none;
+	flex: none;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: 5px;
+	cursor: pointer;
+	position: relative;
+	transition: background-color .15s, border-color .15s;
+}
+
+.checkbox:checked {
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+}
+
+/* 勾勾以旋轉的 L 形邊框繪製 */
+.checkbox:checked::after {
+	content: "";
+	position: absolute;
+	left: 6px;
+	top: 2px;
+	width: 5px;
+	height: 10px;
+	border-right: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	transform: rotate(45deg);
+}
+
+.checkbox:focus-visible {
+	box-shadow: var(--focus-ring);
+	outline: none;
+}
+
+.checkbox:disabled {
+	background: #e7eaee;
+	border-color: #d3d9e0;
+	cursor: not-allowed;
+}
+
+.checkbox:disabled:checked {
+	background: #aeb6c0;
+	border-color: #aeb6c0;
+}
+
+/* --------------------------------------------------------------------------
+   5 / 7. 單選鈕
+   -------------------------------------------------------------------------- */
+.radio {
+	appearance: none;
+	flex: none;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	cursor: pointer;
+	position: relative;
+	transition: border-color .15s;
+}
+
+.radio:checked {
+	border-color: var(--color-primary);
+	border-width: 2px;
+}
+
+.radio:checked::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 10px;
+	height: 10px;
+	background: var(--color-primary);
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.radio:focus-visible {
+	box-shadow: var(--focus-ring);
+	outline: none;
+}
+
+.radio:disabled {
+	background: #e7eaee;
+	cursor: not-allowed;
+}
+
+.radio:disabled:checked::after {
+	background: #aeb6c0;
+}
+
+.radio:disabled:checked {
+	border-color: #aeb6c0;
+}
+
+/* 帶文字標籤的選擇項 */
+.choice {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	width: fit-content;
+}
+
+.choice__text {
+	font-size: 15px;
+}
+
+.choice.is-disabled {
+	color: var(--color-muted);
+	cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   8. 日曆面板
+   -------------------------------------------------------------------------- */
+.calendar {
+	width: 266px;
+	padding: 12px;
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+}
+
+.calendar__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.calendar__title {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.calendar__nav {
+	width: 26px;
+	height: 26px;
+	font-size: 16px;
+	line-height: 1;
+	color: var(--color-muted);
+	background: #f1f3f6;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.calendar__nav:hover {
+	background: #e2e6eb;
+}
+
+.calendar__grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 2px;
+	text-align: center;
+	font-size: 13px;
+}
+
+.calendar__grid span {
+	padding: 5px 0;
+	border-radius: 6px;
+}
+
+.calendar__grid--week span {
+	color: var(--color-muted);
+	font-weight: 700;
+}
+
+.calendar__grid .is-muted {
+	color: #c3c9d1;
+}
+
+.calendar__grid .is-today {
+	background: var(--color-primary);
+	color: #fff;
+	font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   9. 範圍滑桿
+   -------------------------------------------------------------------------- */
+.range {
+	appearance: none;
+	width: 100%;
+	max-width: 320px;
+	height: 6px;
+	background: #dfe4ea;
+	border-radius: 3px;
+	outline: none;
+	cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	background: var(--color-primary);
+	border: 3px solid #fff;
+	border-radius: 50%;
+	box-shadow: 0 1px 4px rgba(31, 42, 55, .35);
+}
+
+.range::-moz-range-thumb {
+	width: 16px;
+	height: 16px;
+	background: var(--color-primary);
+	border: 3px solid #fff;
+	border-radius: 50%;
+}
+
+.range:disabled {
+	cursor: not-allowed;
+}
+
+.range:disabled::-webkit-slider-thumb {
+	background: #aeb6c0;
+}
+
+/* --------------------------------------------------------------------------
+   10. 進度條
+   -------------------------------------------------------------------------- */
+.progress {
+	appearance: none;
+	width: 100%;
+	max-width: 320px;
+	height: 12px;
+	border: none;
+	border-radius: 6px;
+	overflow: hidden;
+	background: #dfe4ea;
+}
+
+.progress::-webkit-progress-bar {
+	background: #dfe4ea;
+}
+
+.progress::-webkit-progress-value {
+	background: var(--color-primary);
+	border-radius: 6px;
+}
+
+.progress::-moz-progress-bar {
+	background: var(--color-primary);
+}
+
+/* 自訂樣式進度條 */
+.bar {
+	width: 100%;
+	max-width: 320px;
+	height: 20px;
+	background: #dfe4ea;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.bar__fill {
+	height: 100%;
+	background: linear-gradient(90deg, var(--color-primary), #6f97ff);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: 8px;
+}
+
+.bar__text {
+	font-size: 12px;
+	font-weight: 700;
+	color: #fff;
+}

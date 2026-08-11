@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A06 - UI-kit</title>
+	<link rel="stylesheet" href="ui-kit.css">
+</head>
+
+<body>
+	<div class="page">
+		<header class="page__head">
+			<h1>UI-kit</h1>
+			<p>A06：文字框、按鈕、下拉選單、核取方塊、單選鈕、附標籤的核取方塊與單選鈕、日期選擇輸入、範圍滑桿、進度條。</p>
+		</header>
+
+		<!-- 1. 文字框 -->
+		<section class="kit">
+			<h2 class="kit__title">1. Text box｜文字框</h2>
+			<div class="kit__body">
+				<div class="field">
+					<label class="field__label" for="username">使用者名稱</label>
+					<input class="input" id="username" type="text" placeholder="請輸入名稱">
+				</div>
+				<div class="field">
+					<label class="field__label" for="mail">電子郵件（focus 狀態）</label>
+					<input class="input is-focus" id="mail" type="email" value="hello@worldskills.org">
+				</div>
+				<div class="field">
+					<label class="field__label" for="locked">停用狀態</label>
+					<input class="input" id="locked" type="text" value="無法編輯" disabled>
+				</div>
+				<div class="field">
+					<label class="field__label" for="note">多行文字框</label>
+					<textarea class="input input--area" id="note" rows="3" placeholder="請輸入備註"></textarea>
+				</div>
+			</div>
+		</section>
+
+		<!-- 2. 按鈕 -->
+		<section class="kit">
+			<h2 class="kit__title">2. Button｜按鈕</h2>
+			<div class="kit__body kit__body--row">
+				<button class="btn btn--primary" type="button">主要按鈕</button>
+				<button class="btn btn--ghost" type="button">次要按鈕</button>
+				<button class="btn btn--danger" type="button">刪除</button>
+				<button class="btn btn--primary" type="button" disabled>停用</button>
+			</div>
+		</section>
+
+		<!-- 3. 下拉選單 -->
+		<section class="kit">
+			<h2 class="kit__title">3. Drop-down list｜下拉選單</h2>
+			<div class="kit__body kit__body--row">
+				<div class="field">
+					<label class="field__label" for="country">國家</label>
+					<div class="select">
+						<select id="country">
+							<option>Chinese Taipei</option>
+							<option>Japan</option>
+							<option>Korea</option>
+							<option>Singapore</option>
+						</select>
+					</div>
+				</div>
+				<div class="field">
+					<label class="field__label" for="skill">職類（多選）</label>
+					<div class="select">
+						<select id="skill" size="4" multiple>
+							<option selected>Web Technologies</option>
+							<option>IT Software Solutions</option>
+							<option>Cloud Computing</option>
+							<option>Mobile Applications</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 4. 核取方塊（純控制項） -->
+		<section class="kit">
+			<h2 class="kit__title">4. Checkbox｜核取方塊</h2>
+			<div class="kit__body kit__body--row kit__body--middle">
+				<input class="checkbox" type="checkbox" aria-label="未勾選的核取方塊">
+				<input class="checkbox" type="checkbox" checked aria-label="已勾選的核取方塊">
+				<input class="checkbox" type="checkbox" disabled aria-label="停用的核取方塊">
+				<input class="checkbox" type="checkbox" checked disabled aria-label="停用且已勾選的核取方塊">
+			</div>
+		</section>
+
+		<!-- 5. 單選鈕（純控制項） -->
+		<section class="kit">
+			<h2 class="kit__title">5. Radio button｜單選鈕</h2>
+			<div class="kit__body kit__body--row kit__body--middle">
+				<input class="radio" type="radio" name="plain-radio" aria-label="未選取的單選鈕">
+				<input class="radio" type="radio" name="plain-radio" checked aria-label="已選取的單選鈕">
+				<input class="radio" type="radio" name="plain-radio-disabled" disabled aria-label="停用的單選鈕">
+				<input class="radio" type="radio" name="plain-radio-disabled" checked disabled aria-label="停用且已選取的單選鈕">
+			</div>
+		</section>
+
+		<!-- 6. 附標籤的核取方塊 -->
+		<section class="kit">
+			<h2 class="kit__title">6. Label with checkbox｜附標籤的核取方塊</h2>
+			<div class="kit__body">
+				<label class="choice" for="agree">
+					<input class="checkbox" id="agree" type="checkbox" checked>
+					<span class="choice__text">我同意服務條款與隱私權政策</span>
+				</label>
+				<label class="choice" for="news">
+					<input class="checkbox" id="news" type="checkbox">
+					<span class="choice__text">訂閱最新消息電子報</span>
+				</label>
+				<label class="choice is-disabled" for="beta">
+					<input class="checkbox" id="beta" type="checkbox" disabled>
+					<span class="choice__text">加入 Beta 測試（目前未開放）</span>
+				</label>
+			</div>
+		</section>
+
+		<!-- 7. 附標籤的單選鈕 -->
+		<section class="kit">
+			<h2 class="kit__title">7. Label with radio button｜附標籤的單選鈕</h2>
+			<div class="kit__body">
+				<label class="choice" for="plan-free">
+					<input class="radio" id="plan-free" type="radio" name="plan" checked>
+					<span class="choice__text">免費方案</span>
+				</label>
+				<label class="choice" for="plan-pro">
+					<input class="radio" id="plan-pro" type="radio" name="plan">
+					<span class="choice__text">專業方案</span>
+				</label>
+				<label class="choice is-disabled" for="plan-ent">
+					<input class="radio" id="plan-ent" type="radio" name="plan" disabled>
+					<span class="choice__text">企業方案（請聯絡業務）</span>
+				</label>
+			</div>
+		</section>
+
+		<!-- 8. 日期選擇輸入 -->
+		<section class="kit">
+			<h2 class="kit__title">8. Drop-down calendar input｜日期選擇輸入</h2>
+			<div class="kit__body kit__body--row">
+				<div class="field">
+					<label class="field__label" for="birthday">出生日期（原生 date）</label>
+					<input class="input input--date" id="birthday" type="date" value="2019-08-22">
+				</div>
+				<div class="field">
+					<label class="field__label" for="range-date">日期時間</label>
+					<input class="input input--date" id="range-date" type="datetime-local" value="2019-08-22T09:30">
+				</div>
+				<div class="field">
+					<span class="field__label">展開後的日曆面板（樣式示意）</span>
+					<div class="calendar">
+						<div class="calendar__head">
+							<button class="calendar__nav" type="button" aria-label="上個月">‹</button>
+							<span class="calendar__title">2019 年 8 月</span>
+							<button class="calendar__nav" type="button" aria-label="下個月">›</button>
+						</div>
+						<div class="calendar__grid calendar__grid--week">
+							<span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+						</div>
+						<div class="calendar__grid">
+							<span class="is-muted">28</span><span class="is-muted">29</span><span class="is-muted">30</span>
+							<span class="is-muted">31</span><span>1</span><span>2</span><span>3</span>
+							<span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+							<span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+							<span>18</span><span>19</span><span>20</span><span>21</span><span class="is-today">22</span><span>23</span><span>24</span>
+							<span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 9. 範圍滑桿 -->
+		<section class="kit">
+			<h2 class="kit__title">9. Range｜範圍滑桿</h2>
+			<div class="kit__body">
+				<div class="field">
+					<label class="field__label" for="volume">音量：<output id="volume-out">60</output>%</label>
+					<input class="range" id="volume" type="range" min="0" max="100" value="60"
+						oninput="document.getElementById('volume-out').value = this.value">
+				</div>
+				<div class="field">
+					<label class="field__label" for="brightness">亮度（停用）</label>
+					<input class="range" id="brightness" type="range" min="0" max="100" value="35" disabled>
+				</div>
+			</div>
+		</section>
+
+		<!-- 10. 進度條 -->
+		<section class="kit">
+			<h2 class="kit__title">10. Progress bar｜進度條</h2>
+			<div class="kit__body">
+				<div class="field">
+					<span class="field__label">原生 progress（30%）</span>
+					<progress class="progress" max="100" value="30"></progress>
+				</div>
+				<div class="field">
+					<span class="field__label">原生 progress（75%）</span>
+					<progress class="progress" max="100" value="75"></progress>
+				</div>
+				<div class="field">
+					<span class="field__label">自訂樣式進度條（60%）</span>
+					<div class="bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+						<div class="bar__fill" style="width: 60%;"><span class="bar__text">60%</span></div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

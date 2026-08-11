@@ -1,45 +1,65 @@
-/* Base styles */
+/* ==========================================================================
+   C01 Cube Rotation：兩顆 3×3 魔術方塊，只用 CSS 完成旋轉動畫
+   左邊的方塊繞 Y 軸（由左往右）旋轉，右邊的方塊繞 X 軸（由上往下）旋轉
+   ========================================================================== */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    background: #29303b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+html,
+body {
+	height: 100%;
+	background: #29303b;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-span{
-	border: 5px white solid;
-}
-
-/* Scene setup */
+/* --------------------------------------------------------------------------
+   舞台：提供透視效果
+   -------------------------------------------------------------------------- */
 .scene {
-    width: 200px;
-    height: 200px;
-    perspective: 1000px;
-    margin: 0 50px;
+	width: 200px;
+	height: 200px;
+	perspective: 1000px;
+	margin: 0 50px;
 }
 
-/* Cube setup */
+/* --------------------------------------------------------------------------
+   方塊本體：六個面以 3D 方式排列
+   -------------------------------------------------------------------------- */
 .cube {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
 }
 
-/* Cube faces */
-.cube div {
-    position: absolute;
-    width: 200px;
-    height: 200px;
+/* 六個面共用：以 3×3 格線排出魔術方塊的小方格 */
+.cube > div {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 4px;
+	padding: 4px;
+	border-radius: 8px;
+	backface-visibility: hidden;
 }
 
+/* 小方格：白色外框，顏色由所屬的面決定 */
+.cube > div > span {
+	border: 4px solid #ffffff;
+	border-radius: 6px;
+	background: inherit;
+}
+
+/* 各面顏色與空間位置（面的一半 = 100px） */
 .front  { background: #fa5252; transform: translateZ(100px); }
 .back   { background: #f76707; transform: rotateY(180deg) translateZ(100px); }
 .right  { background: #12b886; transform: rotateY(90deg) translateZ(100px); }
@@ -47,22 +67,23 @@ span{
 .top    { background: #fab005; transform: rotateX(90deg) translateZ(100px); }
 .bottom { background: #7950f2; transform: rotateX(-90deg) translateZ(100px); }
 
-/* Animation for left-right rotation (left cube) */
+/* --------------------------------------------------------------------------
+   動畫：左方塊繞 Y 軸、右方塊繞 X 軸，各自固定一個傾角以呈現立體感
+   -------------------------------------------------------------------------- */
 .scene.rotateY .cube {
-    animation: rotateY 5s infinite linear;
+	animation: spin-y 6s infinite linear;
 }
 
-@keyframes rotateY {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
+@keyframes spin-y {
+	from { transform: rotateX(-20deg) rotateY(0deg); }
+	to   { transform: rotateX(-20deg) rotateY(360deg); }
 }
 
-/* Animation for up-down rotation (right cube) */
 .scene.rotateX .cube {
-    animation: rotateX 5s infinite linear;
+	animation: spin-x 6s infinite linear;
 }
 
-@keyframes rotateX {
-    0% { transform: rotateX(0deg); }
-    100% { transform: rotateX(360deg); }
+@keyframes spin-x {
+	from { transform: rotateY(-25deg) rotateX(0deg); }
+	to   { transform: rotateY(-25deg) rotateX(360deg); }
 }

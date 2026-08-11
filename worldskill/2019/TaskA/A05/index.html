@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A05 - Walking Gif</title>
+	<style>
+		/* 版面基本樣式 */
+		body {
+			margin: 0;
+			padding: 32px;
+			font-family: "Microsoft JhengHei", sans-serif;
+			background: #f4f6f8;
+			color: #23303c;
+		}
+
+		h1 {
+			font-size: 22px;
+			margin: 0 0 4px;
+		}
+
+		.subtitle {
+			margin: 0 0 24px;
+			color: #6b7a89;
+			font-size: 14px;
+		}
+
+		/* 成品與素材的展示卡片 */
+		.card {
+			display: inline-block;
+			background: #fff;
+			border-radius: 10px;
+			padding: 16px;
+			margin: 0 16px 24px 0;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+			vertical-align: top;
+		}
+
+		.card h2 {
+			font-size: 15px;
+			margin: 0 0 10px;
+		}
+
+		.card img {
+			display: block;
+			width: 480px;
+			max-width: 100%;
+			border-radius: 6px;
+		}
+
+		ol {
+			line-height: 1.9;
+			font-size: 14px;
+			max-width: 720px;
+		}
+
+		code {
+			background: #e8ecef;
+			padding: 1px 5px;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>A05：Walking Gif</h1>
+	<p class="subtitle">以提供的 walk.gif 製作成品 a5.gif：角色由畫面左邊界外走入，向右移動，最後走出右邊界。</p>
+
+	<div class="card">
+		<h2>成品 a5.gif（480 × 360，3 秒循環）</h2>
+		<img src="a5.gif" alt="角色由左走到右的 GIF 動畫">
+	</div>
+
+	<div class="card">
+		<h2>原始素材 walk.gif（原地踏步）</h2>
+		<img src="walk.gif" alt="原始踏步素材">
+	</div>
+
+	<h2>製作步驟</h2>
+	<ol>
+		<li>讀取 walk.gif 的 25 張分解圖，取得背景色 <code>rgb(185, 226, 237)</code>。</li>
+		<li>比對每張分解圖與背景色的差異，算出角色的共同邊界（x 132～336、y 58～311）並裁切出角色。</li>
+		<li>建立 480 × 360 的背景畫布，依照時間比例把角色貼在 <code>x = -角色寬 → 畫布寬</code> 之間，
+			使其自左邊界外進場、由右邊界外離場。</li>
+		<li>走路動作依序循環套用 25 張分解圖，共輸出 75 格、每格 40 毫秒（合計 3 秒）並設定無限循環。</li>
+	</ol>
+</body>
+
+</html>
